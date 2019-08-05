@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-08-05T06:59:51.658Z</updated>
+  <updated>2019-08-05T07:18:42.308Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>垃圾回收GC</title>
+    <link href="http://yoursite.com/2019/08/05/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6GC/"/>
+    <id>http://yoursite.com/2019/08/05/垃圾回收GC/</id>
+    <published>2019-08-05T07:11:35.000Z</published>
+    <updated>2019-08-05T07:18:42.308Z</updated>
+    
+    <content type="html"><![CDATA[<p>​    每种语言都有自己的垃圾回收机制。接下来我们来讲一下python的垃圾回收机制。</p><p>小整数对象池：python对小整数的定义为[-5，257)，这些整数对象是提前建立好的，不会被垃圾回收。单个字母也一样，但是当定义两个相同的字符串（没有空格等特殊符号），触发intern机制，引用计数为零，触发垃圾回收。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/GC.png" alt></p><p>引用计数机制的优点：简单、实时性（一旦没有引用，内存就直接释放了）。</p><p>缺点：维护引用计数消耗资源、循环引用</p><p>python以引用计数为主，隔代回收为辅进行垃圾回收</p><p>GC模块（不能重写<strong>del</strong>方法）：</p><p>1、gc.set_debug(flags) 设置gc的debug日志，一般设置为gc.DEBUG_LEAK</p><p>2、gc.collect([generation]) 显式进行垃圾回收，可以输入参数，0代表只检查第一代的对象，1代表检查一，二代的对象，2代表检查一，二，三代的对象，如果不传参数，执行一个full collection，也就是等于传2。 返回不可达（unreachable objects）对象的数目</p><p>3、gc.get_threshold() 获取的gc模块中自动执行垃圾回收的频率</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/GC1.png" alt></p><p>4、gc.set_threshold(threshold0[,threshold1[, threshold2]) 设置自动执行垃圾回收的频率。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/GC2.png" alt></p><p>5、gc.get_count() 获取当前自动执行垃圾回收的计数器，返回一个长度为3的列表</p><p>6、gc.disable() 把gc关闭,gc.enable()打开gc（默认打开）</p><p>7.gc.garbage 存储垃圾</p><p>导致引用计数+1的情况：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/GC3.png" alt></p><p>导致引用计数-1的情况：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/GC5.png" alt></p><p>查看一个对象的引用计数：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/GC6.png" alt></p><p>因为调用函数的时候传入a，所以是2.真正的引用计数=sys.getrefcount()-1</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;​    每种语言都有自己的垃圾回收机制。接下来我们来讲一下python的垃圾回收机制。&lt;/p&gt;
+&lt;p&gt;小整数对象池：python对小整数的定义为[-5，257)，这些整数对象是提前建立好的，不会被垃圾回收。单个字母也一样，但是当定义两个相同的字符串（没有空格等特殊符号），
+      
+    
+    </summary>
+    
+      <category term="python" scheme="http://yoursite.com/categories/python/"/>
+    
+      <category term="GC" scheme="http://yoursite.com/categories/python/GC/"/>
+    
+    
+      <category term="python的GC" scheme="http://yoursite.com/tags/python%E7%9A%84GC/"/>
+    
+  </entry>
   
   <entry>
     <title>工厂生产模式</title>

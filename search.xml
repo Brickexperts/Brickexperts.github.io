@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[垃圾回收GC]]></title>
+    <url>%2F2019%2F08%2F05%2F%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6GC%2F</url>
+    <content type="text"><![CDATA[​ 每种语言都有自己的垃圾回收机制。接下来我们来讲一下python的垃圾回收机制。 小整数对象池：python对小整数的定义为[-5，257)，这些整数对象是提前建立好的，不会被垃圾回收。单个字母也一样，但是当定义两个相同的字符串（没有空格等特殊符号），触发intern机制，引用计数为零，触发垃圾回收。 引用计数机制的优点：简单、实时性（一旦没有引用，内存就直接释放了）。 缺点：维护引用计数消耗资源、循环引用 python以引用计数为主，隔代回收为辅进行垃圾回收 GC模块（不能重写del方法）： 1、gc.set_debug(flags) 设置gc的debug日志，一般设置为gc.DEBUG_LEAK 2、gc.collect([generation]) 显式进行垃圾回收，可以输入参数，0代表只检查第一代的对象，1代表检查一，二代的对象，2代表检查一，二，三代的对象，如果不传参数，执行一个full collection，也就是等于传2。 返回不可达（unreachable objects）对象的数目 3、gc.get_threshold() 获取的gc模块中自动执行垃圾回收的频率 4、gc.set_threshold(threshold0[,threshold1[, threshold2]) 设置自动执行垃圾回收的频率。 5、gc.get_count() 获取当前自动执行垃圾回收的计数器，返回一个长度为3的列表 6、gc.disable() 把gc关闭,gc.enable()打开gc（默认打开） 7.gc.garbage 存储垃圾 导致引用计数+1的情况： 导致引用计数-1的情况： 查看一个对象的引用计数： 因为调用函数的时候传入a，所以是2.真正的引用计数=sys.getrefcount()-1]]></content>
+      <categories>
+        <category>python</category>
+        <category>GC</category>
+      </categories>
+      <tags>
+        <tag>python的GC</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[工厂生产模式]]></title>
     <url>%2F2019%2F08%2F05%2F%E5%B7%A5%E5%8E%82%E7%94%9F%E4%BA%A7%E6%A8%A1%E5%BC%8F%2F</url>
     <content type="text"><![CDATA[​ 今天，我们来讲一下什么是工厂方法模式。工厂方法模式是在基类完成基本框架的搭建，在子类中具体实现方法的实现。工厂模式是一种典型的解耦模式。 函数或者类之间的关系越强，耦合性越强。代码就越难更新。 使用函数进行解耦： 使用类进行解耦：]]></content>
