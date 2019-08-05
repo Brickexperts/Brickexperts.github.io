@@ -42,10 +42,10 @@
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
     search: {
       root: '/',
-      path: ''
+      path: 'search.xml'
     },
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -67,6 +67,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DY的个人博客">
 <meta name="twitter:description" content="这个人贼菜">
+  <link rel="alternate" href="/atom.xml" title="DY的个人博客" type="application/atom+xml">
   <link rel="canonical" href="http://yoursite.com/">
 
 
@@ -159,17 +160,6 @@
         
         
           
-          <li class="menu-item menu-item-about">
-      
-    
-
-    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
-
-  </li>
-        
-        
-        
-          
           <li class="menu-item menu-item-tags">
       
     
@@ -199,7 +189,34 @@
     <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
 
   </li>
+        <li class="menu-item menu-item-search">
+          <a href="javascript:;" class="popup-trigger">
+          
+            <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
     </ul>
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+    </div>
 </nav>
 
 </div>
@@ -218,6 +235,247 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/05/工厂生产模式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="湛蓝星空">
+      <meta itemprop="description" content="这个人贼菜">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DY的个人博客">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/08/05/工厂生产模式/" class="post-title-link" itemprop="url">工厂生产模式</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-05 14:51:14 / 修改时间：14:59:51" itemprop="dateCreated datePublished" datetime="2019-08-05T14:51:14+08:00">2019-08-05</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/工厂方法模式/" itemprop="url" rel="index"><span itemprop="name">工厂方法模式</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          <br>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+            <p>
+              ​    今天，我们来讲一下什么是工厂方法模式。工厂方法模式是在基类完成基本框架的搭建，在子类中具体实现方法的实现。工厂模式是一种典型的解耦模式。
+函数或者类之间的关系越强，耦合性越强。代码就越难更新
+              ...
+            </p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/08/05/工厂生产模式/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+<div>
+	
+</div>
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/05/类和对象/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="湛蓝星空">
+      <meta itemprop="description" content="这个人贼菜">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DY的个人博客">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/08/05/类和对象/" class="post-title-link" itemprop="url">类和对象</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-05 12:28:26 / 修改时间：14:42:59" itemprop="dateCreated datePublished" datetime="2019-08-05T12:28:26+08:00">2019-08-05</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/类和对象/" itemprop="url" rel="index"><span itemprop="name">类和对象</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          <br>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+            <p>
+              ​    众所周知，面向过程是根据业务逻辑从上到下写代码，面向过程：根据业务逻辑从上到下写代码面向对象：将数据与函数绑定到一起，进行封装，这样能更快速的开发程序，减少了重复代码的重写过程。面向对象语言
+              ...
+            </p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/08/05/类和对象/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+<div>
+	
+</div>
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
       
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -261,7 +519,7 @@
                 
               
 
-              <time title="创建时间：2019-08-05 09:26:46 / 修改时间：11:45:22" itemprop="dateCreated datePublished" datetime="2019-08-05T09:26:46+08:00">2019-08-05</time>
+              <time title="创建时间：2019-08-05 09:26:46 / 修改时间：12:26:45" itemprop="dateCreated datePublished" datetime="2019-08-05T09:26:46+08:00">2019-08-05</time>
             </span>
           
             
@@ -303,23 +561,19 @@
 
       
           
-            <p>​    今天我们来讲一下python的异常。何为异常？即是一个事件，该事件会在程序执行过程中发生，影响了程序的正常执行。异常时python对象，表示一个错误。当python脚本发生异常时我们需要捕获处理它，否则程序会终止执行。</p>
-<p>##try/except可以用来捕获异常。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%BC%82%E5%B8%B82.png" alt></p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%AE%9C%E6%98%8C.png" alt></p>
-<p>##一个try捕获多个异常：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%BC%82%E5%B8%B83.png" alt></p>
-<p>##一个try对多个except：根据不同的except做不同的操作</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%BC%82%E5%B8%B84.png" alt></p>
-<p>##try-finally语句无论是否发生异常都将执行最后的代码。</p>
-<p>##异常传递：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%BC%82%E5%B8%B85.png" alt></p>
-<p>##raise自定义异常：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%BC%82%E5%B8%B86.png" alt></p>
-<p>##最后是python的标准异常：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%BC%82%E5%B8%B87.png" alt></p>
-
+            <p>
+              ​    今天我们来讲一下python的异常。何为异常？即是一个事件，该事件会在程序执行过程中发生，影响了程序的正常执行。异常时python对象，表示一个错误。当python脚本发生异常时我们需要捕获
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/08/05/python异常/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -437,164 +691,21 @@
 
       
           
-            <p>​    每种编程语言都有属于自己的数据类型。今天，我们就来讲一下python的数据类型——列表，元祖，字典，字符串，堆，集合，队列。</p>
-<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><p>​    <img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%88%97%E8%A1%A8.png" alt="列表方法"></p>
-<p>同时还有一些比较常用的方法，类似cmp(比较大小，python3已经找不到。如要使用，可以利用operator模块)，len(list)计算列表元素个数，max(list)求列表中的最大值，min(list)求最小值。下面对上面列表的排序方法(list.sort)进行讲解：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/list.sort.png" alt></p>
-<p>下张图片是对以上方法的coding：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/test.png" alt></p>
-<p>##元祖（tuple）</p>
-<p>元祖不像列表可以改变。<strong>元祖是不可变的</strong>。但可以利用切片灵活使用。</p>
-<h2 id="字典（dict）"><a href="#字典（dict）" class="headerlink" title="字典（dict）"></a>字典（dict）</h2><p>####注意：字典支持常见的集合操作（&amp;等操作）</p>
-<p>字典有多个键与其对应的值构成的键-值对组成。键-值对称为项。每个键和它的值之间用:(冒号)隔开，项之间用,(逗号)隔开。</p>
-<p>len(d)返回d中项(键-值对)的数量</p>
-<p>d[k]返回关联到键k的值</p>
-<p>d[k]=v将值关联到键k上</p>
-<p>del d[k] 删除键为k的项</p>
-<p>k in d 检查d中是否有含有键为k的值</p>
-<p>clear()：清除字典中所有的项</p>
-<p>fromkeys()：使用给定的键建立新的字典，每个键都对应一个默认的值None，也可以设立默认值</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/dict1.png" alt></p>
-<p>get():访问字典项，访问一个不存在的键时，没有异常。且可以定义默认值为None。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/dict2.png" alt></p>
-<p>items和iteritems：</p>
-<p>items将所有的项以列表方式返回，列表中的每一项都表示为（键，值）对的形式。</p>
-<p>iteritems方法的作用大致相同，但是会返回一个迭代器对象而不是列表。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/dict3.png" alt></p>
-<p>keys和iterkeys：</p>
-<p>keys方法将字典中的键以列表形式返回，而iterkeys则返回针对键的迭代器</p>
-<p>values和itervalues：</p>
-<p>values方法以列表的形式返回字典中的值，itervalues返回值的迭代器。与返回键的列表不同的是，返回值的列表中可以包含重复的元素。</p>
-<p>pop：用来获得对应于给定键的值，然后将这个键-值对从字典中移除。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/dict4.png" alt></p>
-<p>popitem：弹出随机的项</p>
-<p>setdefault：获得与给定键相关联的值，能在字典中不含有给定键的情况下设立相应的键值。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/dict5.png" alt></p>
-<p>update：可以利用一个字典项更新另外一个字典</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/dict.png" alt></p>
-<h2 id="堆（heapq）"><a href="#堆（heapq）" class="headerlink" title="堆（heapq）"></a>堆（heapq）</h2><p>使用该数据类型前，我们先导入一个新的模块<strong>heapq</strong></p>
-<p>heappush(heap,x):将x入对</p>
-<p>heapop(heap)：将堆中最小的元素弹出</p>
-<p>heapify(heap)：将heap属性强制应用到任意一个列表</p>
-<p>heapreplace(heap,x)：将堆中最小的元素弹出，同时将x入堆</p>
-<p>nlargest(n,iter)：返回iter中前n大的元素</p>
-<p>nsmallest(n,iter)：返回iter中前n小的元素</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/heapq.png" alt></p>
-<h2 id="集合（set）"><a href="#集合（set）" class="headerlink" title="集合（set）"></a>集合（set）</h2><p>集合可取交集、取并集、取差集、对称差集：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/set.png" alt></p>
-<p>利用set做去重操作：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190804102844.png" alt></p>
-<p>集合分为可变集合和不可变集合：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/set1.png" alt></p>
-<h2 id="队列（Queue）"><a href="#队列（Queue）" class="headerlink" title="队列（Queue）"></a>队列（Queue）</h2><p>在python中，队列时线程间最常用的交换数据形式，<strong>Queue</strong>模块时提供队列操作的模块。</p>
-<p>先进先出（FIFO）：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/lifo.png" alt></p>
-<p>先进后出（LIFO）：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/LIFO.png" alt></p>
-<p>优先级队列：优先级队列put进去一个元祖，（优先级，数据），优先级数字越小，优先级越高。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/queuepng" alt></p>
-<p><strong>注意</strong>：如果有两个元素优先级是一样的，那么在出队的时候是按照先进先出的顺序。</p>
-<p>双端队列：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/queue1.png" alt></p>
-<p>队列的方法：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/queue2.png" alt></p>
-<p>使用put方法往队列中添加元素，需要考虑是否能放下的问题如果放不下了，默认会阻塞(block=True)，阻塞时可以定义超时时间timeout。可以使用block=False设置阻塞时立即报错</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/queue4.png" alt></p>
-<p>使用get()从队列里取数据。如果为空的话，blocking= False 直接报 empty异常。如果blocking = True，就是等一会，timeout必须为 0或正数。None为一直等下去，0为不等，正数n为等待n秒还不能读取，报empty异常。<img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/queue5.png" alt></p>
-<h2 id="字符串（string）"><a href="#字符串（string）" class="headerlink" title="字符串（string）"></a>字符串（string）</h2><p>用+拼接字符串：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/string.png" alt></p>
-<p>将值转换为字符串的机制：</p>
-<p>1、通过str函数，把值转换为合理形式的字符串，以便用户可以理解</p>
-<p>2、通过repr函数创建一个字符串，以合法的python表达式的形式表示值</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/string2.png" alt></p>
-<p>join和split：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/string3.png" alt></p>
-<p>字符串格式化方式：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/string4.png" alt></p>
-<p>capitalize()</p>
-<p>把字符串的第一个字符改为大写</p>
-<p>casefold()</p>
-<p>把整个字符串的所有字符改为小写</p>
-<p>center(width)</p>
-<p>将字符串居中，并使用空格填充至长度 width 的新字符串</p>
-<p>count(sub[, start[, end]])</p>
-<p>返回 sub 在字符串里边出现的次数，start 和 end 参数表示范围，可选。</p>
-<p>encode(encoding=’utf-8’, errors=’strict’)</p>
-<p>以 encoding 指定的编码格式对字符串进行编码。</p>
-<p>startswith(prefix[, start[, end]])</p>
-<p>检查字符串是否以 prefix 开头，是则返回 True，否则返回 False。start 和 end 参数可以指定范围检查，可选。</p>
-<p>endswith(sub[, start[, end]])检查字符串是否以 sub 子字符串结束，如果是返回 True，否则返回 False。start 和 end 参数表示范围，可选。</p>
-<p>startswith和endswith如果需要同时针对多个选项做检查，只需要给startswith和endswith提供包含可能选项的元祖。</p>
-<p>expandtabs([tabsize=8])</p>
-<p>把字符串中的 tab 符号（\t）转换为空格，如不指定参数，默认的空格数是 tabsize=8。</p>
-<p>find(sub[, start[, end]])检测 sub 是否包含在字符串中，如果有则返回索引值，否则返回 -1，start 和 end 参数表示范围，可选。</p>
-<p>maketrans() 方法用于创建字符映射的转换表，对于接受两个参数的最简单的调用方式，第一个参数是字符串，表示需要转换的字符，第二个参数也是字符串表示转换的目标。</p>
-<p>注：两个字符串的长度必须相同，为一一对应的关系。</p>
-<p>translate(table)根据 table 的规则（可以由 str.maketrans(‘a’, ‘b’) 定制）转换字符串中的字符</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/string5.png" alt></p>
-<p>index(sub[, start[, end]])</p>
-<p>跟 find 方法一样，不过如果 sub 不在 string 中会产生一个异常。</p>
-<p>isalnum()</p>
-<p>如果字符串至少有一个字符并且所有字符都是字母或数字则返回 True，否则返回 False。</p>
-<p>isalpha()</p>
-<p>如果字符串至少有一个字符并且所有字符都是字母则返回 True，否则返回 False。</p>
-<p>isdecimal()</p>
-<p>如果字符串只包含十进制数字则返回 True，否则返回 False。</p>
-<p>isdigit()</p>
-<p>如果字符串只包含数字则返回 True，否则返回 False。</p>
-<p>islower()</p>
-<p>如果字符串中至少包含一个区分大小写的字符，并且这些字符都是小写，则返回 True，否则返回 False。</p>
-<p>isnumeric()</p>
-<p>如果字符串中只包含数字字符，则返回 True，否则返回 False。</p>
-<p>isspace()</p>
-<p>如果字符串中只包含空格，则返回 True，否则返回 False。</p>
-<p>istitle()</p>
-<p>如果字符串是标题化（所有的单词都是以大写开始，其余字母均小写），则返回 True，否则返回 False。</p>
-<p>isupper()</p>
-<p>如果字符串中至少包含一个区分大小写的字符，并且这些字符都是大写，则返回 True，否则返回 False。</p>
-<p>join(sub)</p>
-<p>以字符串作为分隔符，插入到 sub 中所有的字符之间。</p>
-<p>ljust(width)</p>
-<p>返回一个左对齐的字符串，并使用空格填充至长度为 width 的新字符串。</p>
-<p>rjust(width)</p>
-<p>返回一个右对齐的字符串，并使用空格填充至长度为 width 的新字符串。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/string6.png" alt></p>
-<p>format也可以完成对齐的任务。“&lt;”：左对齐  “&gt;”：右对齐    “^”：居中对齐</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/string7.png" alt></p>
-<p>lower()</p>
-<p>转换字符串中所有大写字符为小写。</p>
-<p>lstrip()</p>
-<p>去掉字符串左边的所有空格无法去除中间的字符</p>
-<p>rstrip()</p>
-<p>删除字符串末尾的空格。无法去除中间的字符</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/string8.png" alt></p>
-<p>partition(sub)</p>
-<p>找到子字符串 sub，把字符串分成一个 3 元组 (pre_sub, sub, fol_sub)，如果字符串中不包含 sub 则返回 (‘原字符串’, ‘’, ‘’)</p>
-<p>replace(old, new[, count])</p>
-<p>把字符串中的 old 子字符串替换成 new 子字符串，如果 count 指定，则替换不超过 count 次。</p>
-<p>rfind(sub[, start[, end]])</p>
-<p>类似于 find() 方法，不过是从右边开始查找。返回值是下标</p>
-<p>rindex(sub[, start[, end]])</p>
-<p>类似于 index() 方法，不过是从右边开始。</p>
-<p>rpartition(sub)</p>
-<p>类似于 partition() 方法，不过是从右边开始查找。</p>
-<p>split(sep=None, maxsplit=-1)</p>
-<p>不带参数默认是以空格为分隔符切片字符串，如果 maxsplit 参数有设置，则仅分隔 maxsplit 个子字符串，返回切片后的子字符串拼接的列表。</p>
-<p>splitlines(([keepends]))</p>
-<p>在输出结果里是否去掉换行符，默认为 False，不包含换行符；如果为 True，则保留换行符。。</p>
-<p>strip([chars])</p>
-<p>删除字符串前边和后边所有的空格，chars 参数可以定制删除的字符，可选。</p>
-<p>swapcase()</p>
-<p>翻转字符串中的大小写。</p>
-<p>title()</p>
-<p>返回标题化（所有的单词都是以大写开始，其余字母均小写）的字符串。</p>
-<p>upper()</p>
-<p>转换字符串中的所有小写字符为大写。</p>
-<p>zfill(width)</p>
-<p>返回长度为 width 的字符串，原字符串右对齐，前边用 0 填充。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/string9.png" alt></p>
-
+            <p>
+              ​    每种编程语言都有属于自己的数据类型。今天，我们就来讲一下python的数据类型——列表，元祖，字典，字符串，堆，集合，队列。
+列表​    
+同时还有一些比较常用的方法，类似cmp(比较大小
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/08/04/python数据类型/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -705,10 +816,20 @@
 
       
           
-            <p>​    你好陌生人，欢迎来到湛蓝星空的博客。这是我的第一篇博客，纠结了很久要不要写，因为我通常都是用一些笔记软件来记录学的一些知识。在这里，希望你能学到你希望学到的东西。</p>
-<p>PS：本人实在太菜。如果有错误，请谅解。</p>
-
+            <p>
+              ​    你好陌生人，欢迎来到湛蓝星空的博客。这是我的第一篇博客，纠结了很久要不要写，因为我通常都是用一些笔记软件来记录学的一些知识。在这里，希望你能学到你希望学到的东西。
+PS：本人实在太菜。如果有
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/08/03/我的第一篇博客/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -768,7 +889,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -791,7 +912,11 @@
         
           
         
-        <span class="site-state-item-count">4</span>
+          
+        
+          
+        
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
@@ -812,12 +937,21 @@
         
           
         
-        <span class="site-state-item-count">3</span>
+          
+        
+          
+        
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
     
   </nav>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
       
@@ -928,6 +1062,8 @@
 
 
 
+
+  <script src="/js/local-search.js?v=7.3.0"></script>
 
 
 
