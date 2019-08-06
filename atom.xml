@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-08-05T07:18:42.308Z</updated>
+  <updated>2019-08-06T08:11:37.041Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,266 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>python知识散记（2）</title>
+    <link href="http://yoursite.com/2019/08/06/python%E7%9F%A5%E8%AF%86%E6%95%A3%E8%AE%B0%EF%BC%882%EF%BC%89/"/>
+    <id>http://yoursite.com/2019/08/06/python知识散记（2）/</id>
+    <published>2019-08-06T07:32:02.000Z</published>
+    <updated>2019-08-06T08:11:37.041Z</updated>
+    
+    <content type="html"><![CDATA[<p>​    接着上次的知识散记，我们接着看。</p><h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><p>在函数内部定义一个函数，并且这个函数用到了外面的变量。将这个函数以及用到的一些变量称之为闭包。</p><p>当某个函数被当成对象返回时，夹带了外部 变量，就形成了一个闭包。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python13.png" alt></p><h2 id="global："><a href="#global：" class="headerlink" title="global："></a>global：</h2><p>一般多用在函数内，声明变量的作用域为全局作用域。箭头变化的时候加，箭头不变的时候可以不加。（箭头类似指针）</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python14.png" alt></p><h2 id="nonlocal："><a href="#nonlocal：" class="headerlink" title="nonlocal："></a>nonlocal：</h2><p>nonlocal关键字用来在函数或其他作用域中使用外层(非全局)变量</p><h2 id="lambda匿名函数："><a href="#lambda匿名函数：" class="headerlink" title="lambda匿名函数："></a>lambda匿名函数：</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python15.png" alt></p><p>不要看匿名函数蛮简单的，其实还是有点注意事项的。<strong>对默认参数的赋值只会在函数定义的时候绑定一次。x是一个自由变量。在运行的时候绑定，而不是在定义的时候绑定。执行时，x的值是多少就是多少。如果希望匿名函数可以在定义的时候绑定，并保持值不变，则采用下面方法。</strong></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python23.png" alt></p><p>##assert:断言</p><p>用来直接让程序崩溃，在程序中置入检查点</p><p>条件后可以添加字符串，用来解释断言</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python16.png" alt></p><h2 id="format"><a href="#format" class="headerlink" title="format:"></a>format:</h2><p><img src="C:%5CUsers%5C%E6%B9%9B%E8%93%9D%E6%98%9F%E7%A9%BA%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1565078808885.png" alt="1565078808885"></p><h2 id="对和-的解释："><a href="#对和-的解释：" class="headerlink" title="对和*的解释："></a>对<em>和*</em>的解释：</h2><p>星号（*）作为形参的时候是起到“打包”的作用，相反，作为实参的时候是起到“解包”的作用。</p><p>####星号（<em>）或（*</em>）作为形参，表示调用可变参数函数：</p><p>通过在形参前加一个星号（<em>）或两个星号（*</em>）来指定函数可以接收任意数量的实参。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python18.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python29.png" alt></p><p>从两个示例的输出可以看出：当参数形如 *args 时，传递给函数的任意个实参会按位置打包成一个元</p><p>组（tuple）；当参数形如 **args 时，传递给函数的任意个 key = value 实参会被包装进一个字典（dict）。</p><p>####星号（<em>）和（*</em>）作为实参时，表示通过解包参数调用函数：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python20.png" alt></p><h2 id="常用内置函数补充："><a href="#常用内置函数补充：" class="headerlink" title="常用内置函数补充："></a>常用内置函数补充：</h2><p>复数可以通过<strong>complex（real，imag）</strong>来指定。conjugete提取共轭复数</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python21.png" alt></p><p><strong>hasattr</strong>：hasattr() 函数用于判断对象是否包含对应的属性。如果对象有该属性返回 True，否则返回 False。</p><h2 id="上下文管理器（context-manager）："><a href="#上下文管理器（context-manager）：" class="headerlink" title="上下文管理器（context manager）："></a>上下文管理器（context manager）：</h2><p>任何实现了__enter__和<em>\</em>exit__方法的对象都可称为上下文管理器</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python24.png" alt></p><p>__enter_<em>\</em>():方法返回资源对象，这里就是你将要打开的那个文件对象，__exit___()处理一些清除工作。因为File类实现上下文管理器，现在就可以使用with语句了。</p><p>实现上下文管理器的其他方法：使用contextmanager装饰器</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python25.png" alt></p><p>##三种修饰符：</p><p>staticmethod、classmethod 和 property，作用分别是把类中定义的实例方法变成静态方法、类方法和类属性。staticmethod、classmethod具体看python的类和对象。</p><p>注意：</p><ol><li><p>函数先定义，再修饰它；反之会编译器不认识；</p></li><li><p>修饰符“@”后面必须是之前定义的某一个函数；</p></li><li><p>每个函数只能有一个修饰符，大于等于两个则不可以。</p></li></ol><p>property用法:它的作用把方法当作属性来访问（注意getnum和setter的顺序，一定getnum在第一个）</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python27.png" alt></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;​    接着上次的知识散记，我们接着看。&lt;/p&gt;
+&lt;h2 id=&quot;闭包&quot;&gt;&lt;a href=&quot;#闭包&quot; class=&quot;headerlink&quot; title=&quot;闭包&quot;&gt;&lt;/a&gt;闭包&lt;/h2&gt;&lt;p&gt;在函数内部定义一个函数，并且这个函数用到了外面的变量。将这个函数以及用到的一些变量
+      
+    
+    </summary>
+    
+      <category term="python" scheme="http://yoursite.com/categories/python/"/>
+    
+      <category term="知识散记（2）" scheme="http://yoursite.com/categories/python/%E7%9F%A5%E8%AF%86%E6%95%A3%E8%AE%B0%EF%BC%882%EF%BC%89/"/>
+    
+    
+      <category term="python知识散记" scheme="http://yoursite.com/tags/python%E7%9F%A5%E8%AF%86%E6%95%A3%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python知识散记（1）</title>
+    <link href="http://yoursite.com/2019/08/06/python%E7%9F%A5%E8%AF%86%E6%95%A3%E8%AE%B0%EF%BC%881%EF%BC%89/"/>
+    <id>http://yoursite.com/2019/08/06/python知识散记（1）/</id>
+    <published>2019-08-06T06:43:04.000Z</published>
+    <updated>2019-08-06T07:30:44.525Z</updated>
+    
+    <content type="html"><![CDATA[<p>​    今天来讲一下python的一些散装知识，还是蛮多的。所以分了几个部分。今天的部分是最简单的，废话少说。开始吧</p><p>##导入模块方法：</p><p>1、最常见的方式，直接将要导入的模块名称写在后面导入。import xxxx</p><p>2、from .. import .. </p><p>与import类似，只是更明确的要导入的方法或变量</p><p>3、from modname import *，导入所有的类和公有方法</p><p>##if <strong>name</strong>==”<strong>main</strong>“:</p><p>让你写的脚本模块既可以导入到别的模块中用，另外该模块自己也可执行。</p><h2 id="常用的一些内置函数"><a href="#常用的一些内置函数" class="headerlink" title="常用的一些内置函数"></a>常用的一些内置函数</h2><p><strong>callable(object)</strong>：检查对象object是否可调用。如果返回True，object仍然可能调用失败；但如果返回False，调用对象ojbect绝对不会成功。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python1.png" alt></p><p><strong>divmod(a,b)</strong>：以元祖的方式放回a//b以及a%b。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python2.png" alt></p><p>ord(str)：把对应的字符转成整数.</p><p>chr(integer)：把整数转化成对应的字母.</p><p>bool(x)：把一个值转化为布尔值,如果该值为假或者省略返回False,否则返回True</p><p>abs(x) ：返回一个数的绝对值.该参数可以是整数或浮点数.如果参数是一个复数,则返回其大小</p><p>round(number[, ndigits])：返回浮点数number保留ndigits位小数后四舍五入的值。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python3.png" alt></p><p>dir([object]) 没有参数,返回当前局部范围的名单列表。有参数，试图返回该对象的有效的属性列表</p><p>issubclass(class, classinfo)返回True如果参数class是classinfo的一个子类，否则返回False。</p><p>isinstance(object, classinfo)返回True如果参数object是classinfo的一个实例，否则返回False(适用于继承)。</p><p>zip(*iterables):生成一个迭代器，迭代器聚合了从每个可迭代数集里的元素。它的内容只能被消费一次</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python4.png" alt></p><p>map：第一个参数 function 以参数序列中的每一个元素调用 function函数，返回包含每次 function 函数返回值的新列表。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python6.png" alt></p><p>filter：filter() 函数用于过滤序列，过滤掉不符合条件的元素，返回由符合条件元素组成的新列表。应该接收两个参数，第一个为函数，第二个为序列，序列的每个元素作为参数传递给函数进行判，然后返回 True 或 False，最后将返回 True 的元素放到新列表中。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python7.png" alt></p><p>enumerate是一个非常有用的函数，直接看效果。</p><p><img src="C:%5CUsers%5C%E6%B9%9B%E8%93%9D%E6%98%9F%E7%A9%BA%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1565075353783.png" alt="1565075353783"></p><p>eval(str [,globals [,locals ]])：用来计算存储在字符串中的有效python表达式。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python8.png" alt></p><p>exec(object[, globals[, locals]])， 用来执行存储在字符串或文件中的python语句</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python9.png" alt></p><p>##格式化输出格式：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python10.png" alt></p><p>##python语句中一些基本规则和特殊字符：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python11.png" alt></p><h2 id="python调试："><a href="#python调试：" class="headerlink" title="python调试："></a>python调试：</h2><p>python调试两种方法都有用到pdb模块</p><p>第一种：在代码的目录下，打开cmd，输入python -m 文件名</p><p>h：帮助命令</p><p>第二种：可以在交互界面进行调试</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python12.png" alt></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;​    今天来讲一下python的一些散装知识，还是蛮多的。所以分了几个部分。今天的部分是最简单的，废话少说。开始吧&lt;/p&gt;
+&lt;p&gt;##导入模块方法：&lt;/p&gt;
+&lt;p&gt;1、最常见的方式，直接将要导入的模块名称写在后面导入。import xxxx&lt;/p&gt;
+&lt;p&gt;2、from 
+      
+    
+    </summary>
+    
+      <category term="python" scheme="http://yoursite.com/categories/python/"/>
+    
+      <category term="知识散记（1）" scheme="http://yoursite.com/categories/python/%E7%9F%A5%E8%AF%86%E6%95%A3%E8%AE%B0%EF%BC%881%EF%BC%89/"/>
+    
+    
+      <category term="python知识散记" scheme="http://yoursite.com/tags/python%E7%9F%A5%E8%AF%86%E6%95%A3%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>协程</title>
+    <link href="http://yoursite.com/2019/08/06/python%E4%B8%AD%E7%9A%84%E5%8D%8F%E7%A8%8B/"/>
+    <id>http://yoursite.com/2019/08/06/python中的协程/</id>
+    <published>2019-08-06T03:38:42.000Z</published>
+    <updated>2019-08-06T03:47:42.984Z</updated>
+    
+    <content type="html"><![CDATA[<p>​    今天，我们来讲一些协程。协程是python中独有的，在其他语言中是没有这个概念的。协程是利用线程在等待的时候做事情。</p><p>使用yield完成协程：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%8D%8F%E7%A8%8B1.png" alt></p><p>使用greenlet完成协程：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%8D%8F%E7%A8%8B2.png" alt></p><p>使用gevent完成协程：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%8D%8F%E7%A8%8B3.png" alt></p><p>要想用时间模块延迟，则必须打补丁：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%8D%8F%E7%A8%8B4.png" alt></p><p>我还没看完，后面补。未完待续……</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;​    今天，我们来讲一些协程。协程是python中独有的，在其他语言中是没有这个概念的。协程是利用线程在等待的时候做事情。&lt;/p&gt;
+&lt;p&gt;使用yield完成协程：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Br
+      
+    
+    </summary>
+    
+      <category term="python" scheme="http://yoursite.com/categories/python/"/>
+    
+      <category term="协程" scheme="http://yoursite.com/categories/python/%E5%8D%8F%E7%A8%8B/"/>
+    
+    
+      <category term="python协程" scheme="http://yoursite.com/tags/python%E5%8D%8F%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python中的进程</title>
+    <link href="http://yoursite.com/2019/08/06/python%E4%B8%AD%E7%9A%84%E8%BF%9B%E7%A8%8B/"/>
+    <id>http://yoursite.com/2019/08/06/python中的进程/</id>
+    <published>2019-08-06T03:15:37.000Z</published>
+    <updated>2019-08-06T03:38:00.114Z</updated>
+    
+    <content type="html"><![CDATA[<p>多进程：multiprocessing模块</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E8%BF%9B%E7%A8%8B1.png" alt></p><p>os.getpid()获取当前进程的id    os.getppid()获取父进程的id</p><p>大量启动子进程，可以用进程池pool批量创建子进程。可以通过processes改变创建的进程数目。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E8%BF%9B%E7%A8%8B3.png" alt></p><p>apply_async(func[, args=()[, kwds={}[, callback=None]]])该函数用于传递不定参数，非阻塞且支持结果返回进行回调。</p><p>将函数添加到进程池：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E8%BF%9B%E7%A8%8B2.png" alt></p><p>map(func, iterable[, chunksize=None])：Pool类中的map方法，与内置的map函数用法行为基本一致，它会使进程阻塞直到返回结果。 注意，虽然第二个参数是一个迭代器，但在实际使用中，必须在整个队列都就绪后，程序才会运行子进程。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E8%BF%9B%E7%A8%8B4.png" alt></p><p>close()：关闭进程池（pool），使其不在接受新的任务。</p><p>terminate()：结束工作进程，不在处理未处理的任务。</p><p>join([timeout])：主进程阻塞等待子进程的退出，join方法必须在close或terminate之后使用。timeout表示等待最多时间。若超出，则会直接执行下列代码</p><p>Value、Array是通过共享内存的方式共享数据 </p><p>Value：将一个值存放在内存中，</p><p>Array：将多个数据存放在内存中，但要求数据类型一致</p><p>Value:</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E8%BF%9B%E7%A8%8B5.png" alt></p><p>Array:两种情况</p><p>若为数字，表示开辟的共享内存中的空间大小，（Value表示为该空间绑定一个数值）</p><p>若为数组，表示在共享内存中存入数组</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E8%BF%9B%E7%A8%8B6.png" alt></p><p>说明：三个0表示开辟的共享内存容量为3，当再超过3时就会报错。</p><p>Manager（Value、Array、dict、list、Lock、Semaphore等）是通过共享进程的方式共享数据。</p><p>进程间通信：Queue ，Pipe</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E8%BF%9B%E7%A8%8B13.png" alt></p><p>使用方法和队列差不多</p><p>q.get_nowait()：和get()差不多，不用等。 </p><p>Pipe:Pipe可以是单向(half-duplex)，也可以是双向(duplex)。我们通过mutiprocessing.Pipe(duplex=False)创建单向管道 (默认为双向)。一个进程从PIPE一端输入对象，然后被PIPE另一端的进程接收，单向管道只允许管道一端的进程输入，而双向管道则允许从两端输入。</p><p>这里的Pipe是双向的。</p><p>Pipe对象建立的时候，返回一个含有两个元素的表，每个元素代表Pipe的一端(Connection对象)。我们对Pipe的某一端调用send()方法来传送对象，在另一端使用recv()来接收。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E8%BF%9B%E7%A8%8B7.png" alt></p><p><strong>生产者与消费者模式：在两者中找一个缓冲的东西（队列，缓冲池），解决数据生产方和数据处理方数据不分配的问题。</strong></p><p>耦合：谁和谁的关系越强，耦合性就越强。耦合性越强，程序维护越难。</p><p>解耦的好处：哪块不合适，就改那块。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E8%BF%9B%E7%A8%8B8.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E8%BF%9B%E7%A8%8B10.png" alt></p><p>接上面：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E8%BF%9B%E7%A8%8B11.png" alt></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;多进程：multiprocessing模块&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E8%BF%9B%E7%A8%8B1.png&quot; alt&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+      <category term="python" scheme="http://yoursite.com/categories/python/"/>
+    
+      <category term="进程" scheme="http://yoursite.com/categories/python/%E8%BF%9B%E7%A8%8B/"/>
+    
+    
+      <category term="python进程" scheme="http://yoursite.com/tags/python%E8%BF%9B%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python中的线程</title>
+    <link href="http://yoursite.com/2019/08/06/python%E4%B8%AD%E7%9A%84%E7%BA%BF%E7%A8%8B/"/>
+    <id>http://yoursite.com/2019/08/06/python中的线程/</id>
+    <published>2019-08-06T02:34:04.000Z</published>
+    <updated>2019-08-06T03:08:28.270Z</updated>
+    
+    <content type="html"><![CDATA[<p>重要的话写在前面：进程间不共享全局变量，线程间共享全局变量。</p><p>同步：按预定的先后次序进行运行                异步：不确定的次序</p><p>对于操作系统来说，一个任务就是一个进程。进程内的子任务成为线程 ，一个进程至少有一个线程</p><p>多任务执行的方式：</p><p>多进程</p><p>多线程</p><p>多进程+多线程</p><p>多线程：Python的标准库提供了两个模块：_thread和threading，_thread是低级模块，threading是高级模块，对_thread进行了封装。绝大多数情况下，我们只需要使用threading这个高级模块。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B1.png" alt></p><p>传入参数为元祖。也就是即使只有一个参数，也要写逗号。</p><p>join():将线程加入到当前线程，并等待其终止</p><p>判断线程是否在运行：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B2.png" alt></p><p>守护线程：将daemon属性设为True，则该线程无法被连接</p><p>daemon属性可以保证主线程结束时可以同时结束子线程或者使主线程等待子线程结束后在结束。故称为守护线程。daemon默认为False，如需修改，必须在调用start()方法启动线程之前进行设置。<strong>不适用与idle的交互模式或脚本模式</strong></p><p>当daemon属性为False时，主线程会检测子线程是否结束，如果子线程还在运行，则主线程会等待他完成后在退出。当daemon属性为True时，子线程没执行的不再执行，主线程直接退出。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B4.png" alt></p><p>通过轮询终止线程：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B5.png" alt></p><p>threading的常用方法：</p><p>​    active_count() 当前活动的 Thread 对象个数</p><p>​    current_thread() 返回当前 Thread 对象</p><p>​    current_thread().name返回当前的Thread对象的名字</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B6.png" alt></p><p>​    get_ident() 返回当前线程</p><p>​    enumerater() 返回当前活动 Thread 对象列表</p><p>​    main_thread() 返回主 Thread 对象</p><p>​    settrace(func) 为所有线程设置一个 trace 函数</p><p>​    setprofile(func) 为所有线程设置一个 profile 函数</p><p>​    stack_size([size]) 返回新创建线程栈大小；或为后续创建的线程设定栈大小为 size</p><p>​    TIMEOUT_MAX Lock.acquire(), RLock.acquire(), Condition.wait() 允许的最大值</p><p>threading 可用对象列表：</p><p>​    Thread 表示执行线程的对象</p><p>​    Lock 锁原语对象</p><p>​    RLock 可重入锁对象，使单一进程再次获得已持有的锁(递归锁)</p><p>Condition： 条件变量对象，使得一个线程等待另一个线程满足特定条件，比如改变状态或某个值</p><p>​    wait(timeout): 线程挂起，直到收到一个notify通知或者超时（可选的，浮点数，单位是秒s）才会被唤醒继续运行。wait()必须在已获得Lock前提下才能调用，否则会触发RuntimeError。</p><p>​    condition = threading.Condition(lock=None)   # 创建Condition对象  参数可以不传</p><p>​    condition.acquire()    # 加锁</p><p>​    condition.release()    # 解锁</p><p>​    condition.wait(timeout=None)                 # 阻塞，直到有调用notify(),或者notify_all()时再触发</p><p>​    condition.wait_for(predicate, timeout=None)  # 阻塞，等待predicate条件为真时执行</p><p>​    condition.notify(n=1)        # 通知n个wait()的线程执行, n默认为1</p><p>​    condition.notify_all()       # 通知所有wait着的线程执行</p><p>​     with condition:              # 支持with语法，不必每次手动调用acquire()/release() </p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B7.png" alt></p><p>Semaphore 为线程间共享的有限资源提供一个”计数器”，如果没有可用资源会被阻塞</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B8.png" alt></p><p>Events：它是由线程设置的信号标志，如果信号标志为真，则其他线程等待直到信号接触。</p><p>Event对象实现了简单的线程通信机制，它提供了设置信号，清除信号，等待等用于实现线程间的通信。</p><p>event = threading.Event() 创建一个event</p><p>1 设置信号</p><p>event.set()</p><p>使用Event的set（）方法可以设置Event对象内部的信号标志为真。Event对象提供了isSet（）方法来判断其内部信号标志的状态。</p><p>当使用event对象的set（）方法后，isSet（）方法返回真</p><p>2 清除信号</p><p>event.clear()</p><p>使用Event对象的clear（）方法可以清除Event对象内部的信号标志，即将其设为假，当使用Event的clear方法后，isSet()方法返回假</p><p>3 等待</p><p>event.wait()</p><p>Event对象wait的方法只有在内部信号为真的时候才会很快的执行并完成返回。当Event对象的内部信号标志为假时，则wait方法一直等待到其为真时才返回。也就是说必须set新号标志为真</p><p>主线程在等事件设置后才继续执行</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B10.png" alt></p><p>event使用示范：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B11.png" alt></p><p>Barrier :创建一个”阻碍”，必须达到指定数量的线程后才可以继续</p><p>每个线程中都调用了wait()方法，在所有（此处设置为3）线程调用wait方法之前是阻塞的。也就是说，只有等到3个线程都执行到了wait方法这句时，所有线程才继续执行。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B12.png" alt></p><p>计算处于alive的Thread对象数量：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B13.png" alt></p><p>多线程避免全局变量的改变：上锁。上锁后执行的代码越少越好。</p><p>互斥锁：Lock是比较低级的同步原语，当被锁定后不属于特定的线程。一个锁有两个状态:Locked和unLocked.刚创建的的Locked处于unlocked状态。如果锁处于unlocked状态，acquire()方法将其修改为Locked并立即返回。如果锁处于locked状态，则阻塞当前线程并等待其他线程释放锁，然后将其修改为locked并立即返回。release()方法用来将锁的状态从locked修改为unlocked并立即返回。如果锁的状态本来就是unlocked，则会抛出异常</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B14.png" alt></p><p>可重入锁Rlock对象也是一种常用的线程同步原语，可被同一个线程acquire()多次。当locked状态时，某现场拥有该锁，当处于unlocked状态时，该锁不属于任何线程。Rlock对象的acquire()/release()调用对可以嵌套，仅当最后一个或者最外层的release执行结束后，锁才会被设置为unlocked状态</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B15.png" alt></p><p>死锁：双方都在等待对方的条件满足</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B16.png" alt></p><p>避免死锁的方法：1、添加超时事件  2、 尽量避免（银行家算法）</p><p>Threadlocal：保存当前线程的专有状态，这个状态对其他线程不可见。</p><p>全局变量local就是一个ThreadLocal对象，每个Thread对它都可以读写student属性，但互不影响。你可以把local看成全局变量，但每个属性如local.student都是线程的局部变量，可以任意读写而互不干扰，也不用管理锁的问题，ThreadLocal内部会处理。一个ThreadLocal变量虽然是全局变量，但每个线程都只能读写自己线程的独立副本，互不干扰。ThreadLocal解决了参数在一个线程中各个函数之间互相传递的问题。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B17.png" alt></p><p>线程池：threadpool模块或concerrent.futures模块</p><p>threadpool模块比较老旧，不是主流。</p><p>threadpool.ThreadPool(poolsize)：定义一个线程池，创建了poolsize个线程。</p><p>threadpool.makeRequest(开启多线程的函数，函数相关参数，[回调函数])</p><p>putRequest:将所有要运行多线程的请求扔进线程池。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B18.png" alt></p><p>concerrent.futures：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B19.png" alt></p><p>ThreadPoolExecutor构造实例的时候，传入max_workers参数来设置线程池中最多能同时运行的线程数目。</p><p>使用submit函数来提交线程需要执行的任务（函数名和参数）到线程池中，并返回该任务的句柄（类似于文件、画图），注意submit()不是阻塞的，而是立即返回。</p><p>通过submit函数返回的任务句柄，能够使用done()方法判断该任务是否结束。上面的例子可以看出，由于任务有2s的延时，在task1提交后立刻判断，task1还未完成，而在延时4s之后判断，task1就完成了。</p><p>使用cancel()方法可以取消提交的任务，如果任务已经在线程池中运行了，就取消不了。这个例子中，线程池的大小设置为2，任务已经在运行了，所以取消失败。如果改变线程池的大小为1，那么先提交的是task1，task2还在排队等候，这是时候就可以成功取消。</p><p>使用result()方法可以获取任务的返回值。查看内部代码，发现这个方法是阻塞的</p><p>as_completed:一次取出所有任务的结果。as_completed()方法是一个生成器，在没有任务完成的时候，会阻塞，在有某个任务完成的时候，会yield这个任务，就能执行for循环下面的语句，然后继续阻塞住，循环到所有的任务结束。从结果也可以看出，先完成的任务会先通知主线程。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B20.png" alt></p><p>map的作用和submit一样，但略有不同。输出顺序和参数列表的顺序相同</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B21.png" alt></p><p>wait方法接受三个参数，等待的任务序列，超时时间，以及等待条件。等待条件return_when默认为ALL_COMPLTED，表明要等待所有的任务都结束。还可以设为FIRST_COMPLETED，表示第一个任务完成就结束等待。FITST_EXCEPTION(注意要导入)</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B22.png" alt></p><p>通过类创建线程：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B23.png" alt></p><p>t.start后一定调用run函数，不定义run函数该线程不执行。对其他函数的调用只能在run函数里执行。多线程可以共享全局变量，但当数据量大时，数据会出错（产生资源竞争）。</p><p>线程是真的多，看到最后。迷迷糊糊，有错一定要提醒我。而且很多我还没有用过。后面用到的话，会补充上去的。接下来说最后一个：GIL。何为GIL？</p><p>GIL：全局解释器锁</p><p>单CPU的系统中运行多个进程那样，内存中可以存放多个程序，但任意时刻，只有一个程序在CPU中运行。同样地，虽然Python解释器中可以“运行”多个线程，但在任意时刻，只有一个线程在解释器中运行。</p><p>GIL保证了多线程时只有一个线程被调用。 所以多进程效率比多线程高，但是进程间通信比线程难。</p><p>解决方法：用C语言写关键部分。模块（ctypes）</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;重要的话写在前面：进程间不共享全局变量，线程间共享全局变量。&lt;/p&gt;
+&lt;p&gt;同步：按预定的先后次序进行运行                异步：不确定的次序&lt;/p&gt;
+&lt;p&gt;对于操作系统来说，一个任务就是一个进程。进程内的子任务成为线程 ，一个进程至少有一个线程&lt;/p&gt;
+&lt;p
+      
+    
+    </summary>
+    
+      <category term="python" scheme="http://yoursite.com/categories/python/"/>
+    
+      <category term="线程" scheme="http://yoursite.com/categories/python/%E7%BA%BF%E7%A8%8B/"/>
+    
+    
+      <category term="python线程" scheme="http://yoursite.com/tags/python%E7%BA%BF%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>numpy</title>
+    <link href="http://yoursite.com/2019/08/06/numpy/"/>
+    <id>http://yoursite.com/2019/08/06/numpy/</id>
+    <published>2019-08-06T01:54:18.000Z</published>
+    <updated>2019-08-06T02:31:13.537Z</updated>
+    
+    <content type="html"><![CDATA[<p>​    最近这几年，机器学习和深度学习大火。而这其中的数据计算是非常多，而这得益于python的numpy模块。多提一句：numpy是没有GIL（多线程解释器锁）的。所以，numpy中的计算是非常快的。那什么是GIL呢？请看python的多线程。话不多说，让我们开启今天的数学之旅。PS：numpy很多API，我还没有学完。我只是总结了一部分，后面会补充的。</p><p>通过array生成矩阵：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy1.png" alt></p><p>可以通过dtype设置矩阵数据的类型。astype可以修改数据类型。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy3.png" alt></p><p>还有其他生成矩阵的方式：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy5.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy6.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy7.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy8.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy9.png" alt></p><p>numpy生成随机数：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy10.png" alt></p><p>seed的使用方法：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy11.png" alt></p><p>可以通过reshape修改列表的行数和列数，resize改变数组的尺寸大小。根据reshape传入的参数判断转为哪种数组。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy13.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy14.png" alt></p><p>numpy运算：加、减、乘、除类似。如果两个矩阵形状相同，两个矩阵对应的元素做操作。若两个矩阵形状不相同，其中一个矩阵的维度与另一个矩阵的维度相同，可以在该维度上做操作。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy15.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy.png" alt></p><p>通过axis求每行（列）的元素和或最大、最小值。0代表列，1代表行。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy16.png" alt></p><p>还可以获得最大、最小值：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy17.png" alt></p><p>其他一些计算：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy18.png" alt></p><p>对clip函数的解释：小于5的元素都设为5，大于9的元素都设为9</p><p>flatten：对数组展开为一维数组</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy19.png" alt></p><p>numpy的合并：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy20.png" alt></p><p>numpy的分割：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy21.png" alt></p><p>转置矩阵：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy22.png" alt></p><p>未完待续……</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;​    最近这几年，机器学习和深度学习大火。而这其中的数据计算是非常多，而这得益于python的numpy模块。多提一句：numpy是没有GIL（多线程解释器锁）的。所以，numpy中的计算是非常快的。那什么是GIL呢？请看python的多线程。话不多说，让我们开启今天的
+      
+    
+    </summary>
+    
+      <category term="python" scheme="http://yoursite.com/categories/python/"/>
+    
+      <category term="数学计算" scheme="http://yoursite.com/categories/python/%E6%95%B0%E5%AD%A6%E8%AE%A1%E7%AE%97/"/>
+    
+      <category term="numpy" scheme="http://yoursite.com/categories/python/%E6%95%B0%E5%AD%A6%E8%AE%A1%E7%AE%97/numpy/"/>
+    
+    
+      <category term="python的数学计算模块" scheme="http://yoursite.com/tags/python%E7%9A%84%E6%95%B0%E5%AD%A6%E8%AE%A1%E7%AE%97%E6%A8%A1%E5%9D%97/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>网络编程</title>
+    <link href="http://yoursite.com/2019/08/06/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"/>
+    <id>http://yoursite.com/2019/08/06/网络编程/</id>
+    <published>2019-08-06T01:00:03.000Z</published>
+    <updated>2019-08-06T01:52:11.873Z</updated>
+    
+    <content type="html"><![CDATA[<p>​    今天，我们来讲一下网络编程。这里面用到一个库：<strong>socket</strong>。网络通信其实就是两个进程之间在编程。先说两个重要的协议：TCP协议 和 UDP协议。TCP协议是传输控制协议，UDP协议是数据传输协议。TCP和UDP的区别：TCP慢但是稳定，因为它经过了三次握手和四次挥手，不会丢失数据。UDP快。</p><p>socket:注意参数是一个tuple，包含地址和端口号。</p><p>在同一个os中，端口不允许相同，即如果某个端口已经被使用了，那么在这个进程释放之前，其他进程都不能使用这个端口。（端口用来区分进程，若相同，不能把数据发送到准确的进程）</p><p>创建Socket时，AF_INET指定使用IPv4协议，如果要用更先进的IPv6，就指定为AF_INET6。SOCK_STREAM指定使用面向流的TCP协议，这样，一个Socket对象就创建成功，但是还没有建立连接。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BD%91%E7%BB%9C1.png" alt></p><p>coding：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BD%91%E7%BB%9C2.png" alt></p><p>主机名可以通过调用socket.gethostname()获得</p><p>接收数据时，调用recv(max)方法，一次最多接收指定的字节数，因此，在一个while循环中反复接收，直到recv()返回空数据，表示接收完毕，退出循环。当我们接收完数据后，调用close()方法关闭Socket，这样，一次完整的网络通信就结束了</p><p>创建TCP连接时，主动发起连接的叫客户端，被动响应连接的叫服务器。 客户端要主动发起TCP连接，必须知道服务器的IP地址和端口号。</p><p>TCP服务端建立步骤：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BD%91%E7%BB%9C3.png" alt></p><p><strong>一般是服务器（接受方）绑定端口，客户端（发送方）不绑定</strong></p><p>UDP不需要调用listen（）方法。可以直接接收数据</p><p>TCP调用listen()方法开始监听端口，将主动套接字（默认）变为被动套接字，传入的参数指定等待连接的最大数量</p><p>TCP服务端：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BD%91%E7%BB%9C4.png" alt></p><p>TCP客户端：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BD%91%E7%BB%9C5.png" alt></p><p>一般send()和recv()用于TCP，sendto()及recvfrom()用于UDP。sendto和recvfrom一般用于UDP协议中,但是如果在TCP中connect函数调用后也可以用。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BD%91%E7%BB%9C6.png" alt></p><p>服务器编程首先要绑定一个端口并监听来自其他客户端的连接。如果某个客户端连接过来了，服务器就与该客户端建立Socket连接，随后的通信就靠这个Socket连接了。</p><p>由于服务器会有大量来自客户端的连接，所以，服务器要能够区分一个Socket连接是和哪个客户端绑定的。一个Socket依赖4项：<strong>服务器地址、服务器端口、客户端地址、客户端端口</strong>来唯一确定一个Socket。但是服务器还需要同时响应多个客户端的请求，所以，每个连接都需要一个新的进程或者新的线程来处理，否则，服务器一次就只能服务一个客户端了。</p><p>然后，我们要绑定监听的地址和端口()。服务器可能有多块网卡，可以绑定到某一块网卡的IP地址上，也可以用<strong>0.0.0.0绑定到所有的网络地址</strong>，还可以用127.0.0.1绑定到本机地址。<strong>127.0.0.1是一个特殊的IP地址，表示本机地址</strong>，如果绑定到这个地址，客户端必须同时在本机运行才能连接，也就是说，外部的计算机无法连接进来。</p><p>端口号需要预先指定。请注意，小于1024的端口号必须要有管理员权限才能绑定：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BD%91%E7%BB%9C7.png" alt></p><p>每个连接都必须创建新线程（或进程）来处理，否则，单线程在处理连接的过程中，无法接受其他客户端的连接</p><p>利用多线程和socket进行聊天室的创建（UDP）：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BD%91%E7%BB%9C14.png" alt></p><p>下面这段代码是单进程服务器，配合进程或线程也可以建立多任务服务器（TCP）：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BD%91%E7%BB%9C9.png" alt></p><p>serverSocket：当这个套接字被关闭时，代表不再接收新的客户端连接</p><p>clientSocket：当这个套接字被关闭时，代表不能使用send和recv发收数据。</p><p>当利用线程建立多任务服务器时，clientSocket不能关闭。因为子线程共用数据</p><p>当利用进程建立时，clientSocket能关闭。子进程和父进程完全”一样“（实时拷贝）</p><p>单进程实现多任务：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BD%91%E7%BB%9C10.png" alt></p><p>最后，讲一下单播，多播和广播。</p><p>单播：一对一</p><p>多播：一对多</p><p>广播：一对所有 </p><p>UDP有广播，TCP没有广播</p><p>UDP发送广播数据的条件：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BD%91%E7%BB%9C11.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BD%91%E7%BB%9C12.png" alt></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;​    今天，我们来讲一下网络编程。这里面用到一个库：&lt;strong&gt;socket&lt;/strong&gt;。网络通信其实就是两个进程之间在编程。先说两个重要的协议：TCP协议 和 UDP协议。TCP协议是传输控制协议，UDP协议是数据传输协议。TCP和UDP的区别：TCP慢但是
+      
+    
+    </summary>
+    
+      <category term="python" scheme="http://yoursite.com/categories/python/"/>
+    
+      <category term="网络编程（socket）" scheme="http://yoursite.com/categories/python/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%EF%BC%88socket%EF%BC%89/"/>
+    
+    
+      <category term="python的网络编程" scheme="http://yoursite.com/tags/python%E7%9A%84%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>正则表达式</title>
+    <link href="http://yoursite.com/2019/08/05/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    <id>http://yoursite.com/2019/08/05/正则表达式/</id>
+    <published>2019-08-05T07:37:42.000Z</published>
+    <updated>2019-08-05T12:01:17.619Z</updated>
+    
+    <content type="html"><![CDATA[<p>正则表达式（不能随意添加空格，不然会改变原来含义）：</p><p>元字符(不能匹配自身): . $ ^ ( ) { } [ ] $ + \ | *，</p><p>|：A | B 会匹配 A 或 B 中出现的任何字符。为了能够更加合理的工作，| 的优先级非常低。例如 Fish|C 应该匹配 Fish 或 C，而不是匹配 Fis，然后一个 ‘h’ 或 ‘C’。同样，我们使用 | 来匹配 ‘|’ 字符本身；或者包含在一个字符类中，像这样 [|]。</p><p>^:匹配字符串的起始位置。如果设置了 MULTILINE 标志，就会变成匹配每一行的起始位置。在 MULTILINE 中，每当遇到换行符就会立刻进行匹配。</p><p>$:匹配字符串的结束位置，每当遇到换行符也会离开进行匹配。</p><p>+：用于指定前一个字符匹配一次或多次</p><p><em>：</em>匹配的是零次或多次</p><p>？：指定前一个字符匹配零次或者一次。</p><p>{m，n}(m和n都是十进制整数)：它的含义是前一个字符必须匹配m次到n（包括n次）次之间</p><p>原始字符串来表示正则表达式（就是在字符串前边加上 r）</p><p>\A:只匹配字符串的起始位置。如果没有设置 MULTILINE 标志的时候，\A 和 ^ 的功能是一样的；但如果设置了 MULTILINE 标志，则会有一些不同：\A 还是匹配字符串的起始位置，但 ^ 会对字符串中的每一行都进行匹配。</p><p>\Z:只匹配字符串的结束位置</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E6%AD%A3%E5%88%991.png" alt></p><p>\B:另一个零宽断言，与 \b 的含义相反，\B 表示非单词边界的位置。</p><p><strong>零宽断言：</strong></p><p>有些元字符它们不匹配任何字符，只是简单地表示成功或失败，因此这些字符也称之为零宽断言</p><p><strong>前向断言：</strong></p><p>（1）：前向肯定断言：如果当前包含的正则表达式（这里以 … 表示）在当前位置成功匹配，则代表成功，否则失败。一旦该部分正则表达式被匹配引擎尝试过，就不会继续进行匹配了；剩下的模式在此断言开始的地方继续尝试。</p><p>（2）：前向否定断言：这跟前向肯定断言相反（不匹配则表示成功，匹配表示失败）</p><p>假定我们要处理一段html，我们要替换掉相对url，例如<a href="abc.html">text</a> 这个a标签我们要替换成text，而对于<a href="http://outofmemory.cn/code-snippet/" target="_blank" rel="noopener">代码</a> 这样的a标签则要保留不做替换。这个应用场景下</p><p>就需要判断A标签的href属性如果不是以http://开头则匹配，即要做前向否定的断言.</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E6%AD%A3%E5%88%992.png" alt></p><p>脱字符：^ ,例如[^  5  ]会匹配任何字符 “5”之外的任何字符</p><p>[ ]他们指定一个字符类用于存放你需要的字符集合。可以单独列出需要匹配字符，也可以两个字符和一个横杆-指定匹配的范围。元字符在方括号中不会触发“特殊功能”，在字符类中，它们只匹配自身。</p><p>反斜杠 \：如果在反斜杠后边紧跟着一个元字符，那么元字符的“特殊功能”也不会被触发。例如你需要匹配符号[ 或 \，你可以在他们前面加上一个反斜杠，以消除他们的特殊功能：\[ ,\\</p><p>注意用小括号括住要重复的内容：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E6%AD%A3%E5%88%993.png" alt></p><p>匹配ip（万能版）：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E6%AD%A3%E5%88%99.png" alt></p><p>非捕获组和命名组：</p><p>非捕获组的语法是 (?:…)，这个 … 你可以替换为任何正则表达式。</p><p>“捕获”就是匹配的意思啦，普通的子组都是捕获组，因为它们能从字符串中匹配到数据</p><p>命名组：：(?P<name>)。很明显，&lt; &gt; 里边的 name 就是命名组的名字啦，除了使用名字访问，</name></p><p>命名组仍然可以使用数字序号进行访问</p><p>正则表达式使用以下方法修改字符串：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E6%AD%A3%E5%88%995.png" alt></p><p><strong>split(***</strong>string<strong>***[,</strong> <strong><em>maxsplit=0**</em></strong>])<em>*：通过正则表达式匹配来分割字符串。如果在 RE 中，你使用了捕获组，那么它们的内容会作为一个列表返回。你可以通过传入一个 *maxsplit</em> 参数来设置分割的数量。如果 <em>maxsplit</em> 的值是非 0，表示至多有 <em>maxsplit</em> 个分割会被处理，剩下的内容作为列表的最后一个元素返回。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E6%AD%A3%E5%88%996.png" alt></p><p><strong>.sub(***</strong>replacement<strong>***,</strong> <strong><em>string**</em></strong>[,<em>* <strong><em>count=0**</em></strong>])*<em>返回一个字符串，这个字符串从最左边开始，所有 RE 匹配的地方都替换成 *replacement</em>。如果没有找到任何匹配，那么返回原字符串。可选参数 *count</em> 指定最多替换的次数，必须是一个非负值。默认值是 0，意思是替换所有找到的匹配。下边是使用 sub() 方法的例子，它会将所有的颜色替换成 color：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E6%AD%A3%E5%88%997.png" alt></p><p>subn:subn() 方法跟 sub() 方法干同样的事情，但区别是返回值为一个包含有两个元素的元组：一个是替换后的字符串，一个是替换的数目。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E6%AD%A3%E5%88%998.png" alt></p><p>匹配方法：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E6%AD%A3%E5%88%999.png" alt></p><p>匹配的方法和属性：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E6%AD%A3%E5%88%9910.png" alt></p><p>group(N) 返回第N组括号匹配的字符，groups() 返回所有括号匹配的字符，以tuple格式</p><p>match匹配的m：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E6%AD%A3%E5%88%9912.png" alt></p><p>findall() 需要在返回前先创建一个列表，而 finditer() 则是将匹配对象作为一个迭代器返回</p><p>利用compile来先编译的方法是模式级别的方法（适用于多次使用该正则表达式），可以针对同一种模式做多次匹配，如下图：另一种是模式对象方法 </p><p>import re import re</p><p>p=re.compile() re.search(“”,””)</p><p>p.search()</p><p>贪婪模式和非贪婪模式：</p><p>贪婪模式是让正则表达式尽可能的匹配符合的内容</p><p>在匹配的字符后面加一个问号，启动非贪婪模式</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E6%AD%A3%E5%88%9913.png" alt></p><p>编译标志：编译标志让你可以修改正则表达式的工作方式。在 re模块下，编译标志均有两个名字：完整名和简写</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E6%AD%A3%E5%88%9915.png" alt></p><p>ASCII(re.A)</p><p>使得 \w，\W，\b，\B，\s 和 \S 只匹配 ASCII 字符，而不匹配完整的 Unicode 字符。这个标志仅对 Unicode 模式有意义，并忽略字节模式。</p><p>DOTALL(re.S)</p><p>使得 . 可以匹配任何字符，包括换行符。如果不使用这个标志，. 将匹配除了换行符的所有字符。</p><p>IGNORECASE(re.I)</p><p>字符类和文本字符串在匹配的时候不区分大小写。举个例子，正则表达式 [A-Z] 也将会匹配对应的小写字母，像 FishC 可以匹配 FishC，fishc 或 FISHC 等。如果你不设置 LOCALE，则不会考虑语言（区域）设置这方面的大小写问题。</p><p>LOCALE(re.L)</p><p>使得 \w，\W，\b 和 \B 依赖当前的语言（区域）环境，而不是 Unicode 数据库。区域设置是 C 语言的一个功能，主要作用是消除不同语言之间的差异。例如你正在处理的是法文文本，你想使用 \w+ 来匹配单词，但是 \w 只是匹配 [A-Za-z] 中的单词，并不会匹配 ‘é’ 或 ‘&#231;’。如果你的系统正确的设置了法语区域环境，那么 C 语言的函数就会告诉程序 ‘é’ 或 ‘&#231;’ 也应该被认为是一个字符。当编译正则表达式的时候设置了 LOCALE 的标志，\w+ 就可以识别法文了，但速度多少会受到影响。</p><p>MULTILINE(re.M)</p><p>通常 ^ 只匹配字符串的开头，而 $ 则匹配字符串的结尾。当这个标志被设置的时候，^ 不仅匹配字符串的开头，还匹配每一行的行首；&amp; 不仅匹配字符串的结尾，还匹配每一行的行尾。</p><p>VERBOSE(re.X)</p><p>这个标志使你的正则表达式可以写得更好看和更有条理，因为使用了这个标志，空格会被忽略（除了出现在字符类中和使用反斜杠转义的空格）；这个标志同时允许你在正则表达式字符串中使用注释， 符号后边的内容是注释，不会递交给匹配引擎（除了出现在字符类中和使用反斜杠转义的 ）</p><p>正则表达式特殊符号及用法：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E6%AD%A3%E5%88%9916.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E6%AD%A3%E5%88%9917.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E6%AD%A3%E5%88%9919.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E6%AD%A3%E5%88%9920.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E6%AD%A3%E5%88%9921.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E6%AD%A3%E5%88%9923.png" alt></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;正则表达式（不能随意添加空格，不然会改变原来含义）：&lt;/p&gt;
+&lt;p&gt;元字符(不能匹配自身): . $ ^ ( ) { } [ ] $ + \ | *，&lt;/p&gt;
+&lt;p&gt;|：A | B 会匹配 A 或 B 中出现的任何字符。为了能够更加合理的工作，| 的优先级非常低。例如 Fi
+      
+    
+    </summary>
+    
+      <category term="python" scheme="http://yoursite.com/categories/python/"/>
+    
+      <category term="正则表达式" scheme="http://yoursite.com/categories/python/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    
+    
+      <category term="正则表达式" scheme="http://yoursite.com/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>读取、写入excel</title>
+    <link href="http://yoursite.com/2019/08/05/%E8%AF%BB%E5%8F%96%E3%80%81%E5%86%99%E5%85%A5excel/"/>
+    <id>http://yoursite.com/2019/08/05/读取、写入excel/</id>
+    <published>2019-08-05T07:26:08.000Z</published>
+    <updated>2019-08-05T07:34:34.838Z</updated>
+    
+    <content type="html"><![CDATA[<p>​    今天我们来讲一下python如何对excel进行 读取和写入操作。</p><p>##xlrd只支持对excel文件个是为xls文件的读取。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/excel.png" alt></p><p>table = data.sheets()[0]                             #通过索引顺序获取</p><p>table = data.sheet_by_index(sheet_index)) #通过索引顺序获取</p><p>table = data.sheet_by_name(sheet_name)#通过名称获取</p><p>name=workbook_r.sheet_names()     #获取文件的所有工作表名字</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/excel1.png" alt></p><p>对行的操作：</p><p>nrows = table.nrows  #获取该sheet中的有效行数</p><p>table.row(rowx)  #返回由该行中所有的单元格对象组成的列表</p><p>table.row_slice(rowx)  #返回由该列中所有的单元格对象组成的列表</p><p>table.row_types(rowx, start_colx=0, end_colx=None)    #返回由该行中所有单元格的数据类型组成的列表</p><p>table.row_values(rowx, start_colx=0, end_colx=None)   #返回由该行中所有单元格的数据组成的列表</p><p>table.row_len(rowx) #返回该列的有效单元格长度</p><p> 对列的操作：</p><p>ncols = table.ncols   #获取列表的有效列数</p><p>table.col(colx, start_rowx=0, end_rowx=None)  #返回由该列中所有的单元格对象组成的列表</p><p>table.col_slice(colx, start_rowx=0, end_rowx=None)  #返回由该列中所有的单元格对象组成的列表</p><p>table.col_types(colx, start_rowx=0, end_rowx=None)    #返回由该列中所有单元格的数据类型组成的列表</p><p>table.col_values(colx, start_rowx=0, end_rowx=None)   #返回由该列中所有单元格的数据组成的列表</p><p>获取单元格内容：</p><p>单元格</p><p>A1= table.cell(0,0).value</p><p>C4=able.cell(2,3).value</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/excel2.png" alt></p><p>使用行列索引</p><p>cell_A1 = table.row(0)[0].value</p><p>cell_A2 = table.col(1)[0].value</p><p>##xlwt只支持对Excel文件格式为xls文件的写入</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/excel3.png" alt></p><p>add_sheet(sheet_name):    添加sheet</p><p>get_sheet(Sheet_name):    选择sheet</p><p>save(file_name):          保存</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;​    今天我们来讲一下python如何对excel进行 读取和写入操作。&lt;/p&gt;
+&lt;p&gt;##xlrd只支持对excel文件个是为xls文件的读取。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Brickexper
+      
+    
+    </summary>
+    
+      <category term="python" scheme="http://yoursite.com/categories/python/"/>
+    
+      <category term="读取、写入excel" scheme="http://yoursite.com/categories/python/%E8%AF%BB%E5%8F%96%E3%80%81%E5%86%99%E5%85%A5excel/"/>
+    
+    
+      <category term="xlrd、xlwt" scheme="http://yoursite.com/tags/xlrd%E3%80%81xlwt/"/>
+    
+  </entry>
   
   <entry>
     <title>垃圾回收GC</title>
@@ -79,9 +339,9 @@
     <link href="http://yoursite.com/2019/08/05/%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/"/>
     <id>http://yoursite.com/2019/08/05/类和对象/</id>
     <published>2019-08-05T04:28:26.000Z</published>
-    <updated>2019-08-05T06:42:59.691Z</updated>
+    <updated>2019-08-05T11:43:21.177Z</updated>
     
-    <content type="html"><![CDATA[<p>​    众所周知，面向过程是根据业务逻辑从上到下写代码，面向过程：根据业务逻辑从上到下写代码面向对象：将数据与函数绑定到一起，进行封装，这样能更快速的开发程序，减少了重复代码的重写过程。面向对象语言三个基本要素：封装 继承 多态把函数和全局变量和在一起就是封装。而python就属于面向对象的语言。</p><p>类与对象的关系和区别：类是抽象的概念，仅仅代表事物的模板。对象是一个能够看得到，摸得着的具体的实体比如：飞机是对象，飞机图纸是类。</p><p>类由三部分构成:</p><p>类的名称:类名</p><p>类的属性：一组数据</p><p>一个特殊的对象：能够知道这个对象的class.</p><p>类的方法：允许进行的操作</p><p>类的抽象：拥有相同或者类似属性和行为的对象都可以抽象出一个类</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class.png" alt></p><p>python调用<strong>init</strong>方法的作用：初始化对象</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class1.png" alt></p><p>python调用<strong>str</strong>方法：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class3.png" alt></p><p>私有方法：外界不能直接调用</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class4.png" alt></p><p>私有属性：可以添加，可以添加后取值，不可以取值。（以双下划线开头为私有变量，单下划线开头的为保护变量）</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class5.png" alt></p><p>通过内部方法取值：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class6.png" alt></p><p>私有属性无法取值的原因是因为名字重整技术，其实可以通过_类名_属性可以访问：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class7.png" alt></p><p>在这里讲一下私有的原理：这是通过名字重整机制改变的。命名规则：_类名__num（尽量不要用）</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class8.png" alt></p><p>python可以自己调用<strong>del</strong>方法，<strong>del</strong>是该对象被删除后调用的方法，注意：这里的删除是没有引用对象</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class9.png" alt></p><p>完全删除后（没有引用对象）：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class10.png" alt></p><p>测量对象的引用对象：用sys模块的sys.getrefcount，得出结果后减一。</p><p><strong>new</strong>方法：创建对象</p><p>实例化对象相当于做三件事：</p><p>1.通过<strong>init</strong>来创建对象，然后找了一个变量来接收<strong>init</strong>的返回值。这个返回值表示创建出来的对象引用。</p><p>2.<strong>init</strong>（刚刚创建出来的对象的引用）</p><p>3.返回对象的引用。</p><p><strong><strong>new</strong>方法和<strong>init</strong>方法的区别</strong>:</p><p>1.<strong>init</strong> 通常用于初始化一个新实例，控制这个初始化的过程，比如添加一些属性， 做一些额外的操作，发生在类实例被创建完以后。它是实例级别的方法。没有返回值。负责初始化</p><p>2.<strong>new</strong> 通常用于控制生成一个新实例的过程。它是类级别的方法，参数是cls。负责创建。<strong>init</strong> 和<strong>new</strong>方法合起来相当于C++的构造函数。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class11.png" alt></p><p>下面讲一个新的概念：单例      单例是创建了多少个对象都是指向同一片内存。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class12.png" alt></p><p>只初始化一次对象：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class13.png" alt></p><p> 继承：可以少写代码。继承父类的方法和属性</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class14.png" alt></p><p>继承可以多类继承。当子类和父类有什么不同时，可以进行重写（在子类中写一个和父类方法名相同的方法进行不同操作）</p><p>私有方法，私有属性不能被继承，可以被间接调用，如果在子类中实现了一个公有方法调用的方法或属性，那么这个方法是不能调用继承的父类的私有方法和私有属性</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class15.png" alt></p><p>多继承：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class16.png" alt></p><p>当子类中的方法和父类方法名一样时会按照以下顺序去进行执行：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class17.png" alt></p><p>子类调用父类的三种方法：</p><p>父类.方法</p><p>super().<strong>init</strong>(不用传self，传参数)</p><p>super(父类，self).<strong>init</strong>（不传self，参数）可以根据父类指定调用哪一个父类</p><p>多态：在写完方法的时候并不知道调用的是什么方法。真正执行的时候才知道</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class18.png" alt></p><p>接下来的内容也很重要哦：</p><p>类在程序中也属于一个对象，称之为类对象。同过类创建出来的对象称之为实例对象。</p><p>类属性(classmethod)：类对象里的属性</p><p>实例属性：实例对象里的属性</p><p>实例属性和类属性的区别：实例属性和具体的某个实例对象有关系，且一个实例对象和另外一个实例对象是不共享属性的。类属性属于类对象，并且多个实例对象共享同一个类属性。  </p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class19.png" alt></p><p>实例方法和类方法：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class20.png" alt></p><p>静态方法：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class21.png" alt></p><p>实例方法 类方法和静态方法的区别：实例方法和类方法必须传一个参数（实例方法self用来接收对象，类方法cls用于接收类），静态方法不需要参数（可以有）。</p><p>动态添加属性和方法：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class22.png" alt></p><p><strong>slots</strong>可以限制添加属性：这可以告诉解释器这个类的所有实例属性都在这了。可以节省大量内存。每个子类都要定义<strong>slots</strong>属性，因为解释器会忽略继承的<strong>slots</strong>属性。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class23.png" alt></p><p>内建属性：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class24.png" alt></p><p><strong>getattribute</strong>:属性拦截器</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class25.png" alt></p><p>使用类名调用类属性时，不会经过<strong>getattribute</strong>方法，其他均要调用。（可以用来做日志）</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/clas.png" alt></p>]]></content>
+    <content type="html"><![CDATA[<p>​    众所周知，面向过程是根据业务逻辑从上到下写代码，面向过程：根据业务逻辑从上到下写代码面向对象：将数据与函数绑定到一起，进行封装，这样能更快速的开发程序，减少了重复代码的重写过程。面向对象语言三个基本要素：封装 继承 多态把函数和全局变量和在一起就是封装。而python就属于面向对象的语言。</p><p>类与对象的关系和区别：类是抽象的概念，仅仅代表事物的模板。对象是一个能够看得到，摸得着的具体的实体比如：飞机是对象，飞机图纸是类。</p><p>类由三部分构成:</p><p>类的名称:类名</p><p>类的属性：一组数据</p><p>一个特殊的对象：能够知道这个对象的class.</p><p>类的方法：允许进行的操作</p><p>类的抽象：拥有相同或者类似属性和行为的对象都可以抽象出一个类</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class.png" alt></p><p>python调用__init__方法的作用：初始化对象</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class1.png" alt></p><p>python调用__str__方法：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class3.png" alt></p><p>私有方法：外界不能直接调用</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class4.png" alt></p><p>私有属性：可以添加，可以添加后取值，不可以取值。（以双下划线开头为私有变量，单下划线开头的为保护变量）</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class5.png" alt></p><p>通过内部方法取值：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class6.png" alt></p><p>私有属性无法取值的原因是因为名字重整技术，其实可以通过_类名_属性可以访问：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class7.png" alt></p><p>在这里讲一下私有的原理：这是通过名字重整机制改变的。命名规则：_类名__num（尽量不要用）</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class8.png" alt></p><p>python可以自己调用__del__方法，__del__是该对象被删除后调用的方法，注意：这里的删除是没有引用对象</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class9.png" alt></p><p>完全删除后（没有引用对象）：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class10.png" alt></p><p>测量对象的引用对象：用sys模块的sys.getrefcount，得出结果后减一。</p><p>__new__方法：创建对象</p><p>实例化对象相当于做三件事：</p><p>1.通过__init__来创建对象，然后找了一个变量来接收___init__的返回值。这个返回值表示创建出来的对象引用。</p><p>2.__init__（刚刚创建出来的对象的引用）</p><p>3.返回对象的引用。</p><p><strong>__new__方法 和 <em>\</em>init__方法的区别</strong>:</p><p>1.<em>\</em>init__ 通常用于初始化一个新实例，控制这个初始化的过程，比如添加一些属性， 做一些额外的操作，发生在类实例被创建完以后。它是实例级别的方法。没有返回值。负责初始化</p><p>2._<em>new_</em> 通常用于控制生成一个新实例的过程。它是类级别的方法，参数是cls。负责创建。__init__和<em>\</em>new__方法合起来相当于C++的构造函数。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class11.png" alt></p><p>下面讲一个新的概念：单例      单例是创建了多少个对象都是指向同一片内存。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class12.png" alt></p><p>只初始化一次对象：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class13.png" alt></p><p> 继承：可以少写代码。继承父类的方法和属性</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class14.png" alt></p><p>继承可以多类继承。当子类和父类有什么不同时，可以进行重写（在子类中写一个和父类方法名相同的方法进行不同操作）</p><p>私有方法，私有属性不能被继承，可以被间接调用，如果在子类中实现了一个公有方法调用的方法或属性，那么这个方法是不能调用继承的父类的私有方法和私有属性</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class15.png" alt></p><p>多继承：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class16.png" alt></p><p>当子类中的方法和父类方法名一样时会按照以下顺序去进行执行：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class17.png" alt></p><p>子类调用父类的三种方法：</p><p>父类.方法</p><p>super().<strong>init</strong>(不用传self，传参数)</p><p>super(父类，self).<strong>init</strong>（不传self，参数）可以根据父类指定调用哪一个父类</p><p>多态：在写完方法的时候并不知道调用的是什么方法。真正执行的时候才知道</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class18.png" alt></p><p>接下来的内容也很重要哦：</p><p>类在程序中也属于一个对象，称之为类对象。同过类创建出来的对象称之为实例对象。</p><p>类属性(classmethod)：类对象里的属性</p><p>实例属性：实例对象里的属性</p><p>实例属性和类属性的区别：实例属性和具体的某个实例对象有关系，且一个实例对象和另外一个实例对象是不共享属性的。类属性属于类对象，并且多个实例对象共享同一个类属性。  </p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class19.png" alt></p><p>实例方法和类方法：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class20.png" alt></p><p>静态方法：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class21.png" alt></p><p>实例方法 类方法和静态方法的区别：实例方法和类方法必须传一个参数（实例方法self用来接收对象，类方法cls用于接收类），静态方法不需要参数（可以有）。</p><p>动态添加属性和方法：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class22.png" alt></p><p><strong>slots</strong>可以限制添加属性：这可以告诉解释器这个类的所有实例属性都在这了。可以节省大量内存。每个子类都要定义<strong>slots</strong>属性，因为解释器会忽略继承的<strong>slots</strong>属性。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class23.png" alt></p><p>内建属性：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class24.png" alt></p><p><strong>getattribute</strong>:属性拦截器</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class25.png" alt></p><p>使用类名调用类属性时，不会经过__getattribute__方法，其他均要调用。（可以用来做日志）</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/clas.png" alt></p>]]></content>
     
     <summary type="html">
     

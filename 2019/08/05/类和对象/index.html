@@ -91,7 +91,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class24.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class25.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/clas.png">
-<meta property="og:updated_time" content="2019-08-05T06:42:59.691Z">
+<meta property="og:updated_time" content="2019-08-05T11:43:21.177Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="类和对象">
 <meta name="twitter:description" content="​    众所周知，面向过程是根据业务逻辑从上到下写代码，面向过程：根据业务逻辑从上到下写代码面向对象：将数据与函数绑定到一起，进行封装，这样能更快速的开发程序，减少了重复代码的重写过程。面向对象语言三个基本要素：封装 继承 多态把函数和全局变量和在一起就是封装。而python就属于面向对象的语言。 类与对象的关系和区别：类是抽象的概念，仅仅代表事物的模板。对象是一个能够看得到，摸得着的具体的实体">
@@ -306,7 +306,7 @@
                 
               
 
-              <time title="创建时间：2019-08-05 12:28:26 / 修改时间：14:42:59" itemprop="dateCreated datePublished" datetime="2019-08-05T12:28:26+08:00">2019-08-05</time>
+              <time title="创建时间：2019-08-05 12:28:26 / 修改时间：19:43:21" itemprop="dateCreated datePublished" datetime="2019-08-05T12:28:26+08:00">2019-08-05</time>
             </span>
           
             
@@ -356,9 +356,9 @@
 <p>类的方法：允许进行的操作</p>
 <p>类的抽象：拥有相同或者类似属性和行为的对象都可以抽象出一个类</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class.png" alt></p>
-<p>python调用<strong>init</strong>方法的作用：初始化对象</p>
+<p>python调用__init__方法的作用：初始化对象</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class1.png" alt></p>
-<p>python调用<strong>str</strong>方法：</p>
+<p>python调用__str__方法：</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class3.png" alt></p>
 <p>私有方法：外界不能直接调用</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class4.png" alt></p>
@@ -370,19 +370,19 @@
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class7.png" alt></p>
 <p>在这里讲一下私有的原理：这是通过名字重整机制改变的。命名规则：_类名__num（尽量不要用）</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class8.png" alt></p>
-<p>python可以自己调用<strong>del</strong>方法，<strong>del</strong>是该对象被删除后调用的方法，注意：这里的删除是没有引用对象</p>
+<p>python可以自己调用__del__方法，__del__是该对象被删除后调用的方法，注意：这里的删除是没有引用对象</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class9.png" alt></p>
 <p>完全删除后（没有引用对象）：</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class10.png" alt></p>
 <p>测量对象的引用对象：用sys模块的sys.getrefcount，得出结果后减一。</p>
-<p><strong>new</strong>方法：创建对象</p>
+<p>__new__方法：创建对象</p>
 <p>实例化对象相当于做三件事：</p>
-<p>1.通过<strong>init</strong>来创建对象，然后找了一个变量来接收<strong>init</strong>的返回值。这个返回值表示创建出来的对象引用。</p>
-<p>2.<strong>init</strong>（刚刚创建出来的对象的引用）</p>
+<p>1.通过__init__来创建对象，然后找了一个变量来接收___init__的返回值。这个返回值表示创建出来的对象引用。</p>
+<p>2.__init__（刚刚创建出来的对象的引用）</p>
 <p>3.返回对象的引用。</p>
-<p><strong><strong>new</strong>方法和<strong>init</strong>方法的区别</strong>:</p>
-<p>1.<strong>init</strong> 通常用于初始化一个新实例，控制这个初始化的过程，比如添加一些属性， 做一些额外的操作，发生在类实例被创建完以后。它是实例级别的方法。没有返回值。负责初始化</p>
-<p>2.<strong>new</strong> 通常用于控制生成一个新实例的过程。它是类级别的方法，参数是cls。负责创建。<strong>init</strong> 和<strong>new</strong>方法合起来相当于C++的构造函数。</p>
+<p><strong>__new__方法 和 <em>\</em>init__方法的区别</strong>:</p>
+<p>1.<em>\</em>init__ 通常用于初始化一个新实例，控制这个初始化的过程，比如添加一些属性， 做一些额外的操作，发生在类实例被创建完以后。它是实例级别的方法。没有返回值。负责初始化</p>
+<p>2._<em>new_</em> 通常用于控制生成一个新实例的过程。它是类级别的方法，参数是cls。负责创建。__init__和<em>\</em>new__方法合起来相当于C++的构造函数。</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class11.png" alt></p>
 <p>下面讲一个新的概念：单例      单例是创建了多少个对象都是指向同一片内存。</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class12.png" alt></p>
@@ -422,7 +422,7 @@
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class24.png" alt></p>
 <p><strong>getattribute</strong>:属性拦截器</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class25.png" alt></p>
-<p>使用类名调用类属性时，不会经过<strong>getattribute</strong>方法，其他均要调用。（可以用来做日志）</p>
+<p>使用类名调用类属性时，不会经过__getattribute__方法，其他均要调用。（可以用来做日志）</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/clas.png" alt></p>
 
     </div>
@@ -533,7 +533,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">15</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -562,7 +562,27 @@
         
           
         
-        <span class="site-state-item-count">7</span>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
@@ -589,7 +609,23 @@
         
           
         
-        <span class="site-state-item-count">6</span>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
