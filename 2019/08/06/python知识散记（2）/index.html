@@ -70,7 +70,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python15.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python23.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python16.png">
-<meta property="og:image" content="c:%5CUsers%5C%E6%B9%9B%E8%93%9D%E6%98%9F%E7%A9%BA%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1565078808885.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python30.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python18.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python29.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python20.png">
@@ -78,7 +78,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python24.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python25.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python27.png">
-<meta property="og:updated_time" content="2019-08-06T08:11:37.041Z">
+<meta property="og:updated_time" content="2019-08-07T05:48:57.041Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python知识散记（2）">
 <meta name="twitter:description" content="​    接着上次的知识散记，我们接着看。 闭包在函数内部定义一个函数，并且这个函数用到了外面的变量。将这个函数以及用到的一些变量称之为闭包。 当某个函数被当成对象返回时，夹带了外部 变量，就形成了一个闭包。  global：一般多用在函数内，声明变量的作用域为全局作用域。箭头变化的时候加，箭头不变的时候可以不加。（箭头类似指针）  nonlocal：nonlocal关键字用来在函数或其他作用域中">
@@ -293,11 +293,21 @@
                 
               
 
-              <time title="创建时间：2019-08-06 15:32:02 / 修改时间：16:11:37" itemprop="dateCreated datePublished" datetime="2019-08-06T15:32:02+08:00">2019-08-06</time>
+              <time title="创建时间：2019-08-06 15:32:02" itemprop="dateCreated datePublished" datetime="2019-08-06T15:32:02+08:00">2019-08-06</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-07 13:48:57" itemprop="dateModified" datetime="2019-08-07T13:48:57+08:00">2019-08-07</time>
+              </span>
             
           
             <span class="post-meta-item">
@@ -315,7 +325,14 @@
                   ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/知识散记（2）/" itemprop="url" rel="index"><span itemprop="name">知识散记（2）</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/知识散记/" itemprop="url" rel="index"><span itemprop="name">知识散记</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/知识散记/知识散记（2）/" itemprop="url" rel="index"><span itemprop="name">知识散记（2）</span></a></span>
 
                 
                 
@@ -344,30 +361,26 @@
 <h2 id="lambda匿名函数："><a href="#lambda匿名函数：" class="headerlink" title="lambda匿名函数："></a>lambda匿名函数：</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python15.png" alt></p>
 <p>不要看匿名函数蛮简单的，其实还是有点注意事项的。<strong>对默认参数的赋值只会在函数定义的时候绑定一次。x是一个自由变量。在运行的时候绑定，而不是在定义的时候绑定。执行时，x的值是多少就是多少。如果希望匿名函数可以在定义的时候绑定，并保持值不变，则采用下面方法。</strong></p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python23.png" alt></p>
-<p>##assert:断言</p>
-<p>用来直接让程序崩溃，在程序中置入检查点</p>
+<h2 id="assert-断言"><a href="#assert-断言" class="headerlink" title="assert:断言"></a>assert:断言</h2><p>用来直接让程序崩溃，在程序中置入检查点</p>
 <p>条件后可以添加字符串，用来解释断言</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python16.png" alt></p>
-<h2 id="format"><a href="#format" class="headerlink" title="format:"></a>format:</h2><p><img src="C:%5CUsers%5C%E6%B9%9B%E8%93%9D%E6%98%9F%E7%A9%BA%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1565078808885.png" alt="1565078808885"></p>
-<h2 id="对和-的解释："><a href="#对和-的解释：" class="headerlink" title="对和*的解释："></a>对<em>和*</em>的解释：</h2><p>星号（*）作为形参的时候是起到“打包”的作用，相反，作为实参的时候是起到“解包”的作用。</p>
-<p>####星号（<em>）或（*</em>）作为形参，表示调用可变参数函数：</p>
-<p>通过在形参前加一个星号（<em>）或两个星号（*</em>）来指定函数可以接收任意数量的实参。</p>
+<h2 id="format"><a href="#format" class="headerlink" title="format:"></a>format:</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python30.png" alt></p>
+<h2 id="对-和-的解释："><a href="#对-和-的解释：" class="headerlink" title="对*和**的解释："></a>对*和**的解释：</h2><p>星号(*)和(**)作为形参的时候是起到“打包”的作用，相反，作为实参的时候是起到“解包”的作用。</p>
+<h6 id="星号-或-作为形参，表示调用可变参数函数："><a href="#星号-或-作为形参，表示调用可变参数函数：" class="headerlink" title="星号(*)或(**)作为形参，表示调用可变参数函数："></a>星号(*)或(**)作为形参，表示调用可变参数函数：</h6><p>通过在形参前加一个星号(*)或两个星号(**)来指定函数可以接收任意数量的实参。</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python18.png" alt></p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python29.png" alt></p>
 <p>从两个示例的输出可以看出：当参数形如 *args 时，传递给函数的任意个实参会按位置打包成一个元</p>
 <p>组（tuple）；当参数形如 **args 时，传递给函数的任意个 key = value 实参会被包装进一个字典（dict）。</p>
-<p>####星号（<em>）和（*</em>）作为实参时，表示通过解包参数调用函数：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python20.png" alt></p>
+<h6 id="星号-和-作为实参时，表示通过解包参数调用函数："><a href="#星号-和-作为实参时，表示通过解包参数调用函数：" class="headerlink" title="星号(**)和(*)作为实参时，表示通过解包参数调用函数："></a>星号(**)和(*)作为实参时，表示通过解包参数调用函数：</h6><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python20.png" alt></p>
 <h2 id="常用内置函数补充："><a href="#常用内置函数补充：" class="headerlink" title="常用内置函数补充："></a>常用内置函数补充：</h2><p>复数可以通过<strong>complex（real，imag）</strong>来指定。conjugete提取共轭复数</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python21.png" alt></p>
 <p><strong>hasattr</strong>：hasattr() 函数用于判断对象是否包含对应的属性。如果对象有该属性返回 True，否则返回 False。</p>
-<h2 id="上下文管理器（context-manager）："><a href="#上下文管理器（context-manager）：" class="headerlink" title="上下文管理器（context manager）："></a>上下文管理器（context manager）：</h2><p>任何实现了__enter__和<em>\</em>exit__方法的对象都可称为上下文管理器</p>
+<h2 id="上下文管理器（context-manager）："><a href="#上下文管理器（context-manager）：" class="headerlink" title="上下文管理器（context manager）："></a>上下文管理器（context manager）：</h2><p>任何实现了__enter__和__exit__方法的对象都可称为上下文管理器</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python24.png" alt></p>
-<p>__enter_<em>\</em>():方法返回资源对象，这里就是你将要打开的那个文件对象，__exit___()处理一些清除工作。因为File类实现上下文管理器，现在就可以使用with语句了。</p>
+<p>__enter__():方法返回资源对象，这里就是你将要打开的那个文件对象，__exit__()处理一些清除工作。因为File类实现上下文管理器，现在就可以使用with语句了。</p>
 <p>实现上下文管理器的其他方法：使用contextmanager装饰器</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python25.png" alt></p>
-<p>##三种修饰符：</p>
-<p>staticmethod、classmethod 和 property，作用分别是把类中定义的实例方法变成静态方法、类方法和类属性。staticmethod、classmethod具体看python的类和对象。</p>
+<h2 id="python的三种修饰符："><a href="#python的三种修饰符：" class="headerlink" title="python的三种修饰符："></a>python的三种修饰符：</h2><p>staticmethod、classmethod 和 property，作用分别是把类中定义的实例方法变成静态方法、类方法和类属性。staticmethod、classmethod具体看python的类和对象。</p>
 <p>注意：</p>
 <ol>
 <li><p>函数先定义，再修饰它；反之会编译器不认识；</p>
@@ -439,6 +452,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+              <a href="/2019/08/07/python知识散记（3）/" rel="prev" title="python知识散记（3）">
+                python知识散记（3） <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
     </footer>
@@ -493,7 +510,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-count">21</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -542,7 +559,23 @@
         
           
         
-        <span class="site-state-item-count">17</span>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">25</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
@@ -585,7 +618,13 @@
         
           
         
-        <span class="site-state-item-count">14</span>
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
@@ -624,7 +663,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包"><span class="nav-text">闭包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#global："><span class="nav-text">global：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nonlocal："><span class="nav-text">nonlocal：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lambda匿名函数："><span class="nav-text">lambda匿名函数：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#format"><span class="nav-text">format:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对和-的解释："><span class="nav-text">对和*的解释：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用内置函数补充："><span class="nav-text">常用内置函数补充：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#上下文管理器（context-manager）："><span class="nav-text">上下文管理器（context manager）：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包"><span class="nav-text">闭包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#global："><span class="nav-text">global：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nonlocal："><span class="nav-text">nonlocal：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lambda匿名函数："><span class="nav-text">lambda匿名函数：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#assert-断言"><span class="nav-text">assert:断言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#format"><span class="nav-text">format:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对-和-的解释："><span class="nav-text">对*和**的解释：</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#星号-或-作为形参，表示调用可变参数函数："><span class="nav-text">星号(*)或(**)作为形参，表示调用可变参数函数：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#星号-和-作为实参时，表示通过解包参数调用函数："><span class="nav-text">星号(**)和(*)作为实参时，表示通过解包参数调用函数：</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用内置函数补充："><span class="nav-text">常用内置函数补充：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#上下文管理器（context-manager）："><span class="nav-text">上下文管理器（context manager）：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#python的三种修饰符："><span class="nav-text">python的三种修饰符：</span></a></li></ol></div>
             
 
           </div>
