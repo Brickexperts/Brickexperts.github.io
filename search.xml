@@ -1,6 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[opencv(5)]]></title>
+    <url>%2F2019%2F08%2F08%2Fopencv-5%2F</url>
+    <content type="text"><![CDATA[视频处理Videocapture：VideoCapture(args)：如果args=0，则打开摄像头。如果args=路径， 则打开视频源 摄像头设置和查询： 调用摄像头读取图像数据，以及使用 cap.set( propId ， value ) cap.get( propId ) 图片合成视频： 视频分解图片： normalize：归一化函数为了消除指标之间的影响，需要对数据进行标准化处理，以解决数据指标之间的可比性 cv2.normalize(src[, dst[, alpha[, beta[, norm_type[, dtype[, mask]]]]]]) src:输入数组 dst:与src大小相同的输出数组 alpha:下限边界 beta:上限边界 norm_type:NORM_MINMAX NORM_INF NORM_L1 NORM_L2 dType:当输出为负时，输出数组具有与src相同的类型。否则，具有与src相同的信道数和深度 mask:掩膜 画图cv2.rectangle（）：若将五改为-1，则填充整个矩形 cv2.circle：要画圆的话，只需要指定圆形的中心点坐标和半径大小，颜色和粗细 cv2.ellispe:一个参数是中心点的位置坐标。下一个参数是长轴和短轴的长度。椭圆沿逆时针方向旋转的角度。椭圆弧沿顺时针方向起始的角度和结束角度，如果是 0 到 360，就是整个椭圆。 图像金字塔我们对同一图像的不同分辨率的子图像处理。比如我们在一幅图像中查找某个目标比如脸，我们不知目标在图像中的尺寸大小。这种情况下我们创建一组图，这些图像是具有不同分率的原始图像。我们把组图像叫做图像字塔简单来就是同一图像的不同分率的子图集合。如果我们把大的图像放在底部最小的放在顶部。看来像一座金字塔，故而得名图像金字塔。 图像金字塔：高斯金字塔和拉普拉斯金字塔 向下采样：将图像缩小，图像信息丢失 向上采样：将图像放大，图像会变模糊 向下采样和向上采样不是可逆的，无法将图像变为原始图像。 向下采样函数：cv2.pyrDown(原始图像) 向上采样函数：cv2.pyrUP 拉普拉斯金字塔： opencv删除窗口：删除所有窗口 ：cv2.destroyAllWindow() 删除指定窗口：cv2.destroyWindow(“original”) waitKey(x):参数为等待键盘触发的时间。单位为毫秒。如不输入参数，则输入任意键退出。 setMouseCallback():event为事件 x，y代表鼠标位于窗口的（x，y）位置 flags：代表鼠标的拖曳事件以及鼠标和键盘联合的事件。共有32种 param：函数指针，标识所相应的事件函数。 namewindow WINDOW_NORMAL 用户可以改变窗口的大小； WINDOW_AUTOSIZE 窗口大小会根据显示图像自动调整，用户必能手动改变窗口大小； WINDOW_OPENGL 支持OpenGL。]]></content>
+      <categories>
+        <category>python</category>
+        <category>opencv</category>
+        <category>opencv(5)</category>
+      </categories>
+      <tags>
+        <tag>视觉处理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[opencv(4)]]></title>
+    <url>%2F2019%2F08%2F08%2Fopencv-4%2F</url>
+    <content type="text"><![CDATA[图像类型转换 cvtColor:颜色空间转换函数 cv2.cvtColor()支持多种颜色空间之间的转换，其 需要注意的是cvtColor()函数不能直接将RGB图像转换为二值图像(Binary Image)，需要借助threshold()函数 HSV中：H为色彩，取值范围是[0,179]，S为饱和度，取值范围是[0,255],V是亮度，取值范围是[0,255]。 支持的转换类型和转换码如下： 1、RGB和BGR（opencv默认的彩色图像的颜色空间是BGR）颜色空间的转换 COLOR_BGR2RGB COLOR_RGB2BGR COLOR_RGBA2BGRA COLOR_BGRA2RGBA 2、向RGB和BGR图像中增添alpha通道 COLOR_RGB2RGBA COLOR_BGR2BGRA 3、从RGB和BGR图像中去除alpha通道 COLOR_RGBA2RGB COLOR_BGRA2BGR 4、从RBG和BGR颜色空间转换到灰度空间 COLOR_RGB2GRAY COLOR_BGR2GRAY COLOR_RGBA2GRAY COLOR_BGRA2GRAY 5、从灰度空间转换到RGB和BGR颜色空间 COLOR_GRAY2RGB COLOR_GRAY2BGR COLOR_GRAY2RGBA COLOR_GRAY2BGRA 6、RGB和BGR颜色空间与BGR565颜色空间之间的转换 COLOR_RGB2BGR565 COLOR_BGR2BGR565 COLOR_BGR5652RGB COLOR_BGR5652BGR COLOR_RGBA2BGR565 COLOR_BGRA2BGR565 COLOR_BGR5652RGBA COLOR_BGR5652BGRA 7、灰度空间域BGR565之间的转换 COLOR_GRAY2BGR555 COLOR_BGR5552GRAY 8、RGB和BGR颜色空间与CIE XYZ之间的转换 COLOR_RGB2XYZ COLOR_BGR2XYZ COLOR_XYZ2RGB COLOR_XYZ2BGR 9、RGB和BGR颜色空间与uma色度（YCrCb空间）之间的转换 COLOR_RGB2YCrCb COLOR_BGR2YCrCb COLOR_YCrCb2RGB COLOR_YCrCb2BGR 10、RGB和BGR颜色空间与HSV颜色空间之间的相互转换 COLOR_RGB2HSV COLOR_BGR2HSV COLOR_HSV2RGB COLOR_HSV2BGR 11、RGB和BGR颜色空间与HLS颜色空间之间的相互转换 COLOR_RGB2HLS COLOR_BGR2HLS COLOR_HLS2RGB COLOR_HLS2BGR 12、RGB和BGR颜色空间与CIE Lab颜色空间之间的相互转换 COLOR_RGB2Lab COLOR_BGR2Lab COLOR_Lab2RGB COLOR_Lab2BGR 13、RGB和BGR颜色空间与CIE Luv颜色空间之间的相互转换 COLOR_RGB2Luv COLOR_BGR2Luv COLOR_Luv2RGB COLOR_Luv2BGR 14、Bayer格式（raw data）向RGB或BGR颜色空间的转换 COLOR_BayerBG2RGB COLOR_BayerGB2RGB COLOR_BayerRG2RGB COLOR_BayerGR2RGB COLOR_BayerBG2BGR COLOR_BayerGB2BGR COLOR_BayerRG2BGR COLOR_BayerGR2BGR inrange：实现二值化功能 image=cv2.inrance(hsv,lower_red,upper_red) 第一个参数：hsv指的是原图 第二个参数：lower_red指的是图像中低于这个lower_red的值，图像值变为0 第三个参数：upper_red指的是图像中高于这个upper_red的值，图像值变为0 而在lower_red～upper_red之间的值变成255 图像中的与、或、异或、非操作opencv中的bitwise_not，bitwise_xor，bitwise_or，bitwise_and的使用方法与效果。 bitwise_and是对二进制数据进行“与”操作，即对图像（灰度图像或彩色图像均可）每个像素值进行二进制“与”操作，1&amp;1=1，1&amp;0=0，0&amp;1=0，0&amp;0=0。 bitwise_or是对二进制数据进行“或”操作，即对图像（灰度图像或彩色图像均可）每个像素值进行二进制“或”操作，1|1=1，1|0=0，0|1=0，0|0=0。 bitwise_xor是对二进制数据进行“异或”操作，即对图像（灰度图像或彩色图像均可）每个像素值进行二进制“异或”操作，1^1=0,1^0=1,0^1=1,0^0=0。 bitwise_not是对二进制数据进行“非”操作，即对图像（灰度图像或彩色图像均可）每个像素值进行二进制“非”操作，1=0，0=1。 Hough直线变换cv2.HoughLines()，返回值就是距离和角度。这个函数的第一个参数是一个二值化图像。第二个和第三个值代表距离和角度的精确度。第四个参数是阈值，只有累加其中的值高于阈值时才被认为是一条直线。 cv2.HoughLinesP():比上面多两个参数，minLineLength和MaxLineGap。比较简单 minLineLength：线的最短长度，比这个短的线都忽略 MaxLineGap：两条线段的最大间断，如果小于此值，这两条直线被看成一条直线 Hough圆环变换：HoughCircles(image, method, dp, minDist[, circles[, param1[, param2[, minRadius[, maxRadius]]]]]) image参数表示8位单通道灰度输入图像矩阵。 method参数表示圆检测方法，目前唯一实现的方法是HOUGH_GRADIENT。 dp参数表示累加器与原始图像相比的分辨率的反比参数。例如，如果dp = 1，则累加器具有与输入图像相同的分辨率。如果dp=2，累加器分辨率是元素图像的一半，宽度和高度也缩减为原来的一半。 minDist参数表示检测到的两个圆心之间的最小距离。如果参数太小，除了真实的一个圆圈之外，可能错误地检测到多个相邻的圆圈。如果太大，可能会遗漏一些圆圈。 circles参数表示检测到的圆的输出向量，向量内第一个元素是圆的横坐标，第二个是纵坐标，第三个是半径大小。 param1参数表示Canny边缘检测的高阈值，低阈值会被自动置为高阈值的一半。 param2参数表示圆心检测的累加阈值，参数值越小，可以检测越多的假圆圈，但返回的是与较大累加器值对应的圆圈。 minRadius参数表示检测到的圆的最小半径。 maxRadius参数表示检测到的圆的最大半径]]></content>
+      <categories>
+        <category>python</category>
+        <category>opencv</category>
+        <category>opencv(4)</category>
+      </categories>
+      <tags>
+        <tag>视觉处理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[opencv(3)]]></title>
+    <url>%2F2019%2F08%2F08%2Fopencv-3%2F</url>
+    <content type="text"><![CDATA[图像轮廓和图像边缘不一样，边缘不连续。将边缘连接成一个整体构成轮廓。 提取图像轮廓的方法：先调用cv2.findContours()，后调用cv2.drawCont() cv2.findCount函数使用方法: 参数mode的几种方式： 参数method的几种方法： 轮廓特征：cv2.moments()会将计算得到的矩以一个字典的形式返回。 轮廓面积可以使用函数 cv2.contourArea() 计算得到 轮廓周长：cv2.arcLength(cnt，True) 函数的第二个参数用来指定对象的形状是闭合的(True)，还是打开的。 轮廓近似：cv2.approxPolyDP(cnt，epsilon，True) 凸包：函数cv2.convexHull() 可以用来检测一个曲线是否具有凸性缺陷并能纠正凸性缺陷。凸性曲线总是凸出来的，至少是平的。如果有地方凹去了就叫做凸性缺陷。 凸性检测：cv2.isContourConvex()可以用来检测一个曲线是不是凸的，返回True和False。 边界矩形：直边界矩形和旋转的边界矩形。 直边界矩形：面积不是最小的。x,y,w,h=cv2.boundingRect()。x,y,为矩形左上角的坐标，w,h为矩形的宽和高 旋转的边界矩形：面积最小。考虑了对象的旋转。cv2.minAreaRect())。返回的是一个 Box2D 结构，其中包含矩形左上点的坐标x，y矩形的宽和高w，h以及旋度。但是绘制个矩形矩形的 4 个点可以函数cv2.boxPoints() 获 得。 最小外接圆：cv2.minEnlosingCircle() 椭圆拟合：旋转边界矩形的内切圆 cv2.fitEllipse(cnt) 形状匹配：cv2.matchShape()可以帮我们比较两个形状或轮廓的相似度。返回值越小，匹配越好。 getStructuringElement构建一个核。前面腐蚀膨胀的numpy构建的结构化元素是正方形的 getStructuringElement 与 Numpy 定义的元素结构是完全一样的这个函数的第一个参数表示内核的形状，有三种形状可以选择。 矩形：MORPH_RECT; 交叉形：MORPH_CROSS; 椭圆形：MORPH_ELLIPSE; 第二和第三个参数分别是内核的尺寸以及锚点的位置。对于锚点的位置，有默认值（-1,-1），表示锚点位于中心点。element形状唯一依赖锚点位置，其他情况下，锚点只是影响了形态学运算结果的偏移。 透视变换在不同的视觉拍摄同一个物体，会有不同的图像。透视变换就是类似于改变拍摄物体的角度 仿射变换：由平移、错切、缩放、反转、旋转复合而成，是透视变换的特殊形式 OpenCV提供了两个变换函数cv2.warpAﬃne(仿射变换)和cv2.warpPerspective(透视变换) ，cv2.warpAﬃne 接收的参数是 2×3 的变换矩阵，而cv2.warpPerspective 接收的参数是 3×3 的变换矩阵。 函数cv2.warpAﬃne() 的第三个参数的是输出图像的大小。它的格式应是图像的(宽,高)。注意的是图像的宽对应的是列数，高对应的是行数。可以实现图片平移。可以和cv2.getAffineTransform配合使用 其中两个参数是变换前后的位置关系 函数cv2.warpPerspective配合cv2.getPerspectiveTransform()使用。同时可以用findHomography返回的单应性矩阵。 getPersonspectiveTransform得出变换矩阵： 得出变换矩阵以后用warpPerspective()：第一个参数是输入图像，M是变换矩阵，第三个参数是输出图像的大小 getPerspectiveTransform和findHomography的区别： 旋转：cv2.getRotationMatrix2D()]]></content>
+      <categories>
+        <category>python</category>
+        <category>opencv</category>
+        <category>opencv(3)</category>
+      </categories>
+      <tags>
+        <tag>视觉处理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[opencv(2)]]></title>
+    <url>%2F2019%2F08%2F08%2Fopencv-2%2F</url>
+    <content type="text"><![CDATA[图像滤波：即在尽量保留图像细节特征的条件下对目标图像的噪声进行抑制，是图像预处理中不可缺少的操作，其处理效果的好坏将直接影响到后续图像处理和分析的有效性和可靠性。 图像滤波图像滤波的目的 a、消除图像中混入的噪声 b、为图像识别抽取出图像特征 均值滤波，用blur函数 方框滤波：进行归一化处理后，和均值滤波相同。当normalize为零时，不进行归一化处理。当normalize为一时，进行归一化处理（默认）。目标图像深度通常于原始图像一样，值为-1。 高斯滤波： 注意：ksize：核大小必须为单数 sigmaX、sigmaY：控制权重 中值滤波： 两种边缘保留滤波： biateraFilter：能在保持边界清晰的情况下有效的去除噪音 filter2D:对2D图像实施低通滤波。去除噪音，模糊图像 膨胀和腐蚀膨胀、腐蚀时用到的kernel的形状一般有下面三种： 矩形: MORPH_RECT 交叉形: MORPH_CROSS 椭圆形: MORPH_ELLIPSE 图像腐蚀：调用erode函数 图像膨胀：调用dialate 开运算：先通过图像腐蚀，后经过图像膨胀可以图像去噪。iteration表示次数 闭运算：先是先通过图像膨胀，后经过图像腐蚀 梯度运算：图像膨胀-图像腐蚀 图像礼帽（图像顶帽）：原始图像-开运算图像，得到噪声图像 图像黑帽：闭运算-原始图像 求梯度梯度简单来说就是求导。Sobel，Scharr是求一阶导数或二阶导数。Scharr是对Sobel的优化。Laplacian是求二阶导数。 Sobel算子：当一个像素右边的值减去左边的值不为零，该像素为边界。 计算梯度的函数： ddepth通常取cv2.CV_64F。 dx=0,dy=1计算y轴的边界,dx=1,dy=0计算x轴的边界。满足条件dx&gt;=0&amp;&amp;dy&gt;=0&amp;&amp;dx+dy=1 将图像中的负值转为正： 将一个图像的边缘提取出来：如果没有converScaleAbs，所有的负值都会被截断为0.换句话就是把边界丢掉。 Scharr算子：比sobel算子精准，使用方法基本一样 计算梯度调用函数：cv2.Scharr(src,ddpetch,dx,dy) des=cv2.Scharr(src,ddpetch,dx,dy) 等价于des=cv2.Sobel(src,ddpetch,dx,dy,-1) 为图像扩边：cv2.copyMakeBorder()src:原图图像 top,bottom,left,right分别表示在原图四周扩充边缘的大小 borderType：扩充边缘的类型，就是外插的类型，OpenCV中给出以下几种方式 * BORDER_REPLICATE * BORDER_REFLECT * BORDER_REFLECT_101 * BORDER_WRAP * BORDER_CONSTANT canny函数提取图片边缘cv2.canny(img,threshold1,threshold2) img代表原始图像，threshold1、threshold2为阈值。两个阈值越小，得出图像边缘越详细。反之，边框越边缘。 提取原理步骤：1、高斯模糊 - GaussianBlur 2、灰度转换 - cvtColor 3、计算梯度 – Sobel/Scharr 4、非最大信号抑制5、高低阈值输出二值图像]]></content>
+      <categories>
+        <category>python</category>
+        <category>opencv</category>
+        <category>opencv(2)</category>
+      </categories>
+      <tags>
+        <tag>视觉处理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[opencv(1)]]></title>
+    <url>%2F2019%2F08%2F08%2Fopencv-1%2F</url>
+    <content type="text"><![CDATA[​ 因为我是对图像处理的方面比较感兴趣的。所以我也是对python的视觉处理模块opencv进行了学习。这个模块虽然是传统方法，但还是蛮有用的。而且它有上千个API，我总结了以下我所学到的。开始吧。 cv2是opencv的扩展模块。 imread第二个参数类型: cv2.imwrite:保存图片 下文中：绝对路径代表绝对路径也行 改变图片某行某列的像素： 批量改变图片像素： 获取图像属性： 拆分通道： 合并通道： 图片移位： 将两张图片加在一起：1、取模加法 2、饱和运算 注意：两张图片的大小和类型相等 减法(subtract)、乘法(multiply)和除法(divide)和加法(add)类似 图像融合：将两张或两张以上的图片融合到一张图片上 图像缩放（参数必须为整数）： 图像翻转：调用cv2.flip(原始图像，flipcode) 三种情况： filpcode=0：以x轴为对称轴的上下翻转 flipcode&gt;0:以Y轴为对称轴的左右翻转 flipcode&lt;0:X、Y轴各翻转一次 图像颜色反转： 图片打上马赛克： 图片上写字： 图片修补： 图片亮度增强： 图像阈值分割：调用了threshold函数 五种分割方法： 二进制阈值化（cv2.THRESH_BINARY）：选定一个阈值，用每一个像素的阈值和该阈值比较，大于该阈值则将该像素阈点值设为最大，若小于该阈值，则将该像素点阈值设为零。 反二进制阈值化（cv.THRESH_BINARY_INV）：选定一个阈值，用每一个像素的阈值和该阈值比较，大于该阈值则将该像素点的阈值设为零，若小于该阈值，则将该像素点阈值设为最大。 截断阈值化（cv.THRESH_TRUNC）：选定个阈值，用每一个像素的阈值和该阈值比较，大于该阈值则将该像素点的阈值设为该阈值，小于该阈值的像素点的阈值不变。 阈值化为0（THRESH_TOZERO）：先选定一个阈值，像素点的灰度值大于该阈值的不进行任何改变；像素点的灰度值小于该阈值的，其灰度值全部变为0。 反阈值化为0(THRESH_TOZERO_INV)：先选定一个阈值，像素点的灰度值小于该阈值的不进行任何改变；像素点的灰度值大于该阈值的，其灰度值全部变为0。 还有另一种阈值分割函数：自适应阈值函数 cv2.adaptiveThreshold()]]></content>
+      <categories>
+        <category>python</category>
+        <category>opencv</category>
+        <category>opencv(1)</category>
+      </categories>
+      <tags>
+        <tag>视觉处理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[时间模块]]></title>
+    <url>%2F2019%2F08%2F08%2F%E6%97%B6%E9%97%B4%E6%A8%A1%E5%9D%97%2F</url>
+    <content type="text"><![CDATA[​ 今天我们来讲一下python里面的时间模块。time 模块提供各种时间相关的功能。在 Python 中，与时间处理有关的模块包括：time，datetime 以及 calendar。 首先先来一波术语解释： 时间戳（timestamp）的方式：通常来说，时间戳表示的是从 1970 年 1 月 1 日 00:00:00 开始按秒计算的偏移量（time.gmtime(0)）此模块中的函数无法处理 1970 纪元年以前的日期和时间或太遥远的未来（处理极限取决于 C 函数库，对于 32 位系统来说，是 2038 年） UTC（Coordinated Universal Time，世界协调时）也叫格林威治天文时间，是世界标准时间。在中国为 UTC+8 DST（Daylight Saving Time）即夏令时的意思。一些实时函数的计算精度可能低于它们建议的值或参数，例如在大部分 Unix 系统，时钟一秒钟“滴答”50~100 次 gmtime()，localtime()和 strptime() 以时间元祖（struct_time）的形式返回。 注一：范围真的是0-61.这是基于历史原因。 ##time time.altzone：返回格林威治西部的夏令时地区的偏移秒数；如果该地区在格林威治东部会返回负值（如西欧，包括英国）；对夏令时启用地区才能使用。 time.asctime([t])：接受时间元组并返回一个可读的形式为”Tue Dec 11 18:07:14 2015”（2015年12月11日 周二 18时07分14秒）的 24 个字符的字符串。 time.clock()：用以浮点数计算的秒数返回当前的 CPU 时间。用来衡量不同程序的耗时，比 time.time() 更有用。Python 3.3 以后不被推荐，由于该方法依赖操作系统，建议使用 perf_counter() 或 process_time() 代替（一个返回系统运行时间，一个返回进程运行时间，请按照实际需求选择） time.ctime([secs]) ：作用相当于 asctime(localtime(secs))，未给参数相当于 asctime() time.gmtime([secs])：接收时间辍（1970 纪元年后经过的浮点秒数）并返回格林威治天文时间下的时间元组 t（注：t.tm_isdst 始终为 0） time.daylight：如果夏令时被定义，则该值为非零。 time.localtime([secs])：接收时间辍（1970 纪元年后经过的浮点秒数）并返回当地时间下的时间元组 t（t.tm_isdst 可取 0 或 1，取决于当地当时是不是夏令时） time.mktime(t)：接受时间元组并返回时间辍（1970纪元后经过的浮点秒数） time.perf_counter()：返回计时器的精准时间（系统的运行时间），包含整个系统的睡眠时间。由于返回值的基准点是未定义的，所以，只有连续调用的结果之间的差才是有效的。 time.process_time() ：返回当前进程执行 CPU 的时间总和，不包含睡眠时间。由于返回值的基准点是未定义的，所以，只有连续调用的结果之间的差才是有效的。 time.sleep(secs)：推迟调用线程的运行，secs 的单位是秒。 time.clock()：用以浮点数计算的秒数返回当前的 CPU 时间。用来衡量不同程序的耗时，比 time.time() 更有用。 Python 3.3 以后不被推荐，由于该方法依赖操作系统，建议使用 perf_counter() 或 process_time() 代替（一个返回系统运行时间，一个返回进程运行时间，请按照实际需求选择） time.time()：返回当前时间的时间戳（1970 纪元年后经过的浮点秒数） time.timezone：time.timezone 属性是当地时区（未启动夏令时）距离格林威治的偏移秒数（美洲 &gt;0；大部分欧洲，亚洲，非洲 &lt;= 0） time.tzname：time.tzname 属性是包含两个字符串的元组：第一是当地非夏令时区的名称，第二个是当地的 DST 时区的名称。 time.strftime(format[, t]) ：把一个代表时间的元组或者 struct_time（如由 time.localtime() 和 time.gmtime() 返回）转化为格式化的时间字符串。如果 t 未指定，将传入 time.localtime()。如果元组中任何一个元素越界，将会抛出 ValueError 异常。 time.strptime(string[, format])：把一个格式化时间字符串转化为 struct_time。实际上它和 strftime() 是逆操作 format 格式如下： 注1：“%p”只有与“%I”配合使用才有效果。 注2：范围真的是*0 ~ 61（你没有看错哦）；60代表闰秒，61是基于历史原因保留。 注3：当使用 strptime() 函数时，只有当在这年中的周数和天数被确定的时候%U 和 %W 才会被计算。 datetimedatetime.today()：返回一个表示当前本地时间的 datetime 对象，等同于 datetime.fromtimestamp(time.time()) datetime.now(tz=None)：返回一个表示当前本地时间的 datetime 对象；如果提供了参数 tz，则获取 tz 参数所指时区的本地时间 datetime.utcnow():返回一个当前 UTC 时间的 datetime 对象 datetime.fromtimestamp(timestamp, tz=None): 根据时间戮创建一个 datetime 对象，参数 tz 指定时区信息 datetime.utcfromtimestamp(timestamp): 根据时间戮创建一个 UTC 时间的 datetime 对象 datetime.fromordinal(ordinal): 返回对应 Gregorian 日历时间对应的 datetime 对象 datetime.combine(date, time): 根据参数 date 和 time，创建一个 datetime 对象 datetime.strptime(date_string, format): 将格式化字符串转换为 datetime 对象 datetime.timedelta对象代表两个时间之间的时间差，两个date或datetime对象相减就可以返回一个timedelta对象。 *datetime.timedelta([days[, seconds[, microseconds[, milliseconds[, minutes[, hours[, weeks]]]]]]]) * 往前算： 往后算： datetime.date()：返回一个 date 对象datetime.time() - 返回一个 time 对象（tzinfo 属性为 None） datetime.timetz()： 返回一个 time() 对象（带有 tzinfo 属性） datetime.replace([year[, month[, day[, hour[, minute[, second[, microsecond[, tzinfo]]]]]]]])： 生成一个新的日期对象，用参数指定日期和时间代替原有对象中的属性 datetime.astimezone(tz=None)： 传入一个新的 tzinfo 属性，返回根据新时区调整好的 datetime 对象 datetime.utcoffset()：如果 tzinfo 属性是 None，则返回 None；否则返回 self.tzinfo.utcoffset(self) datetime.dst()：如果 tzinfo 属性是 None，则返回 None；否则返回 self.tzinfo.dst(self) datetime.tzname()：如果 tzinfo 属性是 None，则返回 None；否则返回 self.tzinfo.tzname(self) datetime.timetuple()：返回日期对应的 time.struct_time 对象（类似于 time模块的 time.localtime()） datetime.utctimetuple()：返回 UTC 日期对应的 time.struct_time 对象 datetime.toordinal()：返回日期对应的 Gregorian Calendar 日期（类似于 self.date().toordinal()） datetime.timestamp()：返回当前时间的时间戳（类似于 time 模块的 time.time()） datetime.weekday()：返回 0 ~ 6 表示星期几（星期一是 0，依此类推） datetime.isoweekday()： 返回 1 ~ 7 表示星期几（星期一是1， 依此类推） datetime.isocalendar() ：返回一个三元组格式 (year, month, day) datetime.isoformat(sep=’T’)：返回一个 ISO 8601 格式的日期字符串，如 “YYYY-MM-DD” 的字符串 datetime.__str__()：对于 date 对象 d 来说，str(d) 相当于 d.isoformat() datetime.ctime()：返回一个表示日期的字符串，相当于 time模块的 time.ctime(time.mktime(d.timetuple())) datetime.strftime(format):返回自定义格式化字符串表示日期。 datetime.__format__(format)跟 datetime.strftime(format) 一样，这使得调用 str.format() 时可以指定 data 对象的字符串 calendarcalendar.calendar(year,w,l,c)(year为年份，w是每日宽度，c为间隔距离，l为每星期行数) 日历 *calendar.isleap(year) *：如果是闰年就返回True，否则返回False calendar.leapdays(y1,y2)：返回y1与y2两年间的闰年总数 *calendar.month(year,month,w,l) *：year代表年份，month代表月日历，每行宽度间隔为w，l是每星期的行数 *calendar.prcal *：相当于print(calendar.calendar(year,w,l,c)) calendar.prmonth(year,month,w,l)：相当于print(calendar.calendar(year,w,l,c)) calendar.weekday(year,month,day)： 返回指定日期的日期码，0-6（星期），1-12（月份） calendar.firstweekday()返回当前起始日期的设置 calendar.setfirstweekday()：设置每周的起始日期码 calendar.timegm(时间元祖) 和time.gmtime相反 calendar.monthrange(year,month)：返回两个整数。第一个是该月第一天是星期几的日期码，第二个是该月的日期码。日从0（星期一）到6（星期日）;月从1到12。 timeit测试一个函数的执行时间：timeit.timeit timeit.repeat:返回一个包含了每次实验的执行时间的列表 三个时间模块的函数特别多，我也没有一一去试。用到的时候才会深究，各位看官根据自己的情况来试着使用起来吧。]]></content>
+      <categories>
+        <category>python</category>
+        <category>时间管理</category>
+      </categories>
+      <tags>
+        <tag>python时间管理</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[python常用模块（3）]]></title>
     <url>%2F2019%2F08%2F07%2Fpython%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%9D%97%EF%BC%883%EF%BC%89%2F</url>
     <content type="text"><![CDATA[textwrap用来重新格式化文本的输出 fill() 调整换行符,每行显示给定宽度 dedent()：去除缩进 indent():给定前缀 首行缩进： 多余的省略号：shorter() wrap():wrap(s,width) 以单词为单位(包括字符)最大长度不超过width个字符 itertoolsPython的内建模块itertools提供了非常有用的用于操作迭代对象的函数 count()会创建一个无限的迭代器，所以下述代码会打印出自然数序列，根本停不下来，只能按Ctrl+C退出。 cycle()会把传入的一个序列无限重复下去： repeat()负责把一个元素无限重复下去，不过如果提供第二个参数就可以限定重复次数： chain()可以把一组迭代对象串联起来，形成一个更大的迭代器： groupby()把迭代器中相邻的重复元素挑出来放在一起： 实际上挑选规则是通过函数完成的，只要作用于函数的两个元素返回的值相等，这两个元素就被认为是在一组的，而函数返回值作为组的key。如果我们要忽略大小写分组，就可以让元素’A’和’a’都返回相同的key： permutations():输出输入序列的全排列,考虑顺序 combinations():同上，不过不考虑顺序 product():输出输入序列的笛卡儿积 compress：可以对一个序列的筛选结果施加到另一个相关的序列上 dropwhile():筛选满足条件的元素 islice()： zip_longest：zip可产生元祖。当其中摸个输入序列中没有元素可以继续迭代时，迭代过程结束。所以整个迭代的长度和最短的输入序列相同。 如果不想这样就用zip_longest：]]></content>

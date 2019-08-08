@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-08-07T07:36:34.051Z</updated>
+  <updated>2019-08-08T06:54:48.073Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,183 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>opencv(5)</title>
+    <link href="http://yoursite.com/2019/08/08/opencv-5/"/>
+    <id>http://yoursite.com/2019/08/08/opencv-5/</id>
+    <published>2019-08-08T06:35:27.000Z</published>
+    <updated>2019-08-08T06:54:48.073Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="视频处理"><a href="#视频处理" class="headerlink" title="视频处理"></a>视频处理</h2><p>Videocapture：VideoCapture(args)：如果args=0，则打开摄像头。如果args=路径， 则打开视频源</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv68.png" alt></p><p>摄像头设置和查询：</p><p>调用摄像头读取图像数据，以及使用</p><p>cap.set( propId ， value ) </p><p>cap.get( propId )</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv69.png" alt></p><p>图片合成视频：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv70.png" alt></p><p>视频分解图片：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv71.png" alt></p><h2 id="normalize：归一化函数"><a href="#normalize：归一化函数" class="headerlink" title="normalize：归一化函数"></a>normalize：归一化函数</h2><p>为了消除指标之间的影响，需要对数据进行标准化处理，以解决数据指标之间的可比性</p><p>cv2.normalize(src[, dst[, alpha[, beta[, norm_type[, dtype[, mask]]]]]])</p><p>src:输入数组</p><p>dst:与src大小相同的输出数组</p><p>alpha:下限边界</p><p>beta:上限边界</p><p>norm_type:NORM_MINMAX  NORM_INF  NORM_L1 NORM_L2</p><p>dType:当输出为负时，输出数组具有与src相同的类型。否则，具有与src相同的信道数和深度</p><p>mask:掩膜</p><h2 id="画图"><a href="#画图" class="headerlink" title="画图"></a>画图</h2><p>cv2.rectangle（）：若将五改为-1，则填充整个矩形</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv72.png" alt></p><p>cv2.circle：要画圆的话，只需要指定圆形的中心点坐标和半径大小，颜色和粗细</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv73.png" alt></p><p>cv2.ellispe:一个参数是中心点的位置坐标。下一个参数是长轴和短轴的长度。椭圆沿逆时针方向旋转的角度。椭圆弧沿顺时针方向起始的角度和结束角度，如果是 0 到 360，就是整个椭圆。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv74.png" alt></p><h2 id="图像金字塔"><a href="#图像金字塔" class="headerlink" title="图像金字塔"></a>图像金字塔</h2><p>我们对同一图像的不同分辨率的子图像处理。比如我们在一幅图像中查找某个目标比如脸，我们不知目标在图像中的尺寸大小。这种情况下我们创建一组图，这些图像是具有不同分率的原始图像。我们把组图像叫做图像字塔简单来就是同一图像的不同分率的子图集合。如果我们把大的图像放在底部最小的放在顶部。看来像一座金字塔，故而得名图像金字塔。 </p><p>图像金字塔：高斯金字塔和拉普拉斯金字塔</p><p>向下采样：将图像缩小，图像信息丢失</p><p>向上采样：将图像放大，图像会变模糊</p><p>向下采样和向上采样不是可逆的，无法将图像变为原始图像。</p><p>向下采样函数：cv2.pyrDown(原始图像)</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv75.png" alt></p><p>向上采样函数：cv2.pyrUP</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv76.png" alt></p><p>拉普拉斯金字塔：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv77.png" alt></p><h2 id="opencv删除窗口："><a href="#opencv删除窗口：" class="headerlink" title="opencv删除窗口："></a>opencv删除窗口：</h2><p>删除所有窗口 ：cv2.destroyAllWindow()        删除指定窗口：cv2.destroyWindow(“original”)</p><p>waitKey(x):参数为等待键盘触发的时间。单位为毫秒。如不输入参数，则输入任意键退出。</p><h2 id="setMouseCallback"><a href="#setMouseCallback" class="headerlink" title="setMouseCallback():"></a>setMouseCallback():</h2><p>event为事件</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv78.png" alt></p><p>x，y代表鼠标位于窗口的（x，y）位置</p><p>flags：代表鼠标的拖曳事件以及鼠标和键盘联合的事件。共有32种</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv79.png" alt></p><p>param：函数指针，标识所相应的事件函数。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv80.png" alt></p><h2 id="namewindow"><a href="#namewindow" class="headerlink" title="namewindow"></a>namewindow</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv82.png" alt></p><p>WINDOW_NORMAL    用户可以改变窗口的大小；</p><p>WINDOW_AUTOSIZE  窗口大小会根据显示图像自动调整，用户必能手动改变窗口大小；</p><p>WINDOW_OPENGL     支持OpenGL。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;视频处理&quot;&gt;&lt;a href=&quot;#视频处理&quot; class=&quot;headerlink&quot; title=&quot;视频处理&quot;&gt;&lt;/a&gt;视频处理&lt;/h2&gt;&lt;p&gt;Videocapture：VideoCapture(args)：如果args=0，则打开摄像头。如果args=路径， 则打开
+      
+    
+    </summary>
+    
+      <category term="python" scheme="http://yoursite.com/categories/python/"/>
+    
+      <category term="opencv" scheme="http://yoursite.com/categories/python/opencv/"/>
+    
+      <category term="opencv(5)" scheme="http://yoursite.com/categories/python/opencv/opencv-5/"/>
+    
+    
+      <category term="视觉处理" scheme="http://yoursite.com/tags/%E8%A7%86%E8%A7%89%E5%A4%84%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>opencv(4)</title>
+    <link href="http://yoursite.com/2019/08/08/opencv-4/"/>
+    <id>http://yoursite.com/2019/08/08/opencv-4/</id>
+    <published>2019-08-08T06:15:03.000Z</published>
+    <updated>2019-08-08T06:35:15.859Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="图像类型转换"><a href="#图像类型转换" class="headerlink" title="图像类型转换"></a>图像类型转换</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv63.png" alt></p><p>cvtColor:颜色空间转换函数</p><p>cv2.cvtColor()支持多种颜色空间之间的转换，其</p><p>需要注意的是cvtColor()函数不能直接将RGB图像转换为二值图像(Binary Image)，需要借助threshold()函数</p><p>HSV中：H为色彩，取值范围是[0,179]，S为饱和度，取值范围是[0,255],V是亮度，取值范围是[0,255]。</p><p>支持的转换类型和转换码如下：</p><p>1、RGB和BGR（opencv默认的彩色图像的颜色空间是BGR）颜色空间的转换</p><p>COLOR_BGR2RGB</p><p>COLOR_RGB2BGR</p><p>COLOR_RGBA2BGRA</p><p>COLOR_BGRA2RGBA</p><p>2、向RGB和BGR图像中增添alpha通道</p><p>COLOR_RGB2RGBA</p><p>COLOR_BGR2BGRA</p><p>3、从RGB和BGR图像中去除alpha通道</p><p>COLOR_RGBA2RGB</p><p>COLOR_BGRA2BGR</p><p>4、从RBG和BGR颜色空间转换到灰度空间</p><p>COLOR_RGB2GRAY</p><p>COLOR_BGR2GRAY</p><p>COLOR_RGBA2GRAY</p><p>COLOR_BGRA2GRAY</p><p>5、从灰度空间转换到RGB和BGR颜色空间</p><p>COLOR_GRAY2RGB</p><p>COLOR_GRAY2BGR</p><p>COLOR_GRAY2RGBA</p><p>COLOR_GRAY2BGRA</p><p>6、RGB和BGR颜色空间与BGR565颜色空间之间的转换</p><p>COLOR_RGB2BGR565</p><p>COLOR_BGR2BGR565</p><p>COLOR_BGR5652RGB</p><p>COLOR_BGR5652BGR</p><p>COLOR_RGBA2BGR565</p><p>COLOR_BGRA2BGR565</p><p>COLOR_BGR5652RGBA</p><p>COLOR_BGR5652BGRA</p><p>7、灰度空间域BGR565之间的转换</p><p>COLOR_GRAY2BGR555</p><p>COLOR_BGR5552GRAY</p><p>8、RGB和BGR颜色空间与CIE XYZ之间的转换</p><p>COLOR_RGB2XYZ</p><p>COLOR_BGR2XYZ</p><p>COLOR_XYZ2RGB</p><p>COLOR_XYZ2BGR</p><p>9、RGB和BGR颜色空间与uma色度（YCrCb空间）之间的转换</p><p>COLOR_RGB2YCrCb</p><p>COLOR_BGR2YCrCb</p><p>COLOR_YCrCb2RGB</p><p>COLOR_YCrCb2BGR</p><p>10、RGB和BGR颜色空间与HSV颜色空间之间的相互转换</p><p>COLOR_RGB2HSV</p><p>COLOR_BGR2HSV</p><p>COLOR_HSV2RGB</p><p>COLOR_HSV2BGR</p><p>11、RGB和BGR颜色空间与HLS颜色空间之间的相互转换</p><p>COLOR_RGB2HLS</p><p>COLOR_BGR2HLS</p><p>COLOR_HLS2RGB</p><p>COLOR_HLS2BGR</p><p>12、RGB和BGR颜色空间与CIE Lab颜色空间之间的相互转换</p><p>COLOR_RGB2Lab</p><p>COLOR_BGR2Lab</p><p>COLOR_Lab2RGB</p><p>COLOR_Lab2BGR</p><p>13、RGB和BGR颜色空间与CIE Luv颜色空间之间的相互转换</p><p>COLOR_RGB2Luv</p><p>COLOR_BGR2Luv</p><p>COLOR_Luv2RGB</p><p>COLOR_Luv2BGR</p><p>14、Bayer格式（raw data）向RGB或BGR颜色空间的转换</p><p>COLOR_BayerBG2RGB</p><p>COLOR_BayerGB2RGB</p><p>COLOR_BayerRG2RGB</p><p>COLOR_BayerGR2RGB</p><p>COLOR_BayerBG2BGR</p><p>COLOR_BayerGB2BGR</p><p>COLOR_BayerRG2BGR</p><p>COLOR_BayerGR2BGR</p><h2 id="inrange："><a href="#inrange：" class="headerlink" title="inrange："></a>inrange：</h2><p>实现二值化功能</p><p>image=cv2.inrance(hsv,lower_red,upper_red)</p><p>第一个参数：hsv指的是原图</p><p>第二个参数：lower_red指的是图像中低于这个lower_red的值，图像值变为0</p><p>第三个参数：upper_red指的是图像中高于这个upper_red的值，图像值变为0</p><p>而在lower_red～upper_red之间的值变成255</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv64.png" alt></p><h2 id="图像中的与、或、异或、非操作"><a href="#图像中的与、或、异或、非操作" class="headerlink" title="图像中的与、或、异或、非操作"></a>图像中的与、或、异或、非操作</h2><p>opencv中的bitwise_not，bitwise_xor，bitwise_or，bitwise_and的使用方法与效果。</p><p>bitwise_and是对二进制数据进行“与”操作，即对图像（灰度图像或彩色图像均可）每个像素值进行二进制“与”操作，1&amp;1=1，1&amp;0=0，0&amp;1=0，0&amp;0=0。</p><p>bitwise_or是对二进制数据进行“或”操作，即对图像（灰度图像或彩色图像均可）每个像素值进行二进制“或”操作，1|1=1，1|0=0，0|1=0，0|0=0。</p><p>bitwise_xor是对二进制数据进行“异或”操作，即对图像（灰度图像或彩色图像均可）每个像素值进行二进制“异或”操作，1^1=0,1^0=1,0^1=1,0^0=0。</p><p>bitwise_not是对二进制数据进行“非”操作，即对图像（灰度图像或彩色图像均可）每个像素值进行二进制“非”操作，<del>1=0，</del>0=1。</p><h2 id="Hough直线变换"><a href="#Hough直线变换" class="headerlink" title="Hough直线变换"></a>Hough直线变换</h2><p>cv2.HoughLines()，返回值就是距离和角度。这个函数的第一个参数是一个二值化图像。第二个和第三个值代表距离和角度的精确度。第四个参数是阈值，只有累加其中的值高于阈值时才被认为是一条直线。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv65.png" alt></p><p>cv2.HoughLinesP():比上面多两个参数，minLineLength和MaxLineGap。比较简单</p><p>minLineLength：线的最短长度，比这个短的线都忽略</p><p>MaxLineGap：两条线段的最大间断，如果小于此值，这两条直线被看成一条直线</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv66.png" alt></p><h2 id="Hough圆环变换："><a href="#Hough圆环变换：" class="headerlink" title="Hough圆环变换："></a>Hough圆环变换：</h2><p>HoughCircles(image, method, dp, minDist[, circles[, param1[, param2[, minRadius[, maxRadius]]]]])</p><p>image参数表示8位单通道灰度输入图像矩阵。</p><p>method参数表示圆检测方法，目前唯一实现的方法是HOUGH_GRADIENT。</p><p>dp参数表示累加器与原始图像相比的分辨率的反比参数。例如，如果dp = 1，则累加器具有与输入图像相同的分辨率。如果dp=2，累加器分辨率是元素图像的一半，宽度和高度也缩减为原来的一半。</p><p>minDist参数表示检测到的两个圆心之间的最小距离。如果参数太小，除了真实的一个圆圈之外，可能错误地检测到多个相邻的圆圈。如果太大，可能会遗漏一些圆圈。</p><p>circles参数表示检测到的圆的输出向量，向量内第一个元素是圆的横坐标，第二个是纵坐标，第三个是半径大小。</p><p>param1参数表示Canny边缘检测的高阈值，低阈值会被自动置为高阈值的一半。</p><p>param2参数表示圆心检测的累加阈值，参数值越小，可以检测越多的假圆圈，但返回的是与较大累加器值对应的圆圈。</p><p>minRadius参数表示检测到的圆的最小半径。</p><p>maxRadius参数表示检测到的圆的最大半径</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv67.png" alt></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;图像类型转换&quot;&gt;&lt;a href=&quot;#图像类型转换&quot; class=&quot;headerlink&quot; title=&quot;图像类型转换&quot;&gt;&lt;/a&gt;图像类型转换&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Brickexper
+      
+    
+    </summary>
+    
+      <category term="python" scheme="http://yoursite.com/categories/python/"/>
+    
+      <category term="opencv" scheme="http://yoursite.com/categories/python/opencv/"/>
+    
+      <category term="opencv(4)" scheme="http://yoursite.com/categories/python/opencv/opencv-4/"/>
+    
+    
+      <category term="视觉处理" scheme="http://yoursite.com/tags/%E8%A7%86%E8%A7%89%E5%A4%84%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>opencv(3)</title>
+    <link href="http://yoursite.com/2019/08/08/opencv-3/"/>
+    <id>http://yoursite.com/2019/08/08/opencv-3/</id>
+    <published>2019-08-08T05:44:27.000Z</published>
+    <updated>2019-08-08T06:59:24.588Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="图像轮廓"><a href="#图像轮廓" class="headerlink" title="图像轮廓"></a>图像轮廓</h2><p>和图像边缘不一样，边缘不连续。将边缘连接成一个整体构成轮廓。</p><p>提取图像轮廓的方法：先调用cv2.findContours()，后调用cv2.drawCont()</p><p>cv2.findCount函数使用方法:</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv42.png" alt></p><p>参数mode的几种方式：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv43.png" alt></p><p>参数method的几种方法：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv44.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv45.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv46.png" alt></p><h2 id="轮廓特征："><a href="#轮廓特征：" class="headerlink" title="轮廓特征："></a>轮廓特征：</h2><p>cv2.moments()会将计算得到的<strong>矩</strong>以一个字典的形式返回。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190808134950.png" alt></p><p><strong>轮廓面积</strong>可以使用函数 cv2.contourArea() 计算得到</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv47.png" alt></p><p><strong>轮廓周长</strong>：cv2.arcLength(cnt，True) 函数的第二个参数用来指定对象的形状是闭合的(True)，还是打开的。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv448.png" alt></p><p><strong>轮廓近似</strong>：cv2.approxPolyDP(cnt，epsilon，True)</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv54.png" alt></p><p><strong>凸包</strong>：函数cv2.convexHull() 可以用来检测一个曲线是否具有凸性缺陷并能纠正凸性缺陷。凸性曲线总是凸出来的，至少是平的。如果有地方凹去了就叫做凸性缺陷。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv49.png" alt></p><p><strong>凸性检测</strong>：cv2.isContourConvex()可以用来检测一个曲线是不是凸的，返回True和False。</p><p><strong>边界矩形</strong>：直边界矩形和旋转的边界矩形。</p><p><strong>直边界矩形</strong>：面积不是最小的。x,y,w,h=cv2.boundingRect()。x,y,为矩形左上角的坐标，w,h为矩形的宽和高</p><p><strong>旋转的边界矩形</strong>：面积最小。考虑了对象的旋转。cv2.minAreaRect())。返回的是一个 Box2D 结构，其中包含矩形左上点的坐标x，y矩形的宽和高w，h以及旋度。但是绘制个矩形矩形的 4 个点可以函数cv2.boxPoints() 获 得。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv50.png" alt></p><p><strong>最小外接圆</strong>：cv2.minEnlosingCircle()</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv51.png" alt></p><p><strong>椭圆拟合</strong>：旋转边界矩形的内切圆   cv2.fitEllipse(cnt)</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv52.png" alt></p><p><strong>形状匹配</strong>：cv2.matchShape()可以帮我们比较两个形状或轮廓的相似度。返回值越小，匹配越好。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv53.png" alt></p><h2 id="getStructuringElement"><a href="#getStructuringElement" class="headerlink" title="getStructuringElement"></a>getStructuringElement</h2><p>构建一个核。前面腐蚀膨胀的numpy构建的结构化元素是正方形的</p><p>getStructuringElement  与 Numpy 定义的元素结构是完全一样的这个函数的第一个参数表示内核的形状，有三种形状可以选择。</p><p>矩形：MORPH_RECT;</p><p>交叉形：MORPH_CROSS;</p><p>椭圆形：MORPH_ELLIPSE;</p><p>第二和第三个参数分别是内核的尺寸以及锚点的位置。对于锚点的位置，有默认值（-1,-1），表示锚点位于中心点。element形状唯一依赖锚点位置，其他情况下，锚点只是影响了形态学运算结果的偏移。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv55.png" alt></p><h2 id="透视变换"><a href="#透视变换" class="headerlink" title="透视变换"></a>透视变换</h2><p>在不同的视觉拍摄同一个物体，会有不同的图像。透视变换就是类似于改变拍摄物体的角度</p><p>仿射变换：由平移、错切、缩放、反转、旋转复合而成，是透视变换的特殊形式</p><p>OpenCV提供了两个变换函数cv2.warpAﬃne(仿射变换)和cv2.warpPerspective(透视变换) ，cv2.warpAﬃne 接收的参数是 2×3 的变换矩阵，而cv2.warpPerspective 接收的参数是 3×3 的变换矩阵。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv56.png" alt></p><p>函数cv2.warpAﬃne() 的第三个参数的是输出图像的大小。它的格式应是图像的(宽,高)。注意的是图像的宽对应的是列数，高对应的是行数。可以实现图片平移。可以和cv2.getAffineTransform配合使用</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv57.png" alt></p><p>其中两个参数是变换前后的位置关系</p><p>函数cv2.warpPerspective配合cv2.getPerspectiveTransform()使用。同时可以用findHomography返回的单应性矩阵。</p><p>getPersonspectiveTransform得出变换矩阵：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv58.png" alt></p><p>得出变换矩阵以后用warpPerspective()：第一个参数是输入图像，M是变换矩阵，第三个参数是输出图像的大小</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv60.png" alt></p><p>getPerspectiveTransform和findHomography的区别：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv59.png" alt></p><h2 id="旋转：cv2-getRotationMatrix2D"><a href="#旋转：cv2-getRotationMatrix2D" class="headerlink" title="旋转：cv2.getRotationMatrix2D()"></a>旋转：cv2.getRotationMatrix2D()</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv62.png" alt></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;图像轮廓&quot;&gt;&lt;a href=&quot;#图像轮廓&quot; class=&quot;headerlink&quot; title=&quot;图像轮廓&quot;&gt;&lt;/a&gt;图像轮廓&lt;/h2&gt;&lt;p&gt;和图像边缘不一样，边缘不连续。将边缘连接成一个整体构成轮廓。&lt;/p&gt;
+&lt;p&gt;提取图像轮廓的方法：先调用cv2.findCon
+      
+    
+    </summary>
+    
+      <category term="python" scheme="http://yoursite.com/categories/python/"/>
+    
+      <category term="opencv" scheme="http://yoursite.com/categories/python/opencv/"/>
+    
+      <category term="opencv(3)" scheme="http://yoursite.com/categories/python/opencv/opencv-3/"/>
+    
+    
+      <category term="视觉处理" scheme="http://yoursite.com/tags/%E8%A7%86%E8%A7%89%E5%A4%84%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>opencv(2)</title>
+    <link href="http://yoursite.com/2019/08/08/opencv-2/"/>
+    <id>http://yoursite.com/2019/08/08/opencv-2/</id>
+    <published>2019-08-08T05:12:56.000Z</published>
+    <updated>2019-08-08T05:44:13.181Z</updated>
+    
+    <content type="html"><![CDATA[<p>图像滤波：即在尽量保留图像细节特征的条件下对目标图像的噪声进行抑制，是图像预处理中不可缺少的操作，其处理效果的好坏将直接影响到后续图像处理和分析的有效性和可靠性。</p><h2 id="图像滤波"><a href="#图像滤波" class="headerlink" title="图像滤波"></a>图像滤波</h2><p>图像滤波的目的   a、消除图像中混入的噪声       b、为图像识别抽取出图像特征</p><p><strong>均值滤波</strong>，用blur函数</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv22.png" alt></p><p><strong>方框滤波</strong>：进行归一化处理后，和均值滤波相同。当normalize为零时，不进行归一化处理。当normalize为一时，进行归一化处理（默认）。目标图像深度通常于原始图像一样，值为-1。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv23.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv24.png" alt></p><p><strong>高斯滤波</strong>：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv25.png" alt></p><p><strong>注意</strong>：ksize：核大小必须为单数        sigmaX、sigmaY：控制权重</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv26.png" alt></p><p><strong>中值滤波</strong>：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv27.png" alt></p><p>两种边缘保留滤波：</p><p><strong>biateraFilter</strong>：能在保持边界清晰的情况下有效的去除噪音</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv28.png" alt></p><p><strong>filter2D</strong>:对2D图像实施低通滤波。去除噪音，模糊图像</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv29.png" alt></p><h2 id="膨胀和腐蚀"><a href="#膨胀和腐蚀" class="headerlink" title="膨胀和腐蚀"></a>膨胀和腐蚀</h2><p>膨胀、腐蚀时用到的kernel的形状一般有下面三种： </p><p>矩形: MORPH_RECT </p><p>交叉形: MORPH_CROSS </p><p>椭圆形: MORPH_ELLIPSE </p><p><strong>图像腐蚀</strong>：调用erode函数</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv30.png" alt></p><p><strong>图像膨胀</strong>：调用dialate</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv31.png" alt></p><p><strong>开运算</strong>：先通过图像腐蚀，后经过图像膨胀可以图像去噪。iteration表示次数</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv32.png" alt></p><p><strong>闭运算</strong>：先是先通过图像膨胀，后经过图像腐蚀</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv33.png" alt></p><p><strong>梯度运算</strong>：图像膨胀-图像腐蚀</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv34.png" alt></p><p><strong>图像礼帽（图像顶帽）</strong>：原始图像-开运算图像，得到噪声图像</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv35.png" alt></p><p><strong>图像黑帽</strong>：闭运算-原始图像</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv36.png" alt></p><h2 id="求梯度"><a href="#求梯度" class="headerlink" title="求梯度"></a>求梯度</h2><p>梯度简单来说就是求导。Sobel，Scharr是求一阶导数或二阶导数。Scharr是对Sobel的优化。Laplacian是求二阶导数。</p><p>Sobel算子：当一个像素右边的值减去左边的值不为零，该像素为边界。</p><p>计算梯度的函数：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv37.png" alt></p><p>ddepth通常取cv2.CV_64F。</p><p>dx=0,dy=1计算y轴的边界,dx=1,dy=0计算x轴的边界。满足条件dx&gt;=0&amp;&amp;dy&gt;=0&amp;&amp;dx+dy=1</p><p>将图像中的负值转为正：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv38.png" alt></p><p>将一个图像的边缘提取出来：如果没有converScaleAbs，所有的负值都会被截断为0.换句话就是把边界丢掉。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv39.png" alt></p><p>Scharr算子：比sobel算子精准，使用方法基本一样</p><p>计算梯度调用函数：cv2.Scharr(src,ddpetch,dx,dy)</p><p>des=cv2.Scharr(src,ddpetch,dx,dy) 等价于des=cv2.Sobel(src,ddpetch,dx,dy,-1)</p><h2 id="为图像扩边：cv2-copyMakeBorder"><a href="#为图像扩边：cv2-copyMakeBorder" class="headerlink" title="为图像扩边：cv2.copyMakeBorder()"></a>为图像扩边：cv2.copyMakeBorder()</h2><p>src:原图图像</p><p>top,bottom,left,right分别表示在原图四周扩充边缘的大小</p><p>borderType：扩充边缘的类型，就是外插的类型，OpenCV中给出以下几种方式</p><p>  * BORDER_REPLICATE</p><p>  * BORDER_REFLECT</p><p>  * BORDER_REFLECT_101</p><p>  * BORDER_WRAP</p><p>  * BORDER_CONSTANT</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv40.png" alt></p><h2 id="canny函数提取图片边缘"><a href="#canny函数提取图片边缘" class="headerlink" title="canny函数提取图片边缘"></a>canny函数提取图片边缘</h2><p>cv2.canny(img,threshold1,threshold2)    img代表原始图像，threshold1、threshold2为阈值。两个阈值越小，得出图像边缘越详细。反之，边框越边缘。</p><p>提取原理步骤：1、高斯模糊 - GaussianBlur  2、灰度转换 - cvtColor  3、计算梯度 – Sobel/Scharr  4、非最大信号抑制5、高低阈值输出二值图像</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv41.png" alt></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;图像滤波：即在尽量保留图像细节特征的条件下对目标图像的噪声进行抑制，是图像预处理中不可缺少的操作，其处理效果的好坏将直接影响到后续图像处理和分析的有效性和可靠性。&lt;/p&gt;
+&lt;h2 id=&quot;图像滤波&quot;&gt;&lt;a href=&quot;#图像滤波&quot; class=&quot;headerlink&quot; ti
+      
+    
+    </summary>
+    
+      <category term="python" scheme="http://yoursite.com/categories/python/"/>
+    
+      <category term="opencv" scheme="http://yoursite.com/categories/python/opencv/"/>
+    
+      <category term="opencv(2)" scheme="http://yoursite.com/categories/python/opencv/opencv-2/"/>
+    
+    
+      <category term="视觉处理" scheme="http://yoursite.com/tags/%E8%A7%86%E8%A7%89%E5%A4%84%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>opencv(1)</title>
+    <link href="http://yoursite.com/2019/08/08/opencv-1/"/>
+    <id>http://yoursite.com/2019/08/08/opencv-1/</id>
+    <published>2019-08-08T03:32:09.000Z</published>
+    <updated>2019-08-08T05:28:39.361Z</updated>
+    
+    <content type="html"><![CDATA[<p>​    因为我是对图像处理的方面比较感兴趣的。所以我也是对python的视觉处理模块<strong>opencv</strong>进行了学习。这个模块虽然是传统方法，但还是蛮有用的。而且它有上千个API，我总结了以下我所学到的。开始吧。</p><p>cv2是opencv的扩展模块。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv1.png" alt>    </p><p>imread第二个参数类型:</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv2.png" alt></p><p>cv2.imwrite:保存图片</p><p><strong>下文中：绝对路径代表绝对路径也行</strong> </p><p>改变图片某行某列的像素：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv3.png" alt></p><p>批量改变图片像素：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv4.png" alt></p><p>获取图像属性：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv5.png" alt></p><p>拆分通道：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv6.png" alt></p><p>合并通道：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv8.png" alt></p><p>图片移位：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv9.png" alt></p><p>将两张图片加在一起：1、取模加法   2、饱和运算</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv10.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv11.png" alt></p><p><strong>注意</strong>：两张图片的大小和类型相等</p><p>减法(subtract)、乘法(multiply)和除法(divide)和加法(add)类似</p><p>图像融合：将两张或两张以上的图片融合到一张图片上</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190808132723.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv12.png" alt></p><p>图像缩放（参数必须为整数）：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv13.png" alt></p><p>图像翻转：调用cv2.flip(原始图像，flipcode)</p><p>三种情况：</p><p>filpcode=0：以x轴为对称轴的上下翻转</p><p>flipcode&gt;0:以Y轴为对称轴的左右翻转</p><p>flipcode&lt;0:X、Y轴各翻转一次</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv14.png" alt></p><p>图像颜色反转：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv16.png" alt></p><p>图片打上马赛克：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv17.png" alt></p><p>图片上写字：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv18.png" alt></p><p>图片修补：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv19.png" alt></p><p>图片亮度增强：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv20.png" alt></p><p>图像阈值分割：调用了threshold函数</p><p>五种分割方法：</p><p>二进制阈值化（cv2.THRESH_BINARY）：选定一个阈值，用每一个像素的阈值和该阈值比较，大于该阈值则将该像素阈点值设为最大，若小于该阈值，则将该像素点阈值设为零。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv21.png" alt></p><p>反二进制阈值化（cv.THRESH_BINARY_INV）：选定一个阈值，用每一个像素的阈值和该阈值比较，大于该阈值则将该像素点的阈值设为零，若小于该阈值，则将该像素点阈值设为最大。</p><p>截断阈值化（cv.THRESH_TRUNC）：选定个阈值，用每一个像素的阈值和该阈值比较，大于该阈值则将该像素点的阈值设为该阈值，小于该阈值的像素点的阈值不变。</p><p>阈值化为0（THRESH_TOZERO）：先选定一个阈值，像素点的灰度值大于该阈值的不进行任何改变；像素点的灰度值小于该阈值的，其灰度值全部变为0。 </p><p>反阈值化为0(THRESH_TOZERO_INV)：先选定一个阈值，像素点的灰度值小于该阈值的不进行任何改变；像素点的灰度值大于该阈值的，其灰度值全部变为0。</p><p>还有另一种阈值分割函数：自适应阈值函数  <strong>cv2.adaptiveThreshold()</strong></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;​    因为我是对图像处理的方面比较感兴趣的。所以我也是对python的视觉处理模块&lt;strong&gt;opencv&lt;/strong&gt;进行了学习。这个模块虽然是传统方法，但还是蛮有用的。而且它有上千个API，我总结了以下我所学到的。开始吧。&lt;/p&gt;
+&lt;p&gt;cv2是opencv
+      
+    
+    </summary>
+    
+      <category term="python" scheme="http://yoursite.com/categories/python/"/>
+    
+      <category term="opencv" scheme="http://yoursite.com/categories/python/opencv/"/>
+    
+      <category term="opencv(1)" scheme="http://yoursite.com/categories/python/opencv/opencv-1/"/>
+    
+    
+      <category term="视觉处理" scheme="http://yoursite.com/tags/%E8%A7%86%E8%A7%89%E5%A4%84%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>时间模块</title>
+    <link href="http://yoursite.com/2019/08/08/%E6%97%B6%E9%97%B4%E6%A8%A1%E5%9D%97/"/>
+    <id>http://yoursite.com/2019/08/08/时间模块/</id>
+    <published>2019-08-08T01:59:51.000Z</published>
+    <updated>2019-08-08T03:27:50.758Z</updated>
+    
+    <content type="html"><![CDATA[<p>​    今天我们来讲一下python里面的时间模块。time 模块提供各种时间相关的功能。在 Python 中，与时间处理有关的模块包括：time，datetime 以及 calendar。</p><p>首先先来一波术语解释：</p><p>时间戳（timestamp）的方式：通常来说，时间戳表示的是从 1970 年 1 月 1 日 00:00:00 开始按秒计算的偏移量（time.gmtime(0)）此模块中的函数无法处理 1970 纪元年以前的日期和时间或太遥远的未来（处理极限取决于 C 函数库，对于 32 位系统来说，是 2038 年）</p><p>UTC（Coordinated Universal Time，世界协调时）也叫格林威治天文时间，是世界标准时间。在中国为 UTC+8</p><p>DST（Daylight Saving Time）即夏令时的意思。一些实时函数的计算精度可能低于它们建议的值或参数，例如在大部分 Unix 系统，时钟一秒钟“滴答”50~100 次</p><p>gmtime()，localtime()和 strptime() 以时间元祖（struct_time）的形式返回。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time1.png" alt></p><p><strong>注一</strong>：范围真的是0-61.这是基于历史原因。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time2.png" alt></p><p>##time</p><p> <strong>time.altzone</strong>：返回格林威治西部的夏令时地区的偏移秒数；如果该地区在格林威治东部会返回负值（如西欧，包括英国）；对夏令时启用地区才能使用。</p><p> <strong>time.asctime([t])</strong>：接受时间元组并返回一个可读的形式为”Tue Dec 11 18:07:14 2015”（2015年12月11日 周二 18时07分14秒）的 24 个字符的字符串。</p><p><strong>time.clock()</strong>：用以浮点数计算的秒数返回当前的 CPU 时间。用来衡量不同程序的耗时，比 time.time() 更有用。<em>Python 3.3 以后不被推荐，由于该方法依赖操作系统，建议使用 perf_counter() 或 process_time() 代替（一个返回系统运行时间，一个返回进程运行时间，请按照实际需求选择）</em></p><p><strong>time.ctime([secs])</strong> ：作用相当于 asctime(localtime(secs))，未给参数相当于 asctime()</p><p><strong>time.gmtime([secs])</strong>：接收时间辍（1970 纪元年后经过的浮点秒数）并返回格林威治天文时间下的时间元组 t（注：t.tm_isdst 始终为 0）</p><p><strong>time.daylight</strong>：如果夏令时被定义，则该值为非零。</p><p><strong>time.localtime([secs])</strong>：接收时间辍（1970 纪元年后经过的浮点秒数）并返回当地时间下的时间元组 t（t.tm_isdst 可取 0 或 1，取决于当地当时是不是夏令时）</p><p><strong>time.mktime(t)</strong>：接受时间元组并返回时间辍（1970纪元后经过的浮点秒数）</p><p><strong>time.perf_counter()</strong>：返回计时器的精准时间（系统的运行时间），包含整个系统的睡眠时间。由于返回值的基准点是未定义的，所以，只有连续调用的结果之间的差才是有效的。</p><p><strong>time.process_time()</strong> ：返回当前进程执行 CPU 的时间总和，不包含睡眠时间。由于返回值的基准点是未定义的，所以，只有连续调用的结果之间的差才是有效的。</p><p><strong>time.sleep(secs)</strong>：推迟调用线程的运行，secs 的单位是秒。 </p><p><strong>time.clock()</strong>：用以浮点数计算的秒数返回当前的 CPU 时间。用来衡量不同程序的耗时，比 time.time() 更有用。</p><p><em>Python 3.3</em> <em>以后不被推荐，由于该方法依赖操作系统，建议使用</em> <em>perf_counter()</em> <em>或</em> <em>process_time()</em> <em>代替（一个返回系统运行时间，一个返回进程运行时间，请按照实际需求选择）</em></p><p><strong>time.time()</strong>：返回当前时间的时间戳（1970 纪元年后经过的浮点秒数）</p><p><strong>time.timezone</strong>：time.timezone 属性是当地时区（未启动夏令时）距离格林威治的偏移秒数（美洲 &gt;0；大部分欧洲，亚洲，非洲 &lt;= 0）</p><p><strong>time.tzname</strong>：time.tzname 属性是包含两个字符串的元组：第一是当地非夏令时区的名称，第二个是当地的 DST 时区的名称。</p><p><strong>time.strftime(format[, t])</strong> ：把一个代表时间的元组或者 struct_time（如由 time.localtime() 和 time.gmtime() 返回）转化为格式化的时间字符串。如果 t 未指定，将传入 time.localtime()。如果元组中任何一个元素越界，将会抛出 ValueError 异常。</p><p><strong>time.strptime(string[, format])</strong>：把一个格式化时间字符串转化为 struct_time。实际上它和 strftime() 是逆操作</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time5.png" alt></p><p>format 格式如下：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time3.png" alt></p><p>注1：“%p”只有与“%I”配合使用才有效果。</p><p>注2：范围真的是*0 ~ 61（你没有看错哦）；60代表闰秒，61是基于历史原因保留。</p><p>注3：当使用 strptime() 函数时，只有当在这年中的周数和天数被确定的时候%U <em>和</em> %W 才会被计算。</p><h2 id="datetime"><a href="#datetime" class="headerlink" title="datetime"></a>datetime</h2><p><strong>datetime.today()</strong>：返回一个表示当前本地时间的 datetime 对象，等同于 datetime.fromtimestamp(time.time())</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time6.png" alt></p><p><strong>datetime.now(tz=None)</strong>：返回一个表示当前本地时间的 datetime 对象；如果提供了参数 tz，则获取 tz 参数所指时区的本地时间</p><p><strong>datetime.utcnow()</strong>:返回一个当前 UTC 时间的 datetime 对象</p><p><strong>datetime.fromtimestamp(timestamp, tz=None)</strong>: 根据时间戮创建一个 datetime 对象，参数 tz 指定时区信息</p><p><strong>datetime.utcfromtimestamp(timestamp)</strong>: 根据时间戮创建一个 UTC 时间的 datetime 对象</p><p><strong>datetime.fromordinal(ordinal)</strong>: 返回对应 Gregorian 日历时间对应的 datetime 对象</p><p><strong>datetime.combine(date, time)</strong>: 根据参数 date 和 time，创建一个 datetime 对象</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time10.png" alt></p><p><strong>datetime.strptime(date_string, format)</strong>: 将格式化字符串转换为 datetime 对象</p><p><strong>datetime.timedelta</strong>对象代表两个时间之间的时间差，两个date或datetime对象相减就可以返回一个timedelta对象。</p><p>*<em>datetime.timedelta([days[, seconds[, microseconds[, milliseconds[, minutes[, hours[, weeks]]]]]]]) *</em></p><p>往前算：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time7.png" alt></p><p>往后算：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time8.png" alt></p><p><strong>datetime.date()</strong>：返回一个 date 对象datetime.time() - 返回一个 time 对象（tzinfo 属性为 None）</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time9.png" alt></p><p><strong>datetime.timetz()</strong>： 返回一个 time() 对象（带有 tzinfo 属性）</p><p><strong>datetime.replace([year[, month[, day[, hour[, minute[, second[, microsecond[, tzinfo]]]]]]]])</strong>： 生成一个新的日期对象，用参数指定日期和时间代替原有对象中的属性</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time11.png" alt></p><p><strong>datetime.astimezone(tz=None)</strong>： 传入一个新的 tzinfo 属性，返回根据新时区调整好的 datetime 对象</p><p><strong>datetime.utcoffset()</strong>：如果 tzinfo 属性是 None，则返回 None；否则返回 self.tzinfo.utcoffset(self)</p><p><strong>datetime.dst()</strong>：如果 tzinfo 属性是 None，则返回 None；否则返回 self.tzinfo.dst(self)</p><p><strong>datetime.tzname()</strong>：如果 tzinfo 属性是 None，则返回 None；否则返回 self.tzinfo.tzname(self)</p><p><strong>datetime.timetuple()</strong>：返回日期对应的 time.struct_time 对象（类似于 time模块的 time.localtime()）</p><p><strong>datetime.utctimetuple()</strong>：返回 UTC 日期对应的 time.struct_time 对象</p><p><strong>datetime.toordinal()</strong>：返回日期对应的 Gregorian Calendar 日期（类似于 self.date().toordinal()）</p><p><strong>datetime.timestamp()</strong>：返回当前时间的时间戳（类似于 <a href="http://bbs.fishc.com/thread-51326-1-1.html" target="_blank" rel="noopener">time 模块</a>的 time.time()）</p><p><strong>datetime.weekday()</strong>：返回 0 ~ 6 表示星期几（星期一是 0，依此类推）</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time12.png" alt></p><p><strong>datetime.isoweekday()</strong>： 返回 1 ~ 7 表示星期几（星期一是1， 依此类推）</p><p><strong>datetime.isocalendar()</strong> ：返回一个三元组格式 (year, month, day)</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time13.png" alt></p><p><strong>datetime.isoformat(sep=’T’)</strong>：返回一个 ISO 8601 格式的日期字符串，如 “YYYY-MM-DD” 的字符串</p><p><strong>datetime.__str__()</strong>：对于 date 对象 d 来说，str(d) 相当于 d.isoformat()</p><p><strong>datetime.ctime()</strong>：返回一个表示日期的字符串，相当于 time模块的 time.ctime(time.mktime(d.timetuple()))</p><p><strong>datetime.strftime(format)</strong>:返回自定义格式化字符串表示日期。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time14.png" alt></p><p><strong>datetime.__format__(format)</strong>跟 datetime.strftime(format) 一样，这使得调用 str.format() 时可以指定 data 对象的字符串</p><h2 id="calendar"><a href="#calendar" class="headerlink" title="calendar"></a>calendar</h2><p>calendar.calendar(year,w,l,c)(year为年份，w是每日宽度，c为间隔距离，l为每星期行数) 日历</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time15.png" alt></p><p>*<em>calendar.isleap(year) *</em>：如果是闰年就返回True，否则返回False</p><p><strong>calendar.leapdays(y1,y2)</strong>：返回y1与y2两年间的闰年总数</p><p>*<em>calendar.month(year,month,w,l) *</em>：year代表年份，month代表月日历，每行宽度间隔为w，l是每星期的行数</p><p>*<em>calendar.prcal *</em>：相当于print(calendar.calendar(year,w,l,c))</p><p><strong>calendar.prmonth(year,month,w,l)</strong>：相当于print(calendar.calendar(year,w,l,c))</p><p><strong>calendar.weekday(year,month,day)</strong>： 返回指定日期的日期码，0-6（星期），1-12（月份）</p><p><strong>calendar.firstweekday()</strong>返回当前起始日期的设置</p><p><strong>calendar.setfirstweekday()</strong>：设置每周的起始日期码</p><p><strong>calendar.timegm</strong>(时间元祖) 和time.gmtime相反</p><p><strong>calendar.monthrange(year,month)</strong>：返回两个整数。第一个是该月第一天是星期几的日期码，第二个是该月的日期码。日从0（星期一）到6（星期日）;月从1到12。</p><h2 id="timeit"><a href="#timeit" class="headerlink" title="timeit"></a>timeit</h2><p>测试一个函数的执行时间：timeit.timeit</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time16.png" alt></p><p>timeit.repeat:返回一个包含了每次实验的执行时间的列表</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time17.png" alt></p><p>三个时间模块的函数特别多，我也没有一一去试。用到的时候才会深究，各位看官根据自己的情况来试着使用起来吧。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;​    今天我们来讲一下python里面的时间模块。time 模块提供各种时间相关的功能。在 Python 中，与时间处理有关的模块包括：time，datetime 以及 calendar。&lt;/p&gt;
+&lt;p&gt;首先先来一波术语解释：&lt;/p&gt;
+&lt;p&gt;时间戳（timestamp）
+      
+    
+    </summary>
+    
+      <category term="python" scheme="http://yoursite.com/categories/python/"/>
+    
+      <category term="时间管理" scheme="http://yoursite.com/categories/python/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/"/>
+    
+    
+      <category term="python时间管理" scheme="http://yoursite.com/tags/python%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/"/>
+    
+  </entry>
   
   <entry>
     <title>python常用模块（3）</title>
@@ -423,176 +600,6 @@
     
     
       <category term="正则表达式" scheme="http://yoursite.com/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>读取、写入excel</title>
-    <link href="http://yoursite.com/2019/08/05/%E8%AF%BB%E5%8F%96%E3%80%81%E5%86%99%E5%85%A5excel/"/>
-    <id>http://yoursite.com/2019/08/05/读取、写入excel/</id>
-    <published>2019-08-05T07:26:08.000Z</published>
-    <updated>2019-08-05T07:34:34.838Z</updated>
-    
-    <content type="html"><![CDATA[<p>​    今天我们来讲一下python如何对excel进行 读取和写入操作。</p><p>##xlrd只支持对excel文件个是为xls文件的读取。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/excel.png" alt></p><p>table = data.sheets()[0]                             #通过索引顺序获取</p><p>table = data.sheet_by_index(sheet_index)) #通过索引顺序获取</p><p>table = data.sheet_by_name(sheet_name)#通过名称获取</p><p>name=workbook_r.sheet_names()     #获取文件的所有工作表名字</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/excel1.png" alt></p><p>对行的操作：</p><p>nrows = table.nrows  #获取该sheet中的有效行数</p><p>table.row(rowx)  #返回由该行中所有的单元格对象组成的列表</p><p>table.row_slice(rowx)  #返回由该列中所有的单元格对象组成的列表</p><p>table.row_types(rowx, start_colx=0, end_colx=None)    #返回由该行中所有单元格的数据类型组成的列表</p><p>table.row_values(rowx, start_colx=0, end_colx=None)   #返回由该行中所有单元格的数据组成的列表</p><p>table.row_len(rowx) #返回该列的有效单元格长度</p><p> 对列的操作：</p><p>ncols = table.ncols   #获取列表的有效列数</p><p>table.col(colx, start_rowx=0, end_rowx=None)  #返回由该列中所有的单元格对象组成的列表</p><p>table.col_slice(colx, start_rowx=0, end_rowx=None)  #返回由该列中所有的单元格对象组成的列表</p><p>table.col_types(colx, start_rowx=0, end_rowx=None)    #返回由该列中所有单元格的数据类型组成的列表</p><p>table.col_values(colx, start_rowx=0, end_rowx=None)   #返回由该列中所有单元格的数据组成的列表</p><p>获取单元格内容：</p><p>单元格</p><p>A1= table.cell(0,0).value</p><p>C4=able.cell(2,3).value</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/excel2.png" alt></p><p>使用行列索引</p><p>cell_A1 = table.row(0)[0].value</p><p>cell_A2 = table.col(1)[0].value</p><p>##xlwt只支持对Excel文件格式为xls文件的写入</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/excel3.png" alt></p><p>add_sheet(sheet_name):    添加sheet</p><p>get_sheet(Sheet_name):    选择sheet</p><p>save(file_name):          保存</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;​    今天我们来讲一下python如何对excel进行 读取和写入操作。&lt;/p&gt;
-&lt;p&gt;##xlrd只支持对excel文件个是为xls文件的读取。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Brickexper
-      
-    
-    </summary>
-    
-      <category term="python" scheme="http://yoursite.com/categories/python/"/>
-    
-      <category term="读取、写入excel" scheme="http://yoursite.com/categories/python/%E8%AF%BB%E5%8F%96%E3%80%81%E5%86%99%E5%85%A5excel/"/>
-    
-    
-      <category term="xlrd、xlwt" scheme="http://yoursite.com/tags/xlrd%E3%80%81xlwt/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>垃圾回收GC</title>
-    <link href="http://yoursite.com/2019/08/05/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6GC/"/>
-    <id>http://yoursite.com/2019/08/05/垃圾回收GC/</id>
-    <published>2019-08-05T07:11:35.000Z</published>
-    <updated>2019-08-05T07:18:42.308Z</updated>
-    
-    <content type="html"><![CDATA[<p>​    每种语言都有自己的垃圾回收机制。接下来我们来讲一下python的垃圾回收机制。</p><p>小整数对象池：python对小整数的定义为[-5，257)，这些整数对象是提前建立好的，不会被垃圾回收。单个字母也一样，但是当定义两个相同的字符串（没有空格等特殊符号），触发intern机制，引用计数为零，触发垃圾回收。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/GC.png" alt></p><p>引用计数机制的优点：简单、实时性（一旦没有引用，内存就直接释放了）。</p><p>缺点：维护引用计数消耗资源、循环引用</p><p>python以引用计数为主，隔代回收为辅进行垃圾回收</p><p>GC模块（不能重写<strong>del</strong>方法）：</p><p>1、gc.set_debug(flags) 设置gc的debug日志，一般设置为gc.DEBUG_LEAK</p><p>2、gc.collect([generation]) 显式进行垃圾回收，可以输入参数，0代表只检查第一代的对象，1代表检查一，二代的对象，2代表检查一，二，三代的对象，如果不传参数，执行一个full collection，也就是等于传2。 返回不可达（unreachable objects）对象的数目</p><p>3、gc.get_threshold() 获取的gc模块中自动执行垃圾回收的频率</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/GC1.png" alt></p><p>4、gc.set_threshold(threshold0[,threshold1[, threshold2]) 设置自动执行垃圾回收的频率。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/GC2.png" alt></p><p>5、gc.get_count() 获取当前自动执行垃圾回收的计数器，返回一个长度为3的列表</p><p>6、gc.disable() 把gc关闭,gc.enable()打开gc（默认打开）</p><p>7.gc.garbage 存储垃圾</p><p>导致引用计数+1的情况：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/GC3.png" alt></p><p>导致引用计数-1的情况：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/GC5.png" alt></p><p>查看一个对象的引用计数：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/GC6.png" alt></p><p>因为调用函数的时候传入a，所以是2.真正的引用计数=sys.getrefcount()-1</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;​    每种语言都有自己的垃圾回收机制。接下来我们来讲一下python的垃圾回收机制。&lt;/p&gt;
-&lt;p&gt;小整数对象池：python对小整数的定义为[-5，257)，这些整数对象是提前建立好的，不会被垃圾回收。单个字母也一样，但是当定义两个相同的字符串（没有空格等特殊符号），
-      
-    
-    </summary>
-    
-      <category term="python" scheme="http://yoursite.com/categories/python/"/>
-    
-      <category term="GC" scheme="http://yoursite.com/categories/python/GC/"/>
-    
-    
-      <category term="python的GC" scheme="http://yoursite.com/tags/python%E7%9A%84GC/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>工厂生产模式</title>
-    <link href="http://yoursite.com/2019/08/05/%E5%B7%A5%E5%8E%82%E7%94%9F%E4%BA%A7%E6%A8%A1%E5%BC%8F/"/>
-    <id>http://yoursite.com/2019/08/05/工厂生产模式/</id>
-    <published>2019-08-05T06:51:14.000Z</published>
-    <updated>2019-08-05T06:59:51.658Z</updated>
-    
-    <content type="html"><![CDATA[<p>​    今天，我们来讲一下什么是工厂方法模式。工厂方法模式是在基类完成基本框架的搭建，在子类中具体实现方法的实现。工厂模式是一种典型的解耦模式。</p><p>函数或者类之间的关系越强，耦合性越强。代码就越难更新。</p><p>使用函数进行解耦：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/factory1.png" alt></p><p>使用类进行解耦：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/factory2.png" alt></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;​    今天，我们来讲一下什么是工厂方法模式。工厂方法模式是在基类完成基本框架的搭建，在子类中具体实现方法的实现。工厂模式是一种典型的解耦模式。&lt;/p&gt;
-&lt;p&gt;函数或者类之间的关系越强，耦合性越强。代码就越难更新。&lt;/p&gt;
-&lt;p&gt;使用函数进行解耦：&lt;/p&gt;
-&lt;p&gt;&lt;img
-      
-    
-    </summary>
-    
-      <category term="python" scheme="http://yoursite.com/categories/python/"/>
-    
-      <category term="工厂方法模式" scheme="http://yoursite.com/categories/python/%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/"/>
-    
-    
-      <category term="python生产模式" scheme="http://yoursite.com/tags/python%E7%94%9F%E4%BA%A7%E6%A8%A1%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>类和对象</title>
-    <link href="http://yoursite.com/2019/08/05/%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/"/>
-    <id>http://yoursite.com/2019/08/05/类和对象/</id>
-    <published>2019-08-05T04:28:26.000Z</published>
-    <updated>2019-08-05T11:43:21.177Z</updated>
-    
-    <content type="html"><![CDATA[<p>​    众所周知，面向过程是根据业务逻辑从上到下写代码，面向过程：根据业务逻辑从上到下写代码面向对象：将数据与函数绑定到一起，进行封装，这样能更快速的开发程序，减少了重复代码的重写过程。面向对象语言三个基本要素：封装 继承 多态把函数和全局变量和在一起就是封装。而python就属于面向对象的语言。</p><p>类与对象的关系和区别：类是抽象的概念，仅仅代表事物的模板。对象是一个能够看得到，摸得着的具体的实体比如：飞机是对象，飞机图纸是类。</p><p>类由三部分构成:</p><p>类的名称:类名</p><p>类的属性：一组数据</p><p>一个特殊的对象：能够知道这个对象的class.</p><p>类的方法：允许进行的操作</p><p>类的抽象：拥有相同或者类似属性和行为的对象都可以抽象出一个类</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class.png" alt></p><p>python调用__init__方法的作用：初始化对象</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class1.png" alt></p><p>python调用__str__方法：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class3.png" alt></p><p>私有方法：外界不能直接调用</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class4.png" alt></p><p>私有属性：可以添加，可以添加后取值，不可以取值。（以双下划线开头为私有变量，单下划线开头的为保护变量）</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class5.png" alt></p><p>通过内部方法取值：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class6.png" alt></p><p>私有属性无法取值的原因是因为名字重整技术，其实可以通过_类名_属性可以访问：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class7.png" alt></p><p>在这里讲一下私有的原理：这是通过名字重整机制改变的。命名规则：_类名__num（尽量不要用）</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class8.png" alt></p><p>python可以自己调用__del__方法，__del__是该对象被删除后调用的方法，注意：这里的删除是没有引用对象</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class9.png" alt></p><p>完全删除后（没有引用对象）：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class10.png" alt></p><p>测量对象的引用对象：用sys模块的sys.getrefcount，得出结果后减一。</p><p>__new__方法：创建对象</p><p>实例化对象相当于做三件事：</p><p>1.通过__init__来创建对象，然后找了一个变量来接收___init__的返回值。这个返回值表示创建出来的对象引用。</p><p>2.__init__（刚刚创建出来的对象的引用）</p><p>3.返回对象的引用。</p><p><strong>__new__方法 和 <em>\</em>init__方法的区别</strong>:</p><p>1.<em>\</em>init__ 通常用于初始化一个新实例，控制这个初始化的过程，比如添加一些属性， 做一些额外的操作，发生在类实例被创建完以后。它是实例级别的方法。没有返回值。负责初始化</p><p>2._<em>new_</em> 通常用于控制生成一个新实例的过程。它是类级别的方法，参数是cls。负责创建。__init__和<em>\</em>new__方法合起来相当于C++的构造函数。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class11.png" alt></p><p>下面讲一个新的概念：单例      单例是创建了多少个对象都是指向同一片内存。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class12.png" alt></p><p>只初始化一次对象：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class13.png" alt></p><p> 继承：可以少写代码。继承父类的方法和属性</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class14.png" alt></p><p>继承可以多类继承。当子类和父类有什么不同时，可以进行重写（在子类中写一个和父类方法名相同的方法进行不同操作）</p><p>私有方法，私有属性不能被继承，可以被间接调用，如果在子类中实现了一个公有方法调用的方法或属性，那么这个方法是不能调用继承的父类的私有方法和私有属性</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class15.png" alt></p><p>多继承：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class16.png" alt></p><p>当子类中的方法和父类方法名一样时会按照以下顺序去进行执行：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class17.png" alt></p><p>子类调用父类的三种方法：</p><p>父类.方法</p><p>super().<strong>init</strong>(不用传self，传参数)</p><p>super(父类，self).<strong>init</strong>（不传self，参数）可以根据父类指定调用哪一个父类</p><p>多态：在写完方法的时候并不知道调用的是什么方法。真正执行的时候才知道</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class18.png" alt></p><p>接下来的内容也很重要哦：</p><p>类在程序中也属于一个对象，称之为类对象。同过类创建出来的对象称之为实例对象。</p><p>类属性(classmethod)：类对象里的属性</p><p>实例属性：实例对象里的属性</p><p>实例属性和类属性的区别：实例属性和具体的某个实例对象有关系，且一个实例对象和另外一个实例对象是不共享属性的。类属性属于类对象，并且多个实例对象共享同一个类属性。  </p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class19.png" alt></p><p>实例方法和类方法：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class20.png" alt></p><p>静态方法：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class21.png" alt></p><p>实例方法 类方法和静态方法的区别：实例方法和类方法必须传一个参数（实例方法self用来接收对象，类方法cls用于接收类），静态方法不需要参数（可以有）。</p><p>动态添加属性和方法：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class22.png" alt></p><p><strong>slots</strong>可以限制添加属性：这可以告诉解释器这个类的所有实例属性都在这了。可以节省大量内存。每个子类都要定义<strong>slots</strong>属性，因为解释器会忽略继承的<strong>slots</strong>属性。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class23.png" alt></p><p>内建属性：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class24.png" alt></p><p><strong>getattribute</strong>:属性拦截器</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class25.png" alt></p><p>使用类名调用类属性时，不会经过__getattribute__方法，其他均要调用。（可以用来做日志）</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/clas.png" alt></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;​    众所周知，面向过程是根据业务逻辑从上到下写代码，面向过程：根据业务逻辑从上到下写代码面向对象：将数据与函数绑定到一起，进行封装，这样能更快速的开发程序，减少了重复代码的重写过程。面向对象语言三个基本要素：封装 继承 多态把函数和全局变量和在一起就是封装。而pyth
-      
-    
-    </summary>
-    
-      <category term="python" scheme="http://yoursite.com/categories/python/"/>
-    
-      <category term="类和对象" scheme="http://yoursite.com/categories/python/%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/"/>
-    
-    
-      <category term="python的类和对象" scheme="http://yoursite.com/tags/python%E7%9A%84%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>python异常</title>
-    <link href="http://yoursite.com/2019/08/05/python%E5%BC%82%E5%B8%B8/"/>
-    <id>http://yoursite.com/2019/08/05/python异常/</id>
-    <published>2019-08-05T01:26:46.000Z</published>
-    <updated>2019-08-05T04:26:45.511Z</updated>
-    
-    <content type="html"><![CDATA[<p>​    今天我们来讲一下python的异常。何为异常？即是一个事件，该事件会在程序执行过程中发生，影响了程序的正常执行。异常时python对象，表示一个错误。当python脚本发生异常时我们需要捕获处理它，否则程序会终止执行。</p><p>##try/except可以用来捕获异常</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%BC%82%E5%B8%B82.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%AE%9C%E6%98%8C.png" alt></p><p>##一个try捕获多个异常：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%BC%82%E5%B8%B83.png" alt></p><p>##一个try对多个except：根据不同的except做不同的操作</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%BC%82%E5%B8%B84.png" alt></p><p>##try-finally语句无论是否发生异常都将执行最后的代码。</p><p>##异常传递</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%BC%82%E5%B8%B85.png" alt></p><p>##raise自定义异常：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%BC%82%E5%B8%B86.png" alt></p><p>##最后是python的标准异常：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%BC%82%E5%B8%B87.png" alt></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;​    今天我们来讲一下python的异常。何为异常？即是一个事件，该事件会在程序执行过程中发生，影响了程序的正常执行。异常时python对象，表示一个错误。当python脚本发生异常时我们需要捕获处理它，否则程序会终止执行。&lt;/p&gt;
-&lt;p&gt;##try/except可以用
-      
-    
-    </summary>
-    
-      <category term="python" scheme="http://yoursite.com/categories/python/"/>
-    
-      <category term="异常" scheme="http://yoursite.com/categories/python/%E5%BC%82%E5%B8%B8/"/>
-    
-    
-      <category term="python异常" scheme="http://yoursite.com/tags/python%E5%BC%82%E5%B8%B8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>python数据类型</title>
-    <link href="http://yoursite.com/2019/08/04/python%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/"/>
-    <id>http://yoursite.com/2019/08/04/python数据类型/</id>
-    <published>2019-08-04T01:04:48.000Z</published>
-    <updated>2019-08-05T03:43:51.653Z</updated>
-    
-    <content type="html"><![CDATA[<p>​    每种编程语言都有属于自己的数据类型。今天，我们就来讲一下python的数据类型——列表，元祖，字典，字符串，堆，集合，队列。</p><h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><p>​    <img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%88%97%E8%A1%A8.png" alt="列表方法"></p><p>同时还有一些比较常用的方法，类似cmp(比较大小，python3已经找不到。如要使用，可以利用operator模块)，len(list)计算列表元素个数，max(list)求列表中的最大值，min(list)求最小值。下面对上面列表的排序方法(list.sort)进行讲解：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/list.sort.png" alt></p><p>下张图片是对以上方法的coding：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/test.png" alt></p><p>##元祖（tuple）</p><p>元祖不像列表可以改变。<strong>元祖是不可变的</strong>。但可以利用切片灵活使用。</p><h2 id="字典（dict）"><a href="#字典（dict）" class="headerlink" title="字典（dict）"></a>字典（dict）</h2><p>####注意：字典支持常见的集合操作（&amp;等操作）</p><p>字典有多个键与其对应的值构成的键-值对组成。键-值对称为项。每个键和它的值之间用:(冒号)隔开，项之间用,(逗号)隔开。</p><p>len(d)返回d中项(键-值对)的数量</p><p>d[k]返回关联到键k的值</p><p>d[k]=v将值关联到键k上</p><p>del d[k] 删除键为k的项</p><p>k in d 检查d中是否有含有键为k的值</p><p>clear()：清除字典中所有的项</p><p>fromkeys()：使用给定的键建立新的字典，每个键都对应一个默认的值None，也可以设立默认值</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/dict1.png" alt></p><p>get():访问字典项，访问一个不存在的键时，没有异常。且可以定义默认值为None。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/dict2.png" alt></p><p>items和iteritems：</p><p>items将所有的项以列表方式返回，列表中的每一项都表示为（键，值）对的形式。</p><p>iteritems方法的作用大致相同，但是会返回一个迭代器对象而不是列表。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/dict3.png" alt></p><p>keys和iterkeys：</p><p>keys方法将字典中的键以列表形式返回，而iterkeys则返回针对键的迭代器</p><p>values和itervalues：</p><p>values方法以列表的形式返回字典中的值，itervalues返回值的迭代器。与返回键的列表不同的是，返回值的列表中可以包含重复的元素。</p><p>pop：用来获得对应于给定键的值，然后将这个键-值对从字典中移除。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/dict4.png" alt></p><p>popitem：弹出随机的项</p><p>setdefault：获得与给定键相关联的值，能在字典中不含有给定键的情况下设立相应的键值。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/dict5.png" alt></p><p>update：可以利用一个字典项更新另外一个字典</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/dict.png" alt></p><h2 id="堆（heapq）"><a href="#堆（heapq）" class="headerlink" title="堆（heapq）"></a>堆（heapq）</h2><p>使用该数据类型前，我们先导入一个新的模块<strong>heapq</strong></p><p>heappush(heap,x):将x入对</p><p>heapop(heap)：将堆中最小的元素弹出</p><p>heapify(heap)：将heap属性强制应用到任意一个列表</p><p>heapreplace(heap,x)：将堆中最小的元素弹出，同时将x入堆</p><p>nlargest(n,iter)：返回iter中前n大的元素</p><p>nsmallest(n,iter)：返回iter中前n小的元素</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/heapq.png" alt></p><h2 id="集合（set）"><a href="#集合（set）" class="headerlink" title="集合（set）"></a>集合（set）</h2><p>集合可取交集、取并集、取差集、对称差集：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/set.png" alt></p><p>利用set做去重操作：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190804102844.png" alt></p><p>集合分为可变集合和不可变集合：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/set1.png" alt></p><h2 id="队列（Queue）"><a href="#队列（Queue）" class="headerlink" title="队列（Queue）"></a>队列（Queue）</h2><p>在python中，队列时线程间最常用的交换数据形式，<strong>Queue</strong>模块时提供队列操作的模块。</p><p>先进先出（FIFO）：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/lifo.png" alt></p><p>先进后出（LIFO）：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/LIFO.png" alt></p><p>优先级队列：优先级队列put进去一个元祖，（优先级，数据），优先级数字越小，优先级越高。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/queuepng" alt></p><p><strong>注意</strong>：如果有两个元素优先级是一样的，那么在出队的时候是按照先进先出的顺序。</p><p>双端队列：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/queue1.png" alt></p><p>队列的方法：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/queue2.png" alt></p><p>使用put方法往队列中添加元素，需要考虑是否能放下的问题如果放不下了，默认会阻塞(block=True)，阻塞时可以定义超时时间timeout。可以使用block=False设置阻塞时立即报错</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/queue4.png" alt></p><p>使用get()从队列里取数据。如果为空的话，blocking= False 直接报 empty异常。如果blocking = True，就是等一会，timeout必须为 0或正数。None为一直等下去，0为不等，正数n为等待n秒还不能读取，报empty异常。<img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/queue5.png" alt></p><h2 id="字符串（string）"><a href="#字符串（string）" class="headerlink" title="字符串（string）"></a>字符串（string）</h2><p>用+拼接字符串：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/string.png" alt></p><p>将值转换为字符串的机制：</p><p>1、通过str函数，把值转换为合理形式的字符串，以便用户可以理解</p><p>2、通过repr函数创建一个字符串，以合法的python表达式的形式表示值</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/string2.png" alt></p><p>join和split：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/string3.png" alt></p><p>字符串格式化方式：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/string4.png" alt></p><p>capitalize()</p><p>把字符串的第一个字符改为大写</p><p>casefold()</p><p>把整个字符串的所有字符改为小写</p><p>center(width)</p><p>将字符串居中，并使用空格填充至长度 width 的新字符串</p><p>count(sub[, start[, end]])</p><p>返回 sub 在字符串里边出现的次数，start 和 end 参数表示范围，可选。</p><p>encode(encoding=’utf-8’, errors=’strict’)</p><p>以 encoding 指定的编码格式对字符串进行编码。</p><p>startswith(prefix[, start[, end]])</p><p>检查字符串是否以 prefix 开头，是则返回 True，否则返回 False。start 和 end 参数可以指定范围检查，可选。</p><p>endswith(sub[, start[, end]])检查字符串是否以 sub 子字符串结束，如果是返回 True，否则返回 False。start 和 end 参数表示范围，可选。</p><p>startswith和endswith如果需要同时针对多个选项做检查，只需要给startswith和endswith提供包含可能选项的元祖。</p><p>expandtabs([tabsize=8])</p><p>把字符串中的 tab 符号（\t）转换为空格，如不指定参数，默认的空格数是 tabsize=8。</p><p>find(sub[, start[, end]])检测 sub 是否包含在字符串中，如果有则返回索引值，否则返回 -1，start 和 end 参数表示范围，可选。</p><p>maketrans() 方法用于创建字符映射的转换表，对于接受两个参数的最简单的调用方式，第一个参数是字符串，表示需要转换的字符，第二个参数也是字符串表示转换的目标。</p><p>注：两个字符串的长度必须相同，为一一对应的关系。</p><p>translate(table)根据 table 的规则（可以由 str.maketrans(‘a’, ‘b’) 定制）转换字符串中的字符</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/string5.png" alt></p><p>index(sub[, start[, end]])</p><p>跟 find 方法一样，不过如果 sub 不在 string 中会产生一个异常。</p><p>isalnum()</p><p>如果字符串至少有一个字符并且所有字符都是字母或数字则返回 True，否则返回 False。</p><p>isalpha()</p><p>如果字符串至少有一个字符并且所有字符都是字母则返回 True，否则返回 False。</p><p>isdecimal()</p><p>如果字符串只包含十进制数字则返回 True，否则返回 False。</p><p>isdigit()</p><p>如果字符串只包含数字则返回 True，否则返回 False。</p><p>islower()</p><p>如果字符串中至少包含一个区分大小写的字符，并且这些字符都是小写，则返回 True，否则返回 False。</p><p>isnumeric()</p><p>如果字符串中只包含数字字符，则返回 True，否则返回 False。</p><p>isspace()</p><p>如果字符串中只包含空格，则返回 True，否则返回 False。</p><p>istitle()</p><p>如果字符串是标题化（所有的单词都是以大写开始，其余字母均小写），则返回 True，否则返回 False。</p><p>isupper()</p><p>如果字符串中至少包含一个区分大小写的字符，并且这些字符都是大写，则返回 True，否则返回 False。</p><p>join(sub)</p><p>以字符串作为分隔符，插入到 sub 中所有的字符之间。</p><p>ljust(width)</p><p>返回一个左对齐的字符串，并使用空格填充至长度为 width 的新字符串。</p><p>rjust(width)</p><p>返回一个右对齐的字符串，并使用空格填充至长度为 width 的新字符串。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/string6.png" alt></p><p>format也可以完成对齐的任务。“&lt;”：左对齐  “&gt;”：右对齐    “^”：居中对齐</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/string7.png" alt></p><p>lower()</p><p>转换字符串中所有大写字符为小写。</p><p>lstrip()</p><p>去掉字符串左边的所有空格无法去除中间的字符</p><p>rstrip()</p><p>删除字符串末尾的空格。无法去除中间的字符</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/string8.png" alt></p><p>partition(sub)</p><p>找到子字符串 sub，把字符串分成一个 3 元组 (pre_sub, sub, fol_sub)，如果字符串中不包含 sub 则返回 (‘原字符串’, ‘’, ‘’)</p><p>replace(old, new[, count])</p><p>把字符串中的 old 子字符串替换成 new 子字符串，如果 count 指定，则替换不超过 count 次。</p><p>rfind(sub[, start[, end]])</p><p>类似于 find() 方法，不过是从右边开始查找。返回值是下标</p><p>rindex(sub[, start[, end]])</p><p>类似于 index() 方法，不过是从右边开始。</p><p>rpartition(sub)</p><p>类似于 partition() 方法，不过是从右边开始查找。</p><p>split(sep=None, maxsplit=-1)</p><p>不带参数默认是以空格为分隔符切片字符串，如果 maxsplit 参数有设置，则仅分隔 maxsplit 个子字符串，返回切片后的子字符串拼接的列表。</p><p>splitlines(([keepends]))</p><p>在输出结果里是否去掉换行符，默认为 False，不包含换行符；如果为 True，则保留换行符。。</p><p>strip([chars])</p><p>删除字符串前边和后边所有的空格，chars 参数可以定制删除的字符，可选。</p><p>swapcase()</p><p>翻转字符串中的大小写。</p><p>title()</p><p>返回标题化（所有的单词都是以大写开始，其余字母均小写）的字符串。</p><p>upper()</p><p>转换字符串中的所有小写字符为大写。</p><p>zfill(width)</p><p>返回长度为 width 的字符串，原字符串右对齐，前边用 0 填充。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/string9.png" alt></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;​    每种编程语言都有属于自己的数据类型。今天，我们就来讲一下python的数据类型——列表，元祖，字典，字符串，堆，集合，队列。&lt;/p&gt;
-&lt;h2 id=&quot;列表&quot;&gt;&lt;a href=&quot;#列表&quot; class=&quot;headerlink&quot; title=&quot;列表&quot;&gt;&lt;/a&gt;列表&lt;/h
-      
-    
-    </summary>
-    
-      <category term="python" scheme="http://yoursite.com/categories/python/"/>
-    
-      <category term="数据类型" scheme="http://yoursite.com/categories/python/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/"/>
-    
-    
-      <category term="python数据结构" scheme="http://yoursite.com/tags/python%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
   </entry>
   

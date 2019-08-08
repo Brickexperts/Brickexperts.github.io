@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="generator" content="Hexo 3.9.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.3.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.3.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    search: {
+      root: '/',
+      path: 'search.xml'
+    },
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    }
+  };
+</script>
+
+  <meta name="description" content="图像类型转换 cvtColor:颜色空间转换函数 cv2.cvtColor()支持多种颜色空间之间的转换，其 需要注意的是cvtColor()函数不能直接将RGB图像转换为二值图像(Binary Image)，需要借助threshold()函数 HSV中：H为色彩，取值范围是[0,179]，S为饱和度，取值范围是[0,255],V是亮度，取值范围是[0,255]。 支持的转换类型和转换码如下： 1">
+<meta name="keywords" content="视觉处理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="opencv(4)">
+<meta property="og:url" content="http://yoursite.com/2019/08/08/opencv-4/index.html">
+<meta property="og:site_name" content="DY的个人博客">
+<meta property="og:description" content="图像类型转换 cvtColor:颜色空间转换函数 cv2.cvtColor()支持多种颜色空间之间的转换，其 需要注意的是cvtColor()函数不能直接将RGB图像转换为二值图像(Binary Image)，需要借助threshold()函数 HSV中：H为色彩，取值范围是[0,179]，S为饱和度，取值范围是[0,255],V是亮度，取值范围是[0,255]。 支持的转换类型和转换码如下： 1">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv63.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv64.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv65.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv66.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv67.png">
+<meta property="og:updated_time" content="2019-08-08T06:35:15.859Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="opencv(4)">
+<meta name="twitter:description" content="图像类型转换 cvtColor:颜色空间转换函数 cv2.cvtColor()支持多种颜色空间之间的转换，其 需要注意的是cvtColor()函数不能直接将RGB图像转换为二值图像(Binary Image)，需要借助threshold()函数 HSV中：H为色彩，取值范围是[0,179]，S为饱和度，取值范围是[0,255],V是亮度，取值范围是[0,255]。 支持的转换类型和转换码如下： 1">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv63.png">
+  <link rel="alternate" href="/atom.xml" title="DY的个人博客" type="application/atom+xml">
+  <link rel="canonical" href="http://yoursite.com/2019/08/08/opencv-4/">
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>opencv(4) | DY的个人博客</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">DY的个人博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+    <ul id="menu" class="menu">
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-search">
+          <a href="javascript:;" class="popup-trigger">
+          
+            <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+    </div>
+</nav>
+
+</div>
+    </header>
+
+    
+
+  <a href="https://github.com/Brickexperts" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/08/opencv-4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="湛蓝星空">
+      <meta itemprop="description" content="这个人贼菜">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DY的个人博客">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">opencv(4)
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-08 14:15:03 / 修改时间：14:35:15" itemprop="dateCreated datePublished" datetime="2019-08-08T14:15:03+08:00">2019-08-08</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/opencv/" itemprop="url" rel="index"><span itemprop="name">opencv</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/opencv/opencv-4/" itemprop="url" rel="index"><span itemprop="name">opencv(4)</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          <br>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="图像类型转换"><a href="#图像类型转换" class="headerlink" title="图像类型转换"></a>图像类型转换</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv63.png" alt></p>
+<p>cvtColor:颜色空间转换函数</p>
+<p>cv2.cvtColor()支持多种颜色空间之间的转换，其</p>
+<p>需要注意的是cvtColor()函数不能直接将RGB图像转换为二值图像(Binary Image)，需要借助threshold()函数</p>
+<p>HSV中：H为色彩，取值范围是[0,179]，S为饱和度，取值范围是[0,255],V是亮度，取值范围是[0,255]。</p>
+<p>支持的转换类型和转换码如下：</p>
+<p>1、RGB和BGR（opencv默认的彩色图像的颜色空间是BGR）颜色空间的转换</p>
+<p>COLOR_BGR2RGB</p>
+<p>COLOR_RGB2BGR</p>
+<p>COLOR_RGBA2BGRA</p>
+<p>COLOR_BGRA2RGBA</p>
+<p>2、向RGB和BGR图像中增添alpha通道</p>
+<p>COLOR_RGB2RGBA</p>
+<p>COLOR_BGR2BGRA</p>
+<p>3、从RGB和BGR图像中去除alpha通道</p>
+<p>COLOR_RGBA2RGB</p>
+<p>COLOR_BGRA2BGR</p>
+<p>4、从RBG和BGR颜色空间转换到灰度空间</p>
+<p>COLOR_RGB2GRAY</p>
+<p>COLOR_BGR2GRAY</p>
+<p>COLOR_RGBA2GRAY</p>
+<p>COLOR_BGRA2GRAY</p>
+<p>5、从灰度空间转换到RGB和BGR颜色空间</p>
+<p>COLOR_GRAY2RGB</p>
+<p>COLOR_GRAY2BGR</p>
+<p>COLOR_GRAY2RGBA</p>
+<p>COLOR_GRAY2BGRA</p>
+<p>6、RGB和BGR颜色空间与BGR565颜色空间之间的转换</p>
+<p>COLOR_RGB2BGR565</p>
+<p>COLOR_BGR2BGR565</p>
+<p>COLOR_BGR5652RGB</p>
+<p>COLOR_BGR5652BGR</p>
+<p>COLOR_RGBA2BGR565</p>
+<p>COLOR_BGRA2BGR565</p>
+<p>COLOR_BGR5652RGBA</p>
+<p>COLOR_BGR5652BGRA</p>
+<p>7、灰度空间域BGR565之间的转换</p>
+<p>COLOR_GRAY2BGR555</p>
+<p>COLOR_BGR5552GRAY</p>
+<p>8、RGB和BGR颜色空间与CIE XYZ之间的转换</p>
+<p>COLOR_RGB2XYZ</p>
+<p>COLOR_BGR2XYZ</p>
+<p>COLOR_XYZ2RGB</p>
+<p>COLOR_XYZ2BGR</p>
+<p>9、RGB和BGR颜色空间与uma色度（YCrCb空间）之间的转换</p>
+<p>COLOR_RGB2YCrCb</p>
+<p>COLOR_BGR2YCrCb</p>
+<p>COLOR_YCrCb2RGB</p>
+<p>COLOR_YCrCb2BGR</p>
+<p>10、RGB和BGR颜色空间与HSV颜色空间之间的相互转换</p>
+<p>COLOR_RGB2HSV</p>
+<p>COLOR_BGR2HSV</p>
+<p>COLOR_HSV2RGB</p>
+<p>COLOR_HSV2BGR</p>
+<p>11、RGB和BGR颜色空间与HLS颜色空间之间的相互转换</p>
+<p>COLOR_RGB2HLS</p>
+<p>COLOR_BGR2HLS</p>
+<p>COLOR_HLS2RGB</p>
+<p>COLOR_HLS2BGR</p>
+<p>12、RGB和BGR颜色空间与CIE Lab颜色空间之间的相互转换</p>
+<p>COLOR_RGB2Lab</p>
+<p>COLOR_BGR2Lab</p>
+<p>COLOR_Lab2RGB</p>
+<p>COLOR_Lab2BGR</p>
+<p>13、RGB和BGR颜色空间与CIE Luv颜色空间之间的相互转换</p>
+<p>COLOR_RGB2Luv</p>
+<p>COLOR_BGR2Luv</p>
+<p>COLOR_Luv2RGB</p>
+<p>COLOR_Luv2BGR</p>
+<p>14、Bayer格式（raw data）向RGB或BGR颜色空间的转换</p>
+<p>COLOR_BayerBG2RGB</p>
+<p>COLOR_BayerGB2RGB</p>
+<p>COLOR_BayerRG2RGB</p>
+<p>COLOR_BayerGR2RGB</p>
+<p>COLOR_BayerBG2BGR</p>
+<p>COLOR_BayerGB2BGR</p>
+<p>COLOR_BayerRG2BGR</p>
+<p>COLOR_BayerGR2BGR</p>
+<h2 id="inrange："><a href="#inrange：" class="headerlink" title="inrange："></a>inrange：</h2><p>实现二值化功能</p>
+<p>image=cv2.inrance(hsv,lower_red,upper_red)</p>
+<p>第一个参数：hsv指的是原图</p>
+<p>第二个参数：lower_red指的是图像中低于这个lower_red的值，图像值变为0</p>
+<p>第三个参数：upper_red指的是图像中高于这个upper_red的值，图像值变为0</p>
+<p>而在lower_red～upper_red之间的值变成255</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv64.png" alt></p>
+<h2 id="图像中的与、或、异或、非操作"><a href="#图像中的与、或、异或、非操作" class="headerlink" title="图像中的与、或、异或、非操作"></a>图像中的与、或、异或、非操作</h2><p>opencv中的bitwise_not，bitwise_xor，bitwise_or，bitwise_and的使用方法与效果。</p>
+<p>bitwise_and是对二进制数据进行“与”操作，即对图像（灰度图像或彩色图像均可）每个像素值进行二进制“与”操作，1&amp;1=1，1&amp;0=0，0&amp;1=0，0&amp;0=0。</p>
+<p>bitwise_or是对二进制数据进行“或”操作，即对图像（灰度图像或彩色图像均可）每个像素值进行二进制“或”操作，1|1=1，1|0=0，0|1=0，0|0=0。</p>
+<p>bitwise_xor是对二进制数据进行“异或”操作，即对图像（灰度图像或彩色图像均可）每个像素值进行二进制“异或”操作，1^1=0,1^0=1,0^1=1,0^0=0。</p>
+<p>bitwise_not是对二进制数据进行“非”操作，即对图像（灰度图像或彩色图像均可）每个像素值进行二进制“非”操作，<del>1=0，</del>0=1。</p>
+<h2 id="Hough直线变换"><a href="#Hough直线变换" class="headerlink" title="Hough直线变换"></a>Hough直线变换</h2><p>cv2.HoughLines()，返回值就是距离和角度。这个函数的第一个参数是一个二值化图像。第二个和第三个值代表距离和角度的精确度。第四个参数是阈值，只有累加其中的值高于阈值时才被认为是一条直线。</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv65.png" alt></p>
+<p>cv2.HoughLinesP():比上面多两个参数，minLineLength和MaxLineGap。比较简单</p>
+<p>minLineLength：线的最短长度，比这个短的线都忽略</p>
+<p>MaxLineGap：两条线段的最大间断，如果小于此值，这两条直线被看成一条直线</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv66.png" alt></p>
+<h2 id="Hough圆环变换："><a href="#Hough圆环变换：" class="headerlink" title="Hough圆环变换："></a>Hough圆环变换：</h2><p>HoughCircles(image, method, dp, minDist[, circles[, param1[, param2[, minRadius[, maxRadius]]]]])</p>
+<p>image参数表示8位单通道灰度输入图像矩阵。</p>
+<p>method参数表示圆检测方法，目前唯一实现的方法是HOUGH_GRADIENT。</p>
+<p>dp参数表示累加器与原始图像相比的分辨率的反比参数。例如，如果dp = 1，则累加器具有与输入图像相同的分辨率。如果dp=2，累加器分辨率是元素图像的一半，宽度和高度也缩减为原来的一半。</p>
+<p>minDist参数表示检测到的两个圆心之间的最小距离。如果参数太小，除了真实的一个圆圈之外，可能错误地检测到多个相邻的圆圈。如果太大，可能会遗漏一些圆圈。</p>
+<p>circles参数表示检测到的圆的输出向量，向量内第一个元素是圆的横坐标，第二个是纵坐标，第三个是半径大小。</p>
+<p>param1参数表示Canny边缘检测的高阈值，低阈值会被自动置为高阈值的一半。</p>
+<p>param2参数表示圆心检测的累加阈值，参数值越小，可以检测越多的假圆圈，但返回的是与较大累加器值对应的圆圈。</p>
+<p>minRadius参数表示检测到的圆的最小半径。</p>
+<p>maxRadius参数表示检测到的圆的最大半径</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv67.png" alt></p>
+
+    </div>
+
+    
+    
+    
+<div>
+	
+		<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">----本文结束，感谢您的阅读。如有错，请指正。----</div>
+    
+</div>
+
+	
+</div>
+    
+      <div>
+        <div id="reward-container">
+  <div>谢谢老板。你的支持将鼓励我继续创作！</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.jpg" alt="湛蓝星空 微信支付">
+        <p>微信支付</p>
+      </div>
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/alipay.jpg" alt="湛蓝星空 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+      </div>
+
+    <footer class="post-footer">
+          
+        
+        <div class="post-tags">
+            <a href="/tags/视觉处理/" rel="tag"># 视觉处理</a>
+          
+        </div>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+              <a href="/2019/08/08/opencv-3/" rel="next" title="opencv(3)">
+                <i class="fa fa-chevron-left"></i> opencv(3)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+              <a href="/2019/08/08/opencv-5/" rel="prev" title="opencv(5)">
+                opencv(5) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.jpg"
+      alt="湛蓝星空">
+  <p class="site-author-name" itemprop="name">湛蓝星空</p>
+  <div class="site-description motion-element" itemprop="description">这个人贼菜</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/Brickexperts" title="GitHub &rarr; https://github.com/Brickexperts" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+  </div>
+
+
+
+        </div>
+      </div>
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#图像类型转换"><span class="nav-text">图像类型转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#inrange："><span class="nav-text">inrange：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图像中的与、或、异或、非操作"><span class="nav-text">图像中的与、或、异或、非操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hough直线变换"><span class="nav-text">Hough直线变换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hough圆环变换："><span class="nav-text">Hough圆环变换：</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">湛蓝星空</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+
+    
+
+  </div>
+
+  
+    
+    
+  
+  <script color='0,0,0' opacity='0.5' zIndex='-1' count='150' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  <script src="/js/utils.js?v=7.3.0"></script>
+  <script src="/js/motion.js?v=7.3.0"></script>
+
+  
+  <script src="/js/affix.js?v=7.3.0"></script>
+  <script src="/js/schemes/pisces.js?v=7.3.0"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.3.0"></script>
+<script src="/js/post-details.js?v=7.3.0"></script>
+
+
+
+  <script src="/js/next-boot.js?v=7.3.0"></script>
+
+  
+
+  
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.3.0"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
