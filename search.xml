@@ -1,6 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[机器学习（2）]]></title>
+    <url>%2F2019%2F08%2F09%2F%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%EF%BC%882%EF%BC%89%2F</url>
+    <content type="text"><![CDATA[模型的保存和加载 joblib.dump():保存模型，第一个参数是估计器，第二个参数是保存模型的目录。模型的文件格式是pkl。 joblib.load()：读取模型。参数是模型的目录 线性回归线性回归通过一个或多个自变量和因变量之间进行建模的回归分析，其中可以为一个或多个自变量之间的线性组合 公式:h(w)=w0+w1x+w2x2+… 正规方程和梯度下降的性能评估：均方误差 过拟合：一个假设在训练数据上能够获得比其他假设更好的拟合，但是在训练数据外的数据集上却不能很好地拟合数据，此时认为这个假设出现了过拟合的现象。(模型过于复杂) 解决方法：正则化。用岭回归实现 欠拟合：一个假设在训练数据上不能获得更好的拟合，但是在训练数据外的数据集上也不能很好地拟合数据。此时认为这个假设出现了欠拟合的现象。(模型过于简单) 解决办法是添加数据的特征数量。 分类算法-逻辑回归解决二分类问题 penalty是正则化的方式是l2，C是正则化力度 k—meansk代表数据划分为几个类别 聚类评估标准：轮廓系数，范围在[-1,1]越接近1，效果越好 精确率和召回率 分类模型评估API：F1-score,反应了模型的稳健性 模型选择和调优：1、交叉验证 2、网格搜索 交叉验证为了让被评估的模型更加准确可信 网格搜索是用来调参数的。通常情况下，有很多参数是需要手动指定的（如k-近邻算法的k）但是手动过于繁杂。所以需要对模型预设几种超参数组合，每组超参数都采用交叉验证来进行评估。 sklearn.model_Selection.GridSearchCV]]></content>
+      <categories>
+        <category>python</category>
+        <category>机器学习</category>
+        <category>机器学习（2）</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[机器学习（1）]]></title>
+    <url>%2F2019%2F08%2F09%2F%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%EF%BC%881%EF%BC%89%2F</url>
+    <content type="text"><![CDATA[机器学习算法分类 区分监督学习和非监督学习的方法：看是否有标准答案。无监督学习无标准答案，只有特征值。 区分分类问题和回归问题的方法:目标值是否是离散型。目标值是离散型，则是分类问题。目标值是连续型，则是回归问题。 数据分割模型=算法+数据 数据分为训练集和测试集 fit_transform=fit+transform：fit做的是计算平均值和标准差，transform做的是转化 分类算法-k近邻算法(KNN)：如果一个样本在特征空间中的k个最相似(即特征空间中最邻近)的样本中的大多数属于某一个类别，则该样本也属于这个类别。 如何求距离： k值取很小，容易受异常点影响 k值取很大,容易受k值数量的波动 分类算法—朴素贝叶斯朴素代表特征独立,不需要调参。这是基于概率的预测 这里的C代表类别，W代表特征。 决策树信息熵： 信息增益：就是熵和特征条件熵的差 随机变量的不确定性（熵）越小，信息增益越大，这个特征的表现就越好 随机森林：随机森林是一个包含多个决策树的分类器，并且其输出的类别是由个别树输出的类别的众数而定。]]></content>
+      <categories>
+        <category>python</category>
+        <category>机器学习</category>
+        <category>机器学习（1）</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[特征工程]]></title>
+    <url>%2F2019%2F08%2F09%2F%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B%2F</url>
+    <content type="text"><![CDATA[​ 前些天我把python的处理图像的库——opencv总结了一下，但这终究是传统方法处理图像。现在都是用深度学习网络处理图像。所以，在学深度学习之前，我看了写机器学习的知识。在看机器学习的算法前，我们先来看看特征工程。 特征工程三大知识：特征抽取、特征预处理、特征降维。 特征抽取字典特征抽取，把数据中的以字符串标记的数据转化为one-hot编码。 由上面代码可得下面的稀疏（sparse）矩阵： 将稀疏矩阵转为矩阵： 将矩阵转化为字典： 文本特征抽取： 和字典特征抽取不一样的是CountVectorizer没有sparse参数，只能通过矩阵的toarray转化为数组 可得： 注意：单个字母不统计。因为单个英文字母没有依据 如果文本是中文，根据需要的词频给文本添加空格。同样，单个字无法统计 利用jieba分词对数据进行one-hot编码： TF-IDF特征抽取：用以评估一个词对于一个文件集或一个语料库中的其中一份文件的重要程度 特征预处理数据归一化处理：通过对原始数据进行交换把数据映射到（默认为[0,1]）之间 归一化缺点：注意在特定场景最大值最小值是变化的。另外，最大值与最小值非常容易受异常点的影响，所以这种方法的鲁棒性差，只适合传统精确小数据场景。 数据标准化处理:通过对原始数据进行变换把数据变换到均值为0，方差为1的范围。 标准化总结：在已有样本足够多的情况下比较稳定，适合现代嘈杂大数据场景 缺失值处理方法: 删除：如果每列或者行数据缺失值达到一定比例时，建议放弃整行或者整列 插补：可以通过缺失值每行或者每列的平均值、中位数来填充 数据降维：减少特征的数量。这里的维度代表特征的个数。两种方法：1.特征选择 2.主成分分析 特征选择：特征选择就是单纯地从提取到的所有特征中选择部分特征作为训练集特征，特征在选择前和选择后可以改变值、也不改变值。但是选择后的特征维数肯定比选择前小。主要方法：Filter（过滤式）、Embedded（嵌入式）、Wrapper（包裹式） 主成分分析：PCA技术，PCA是一种分析、简化数据集的技术。特征数达到数百才会使用 目的：是数据维数压缩，尽可能降低原数据的维数，损失少量信息 PCA语法： n_components取值可以是小数和整数：小数的取值范围是0-1，代表降维后的维度是原本维度的0-1倍数，整数的值是降维降几个维。]]></content>
+      <categories>
+        <category>python</category>
+        <category>机器学习</category>
+        <category>特征工程</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[opencv(7)]]></title>
+    <url>%2F2019%2F08%2F09%2Fopencv-7%2F</url>
+    <content type="text"><![CDATA[直方图横坐标：图像中各个像素的灰度级 纵坐标：具有该灰度级的像素个数 归一化直方图： 横坐标：图像中各个像素的灰度级 纵坐标：出现这个灰度级的概率 掩膜：通过掩膜可以将一张图的某块区域的直方图画出来 直方图均值化： 注意:用cv2.equalizeHist进行直方图均衡化处理时，对彩色图像进行处理时，分通道进行。灰度图像直接均衡化 利用CLAHE有限对比适应性直方图均衡化，对彩色图像也是分通道进行。灰度图像直接均衡化。 背景建模：以高斯混合模型为基础的背景/前景分割算法 apply可以得到前景的掩膜 傅里叶变换补 。。。。。]]></content>
+      <categories>
+        <category>python</category>
+        <category>opencv</category>
+        <category>opencv(7)</category>
+      </categories>
+      <tags>
+        <tag>视觉处理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[opencv(6)]]></title>
+    <url>%2F2019%2F08%2F08%2Fopencv-6%2F</url>
+    <content type="text"><![CDATA[特征提取图像特征：可以表达图像中对象的主要信息、并且以此为依据可以从其他未知图像中检测出相似或者相同图像。 常见的图像特征：边缘、角点、纹理 角点检测：cv2.cornerHarris() img:输入图像 blockSize：角点检测中要考虑的领域大小 ksize：Sobel求导中使用的窗口大小 k：方程参数，参数为[0.04，0.06] 亚像素级的角点检测：红色是原先的角点，绿色像素是修正后的像素 适合于跟踪的角点检测：cv2.goodFeaturesToTrack(): 输入灰度图像、检测的角点数目、设置角点的质量水平，0-1之间，低于这个数的都会被忽略、设置两个角点间的最短欧式距离。 SIFT尺度不变特征变换匹配算法： cv2.xfeatures2d.SIFT_create()：创建sift特征器 sift.detect()可以在图像找到关键点。如果想在图像的特定区域搜索，可以创建一个掩膜图像作为参数。属性如下： pt：表示图像中关键点的x坐标和y坐标 size：表示特征的直径 angle：表示特征的方向 response：表示关键点强度 octave：表示特征所在金字塔的层级 class_id：表示关键点的ID sift.compute():计算关键点的描述符，在sift.detect后使用。 sift.detectAndCompute()：直接找到关键点并计算出描述符 cv2.drawKeypoints(): image:原始图像 keypoints：特征点向量 outimage：特征点绘制的画布图像，可以是原图像 color：绘制的特征点颜色，可以是原图像。 flags：五种绘制模式： DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS:就会绘制代表关键点大小的圆圈甚至可以绘制除关键点的方向。 DEFAULT：只绘制特征点的坐标点,显示在图像上就是一个个小圆点,每个小圆点的圆心坐标都是特征点的坐标。 DRAW_OVER_OUTIMG：函数不创建输出的图像,而是直接在输出图像变量空间绘制,要求本身输出图像变量就是一个初始化好了的,size与type都是已经初始化好的变量 NOT_DRAW_SINGLE_POINTS：单点的特征点不被绘制 DRAW_RICH_KEYPOINTS：绘制特征点的时候绘制的是一个个带有方向的圆,这种方法同时显示图像的坐标,size，和方向,是最能显示特征的一种绘制方式 SURF：加速稳健特征算法，加快版的SIFT。与SIFT类似 BRIEF:这是一种特征描述符，他不提供查找特征的方法。所以我们需要使用其他的特征检测器。例如：SIFT或SURF。推荐使用STAR。 orb检测： bf暴力匹配： cv2.BFMatcher()：创建一个BFMatcher对象。参数： ​ normType：指定使用的距离测试类型。默认值为cv2.NORM_L2。cv2.NORM_L1也行。这两种适用于SIFT和SURF。对于ORB,BRIEF，应使用cv2.NORM_HAMMING。如果VTA_K==3或4，normType应设置为cv2.NORM_HAMMING2。 ​ crossCheck：默认为False。如果设置为True，匹配条件就会更加严格。 BFMatcher对象具有两个方法：match()和knnMatch()。第一种方法会返回最佳匹配，第二个方法为每个关键点返回k个最佳匹配（降序排列后取前k个）。 cv2.drawMatches cv2.drawMatchsKnn：就像使用 cv2.drawKeypoints() 绘制关点一样我们可以使用 cv2.drawMatches()来绘制匹配的点。它会将两幅图像先水平排列然后在最佳匹配的点之间绘制直线从原图像到目标图像。如果前面使用的是BFMatcher.knnMatch()现在我们可以使用函数 cv2.drawMatchsKnn 为每个关键点和它的 k 个最佳匹配点绘制匹配线。如果 k 等于 2就会为每个关键点绘制两条最佳匹配直线。如果我们选择性绘制就给函数传入一个掩模。 对ORB描述符进行暴力匹配： match=bf.match(des1，des2)：返回值是一个DMatch对象列表。具有以下属性： DMatch.distance - 描述符之间的距离。越小越好。 • DMatch.trainIdx - 目标图像中描述符的索引。 • DMatch.queryIdx - 查询图像中描述符的索引。 • DMatch.imgIdx - 目标图像的索引 对SIFT描述符进行暴力匹配： FLANN匹配器： cv2.FlannBasedMatcher( [, indexParams[, searchParams]] ) indexParams： searchParams：]]></content>
+      <categories>
+        <category>python</category>
+        <category>opencv</category>
+        <category>opencv(6)</category>
+      </categories>
+      <tags>
+        <tag>视觉处理</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[opencv(5)]]></title>
     <url>%2F2019%2F08%2F08%2Fopencv-5%2F</url>
     <content type="text"><![CDATA[视频处理Videocapture：VideoCapture(args)：如果args=0，则打开摄像头。如果args=路径， 则打开视频源 摄像头设置和查询： 调用摄像头读取图像数据，以及使用 cap.set( propId ， value ) cap.get( propId ) 图片合成视频： 视频分解图片： normalize：归一化函数为了消除指标之间的影响，需要对数据进行标准化处理，以解决数据指标之间的可比性 cv2.normalize(src[, dst[, alpha[, beta[, norm_type[, dtype[, mask]]]]]]) src:输入数组 dst:与src大小相同的输出数组 alpha:下限边界 beta:上限边界 norm_type:NORM_MINMAX NORM_INF NORM_L1 NORM_L2 dType:当输出为负时，输出数组具有与src相同的类型。否则，具有与src相同的信道数和深度 mask:掩膜 画图cv2.rectangle（）：若将五改为-1，则填充整个矩形 cv2.circle：要画圆的话，只需要指定圆形的中心点坐标和半径大小，颜色和粗细 cv2.ellispe:一个参数是中心点的位置坐标。下一个参数是长轴和短轴的长度。椭圆沿逆时针方向旋转的角度。椭圆弧沿顺时针方向起始的角度和结束角度，如果是 0 到 360，就是整个椭圆。 图像金字塔我们对同一图像的不同分辨率的子图像处理。比如我们在一幅图像中查找某个目标比如脸，我们不知目标在图像中的尺寸大小。这种情况下我们创建一组图，这些图像是具有不同分率的原始图像。我们把组图像叫做图像字塔简单来就是同一图像的不同分率的子图集合。如果我们把大的图像放在底部最小的放在顶部。看来像一座金字塔，故而得名图像金字塔。 图像金字塔：高斯金字塔和拉普拉斯金字塔 向下采样：将图像缩小，图像信息丢失 向上采样：将图像放大，图像会变模糊 向下采样和向上采样不是可逆的，无法将图像变为原始图像。 向下采样函数：cv2.pyrDown(原始图像) 向上采样函数：cv2.pyrUP 拉普拉斯金字塔： opencv删除窗口：删除所有窗口 ：cv2.destroyAllWindow() 删除指定窗口：cv2.destroyWindow(“original”) waitKey(x):参数为等待键盘触发的时间。单位为毫秒。如不输入参数，则输入任意键退出。 setMouseCallback():event为事件 x，y代表鼠标位于窗口的（x，y）位置 flags：代表鼠标的拖曳事件以及鼠标和键盘联合的事件。共有32种 param：函数指针，标识所相应的事件函数。 namewindow WINDOW_NORMAL 用户可以改变窗口的大小； WINDOW_AUTOSIZE 窗口大小会根据显示图像自动调整，用户必能手动改变窗口大小； WINDOW_OPENGL 支持OpenGL。]]></content>
@@ -29,7 +94,7 @@
   <entry>
     <title><![CDATA[opencv(3)]]></title>
     <url>%2F2019%2F08%2F08%2Fopencv-3%2F</url>
-    <content type="text"><![CDATA[图像轮廓和图像边缘不一样，边缘不连续。将边缘连接成一个整体构成轮廓。 提取图像轮廓的方法：先调用cv2.findContours()，后调用cv2.drawCont() cv2.findCount函数使用方法: 参数mode的几种方式： 参数method的几种方法： 轮廓特征：cv2.moments()会将计算得到的矩以一个字典的形式返回。 轮廓面积可以使用函数 cv2.contourArea() 计算得到 轮廓周长：cv2.arcLength(cnt，True) 函数的第二个参数用来指定对象的形状是闭合的(True)，还是打开的。 轮廓近似：cv2.approxPolyDP(cnt，epsilon，True) 凸包：函数cv2.convexHull() 可以用来检测一个曲线是否具有凸性缺陷并能纠正凸性缺陷。凸性曲线总是凸出来的，至少是平的。如果有地方凹去了就叫做凸性缺陷。 凸性检测：cv2.isContourConvex()可以用来检测一个曲线是不是凸的，返回True和False。 边界矩形：直边界矩形和旋转的边界矩形。 直边界矩形：面积不是最小的。x,y,w,h=cv2.boundingRect()。x,y,为矩形左上角的坐标，w,h为矩形的宽和高 旋转的边界矩形：面积最小。考虑了对象的旋转。cv2.minAreaRect())。返回的是一个 Box2D 结构，其中包含矩形左上点的坐标x，y矩形的宽和高w，h以及旋度。但是绘制个矩形矩形的 4 个点可以函数cv2.boxPoints() 获 得。 最小外接圆：cv2.minEnlosingCircle() 椭圆拟合：旋转边界矩形的内切圆 cv2.fitEllipse(cnt) 形状匹配：cv2.matchShape()可以帮我们比较两个形状或轮廓的相似度。返回值越小，匹配越好。 getStructuringElement构建一个核。前面腐蚀膨胀的numpy构建的结构化元素是正方形的 getStructuringElement 与 Numpy 定义的元素结构是完全一样的这个函数的第一个参数表示内核的形状，有三种形状可以选择。 矩形：MORPH_RECT; 交叉形：MORPH_CROSS; 椭圆形：MORPH_ELLIPSE; 第二和第三个参数分别是内核的尺寸以及锚点的位置。对于锚点的位置，有默认值（-1,-1），表示锚点位于中心点。element形状唯一依赖锚点位置，其他情况下，锚点只是影响了形态学运算结果的偏移。 透视变换在不同的视觉拍摄同一个物体，会有不同的图像。透视变换就是类似于改变拍摄物体的角度 仿射变换：由平移、错切、缩放、反转、旋转复合而成，是透视变换的特殊形式 OpenCV提供了两个变换函数cv2.warpAﬃne(仿射变换)和cv2.warpPerspective(透视变换) ，cv2.warpAﬃne 接收的参数是 2×3 的变换矩阵，而cv2.warpPerspective 接收的参数是 3×3 的变换矩阵。 函数cv2.warpAﬃne() 的第三个参数的是输出图像的大小。它的格式应是图像的(宽,高)。注意的是图像的宽对应的是列数，高对应的是行数。可以实现图片平移。可以和cv2.getAffineTransform配合使用 其中两个参数是变换前后的位置关系 函数cv2.warpPerspective配合cv2.getPerspectiveTransform()使用。同时可以用findHomography返回的单应性矩阵。 getPersonspectiveTransform得出变换矩阵： 得出变换矩阵以后用warpPerspective()：第一个参数是输入图像，M是变换矩阵，第三个参数是输出图像的大小 getPerspectiveTransform和findHomography的区别： 旋转：cv2.getRotationMatrix2D()]]></content>
+    <content type="text"><![CDATA[图像轮廓和图像边缘不一样，边缘不连续。将边缘连接成一个整体构成轮廓。 提取图像轮廓的方法：先调用cv2.findContours()，后调用cv2.drawCont() cv2.findCount函数使用方法: 参数mode的几种方式： 参数method的几种方法： 轮廓特征：cv2.moments()会将计算得到的矩以一个字典的形式返回。 轮廓面积可以使用函数 cv2.contourArea() 计算得到 轮廓周长：cv2.arcLength(cnt，True) 函数的第二个参数用来指定对象的形状是闭合的(True)，还是打开的。 轮廓近似：cv2.approxPolyDP(cnt，epsilon，True) 凸包：函数cv2.convexHull() 可以用来检测一个曲线是否具有凸性缺陷并能纠正凸性缺陷。凸性曲线总是凸出来的，至少是平的。如果有地方凹去了就叫做凸性缺陷。 凸性检测：cv2.isContourConvex()可以用来检测一个曲线是不是凸的，返回True和False。 边界矩形：直边界矩形和旋转的边界矩形。 直边界矩形：面积不是最小的。x,y,w,h=cv2.boundingRect()。x,y,为矩形左上角的坐标，w,h为矩形的宽和高 旋转的边界矩形：面积最小。考虑了对象的旋转。cv2.minAreaRect())。返回的是一个 Box2D 结构，其中包含矩形左上点的坐标x，y矩形的宽和高w，h以及旋度。但是绘制个矩形矩形的 4 个点可以函数cv2.boxPoints() 获 得。 最小外接圆：cv2.minEnlosingCircle() 椭圆拟合：旋转边界矩形的内切圆 cv2.fitEllipse(cnt) 形状匹配：cv2.matchShape()可以帮我们比较两个形状或轮廓的相似度。返回值越小，匹配越好。 getStructuringElement构建一个核。前面腐蚀膨胀的numpy构建的结构化元素是正方形的 getStructuringElement 与 Numpy 定义的元素结构是完全一样的这个函数的第一个参数表示内核的形状，有三种形状可以选择。 矩形：MORPH_RECT; 交叉形：MORPH_CROSS; 椭圆形：MORPH_ELLIPSE; 第二和第三个参数分别是内核的尺寸以及锚点的位置。对于锚点的位置，有默认值（-1,-1），表示锚点位于中心点。element形状唯一依赖锚点位置，其他情况下，锚点只是影响了形态学运算结果的偏移。 透视变换在不同的视觉拍摄同一个物体，会有不同的图像。透视变换就是类似于改变拍摄物体的角度 仿射变换：由平移、错切、缩放、反转、旋转复合而成，是透视变换的特殊形式 OpenCV提供了两个变换函数cv2.warpAﬃne(仿射变换)和cv2.warpPerspective(透视变换) ，cv2.warpAﬃne 接收的参数是 2×3 的变换矩阵，而cv2.warpPerspective 接收的参数是 3×3 的变换矩阵。 函数cv2.warpAﬃne() 的第三个参数的是输出图像的大小。它的格式应是图像的(宽,高)。注意的是图像的宽对应的是列数，高对应的是行数。可以实现图片平移。可以和cv2.getAffineTransform配合使用 其中两个参数是变换前后的位置关系 函数cv2.warpPerspective配合cv2.getPerspectiveTransform()使用。同时可以用findHomography返回的单应性矩阵。 getPersonspectiveTransform得出变换矩阵： 得出变换矩阵以后用warpPerspective()：第一个参数是输入图像，M是变换矩阵，第三个参数是输出图像的大小 findHomography：提供正确估计的好的匹配被叫做inliers，而其他的叫做outliers。cv2.findHomography()返回一个掩图来指定inline和outline。第一个和第二个参数分别是原图像和目的图像，第三个参数可选为cv2.RANSAC、cv2.LMEDS.第二个参数取值范围在1到10。 getPerspectiveTransform和findHomography的区别： 旋转：cv2.getRotationMatrix2D()]]></content>
       <categories>
         <category>python</category>
         <category>opencv</category>

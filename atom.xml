@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-08-08T06:54:48.073Z</updated>
+  <updated>2019-08-09T04:07:48.826Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,156 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>机器学习（2）</title>
+    <link href="http://yoursite.com/2019/08/09/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%EF%BC%882%EF%BC%89/"/>
+    <id>http://yoursite.com/2019/08/09/机器学习（2）/</id>
+    <published>2019-08-09T03:48:50.000Z</published>
+    <updated>2019-08-09T04:07:48.826Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="模型的保存和加载"><a href="#模型的保存和加载" class="headerlink" title="模型的保存和加载"></a>模型的保存和加载</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML40.png" alt></p><p>joblib.dump():保存模型，第一个参数是估计器，第二个参数是保存模型的目录。模型的文件格式是pkl。</p><p>joblib.load()：读取模型。参数是模型的目录</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML56.png" alt></p><h2 id="线性回归"><a href="#线性回归" class="headerlink" title="线性回归"></a>线性回归</h2><p>线性回归通过一个或多个自变量和因变量之间进行建模的回归分析，其中可以为一个或多个自变量之间的线性组合</p><p>公式:h(w)=w0+w1x+w2x2+…</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML42.png" alt></p><p>正规方程和梯度下降的性能评估：均方误差</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML43.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML45.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML44.png" alt></p><p>过拟合：一个假设在训练数据上能够获得比其他假设更好的拟合，但是在训练数据外的数据集上却不能很好地拟合数据，此时认为这个假设出现了过拟合的现象。(模型过于复杂)</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML46.png" alt></p><p>解决方法：正则化。用岭回归实现</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML47.png" alt></p><p>欠拟合：一个假设在训练数据上不能获得更好的拟合，但是在训练数据外的数据集上也不能很好地拟合数据。此时认为这个假设出现了欠拟合的现象。(模型过于简单) 解决办法是添加数据的特征数量。</p><h2 id="分类算法-逻辑回归"><a href="#分类算法-逻辑回归" class="headerlink" title="分类算法-逻辑回归"></a>分类算法-逻辑回归</h2><p>解决二分类问题</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML48.png" alt></p><p>penalty是正则化的方式是l2，C是正则化力度</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML49.png" alt></p><h2 id="k—means"><a href="#k—means" class="headerlink" title="k—means"></a>k—means</h2><p>k代表数据划分为几个类别</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML50.png" alt></p><p>聚类评估标准：轮廓系数，范围在[-1,1]越接近1，效果越好</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML51.png" alt></p><h2 id="精确率和召回率"><a href="#精确率和召回率" class="headerlink" title="精确率和召回率"></a>精确率和召回率</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML52.png" alt></p><p>分类模型评估API：F1-score,反应了模型的稳健性</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML53.png" alt></p><p>模型选择和调优：1、交叉验证 2、网格搜索</p><p>交叉验证为了让被评估的模型更加准确可信</p><p>网格搜索是用来调参数的。通常情况下，有很多参数是需要手动指定的（如k-近邻算法的k）但是手动过于繁杂。所以需要对模型预设几种超参数组合，每组超参数都采用交叉验证来进行评估。</p><p>sklearn.model_Selection.GridSearchCV</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML54.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML55.png" alt></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;模型的保存和加载&quot;&gt;&lt;a href=&quot;#模型的保存和加载&quot; class=&quot;headerlink&quot; title=&quot;模型的保存和加载&quot;&gt;&lt;/a&gt;模型的保存和加载&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Br
+      
+    
+    </summary>
+    
+      <category term="python" scheme="http://yoursite.com/categories/python/"/>
+    
+      <category term="机器学习" scheme="http://yoursite.com/categories/python/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="机器学习（2）" scheme="http://yoursite.com/categories/python/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%EF%BC%882%EF%BC%89/"/>
+    
+    
+      <category term="机器学习" scheme="http://yoursite.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>机器学习（1）</title>
+    <link href="http://yoursite.com/2019/08/09/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%EF%BC%881%EF%BC%89/"/>
+    <id>http://yoursite.com/2019/08/09/机器学习（1）/</id>
+    <published>2019-08-09T03:22:57.000Z</published>
+    <updated>2019-08-09T03:48:20.778Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="机器学习算法分类"><a href="#机器学习算法分类" class="headerlink" title="机器学习算法分类"></a>机器学习算法分类</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190809112544.png" alt></p><p>区分监督学习和非监督学习的方法：看是否有标准答案。无监督学习无标准答案，只有特征值。</p><p>区分分类问题和回归问题的方法:目标值是否是离散型。目标值是离散型，则是分类问题。目标值是连续型，则是回归问题。</p><h2 id="数据分割"><a href="#数据分割" class="headerlink" title="数据分割"></a>数据分割</h2><p>模型=算法+数据    数据分为训练集和测试集</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML24.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML25.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML26.png" alt></p><p>fit_transform=fit+transform：fit做的是计算平均值和标准差，transform做的是转化</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML27.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML28.png" alt></p><h2 id="分类算法-k近邻算法-KNN-："><a href="#分类算法-k近邻算法-KNN-：" class="headerlink" title="分类算法-k近邻算法(KNN)："></a>分类算法-k近邻算法(KNN)：</h2><p>如果一个样本在特征空间中的k个最相似(即特征空间中最邻近)的样本中的大多数属于某一个类别，则该样本也属于这个类别。</p><p>如何求距离：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML29.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML30.png" alt></p><p>k值取很小，容易受异常点影响</p><p>k值取很大,容易受k值数量的波动</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML31.png" alt></p><h2 id="分类算法—朴素贝叶斯"><a href="#分类算法—朴素贝叶斯" class="headerlink" title="分类算法—朴素贝叶斯"></a>分类算法—朴素贝叶斯</h2><p>朴素代表特征独立,不需要调参。这是基于概率的预测</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML39.png" alt></p><p>这里的C代表类别，W代表特征。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML33.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML32.png" alt></p><h2 id="决策树"><a href="#决策树" class="headerlink" title="决策树"></a>决策树</h2><p>信息熵：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML34.png" alt></p><p>信息增益：就是熵和特征条件熵的差</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML35.png" alt></p><p>随机变量的不确定性（熵）越小，信息增益越大，这个特征的表现就越好</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML36.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML37.png" alt></p><p>随机森林：随机森林是一个包含多个决策树的分类器，并且其输出的类别是由个别树输出的类别的众数而定。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML38.png" alt></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;机器学习算法分类&quot;&gt;&lt;a href=&quot;#机器学习算法分类&quot; class=&quot;headerlink&quot; title=&quot;机器学习算法分类&quot;&gt;&lt;/a&gt;机器学习算法分类&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Br
+      
+    
+    </summary>
+    
+      <category term="python" scheme="http://yoursite.com/categories/python/"/>
+    
+      <category term="机器学习" scheme="http://yoursite.com/categories/python/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="机器学习（1）" scheme="http://yoursite.com/categories/python/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%EF%BC%881%EF%BC%89/"/>
+    
+    
+      <category term="机器学习" scheme="http://yoursite.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>特征工程</title>
+    <link href="http://yoursite.com/2019/08/09/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/"/>
+    <id>http://yoursite.com/2019/08/09/特征工程/</id>
+    <published>2019-08-09T02:53:28.000Z</published>
+    <updated>2019-08-09T03:20:16.134Z</updated>
+    
+    <content type="html"><![CDATA[<p>​    前些天我把python的处理图像的库——opencv总结了一下，但这终究是传统方法处理图像。现在都是用深度学习网络处理图像。所以，在学深度学习之前，我看了写机器学习的知识。在看机器学习的算法前，我们先来看看特征工程。</p><p>特征工程三大知识：特征抽取、特征预处理、特征降维。</p><h2 id="特征抽取"><a href="#特征抽取" class="headerlink" title="特征抽取"></a>特征抽取</h2><p>字典特征抽取，把数据中的以字符串标记的数据转化为one-hot编码。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML1.png" alt></p><p>由上面代码可得下面的稀疏（sparse）矩阵：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML2.png" alt></p><p>将稀疏矩阵转为矩阵：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML3.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML4.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML6.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML7.png" alt></p><p>将矩阵转化为字典：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML8.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML9.png" alt></p><p>文本特征抽取：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML10.png" alt></p><p>和字典特征抽取不一样的是CountVectorizer没有sparse参数，只能通过矩阵的toarray转化为数组</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML12.png" alt></p><p>可得：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML11.png" alt></p><p><strong>注意：单个字母不统计。因为单个英文字母没有依据</strong></p><p>如果文本是中文，根据需要的词频给文本添加空格。同样，单个字无法统计</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML13.png" alt></p><p>利用jieba分词对数据进行one-hot编码：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML14.png" alt></p><p>TF-IDF特征抽取：用以评估一个词对于一个文件集或一个语料库中的其中一份文件的重要程度</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML15.png" alt></p><h2 id="特征预处理"><a href="#特征预处理" class="headerlink" title="特征预处理"></a>特征预处理</h2><p>数据归一化处理：通过对原始数据进行交换把数据映射到（默认为[0,1]）之间</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML16.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML17.png" alt></p><p>归一化缺点：注意在特定场景最大值最小值是变化的。另外，最大值与最小值非常容易受异常点的影响，所以这种方法的鲁棒性差，只适合传统精确小数据场景。</p><p>数据标准化处理:通过对原始数据进行变换把数据变换到均值为0，方差为1的范围。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML18.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML19.png" alt></p><p>标准化总结：在已有样本足够多的情况下比较稳定，适合现代嘈杂大数据场景</p><p>缺失值处理方法:</p><p>删除：如果每列或者行数据缺失值达到一定比例时，建议放弃整行或者整列</p><p>插补：可以通过缺失值每行或者每列的平均值、中位数来填充</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML20.png" alt></p><h2 id="数据降维："><a href="#数据降维：" class="headerlink" title="数据降维："></a>数据降维：</h2><p>减少特征的数量。这里的维度代表特征的个数。两种方法：1.特征选择 2.主成分分析</p><p>特征选择：特征选择就是单纯地从提取到的所有特征中选择部分特征作为训练集特征，特征在选择前和选择后可以改变值、也不改变值。但是选择后的特征维数肯定比选择前小。主要方法：Filter（过滤式）、Embedded（嵌入式）、Wrapper（包裹式）</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML21.png" alt></p><p>主成分分析：PCA技术，PCA是一种分析、简化数据集的技术。特征数达到数百才会使用</p><p>目的：是数据维数压缩，尽可能降低原数据的维数，损失少量信息</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML22.png" alt></p><p>PCA语法：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML23.png" alt></p><p>n_components取值可以是小数和整数：小数的取值范围是0-1，代表降维后的维度是原本维度的0-1倍数，整数的值是降维降几个维。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;​    前些天我把python的处理图像的库——opencv总结了一下，但这终究是传统方法处理图像。现在都是用深度学习网络处理图像。所以，在学深度学习之前，我看了写机器学习的知识。在看机器学习的算法前，我们先来看看特征工程。&lt;/p&gt;
+&lt;p&gt;特征工程三大知识：特征抽取、特征
+      
+    
+    </summary>
+    
+      <category term="python" scheme="http://yoursite.com/categories/python/"/>
+    
+      <category term="机器学习" scheme="http://yoursite.com/categories/python/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="特征工程" scheme="http://yoursite.com/categories/python/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/"/>
+    
+    
+      <category term="机器学习" scheme="http://yoursite.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>opencv(7)</title>
+    <link href="http://yoursite.com/2019/08/09/opencv-7/"/>
+    <id>http://yoursite.com/2019/08/09/opencv-7/</id>
+    <published>2019-08-09T02:33:14.000Z</published>
+    <updated>2019-08-09T02:49:40.038Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="直方图"><a href="#直方图" class="headerlink" title="直方图"></a>直方图</h2><p>横坐标：图像中各个像素的灰度级</p><p>纵坐标：具有该灰度级的像素个数</p><p>归一化直方图：</p><p>横坐标：图像中各个像素的灰度级</p><p>纵坐标：出现这个灰度级的概率</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv96.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv97.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv98.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv99.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv100.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv101.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv102.png" alt></p><p>掩膜：通过掩膜可以将一张图的某块区域的直方图画出来</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv103.png" alt></p><p>直方图均值化：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv104.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv105.png" alt></p><p>注意:用cv2.equalizeHist进行直方图均衡化处理时，对彩色图像进行处理时，分通道进行。灰度图像直接均衡化</p><p>利用CLAHE有限对比适应性直方图均衡化，对彩色图像也是分通道进行。灰度图像直接均衡化。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv106.png" alt></p><h2 id="背景建模："><a href="#背景建模：" class="headerlink" title="背景建模："></a>背景建模：</h2><p>以高斯混合模型为基础的背景/前景分割算法</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv107.png" alt></p><p>apply可以得到前景的掩膜</p><h2 id="傅里叶变换"><a href="#傅里叶变换" class="headerlink" title="傅里叶变换"></a>傅里叶变换</h2><p>补  。。。。。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;直方图&quot;&gt;&lt;a href=&quot;#直方图&quot; class=&quot;headerlink&quot; title=&quot;直方图&quot;&gt;&lt;/a&gt;直方图&lt;/h2&gt;&lt;p&gt;横坐标：图像中各个像素的灰度级&lt;/p&gt;
+&lt;p&gt;纵坐标：具有该灰度级的像素个数&lt;/p&gt;
+&lt;p&gt;归一化直方图：&lt;/p&gt;
+&lt;p&gt;横坐标：图
+      
+    
+    </summary>
+    
+      <category term="python" scheme="http://yoursite.com/categories/python/"/>
+    
+      <category term="opencv" scheme="http://yoursite.com/categories/python/opencv/"/>
+    
+      <category term="opencv(7)" scheme="http://yoursite.com/categories/python/opencv/opencv-7/"/>
+    
+    
+      <category term="视觉处理" scheme="http://yoursite.com/tags/%E8%A7%86%E8%A7%89%E5%A4%84%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>opencv(6)</title>
+    <link href="http://yoursite.com/2019/08/08/opencv-6/"/>
+    <id>http://yoursite.com/2019/08/08/opencv-6/</id>
+    <published>2019-08-08T07:03:02.000Z</published>
+    <updated>2019-08-09T01:51:38.877Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="特征提取"><a href="#特征提取" class="headerlink" title="特征提取"></a>特征提取</h2><p>图像特征：可以表达图像中对象的主要信息、并且以此为依据可以从其他未知图像中检测出相似或者相同图像。</p><p>常见的图像特征：边缘、角点、纹理</p><p>角点检测：cv2.cornerHarris()</p><p>img:输入图像</p><p>blockSize：角点检测中要考虑的领域大小</p><p>ksize：Sobel求导中使用的窗口大小</p><p>k：方程参数，参数为[0.04，0.06]</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv83.png" alt></p><p>亚像素级的角点检测：红色是原先的角点，绿色像素是修正后的像素</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv84.png" alt></p><p>适合于跟踪的角点检测：cv2.goodFeaturesToTrack():</p><p>输入灰度图像、检测的角点数目、设置角点的质量水平，0-1之间，低于这个数的都会被忽略、设置两个角点间的最短欧式距离。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv85.png" alt></p><p>SIFT尺度不变特征变换匹配算法：</p><p>cv2.xfeatures2d.SIFT_create()：创建sift特征器</p><p>sift.detect()可以在图像找到关键点。如果想在图像的特定区域搜索，可以创建一个掩膜图像作为参数。属性如下：</p><p>pt：表示图像中关键点的x坐标和y坐标</p><p>size：表示特征的直径</p><p>angle：表示特征的方向</p><p>response：表示关键点强度</p><p>octave：表示特征所在金字塔的层级</p><p>class_id：表示关键点的ID</p><p>sift.compute():计算关键点的描述符，在sift.detect后使用。</p><p>sift.detectAndCompute()：直接找到关键点并计算出描述符</p><p>cv2.drawKeypoints():</p><p>image:原始图像</p><p>keypoints：特征点向量</p><p>outimage：特征点绘制的画布图像，可以是原图像</p><p>color：绘制的特征点颜色，可以是原图像。</p><p>flags：五种绘制模式：</p><p>DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS:就会绘制代表关键点大小的圆圈甚至可以绘制除关键点的方向。 </p><p>DEFAULT：只绘制特征点的坐标点,显示在图像上就是一个个小圆点,每个小圆点的圆心坐标都是特征点的坐标。 </p><p>DRAW_OVER_OUTIMG：函数不创建输出的图像,而是直接在输出图像变量空间绘制,要求本身输出图像变量就是一个初始化好了的,size与type都是已经初始化好的变量 </p><p>NOT_DRAW_SINGLE_POINTS：单点的特征点不被绘制 </p><p>DRAW_RICH_KEYPOINTS：绘制特征点的时候绘制的是一个个带有方向的圆,这种方法同时显示图像的坐标,size，和方向,是最能显示特征的一种绘制方式</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv86.png" alt></p><p>SURF：加速稳健特征算法，加快版的SIFT。与SIFT类似</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv87.png" alt></p><p>BRIEF:这是一种特征描述符，他不提供查找特征的方法。所以我们需要使用其他的特征检测器。例如：SIFT或SURF。推荐使用STAR。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv88.png" alt></p><p>orb检测：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv89.png" alt></p><p>bf暴力匹配：</p><p>cv2.BFMatcher()：创建一个BFMatcher对象。参数：</p><p>​     normType：指定使用的距离测试类型。默认值为cv2.NORM_L2。cv2.NORM_L1也行。这两种适用于SIFT和SURF。对于ORB,BRIEF，应使用cv2.NORM_HAMMING。如果VTA_K==3或4，normType应设置为cv2.NORM_HAMMING2。</p><p>​     crossCheck：默认为False。如果设置为True，匹配条件就会更加严格。</p><p>BFMatcher对象具有两个方法：match()和knnMatch()。第一种方法会返回最佳匹配，第二个方法为每个关键点返回k个最佳匹配（降序排列后取前k个）。</p><p>cv2.drawMatches cv2.drawMatchsKnn：就像使用 cv2.drawKeypoints() 绘制关点一样我们可以使用 cv2.drawMatches()来绘制匹配的点。它会将两幅图像先水平排列然后在最佳匹配的点之间绘制直线从原图像到目标图像。如果前面使用的是BFMatcher.knnMatch()现在我们可以使用函数 cv2.drawMatchsKnn 为每个关键点和它的 k 个最佳匹配点绘制匹配线。如果 k 等于 2就会为每个关键点绘制两条最佳匹配直线。如果我们选择性绘制就给函数传入一个掩模。</p><p> 对ORB描述符进行暴力匹配：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv90.png" alt></p><p>match=bf.match(des1，des2)：返回值是一个DMatch对象列表。具有以下属性：</p><p> DMatch.distance - 描述符之间的距离。越小越好。 </p><p>• DMatch.trainIdx - 目标图像中描述符的索引。</p><p> • DMatch.queryIdx - 查询图像中描述符的索引。</p><p> • DMatch.imgIdx - 目标图像的索引</p><p>对SIFT描述符进行暴力匹配：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv91.png" alt></p><p>FLANN匹配器：</p><p>cv2.FlannBasedMatcher( [, indexParams[, searchParams]] )</p><p>indexParams：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv92.png" alt></p><p>searchParams：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv93.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv94.png" alt></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;特征提取&quot;&gt;&lt;a href=&quot;#特征提取&quot; class=&quot;headerlink&quot; title=&quot;特征提取&quot;&gt;&lt;/a&gt;特征提取&lt;/h2&gt;&lt;p&gt;图像特征：可以表达图像中对象的主要信息、并且以此为依据可以从其他未知图像中检测出相似或者相同图像。&lt;/p&gt;
+&lt;p&gt;常见的图像
+      
+    
+    </summary>
+    
+      <category term="python" scheme="http://yoursite.com/categories/python/"/>
+    
+      <category term="opencv" scheme="http://yoursite.com/categories/python/opencv/"/>
+    
+      <category term="opencv(6)" scheme="http://yoursite.com/categories/python/opencv/opencv-6/"/>
+    
+    
+      <category term="视觉处理" scheme="http://yoursite.com/tags/%E8%A7%86%E8%A7%89%E5%A4%84%E7%90%86/"/>
+    
+  </entry>
   
   <entry>
     <title>opencv(5)</title>
@@ -79,9 +229,9 @@
     <link href="http://yoursite.com/2019/08/08/opencv-3/"/>
     <id>http://yoursite.com/2019/08/08/opencv-3/</id>
     <published>2019-08-08T05:44:27.000Z</published>
-    <updated>2019-08-08T06:59:24.588Z</updated>
+    <updated>2019-08-09T02:25:19.615Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="图像轮廓"><a href="#图像轮廓" class="headerlink" title="图像轮廓"></a>图像轮廓</h2><p>和图像边缘不一样，边缘不连续。将边缘连接成一个整体构成轮廓。</p><p>提取图像轮廓的方法：先调用cv2.findContours()，后调用cv2.drawCont()</p><p>cv2.findCount函数使用方法:</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv42.png" alt></p><p>参数mode的几种方式：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv43.png" alt></p><p>参数method的几种方法：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv44.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv45.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv46.png" alt></p><h2 id="轮廓特征："><a href="#轮廓特征：" class="headerlink" title="轮廓特征："></a>轮廓特征：</h2><p>cv2.moments()会将计算得到的<strong>矩</strong>以一个字典的形式返回。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190808134950.png" alt></p><p><strong>轮廓面积</strong>可以使用函数 cv2.contourArea() 计算得到</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv47.png" alt></p><p><strong>轮廓周长</strong>：cv2.arcLength(cnt，True) 函数的第二个参数用来指定对象的形状是闭合的(True)，还是打开的。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv448.png" alt></p><p><strong>轮廓近似</strong>：cv2.approxPolyDP(cnt，epsilon，True)</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv54.png" alt></p><p><strong>凸包</strong>：函数cv2.convexHull() 可以用来检测一个曲线是否具有凸性缺陷并能纠正凸性缺陷。凸性曲线总是凸出来的，至少是平的。如果有地方凹去了就叫做凸性缺陷。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv49.png" alt></p><p><strong>凸性检测</strong>：cv2.isContourConvex()可以用来检测一个曲线是不是凸的，返回True和False。</p><p><strong>边界矩形</strong>：直边界矩形和旋转的边界矩形。</p><p><strong>直边界矩形</strong>：面积不是最小的。x,y,w,h=cv2.boundingRect()。x,y,为矩形左上角的坐标，w,h为矩形的宽和高</p><p><strong>旋转的边界矩形</strong>：面积最小。考虑了对象的旋转。cv2.minAreaRect())。返回的是一个 Box2D 结构，其中包含矩形左上点的坐标x，y矩形的宽和高w，h以及旋度。但是绘制个矩形矩形的 4 个点可以函数cv2.boxPoints() 获 得。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv50.png" alt></p><p><strong>最小外接圆</strong>：cv2.minEnlosingCircle()</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv51.png" alt></p><p><strong>椭圆拟合</strong>：旋转边界矩形的内切圆   cv2.fitEllipse(cnt)</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv52.png" alt></p><p><strong>形状匹配</strong>：cv2.matchShape()可以帮我们比较两个形状或轮廓的相似度。返回值越小，匹配越好。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv53.png" alt></p><h2 id="getStructuringElement"><a href="#getStructuringElement" class="headerlink" title="getStructuringElement"></a>getStructuringElement</h2><p>构建一个核。前面腐蚀膨胀的numpy构建的结构化元素是正方形的</p><p>getStructuringElement  与 Numpy 定义的元素结构是完全一样的这个函数的第一个参数表示内核的形状，有三种形状可以选择。</p><p>矩形：MORPH_RECT;</p><p>交叉形：MORPH_CROSS;</p><p>椭圆形：MORPH_ELLIPSE;</p><p>第二和第三个参数分别是内核的尺寸以及锚点的位置。对于锚点的位置，有默认值（-1,-1），表示锚点位于中心点。element形状唯一依赖锚点位置，其他情况下，锚点只是影响了形态学运算结果的偏移。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv55.png" alt></p><h2 id="透视变换"><a href="#透视变换" class="headerlink" title="透视变换"></a>透视变换</h2><p>在不同的视觉拍摄同一个物体，会有不同的图像。透视变换就是类似于改变拍摄物体的角度</p><p>仿射变换：由平移、错切、缩放、反转、旋转复合而成，是透视变换的特殊形式</p><p>OpenCV提供了两个变换函数cv2.warpAﬃne(仿射变换)和cv2.warpPerspective(透视变换) ，cv2.warpAﬃne 接收的参数是 2×3 的变换矩阵，而cv2.warpPerspective 接收的参数是 3×3 的变换矩阵。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv56.png" alt></p><p>函数cv2.warpAﬃne() 的第三个参数的是输出图像的大小。它的格式应是图像的(宽,高)。注意的是图像的宽对应的是列数，高对应的是行数。可以实现图片平移。可以和cv2.getAffineTransform配合使用</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv57.png" alt></p><p>其中两个参数是变换前后的位置关系</p><p>函数cv2.warpPerspective配合cv2.getPerspectiveTransform()使用。同时可以用findHomography返回的单应性矩阵。</p><p>getPersonspectiveTransform得出变换矩阵：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv58.png" alt></p><p>得出变换矩阵以后用warpPerspective()：第一个参数是输入图像，M是变换矩阵，第三个参数是输出图像的大小</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv60.png" alt></p><p>getPerspectiveTransform和findHomography的区别：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv59.png" alt></p><h2 id="旋转：cv2-getRotationMatrix2D"><a href="#旋转：cv2-getRotationMatrix2D" class="headerlink" title="旋转：cv2.getRotationMatrix2D()"></a>旋转：cv2.getRotationMatrix2D()</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv62.png" alt></p>]]></content>
+    <content type="html"><![CDATA[<h2 id="图像轮廓"><a href="#图像轮廓" class="headerlink" title="图像轮廓"></a>图像轮廓</h2><p>和图像边缘不一样，边缘不连续。将边缘连接成一个整体构成轮廓。</p><p>提取图像轮廓的方法：先调用cv2.findContours()，后调用cv2.drawCont()</p><p>cv2.findCount函数使用方法:</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv42.png" alt></p><p>参数mode的几种方式：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv43.png" alt></p><p>参数method的几种方法：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv44.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv45.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv46.png" alt></p><h2 id="轮廓特征："><a href="#轮廓特征：" class="headerlink" title="轮廓特征："></a>轮廓特征：</h2><p>cv2.moments()会将计算得到的<strong>矩</strong>以一个字典的形式返回。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190808134950.png" alt></p><p><strong>轮廓面积</strong>可以使用函数 cv2.contourArea() 计算得到</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv47.png" alt></p><p><strong>轮廓周长</strong>：cv2.arcLength(cnt，True) 函数的第二个参数用来指定对象的形状是闭合的(True)，还是打开的。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv448.png" alt></p><p><strong>轮廓近似</strong>：cv2.approxPolyDP(cnt，epsilon，True)</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv54.png" alt></p><p><strong>凸包</strong>：函数cv2.convexHull() 可以用来检测一个曲线是否具有凸性缺陷并能纠正凸性缺陷。凸性曲线总是凸出来的，至少是平的。如果有地方凹去了就叫做凸性缺陷。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv49.png" alt></p><p><strong>凸性检测</strong>：cv2.isContourConvex()可以用来检测一个曲线是不是凸的，返回True和False。</p><p><strong>边界矩形</strong>：直边界矩形和旋转的边界矩形。</p><p><strong>直边界矩形</strong>：面积不是最小的。x,y,w,h=cv2.boundingRect()。x,y,为矩形左上角的坐标，w,h为矩形的宽和高</p><p><strong>旋转的边界矩形</strong>：面积最小。考虑了对象的旋转。cv2.minAreaRect())。返回的是一个 Box2D 结构，其中包含矩形左上点的坐标x，y矩形的宽和高w，h以及旋度。但是绘制个矩形矩形的 4 个点可以函数cv2.boxPoints() 获 得。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv50.png" alt></p><p><strong>最小外接圆</strong>：cv2.minEnlosingCircle()</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv51.png" alt></p><p><strong>椭圆拟合</strong>：旋转边界矩形的内切圆   cv2.fitEllipse(cnt)</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv52.png" alt></p><p><strong>形状匹配</strong>：cv2.matchShape()可以帮我们比较两个形状或轮廓的相似度。返回值越小，匹配越好。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv53.png" alt></p><h2 id="getStructuringElement"><a href="#getStructuringElement" class="headerlink" title="getStructuringElement"></a>getStructuringElement</h2><p>构建一个核。前面腐蚀膨胀的numpy构建的结构化元素是正方形的</p><p>getStructuringElement  与 Numpy 定义的元素结构是完全一样的这个函数的第一个参数表示内核的形状，有三种形状可以选择。</p><p>矩形：MORPH_RECT;</p><p>交叉形：MORPH_CROSS;</p><p>椭圆形：MORPH_ELLIPSE;</p><p>第二和第三个参数分别是内核的尺寸以及锚点的位置。对于锚点的位置，有默认值（-1,-1），表示锚点位于中心点。element形状唯一依赖锚点位置，其他情况下，锚点只是影响了形态学运算结果的偏移。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv55.png" alt></p><h2 id="透视变换"><a href="#透视变换" class="headerlink" title="透视变换"></a>透视变换</h2><p>在不同的视觉拍摄同一个物体，会有不同的图像。透视变换就是类似于改变拍摄物体的角度</p><p>仿射变换：由平移、错切、缩放、反转、旋转复合而成，是透视变换的特殊形式</p><p>OpenCV提供了两个变换函数cv2.warpAﬃne(仿射变换)和cv2.warpPerspective(透视变换) ，cv2.warpAﬃne 接收的参数是 2×3 的变换矩阵，而cv2.warpPerspective 接收的参数是 3×3 的变换矩阵。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv56.png" alt></p><p>函数cv2.warpAﬃne() 的第三个参数的是输出图像的大小。它的格式应是图像的(宽,高)。注意的是图像的宽对应的是列数，高对应的是行数。可以实现图片平移。可以和cv2.getAffineTransform配合使用</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv57.png" alt></p><p>其中两个参数是变换前后的位置关系</p><p>函数cv2.warpPerspective配合cv2.getPerspectiveTransform()使用。同时可以用findHomography返回的单应性矩阵。</p><p>getPersonspectiveTransform得出变换矩阵：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv58.png" alt></p><p>得出变换矩阵以后用warpPerspective()：第一个参数是输入图像，M是变换矩阵，第三个参数是输出图像的大小</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv60.png" alt></p><p>findHomography：提供正确估计的好的匹配被叫做inliers，而其他的叫做outliers。cv2.findHomography()返回一个掩图来指定inline和outline。第一个和第二个参数分别是原图像和目的图像，第三个参数可选为cv2.RANSAC、cv2.LMEDS.第二个参数取值范围在1到10。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv95..png" alt></p><p>getPerspectiveTransform和findHomography的区别：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv59.png" alt></p><h2 id="旋转：cv2-getRotationMatrix2D"><a href="#旋转：cv2-getRotationMatrix2D" class="headerlink" title="旋转：cv2.getRotationMatrix2D()"></a>旋转：cv2.getRotationMatrix2D()</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv62.png" alt></p>]]></content>
     
     <summary type="html">
     
@@ -456,150 +606,6 @@
     
     
       <category term="python协程" scheme="http://yoursite.com/tags/python%E5%8D%8F%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>python中的进程</title>
-    <link href="http://yoursite.com/2019/08/06/python%E4%B8%AD%E7%9A%84%E8%BF%9B%E7%A8%8B/"/>
-    <id>http://yoursite.com/2019/08/06/python中的进程/</id>
-    <published>2019-08-06T03:15:37.000Z</published>
-    <updated>2019-08-06T03:38:00.114Z</updated>
-    
-    <content type="html"><![CDATA[<p>多进程：multiprocessing模块</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E8%BF%9B%E7%A8%8B1.png" alt></p><p>os.getpid()获取当前进程的id    os.getppid()获取父进程的id</p><p>大量启动子进程，可以用进程池pool批量创建子进程。可以通过processes改变创建的进程数目。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E8%BF%9B%E7%A8%8B3.png" alt></p><p>apply_async(func[, args=()[, kwds={}[, callback=None]]])该函数用于传递不定参数，非阻塞且支持结果返回进行回调。</p><p>将函数添加到进程池：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E8%BF%9B%E7%A8%8B2.png" alt></p><p>map(func, iterable[, chunksize=None])：Pool类中的map方法，与内置的map函数用法行为基本一致，它会使进程阻塞直到返回结果。 注意，虽然第二个参数是一个迭代器，但在实际使用中，必须在整个队列都就绪后，程序才会运行子进程。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E8%BF%9B%E7%A8%8B4.png" alt></p><p>close()：关闭进程池（pool），使其不在接受新的任务。</p><p>terminate()：结束工作进程，不在处理未处理的任务。</p><p>join([timeout])：主进程阻塞等待子进程的退出，join方法必须在close或terminate之后使用。timeout表示等待最多时间。若超出，则会直接执行下列代码</p><p>Value、Array是通过共享内存的方式共享数据 </p><p>Value：将一个值存放在内存中，</p><p>Array：将多个数据存放在内存中，但要求数据类型一致</p><p>Value:</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E8%BF%9B%E7%A8%8B5.png" alt></p><p>Array:两种情况</p><p>若为数字，表示开辟的共享内存中的空间大小，（Value表示为该空间绑定一个数值）</p><p>若为数组，表示在共享内存中存入数组</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E8%BF%9B%E7%A8%8B6.png" alt></p><p>说明：三个0表示开辟的共享内存容量为3，当再超过3时就会报错。</p><p>Manager（Value、Array、dict、list、Lock、Semaphore等）是通过共享进程的方式共享数据。</p><p>进程间通信：Queue ，Pipe</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E8%BF%9B%E7%A8%8B13.png" alt></p><p>使用方法和队列差不多</p><p>q.get_nowait()：和get()差不多，不用等。 </p><p>Pipe:Pipe可以是单向(half-duplex)，也可以是双向(duplex)。我们通过mutiprocessing.Pipe(duplex=False)创建单向管道 (默认为双向)。一个进程从PIPE一端输入对象，然后被PIPE另一端的进程接收，单向管道只允许管道一端的进程输入，而双向管道则允许从两端输入。</p><p>这里的Pipe是双向的。</p><p>Pipe对象建立的时候，返回一个含有两个元素的表，每个元素代表Pipe的一端(Connection对象)。我们对Pipe的某一端调用send()方法来传送对象，在另一端使用recv()来接收。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E8%BF%9B%E7%A8%8B7.png" alt></p><p><strong>生产者与消费者模式：在两者中找一个缓冲的东西（队列，缓冲池），解决数据生产方和数据处理方数据不分配的问题。</strong></p><p>耦合：谁和谁的关系越强，耦合性就越强。耦合性越强，程序维护越难。</p><p>解耦的好处：哪块不合适，就改那块。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E8%BF%9B%E7%A8%8B8.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E8%BF%9B%E7%A8%8B10.png" alt></p><p>接上面：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E8%BF%9B%E7%A8%8B11.png" alt></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;多进程：multiprocessing模块&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E8%BF%9B%E7%A8%8B1.png&quot; alt&gt;&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-      <category term="python" scheme="http://yoursite.com/categories/python/"/>
-    
-      <category term="进程" scheme="http://yoursite.com/categories/python/%E8%BF%9B%E7%A8%8B/"/>
-    
-    
-      <category term="python进程" scheme="http://yoursite.com/tags/python%E8%BF%9B%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>python中的线程</title>
-    <link href="http://yoursite.com/2019/08/06/python%E4%B8%AD%E7%9A%84%E7%BA%BF%E7%A8%8B/"/>
-    <id>http://yoursite.com/2019/08/06/python中的线程/</id>
-    <published>2019-08-06T02:34:04.000Z</published>
-    <updated>2019-08-06T03:08:28.270Z</updated>
-    
-    <content type="html"><![CDATA[<p>重要的话写在前面：进程间不共享全局变量，线程间共享全局变量。</p><p>同步：按预定的先后次序进行运行                异步：不确定的次序</p><p>对于操作系统来说，一个任务就是一个进程。进程内的子任务成为线程 ，一个进程至少有一个线程</p><p>多任务执行的方式：</p><p>多进程</p><p>多线程</p><p>多进程+多线程</p><p>多线程：Python的标准库提供了两个模块：_thread和threading，_thread是低级模块，threading是高级模块，对_thread进行了封装。绝大多数情况下，我们只需要使用threading这个高级模块。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B1.png" alt></p><p>传入参数为元祖。也就是即使只有一个参数，也要写逗号。</p><p>join():将线程加入到当前线程，并等待其终止</p><p>判断线程是否在运行：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B2.png" alt></p><p>守护线程：将daemon属性设为True，则该线程无法被连接</p><p>daemon属性可以保证主线程结束时可以同时结束子线程或者使主线程等待子线程结束后在结束。故称为守护线程。daemon默认为False，如需修改，必须在调用start()方法启动线程之前进行设置。<strong>不适用与idle的交互模式或脚本模式</strong></p><p>当daemon属性为False时，主线程会检测子线程是否结束，如果子线程还在运行，则主线程会等待他完成后在退出。当daemon属性为True时，子线程没执行的不再执行，主线程直接退出。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B4.png" alt></p><p>通过轮询终止线程：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B5.png" alt></p><p>threading的常用方法：</p><p>​    active_count() 当前活动的 Thread 对象个数</p><p>​    current_thread() 返回当前 Thread 对象</p><p>​    current_thread().name返回当前的Thread对象的名字</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B6.png" alt></p><p>​    get_ident() 返回当前线程</p><p>​    enumerater() 返回当前活动 Thread 对象列表</p><p>​    main_thread() 返回主 Thread 对象</p><p>​    settrace(func) 为所有线程设置一个 trace 函数</p><p>​    setprofile(func) 为所有线程设置一个 profile 函数</p><p>​    stack_size([size]) 返回新创建线程栈大小；或为后续创建的线程设定栈大小为 size</p><p>​    TIMEOUT_MAX Lock.acquire(), RLock.acquire(), Condition.wait() 允许的最大值</p><p>threading 可用对象列表：</p><p>​    Thread 表示执行线程的对象</p><p>​    Lock 锁原语对象</p><p>​    RLock 可重入锁对象，使单一进程再次获得已持有的锁(递归锁)</p><p>Condition： 条件变量对象，使得一个线程等待另一个线程满足特定条件，比如改变状态或某个值</p><p>​    wait(timeout): 线程挂起，直到收到一个notify通知或者超时（可选的，浮点数，单位是秒s）才会被唤醒继续运行。wait()必须在已获得Lock前提下才能调用，否则会触发RuntimeError。</p><p>​    condition = threading.Condition(lock=None)   # 创建Condition对象  参数可以不传</p><p>​    condition.acquire()    # 加锁</p><p>​    condition.release()    # 解锁</p><p>​    condition.wait(timeout=None)                 # 阻塞，直到有调用notify(),或者notify_all()时再触发</p><p>​    condition.wait_for(predicate, timeout=None)  # 阻塞，等待predicate条件为真时执行</p><p>​    condition.notify(n=1)        # 通知n个wait()的线程执行, n默认为1</p><p>​    condition.notify_all()       # 通知所有wait着的线程执行</p><p>​     with condition:              # 支持with语法，不必每次手动调用acquire()/release() </p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B7.png" alt></p><p>Semaphore 为线程间共享的有限资源提供一个”计数器”，如果没有可用资源会被阻塞</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B8.png" alt></p><p>Events：它是由线程设置的信号标志，如果信号标志为真，则其他线程等待直到信号接触。</p><p>Event对象实现了简单的线程通信机制，它提供了设置信号，清除信号，等待等用于实现线程间的通信。</p><p>event = threading.Event() 创建一个event</p><p>1 设置信号</p><p>event.set()</p><p>使用Event的set（）方法可以设置Event对象内部的信号标志为真。Event对象提供了isSet（）方法来判断其内部信号标志的状态。</p><p>当使用event对象的set（）方法后，isSet（）方法返回真</p><p>2 清除信号</p><p>event.clear()</p><p>使用Event对象的clear（）方法可以清除Event对象内部的信号标志，即将其设为假，当使用Event的clear方法后，isSet()方法返回假</p><p>3 等待</p><p>event.wait()</p><p>Event对象wait的方法只有在内部信号为真的时候才会很快的执行并完成返回。当Event对象的内部信号标志为假时，则wait方法一直等待到其为真时才返回。也就是说必须set新号标志为真</p><p>主线程在等事件设置后才继续执行</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B10.png" alt></p><p>event使用示范：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B11.png" alt></p><p>Barrier :创建一个”阻碍”，必须达到指定数量的线程后才可以继续</p><p>每个线程中都调用了wait()方法，在所有（此处设置为3）线程调用wait方法之前是阻塞的。也就是说，只有等到3个线程都执行到了wait方法这句时，所有线程才继续执行。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B12.png" alt></p><p>计算处于alive的Thread对象数量：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B13.png" alt></p><p>多线程避免全局变量的改变：上锁。上锁后执行的代码越少越好。</p><p>互斥锁：Lock是比较低级的同步原语，当被锁定后不属于特定的线程。一个锁有两个状态:Locked和unLocked.刚创建的的Locked处于unlocked状态。如果锁处于unlocked状态，acquire()方法将其修改为Locked并立即返回。如果锁处于locked状态，则阻塞当前线程并等待其他线程释放锁，然后将其修改为locked并立即返回。release()方法用来将锁的状态从locked修改为unlocked并立即返回。如果锁的状态本来就是unlocked，则会抛出异常</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B14.png" alt></p><p>可重入锁Rlock对象也是一种常用的线程同步原语，可被同一个线程acquire()多次。当locked状态时，某现场拥有该锁，当处于unlocked状态时，该锁不属于任何线程。Rlock对象的acquire()/release()调用对可以嵌套，仅当最后一个或者最外层的release执行结束后，锁才会被设置为unlocked状态</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B15.png" alt></p><p>死锁：双方都在等待对方的条件满足</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B16.png" alt></p><p>避免死锁的方法：1、添加超时事件  2、 尽量避免（银行家算法）</p><p>Threadlocal：保存当前线程的专有状态，这个状态对其他线程不可见。</p><p>全局变量local就是一个ThreadLocal对象，每个Thread对它都可以读写student属性，但互不影响。你可以把local看成全局变量，但每个属性如local.student都是线程的局部变量，可以任意读写而互不干扰，也不用管理锁的问题，ThreadLocal内部会处理。一个ThreadLocal变量虽然是全局变量，但每个线程都只能读写自己线程的独立副本，互不干扰。ThreadLocal解决了参数在一个线程中各个函数之间互相传递的问题。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B17.png" alt></p><p>线程池：threadpool模块或concerrent.futures模块</p><p>threadpool模块比较老旧，不是主流。</p><p>threadpool.ThreadPool(poolsize)：定义一个线程池，创建了poolsize个线程。</p><p>threadpool.makeRequest(开启多线程的函数，函数相关参数，[回调函数])</p><p>putRequest:将所有要运行多线程的请求扔进线程池。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B18.png" alt></p><p>concerrent.futures：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B19.png" alt></p><p>ThreadPoolExecutor构造实例的时候，传入max_workers参数来设置线程池中最多能同时运行的线程数目。</p><p>使用submit函数来提交线程需要执行的任务（函数名和参数）到线程池中，并返回该任务的句柄（类似于文件、画图），注意submit()不是阻塞的，而是立即返回。</p><p>通过submit函数返回的任务句柄，能够使用done()方法判断该任务是否结束。上面的例子可以看出，由于任务有2s的延时，在task1提交后立刻判断，task1还未完成，而在延时4s之后判断，task1就完成了。</p><p>使用cancel()方法可以取消提交的任务，如果任务已经在线程池中运行了，就取消不了。这个例子中，线程池的大小设置为2，任务已经在运行了，所以取消失败。如果改变线程池的大小为1，那么先提交的是task1，task2还在排队等候，这是时候就可以成功取消。</p><p>使用result()方法可以获取任务的返回值。查看内部代码，发现这个方法是阻塞的</p><p>as_completed:一次取出所有任务的结果。as_completed()方法是一个生成器，在没有任务完成的时候，会阻塞，在有某个任务完成的时候，会yield这个任务，就能执行for循环下面的语句，然后继续阻塞住，循环到所有的任务结束。从结果也可以看出，先完成的任务会先通知主线程。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B20.png" alt></p><p>map的作用和submit一样，但略有不同。输出顺序和参数列表的顺序相同</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B21.png" alt></p><p>wait方法接受三个参数，等待的任务序列，超时时间，以及等待条件。等待条件return_when默认为ALL_COMPLTED，表明要等待所有的任务都结束。还可以设为FIRST_COMPLETED，表示第一个任务完成就结束等待。FITST_EXCEPTION(注意要导入)</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B22.png" alt></p><p>通过类创建线程：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B23.png" alt></p><p>t.start后一定调用run函数，不定义run函数该线程不执行。对其他函数的调用只能在run函数里执行。多线程可以共享全局变量，但当数据量大时，数据会出错（产生资源竞争）。</p><p>线程是真的多，看到最后。迷迷糊糊，有错一定要提醒我。而且很多我还没有用过。后面用到的话，会补充上去的。接下来说最后一个：GIL。何为GIL？</p><p>GIL：全局解释器锁</p><p>单CPU的系统中运行多个进程那样，内存中可以存放多个程序，但任意时刻，只有一个程序在CPU中运行。同样地，虽然Python解释器中可以“运行”多个线程，但在任意时刻，只有一个线程在解释器中运行。</p><p>GIL保证了多线程时只有一个线程被调用。 所以多进程效率比多线程高，但是进程间通信比线程难。</p><p>解决方法：用C语言写关键部分。模块（ctypes）</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;重要的话写在前面：进程间不共享全局变量，线程间共享全局变量。&lt;/p&gt;
-&lt;p&gt;同步：按预定的先后次序进行运行                异步：不确定的次序&lt;/p&gt;
-&lt;p&gt;对于操作系统来说，一个任务就是一个进程。进程内的子任务成为线程 ，一个进程至少有一个线程&lt;/p&gt;
-&lt;p
-      
-    
-    </summary>
-    
-      <category term="python" scheme="http://yoursite.com/categories/python/"/>
-    
-      <category term="线程" scheme="http://yoursite.com/categories/python/%E7%BA%BF%E7%A8%8B/"/>
-    
-    
-      <category term="python线程" scheme="http://yoursite.com/tags/python%E7%BA%BF%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>numpy</title>
-    <link href="http://yoursite.com/2019/08/06/numpy/"/>
-    <id>http://yoursite.com/2019/08/06/numpy/</id>
-    <published>2019-08-06T01:54:18.000Z</published>
-    <updated>2019-08-06T02:31:13.537Z</updated>
-    
-    <content type="html"><![CDATA[<p>​    最近这几年，机器学习和深度学习大火。而这其中的数据计算是非常多，而这得益于python的numpy模块。多提一句：numpy是没有GIL（多线程解释器锁）的。所以，numpy中的计算是非常快的。那什么是GIL呢？请看python的多线程。话不多说，让我们开启今天的数学之旅。PS：numpy很多API，我还没有学完。我只是总结了一部分，后面会补充的。</p><p>通过array生成矩阵：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy1.png" alt></p><p>可以通过dtype设置矩阵数据的类型。astype可以修改数据类型。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy3.png" alt></p><p>还有其他生成矩阵的方式：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy5.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy6.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy7.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy8.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy9.png" alt></p><p>numpy生成随机数：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy10.png" alt></p><p>seed的使用方法：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy11.png" alt></p><p>可以通过reshape修改列表的行数和列数，resize改变数组的尺寸大小。根据reshape传入的参数判断转为哪种数组。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy13.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy14.png" alt></p><p>numpy运算：加、减、乘、除类似。如果两个矩阵形状相同，两个矩阵对应的元素做操作。若两个矩阵形状不相同，其中一个矩阵的维度与另一个矩阵的维度相同，可以在该维度上做操作。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy15.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy.png" alt></p><p>通过axis求每行（列）的元素和或最大、最小值。0代表列，1代表行。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy16.png" alt></p><p>还可以获得最大、最小值：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy17.png" alt></p><p>其他一些计算：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy18.png" alt></p><p>对clip函数的解释：小于5的元素都设为5，大于9的元素都设为9</p><p>flatten：对数组展开为一维数组</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy19.png" alt></p><p>numpy的合并：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy20.png" alt></p><p>numpy的分割：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy21.png" alt></p><p>转置矩阵：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy22.png" alt></p><p>未完待续……</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;​    最近这几年，机器学习和深度学习大火。而这其中的数据计算是非常多，而这得益于python的numpy模块。多提一句：numpy是没有GIL（多线程解释器锁）的。所以，numpy中的计算是非常快的。那什么是GIL呢？请看python的多线程。话不多说，让我们开启今天的
-      
-    
-    </summary>
-    
-      <category term="python" scheme="http://yoursite.com/categories/python/"/>
-    
-      <category term="数学计算" scheme="http://yoursite.com/categories/python/%E6%95%B0%E5%AD%A6%E8%AE%A1%E7%AE%97/"/>
-    
-      <category term="numpy" scheme="http://yoursite.com/categories/python/%E6%95%B0%E5%AD%A6%E8%AE%A1%E7%AE%97/numpy/"/>
-    
-    
-      <category term="python的数学计算模块" scheme="http://yoursite.com/tags/python%E7%9A%84%E6%95%B0%E5%AD%A6%E8%AE%A1%E7%AE%97%E6%A8%A1%E5%9D%97/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>网络编程</title>
-    <link href="http://yoursite.com/2019/08/06/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"/>
-    <id>http://yoursite.com/2019/08/06/网络编程/</id>
-    <published>2019-08-06T01:00:03.000Z</published>
-    <updated>2019-08-06T01:52:11.873Z</updated>
-    
-    <content type="html"><![CDATA[<p>​    今天，我们来讲一下网络编程。这里面用到一个库：<strong>socket</strong>。网络通信其实就是两个进程之间在编程。先说两个重要的协议：TCP协议 和 UDP协议。TCP协议是传输控制协议，UDP协议是数据传输协议。TCP和UDP的区别：TCP慢但是稳定，因为它经过了三次握手和四次挥手，不会丢失数据。UDP快。</p><p>socket:注意参数是一个tuple，包含地址和端口号。</p><p>在同一个os中，端口不允许相同，即如果某个端口已经被使用了，那么在这个进程释放之前，其他进程都不能使用这个端口。（端口用来区分进程，若相同，不能把数据发送到准确的进程）</p><p>创建Socket时，AF_INET指定使用IPv4协议，如果要用更先进的IPv6，就指定为AF_INET6。SOCK_STREAM指定使用面向流的TCP协议，这样，一个Socket对象就创建成功，但是还没有建立连接。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BD%91%E7%BB%9C1.png" alt></p><p>coding：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BD%91%E7%BB%9C2.png" alt></p><p>主机名可以通过调用socket.gethostname()获得</p><p>接收数据时，调用recv(max)方法，一次最多接收指定的字节数，因此，在一个while循环中反复接收，直到recv()返回空数据，表示接收完毕，退出循环。当我们接收完数据后，调用close()方法关闭Socket，这样，一次完整的网络通信就结束了</p><p>创建TCP连接时，主动发起连接的叫客户端，被动响应连接的叫服务器。 客户端要主动发起TCP连接，必须知道服务器的IP地址和端口号。</p><p>TCP服务端建立步骤：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BD%91%E7%BB%9C3.png" alt></p><p><strong>一般是服务器（接受方）绑定端口，客户端（发送方）不绑定</strong></p><p>UDP不需要调用listen（）方法。可以直接接收数据</p><p>TCP调用listen()方法开始监听端口，将主动套接字（默认）变为被动套接字，传入的参数指定等待连接的最大数量</p><p>TCP服务端：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BD%91%E7%BB%9C4.png" alt></p><p>TCP客户端：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BD%91%E7%BB%9C5.png" alt></p><p>一般send()和recv()用于TCP，sendto()及recvfrom()用于UDP。sendto和recvfrom一般用于UDP协议中,但是如果在TCP中connect函数调用后也可以用。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BD%91%E7%BB%9C6.png" alt></p><p>服务器编程首先要绑定一个端口并监听来自其他客户端的连接。如果某个客户端连接过来了，服务器就与该客户端建立Socket连接，随后的通信就靠这个Socket连接了。</p><p>由于服务器会有大量来自客户端的连接，所以，服务器要能够区分一个Socket连接是和哪个客户端绑定的。一个Socket依赖4项：<strong>服务器地址、服务器端口、客户端地址、客户端端口</strong>来唯一确定一个Socket。但是服务器还需要同时响应多个客户端的请求，所以，每个连接都需要一个新的进程或者新的线程来处理，否则，服务器一次就只能服务一个客户端了。</p><p>然后，我们要绑定监听的地址和端口()。服务器可能有多块网卡，可以绑定到某一块网卡的IP地址上，也可以用<strong>0.0.0.0绑定到所有的网络地址</strong>，还可以用127.0.0.1绑定到本机地址。<strong>127.0.0.1是一个特殊的IP地址，表示本机地址</strong>，如果绑定到这个地址，客户端必须同时在本机运行才能连接，也就是说，外部的计算机无法连接进来。</p><p>端口号需要预先指定。请注意，小于1024的端口号必须要有管理员权限才能绑定：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BD%91%E7%BB%9C7.png" alt></p><p>每个连接都必须创建新线程（或进程）来处理，否则，单线程在处理连接的过程中，无法接受其他客户端的连接</p><p>利用多线程和socket进行聊天室的创建（UDP）：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BD%91%E7%BB%9C14.png" alt></p><p>下面这段代码是单进程服务器，配合进程或线程也可以建立多任务服务器（TCP）：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BD%91%E7%BB%9C9.png" alt></p><p>serverSocket：当这个套接字被关闭时，代表不再接收新的客户端连接</p><p>clientSocket：当这个套接字被关闭时，代表不能使用send和recv发收数据。</p><p>当利用线程建立多任务服务器时，clientSocket不能关闭。因为子线程共用数据</p><p>当利用进程建立时，clientSocket能关闭。子进程和父进程完全”一样“（实时拷贝）</p><p>单进程实现多任务：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BD%91%E7%BB%9C10.png" alt></p><p>最后，讲一下单播，多播和广播。</p><p>单播：一对一</p><p>多播：一对多</p><p>广播：一对所有 </p><p>UDP有广播，TCP没有广播</p><p>UDP发送广播数据的条件：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BD%91%E7%BB%9C11.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BD%91%E7%BB%9C12.png" alt></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;​    今天，我们来讲一下网络编程。这里面用到一个库：&lt;strong&gt;socket&lt;/strong&gt;。网络通信其实就是两个进程之间在编程。先说两个重要的协议：TCP协议 和 UDP协议。TCP协议是传输控制协议，UDP协议是数据传输协议。TCP和UDP的区别：TCP慢但是
-      
-    
-    </summary>
-    
-      <category term="python" scheme="http://yoursite.com/categories/python/"/>
-    
-      <category term="网络编程（socket）" scheme="http://yoursite.com/categories/python/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%EF%BC%88socket%EF%BC%89/"/>
-    
-    
-      <category term="python的网络编程" scheme="http://yoursite.com/tags/python%E7%9A%84%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>正则表达式</title>
-    <link href="http://yoursite.com/2019/08/05/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
-    <id>http://yoursite.com/2019/08/05/正则表达式/</id>
-    <published>2019-08-05T07:37:42.000Z</published>
-    <updated>2019-08-05T12:01:17.619Z</updated>
-    
-    <content type="html"><![CDATA[<p>正则表达式（不能随意添加空格，不然会改变原来含义）：</p><p>元字符(不能匹配自身): . $ ^ ( ) { } [ ] $ + \ | *，</p><p>|：A | B 会匹配 A 或 B 中出现的任何字符。为了能够更加合理的工作，| 的优先级非常低。例如 Fish|C 应该匹配 Fish 或 C，而不是匹配 Fis，然后一个 ‘h’ 或 ‘C’。同样，我们使用 | 来匹配 ‘|’ 字符本身；或者包含在一个字符类中，像这样 [|]。</p><p>^:匹配字符串的起始位置。如果设置了 MULTILINE 标志，就会变成匹配每一行的起始位置。在 MULTILINE 中，每当遇到换行符就会立刻进行匹配。</p><p>$:匹配字符串的结束位置，每当遇到换行符也会离开进行匹配。</p><p>+：用于指定前一个字符匹配一次或多次</p><p><em>：</em>匹配的是零次或多次</p><p>？：指定前一个字符匹配零次或者一次。</p><p>{m，n}(m和n都是十进制整数)：它的含义是前一个字符必须匹配m次到n（包括n次）次之间</p><p>原始字符串来表示正则表达式（就是在字符串前边加上 r）</p><p>\A:只匹配字符串的起始位置。如果没有设置 MULTILINE 标志的时候，\A 和 ^ 的功能是一样的；但如果设置了 MULTILINE 标志，则会有一些不同：\A 还是匹配字符串的起始位置，但 ^ 会对字符串中的每一行都进行匹配。</p><p>\Z:只匹配字符串的结束位置</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E6%AD%A3%E5%88%991.png" alt></p><p>\B:另一个零宽断言，与 \b 的含义相反，\B 表示非单词边界的位置。</p><p><strong>零宽断言：</strong></p><p>有些元字符它们不匹配任何字符，只是简单地表示成功或失败，因此这些字符也称之为零宽断言</p><p><strong>前向断言：</strong></p><p>（1）：前向肯定断言：如果当前包含的正则表达式（这里以 … 表示）在当前位置成功匹配，则代表成功，否则失败。一旦该部分正则表达式被匹配引擎尝试过，就不会继续进行匹配了；剩下的模式在此断言开始的地方继续尝试。</p><p>（2）：前向否定断言：这跟前向肯定断言相反（不匹配则表示成功，匹配表示失败）</p><p>假定我们要处理一段html，我们要替换掉相对url，例如<a href="abc.html">text</a> 这个a标签我们要替换成text，而对于<a href="http://outofmemory.cn/code-snippet/" target="_blank" rel="noopener">代码</a> 这样的a标签则要保留不做替换。这个应用场景下</p><p>就需要判断A标签的href属性如果不是以http://开头则匹配，即要做前向否定的断言.</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E6%AD%A3%E5%88%992.png" alt></p><p>脱字符：^ ,例如[^  5  ]会匹配任何字符 “5”之外的任何字符</p><p>[ ]他们指定一个字符类用于存放你需要的字符集合。可以单独列出需要匹配字符，也可以两个字符和一个横杆-指定匹配的范围。元字符在方括号中不会触发“特殊功能”，在字符类中，它们只匹配自身。</p><p>反斜杠 \：如果在反斜杠后边紧跟着一个元字符，那么元字符的“特殊功能”也不会被触发。例如你需要匹配符号[ 或 \，你可以在他们前面加上一个反斜杠，以消除他们的特殊功能：\[ ,\\</p><p>注意用小括号括住要重复的内容：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E6%AD%A3%E5%88%993.png" alt></p><p>匹配ip（万能版）：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E6%AD%A3%E5%88%99.png" alt></p><p>非捕获组和命名组：</p><p>非捕获组的语法是 (?:…)，这个 … 你可以替换为任何正则表达式。</p><p>“捕获”就是匹配的意思啦，普通的子组都是捕获组，因为它们能从字符串中匹配到数据</p><p>命名组：：(?P<name>)。很明显，&lt; &gt; 里边的 name 就是命名组的名字啦，除了使用名字访问，</name></p><p>命名组仍然可以使用数字序号进行访问</p><p>正则表达式使用以下方法修改字符串：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E6%AD%A3%E5%88%995.png" alt></p><p><strong>split(***</strong>string<strong>***[,</strong> <strong><em>maxsplit=0**</em></strong>])<em>*：通过正则表达式匹配来分割字符串。如果在 RE 中，你使用了捕获组，那么它们的内容会作为一个列表返回。你可以通过传入一个 *maxsplit</em> 参数来设置分割的数量。如果 <em>maxsplit</em> 的值是非 0，表示至多有 <em>maxsplit</em> 个分割会被处理，剩下的内容作为列表的最后一个元素返回。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E6%AD%A3%E5%88%996.png" alt></p><p><strong>.sub(***</strong>replacement<strong>***,</strong> <strong><em>string**</em></strong>[,<em>* <strong><em>count=0**</em></strong>])*<em>返回一个字符串，这个字符串从最左边开始，所有 RE 匹配的地方都替换成 *replacement</em>。如果没有找到任何匹配，那么返回原字符串。可选参数 *count</em> 指定最多替换的次数，必须是一个非负值。默认值是 0，意思是替换所有找到的匹配。下边是使用 sub() 方法的例子，它会将所有的颜色替换成 color：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E6%AD%A3%E5%88%997.png" alt></p><p>subn:subn() 方法跟 sub() 方法干同样的事情，但区别是返回值为一个包含有两个元素的元组：一个是替换后的字符串，一个是替换的数目。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E6%AD%A3%E5%88%998.png" alt></p><p>匹配方法：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E6%AD%A3%E5%88%999.png" alt></p><p>匹配的方法和属性：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E6%AD%A3%E5%88%9910.png" alt></p><p>group(N) 返回第N组括号匹配的字符，groups() 返回所有括号匹配的字符，以tuple格式</p><p>match匹配的m：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E6%AD%A3%E5%88%9912.png" alt></p><p>findall() 需要在返回前先创建一个列表，而 finditer() 则是将匹配对象作为一个迭代器返回</p><p>利用compile来先编译的方法是模式级别的方法（适用于多次使用该正则表达式），可以针对同一种模式做多次匹配，如下图：另一种是模式对象方法 </p><p>import re import re</p><p>p=re.compile() re.search(“”,””)</p><p>p.search()</p><p>贪婪模式和非贪婪模式：</p><p>贪婪模式是让正则表达式尽可能的匹配符合的内容</p><p>在匹配的字符后面加一个问号，启动非贪婪模式</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E6%AD%A3%E5%88%9913.png" alt></p><p>编译标志：编译标志让你可以修改正则表达式的工作方式。在 re模块下，编译标志均有两个名字：完整名和简写</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E6%AD%A3%E5%88%9915.png" alt></p><p>ASCII(re.A)</p><p>使得 \w，\W，\b，\B，\s 和 \S 只匹配 ASCII 字符，而不匹配完整的 Unicode 字符。这个标志仅对 Unicode 模式有意义，并忽略字节模式。</p><p>DOTALL(re.S)</p><p>使得 . 可以匹配任何字符，包括换行符。如果不使用这个标志，. 将匹配除了换行符的所有字符。</p><p>IGNORECASE(re.I)</p><p>字符类和文本字符串在匹配的时候不区分大小写。举个例子，正则表达式 [A-Z] 也将会匹配对应的小写字母，像 FishC 可以匹配 FishC，fishc 或 FISHC 等。如果你不设置 LOCALE，则不会考虑语言（区域）设置这方面的大小写问题。</p><p>LOCALE(re.L)</p><p>使得 \w，\W，\b 和 \B 依赖当前的语言（区域）环境，而不是 Unicode 数据库。区域设置是 C 语言的一个功能，主要作用是消除不同语言之间的差异。例如你正在处理的是法文文本，你想使用 \w+ 来匹配单词，但是 \w 只是匹配 [A-Za-z] 中的单词，并不会匹配 ‘é’ 或 ‘&#231;’。如果你的系统正确的设置了法语区域环境，那么 C 语言的函数就会告诉程序 ‘é’ 或 ‘&#231;’ 也应该被认为是一个字符。当编译正则表达式的时候设置了 LOCALE 的标志，\w+ 就可以识别法文了，但速度多少会受到影响。</p><p>MULTILINE(re.M)</p><p>通常 ^ 只匹配字符串的开头，而 $ 则匹配字符串的结尾。当这个标志被设置的时候，^ 不仅匹配字符串的开头，还匹配每一行的行首；&amp; 不仅匹配字符串的结尾，还匹配每一行的行尾。</p><p>VERBOSE(re.X)</p><p>这个标志使你的正则表达式可以写得更好看和更有条理，因为使用了这个标志，空格会被忽略（除了出现在字符类中和使用反斜杠转义的空格）；这个标志同时允许你在正则表达式字符串中使用注释， 符号后边的内容是注释，不会递交给匹配引擎（除了出现在字符类中和使用反斜杠转义的 ）</p><p>正则表达式特殊符号及用法：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E6%AD%A3%E5%88%9916.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E6%AD%A3%E5%88%9917.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E6%AD%A3%E5%88%9919.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E6%AD%A3%E5%88%9920.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E6%AD%A3%E5%88%9921.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E6%AD%A3%E5%88%9923.png" alt></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;正则表达式（不能随意添加空格，不然会改变原来含义）：&lt;/p&gt;
-&lt;p&gt;元字符(不能匹配自身): . $ ^ ( ) { } [ ] $ + \ | *，&lt;/p&gt;
-&lt;p&gt;|：A | B 会匹配 A 或 B 中出现的任何字符。为了能够更加合理的工作，| 的优先级非常低。例如 Fi
-      
-    
-    </summary>
-    
-      <category term="python" scheme="http://yoursite.com/categories/python/"/>
-    
-      <category term="正则表达式" scheme="http://yoursite.com/categories/python/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
-    
-    
-      <category term="正则表达式" scheme="http://yoursite.com/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
     
   </entry>
   
