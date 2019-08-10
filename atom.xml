@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-08-09T04:07:48.826Z</updated>
+  <updated>2019-08-10T02:12:25.513Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,124 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>魔法方法</title>
+    <link href="http://yoursite.com/2019/08/10/%E9%AD%94%E6%B3%95%E6%96%B9%E6%B3%95/"/>
+    <id>http://yoursite.com/2019/08/10/魔法方法/</id>
+    <published>2019-08-10T01:34:31.000Z</published>
+    <updated>2019-08-10T02:12:25.513Z</updated>
+    
+    <content type="html"><![CDATA[<p>​    魔法方法是指Python内部已经包含的，被双下划线所包围的方法，这些方法在进行特定的操作时会自动被调用。使用Python的魔法方法可以是Python的自由度变得更高，当不需要重写魔法方法也可以在规定的默认情况下生效。在需要重写时也可以让使用者根据自己的需求来重写部分方法来达到自己的期待。</p><h2 id="常用的魔法方法："><a href="#常用的魔法方法：" class="headerlink" title="常用的魔法方法："></a>常用的魔法方法：</h2><p>__doc__：表示类的描述信息</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/magic1.png" alt></p><p>__module__:表示当前操作的对象在哪个模块</p><p>__class__:表示当前操作的对象的类是什么</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/magic2.png" alt></p><p>__call__：让对象直接调用call方法</p><p>__dict__：类或对象的所有属性</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/magic3.png" alt></p><p>__getitem__、__setitem__、__delitem__：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/magic4.png" alt></p><h2 id="魔法方法集合"><a href="#魔法方法集合" class="headerlink" title="魔法方法集合"></a>魔法方法集合</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/magic5.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/magic6.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/magic7.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/magic8.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/magic9.png" alt></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;​    魔法方法是指Python内部已经包含的，被双下划线所包围的方法，这些方法在进行特定的操作时会自动被调用。使用Python的魔法方法可以是Python的自由度变得更高，当不需要重写魔法方法也可以在规定的默认情况下生效。在需要重写时也可以让使用者根据自己的需求来重写部
+      
+    
+    </summary>
+    
+      <category term="python" scheme="http://yoursite.com/categories/python/"/>
+    
+      <category term="魔法方法" scheme="http://yoursite.com/categories/python/%E9%AD%94%E6%B3%95%E6%96%B9%E6%B3%95/"/>
+    
+    
+      <category term="魔法方法" scheme="http://yoursite.com/tags/%E9%AD%94%E6%B3%95%E6%96%B9%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>深度学习（3）</title>
+    <link href="http://yoursite.com/2019/08/09/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%EF%BC%883%EF%BC%89/"/>
+    <id>http://yoursite.com/2019/08/09/深度学习（3）/</id>
+    <published>2019-08-09T05:03:29.000Z</published>
+    <updated>2019-08-09T05:09:52.613Z</updated>
+    
+    <content type="html"><![CDATA[<p>​    感知机：有n个输入数据，通过权重与各数据之间的计算和，比较激活函数结果，得出输出。感知机是解决分类问题。</p><p>神经网络的基本组成包括输入层、隐藏层、输出层。卷积神经网络的特点在于隐藏层分为卷积层和池化层。</p><p>神经网络的种类：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL30.png" alt></p><p>神经网络的策略是交叉熵损失，优化是通过反向传播算法（相当于梯度下降 ）。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL31.png" alt></p><p>简单神经网络：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL32.png" alt></p><p>卷积神经网络：</p><p>卷积层：通过在原始图像上平移来提取特征</p><p>零填充方式：SAME和VALID。</p><p>当填充方式为SAME时：无法取整时，向上取值</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL33.png" alt></p><p>当填充方式为VALID时，无法取整时，向上取值</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL34.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL35.png" alt></p><p>卷积向下取整，池化向上取整</p><p>例：当卷积层100个filter，5*5，步长为1，零填充是2时。输入[28,28,1]大小的图像，输出[26,26,100]的图像。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL36.png" alt></p><p>池化层：通过特征后稀疏参数来减少学习的参数，降低网络的复杂度（最大池化和平均值化）</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL37.png" alt></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;​    感知机：有n个输入数据，通过权重与各数据之间的计算和，比较激活函数结果，得出输出。感知机是解决分类问题。&lt;/p&gt;
+&lt;p&gt;神经网络的基本组成包括输入层、隐藏层、输出层。卷积神经网络的特点在于隐藏层分为卷积层和池化层。&lt;/p&gt;
+&lt;p&gt;神经网络的种类：&lt;/p&gt;
+&lt;p&gt;&lt;
+      
+    
+    </summary>
+    
+      <category term="python" scheme="http://yoursite.com/categories/python/"/>
+    
+      <category term="深度学习" scheme="http://yoursite.com/categories/python/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="深度学习（3）" scheme="http://yoursite.com/categories/python/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%EF%BC%883%EF%BC%89/"/>
+    
+    
+      <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>深度学习（2）</title>
+    <link href="http://yoursite.com/2019/08/09/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%EF%BC%882%EF%BC%89/"/>
+    <id>http://yoursite.com/2019/08/09/深度学习（2）/</id>
+    <published>2019-08-09T04:53:25.000Z</published>
+    <updated>2019-08-09T05:03:13.437Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="数据读取"><a href="#数据读取" class="headerlink" title="数据读取"></a>数据读取</h2><p>通过线程和队列提高速度。可以边取数据边训练</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL19.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL20.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL@1.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL21.png" alt></p><h2 id="模型的保存和加载"><a href="#模型的保存和加载" class="headerlink" title="模型的保存和加载"></a>模型的保存和加载</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL22.png" alt></p><p>模型保存：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL23.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL24.png" alt></p><p>模型加载：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL25.png" alt></p><h2 id="添加权重参数、损失值等的变化"><a href="#添加权重参数、损失值等的变化" class="headerlink" title="添加权重参数、损失值等的变化"></a>添加权重参数、损失值等的变化</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL26.png" alt></p><p>首先收集变量：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL27.png" alt></p><p>而后在会话中运行：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL28.png" alt></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;数据读取&quot;&gt;&lt;a href=&quot;#数据读取&quot; class=&quot;headerlink&quot; title=&quot;数据读取&quot;&gt;&lt;/a&gt;数据读取&lt;/h2&gt;&lt;p&gt;通过线程和队列提高速度。可以边取数据边训练&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://raw.githubuserc
+      
+    
+    </summary>
+    
+      <category term="python" scheme="http://yoursite.com/categories/python/"/>
+    
+      <category term="深度学习" scheme="http://yoursite.com/categories/python/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="深度学习（2）" scheme="http://yoursite.com/categories/python/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%EF%BC%882%EF%BC%89/"/>
+    
+    
+      <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>深度学习（1）</title>
+    <link href="http://yoursite.com/2019/08/09/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%EF%BC%881%EF%BC%89/"/>
+    <id>http://yoursite.com/2019/08/09/深度学习（1）/</id>
+    <published>2019-08-09T04:17:39.000Z</published>
+    <updated>2019-08-09T04:52:39.127Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="tensorflow基本知识"><a href="#tensorflow基本知识" class="headerlink" title="tensorflow基本知识"></a>tensorflow基本知识</h2><p>在tensorflow中把数据称为张量（tensor）。</p><p>张量的阶：相当于数组的维度。    </p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL1.png" alt></p><p>张量的属性：graph、op、name、shape</p><p>tensorflow中张量形状分为动态形状和静态形状，其在于有没有生成一个新的张量数据。静态形状的修改不能跨维度修改</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL2.png" alt></p><p>把操作称为节点（OP），所有操作都是一个OP。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL3.png" alt></p><p>整个程序的结构称为图（graph）</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL5.png" alt></p><p>运算程序的图称为会话（Session）。一次只能运行一个图</p><p>会话的作用：1、运行图的结构 2、分配资源运算 3、掌握资源</p><p>会话需要进行资源释放，需要run后进行close。否则可以使用with作为上下文管理器</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL6.png" alt></p><p>可以在会话当中指定图去运行</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL7.png" alt></p><p>sess.run(fetches，feed_dict=None,graph=None)启动整个图。</p><p>用来运行op和计算tensor</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL9.png" alt></p><p>feed_dict常与placeholder(占位符)一起使用</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190809123839.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL8.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL10.png" alt></p><p>变量：tensorflow中的变量也是一种op，是一种特殊的张量能够进行存储持久化，它的值就是张量，默认被训练。其中有个trainable参数默认为True，如果改为False，变量将不再变化。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL11.png" alt></p><h2 id="tf-reduce-mean"><a href="#tf-reduce-mean" class="headerlink" title="tf.reduce_mean()"></a>tf.reduce_mean()</h2><p>函数用于计算张量tensor沿着指定的数轴（tensor的某一维度）上的的平均值，主要用作降维或者计算tensor（图像）的平均值。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL12.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL13.png" alt></p><p>如果想设置为原来向量的维度，keep_dims=True。</p><h2 id="图的可视化（tensorboard）"><a href="#图的可视化（tensorboard）" class="headerlink" title="图的可视化（tensorboard）"></a>图的可视化（tensorboard）</h2><p>首先通过pip安装，而后在会话中进行写入事件。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL14.png" alt></p><p>最后在命令行启动</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL15.png" alt></p><p>双引号中间填绝对路径，注意不要出现中文和空格。</p><h2 id="变量作用域："><a href="#变量作用域：" class="headerlink" title="变量作用域："></a>变量作用域：</h2><p>让模型更直观的显示。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL16.png" alt></p><h2 id="深度学习中的线性回归："><a href="#深度学习中的线性回归：" class="headerlink" title="深度学习中的线性回归："></a>深度学习中的线性回归：</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL17.png" alt></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;tensorflow基本知识&quot;&gt;&lt;a href=&quot;#tensorflow基本知识&quot; class=&quot;headerlink&quot; title=&quot;tensorflow基本知识&quot;&gt;&lt;/a&gt;tensorflow基本知识&lt;/h2&gt;&lt;p&gt;在tensorflow中把数据称为张量（te
+      
+    
+    </summary>
+    
+      <category term="python" scheme="http://yoursite.com/categories/python/"/>
+    
+      <category term="深度学习" scheme="http://yoursite.com/categories/python/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="深度学习（1）" scheme="http://yoursite.com/categories/python/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%EF%BC%881%EF%BC%89/"/>
+    
+    
+      <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>机器学习（2）</title>
@@ -466,7 +584,7 @@
     <link href="http://yoursite.com/2019/08/07/pandas/"/>
     <id>http://yoursite.com/2019/08/07/pandas/</id>
     <published>2019-08-07T01:55:50.000Z</published>
-    <updated>2019-08-07T03:22:43.479Z</updated>
+    <updated>2019-08-09T04:24:34.646Z</updated>
     
     <content type="html"><![CDATA[<p>​    pandas也是一个非常强大的库，所以我也只是总结了我用到的方法。</p><p>pandas常用的数据类型：1、Series  一维 带标签的数组（标签就是索引）2、DataFrame  二维   Series的容器</p><h2 id="Series："><a href="#Series：" class="headerlink" title="Series："></a>Series：</h2><p>通过列表创建Series：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas1.png" alt></p><p>索引可以指定，默认从0开始：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas2.png" alt></p><p>通过字典创建Series：可以通过astype修改类型</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas3.png" alt></p><p>取值：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas4.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas5.png" alt></p><p>可以将条件和value、index配合使用：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/panda6.png" alt></p><p>pandas读取外部数据：</p><p>read_csv:读取CSV文件</p><p>read_excel:读取excel文件</p><p>其他文件类似</p><h2 id="DataFrame"><a href="#DataFrame" class="headerlink" title="DataFrame"></a>DataFrame</h2><p>通过列表创建：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas7.png" alt></p><p>通过数组创建：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas8.png" alt></p><p>通过字典创建：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas9.png" alt></p><p><strong>DataFrame的基础属性</strong>：</p><p>shape ：行数 列数</p><p>dtypes：列数据类型</p><p>ndim：数据维度</p><p>index：行索引</p><p>columns：列索引</p><p>values：对象值</p><p><strong>DataFrame的方法</strong>：</p><p>head(n):显示头n行。默认是前5行</p><p>tail(n)：显示尾n行。</p><p>info()：行数，列数，列索引，列非空值个数，列类型，内存占用</p><p>describe()：计数 均值 标准差 最大值 四分位数 最小值</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas10.png" alt></p><p>DataFrame排序：sort_values()。通过设置by来确定排序的key。设置ascending确定升序or降序。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas11.png" alt></p><p>DataFrame的取值：</p><p>方括号写数字，表示取行。对行进行操作。根据实际情况写</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas13.png" alt></p><p>对列进行操作：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas14.png" alt></p><p>配合使用：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas16.png" alt></p><p>loc：DataFrame通过标签索引获取行数据</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas17.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas18.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas19.png" alt></p><p>根据多个索引取多个对应的值：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas20.png" alt></p><p>iloc：DataFrame通过位置获取列数据。与ioc类似，只是将索引换成数字。</p><p>数组合并：</p><p>1、join 按行索引合并             </p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas21.png" alt></p><p>2、merge按列索引进行合并 on指定按哪一列合并  how：合并方式 inner(交集，默认) outer(并集)  left(左边为准，NaN补全)  right(右边为准，NaN补全)</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas23.png" alt></p><p>如果列索引不同。可以left_on和right_on指定左边、右边DataFrame的合并列。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas24.png" alt></p><p>另一种写法：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas25.png" alt></p><p>分组:groupby(by)               by:通过什么分组，可以设置多个条件分组</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas26.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas27.png" alt></p><p>聚合：count   计算数量</p><p>sum             求和</p><p>mean        求平均值</p><p>median        求中位数</p><p>std、var      求标准差和方差</p><p>min、max       求最大和最小值</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas28.png" alt></p><h4 id="DataFrame的索引和复合索引："><a href="#DataFrame的索引和复合索引：" class="headerlink" title="DataFrame的索引和复合索引："></a>DataFrame的索引和复合索引：</h4><p>简单的索引操作：</p><p>获取index：df.index</p><p>指定index：df.index=[“”,””]</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas29.png" alt></p><p>同理可得指定columns：df.columns=[“ “,” “]</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas30.png" alt></p><p>重新设置index：df.reindex()</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas31.png" alt></p><p>指定某一列成为index：df.set_index()。drop决定是否保留设定的列</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas32.png" alt></p><p>可以设定多个列成为index：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas33.png" alt></p><p>返回index的唯一值：df.set_index().index.unique()</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas34.png" alt></p><p>时间序列：date_range(start,end,period,freq) 生成一段时间范围。start和end表示范围，periods表示个数，freq表示频率(年、月、天)</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas35.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas37.png" alt></p><p>频率类型：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas36.png" alt></p><p>时间段：PeriodIndex</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas38.png" alt></p><p> 重采样resample：指的是将时间序列从一个频率转化为另一个频率进行处理的过程。将高频率数据转化为低频率数据为降采样。低频率数据转化为高频率为升采样。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas39.png" alt></p><h2 id="判断数据是否为NaN："><a href="#判断数据是否为NaN：" class="headerlink" title="判断数据是否为NaN："></a>判断数据是否为NaN：</h2><p>pd.isnull()  pd.notfull()</p><p>在DataFrame中对缺失数据（NaN）的处理：</p><p>方式1：删除NaN所在的行列dropna(axis,how,inplace):how=”any”时一行(列)里有一个为nan就删。how=”all”时，一行全部为nan时才删。inplace为True，原地修改。False为False，不修改。</p><p>方式2：填充数据，fillna()</p><p>处理为0的数据：t[t==0]=np.nan</p><p>计算平均值时：nan不参与计算，0参与</p>]]></content>
     
@@ -487,125 +605,6 @@
     
     
       <category term="pandas" scheme="http://yoursite.com/tags/pandas/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>python知识散记（3）</title>
-    <link href="http://yoursite.com/2019/08/07/python%E7%9F%A5%E8%AF%86%E6%95%A3%E8%AE%B0%EF%BC%883%EF%BC%89/"/>
-    <id>http://yoursite.com/2019/08/07/python知识散记（3）/</id>
-    <published>2019-08-07T00:20:58.000Z</published>
-    <updated>2019-08-07T05:49:14.457Z</updated>
-    
-    <content type="html"><![CDATA[<p>​    今天的知识散记讲三个器，哪三个器呢？装饰器、迭代器、生成器。还有列表生成式、字典生成式。</p><h2 id="装饰器："><a href="#装饰器：" class="headerlink" title="装饰器："></a>装饰器：</h2><p>python装饰器就是用于拓展原来函数功能的一种函数，这个函数的特殊之处在于它的返回值也是一个函数，使用python装饰器的好处就是在不用更改原函数的代码前提下给函数增加新的功能。 </p><p>使用闭包完成的装饰器原理：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python33.png" alt></p><p>当执行test(test)时，func已经指向test()函数。所以func()相当于test()。这就是装饰器的原理。但是实际不是这样写的，请看下图：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python32.png" alt></p><p>使用装饰器对有参数的函数装饰：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python34.png" alt></p><p>对不定长参数的装饰：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python35.png" alt></p><p>装饰器对有返回值的函数装饰：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python36.png" alt></p><p>带参数的装饰器</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python37.png" alt></p><p>用类做装饰器：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python38.png" alt></p><p>装饰器完了，自己慢慢悟吧。</p><h2 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h2><p>迭代器只能前进不能后退。使用迭代器不要求事先准备好整个迭代过程中的所有元素。迭代器仅仅在迭代到某个元素时才计算该元素，而在这之前或之后元素可以不存在或者被销毁。因此迭代器适合遍历一些数量巨大甚至无限的序列。</p><p>Python中迭代器的本质上每次调用__next__()方法都返回下一个元素或抛出StopIteration的容器对象</p><p>由于Python中没有“迭代器”这个类，因此具有以下两个特性的类都可以称为“迭代器”类：</p><p>1、有__next__()方法，返回容器的下一个元素或抛出StopIteration异常</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python39.png" alt></p><p>2、有__iter__()方法，返回迭代器本身</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python40.png" alt></p><p>all(iterable)：如果迭代器里面的所有元素都为True时,返回True;否则返回False</p><p>any(iterable）：如果迭代器里面的所有元素为False,返回False;否则返回True.</p><h2 id="生成器"><a href="#生成器" class="headerlink" title="生成器"></a>生成器</h2><p>一个个的生成数据，但占用内存更少，生成器是特殊的迭代器。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python41.png" alt></p><p>当yield存在函数时，函数就变成一个生成器。yield不像return那样返回值，而是每次产生多个值。每次使用yield产生一个值，函数就会被冻结。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python42.png" alt></p><p>用aim.__next__()得出结果：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python43.png" alt></p><p>aim.send()得出结果：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python45.png" alt></p><h2 id="列表生成式和字典推导式："><a href="#列表生成式和字典推导式：" class="headerlink" title="列表生成式和字典推导式："></a>列表生成式和字典推导式：</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python46.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python47.png" alt></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;​    今天的知识散记讲三个器，哪三个器呢？装饰器、迭代器、生成器。还有列表生成式、字典生成式。&lt;/p&gt;
-&lt;h2 id=&quot;装饰器：&quot;&gt;&lt;a href=&quot;#装饰器：&quot; class=&quot;headerlink&quot; title=&quot;装饰器：&quot;&gt;&lt;/a&gt;装饰器：&lt;/h2&gt;&lt;p&gt;pytho
-      
-    
-    </summary>
-    
-      <category term="python" scheme="http://yoursite.com/categories/python/"/>
-    
-      <category term="知识散记" scheme="http://yoursite.com/categories/python/%E7%9F%A5%E8%AF%86%E6%95%A3%E8%AE%B0/"/>
-    
-      <category term="知识散记（3）" scheme="http://yoursite.com/categories/python/%E7%9F%A5%E8%AF%86%E6%95%A3%E8%AE%B0/%E7%9F%A5%E8%AF%86%E6%95%A3%E8%AE%B0%EF%BC%883%EF%BC%89/"/>
-    
-    
-      <category term="python知识散记" scheme="http://yoursite.com/tags/python%E7%9F%A5%E8%AF%86%E6%95%A3%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>python知识散记（2）</title>
-    <link href="http://yoursite.com/2019/08/06/python%E7%9F%A5%E8%AF%86%E6%95%A3%E8%AE%B0%EF%BC%882%EF%BC%89/"/>
-    <id>http://yoursite.com/2019/08/06/python知识散记（2）/</id>
-    <published>2019-08-06T07:32:02.000Z</published>
-    <updated>2019-08-07T05:48:57.041Z</updated>
-    
-    <content type="html"><![CDATA[<p>​    接着上次的知识散记，我们接着看。</p><h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><p>在函数内部定义一个函数，并且这个函数用到了外面的变量。将这个函数以及用到的一些变量称之为闭包。</p><p>当某个函数被当成对象返回时，夹带了外部 变量，就形成了一个闭包。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python13.png" alt></p><h2 id="global："><a href="#global：" class="headerlink" title="global："></a>global：</h2><p>一般多用在函数内，声明变量的作用域为全局作用域。箭头变化的时候加，箭头不变的时候可以不加。（箭头类似指针）</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python14.png" alt></p><h2 id="nonlocal："><a href="#nonlocal：" class="headerlink" title="nonlocal："></a>nonlocal：</h2><p>nonlocal关键字用来在函数或其他作用域中使用外层(非全局)变量</p><h2 id="lambda匿名函数："><a href="#lambda匿名函数：" class="headerlink" title="lambda匿名函数："></a>lambda匿名函数：</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python15.png" alt></p><p>不要看匿名函数蛮简单的，其实还是有点注意事项的。<strong>对默认参数的赋值只会在函数定义的时候绑定一次。x是一个自由变量。在运行的时候绑定，而不是在定义的时候绑定。执行时，x的值是多少就是多少。如果希望匿名函数可以在定义的时候绑定，并保持值不变，则采用下面方法。</strong></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python23.png" alt></p><h2 id="assert-断言"><a href="#assert-断言" class="headerlink" title="assert:断言"></a>assert:断言</h2><p>用来直接让程序崩溃，在程序中置入检查点</p><p>条件后可以添加字符串，用来解释断言</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python16.png" alt></p><h2 id="format"><a href="#format" class="headerlink" title="format:"></a>format:</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python30.png" alt></p><h2 id="对-和-的解释："><a href="#对-和-的解释：" class="headerlink" title="对*和**的解释："></a>对*和**的解释：</h2><p>星号(*)和(**)作为形参的时候是起到“打包”的作用，相反，作为实参的时候是起到“解包”的作用。</p><h6 id="星号-或-作为形参，表示调用可变参数函数："><a href="#星号-或-作为形参，表示调用可变参数函数：" class="headerlink" title="星号(*)或(**)作为形参，表示调用可变参数函数："></a>星号(*)或(**)作为形参，表示调用可变参数函数：</h6><p>通过在形参前加一个星号(*)或两个星号(**)来指定函数可以接收任意数量的实参。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python18.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python29.png" alt></p><p>从两个示例的输出可以看出：当参数形如 *args 时，传递给函数的任意个实参会按位置打包成一个元</p><p>组（tuple）；当参数形如 **args 时，传递给函数的任意个 key = value 实参会被包装进一个字典（dict）。</p><h6 id="星号-和-作为实参时，表示通过解包参数调用函数："><a href="#星号-和-作为实参时，表示通过解包参数调用函数：" class="headerlink" title="星号(**)和(*)作为实参时，表示通过解包参数调用函数："></a>星号(**)和(*)作为实参时，表示通过解包参数调用函数：</h6><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python20.png" alt></p><h2 id="常用内置函数补充："><a href="#常用内置函数补充：" class="headerlink" title="常用内置函数补充："></a>常用内置函数补充：</h2><p>复数可以通过<strong>complex（real，imag）</strong>来指定。conjugete提取共轭复数</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python21.png" alt></p><p><strong>hasattr</strong>：hasattr() 函数用于判断对象是否包含对应的属性。如果对象有该属性返回 True，否则返回 False。</p><h2 id="上下文管理器（context-manager）："><a href="#上下文管理器（context-manager）：" class="headerlink" title="上下文管理器（context manager）："></a>上下文管理器（context manager）：</h2><p>任何实现了__enter__和__exit__方法的对象都可称为上下文管理器</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python24.png" alt></p><p>__enter__():方法返回资源对象，这里就是你将要打开的那个文件对象，__exit__()处理一些清除工作。因为File类实现上下文管理器，现在就可以使用with语句了。</p><p>实现上下文管理器的其他方法：使用contextmanager装饰器</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python25.png" alt></p><h2 id="python的三种修饰符："><a href="#python的三种修饰符：" class="headerlink" title="python的三种修饰符："></a>python的三种修饰符：</h2><p>staticmethod、classmethod 和 property，作用分别是把类中定义的实例方法变成静态方法、类方法和类属性。staticmethod、classmethod具体看python的类和对象。</p><p>注意：</p><ol><li><p>函数先定义，再修饰它；反之会编译器不认识；</p></li><li><p>修饰符“@”后面必须是之前定义的某一个函数；</p></li><li><p>每个函数只能有一个修饰符，大于等于两个则不可以。</p></li></ol><p>property用法:它的作用把方法当作属性来访问（注意getnum和setter的顺序，一定getnum在第一个）</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python27.png" alt></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;​    接着上次的知识散记，我们接着看。&lt;/p&gt;
-&lt;h2 id=&quot;闭包&quot;&gt;&lt;a href=&quot;#闭包&quot; class=&quot;headerlink&quot; title=&quot;闭包&quot;&gt;&lt;/a&gt;闭包&lt;/h2&gt;&lt;p&gt;在函数内部定义一个函数，并且这个函数用到了外面的变量。将这个函数以及用到的一些变量
-      
-    
-    </summary>
-    
-      <category term="python" scheme="http://yoursite.com/categories/python/"/>
-    
-      <category term="知识散记" scheme="http://yoursite.com/categories/python/%E7%9F%A5%E8%AF%86%E6%95%A3%E8%AE%B0/"/>
-    
-      <category term="知识散记（2）" scheme="http://yoursite.com/categories/python/%E7%9F%A5%E8%AF%86%E6%95%A3%E8%AE%B0/%E7%9F%A5%E8%AF%86%E6%95%A3%E8%AE%B0%EF%BC%882%EF%BC%89/"/>
-    
-    
-      <category term="python知识散记" scheme="http://yoursite.com/tags/python%E7%9F%A5%E8%AF%86%E6%95%A3%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>python知识散记（1）</title>
-    <link href="http://yoursite.com/2019/08/06/python%E7%9F%A5%E8%AF%86%E6%95%A3%E8%AE%B0%EF%BC%881%EF%BC%89/"/>
-    <id>http://yoursite.com/2019/08/06/python知识散记（1）/</id>
-    <published>2019-08-06T06:43:04.000Z</published>
-    <updated>2019-08-07T05:48:35.382Z</updated>
-    
-    <content type="html"><![CDATA[<p>​    今天来讲一下python的一些散装知识，还是蛮多的。所以分了几个部分。今天的部分是最简单的，废话少说。开始吧</p><h2 id="导入模块方法："><a href="#导入模块方法：" class="headerlink" title="导入模块方法："></a>导入模块方法：</h2><p>1、最常见的方式，直接将要导入的模块名称写在后面导入。import xxxx</p><p>2、from .. import .. </p><p>与import类似，只是更明确的要导入的方法或变量。</p><p>3、from modname import *，导入所有的类和公有方法。</p><h2 id="if-name-”-main-“"><a href="#if-name-”-main-“" class="headerlink" title="if __name__==”__main__“:"></a>if __name__==”__main__“:</h2><p>让你写的脚本模块既可以导入到别的模块中用，另外该模块自己也可执行。</p><h2 id="常用的一些内置函数"><a href="#常用的一些内置函数" class="headerlink" title="常用的一些内置函数"></a>常用的一些内置函数</h2><p><strong>callable(object)</strong>：检查对象object是否可调用。如果返回True，object仍然可能调用失败；但如果返回False，调用对象ojbect绝对不会成功。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python1.png" alt></p><p><strong>divmod(a,b)</strong>：以元祖的方式放回a//b以及a%b。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python2.png" alt></p><p><strong>ord(str)</strong>：把对应的字符转成整数.</p><p><strong>chr(integer)</strong>：把整数转化成对应的字母.</p><p><strong>bool(x)</strong>：把一个值转化为布尔值,如果该值为假或者省略返回False,否则返回True</p><p><strong>abs(x)</strong> ：返回一个数的绝对值.该参数可以是整数或浮点数.如果参数是一个复数,则返回其大小</p><p><strong>round(number[, ndigits])</strong>：返回浮点数number保留ndigits位小数后四舍五入的值。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python3.png" alt></p><p><strong>dir([object])</strong>: 没有参数,返回当前局部范围的名单列表。有参数，试图返回该对象的有效的属性列表</p><p><strong>issubclass(class, classinfo)</strong>:返回True如果参数class是classinfo的一个子类，否则返回False。</p><p><strong>isinstance(object, classinfo)</strong>:返回True如果参数object是classinfo的一个实例，否则返回False(适用于继承)。</p><p><strong>zip(*iterables)</strong>:生成一个迭代器，迭代器聚合了从每个可迭代数集里的元素。它的内容只能被消费一次</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python4.png" alt></p><p><strong>map</strong>：第一个参数 function 以参数序列中的每一个元素调用 function函数，返回包含每次 function 函数返回值的新列表。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python6.png" alt></p><p><strong>filter</strong>：filter() 函数用于过滤序列，过滤掉不符合条件的元素，返回由符合条件元素组成的新列表。应该接收两个参数，第一个为函数，第二个为序列，序列的每个元素作为参数传递给函数进行判，然后返回 True 或 False，最后将返回 True 的元素放到新列表中。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python7.png" alt></p><p><strong>enumerate</strong>是一个非常有用的函数，直接看效果。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python26.png" alt></p><p><strong>eval(str [,globals [,locals ]])</strong>：用来计算存储在字符串中的有效python表达式。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python8.png" alt></p><p><strong>exec(object[, globals[, locals]])</strong>， 用来执行存储在字符串或文件中的python语句</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python9.png" alt></p><h2 id="格式化输出格式："><a href="#格式化输出格式：" class="headerlink" title="格式化输出格式："></a>格式化输出格式：</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python10.png" alt></p><h2 id="python语句中一些基本规则和特殊字符："><a href="#python语句中一些基本规则和特殊字符：" class="headerlink" title="python语句中一些基本规则和特殊字符："></a>python语句中一些基本规则和特殊字符：</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python11.png" alt></p><h2 id="python调试："><a href="#python调试：" class="headerlink" title="python调试："></a>python调试：</h2><p>python调试两种方法都有用到pdb模块</p><p>第一种：在代码的目录下，打开cmd，输入python -m 文件名</p><p>h：帮助命令</p><p>第二种：可以在交互界面进行调试</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python12.png" alt></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;​    今天来讲一下python的一些散装知识，还是蛮多的。所以分了几个部分。今天的部分是最简单的，废话少说。开始吧&lt;/p&gt;
-&lt;h2 id=&quot;导入模块方法：&quot;&gt;&lt;a href=&quot;#导入模块方法：&quot; class=&quot;headerlink&quot; title=&quot;导入模块方法：&quot;&gt;&lt;/
-      
-    
-    </summary>
-    
-      <category term="python" scheme="http://yoursite.com/categories/python/"/>
-    
-      <category term="知识散记" scheme="http://yoursite.com/categories/python/%E7%9F%A5%E8%AF%86%E6%95%A3%E8%AE%B0/"/>
-    
-      <category term="知识散记（1）" scheme="http://yoursite.com/categories/python/%E7%9F%A5%E8%AF%86%E6%95%A3%E8%AE%B0/%E7%9F%A5%E8%AF%86%E6%95%A3%E8%AE%B0%EF%BC%881%EF%BC%89/"/>
-    
-    
-      <category term="python知识散记" scheme="http://yoursite.com/tags/python%E7%9F%A5%E8%AF%86%E6%95%A3%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>协程</title>
-    <link href="http://yoursite.com/2019/08/06/python%E4%B8%AD%E7%9A%84%E5%8D%8F%E7%A8%8B/"/>
-    <id>http://yoursite.com/2019/08/06/python中的协程/</id>
-    <published>2019-08-06T03:38:42.000Z</published>
-    <updated>2019-08-06T03:47:42.984Z</updated>
-    
-    <content type="html"><![CDATA[<p>​    今天，我们来讲一些协程。协程是python中独有的，在其他语言中是没有这个概念的。协程是利用线程在等待的时候做事情。</p><p>使用yield完成协程：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%8D%8F%E7%A8%8B1.png" alt></p><p>使用greenlet完成协程：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%8D%8F%E7%A8%8B2.png" alt></p><p>使用gevent完成协程：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%8D%8F%E7%A8%8B3.png" alt></p><p>要想用时间模块延迟，则必须打补丁：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%8D%8F%E7%A8%8B4.png" alt></p><p>我还没看完，后面补。未完待续……</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;​    今天，我们来讲一些协程。协程是python中独有的，在其他语言中是没有这个概念的。协程是利用线程在等待的时候做事情。&lt;/p&gt;
-&lt;p&gt;使用yield完成协程：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Br
-      
-    
-    </summary>
-    
-      <category term="python" scheme="http://yoursite.com/categories/python/"/>
-    
-      <category term="协程" scheme="http://yoursite.com/categories/python/%E5%8D%8F%E7%A8%8B/"/>
-    
-    
-      <category term="python协程" scheme="http://yoursite.com/tags/python%E5%8D%8F%E7%A8%8B/"/>
     
   </entry>
   
