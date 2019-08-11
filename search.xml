@@ -235,7 +235,7 @@
   <entry>
     <title><![CDATA[元类]]></title>
     <url>%2F2019%2F08%2F07%2F%E5%85%83%E7%B1%BB%2F</url>
-    <content type="text"><![CDATA[​ 今天来讲一下python里面较难的一个东西，我暂时还不知道这个东西具体用到哪。所以后面会陆陆续续的补。我学到的python内容里面有两个东西是比较难的，一个是描述符，另一个就是今天讲的元类。 python通过类创建对象，通过元类创建类。（类也是对象） 通过type动态创建类。命名规则： type(类名，由父类名称构成的元祖（针对继承的情况，可以为空），包含属性的字典（名称和值）)]]></content>
+    <content type="text"><![CDATA[​ 今天来讲一下python里面较难的一个东西。我学到的python内容里面有两个东西是比较难的，一个是描述符，另一个就是今天讲的元类。 通过python知识散记我们知道global的功能是将局部变量转为全局变量，接下来要说的是globals()。这个globals()函数会以字典类型返回当前位置的全部全局变量。 __builtins__模块是默认加载的，在ipython中打开。 python通过类创建对象，通过元类创建类。（类也是对象） 动态创建类： 函数choose_class根据name的不同而动态的创建不同的类，但这种做法效率相当low。因为如果类多了就会要很多if-else来判断创建哪个类。 通过type动态创建类。命名规则： type(类名，由父类名称构成的元祖（针对继承的情况，可以为空），包含属性的字典（名称和值）) 继承： 添加实例方法： 添加类方法： 添加静态方法： 元类应用： metaclass用来指定按照upper_attr来创建，如果不指定，则默认使用type创建。Foo传到class_name，父类(object)传到class_name，新的字典传到class_attr。 用类完成以上代码：]]></content>
       <categories>
         <category>python</category>
         <category>元类</category>
