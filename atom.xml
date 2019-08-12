@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-08-10T02:12:25.513Z</updated>
+  <updated>2019-08-12T01:59:18.140Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>opencv颜色识别</title>
+    <link href="http://yoursite.com/2019/08/12/opencv%E9%A2%9C%E8%89%B2%E8%AF%86%E5%88%AB/"/>
+    <id>http://yoursite.com/2019/08/12/opencv颜色识别/</id>
+    <published>2019-08-12T01:18:09.000Z</published>
+    <updated>2019-08-12T01:59:18.140Z</updated>
+    
+    <content type="html"><![CDATA[<p>   数字图像处理中常用的采用模型是RGB（红，绿，蓝）模型和HSV（色调，饱和度，亮度），RGB广泛应用于彩色监视器和彩色视频摄像机，我们平时的图片一般都是RGB模型。而HSV模型更符合人描述和解释颜色的方式，HSV的彩色描述对人来说是自然且非常直观的。</p><p>颜色识别步骤：</p><p>1、读取一张图片或视频.</p><p>2、用cvtcolor将它从RGB转为HSV。</p><p>3、通过inrange得出掩膜。</p><p>4、用 图像的”与”操作(bitwise_and)得出对应区域的图像。</p><p>coding：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/color.png" alt></p><p>读者可以加一些其他的操作提高效果，例如什么开运算、滤波之类的。这里就不赘述了，接下来，贴一张HSV的颜色与制图，可以参考：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/color2.png" alt></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;   数字图像处理中常用的采用模型是RGB（红，绿，蓝）模型和HSV（色调，饱和度，亮度），RGB广泛应用于彩色监视器和彩色视频摄像机，我们平时的图片一般都是RGB模型。而HSV模型更符合人描述和解释颜色的方式，HSV的彩色描述对人来说是自然且非常直观的。&lt;/p&gt;
+&lt;p&gt;颜
+      
+    
+    </summary>
+    
+      <category term="python" scheme="http://yoursite.com/categories/python/"/>
+    
+      <category term="opencv" scheme="http://yoursite.com/categories/python/opencv/"/>
+    
+      <category term="颜色识别" scheme="http://yoursite.com/categories/python/opencv/%E9%A2%9C%E8%89%B2%E8%AF%86%E5%88%AB/"/>
+    
+    
+      <category term="颜色识别" scheme="http://yoursite.com/tags/%E9%A2%9C%E8%89%B2%E8%AF%86%E5%88%AB/"/>
+    
+  </entry>
   
   <entry>
     <title>魔法方法</title>
@@ -197,16 +227,16 @@
     <link href="http://yoursite.com/2019/08/09/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/"/>
     <id>http://yoursite.com/2019/08/09/特征工程/</id>
     <published>2019-08-09T02:53:28.000Z</published>
-    <updated>2019-08-09T03:20:16.134Z</updated>
+    <updated>2019-08-12T01:18:53.519Z</updated>
     
-    <content type="html"><![CDATA[<p>​    前些天我把python的处理图像的库——opencv总结了一下，但这终究是传统方法处理图像。现在都是用深度学习网络处理图像。所以，在学深度学习之前，我看了写机器学习的知识。在看机器学习的算法前，我们先来看看特征工程。</p><p>特征工程三大知识：特征抽取、特征预处理、特征降维。</p><h2 id="特征抽取"><a href="#特征抽取" class="headerlink" title="特征抽取"></a>特征抽取</h2><p>字典特征抽取，把数据中的以字符串标记的数据转化为one-hot编码。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML1.png" alt></p><p>由上面代码可得下面的稀疏（sparse）矩阵：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML2.png" alt></p><p>将稀疏矩阵转为矩阵：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML3.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML4.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML6.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML7.png" alt></p><p>将矩阵转化为字典：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML8.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML9.png" alt></p><p>文本特征抽取：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML10.png" alt></p><p>和字典特征抽取不一样的是CountVectorizer没有sparse参数，只能通过矩阵的toarray转化为数组</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML12.png" alt></p><p>可得：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML11.png" alt></p><p><strong>注意：单个字母不统计。因为单个英文字母没有依据</strong></p><p>如果文本是中文，根据需要的词频给文本添加空格。同样，单个字无法统计</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML13.png" alt></p><p>利用jieba分词对数据进行one-hot编码：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML14.png" alt></p><p>TF-IDF特征抽取：用以评估一个词对于一个文件集或一个语料库中的其中一份文件的重要程度</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML15.png" alt></p><h2 id="特征预处理"><a href="#特征预处理" class="headerlink" title="特征预处理"></a>特征预处理</h2><p>数据归一化处理：通过对原始数据进行交换把数据映射到（默认为[0,1]）之间</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML16.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML17.png" alt></p><p>归一化缺点：注意在特定场景最大值最小值是变化的。另外，最大值与最小值非常容易受异常点的影响，所以这种方法的鲁棒性差，只适合传统精确小数据场景。</p><p>数据标准化处理:通过对原始数据进行变换把数据变换到均值为0，方差为1的范围。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML18.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML19.png" alt></p><p>标准化总结：在已有样本足够多的情况下比较稳定，适合现代嘈杂大数据场景</p><p>缺失值处理方法:</p><p>删除：如果每列或者行数据缺失值达到一定比例时，建议放弃整行或者整列</p><p>插补：可以通过缺失值每行或者每列的平均值、中位数来填充</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML20.png" alt></p><h2 id="数据降维："><a href="#数据降维：" class="headerlink" title="数据降维："></a>数据降维：</h2><p>减少特征的数量。这里的维度代表特征的个数。两种方法：1.特征选择 2.主成分分析</p><p>特征选择：特征选择就是单纯地从提取到的所有特征中选择部分特征作为训练集特征，特征在选择前和选择后可以改变值、也不改变值。但是选择后的特征维数肯定比选择前小。主要方法：Filter（过滤式）、Embedded（嵌入式）、Wrapper（包裹式）</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML21.png" alt></p><p>主成分分析：PCA技术，PCA是一种分析、简化数据集的技术。特征数达到数百才会使用</p><p>目的：是数据维数压缩，尽可能降低原数据的维数，损失少量信息</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML22.png" alt></p><p>PCA语法：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML23.png" alt></p><p>n_components取值可以是小数和整数：小数的取值范围是0-1，代表降维后的维度是原本维度的0-1倍数，整数的值是降维降几个维。</p>]]></content>
+    <content type="html"><![CDATA[<p>​    前些天我把python的处理图像的库——opencv总结了一下，但这终究是传统方法处理图像。现在都是用深度学习网络处理图像。所以，在学深度学习之前，我看了些机器学习的知识。但在看机器学习的算法前，我们先来看看特征工程。</p><p>特征工程三大知识：特征抽取、特征预处理、特征降维。</p><h2 id="特征抽取"><a href="#特征抽取" class="headerlink" title="特征抽取"></a>特征抽取</h2><p>字典特征抽取，把数据中的以字符串标记的数据转化为one-hot编码。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML1.png" alt></p><p>由上面代码可得下面的稀疏（sparse）矩阵：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML2.png" alt></p><p>将稀疏矩阵转为矩阵：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML3.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML4.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML6.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML7.png" alt></p><p>将矩阵转化为字典：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML8.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML9.png" alt></p><p>文本特征抽取：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML10.png" alt></p><p>和字典特征抽取不一样的是CountVectorizer没有sparse参数，只能通过矩阵的toarray转化为数组</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML12.png" alt></p><p>可得：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML11.png" alt></p><p><strong>注意：单个字母不统计。因为单个英文字母没有依据</strong></p><p>如果文本是中文，根据需要的词频给文本添加空格。同样，单个字无法统计</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML13.png" alt></p><p>利用jieba分词对数据进行one-hot编码：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML14.png" alt></p><p>TF-IDF特征抽取：用以评估一个词对于一个文件集或一个语料库中的其中一份文件的重要程度</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML15.png" alt></p><h2 id="特征预处理"><a href="#特征预处理" class="headerlink" title="特征预处理"></a>特征预处理</h2><p>数据归一化处理：通过对原始数据进行交换把数据映射到（默认为[0,1]）之间</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML16.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML17.png" alt></p><p>归一化缺点：注意在特定场景最大值最小值是变化的。另外，最大值与最小值非常容易受异常点的影响，所以这种方法的鲁棒性差，只适合传统精确小数据场景。</p><p>数据标准化处理:通过对原始数据进行变换把数据变换到均值为0，方差为1的范围。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML18.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML19.png" alt></p><p>标准化总结：在已有样本足够多的情况下比较稳定，适合现代嘈杂大数据场景</p><p>缺失值处理方法:</p><p>删除：如果每列或者行数据缺失值达到一定比例时，建议放弃整行或者整列</p><p>插补：可以通过缺失值每行或者每列的平均值、中位数来填充</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML20.png" alt></p><h2 id="数据降维："><a href="#数据降维：" class="headerlink" title="数据降维："></a>数据降维：</h2><p>减少特征的数量。这里的维度代表特征的个数。两种方法：1.特征选择 2.主成分分析</p><p>特征选择：特征选择就是单纯地从提取到的所有特征中选择部分特征作为训练集特征，特征在选择前和选择后可以改变值、也不改变值。但是选择后的特征维数肯定比选择前小。主要方法：Filter（过滤式）、Embedded（嵌入式）、Wrapper（包裹式）</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML21.png" alt></p><p>主成分分析：PCA技术，PCA是一种分析、简化数据集的技术。特征数达到数百才会使用</p><p>目的：是数据维数压缩，尽可能降低原数据的维数，损失少量信息</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML22.png" alt></p><p>PCA语法：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML23.png" alt></p><p>n_components取值可以是小数和整数：小数的取值范围是0-1，代表降维后的维度是原本维度的0-1倍数，整数的值是降维降几个维。</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;​    前些天我把python的处理图像的库——opencv总结了一下，但这终究是传统方法处理图像。现在都是用深度学习网络处理图像。所以，在学深度学习之前，我看了写机器学习的知识。在看机器学习的算法前，我们先来看看特征工程。&lt;/p&gt;
-&lt;p&gt;特征工程三大知识：特征抽取、特征
+        &lt;p&gt;​    前些天我把python的处理图像的库——opencv总结了一下，但这终究是传统方法处理图像。现在都是用深度学习网络处理图像。所以，在学深度学习之前，我看了些机器学习的知识。但在看机器学习的算法前，我们先来看看特征工程。&lt;/p&gt;
+&lt;p&gt;特征工程三大知识：特征抽取、特
       
     
     </summary>
@@ -576,35 +606,6 @@
     
     
       <category term="python的元类" scheme="http://yoursite.com/tags/python%E7%9A%84%E5%85%83%E7%B1%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>pandas用法总结</title>
-    <link href="http://yoursite.com/2019/08/07/pandas/"/>
-    <id>http://yoursite.com/2019/08/07/pandas/</id>
-    <published>2019-08-07T01:55:50.000Z</published>
-    <updated>2019-08-09T04:24:34.646Z</updated>
-    
-    <content type="html"><![CDATA[<p>​    pandas也是一个非常强大的库，所以我也只是总结了我用到的方法。</p><p>pandas常用的数据类型：1、Series  一维 带标签的数组（标签就是索引）2、DataFrame  二维   Series的容器</p><h2 id="Series："><a href="#Series：" class="headerlink" title="Series："></a>Series：</h2><p>通过列表创建Series：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas1.png" alt></p><p>索引可以指定，默认从0开始：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas2.png" alt></p><p>通过字典创建Series：可以通过astype修改类型</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas3.png" alt></p><p>取值：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas4.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas5.png" alt></p><p>可以将条件和value、index配合使用：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/panda6.png" alt></p><p>pandas读取外部数据：</p><p>read_csv:读取CSV文件</p><p>read_excel:读取excel文件</p><p>其他文件类似</p><h2 id="DataFrame"><a href="#DataFrame" class="headerlink" title="DataFrame"></a>DataFrame</h2><p>通过列表创建：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas7.png" alt></p><p>通过数组创建：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas8.png" alt></p><p>通过字典创建：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas9.png" alt></p><p><strong>DataFrame的基础属性</strong>：</p><p>shape ：行数 列数</p><p>dtypes：列数据类型</p><p>ndim：数据维度</p><p>index：行索引</p><p>columns：列索引</p><p>values：对象值</p><p><strong>DataFrame的方法</strong>：</p><p>head(n):显示头n行。默认是前5行</p><p>tail(n)：显示尾n行。</p><p>info()：行数，列数，列索引，列非空值个数，列类型，内存占用</p><p>describe()：计数 均值 标准差 最大值 四分位数 最小值</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas10.png" alt></p><p>DataFrame排序：sort_values()。通过设置by来确定排序的key。设置ascending确定升序or降序。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas11.png" alt></p><p>DataFrame的取值：</p><p>方括号写数字，表示取行。对行进行操作。根据实际情况写</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas13.png" alt></p><p>对列进行操作：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas14.png" alt></p><p>配合使用：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas16.png" alt></p><p>loc：DataFrame通过标签索引获取行数据</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas17.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas18.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas19.png" alt></p><p>根据多个索引取多个对应的值：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas20.png" alt></p><p>iloc：DataFrame通过位置获取列数据。与ioc类似，只是将索引换成数字。</p><p>数组合并：</p><p>1、join 按行索引合并             </p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas21.png" alt></p><p>2、merge按列索引进行合并 on指定按哪一列合并  how：合并方式 inner(交集，默认) outer(并集)  left(左边为准，NaN补全)  right(右边为准，NaN补全)</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas23.png" alt></p><p>如果列索引不同。可以left_on和right_on指定左边、右边DataFrame的合并列。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas24.png" alt></p><p>另一种写法：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas25.png" alt></p><p>分组:groupby(by)               by:通过什么分组，可以设置多个条件分组</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas26.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas27.png" alt></p><p>聚合：count   计算数量</p><p>sum             求和</p><p>mean        求平均值</p><p>median        求中位数</p><p>std、var      求标准差和方差</p><p>min、max       求最大和最小值</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas28.png" alt></p><h4 id="DataFrame的索引和复合索引："><a href="#DataFrame的索引和复合索引：" class="headerlink" title="DataFrame的索引和复合索引："></a>DataFrame的索引和复合索引：</h4><p>简单的索引操作：</p><p>获取index：df.index</p><p>指定index：df.index=[“”,””]</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas29.png" alt></p><p>同理可得指定columns：df.columns=[“ “,” “]</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas30.png" alt></p><p>重新设置index：df.reindex()</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas31.png" alt></p><p>指定某一列成为index：df.set_index()。drop决定是否保留设定的列</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas32.png" alt></p><p>可以设定多个列成为index：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas33.png" alt></p><p>返回index的唯一值：df.set_index().index.unique()</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas34.png" alt></p><p>时间序列：date_range(start,end,period,freq) 生成一段时间范围。start和end表示范围，periods表示个数，freq表示频率(年、月、天)</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas35.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas37.png" alt></p><p>频率类型：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas36.png" alt></p><p>时间段：PeriodIndex</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas38.png" alt></p><p> 重采样resample：指的是将时间序列从一个频率转化为另一个频率进行处理的过程。将高频率数据转化为低频率数据为降采样。低频率数据转化为高频率为升采样。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/pandas39.png" alt></p><h2 id="判断数据是否为NaN："><a href="#判断数据是否为NaN：" class="headerlink" title="判断数据是否为NaN："></a>判断数据是否为NaN：</h2><p>pd.isnull()  pd.notfull()</p><p>在DataFrame中对缺失数据（NaN）的处理：</p><p>方式1：删除NaN所在的行列dropna(axis,how,inplace):how=”any”时一行(列)里有一个为nan就删。how=”all”时，一行全部为nan时才删。inplace为True，原地修改。False为False，不修改。</p><p>方式2：填充数据，fillna()</p><p>处理为0的数据：t[t==0]=np.nan</p><p>计算平均值时：nan不参与计算，0参与</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;​    pandas也是一个非常强大的库，所以我也只是总结了我用到的方法。&lt;/p&gt;
-&lt;p&gt;pandas常用的数据类型：1、Series  一维 带标签的数组（标签就是索引）2、DataFrame  二维   Series的容器&lt;/p&gt;
-&lt;h2 id=&quot;Series：&quot;&gt;&lt;
-      
-    
-    </summary>
-    
-      <category term="python" scheme="http://yoursite.com/categories/python/"/>
-    
-      <category term="pandas" scheme="http://yoursite.com/categories/python/pandas/"/>
-    
-    
-      <category term="pandas" scheme="http://yoursite.com/tags/pandas/"/>
     
   </entry>
   
