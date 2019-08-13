@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-08-12T02:11:29.194Z</updated>
+  <updated>2019-08-13T02:19:28.350Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,93 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>mysql基础命令</title>
+    <link href="http://yoursite.com/2019/08/13/mysql%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/"/>
+    <id>http://yoursite.com/2019/08/13/mysql基础命令/</id>
+    <published>2019-08-13T01:39:02.000Z</published>
+    <updated>2019-08-13T02:19:28.350Z</updated>
+    
+    <content type="html"><![CDATA[<p>sql语句最后需要以；号结尾，sql语句最后需要以；号结尾，sql语句最后需要以；号结尾。重要的事说三遍。</p><h2 id="数据库操作"><a href="#数据库操作" class="headerlink" title="数据库操作"></a>数据库操作</h2><p>select version()：显示数据库版本</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/mysql34.png" alt></p><p>select now()：显示时间</p><p>show databases：查看所有数据库</p><p>show create database 数据库名：查看创建数据库的语句</p><p>create database 数据库名字：创建数据库</p><p>create database 数据库名字 charset=utf8：创建指定编码格式的数据库</p><p>drop database 数据库名：删除数据库</p><p>use 数据库名：使用数据库</p><p>select database ()：查看当前使用的数据库</p><h2 id="数据表操作"><a href="#数据表操作" class="headerlink" title="数据表操作"></a>数据表操作</h2><p>show tables:查看当前数据库中所有表</p><p>drop table 表名：删除表</p><p>show create table 表名：查看创建表的语句</p><p>create table 表名（字段 类型 约束[，字段 类型 约束]）：创建表</p><p>参数：auto_increment表示自动增长、not null表示不能为空、primary key表示主键、default 默认值</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/mysql35.png" alt></p><p>desc 表名：查看表的状态</p><p>insert into 表名 values()：向表插入数据，按照参数类型写参数</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/mysql33.png" alt></p><p>select * from 表名：查看表中所有的数据</p><p>alter table 表名 add 列名 类型：向表中添加字段</p><p>alter table 表名 modify 列名 类型 约束：不重命列名版</p><p>alter table 表名 change 列的原名 列的新名 类型 约束 ：重命列名版</p><p>alter table 表名 drop 列名：删除字段</p><h2 id="数据的增删改查"><a href="#数据的增删改查" class="headerlink" title="数据的增删改查"></a>数据的增删改查</h2><h3 id="增加"><a href="#增加" class="headerlink" title="增加"></a>增加</h3><p>全列插入：insert into 表名 values(数据)</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/mysql33.png" alt></p><p>主键字段：可以用0 null default 来占位。因为auto_increment是自动增加的</p><p>部分插入：insert into 表名(列名1) values(值1) 没有的值取默认值</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/mysql1.png" alt></p><p>多行插入：insert into 表名 values (数据1)，(数据2)</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/mysql2.png" alt></p><p>update 表名 set 列名 ：整列都改</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/mysql3.png" alt></p><p>update 表名 set  列名  where 条件：根据条件改</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/mysql5.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/mysql6.png" alt></p><p>通过其他表来更新一个表：</p><p>update 其他表 as 新名 inner join 被更新的表 as 新名 on  条件 set 需要改的数据</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/mysql7.png" alt></p><h3 id="查询："><a href="#查询：" class="headerlink" title="查询："></a>查询：</h3><p>select * from 表名：查询整个表，*号代表全部</p><p>select * from 表名 where ：根据条件查询</p><p>select 查询的列名 from 表名：根据列名查询。查询多列时，列名间用,隔开</p><p>select 查询的列名 as 列的新名字 from 表名：将列查询后以新的名字显示出来</p><p>select 表名.列名 from 表名</p><p>select 表的新名字.列名 from 表名 as 表的新名字</p><p>select distinct 列名 from 表名：可以去重，只显示相同数据第一次数据出现的位置</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/mysql8.png" alt></p><h4 id="条件查询："><a href="#条件查询：" class="headerlink" title="条件查询："></a>条件查询：</h4><p>and、or、not都可以用，类似python的语法。判断是否为空，is NULL。</p><h4 id="模糊查询："><a href="#模糊查询：" class="headerlink" title="模糊查询："></a>模糊查询：</h4><p>like ：%代表一个或多个，_代表一个。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/mysql9.png" alt></p><p>select name from 表名 where name like “%小%”：查询名字中有”小”字的名字</p><p>select name from 表名 where name like “__”：查询两个字的名字</p><p>select name from 表名 where name like “__%”：查询两个字以上的名字</p><h4 id="rlike：利用正则查询"><a href="#rlike：利用正则查询" class="headerlink" title="rlike：利用正则查询"></a>rlike：利用正则查询</h4><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/mysql10.png" alt></p><h4 id="范围查询："><a href="#范围查询：" class="headerlink" title="范围查询："></a>范围查询：</h4><p>in表示在一个非连续的范围内</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/mysql11.png" alt></p><p>between 数字 and 数字表示在一个连续的范围内</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/mysql12.png" alt></p><h3 id="排序：order-by-默认从小到大排序"><a href="#排序：order-by-默认从小到大排序" class="headerlink" title="排序：order by 默认从小到大排序"></a>排序：order by 默认从小到大排序</h3><p>asc：从小到大排</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/mysql13.png" alt></p><p>desc：从大到小排</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/mysql14.png" alt></p><p>如果排序字段相同，我们可以设置多个排序字段。若不设置，默认按照主键大小排。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/mysql15.png" alt></p><h3 id="聚合函数-count，max，min，avg，sum，round-：不能跟其他字段一起用"><a href="#聚合函数-count，max，min，avg，sum，round-：不能跟其他字段一起用" class="headerlink" title="聚合函数(count，max，min，avg，sum，round)：不能跟其他字段一起用"></a>聚合函数(count，max，min，avg，sum，round)：不能跟其他字段一起用</h3><p>count：计算个数，其他类似</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/mysql16.png" alt></p><p>max：计算最大的</p><p>min：计算最小的</p><p>avg：计算平均值</p><p>sum：求和</p><p>round：四舍五入 ，round(123.23,1)保留一位小数=123.2</p><h3 id="分组：group-by"><a href="#分组：group-by" class="headerlink" title="分组：group by"></a>分组：group by</h3><p>按照性别分组：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/mysql17.png" alt></p><p>配合聚合函数使用计算每种性别的人数：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/mysql18.png" alt></p><p>计算男性的人数：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/mysql19.png" alt></p><p>group_concat():查询同一组的其他字段</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/mysql20.png" alt></p><p>还可以用字符串分割</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/mysql21.png" alt></p><p>having：将达到条件的组输出，可以配合聚合函数一起使用</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/mysql22.png" alt></p><p><strong>having和where的区别：having是在分组后进行筛选，where是在原表的基础上进行筛选</strong></p><h3 id="分页："><a href="#分页：" class="headerlink" title="分页："></a>分页：</h3><p>limit start，count   限制查询出来的数据个数。start代表从哪开始，count 代表查询的数据个数。start默认为0</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/mysql23.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/mysql24.png" alt></p><h3 id="链接查询：内链接、左链接、右链接"><a href="#链接查询：内链接、左链接、右链接" class="headerlink" title="链接查询：内链接、左链接、右链接"></a>链接查询：内链接、左链接、右链接</h3><h4 id="内链接：inner-join-……on"><a href="#内链接：inner-join-……on" class="headerlink" title="内链接：inner join ……on"></a>内链接：inner join ……on</h4><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/mysql25.png" alt></p><p>在两个表中取交集，如果存在则将两表数据合并。不存在则跳过。</p><p>可以利用as化简语句：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/mysql26.png" alt></p><p>可以根据需求修改需要显示的数据：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/mysql27.png" alt></p><p>还可以修改数据显示的位置：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/mysql28.png" alt></p><p>通过某个表的字段排序：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/mysql29.png" alt></p><h4 id="左链接：left-join……on。谁在左边，谁就是左表。"><a href="#左链接：left-join……on。谁在左边，谁就是左表。" class="headerlink" title="左链接：left join……on。谁在左边，谁就是左表。"></a>左链接：left join……on。谁在左边，谁就是左表。</h4><p>查询的结果为两个表匹配到的数据，左表特有的数据，对于右表不存在的数据使用null填充</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/mysql30.png" alt></p><p>将左表特有的数据提取出来：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/mysql31.png" alt></p><h4 id="右链接：right-join……on：类似左表。可以直接将右链接的表中左表和右表的显示交换即可得右链接。"><a href="#右链接：right-join……on：类似左表。可以直接将右链接的表中左表和右表的显示交换即可得右链接。" class="headerlink" title="右链接：right join……on：类似左表。可以直接将右链接的表中左表和右表的显示交换即可得右链接。"></a>右链接：right join……on：类似左表。可以直接将右链接的表中左表和右表的显示交换即可得右链接。</h4><p>自关联：补。。。。</p><p>子查询：查询里嵌套一个查询</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/mysql32.png" alt></p><h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2><p>删除分为物理删除和逻辑删除：</p><p>物理删除：</p><p>delete from 表名:删除整个表</p><p>delete from 表名 where 条件：删除符合条件的数据</p><p>逻辑删除：（用一个字段表示，这条信息是否还能用）</p><p>alter table 表名 add 字段 类型 default 默认值</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;sql语句最后需要以；号结尾，sql语句最后需要以；号结尾，sql语句最后需要以；号结尾。重要的事说三遍。&lt;/p&gt;
+&lt;h2 id=&quot;数据库操作&quot;&gt;&lt;a href=&quot;#数据库操作&quot; class=&quot;headerlink&quot; title=&quot;数据库操作&quot;&gt;&lt;/a&gt;数据库操作&lt;/h2&gt;
+      
+    
+    </summary>
+    
+      <category term="数据库" scheme="http://yoursite.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+      <category term="mysql" scheme="http://yoursite.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql/"/>
+    
+      <category term="基础命令" scheme="http://yoursite.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql/%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/"/>
+    
+    
+      <category term="mysql" scheme="http://yoursite.com/tags/mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>网络知识散记</title>
+    <link href="http://yoursite.com/2019/08/13/%E7%BD%91%E7%BB%9C%E7%9F%A5%E8%AF%86%E6%95%A3%E8%AE%B0/"/>
+    <id>http://yoursite.com/2019/08/13/网络知识散记/</id>
+    <published>2019-08-13T01:20:46.000Z</published>
+    <updated>2019-08-13T01:28:13.242Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="端口"><a href="#端口" class="headerlink" title="端口"></a>端口</h2><p>端口是英文port的意译，可以认为是设备与外界通讯交流的出口。端口可分为虚拟端口和物理端口，其中虚拟端口指计算机内部或交换机路由器内的端口，不可见。例如计算机中的80端口、21端口、23端口等。物理端口又称为接口，是可见端口，计算机背板的RJ45网口，交换机路由器集线器等RJ45端口。电话使用RJ11插口也属于物理端口的范畴。（用来区分哪个进程）   同一台电脑用pid区分进程，不同电脑用端口区分进程。</p><p>端口范围是0到65535</p><p>知名端口是众所周知的端口，范围是0到1023</p><p>动态端口的范围是1024到65535</p><p>查看端口状态：用netstat -an查看</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/net1.png" alt></p><h2 id="TCP-IP协议"><a href="#TCP-IP协议" class="headerlink" title="TCP/IP协议"></a>TCP/IP协议</h2><p>TCP/IP:这不是两个协议，这是一个协议族，包含很多协议。主要是TCP/IP协议。</p><p>四层：物理层、网络层、传输层、应用层</p><p>七层：物理层、链路层、网络层、传输层、 会话层、表示层、应用层</p><h2 id="IP地址"><a href="#IP地址" class="headerlink" title="IP地址"></a>IP地址</h2><p>用来标记唯一一台电脑。每一个IP地址都包括网络地址和主机地址</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/net2.png" alt></p><p>网络地址相同，则处于同一个网段，主机地址用来标记网里的电脑</p><p>A类网络的IP地址范围为：1.0.0.1－126.255.255.254； </p><p>B类网络的IP地址范围为：128.1.0.1－191.255.255.254； </p><p>C类网络的IP地址范围为：192.0.1.1－223.255.255.254</p><p>1．A类IP地址</p><p>一个A类IP地址由1字节（每个字节是8位）的网络地址和3个字节主机地址组成,即第一段数字范围为1～126。每个A类地址可连接16387064台主机(不能用0(产生冲突)和255(广播地址)，Internet有126个A类地址。</p><p>2．B类IP地址</p><p>一个B类IP地址由2个字节的网络地址和2个字节的主机地址组成，第一段数字范围为128～191。每个B类地址可连接64516(254*254)台主机(不能用0(产生冲突)和255(广播地址))，Internet有16256个B类地址。</p><p>3．C类IP地址</p><p>一个C类地址是由3个字节的网络地址和1个字节的主机地址组成，第一段数字范围为192～223。每个C类地址可连接254台主机(不能用0(产生冲突)和255(广播地址)，Internet有2054512个C类地址。</p><p>4．D类地址用于多点播送。</p><p>第一个字节的数字范围为224～239，是多点播送地址，用于多目的地信息的传输，和作为备用。全零（“0.0.0.0”）地址对应于当前主机，全“1”的IP地址（“255.255.255.255”）是当前子网的广播地址。多播和广播的区别：广播在同一个局域网都能收到，多播是指定那些人可以收得到，其他人收不到，常用于视频会议。</p><p>5.E类地址</p><p>第一段数字范围为240～254。E类地址保留，仅作实验和开发用。</p><p>全零（“0．0．0．0”）地址对应于当前主机。全“1”的IP地址（“255．255．255．255”）是当前子网的广播地址。</p><p>在IP地址3种主要类型里，各保留了3个区域作为私有地址，常见于局域网中。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/net3.png" alt></p><p>##常用术语</p><p>网络号：网络号等于ip地址和网络掩码按位与操作</p><p>网络掩码（子网掩码）的作用：取网络号、主机号</p><p>两台电脑能通信的前提是处于同一个网络号</p><p>集线器（hub）的作用：实现多台电脑连接在一起，组成一个小型局域网，交换机也是。</p><p>集线器和交换机的区别：集线器是广播发数据，交换机不是每次都是广播，效率高。</p><p>实际地址：代表网卡地址（MAC）。由六个字节组成，前三个字节代表厂商，后三个字节代表厂商生产</p><p>arp：根据ip找mac地址</p><p>rarp：根据mac地址找ip</p><p>icmp：ping的时候用</p><p>arp -a即是查看本地局域网内所有用户ip和mac地址绑定关系的一个命令。</p><p>ARP -d 就是清除缓存中的数据。也是删除ip和mac绑定的项目。</p><p>路由器：连接不同的网络，使他们之间能够通信</p><p>rip：路由解析协议</p><p>mac：标记实际转发数据时的地址</p><p>ip：标记逻辑上的地址</p><p>natmask：和ip地址一起确定网络号</p><p>默认网关：发送的ip不在同一个网段内，那么会把这个数据转发给默认网关。</p><p>为什么TCP比UDP稳定？在TCP中，如果有一方接收到对方的数据，一定会发送ack确认包给对方。而在UDP中，没有这个过程。</p><p>TCP三次握手：确定一定发送数据到对方    四次挥手：调用close时使用</p><p>TCP长连接、短连接：</p><p>TTL：表示经过的路由器数目。每经过一个路由器，TTL-1。</p><p>MSL：表示一个数据包存在的最多时间</p><p>CDN：内容分发</p><p>查看域名解析的IP地址：</p><p>nslookup 域名         例子：nslookup baidu.com</p><p>常见的网络攻击：</p><p>DDOS攻击：拒绝服务器攻击。</p><p>DNS攻击：1.DNS服务器被劫持：篡改IP</p><p>​                  2.DNS欺骗：</p><p>ARP攻击：中间人攻击</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;端口&quot;&gt;&lt;a href=&quot;#端口&quot; class=&quot;headerlink&quot; title=&quot;端口&quot;&gt;&lt;/a&gt;端口&lt;/h2&gt;&lt;p&gt;端口是英文port的意译，可以认为是设备与外界通讯交流的出口。端口可分为虚拟端口和物理端口，其中虚拟端口指计算机内部或交换机路由器内的端口，
+      
+    
+    </summary>
+    
+      <category term="网络知识" scheme="http://yoursite.com/categories/%E7%BD%91%E7%BB%9C%E7%9F%A5%E8%AF%86/"/>
+    
+      <category term="知识散记" scheme="http://yoursite.com/categories/%E7%BD%91%E7%BB%9C%E7%9F%A5%E8%AF%86/%E7%9F%A5%E8%AF%86%E6%95%A3%E8%AE%B0/"/>
+    
+    
+      <category term="网络知识散记" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C%E7%9F%A5%E8%AF%86%E6%95%A3%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>目标检测概述</title>
+    <link href="http://yoursite.com/2019/08/12/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E6%A6%82%E8%BF%B0/"/>
+    <id>http://yoursite.com/2019/08/12/目标检测概述/</id>
+    <published>2019-08-12T02:30:19.000Z</published>
+    <updated>2019-08-13T01:29:25.807Z</updated>
+    
+    <content type="html"><![CDATA[<p>​    目标检测方法分为传统目标检测方法和深度学习目标检测方法。</p><p>传统目标检测方法：Viola-Jones、HOG+SVM、DPM等</p><p>Viola-Jones：采用积分图特征，进行人脸检测</p><p>HOG+SVM：行人检测。通过HOG特征结合SVM分类器进行检测。</p><p>DPM：同样通过HOG特征，并加入许多其他额外的策略进行检测。传统目标检测最好的方法。</p><p>深度学习目标检测方法：One-state、Two-stage</p><p>One-stage：YOLO和SSD系列，直接回归目标位置。</p><p>Two-stage：Faster RCNN系列，利用网络对候选区进行推荐。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%871.png" alt></p><p><strong>Viola-Jones（人脸检测）步骤</strong></p><p>1、Haar特征抽取</p><p>2、训练人脸分类器（Adaboost算法）</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%872.png" alt></p><p>3、滑动窗口</p><p><strong>HOG+SVM（行人检测）步骤</strong></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%873.png" alt></p><p><strong>DPM（物体检测）步骤</strong></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%874.png" alt></p><p>NMS（非极大值抑制算法）</p><p>目的：为了消除多余的框，找到最佳的物体检测的位置</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%87.png" alt></p><p>Soft-NMS是对NMS算法的改进</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%876.png" alt></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;​    目标检测方法分为传统目标检测方法和深度学习目标检测方法。&lt;/p&gt;
+&lt;p&gt;传统目标检测方法：Viola-Jones、HOG+SVM、DPM等&lt;/p&gt;
+&lt;p&gt;Viola-Jones：采用积分图特征，进行人脸检测&lt;/p&gt;
+&lt;p&gt;HOG+SVM：行人检测。通过HOG特征结
+      
+    
+    </summary>
+    
+      <category term="目标检测" scheme="http://yoursite.com/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
+    
+      <category term="目标检测概述" scheme="http://yoursite.com/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E6%A6%82%E8%BF%B0/"/>
+    
+    
+      <category term="目标检测" scheme="http://yoursite.com/tags/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>opencv颜色识别</title>
@@ -519,93 +606,6 @@
     
     
       <category term="python常用模块" scheme="http://yoursite.com/tags/python%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%9D%97/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>python常用模块（2）</title>
-    <link href="http://yoursite.com/2019/08/07/python%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%9D%97%EF%BC%882%EF%BC%89/"/>
-    <id>http://yoursite.com/2019/08/07/python常用模块（2）/</id>
-    <published>2019-08-07T06:27:10.000Z</published>
-    <updated>2019-08-07T07:00:53.343Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="collection："><a href="#collection：" class="headerlink" title="collection："></a>collection：</h2><p>collections是Python内建的一个集合模块，提供了许多有用的集合类。</p><p><strong>namedtuple</strong>是一个函数，它用来创建一个自定义的tuple对象，并且规定了tuple元素的个数，并可以用属性而不是索引来引用tuple的某个元素。这样一来，我们用namedtuple可以很方便地定义一种数据类型，它具备tuple的不变性，又可以根据属性来引用，使用十分方便。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/collections1.png" alt></p><p>利用namedtuple定义和使用具名元祖：第一个参数为类名，第二个参数为类的各个字段的名字</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/collections2.png" alt></p><p>具名元祖有些专用的属性：类属性_fields,类方法_make(),实例方法_asdict()</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/collections3.png" alt></p><p>如果需要修改任何属性，可以通过使用nametupled实例的_replace方法来实现。该方法会创建按一个新的命名元祖，并对相应的值进行替换。</p><p><strong>deque</strong>：是为了高效实现插入和删除操作的双向列表，适合用于队列和栈。deque(maxlen=N)创建一个固定长度的队列，当有新记录加入而队列已满时会自动移除最老的那条记录。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/collections5.png" alt></p><p><strong>defaultdict</strong>:使用dict时，如果引用的Key不存在，就会抛出KeyError。如果希望key不存在时，返回一个默认值，就可以用defaultdict。defaultdict的一个特点就是会自动初始化第一个值。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/collections6.png" alt></p><p>用defaultdict的效率比不用高:</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/collections7.png" alt></p><p><strong>OrderedDict</strong></p><p>使用dict时，Key是无序的。在对dict做迭代时，我们无法确定Key的顺序。</p><p>如果要保持Key的顺序，可以用OrderedDict。</p><p>OrderDict的大小是普通字典的2倍多，这是由于它额外创建的链表所导致。</p><p>注意，OrderedDict的Key会按照插入的顺序排列，不是Key本身排序：OrderedDict可以实现一个FIFO（先进先出）的dict，当容量超出限制时，先删除最早添加的Key</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/collections8.png" alt></p><p><strong>Counter</strong>：一个简单的计数器</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/collections10.png" alt></p><p>计数器的更新包括增加和减少两种，增加使用update，减少用subtract。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/collections11.png" alt></p><p>most_common(x):根据x返回频率前x的项。</p><p><strong>itemgetter</strong>：可以通过公共键对字典列表排序。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/collections12.png" alt></p><p><strong>ChainMap</strong>：可接受多个映射然后再逻辑上是它们表现为一个单独的映射结构。如果有重复的键，那么会采用第一个映射中所对应的值。修改映射的操作总是会作用在列出的第一个映射结构上。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/collections13.png" alt></p><h2 id="random"><a href="#random" class="headerlink" title="random"></a>random</h2><p>random.random() 产生0-1的随机浮点数</p><p>random.uniform(a, b) 产生指定范围内的随机浮点数</p><p>random.randint(a, b) 产生指定范围内的随机整数</p><p>random.randrange([start], stop[, step]) 从一个指定步长的集合中产生随机数</p><p>random.choice(sequence) 从序列中产生一个随机数</p><p>random.shuffle(x[, random]) 将一个列表中的元素打乱</p><p>random.sample(sequence, k) 从序列中随机获取指定长度的片断</p><h2 id="functools"><a href="#functools" class="headerlink" title="functools"></a>functools</h2><p><strong>reduce(function, sequence, value)</strong>：对sequence中的item顺序迭代调用function，如果有value，还可以作为初始值调用。function接收的参数个数只能为2，先把sequence中第一个值和第二个值当参数传给function，再把function的返回值和第三个值当参数传给function，然后只返回一个结果。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/functools1.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/functoolss.png" alt></p><p><strong>partial</strong>：基于一个函数创建一个新的可调用对象，把原函数的某些参数固定。</p><p>偏函数：只需要传一次值，后面想传就传</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/functools2.png" alt></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;collection：&quot;&gt;&lt;a href=&quot;#collection：&quot; class=&quot;headerlink&quot; title=&quot;collection：&quot;&gt;&lt;/a&gt;collection：&lt;/h2&gt;&lt;p&gt;collections是Python内建的一个集合模块，提供了许多有
-      
-    
-    </summary>
-    
-      <category term="python" scheme="http://yoursite.com/categories/python/"/>
-    
-      <category term="常用模块" scheme="http://yoursite.com/categories/python/%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%9D%97/"/>
-    
-      <category term="常用模块（2）" scheme="http://yoursite.com/categories/python/%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%9D%97/%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%9D%97%EF%BC%882%EF%BC%89/"/>
-    
-    
-      <category term="python常用模块" scheme="http://yoursite.com/tags/python%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%9D%97/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>python常用模块（1）</title>
-    <link href="http://yoursite.com/2019/08/07/python%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%9D%97%EF%BC%881%EF%BC%89/"/>
-    <id>http://yoursite.com/2019/08/07/python常用模块（1）/</id>
-    <published>2019-08-07T05:51:37.000Z</published>
-    <updated>2019-08-07T06:26:32.829Z</updated>
-    
-    <content type="html"><![CDATA[<p>​    这几年，python大火。其中的一个原因是python的库特别多，而且封装非常好。接下来我来总结以下我用过的一些库，虽然都不是很大的库，但还是有用的。</p><h2 id="json"><a href="#json" class="headerlink" title="json"></a>json</h2><p>json主要执行序列化和反序列化的功能，通过Python的json模块，可以将字符串形式的json数据转化为字典，也可以将Python中的字典数据转化为字符串形式的json数据。</p><p>通过json字符串转为字典 json.loads</p><p>字典转换为json：json.dumps</p><p>json.loads()、dumps解码python json格式 </p><p>json.load、dump加载json格式文件</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/json.png" alt></p><p>pickle使用方法与json一样</p><p>区别：</p><p>json是可以在不同语言之间交换数据的，而pickle只在python之间使用。</p><p>json只能序列化最基本的数据类型，而pickle可以序列化所有的数据类型，包括类，函数都可以序列化。</p><h2 id="hashlib"><a href="#hashlib" class="headerlink" title="hashlib"></a>hashlib</h2><p>该模块提供了常见的摘要算法。如MD5，SHA1……摘要算法又称哈希算法、散列算法，通过一个函数，把任意长度的数据转换为一个长度固定的数据串。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190807140248.png" alt></p><p>摘要算法是一个单向函数，通过摘要函数f()对任意长度的数据data计算出固定长度的摘要digest，目的是发现原始数据是否被改动过。计算f(data)很容易，但通过digest反推data却非常困难，对原始数据做一个字节的修改，都会导致计算出来的摘要不同。</p><h2 id="string"><a href="#string" class="headerlink" title="string"></a>string</h2><p>string.digits:包含数字0-9的字符串</p><p>string.letters:包含所有字母（大写或小写）的字符串</p><p>string.lowercase:包含所有小写字母的字符串</p><p>string.printable:包含所有可打印字符的字符串</p><p>string.punctuation:包含所有标点的字符串</p><p>string.uppercase:包含所有大写字母的字符串</p><p>string.ascii_letters和string.digits方法，其中ascii_letters是生成所有字母，从a-z和A-Z,digits是生成所有数字0-9.</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/string%E6%A8%A1%E5%9D%97.png" alt></p><h2 id="词云"><a href="#词云" class="headerlink" title="词云"></a>词云</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/wordcloud.png" alt></p><h2 id="decimal"><a href="#decimal" class="headerlink" title="decimal"></a>decimal</h2><p>如果期望获得更高的精度（并且愿意牺牲掉一些性能），可以使用decimal模块。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/decimal.png" alt></p><h2 id="fractions"><a href="#fractions" class="headerlink" title="fractions"></a>fractions</h2><p>模块可以用来处理涉及分数的数学计算问题</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/fractions.png" alt></p><h2 id="copy"><a href="#copy" class="headerlink" title="copy"></a>copy</h2><p>完成深拷贝和浅拷贝</p><p>is和==的区别：==是看值，is看是否指向同一个</p><p>浅拷贝：拷贝内容的地址</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/copy1.png" alt></p><p>深拷贝：开发另一片空间存放要拷贝的内容</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/copy3.png" alt></p><p>copy会判断数据类型是否为可变类型，如元祖为不可变类型，则只会完成浅拷贝。</p><h2 id="fileinput"><a href="#fileinput" class="headerlink" title="fileinput"></a>fileinput</h2><p>可以快速对一个或多个文件进行循环遍历</p><p>fileinput.input([files[, inplace[, backup[, mode[, openhook]]]]]])功能:生成FileInput模块类的实例。能够返回用于for循环遍历的对象。注意:文件名可以提供多个</p><p>inplace：是否返回输出结果到源文件中，默认为零不返回。设置为1时返回。</p><p>backup：备份文件的扩展名</p><p>mode：读写模式。只能时读、写、读写、二进制四种模式。默认是读</p><p>openhook：必须是一个函数，有两个参数，文件名和模式。返回相应的打开文件对象</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/fileinput.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/fileinput2.png" alt></p><p>fileinput.filename()：返回当前正在读取的文件的名称。在读取第一行之前，返回None。</p><p>fileinput.fileno()：返回当前文件的整数“文件描述符”。如果没有打开文件（在第一行之前和文件之间），则返回-1。</p><p>fileinput.lineno()：返回刚读过的行的累计行号。在读取第一行之前，返回0。读取完最后一个文件的最后一行后，返回该行的行号。</p><p>fileinput.filelineno()：返回当前文件中的行号。在读取第一行之前，返回0。读取完最后一个文件的最后一行后，返回该文件中该行的行号。</p><p>fileinput.isfirstline()：如果刚刚读取的行是其文件的第一行，则返回true，否则返回false。</p><p>fileinput.isstdin()：如果读取了最后一行sys.stdin，则返回true，否则返回false。</p><p>fileinput.nextfile()：关闭当前文件，以便下一次迭代将读取下一个文件的第一行（如果有的话）; 未从文件中读取的行将不计入累计行数。直到读取下一个文件的第一行之后才会更改文件名。在读取第一行之前，此功能无效; 它不能用于跳过第一个文件。读取完最后一个文件的最后一行后，此功能无效。</p><p>fileinput.close()关闭序列</p><h2 id="subprocess："><a href="#subprocess：" class="headerlink" title="subprocess："></a>subprocess：</h2><p>subprocess模块可以让我们非常方便地启动一个子进程，然后控制其输入和输出。Popen()建立子进程的时候改变标准输入、标准输出和标准错误，并可以利用subprocess.PIPE将多个子进程的输入和输出连接在一起，构成管道(pipe)</p><p>subprocess.call():父进程等待子进程完成，返回退出信息(returncode，相当于Linux exit code)</p><p>subprocess.check_call():父进程等待子进程完成，返回0，检查退出信息，如果returncode不为0，则举出错误subprocess.CalledProcessError，该对象包含有returncode属性，可用try…except…来检查</p><p>subprocess.check_output():父进程等待子进程完成，返回子进程向标准输出的输出结果，检查退出信息，如果returncode不为0，则举出错误subprocess.CalledProcessError，该对象包含有returncode属性和output属性，output属性为标准输出的输出结果，可用try…except…来检查。</p><p>subprocess.Popen()，以下为参数：</p><p>args：shell命令，可以是字符串，或者序列类型，如list,tuple。</p><p>bufsize：缓冲区大小，可不用关心</p><p>stdin,stdout,stderr：分别表示程序的标准输入，标准输出及标准错误</p><p>shell：与上面方法中用法相同</p><p>cwd：用于设置子进程的当前目录</p><p>env：用于指定子进程的环境变量。如果env=None，则默认从父进程继承环境变量</p><p>universal_newlines：不同系统的的换行符不同，当该参数设定为true时，则表示使用\n作为换行符</p><p>常用方法：</p><p>poll() ： 检查子进程状态</p><p>kill() ： 终止子进程</p><p>send_signal() :向子进程发送信号</p><p>terminate() ： 终止子进程</p><p>communicate:从PIPE中读取PIPE的文本，该方法会阻塞父进程，直到子进程完成</p><p>常用属性：pid：子进程的pid，returncode：子进程的退出码。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;​    这几年，python大火。其中的一个原因是python的库特别多，而且封装非常好。接下来我来总结以下我用过的一些库，虽然都不是很大的库，但还是有用的。&lt;/p&gt;
-&lt;h2 id=&quot;json&quot;&gt;&lt;a href=&quot;#json&quot; class=&quot;headerlink&quot; tit
-      
-    
-    </summary>
-    
-      <category term="python" scheme="http://yoursite.com/categories/python/"/>
-    
-      <category term="常用模块" scheme="http://yoursite.com/categories/python/%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%9D%97/"/>
-    
-      <category term="常用模块（1）" scheme="http://yoursite.com/categories/python/%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%9D%97/%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%9D%97%EF%BC%881%EF%BC%89/"/>
-    
-    
-      <category term="python常用模块" scheme="http://yoursite.com/tags/python%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%9D%97/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>元类</title>
-    <link href="http://yoursite.com/2019/08/07/%E5%85%83%E7%B1%BB/"/>
-    <id>http://yoursite.com/2019/08/07/元类/</id>
-    <published>2019-08-07T05:39:47.000Z</published>
-    <updated>2019-08-11T05:16:07.546Z</updated>
-    
-    <content type="html"><![CDATA[<p>​    今天来讲一下python里面较难的一个东西。我学到的python内容里面有两个东西是比较难的，一个是描述符，另一个就是今天讲的元类。</p><p>通过python知识散记我们知道global的功能是将局部变量转为全局变量，接下来要说的是globals()。这个globals()函数会以字典类型返回当前位置的全部全局变量。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%85%83%E7%B1%BB4.png" alt></p><p>__builtins__模块是默认加载的，在ipython中打开。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%85%83%E7%B1%BB5.png" alt></p><p><strong>python通过类创建对象，通过元类创建类。（类也是对象）</strong></p><p>动态创建类：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%85%83%E7%B1%BB7.png" alt></p><p>函数choose_class根据name的不同而动态的创建不同的类，但这种做法效率相当low。因为如果类多了就会要很多if-else来判断创建哪个类。</p><p>通过type动态创建类。命名规则：</p><p>type(类名，由父类名称构成的元祖（针对继承的情况，可以为空），包含属性的字典（名称和值）)</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%85%83%E7%B1%BB1.png" alt></p><p>继承：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%85%83%E7%B1%BB8.png" alt></p><p>添加实例方法：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%85%83%E7%B1%BB2.png" alt></p><p>添加类方法：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%85%83%E7%B1%BB9.png" alt></p><p>添加静态方法：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%85%83%E7%B1%BB10.png" alt></p><p>元类应用：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%85%83%E7%B1%BB11.png" alt></p><p>metaclass用来指定按照upper_attr来创建，如果不指定，则默认使用type创建。Foo传到class_name，父类(object)传到class_name，新的字典传到class_attr。</p><p>用类完成以上代码：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%85%83%E7%B1%BB12.png" alt></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;​    今天来讲一下python里面较难的一个东西。我学到的python内容里面有两个东西是比较难的，一个是描述符，另一个就是今天讲的元类。&lt;/p&gt;
-&lt;p&gt;通过python知识散记我们知道global的功能是将局部变量转为全局变量，接下来要说的是globals()。这个g
-      
-    
-    </summary>
-    
-      <category term="python" scheme="http://yoursite.com/categories/python/"/>
-    
-      <category term="元类" scheme="http://yoursite.com/categories/python/%E5%85%83%E7%B1%BB/"/>
-    
-    
-      <category term="python的元类" scheme="http://yoursite.com/tags/python%E7%9A%84%E5%85%83%E7%B1%BB/"/>
     
   </entry>
   

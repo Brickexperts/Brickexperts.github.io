@@ -1,6 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[mysql基础命令]]></title>
+    <url>%2F2019%2F08%2F13%2Fmysql%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[sql语句最后需要以；号结尾，sql语句最后需要以；号结尾，sql语句最后需要以；号结尾。重要的事说三遍。 数据库操作select version()：显示数据库版本 select now()：显示时间 show databases：查看所有数据库 show create database 数据库名：查看创建数据库的语句 create database 数据库名字：创建数据库 create database 数据库名字 charset=utf8：创建指定编码格式的数据库 drop database 数据库名：删除数据库 use 数据库名：使用数据库 select database ()：查看当前使用的数据库 数据表操作show tables:查看当前数据库中所有表 drop table 表名：删除表 show create table 表名：查看创建表的语句 create table 表名（字段 类型 约束[，字段 类型 约束]）：创建表 参数：auto_increment表示自动增长、not null表示不能为空、primary key表示主键、default 默认值 desc 表名：查看表的状态 insert into 表名 values()：向表插入数据，按照参数类型写参数 select * from 表名：查看表中所有的数据 alter table 表名 add 列名 类型：向表中添加字段 alter table 表名 modify 列名 类型 约束：不重命列名版 alter table 表名 change 列的原名 列的新名 类型 约束 ：重命列名版 alter table 表名 drop 列名：删除字段 数据的增删改查增加全列插入：insert into 表名 values(数据) 主键字段：可以用0 null default 来占位。因为auto_increment是自动增加的 部分插入：insert into 表名(列名1) values(值1) 没有的值取默认值 多行插入：insert into 表名 values (数据1)，(数据2) update 表名 set 列名 ：整列都改 update 表名 set 列名 where 条件：根据条件改 通过其他表来更新一个表： update 其他表 as 新名 inner join 被更新的表 as 新名 on 条件 set 需要改的数据 查询：select * from 表名：查询整个表，*号代表全部 select * from 表名 where ：根据条件查询 select 查询的列名 from 表名：根据列名查询。查询多列时，列名间用,隔开 select 查询的列名 as 列的新名字 from 表名：将列查询后以新的名字显示出来 select 表名.列名 from 表名 select 表的新名字.列名 from 表名 as 表的新名字 select distinct 列名 from 表名：可以去重，只显示相同数据第一次数据出现的位置 条件查询：and、or、not都可以用，类似python的语法。判断是否为空，is NULL。 模糊查询：like ：%代表一个或多个，_代表一个。 select name from 表名 where name like “%小%”：查询名字中有”小”字的名字 select name from 表名 where name like “__”：查询两个字的名字 select name from 表名 where name like “__%”：查询两个字以上的名字 rlike：利用正则查询 范围查询：in表示在一个非连续的范围内 between 数字 and 数字表示在一个连续的范围内 排序：order by 默认从小到大排序asc：从小到大排 desc：从大到小排 如果排序字段相同，我们可以设置多个排序字段。若不设置，默认按照主键大小排。 聚合函数(count，max，min，avg，sum，round)：不能跟其他字段一起用count：计算个数，其他类似 max：计算最大的 min：计算最小的 avg：计算平均值 sum：求和 round：四舍五入 ，round(123.23,1)保留一位小数=123.2 分组：group by按照性别分组： 配合聚合函数使用计算每种性别的人数： 计算男性的人数： group_concat():查询同一组的其他字段 还可以用字符串分割 having：将达到条件的组输出，可以配合聚合函数一起使用 having和where的区别：having是在分组后进行筛选，where是在原表的基础上进行筛选 分页：limit start，count 限制查询出来的数据个数。start代表从哪开始，count 代表查询的数据个数。start默认为0 链接查询：内链接、左链接、右链接内链接：inner join ……on 在两个表中取交集，如果存在则将两表数据合并。不存在则跳过。 可以利用as化简语句： 可以根据需求修改需要显示的数据： 还可以修改数据显示的位置： 通过某个表的字段排序： 左链接：left join……on。谁在左边，谁就是左表。查询的结果为两个表匹配到的数据，左表特有的数据，对于右表不存在的数据使用null填充 将左表特有的数据提取出来： 右链接：right join……on：类似左表。可以直接将右链接的表中左表和右表的显示交换即可得右链接。自关联：补。。。。 子查询：查询里嵌套一个查询 删除删除分为物理删除和逻辑删除： 物理删除： delete from 表名:删除整个表 delete from 表名 where 条件：删除符合条件的数据 逻辑删除：（用一个字段表示，这条信息是否还能用） alter table 表名 add 字段 类型 default 默认值]]></content>
+      <categories>
+        <category>数据库</category>
+        <category>mysql</category>
+        <category>基础命令</category>
+      </categories>
+      <tags>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[网络知识散记]]></title>
+    <url>%2F2019%2F08%2F13%2F%E7%BD%91%E7%BB%9C%E7%9F%A5%E8%AF%86%E6%95%A3%E8%AE%B0%2F</url>
+    <content type="text"><![CDATA[端口端口是英文port的意译，可以认为是设备与外界通讯交流的出口。端口可分为虚拟端口和物理端口，其中虚拟端口指计算机内部或交换机路由器内的端口，不可见。例如计算机中的80端口、21端口、23端口等。物理端口又称为接口，是可见端口，计算机背板的RJ45网口，交换机路由器集线器等RJ45端口。电话使用RJ11插口也属于物理端口的范畴。（用来区分哪个进程） 同一台电脑用pid区分进程，不同电脑用端口区分进程。 端口范围是0到65535 知名端口是众所周知的端口，范围是0到1023 动态端口的范围是1024到65535 查看端口状态：用netstat -an查看 TCP/IP协议TCP/IP:这不是两个协议，这是一个协议族，包含很多协议。主要是TCP/IP协议。 四层：物理层、网络层、传输层、应用层 七层：物理层、链路层、网络层、传输层、 会话层、表示层、应用层 IP地址用来标记唯一一台电脑。每一个IP地址都包括网络地址和主机地址 网络地址相同，则处于同一个网段，主机地址用来标记网里的电脑 A类网络的IP地址范围为：1.0.0.1－126.255.255.254； B类网络的IP地址范围为：128.1.0.1－191.255.255.254； C类网络的IP地址范围为：192.0.1.1－223.255.255.254 1．A类IP地址 一个A类IP地址由1字节（每个字节是8位）的网络地址和3个字节主机地址组成,即第一段数字范围为1～126。每个A类地址可连接16387064台主机(不能用0(产生冲突)和255(广播地址)，Internet有126个A类地址。 2．B类IP地址 一个B类IP地址由2个字节的网络地址和2个字节的主机地址组成，第一段数字范围为128～191。每个B类地址可连接64516(254*254)台主机(不能用0(产生冲突)和255(广播地址))，Internet有16256个B类地址。 3．C类IP地址 一个C类地址是由3个字节的网络地址和1个字节的主机地址组成，第一段数字范围为192～223。每个C类地址可连接254台主机(不能用0(产生冲突)和255(广播地址)，Internet有2054512个C类地址。 4．D类地址用于多点播送。 第一个字节的数字范围为224～239，是多点播送地址，用于多目的地信息的传输，和作为备用。全零（“0.0.0.0”）地址对应于当前主机，全“1”的IP地址（“255.255.255.255”）是当前子网的广播地址。多播和广播的区别：广播在同一个局域网都能收到，多播是指定那些人可以收得到，其他人收不到，常用于视频会议。 5.E类地址 第一段数字范围为240～254。E类地址保留，仅作实验和开发用。 全零（“0．0．0．0”）地址对应于当前主机。全“1”的IP地址（“255．255．255．255”）是当前子网的广播地址。 在IP地址3种主要类型里，各保留了3个区域作为私有地址，常见于局域网中。 ##常用术语 网络号：网络号等于ip地址和网络掩码按位与操作 网络掩码（子网掩码）的作用：取网络号、主机号 两台电脑能通信的前提是处于同一个网络号 集线器（hub）的作用：实现多台电脑连接在一起，组成一个小型局域网，交换机也是。 集线器和交换机的区别：集线器是广播发数据，交换机不是每次都是广播，效率高。 实际地址：代表网卡地址（MAC）。由六个字节组成，前三个字节代表厂商，后三个字节代表厂商生产 arp：根据ip找mac地址 rarp：根据mac地址找ip icmp：ping的时候用 arp -a即是查看本地局域网内所有用户ip和mac地址绑定关系的一个命令。 ARP -d 就是清除缓存中的数据。也是删除ip和mac绑定的项目。 路由器：连接不同的网络，使他们之间能够通信 rip：路由解析协议 mac：标记实际转发数据时的地址 ip：标记逻辑上的地址 natmask：和ip地址一起确定网络号 默认网关：发送的ip不在同一个网段内，那么会把这个数据转发给默认网关。 为什么TCP比UDP稳定？在TCP中，如果有一方接收到对方的数据，一定会发送ack确认包给对方。而在UDP中，没有这个过程。 TCP三次握手：确定一定发送数据到对方 四次挥手：调用close时使用 TCP长连接、短连接： TTL：表示经过的路由器数目。每经过一个路由器，TTL-1。 MSL：表示一个数据包存在的最多时间 CDN：内容分发 查看域名解析的IP地址： nslookup 域名 例子：nslookup baidu.com 常见的网络攻击： DDOS攻击：拒绝服务器攻击。 DNS攻击：1.DNS服务器被劫持：篡改IP ​ 2.DNS欺骗： ARP攻击：中间人攻击]]></content>
+      <categories>
+        <category>网络知识</category>
+        <category>知识散记</category>
+      </categories>
+      <tags>
+        <tag>网络知识散记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[目标检测概述]]></title>
+    <url>%2F2019%2F08%2F12%2F%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E6%A6%82%E8%BF%B0%2F</url>
+    <content type="text"><![CDATA[​ 目标检测方法分为传统目标检测方法和深度学习目标检测方法。 传统目标检测方法：Viola-Jones、HOG+SVM、DPM等 Viola-Jones：采用积分图特征，进行人脸检测 HOG+SVM：行人检测。通过HOG特征结合SVM分类器进行检测。 DPM：同样通过HOG特征，并加入许多其他额外的策略进行检测。传统目标检测最好的方法。 深度学习目标检测方法：One-state、Two-stage One-stage：YOLO和SSD系列，直接回归目标位置。 Two-stage：Faster RCNN系列，利用网络对候选区进行推荐。 Viola-Jones（人脸检测）步骤 1、Haar特征抽取 2、训练人脸分类器（Adaboost算法） 3、滑动窗口 HOG+SVM（行人检测）步骤 DPM（物体检测）步骤 NMS（非极大值抑制算法） 目的：为了消除多余的框，找到最佳的物体检测的位置 Soft-NMS是对NMS算法的改进]]></content>
+      <categories>
+        <category>目标检测</category>
+        <category>目标检测概述</category>
+      </categories>
+      <tags>
+        <tag>目标检测</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[opencv颜色识别]]></title>
     <url>%2F2019%2F08%2F12%2Fopencv%E9%A2%9C%E8%89%B2%E8%AF%86%E5%88%AB%2F</url>
     <content type="text"><![CDATA[数字图像处理中常用的采用模型是RGB（红，绿，蓝）模型和HSV（色调，饱和度，亮度），RGB广泛应用于彩色监视器和彩色视频摄像机，我们平时的图片一般都是RGB模型。而HSV模型更符合人描述和解释颜色的方式，HSV的彩色描述对人来说是自然且非常直观的。 颜色识别步骤： 1、读取一张图片或视频. 2、用cvtcolor将它从RGB转为HSV。 3、通过inrange得出掩膜。 4、用 图像的”与”操作(bitwise_and)得出对应区域的图像。 coding： 读者可以加一些其他的操作提高效果，例如什么开运算、滤波之类的。这里就不赘述了，接下来，贴一张HSV的颜色阈值表，可以参考：]]></content>
