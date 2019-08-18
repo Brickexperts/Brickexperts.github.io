@@ -40,7 +40,7 @@
   <entry>
     <title><![CDATA[opencv颜色识别]]></title>
     <url>%2F2019%2F08%2F12%2Fopencv%E9%A2%9C%E8%89%B2%E8%AF%86%E5%88%AB%2F</url>
-    <content type="text"><![CDATA[数字图像处理中常用的采用模型是RGB（红，绿，蓝）模型和HSV（色调，饱和度，亮度），RGB广泛应用于彩色监视器和彩色视频摄像机，我们平时的图片一般都是RGB模型。而HSV模型更符合人描述和解释颜色的方式，HSV的彩色描述对人来说是自然且非常直观的。 颜色识别步骤： 1、读取一张图片或视频. 2、用cvtcolor将它从RGB转为HSV。 3、通过inrange得出掩膜。 4、用 图像的”与”操作(bitwise_and)得出对应区域的图像。 coding： 读者可以加一些其他的操作提高效果，例如什么开运算、滤波之类的。这里就不赘述了，接下来，贴一张HSV的颜色阈值表，可以参考：]]></content>
+    <content type="text"><![CDATA[数字图像处理中常用的采用模型是RGB（红，绿，蓝）模型和HSV（色调，饱和度，亮度），RGB广泛应用于彩色监视器和彩色视频摄像机，我们平时的图片一般都是RGB模型。而HSV模型更符合人描述和解释颜色的方式，HSV的彩色描述对人来说是自然且非常直观的。 这里的颜色识别是指根据人们的意愿提取图片中对应的颜色区域。 颜色识别步骤： 1、读取一张图片或视频. 2、用cvtcolor将它从RGB转为HSV。 3、通过inrange得出掩膜。 4、用 图像的”与”操作(bitwise_and)得出对应区域的图像。 coding： 读者可以加一些其他的操作提高效果，例如什么开运算、滤波之类的。这里就不赘述了，接下来，贴一张HSV的颜色阈值表，可以参考：]]></content>
       <categories>
         <category>python</category>
         <category>opencv</category>
