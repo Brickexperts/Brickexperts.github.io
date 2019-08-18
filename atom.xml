@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-08-13T02:19:28.350Z</updated>
+  <updated>2019-08-18T09:36:01.751Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,167 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Two-stage基本介绍</title>
+    <link href="http://yoursite.com/2019/08/18/Two-stage%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D/"/>
+    <id>http://yoursite.com/2019/08/18/Two-stage基本介绍/</id>
+    <published>2019-08-18T09:09:22.000Z</published>
+    <updated>2019-08-18T09:36:01.751Z</updated>
+    
+    <content type="html"><![CDATA[<p>​    Two-stage相对于one-stage准确度高，但是速度相对one-stage慢。</p><p>Two-stage常见算法：RCNN、Fast RCNN、Faster RCNN、Faster RCNN变种。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%8714.png" alt></p><p>Two-stage核心组件：</p><p><strong>CNN网络</strong></p><p> CNN网络设计原则：</p><p>从简到繁再到简的卷积神经网</p><p>多尺度特征融合的网络</p><p>更轻量级的CNN网络</p><p><strong>RPN网络</strong></p><p>区域推荐（Anchor机制）</p><p>ROI Pooling</p><p>分类和回归</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;​    Two-stage相对于one-stage准确度高，但是速度相对one-stage慢。&lt;/p&gt;
+&lt;p&gt;Two-stage常见算法：RCNN、Fast RCNN、Faster RCNN、Faster RCNN变种。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://
+      
+    
+    </summary>
+    
+      <category term="目标检测" scheme="http://yoursite.com/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
+    
+      <category term="Two-stage算法" scheme="http://yoursite.com/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/Two-stage%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="Two-stage基本介绍" scheme="http://yoursite.com/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/Two-stage%E7%AE%97%E6%B3%95/Two-stage%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D/"/>
+    
+    
+      <category term="Two-stage" scheme="http://yoursite.com/tags/Two-stage/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>NMS算法</title>
+    <link href="http://yoursite.com/2019/08/18/NMS%E7%AE%97%E6%B3%95/"/>
+    <id>http://yoursite.com/2019/08/18/NMS算法/</id>
+    <published>2019-08-18T08:33:12.000Z</published>
+    <updated>2019-08-18T08:48:18.449Z</updated>
+    
+    <content type="html"><![CDATA[<p>​    NMS全称是非极大值抑制算法。</p><p>目的：为了消除多余的框，找到最佳的物体检测的位置。</p><p>思想:选取那些邻域里分数最高的窗口，同时抑制那些分数低的窗口。</p><p>其实NMS的处理不太合理。所以有人提出了Soft-NMS。</p><p>NMS和Soft-NMS的区别：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%8713.png" alt></p><p>相邻区域内的检测框的分数进行调整而非彻底抑制，从而提高了高检索率情况下的准确率。再低检索率时仍能对物体检测性能有明显提升。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;​    NMS全称是非极大值抑制算法。&lt;/p&gt;
+&lt;p&gt;目的：为了消除多余的框，找到最佳的物体检测的位置。&lt;/p&gt;
+&lt;p&gt;思想:选取那些邻域里分数最高的窗口，同时抑制那些分数低的窗口。&lt;/p&gt;
+&lt;p&gt;其实NMS的处理不太合理。所以有人提出了Soft-NMS。&lt;/p&gt;
+&lt;p&gt;
+      
+    
+    </summary>
+    
+      <category term="目标检测" scheme="http://yoursite.com/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
+    
+      <category term="NMS算法" scheme="http://yoursite.com/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/NMS%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="目标检测算法" scheme="http://yoursite.com/tags/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>DPM算法</title>
+    <link href="http://yoursite.com/2019/08/18/DPM%E7%AE%97%E6%B3%95/"/>
+    <id>http://yoursite.com/2019/08/18/DPM算法/</id>
+    <published>2019-08-18T07:52:34.000Z</published>
+    <updated>2019-08-18T08:32:48.720Z</updated>
+    
+    <content type="html"><![CDATA[<p>​    DPM算法是传统目标检测方法的巅峰。</p><p>步骤：</p><p>1、计算DPM特征图</p><p>2、计算响应图</p><p>3、Latent SVM分类器训练</p><p>4、检测识别</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;​    DPM算法是传统目标检测方法的巅峰。&lt;/p&gt;
+&lt;p&gt;步骤：&lt;/p&gt;
+&lt;p&gt;1、计算DPM特征图&lt;/p&gt;
+&lt;p&gt;2、计算响应图&lt;/p&gt;
+&lt;p&gt;3、Latent SVM分类器训练&lt;/p&gt;
+&lt;p&gt;4、检测识别&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+      <category term="目标检测" scheme="http://yoursite.com/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
+    
+      <category term="传统目标检测" scheme="http://yoursite.com/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/%E4%BC%A0%E7%BB%9F%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
+    
+      <category term="DPM算法" scheme="http://yoursite.com/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/%E4%BC%A0%E7%BB%9F%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/DPM%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="传统目标检测" scheme="http://yoursite.com/tags/%E4%BC%A0%E7%BB%9F%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HOG+SVM算法</title>
+    <link href="http://yoursite.com/2019/08/18/HOG-SVM%E7%AE%97%E6%B3%95/"/>
+    <id>http://yoursite.com/2019/08/18/HOG-SVM算法/</id>
+    <published>2019-08-18T07:36:23.000Z</published>
+    <updated>2019-08-18T07:51:56.371Z</updated>
+    
+    <content type="html"><![CDATA[<p>HOG+SVM算法主要用于行人检测。</p><p>步骤：</p><p>1、提取HOG特征。<strong>如果彩色图需要用HOG特征，则需要先转化为灰度图。</strong></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%8711.png" alt></p><p>2、训练SVM分类器</p><p>３、利用滑动窗口提取目标区域，进行分类判断</p><p>4、NMS</p><p>5、输出检测结果</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;HOG+SVM算法主要用于行人检测。&lt;/p&gt;
+&lt;p&gt;步骤：&lt;/p&gt;
+&lt;p&gt;1、提取HOG特征。&lt;strong&gt;如果彩色图需要用HOG特征，则需要先转化为灰度图。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.
+      
+    
+    </summary>
+    
+      <category term="目标检测" scheme="http://yoursite.com/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
+    
+      <category term="传统目标检测算法" scheme="http://yoursite.com/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/%E4%BC%A0%E7%BB%9F%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="HOG+SVM" scheme="http://yoursite.com/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/%E4%BC%A0%E7%BB%9F%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E7%AE%97%E6%B3%95/HOG-SVM/"/>
+    
+    
+      <category term="传统目标检测算法" scheme="http://yoursite.com/tags/%E4%BC%A0%E7%BB%9F%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>VJ算法</title>
+    <link href="http://yoursite.com/2019/08/18/VJ%E7%AE%97%E6%B3%95/"/>
+    <id>http://yoursite.com/2019/08/18/VJ算法/</id>
+    <published>2019-08-18T07:22:05.000Z</published>
+    <updated>2019-08-18T07:36:01.927Z</updated>
+    
+    <content type="html"><![CDATA[<p>​    VJ算法全称为Viola—Jones，多用于人脸检测。</p><p>步骤：</p><p>1、Haar特征抽取 </p><p>Haar特征分为三类：边缘特征、线性特征、中心特征和对角线特征，组合成特征模板。特征模板内有白色和黑色两种矩形，并定义该模板的特征值为白色矩形像素和减去黑色矩形像素和。Haar特征值反映了图像的灰度变化情况。例如：脸部的一些特征能由矩形特征简单的描述，如：眼睛要比脸颊颜色要深，鼻梁两侧比鼻梁颜色要深，嘴巴比周围颜色要深等。</p><p>2、训练人脸分类器（Adaboost算法等）</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%879.png" alt></p><p>3、滑动窗口</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;​    VJ算法全称为Viola—Jones，多用于人脸检测。&lt;/p&gt;
+&lt;p&gt;步骤：&lt;/p&gt;
+&lt;p&gt;1、Haar特征抽取 &lt;/p&gt;
+&lt;p&gt;Haar特征分为三类：边缘特征、线性特征、中心特征和对角线特征，组合成特征模板。特征模板内有白色和黑色两种矩形，并定义该模板的特征值为
+      
+    
+    </summary>
+    
+      <category term="目标检测" scheme="http://yoursite.com/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
+    
+      <category term="传统目标检测算法" scheme="http://yoursite.com/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/%E4%BC%A0%E7%BB%9F%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="VJ算法" scheme="http://yoursite.com/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/%E4%BC%A0%E7%BB%9F%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E7%AE%97%E6%B3%95/VJ%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="传统目标检测算法" scheme="http://yoursite.com/tags/%E4%BC%A0%E7%BB%9F%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
   
   <entry>
     <title>mysql基础命令</title>
@@ -78,9 +239,9 @@
     <link href="http://yoursite.com/2019/08/12/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E6%A6%82%E8%BF%B0/"/>
     <id>http://yoursite.com/2019/08/12/目标检测概述/</id>
     <published>2019-08-12T02:30:19.000Z</published>
-    <updated>2019-08-13T01:29:25.807Z</updated>
+    <updated>2019-08-18T07:20:44.266Z</updated>
     
-    <content type="html"><![CDATA[<p>​    目标检测方法分为传统目标检测方法和深度学习目标检测方法。</p><p>传统目标检测方法：Viola-Jones、HOG+SVM、DPM等</p><p>Viola-Jones：采用积分图特征，进行人脸检测</p><p>HOG+SVM：行人检测。通过HOG特征结合SVM分类器进行检测。</p><p>DPM：同样通过HOG特征，并加入许多其他额外的策略进行检测。传统目标检测最好的方法。</p><p>深度学习目标检测方法：One-state、Two-stage</p><p>One-stage：YOLO和SSD系列，直接回归目标位置。</p><p>Two-stage：Faster RCNN系列，利用网络对候选区进行推荐。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%871.png" alt></p><p><strong>Viola-Jones（人脸检测）步骤</strong></p><p>1、Haar特征抽取</p><p>2、训练人脸分类器（Adaboost算法）</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%872.png" alt></p><p>3、滑动窗口</p><p><strong>HOG+SVM（行人检测）步骤</strong></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%873.png" alt></p><p><strong>DPM（物体检测）步骤</strong></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%874.png" alt></p><p>NMS（非极大值抑制算法）</p><p>目的：为了消除多余的框，找到最佳的物体检测的位置</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%87.png" alt></p><p>Soft-NMS是对NMS算法的改进</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%876.png" alt></p>]]></content>
+    <content type="html"><![CDATA[<p>​    目标检测方法分为传统目标检测方法和深度学习目标检测方法。</p><p>传统目标检测方法：Viola-Jones、HOG+SVM、DPM等</p><p>Viola-Jones：采用积分图特征，进行人脸检测</p><p>HOG+SVM：行人检测。通过HOG特征结合SVM分类器进行检测。</p><p>DPM：同样通过HOG特征，并加入许多其他额外的策略进行检测。传统目标检测最好的方法。</p><p>深度学习目标检测方法：One-state、Two-stage</p><p>One-stage：YOLO和SSD系列，直接回归目标位置。</p><p>Two-stage：Faster RCNN系列，利用网络对候选区进行推荐。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%871.png" alt></p><p>目标检测问题基本流程：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%8710.png" alt></p><p><strong>Viola-Jones（人脸检测）步骤</strong></p><p>1、Haar特征抽取</p><p>2、训练人脸分类器（Adaboost算法）</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%872.png" alt></p><p>3、滑动窗口</p><p><strong>HOG+SVM（行人检测）步骤</strong></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%873.png" alt></p><p><strong>DPM（物体检测）步骤</strong></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%874.png" alt></p><p>NMS（非极大值抑制算法）</p><p>目的：为了消除多余的框，找到最佳的物体检测的位置</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%87.png" alt></p><p>Soft-NMS是对NMS算法的改进</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%876.png" alt></p>]]></content>
     
     <summary type="html">
     
@@ -456,156 +617,6 @@
     
     
       <category term="视觉处理" scheme="http://yoursite.com/tags/%E8%A7%86%E8%A7%89%E5%A4%84%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>opencv(3)</title>
-    <link href="http://yoursite.com/2019/08/08/opencv-3/"/>
-    <id>http://yoursite.com/2019/08/08/opencv-3/</id>
-    <published>2019-08-08T05:44:27.000Z</published>
-    <updated>2019-08-09T02:25:19.615Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="图像轮廓"><a href="#图像轮廓" class="headerlink" title="图像轮廓"></a>图像轮廓</h2><p>和图像边缘不一样，边缘不连续。将边缘连接成一个整体构成轮廓。</p><p>提取图像轮廓的方法：先调用cv2.findContours()，后调用cv2.drawCont()</p><p>cv2.findCount函数使用方法:</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv42.png" alt></p><p>参数mode的几种方式：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv43.png" alt></p><p>参数method的几种方法：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv44.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv45.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv46.png" alt></p><h2 id="轮廓特征："><a href="#轮廓特征：" class="headerlink" title="轮廓特征："></a>轮廓特征：</h2><p>cv2.moments()会将计算得到的<strong>矩</strong>以一个字典的形式返回。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190808134950.png" alt></p><p><strong>轮廓面积</strong>可以使用函数 cv2.contourArea() 计算得到</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv47.png" alt></p><p><strong>轮廓周长</strong>：cv2.arcLength(cnt，True) 函数的第二个参数用来指定对象的形状是闭合的(True)，还是打开的。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv448.png" alt></p><p><strong>轮廓近似</strong>：cv2.approxPolyDP(cnt，epsilon，True)</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv54.png" alt></p><p><strong>凸包</strong>：函数cv2.convexHull() 可以用来检测一个曲线是否具有凸性缺陷并能纠正凸性缺陷。凸性曲线总是凸出来的，至少是平的。如果有地方凹去了就叫做凸性缺陷。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv49.png" alt></p><p><strong>凸性检测</strong>：cv2.isContourConvex()可以用来检测一个曲线是不是凸的，返回True和False。</p><p><strong>边界矩形</strong>：直边界矩形和旋转的边界矩形。</p><p><strong>直边界矩形</strong>：面积不是最小的。x,y,w,h=cv2.boundingRect()。x,y,为矩形左上角的坐标，w,h为矩形的宽和高</p><p><strong>旋转的边界矩形</strong>：面积最小。考虑了对象的旋转。cv2.minAreaRect())。返回的是一个 Box2D 结构，其中包含矩形左上点的坐标x，y矩形的宽和高w，h以及旋度。但是绘制个矩形矩形的 4 个点可以函数cv2.boxPoints() 获 得。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv50.png" alt></p><p><strong>最小外接圆</strong>：cv2.minEnlosingCircle()</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv51.png" alt></p><p><strong>椭圆拟合</strong>：旋转边界矩形的内切圆   cv2.fitEllipse(cnt)</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv52.png" alt></p><p><strong>形状匹配</strong>：cv2.matchShape()可以帮我们比较两个形状或轮廓的相似度。返回值越小，匹配越好。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv53.png" alt></p><h2 id="getStructuringElement"><a href="#getStructuringElement" class="headerlink" title="getStructuringElement"></a>getStructuringElement</h2><p>构建一个核。前面腐蚀膨胀的numpy构建的结构化元素是正方形的</p><p>getStructuringElement  与 Numpy 定义的元素结构是完全一样的这个函数的第一个参数表示内核的形状，有三种形状可以选择。</p><p>矩形：MORPH_RECT;</p><p>交叉形：MORPH_CROSS;</p><p>椭圆形：MORPH_ELLIPSE;</p><p>第二和第三个参数分别是内核的尺寸以及锚点的位置。对于锚点的位置，有默认值（-1,-1），表示锚点位于中心点。element形状唯一依赖锚点位置，其他情况下，锚点只是影响了形态学运算结果的偏移。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv55.png" alt></p><h2 id="透视变换"><a href="#透视变换" class="headerlink" title="透视变换"></a>透视变换</h2><p>在不同的视觉拍摄同一个物体，会有不同的图像。透视变换就是类似于改变拍摄物体的角度</p><p>仿射变换：由平移、错切、缩放、反转、旋转复合而成，是透视变换的特殊形式</p><p>OpenCV提供了两个变换函数cv2.warpAﬃne(仿射变换)和cv2.warpPerspective(透视变换) ，cv2.warpAﬃne 接收的参数是 2×3 的变换矩阵，而cv2.warpPerspective 接收的参数是 3×3 的变换矩阵。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv56.png" alt></p><p>函数cv2.warpAﬃne() 的第三个参数的是输出图像的大小。它的格式应是图像的(宽,高)。注意的是图像的宽对应的是列数，高对应的是行数。可以实现图片平移。可以和cv2.getAffineTransform配合使用</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv57.png" alt></p><p>其中两个参数是变换前后的位置关系</p><p>函数cv2.warpPerspective配合cv2.getPerspectiveTransform()使用。同时可以用findHomography返回的单应性矩阵。</p><p>getPersonspectiveTransform得出变换矩阵：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv58.png" alt></p><p>得出变换矩阵以后用warpPerspective()：第一个参数是输入图像，M是变换矩阵，第三个参数是输出图像的大小</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv60.png" alt></p><p>findHomography：提供正确估计的好的匹配被叫做inliers，而其他的叫做outliers。cv2.findHomography()返回一个掩图来指定inline和outline。第一个和第二个参数分别是原图像和目的图像，第三个参数可选为cv2.RANSAC、cv2.LMEDS.第二个参数取值范围在1到10。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv95..png" alt></p><p>getPerspectiveTransform和findHomography的区别：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv59.png" alt></p><h2 id="旋转：cv2-getRotationMatrix2D"><a href="#旋转：cv2-getRotationMatrix2D" class="headerlink" title="旋转：cv2.getRotationMatrix2D()"></a>旋转：cv2.getRotationMatrix2D()</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv62.png" alt></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;图像轮廓&quot;&gt;&lt;a href=&quot;#图像轮廓&quot; class=&quot;headerlink&quot; title=&quot;图像轮廓&quot;&gt;&lt;/a&gt;图像轮廓&lt;/h2&gt;&lt;p&gt;和图像边缘不一样，边缘不连续。将边缘连接成一个整体构成轮廓。&lt;/p&gt;
-&lt;p&gt;提取图像轮廓的方法：先调用cv2.findCon
-      
-    
-    </summary>
-    
-      <category term="python" scheme="http://yoursite.com/categories/python/"/>
-    
-      <category term="opencv" scheme="http://yoursite.com/categories/python/opencv/"/>
-    
-      <category term="opencv(3)" scheme="http://yoursite.com/categories/python/opencv/opencv-3/"/>
-    
-    
-      <category term="视觉处理" scheme="http://yoursite.com/tags/%E8%A7%86%E8%A7%89%E5%A4%84%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>opencv(2)</title>
-    <link href="http://yoursite.com/2019/08/08/opencv-2/"/>
-    <id>http://yoursite.com/2019/08/08/opencv-2/</id>
-    <published>2019-08-08T05:12:56.000Z</published>
-    <updated>2019-08-08T05:44:13.181Z</updated>
-    
-    <content type="html"><![CDATA[<p>图像滤波：即在尽量保留图像细节特征的条件下对目标图像的噪声进行抑制，是图像预处理中不可缺少的操作，其处理效果的好坏将直接影响到后续图像处理和分析的有效性和可靠性。</p><h2 id="图像滤波"><a href="#图像滤波" class="headerlink" title="图像滤波"></a>图像滤波</h2><p>图像滤波的目的   a、消除图像中混入的噪声       b、为图像识别抽取出图像特征</p><p><strong>均值滤波</strong>，用blur函数</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv22.png" alt></p><p><strong>方框滤波</strong>：进行归一化处理后，和均值滤波相同。当normalize为零时，不进行归一化处理。当normalize为一时，进行归一化处理（默认）。目标图像深度通常于原始图像一样，值为-1。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv23.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv24.png" alt></p><p><strong>高斯滤波</strong>：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv25.png" alt></p><p><strong>注意</strong>：ksize：核大小必须为单数        sigmaX、sigmaY：控制权重</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv26.png" alt></p><p><strong>中值滤波</strong>：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv27.png" alt></p><p>两种边缘保留滤波：</p><p><strong>biateraFilter</strong>：能在保持边界清晰的情况下有效的去除噪音</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv28.png" alt></p><p><strong>filter2D</strong>:对2D图像实施低通滤波。去除噪音，模糊图像</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv29.png" alt></p><h2 id="膨胀和腐蚀"><a href="#膨胀和腐蚀" class="headerlink" title="膨胀和腐蚀"></a>膨胀和腐蚀</h2><p>膨胀、腐蚀时用到的kernel的形状一般有下面三种： </p><p>矩形: MORPH_RECT </p><p>交叉形: MORPH_CROSS </p><p>椭圆形: MORPH_ELLIPSE </p><p><strong>图像腐蚀</strong>：调用erode函数</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv30.png" alt></p><p><strong>图像膨胀</strong>：调用dialate</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv31.png" alt></p><p><strong>开运算</strong>：先通过图像腐蚀，后经过图像膨胀可以图像去噪。iteration表示次数</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv32.png" alt></p><p><strong>闭运算</strong>：先是先通过图像膨胀，后经过图像腐蚀</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv33.png" alt></p><p><strong>梯度运算</strong>：图像膨胀-图像腐蚀</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv34.png" alt></p><p><strong>图像礼帽（图像顶帽）</strong>：原始图像-开运算图像，得到噪声图像</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv35.png" alt></p><p><strong>图像黑帽</strong>：闭运算-原始图像</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv36.png" alt></p><h2 id="求梯度"><a href="#求梯度" class="headerlink" title="求梯度"></a>求梯度</h2><p>梯度简单来说就是求导。Sobel，Scharr是求一阶导数或二阶导数。Scharr是对Sobel的优化。Laplacian是求二阶导数。</p><p>Sobel算子：当一个像素右边的值减去左边的值不为零，该像素为边界。</p><p>计算梯度的函数：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv37.png" alt></p><p>ddepth通常取cv2.CV_64F。</p><p>dx=0,dy=1计算y轴的边界,dx=1,dy=0计算x轴的边界。满足条件dx&gt;=0&amp;&amp;dy&gt;=0&amp;&amp;dx+dy=1</p><p>将图像中的负值转为正：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv38.png" alt></p><p>将一个图像的边缘提取出来：如果没有converScaleAbs，所有的负值都会被截断为0.换句话就是把边界丢掉。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv39.png" alt></p><p>Scharr算子：比sobel算子精准，使用方法基本一样</p><p>计算梯度调用函数：cv2.Scharr(src,ddpetch,dx,dy)</p><p>des=cv2.Scharr(src,ddpetch,dx,dy) 等价于des=cv2.Sobel(src,ddpetch,dx,dy,-1)</p><h2 id="为图像扩边：cv2-copyMakeBorder"><a href="#为图像扩边：cv2-copyMakeBorder" class="headerlink" title="为图像扩边：cv2.copyMakeBorder()"></a>为图像扩边：cv2.copyMakeBorder()</h2><p>src:原图图像</p><p>top,bottom,left,right分别表示在原图四周扩充边缘的大小</p><p>borderType：扩充边缘的类型，就是外插的类型，OpenCV中给出以下几种方式</p><p>  * BORDER_REPLICATE</p><p>  * BORDER_REFLECT</p><p>  * BORDER_REFLECT_101</p><p>  * BORDER_WRAP</p><p>  * BORDER_CONSTANT</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv40.png" alt></p><h2 id="canny函数提取图片边缘"><a href="#canny函数提取图片边缘" class="headerlink" title="canny函数提取图片边缘"></a>canny函数提取图片边缘</h2><p>cv2.canny(img,threshold1,threshold2)    img代表原始图像，threshold1、threshold2为阈值。两个阈值越小，得出图像边缘越详细。反之，边框越边缘。</p><p>提取原理步骤：1、高斯模糊 - GaussianBlur  2、灰度转换 - cvtColor  3、计算梯度 – Sobel/Scharr  4、非最大信号抑制5、高低阈值输出二值图像</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv41.png" alt></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;图像滤波：即在尽量保留图像细节特征的条件下对目标图像的噪声进行抑制，是图像预处理中不可缺少的操作，其处理效果的好坏将直接影响到后续图像处理和分析的有效性和可靠性。&lt;/p&gt;
-&lt;h2 id=&quot;图像滤波&quot;&gt;&lt;a href=&quot;#图像滤波&quot; class=&quot;headerlink&quot; ti
-      
-    
-    </summary>
-    
-      <category term="python" scheme="http://yoursite.com/categories/python/"/>
-    
-      <category term="opencv" scheme="http://yoursite.com/categories/python/opencv/"/>
-    
-      <category term="opencv(2)" scheme="http://yoursite.com/categories/python/opencv/opencv-2/"/>
-    
-    
-      <category term="视觉处理" scheme="http://yoursite.com/tags/%E8%A7%86%E8%A7%89%E5%A4%84%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>opencv(1)</title>
-    <link href="http://yoursite.com/2019/08/08/opencv-1/"/>
-    <id>http://yoursite.com/2019/08/08/opencv-1/</id>
-    <published>2019-08-08T03:32:09.000Z</published>
-    <updated>2019-08-08T05:28:39.361Z</updated>
-    
-    <content type="html"><![CDATA[<p>​    因为我是对图像处理的方面比较感兴趣的。所以我也是对python的视觉处理模块<strong>opencv</strong>进行了学习。这个模块虽然是传统方法，但还是蛮有用的。而且它有上千个API，我总结了以下我所学到的。开始吧。</p><p>cv2是opencv的扩展模块。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv1.png" alt>    </p><p>imread第二个参数类型:</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv2.png" alt></p><p>cv2.imwrite:保存图片</p><p><strong>下文中：绝对路径代表绝对路径也行</strong> </p><p>改变图片某行某列的像素：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv3.png" alt></p><p>批量改变图片像素：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv4.png" alt></p><p>获取图像属性：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv5.png" alt></p><p>拆分通道：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv6.png" alt></p><p>合并通道：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv8.png" alt></p><p>图片移位：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv9.png" alt></p><p>将两张图片加在一起：1、取模加法   2、饱和运算</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv10.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv11.png" alt></p><p><strong>注意</strong>：两张图片的大小和类型相等</p><p>减法(subtract)、乘法(multiply)和除法(divide)和加法(add)类似</p><p>图像融合：将两张或两张以上的图片融合到一张图片上</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190808132723.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv12.png" alt></p><p>图像缩放（参数必须为整数）：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv13.png" alt></p><p>图像翻转：调用cv2.flip(原始图像，flipcode)</p><p>三种情况：</p><p>filpcode=0：以x轴为对称轴的上下翻转</p><p>flipcode&gt;0:以Y轴为对称轴的左右翻转</p><p>flipcode&lt;0:X、Y轴各翻转一次</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv14.png" alt></p><p>图像颜色反转：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv16.png" alt></p><p>图片打上马赛克：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv17.png" alt></p><p>图片上写字：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv18.png" alt></p><p>图片修补：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv19.png" alt></p><p>图片亮度增强：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv20.png" alt></p><p>图像阈值分割：调用了threshold函数</p><p>五种分割方法：</p><p>二进制阈值化（cv2.THRESH_BINARY）：选定一个阈值，用每一个像素的阈值和该阈值比较，大于该阈值则将该像素阈点值设为最大，若小于该阈值，则将该像素点阈值设为零。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv21.png" alt></p><p>反二进制阈值化（cv.THRESH_BINARY_INV）：选定一个阈值，用每一个像素的阈值和该阈值比较，大于该阈值则将该像素点的阈值设为零，若小于该阈值，则将该像素点阈值设为最大。</p><p>截断阈值化（cv.THRESH_TRUNC）：选定个阈值，用每一个像素的阈值和该阈值比较，大于该阈值则将该像素点的阈值设为该阈值，小于该阈值的像素点的阈值不变。</p><p>阈值化为0（THRESH_TOZERO）：先选定一个阈值，像素点的灰度值大于该阈值的不进行任何改变；像素点的灰度值小于该阈值的，其灰度值全部变为0。 </p><p>反阈值化为0(THRESH_TOZERO_INV)：先选定一个阈值，像素点的灰度值小于该阈值的不进行任何改变；像素点的灰度值大于该阈值的，其灰度值全部变为0。</p><p>还有另一种阈值分割函数：自适应阈值函数  <strong>cv2.adaptiveThreshold()</strong></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;​    因为我是对图像处理的方面比较感兴趣的。所以我也是对python的视觉处理模块&lt;strong&gt;opencv&lt;/strong&gt;进行了学习。这个模块虽然是传统方法，但还是蛮有用的。而且它有上千个API，我总结了以下我所学到的。开始吧。&lt;/p&gt;
-&lt;p&gt;cv2是opencv
-      
-    
-    </summary>
-    
-      <category term="python" scheme="http://yoursite.com/categories/python/"/>
-    
-      <category term="opencv" scheme="http://yoursite.com/categories/python/opencv/"/>
-    
-      <category term="opencv(1)" scheme="http://yoursite.com/categories/python/opencv/opencv-1/"/>
-    
-    
-      <category term="视觉处理" scheme="http://yoursite.com/tags/%E8%A7%86%E8%A7%89%E5%A4%84%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>时间模块</title>
-    <link href="http://yoursite.com/2019/08/08/%E6%97%B6%E9%97%B4%E6%A8%A1%E5%9D%97/"/>
-    <id>http://yoursite.com/2019/08/08/时间模块/</id>
-    <published>2019-08-08T01:59:51.000Z</published>
-    <updated>2019-08-08T03:27:50.758Z</updated>
-    
-    <content type="html"><![CDATA[<p>​    今天我们来讲一下python里面的时间模块。time 模块提供各种时间相关的功能。在 Python 中，与时间处理有关的模块包括：time，datetime 以及 calendar。</p><p>首先先来一波术语解释：</p><p>时间戳（timestamp）的方式：通常来说，时间戳表示的是从 1970 年 1 月 1 日 00:00:00 开始按秒计算的偏移量（time.gmtime(0)）此模块中的函数无法处理 1970 纪元年以前的日期和时间或太遥远的未来（处理极限取决于 C 函数库，对于 32 位系统来说，是 2038 年）</p><p>UTC（Coordinated Universal Time，世界协调时）也叫格林威治天文时间，是世界标准时间。在中国为 UTC+8</p><p>DST（Daylight Saving Time）即夏令时的意思。一些实时函数的计算精度可能低于它们建议的值或参数，例如在大部分 Unix 系统，时钟一秒钟“滴答”50~100 次</p><p>gmtime()，localtime()和 strptime() 以时间元祖（struct_time）的形式返回。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time1.png" alt></p><p><strong>注一</strong>：范围真的是0-61.这是基于历史原因。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time2.png" alt></p><p>##time</p><p> <strong>time.altzone</strong>：返回格林威治西部的夏令时地区的偏移秒数；如果该地区在格林威治东部会返回负值（如西欧，包括英国）；对夏令时启用地区才能使用。</p><p> <strong>time.asctime([t])</strong>：接受时间元组并返回一个可读的形式为”Tue Dec 11 18:07:14 2015”（2015年12月11日 周二 18时07分14秒）的 24 个字符的字符串。</p><p><strong>time.clock()</strong>：用以浮点数计算的秒数返回当前的 CPU 时间。用来衡量不同程序的耗时，比 time.time() 更有用。<em>Python 3.3 以后不被推荐，由于该方法依赖操作系统，建议使用 perf_counter() 或 process_time() 代替（一个返回系统运行时间，一个返回进程运行时间，请按照实际需求选择）</em></p><p><strong>time.ctime([secs])</strong> ：作用相当于 asctime(localtime(secs))，未给参数相当于 asctime()</p><p><strong>time.gmtime([secs])</strong>：接收时间辍（1970 纪元年后经过的浮点秒数）并返回格林威治天文时间下的时间元组 t（注：t.tm_isdst 始终为 0）</p><p><strong>time.daylight</strong>：如果夏令时被定义，则该值为非零。</p><p><strong>time.localtime([secs])</strong>：接收时间辍（1970 纪元年后经过的浮点秒数）并返回当地时间下的时间元组 t（t.tm_isdst 可取 0 或 1，取决于当地当时是不是夏令时）</p><p><strong>time.mktime(t)</strong>：接受时间元组并返回时间辍（1970纪元后经过的浮点秒数）</p><p><strong>time.perf_counter()</strong>：返回计时器的精准时间（系统的运行时间），包含整个系统的睡眠时间。由于返回值的基准点是未定义的，所以，只有连续调用的结果之间的差才是有效的。</p><p><strong>time.process_time()</strong> ：返回当前进程执行 CPU 的时间总和，不包含睡眠时间。由于返回值的基准点是未定义的，所以，只有连续调用的结果之间的差才是有效的。</p><p><strong>time.sleep(secs)</strong>：推迟调用线程的运行，secs 的单位是秒。 </p><p><strong>time.clock()</strong>：用以浮点数计算的秒数返回当前的 CPU 时间。用来衡量不同程序的耗时，比 time.time() 更有用。</p><p><em>Python 3.3</em> <em>以后不被推荐，由于该方法依赖操作系统，建议使用</em> <em>perf_counter()</em> <em>或</em> <em>process_time()</em> <em>代替（一个返回系统运行时间，一个返回进程运行时间，请按照实际需求选择）</em></p><p><strong>time.time()</strong>：返回当前时间的时间戳（1970 纪元年后经过的浮点秒数）</p><p><strong>time.timezone</strong>：time.timezone 属性是当地时区（未启动夏令时）距离格林威治的偏移秒数（美洲 &gt;0；大部分欧洲，亚洲，非洲 &lt;= 0）</p><p><strong>time.tzname</strong>：time.tzname 属性是包含两个字符串的元组：第一是当地非夏令时区的名称，第二个是当地的 DST 时区的名称。</p><p><strong>time.strftime(format[, t])</strong> ：把一个代表时间的元组或者 struct_time（如由 time.localtime() 和 time.gmtime() 返回）转化为格式化的时间字符串。如果 t 未指定，将传入 time.localtime()。如果元组中任何一个元素越界，将会抛出 ValueError 异常。</p><p><strong>time.strptime(string[, format])</strong>：把一个格式化时间字符串转化为 struct_time。实际上它和 strftime() 是逆操作</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time5.png" alt></p><p>format 格式如下：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time3.png" alt></p><p>注1：“%p”只有与“%I”配合使用才有效果。</p><p>注2：范围真的是*0 ~ 61（你没有看错哦）；60代表闰秒，61是基于历史原因保留。</p><p>注3：当使用 strptime() 函数时，只有当在这年中的周数和天数被确定的时候%U <em>和</em> %W 才会被计算。</p><h2 id="datetime"><a href="#datetime" class="headerlink" title="datetime"></a>datetime</h2><p><strong>datetime.today()</strong>：返回一个表示当前本地时间的 datetime 对象，等同于 datetime.fromtimestamp(time.time())</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time6.png" alt></p><p><strong>datetime.now(tz=None)</strong>：返回一个表示当前本地时间的 datetime 对象；如果提供了参数 tz，则获取 tz 参数所指时区的本地时间</p><p><strong>datetime.utcnow()</strong>:返回一个当前 UTC 时间的 datetime 对象</p><p><strong>datetime.fromtimestamp(timestamp, tz=None)</strong>: 根据时间戮创建一个 datetime 对象，参数 tz 指定时区信息</p><p><strong>datetime.utcfromtimestamp(timestamp)</strong>: 根据时间戮创建一个 UTC 时间的 datetime 对象</p><p><strong>datetime.fromordinal(ordinal)</strong>: 返回对应 Gregorian 日历时间对应的 datetime 对象</p><p><strong>datetime.combine(date, time)</strong>: 根据参数 date 和 time，创建一个 datetime 对象</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time10.png" alt></p><p><strong>datetime.strptime(date_string, format)</strong>: 将格式化字符串转换为 datetime 对象</p><p><strong>datetime.timedelta</strong>对象代表两个时间之间的时间差，两个date或datetime对象相减就可以返回一个timedelta对象。</p><p>*<em>datetime.timedelta([days[, seconds[, microseconds[, milliseconds[, minutes[, hours[, weeks]]]]]]]) *</em></p><p>往前算：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time7.png" alt></p><p>往后算：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time8.png" alt></p><p><strong>datetime.date()</strong>：返回一个 date 对象datetime.time() - 返回一个 time 对象（tzinfo 属性为 None）</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time9.png" alt></p><p><strong>datetime.timetz()</strong>： 返回一个 time() 对象（带有 tzinfo 属性）</p><p><strong>datetime.replace([year[, month[, day[, hour[, minute[, second[, microsecond[, tzinfo]]]]]]]])</strong>： 生成一个新的日期对象，用参数指定日期和时间代替原有对象中的属性</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time11.png" alt></p><p><strong>datetime.astimezone(tz=None)</strong>： 传入一个新的 tzinfo 属性，返回根据新时区调整好的 datetime 对象</p><p><strong>datetime.utcoffset()</strong>：如果 tzinfo 属性是 None，则返回 None；否则返回 self.tzinfo.utcoffset(self)</p><p><strong>datetime.dst()</strong>：如果 tzinfo 属性是 None，则返回 None；否则返回 self.tzinfo.dst(self)</p><p><strong>datetime.tzname()</strong>：如果 tzinfo 属性是 None，则返回 None；否则返回 self.tzinfo.tzname(self)</p><p><strong>datetime.timetuple()</strong>：返回日期对应的 time.struct_time 对象（类似于 time模块的 time.localtime()）</p><p><strong>datetime.utctimetuple()</strong>：返回 UTC 日期对应的 time.struct_time 对象</p><p><strong>datetime.toordinal()</strong>：返回日期对应的 Gregorian Calendar 日期（类似于 self.date().toordinal()）</p><p><strong>datetime.timestamp()</strong>：返回当前时间的时间戳（类似于 <a href="http://bbs.fishc.com/thread-51326-1-1.html" target="_blank" rel="noopener">time 模块</a>的 time.time()）</p><p><strong>datetime.weekday()</strong>：返回 0 ~ 6 表示星期几（星期一是 0，依此类推）</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time12.png" alt></p><p><strong>datetime.isoweekday()</strong>： 返回 1 ~ 7 表示星期几（星期一是1， 依此类推）</p><p><strong>datetime.isocalendar()</strong> ：返回一个三元组格式 (year, month, day)</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time13.png" alt></p><p><strong>datetime.isoformat(sep=’T’)</strong>：返回一个 ISO 8601 格式的日期字符串，如 “YYYY-MM-DD” 的字符串</p><p><strong>datetime.__str__()</strong>：对于 date 对象 d 来说，str(d) 相当于 d.isoformat()</p><p><strong>datetime.ctime()</strong>：返回一个表示日期的字符串，相当于 time模块的 time.ctime(time.mktime(d.timetuple()))</p><p><strong>datetime.strftime(format)</strong>:返回自定义格式化字符串表示日期。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time14.png" alt></p><p><strong>datetime.__format__(format)</strong>跟 datetime.strftime(format) 一样，这使得调用 str.format() 时可以指定 data 对象的字符串</p><h2 id="calendar"><a href="#calendar" class="headerlink" title="calendar"></a>calendar</h2><p>calendar.calendar(year,w,l,c)(year为年份，w是每日宽度，c为间隔距离，l为每星期行数) 日历</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time15.png" alt></p><p>*<em>calendar.isleap(year) *</em>：如果是闰年就返回True，否则返回False</p><p><strong>calendar.leapdays(y1,y2)</strong>：返回y1与y2两年间的闰年总数</p><p>*<em>calendar.month(year,month,w,l) *</em>：year代表年份，month代表月日历，每行宽度间隔为w，l是每星期的行数</p><p>*<em>calendar.prcal *</em>：相当于print(calendar.calendar(year,w,l,c))</p><p><strong>calendar.prmonth(year,month,w,l)</strong>：相当于print(calendar.calendar(year,w,l,c))</p><p><strong>calendar.weekday(year,month,day)</strong>： 返回指定日期的日期码，0-6（星期），1-12（月份）</p><p><strong>calendar.firstweekday()</strong>返回当前起始日期的设置</p><p><strong>calendar.setfirstweekday()</strong>：设置每周的起始日期码</p><p><strong>calendar.timegm</strong>(时间元祖) 和time.gmtime相反</p><p><strong>calendar.monthrange(year,month)</strong>：返回两个整数。第一个是该月第一天是星期几的日期码，第二个是该月的日期码。日从0（星期一）到6（星期日）;月从1到12。</p><h2 id="timeit"><a href="#timeit" class="headerlink" title="timeit"></a>timeit</h2><p>测试一个函数的执行时间：timeit.timeit</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time16.png" alt></p><p>timeit.repeat:返回一个包含了每次实验的执行时间的列表</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time17.png" alt></p><p>三个时间模块的函数特别多，我也没有一一去试。用到的时候才会深究，各位看官根据自己的情况来试着使用起来吧。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;​    今天我们来讲一下python里面的时间模块。time 模块提供各种时间相关的功能。在 Python 中，与时间处理有关的模块包括：time，datetime 以及 calendar。&lt;/p&gt;
-&lt;p&gt;首先先来一波术语解释：&lt;/p&gt;
-&lt;p&gt;时间戳（timestamp）
-      
-    
-    </summary>
-    
-      <category term="python" scheme="http://yoursite.com/categories/python/"/>
-    
-      <category term="时间管理" scheme="http://yoursite.com/categories/python/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/"/>
-    
-    
-      <category term="python时间管理" scheme="http://yoursite.com/tags/python%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>python常用模块（3）</title>
-    <link href="http://yoursite.com/2019/08/07/python%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%9D%97%EF%BC%883%EF%BC%89/"/>
-    <id>http://yoursite.com/2019/08/07/python常用模块（3）/</id>
-    <published>2019-08-07T07:01:22.000Z</published>
-    <updated>2019-08-07T07:36:34.051Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="textwrap"><a href="#textwrap" class="headerlink" title="textwrap"></a>textwrap</h2><p>用来重新格式化文本的输出</p><p>fill() 调整换行符,每行显示给定宽度</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/textwrap1.png" alt></p><p>dedent()：去除缩进</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/textwrap2.png" alt></p><p>indent():给定前缀</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/textwrap3.png" alt></p><p>首行缩进：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/textwrap4.png" alt></p><p>多余的省略号：shorter()</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/wraptext5.png" alt></p><p>wrap():wrap(s,width) 以单词为单位(包括字符)最大长度不超过width个字符</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/wraptext6.png" alt></p><h2 id="itertools"><a href="#itertools" class="headerlink" title="itertools"></a>itertools</h2><p>Python的内建模块itertools提供了非常有用的用于操作迭代对象的函数</p><p><strong>count</strong>()会创建一个无限的迭代器，所以下述代码会打印出自然数序列，根本停不下来，只能按Ctrl+C退出。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/itertools.png" alt></p><p><strong>cycle()</strong>会把传入的一个序列无限重复下去：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/itertools1.png" alt></p><p><strong>repeat()</strong>负责把一个元素无限重复下去，不过如果提供第二个参数就可以限定重复次数：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/itertools2.png" alt></p><p><strong>chain()</strong>可以把一组迭代对象串联起来，形成一个更大的迭代器：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/itertools3.png" alt></p><p><strong>groupby()</strong>把迭代器中相邻的重复元素挑出来放在一起：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/itertools5.png" alt></p><p>实际上挑选规则是通过函数完成的，只要作用于函数的两个元素返回的值相等，这两个元素就被认为是在一组的，而函数返回值作为组的key。如果我们要忽略大小写分组，就可以让元素’A’和’a’都返回相同的key：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/itertools6.png" alt></p><p><strong>permutations()</strong>:输出输入序列的全排列,考虑顺序</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/itertools7.png" alt></p><p><strong>combinations()</strong>:同上，不过不考虑顺序</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/itertools8.png" alt></p><p><strong>product()</strong>:输出输入序列的笛卡儿积</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/itertools9.png" alt></p><p><strong>compress</strong>：可以对一个序列的筛选结果施加到另一个相关的序列上</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/itertools10.png" alt></p><p><strong>dropwhile()</strong>:筛选满足条件的元素</p><p><strong>islice()</strong>：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/itertools11.png" alt></p><p><strong>zip_longest</strong>：zip可产生元祖。当其中摸个输入序列中没有元素可以继续迭代时，迭代过程结束。所以整个迭代的长度和最短的输入序列相同。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/itertools12.png" alt></p><p>如果不想这样就用zip_longest：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/itertools13.png" alt></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;textwrap&quot;&gt;&lt;a href=&quot;#textwrap&quot; class=&quot;headerlink&quot; title=&quot;textwrap&quot;&gt;&lt;/a&gt;textwrap&lt;/h2&gt;&lt;p&gt;用来重新格式化文本的输出&lt;/p&gt;
-&lt;p&gt;fill() 调整换行符,每行显示给定宽度&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-      <category term="python" scheme="http://yoursite.com/categories/python/"/>
-    
-      <category term="常用模块" scheme="http://yoursite.com/categories/python/%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%9D%97/"/>
-    
-      <category term="常用模块（3）" scheme="http://yoursite.com/categories/python/%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%9D%97/%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%9D%97%EF%BC%883%EF%BC%89/"/>
-    
-    
-      <category term="python常用模块" scheme="http://yoursite.com/tags/python%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%9D%97/"/>
     
   </entry>
   
