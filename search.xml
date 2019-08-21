@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[SSD系列算法]]></title>
+    <url>%2F2019%2F08%2F21%2FSSD%E7%B3%BB%E5%88%97%E7%AE%97%E6%B3%95%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[One-stage基本介绍]]></title>
+    <url>%2F2019%2F08%2F20%2FOne-stage%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D%2F</url>
+    <content type="text"><![CDATA[​ One-stage也是使用CNN卷积特征，直接回归物体的类别概率和位置坐标值（无region proposal），准确度低、速度相对于Two-stage快。 One-stage常见算法： One-stage核心组件： CNN网络 CNN网络设计原则：从简到繁到简的卷积神经网 多尺度特征融合的网络 更轻量级的CNN网络 回归网络 One-stage和Two-stage的区别在于是否存在RPN网络。]]></content>
+      <categories>
+        <category>目标检测</category>
+        <category>One-stage</category>
+        <category>One-stage基本介绍</category>
+      </categories>
+      <tags>
+        <tag>One-stage</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Two-stage基本介绍]]></title>
     <url>%2F2019%2F08%2F18%2FTwo-stage%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D%2F</url>
     <content type="text"><![CDATA[​ Two-stage相对于one-stage准确度高，但是速度相对one-stage慢。 Two-stage常见算法：RCNN、Fast RCNN、Faster RCNN、Faster RCNN变种。 Two-stage核心组件： CNN网络 CNN网络设计原则： 从简到繁再到简的卷积神经网 多尺度特征融合的网络 更轻量级的CNN网络 RPN网络 区域推荐（Anchor机制） ROI Pooling 分类和回归]]></content>

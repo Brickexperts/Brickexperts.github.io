@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-08-18T09:36:01.751Z</updated>
+  <updated>2019-08-21T01:05:49.046Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,51 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SSD系列算法</title>
+    <link href="http://yoursite.com/2019/08/21/SSD%E7%B3%BB%E5%88%97%E7%AE%97%E6%B3%95/"/>
+    <id>http://yoursite.com/2019/08/21/SSD系列算法/</id>
+    <published>2019-08-21T01:05:48.000Z</published>
+    <updated>2019-08-21T01:05:49.046Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>One-stage基本介绍</title>
+    <link href="http://yoursite.com/2019/08/20/One-stage%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D/"/>
+    <id>http://yoursite.com/2019/08/20/One-stage基本介绍/</id>
+    <published>2019-08-20T01:44:40.000Z</published>
+    <updated>2019-08-20T09:25:33.086Z</updated>
+    
+    <content type="html"><![CDATA[<p>​    One-stage也是使用CNN卷积特征，直接回归物体的类别概率和位置坐标值（无region proposal），准确度低、速度相对于Two-stage快。</p><p>One-stage常见算法：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%8715.png" alt></p><p>One-stage核心组件：</p><p>CNN网络</p><p>CNN网络设计原则：从简到繁到简的卷积神经网    多尺度特征融合的网络    更轻量级的CNN网络</p><p>回归网络    </p><p><strong>One-stage和Two-stage的区别在于是否存在RPN网络。</strong></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;​    One-stage也是使用CNN卷积特征，直接回归物体的类别概率和位置坐标值（无region proposal），准确度低、速度相对于Two-stage快。&lt;/p&gt;
+&lt;p&gt;One-stage常见算法：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://raw.gi
+      
+    
+    </summary>
+    
+      <category term="目标检测" scheme="http://yoursite.com/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
+    
+      <category term="One-stage" scheme="http://yoursite.com/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/One-stage/"/>
+    
+      <category term="One-stage基本介绍" scheme="http://yoursite.com/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/One-stage/One-stage%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D/"/>
+    
+    
+      <category term="One-stage" scheme="http://yoursite.com/tags/One-stage/"/>
+    
+  </entry>
   
   <entry>
     <title>Two-stage基本介绍</title>
@@ -556,64 +601,6 @@
       <category term="opencv" scheme="http://yoursite.com/categories/python/opencv/"/>
     
       <category term="opencv(6)" scheme="http://yoursite.com/categories/python/opencv/opencv-6/"/>
-    
-    
-      <category term="视觉处理" scheme="http://yoursite.com/tags/%E8%A7%86%E8%A7%89%E5%A4%84%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>opencv(5)</title>
-    <link href="http://yoursite.com/2019/08/08/opencv-5/"/>
-    <id>http://yoursite.com/2019/08/08/opencv-5/</id>
-    <published>2019-08-08T06:35:27.000Z</published>
-    <updated>2019-08-08T06:54:48.073Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="视频处理"><a href="#视频处理" class="headerlink" title="视频处理"></a>视频处理</h2><p>Videocapture：VideoCapture(args)：如果args=0，则打开摄像头。如果args=路径， 则打开视频源</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv68.png" alt></p><p>摄像头设置和查询：</p><p>调用摄像头读取图像数据，以及使用</p><p>cap.set( propId ， value ) </p><p>cap.get( propId )</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv69.png" alt></p><p>图片合成视频：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv70.png" alt></p><p>视频分解图片：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv71.png" alt></p><h2 id="normalize：归一化函数"><a href="#normalize：归一化函数" class="headerlink" title="normalize：归一化函数"></a>normalize：归一化函数</h2><p>为了消除指标之间的影响，需要对数据进行标准化处理，以解决数据指标之间的可比性</p><p>cv2.normalize(src[, dst[, alpha[, beta[, norm_type[, dtype[, mask]]]]]])</p><p>src:输入数组</p><p>dst:与src大小相同的输出数组</p><p>alpha:下限边界</p><p>beta:上限边界</p><p>norm_type:NORM_MINMAX  NORM_INF  NORM_L1 NORM_L2</p><p>dType:当输出为负时，输出数组具有与src相同的类型。否则，具有与src相同的信道数和深度</p><p>mask:掩膜</p><h2 id="画图"><a href="#画图" class="headerlink" title="画图"></a>画图</h2><p>cv2.rectangle（）：若将五改为-1，则填充整个矩形</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv72.png" alt></p><p>cv2.circle：要画圆的话，只需要指定圆形的中心点坐标和半径大小，颜色和粗细</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv73.png" alt></p><p>cv2.ellispe:一个参数是中心点的位置坐标。下一个参数是长轴和短轴的长度。椭圆沿逆时针方向旋转的角度。椭圆弧沿顺时针方向起始的角度和结束角度，如果是 0 到 360，就是整个椭圆。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv74.png" alt></p><h2 id="图像金字塔"><a href="#图像金字塔" class="headerlink" title="图像金字塔"></a>图像金字塔</h2><p>我们对同一图像的不同分辨率的子图像处理。比如我们在一幅图像中查找某个目标比如脸，我们不知目标在图像中的尺寸大小。这种情况下我们创建一组图，这些图像是具有不同分率的原始图像。我们把组图像叫做图像字塔简单来就是同一图像的不同分率的子图集合。如果我们把大的图像放在底部最小的放在顶部。看来像一座金字塔，故而得名图像金字塔。 </p><p>图像金字塔：高斯金字塔和拉普拉斯金字塔</p><p>向下采样：将图像缩小，图像信息丢失</p><p>向上采样：将图像放大，图像会变模糊</p><p>向下采样和向上采样不是可逆的，无法将图像变为原始图像。</p><p>向下采样函数：cv2.pyrDown(原始图像)</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv75.png" alt></p><p>向上采样函数：cv2.pyrUP</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv76.png" alt></p><p>拉普拉斯金字塔：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv77.png" alt></p><h2 id="opencv删除窗口："><a href="#opencv删除窗口：" class="headerlink" title="opencv删除窗口："></a>opencv删除窗口：</h2><p>删除所有窗口 ：cv2.destroyAllWindow()        删除指定窗口：cv2.destroyWindow(“original”)</p><p>waitKey(x):参数为等待键盘触发的时间。单位为毫秒。如不输入参数，则输入任意键退出。</p><h2 id="setMouseCallback"><a href="#setMouseCallback" class="headerlink" title="setMouseCallback():"></a>setMouseCallback():</h2><p>event为事件</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv78.png" alt></p><p>x，y代表鼠标位于窗口的（x，y）位置</p><p>flags：代表鼠标的拖曳事件以及鼠标和键盘联合的事件。共有32种</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv79.png" alt></p><p>param：函数指针，标识所相应的事件函数。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv80.png" alt></p><h2 id="namewindow"><a href="#namewindow" class="headerlink" title="namewindow"></a>namewindow</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv82.png" alt></p><p>WINDOW_NORMAL    用户可以改变窗口的大小；</p><p>WINDOW_AUTOSIZE  窗口大小会根据显示图像自动调整，用户必能手动改变窗口大小；</p><p>WINDOW_OPENGL     支持OpenGL。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;视频处理&quot;&gt;&lt;a href=&quot;#视频处理&quot; class=&quot;headerlink&quot; title=&quot;视频处理&quot;&gt;&lt;/a&gt;视频处理&lt;/h2&gt;&lt;p&gt;Videocapture：VideoCapture(args)：如果args=0，则打开摄像头。如果args=路径， 则打开
-      
-    
-    </summary>
-    
-      <category term="python" scheme="http://yoursite.com/categories/python/"/>
-    
-      <category term="opencv" scheme="http://yoursite.com/categories/python/opencv/"/>
-    
-      <category term="opencv(5)" scheme="http://yoursite.com/categories/python/opencv/opencv-5/"/>
-    
-    
-      <category term="视觉处理" scheme="http://yoursite.com/tags/%E8%A7%86%E8%A7%89%E5%A4%84%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>opencv(4)</title>
-    <link href="http://yoursite.com/2019/08/08/opencv-4/"/>
-    <id>http://yoursite.com/2019/08/08/opencv-4/</id>
-    <published>2019-08-08T06:15:03.000Z</published>
-    <updated>2019-08-08T06:35:15.859Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="图像类型转换"><a href="#图像类型转换" class="headerlink" title="图像类型转换"></a>图像类型转换</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv63.png" alt></p><p>cvtColor:颜色空间转换函数</p><p>cv2.cvtColor()支持多种颜色空间之间的转换，其</p><p>需要注意的是cvtColor()函数不能直接将RGB图像转换为二值图像(Binary Image)，需要借助threshold()函数</p><p>HSV中：H为色彩，取值范围是[0,179]，S为饱和度，取值范围是[0,255],V是亮度，取值范围是[0,255]。</p><p>支持的转换类型和转换码如下：</p><p>1、RGB和BGR（opencv默认的彩色图像的颜色空间是BGR）颜色空间的转换</p><p>COLOR_BGR2RGB</p><p>COLOR_RGB2BGR</p><p>COLOR_RGBA2BGRA</p><p>COLOR_BGRA2RGBA</p><p>2、向RGB和BGR图像中增添alpha通道</p><p>COLOR_RGB2RGBA</p><p>COLOR_BGR2BGRA</p><p>3、从RGB和BGR图像中去除alpha通道</p><p>COLOR_RGBA2RGB</p><p>COLOR_BGRA2BGR</p><p>4、从RBG和BGR颜色空间转换到灰度空间</p><p>COLOR_RGB2GRAY</p><p>COLOR_BGR2GRAY</p><p>COLOR_RGBA2GRAY</p><p>COLOR_BGRA2GRAY</p><p>5、从灰度空间转换到RGB和BGR颜色空间</p><p>COLOR_GRAY2RGB</p><p>COLOR_GRAY2BGR</p><p>COLOR_GRAY2RGBA</p><p>COLOR_GRAY2BGRA</p><p>6、RGB和BGR颜色空间与BGR565颜色空间之间的转换</p><p>COLOR_RGB2BGR565</p><p>COLOR_BGR2BGR565</p><p>COLOR_BGR5652RGB</p><p>COLOR_BGR5652BGR</p><p>COLOR_RGBA2BGR565</p><p>COLOR_BGRA2BGR565</p><p>COLOR_BGR5652RGBA</p><p>COLOR_BGR5652BGRA</p><p>7、灰度空间域BGR565之间的转换</p><p>COLOR_GRAY2BGR555</p><p>COLOR_BGR5552GRAY</p><p>8、RGB和BGR颜色空间与CIE XYZ之间的转换</p><p>COLOR_RGB2XYZ</p><p>COLOR_BGR2XYZ</p><p>COLOR_XYZ2RGB</p><p>COLOR_XYZ2BGR</p><p>9、RGB和BGR颜色空间与uma色度（YCrCb空间）之间的转换</p><p>COLOR_RGB2YCrCb</p><p>COLOR_BGR2YCrCb</p><p>COLOR_YCrCb2RGB</p><p>COLOR_YCrCb2BGR</p><p>10、RGB和BGR颜色空间与HSV颜色空间之间的相互转换</p><p>COLOR_RGB2HSV</p><p>COLOR_BGR2HSV</p><p>COLOR_HSV2RGB</p><p>COLOR_HSV2BGR</p><p>11、RGB和BGR颜色空间与HLS颜色空间之间的相互转换</p><p>COLOR_RGB2HLS</p><p>COLOR_BGR2HLS</p><p>COLOR_HLS2RGB</p><p>COLOR_HLS2BGR</p><p>12、RGB和BGR颜色空间与CIE Lab颜色空间之间的相互转换</p><p>COLOR_RGB2Lab</p><p>COLOR_BGR2Lab</p><p>COLOR_Lab2RGB</p><p>COLOR_Lab2BGR</p><p>13、RGB和BGR颜色空间与CIE Luv颜色空间之间的相互转换</p><p>COLOR_RGB2Luv</p><p>COLOR_BGR2Luv</p><p>COLOR_Luv2RGB</p><p>COLOR_Luv2BGR</p><p>14、Bayer格式（raw data）向RGB或BGR颜色空间的转换</p><p>COLOR_BayerBG2RGB</p><p>COLOR_BayerGB2RGB</p><p>COLOR_BayerRG2RGB</p><p>COLOR_BayerGR2RGB</p><p>COLOR_BayerBG2BGR</p><p>COLOR_BayerGB2BGR</p><p>COLOR_BayerRG2BGR</p><p>COLOR_BayerGR2BGR</p><h2 id="inrange："><a href="#inrange：" class="headerlink" title="inrange："></a>inrange：</h2><p>实现二值化功能</p><p>image=cv2.inrance(hsv,lower_red,upper_red)</p><p>第一个参数：hsv指的是原图</p><p>第二个参数：lower_red指的是图像中低于这个lower_red的值，图像值变为0</p><p>第三个参数：upper_red指的是图像中高于这个upper_red的值，图像值变为0</p><p>而在lower_red～upper_red之间的值变成255</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv64.png" alt></p><h2 id="图像中的与、或、异或、非操作"><a href="#图像中的与、或、异或、非操作" class="headerlink" title="图像中的与、或、异或、非操作"></a>图像中的与、或、异或、非操作</h2><p>opencv中的bitwise_not，bitwise_xor，bitwise_or，bitwise_and的使用方法与效果。</p><p>bitwise_and是对二进制数据进行“与”操作，即对图像（灰度图像或彩色图像均可）每个像素值进行二进制“与”操作，1&amp;1=1，1&amp;0=0，0&amp;1=0，0&amp;0=0。</p><p>bitwise_or是对二进制数据进行“或”操作，即对图像（灰度图像或彩色图像均可）每个像素值进行二进制“或”操作，1|1=1，1|0=0，0|1=0，0|0=0。</p><p>bitwise_xor是对二进制数据进行“异或”操作，即对图像（灰度图像或彩色图像均可）每个像素值进行二进制“异或”操作，1^1=0,1^0=1,0^1=1,0^0=0。</p><p>bitwise_not是对二进制数据进行“非”操作，即对图像（灰度图像或彩色图像均可）每个像素值进行二进制“非”操作，<del>1=0，</del>0=1。</p><h2 id="Hough直线变换"><a href="#Hough直线变换" class="headerlink" title="Hough直线变换"></a>Hough直线变换</h2><p>cv2.HoughLines()，返回值就是距离和角度。这个函数的第一个参数是一个二值化图像。第二个和第三个值代表距离和角度的精确度。第四个参数是阈值，只有累加其中的值高于阈值时才被认为是一条直线。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv65.png" alt></p><p>cv2.HoughLinesP():比上面多两个参数，minLineLength和MaxLineGap。比较简单</p><p>minLineLength：线的最短长度，比这个短的线都忽略</p><p>MaxLineGap：两条线段的最大间断，如果小于此值，这两条直线被看成一条直线</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv66.png" alt></p><h2 id="Hough圆环变换："><a href="#Hough圆环变换：" class="headerlink" title="Hough圆环变换："></a>Hough圆环变换：</h2><p>HoughCircles(image, method, dp, minDist[, circles[, param1[, param2[, minRadius[, maxRadius]]]]])</p><p>image参数表示8位单通道灰度输入图像矩阵。</p><p>method参数表示圆检测方法，目前唯一实现的方法是HOUGH_GRADIENT。</p><p>dp参数表示累加器与原始图像相比的分辨率的反比参数。例如，如果dp = 1，则累加器具有与输入图像相同的分辨率。如果dp=2，累加器分辨率是元素图像的一半，宽度和高度也缩减为原来的一半。</p><p>minDist参数表示检测到的两个圆心之间的最小距离。如果参数太小，除了真实的一个圆圈之外，可能错误地检测到多个相邻的圆圈。如果太大，可能会遗漏一些圆圈。</p><p>circles参数表示检测到的圆的输出向量，向量内第一个元素是圆的横坐标，第二个是纵坐标，第三个是半径大小。</p><p>param1参数表示Canny边缘检测的高阈值，低阈值会被自动置为高阈值的一半。</p><p>param2参数表示圆心检测的累加阈值，参数值越小，可以检测越多的假圆圈，但返回的是与较大累加器值对应的圆圈。</p><p>minRadius参数表示检测到的圆的最小半径。</p><p>maxRadius参数表示检测到的圆的最大半径</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv67.png" alt></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;图像类型转换&quot;&gt;&lt;a href=&quot;#图像类型转换&quot; class=&quot;headerlink&quot; title=&quot;图像类型转换&quot;&gt;&lt;/a&gt;图像类型转换&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Brickexper
-      
-    
-    </summary>
-    
-      <category term="python" scheme="http://yoursite.com/categories/python/"/>
-    
-      <category term="opencv" scheme="http://yoursite.com/categories/python/opencv/"/>
-    
-      <category term="opencv(4)" scheme="http://yoursite.com/categories/python/opencv/opencv-4/"/>
     
     
       <category term="视觉处理" scheme="http://yoursite.com/tags/%E8%A7%86%E8%A7%89%E5%A4%84%E7%90%86/"/>
