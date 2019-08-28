@@ -57,17 +57,26 @@
   };
 </script>
 
-  <meta name="description" content="这个人贼菜">
+  <meta name="description" content="SDD的网络架构：  SSD以VGG16作为基础网络，并且在VGG上新增加了conv6、conv7、conv8、conv9、conv10、conv11这五层卷积层来获得更多的feature map。 主干网络介绍主干网络原始作者采用的VGG，我们也可以将其他神经网络作为主干网络。例如：ResNet、MobileNets等 将VGG网络最后两个FC层改成卷积，并增加4个卷积层。因为完整的VGG通常是">
+<meta name="keywords" content="SSD算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SSD系列算法">
 <meta property="og:url" content="http://yoursite.com/2019/08/21/SSD系列算法/index.html">
 <meta property="og:site_name" content="DY的个人博客">
-<meta property="og:description" content="这个人贼菜">
+<meta property="og:description" content="SDD的网络架构：  SSD以VGG16作为基础网络，并且在VGG上新增加了conv6、conv7、conv8、conv9、conv10、conv11这五层卷积层来获得更多的feature map。 主干网络介绍主干网络原始作者采用的VGG，我们也可以将其他神经网络作为主干网络。例如：ResNet、MobileNets等 将VGG网络最后两个FC层改成卷积，并增加4个卷积层。因为完整的VGG通常是">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-21T01:05:49.046Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%8718.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%8720.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%8721.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SSD4.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SSD2.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SSD3.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SSD1.png">
+<meta property="og:updated_time" content="2019-08-28T01:48:43.863Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SSD系列算法">
-<meta name="twitter:description" content="这个人贼菜">
+<meta name="twitter:description" content="SDD的网络架构：  SSD以VGG16作为基础网络，并且在VGG上新增加了conv6、conv7、conv8、conv9、conv10、conv11这五层卷积层来获得更多的feature map。 主干网络介绍主干网络原始作者采用的VGG，我们也可以将其他神经网络作为主干网络。例如：ResNet、MobileNets等 将VGG网络最后两个FC层改成卷积，并增加4个卷积层。因为完整的VGG通常是">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%8718.png">
   <link rel="alternate" href="/atom.xml" title="DY的个人博客" type="application/atom+xml">
   <link rel="canonical" href="http://yoursite.com/2019/08/21/SSD系列算法/">
 
@@ -278,12 +287,51 @@
                 
               
 
-              <time title="创建时间：2019-08-21 09:05:48 / 修改时间：09:05:49" itemprop="dateCreated datePublished" datetime="2019-08-21T09:05:48+08:00">2019-08-21</time>
+              <time title="创建时间：2019-08-21 09:05:48" itemprop="dateCreated datePublished" datetime="2019-08-21T09:05:48+08:00">2019-08-21</time>
             </span>
           
             
 
             
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-28 09:48:43" itemprop="dateModified" datetime="2019-08-28T09:48:43+08:00">2019-08-28</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/目标检测/" itemprop="url" rel="index"><span itemprop="name">目标检测</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/目标检测/one-stage/" itemprop="url" rel="index"><span itemprop="name">one-stage</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/目标检测/one-stage/SSD/" itemprop="url" rel="index"><span itemprop="name">SSD</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           <br>
@@ -297,7 +345,45 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <p>SDD的网络架构：</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%8718.png" alt></p>
+<p>SSD以VGG16作为基础网络，并且在VGG上新增加了conv6、conv7、conv8、conv9、conv10、conv11这五层卷积层来获得更多的feature map。</p>
+<h2 id="主干网络介绍"><a href="#主干网络介绍" class="headerlink" title="主干网络介绍"></a>主干网络介绍</h2><p>主干网络原始作者采用的VGG，我们也可以将其他神经网络作为主干网络。例如：ResNet、MobileNets等</p>
+<p>将VGG网络最后两个FC层改成卷积，并增加4个卷积层。因为完整的VGG通常是用来处理分类任务的，对于分类任务而言，我们在最终输出的时候会采用FC层将最终的feature map来映射到向量。向量对应当前需要分类的物体在不同类别上的概率分布。而目标检测不需要分类，所以我们将全连接层去掉。</p>
+<h2 id="多尺度feature-map预测"><a href="#多尺度feature-map预测" class="headerlink" title="多尺度feature map预测"></a>多尺度feature map预测</h2><p>多尺度feature map预测，也就是在预测的时候，在接下来预测的时候，针对接下来六个不同的尺寸进行预测。如下图的六条连线，分别是38*38、19*19、10*10、5*5、3*3、1*1。将这六个不同尺度的feature map分别作为检测、预测层的输入，最后通过NMS进行筛选和合并。</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%8720.png" alt></p>
+<p>对于六种不同尺度的网络，我们通常使用pooling来降采样。对于每一层的feature map，我们输入到相应的预测网络中。而预测网络中，我们会包括Prior box的提取过程。Prior box对应Fast R-CNN中Anchor的概念，也就是说，在Prior box中，feature map上的每一个点都作为一个cell（相当于Anchor）。以这个cell为中心，按照等比的放缩，找到它在原始图片的位置。接着以这个点为中心，提取不同尺度bounding box。而这些不同尺度的bounding box就是Prior box。然后对于每一个Prior box，我们通过和真值比较，就能够拿到它的label。对于每一个Prior box，我们都会分别预测它的类别概率和坐标（x，y，w，h）。也就是说，对于每一个cell，我们会将它对应到不同的Prior box，分别来预测当前这个Prior box所对应当前这个类别的概率分布和坐标。</p>
+<p><strong>对Prior Box的具体定义：</strong></p>
+<p>这里我们假设Prior Box的输入是m*n维的feature map。</p>
+<p>如果每一个点都作为cell，那就会有m<em>n个cell。接着每个cell上生成固定尺寸和不同长宽比例的box。每个cell对应k个bounging box，每个bounding box预测c个类别分数和4个偏移坐标。其中c个类别分数实际上是当前bounding box所对应的不同类别的概率分布。如果输入大小为m\</em>n，那就会输出(c+4)*k*m*n。其中尺寸(scale)和比例(ratio)是超参数。</p>
+<p>接下来我们看看Prior box是怎么生成的：</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%8721.png" alt></p>
+<p>每个feature map上的点定义了六种长宽比的default box。也就是说，最后对于每一个anchor都会获得六个不同尺寸和长宽比的default box。对于38<em>38层，每个feature map上的点，我们都会提取4个default box作为prior box。对于19\</em>19层、10*10层、5*5，提取6个default box也就是全部都是prior box。而3*3、1*1提取4个default作为prior box。所以最后得到8732个prior box(38*38*4+19*19*6+10*10*6+5*5*6+3*3*4+1*1*4)。<strong>prior box就是选择的default box</strong>。尺寸和比例都是可以通过SSD的配置文件进行配置，后面实战详解。</p>
+<p>对default box进行筛选成为prior box：每一个feature map cell不是k个default box都取，prior box与GT box(<a href="https://brickexperts.github.io/" target="_blank" rel="noopener">Ground Truth box</a>)做匹配，IOU&gt;阈值为正样本。IOU&lt;阈值 为负样本。介于正样本和负样本中间阈值的default box去掉。</p>
+<h2 id="SSD系列算法优化及扩展"><a href="#SSD系列算法优化及扩展" class="headerlink" title="SSD系列算法优化及扩展"></a>SSD系列算法优化及扩展</h2><p>SSD算法对小目标不够鲁棒，原因最主要是浅层feature map的表征能力不够强。</p>
+<p>DSSD：</p>
+<p>DSSD相当原来的SSD模型主要作了两大更新。一是替换掉VGG，而改用了Resnet-101作为特征提取网络并在对不同尺度feature maps特征进行default boxes检测时使用了更新的检测单元；二则在网络的后端使用了多个deconvolution layers以有效地扩展低维度信息的contextual information，从而有效地提高了小尺度目标的检测。</p>
+<p>下图为DSSD模型与SSD模型的整体网络结构对比：</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SSD4.png" alt></p>
+<p>DSOD：</p>
+<p>SSD+DenseNet=DSOD</p>
+<p>DSOD可以从0开始训练数据，不需要预训练模型。</p>
+<p>FSSD：</p>
+<p>借鉴了FPN的思想，重构了一组pyramid feature map（金字塔特征），使得算法的精度有了明显特征，速度也没有下降很多。具体是把网络中某些feature调整为同一size再contact（连接），得到一个像素层，以此层为base layer来生成pyramid feature map，作者称之为Feature Fusion Module。</p>
+<p>Feature Fusion</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SSD2.png" alt></p>
+<p>对上面图的解读：</p>
+<p>​    (a) image pyramid </p>
+<p>​    (b) rcnn系列，只在最后一层feature预测 </p>
+<p>​    (c) FPN，语义信息一层传递回去，而且有很多相加的计算 </p>
+<p>​    (d) SSD，在各个level的feature上直接预测，每个level之间没联系 </p>
+<p>​    (e) FSSD的做法，把各个level的feature concat，然后从fusion feature上生成feature pyramid</p>
+<p>FSSD网络结构：</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SSD3.png" alt></p>
+<p>RSSD：</p>
+<p>rainbow concatenation方式(pooling加deconvolution)融合不同层的特征，再增加不同层之间feature map关系的同时也增加了不同层的feature map个数。这种融合方式不仅解决了传统SSD算法存在的重复框问题，同时一定程度上解决了small object的检测问题。</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SSD1.png" alt></p>
+
     </div>
 
     
@@ -340,6 +426,12 @@
       </div>
 
     <footer class="post-footer">
+          
+        
+        <div class="post-tags">
+            <a href="/tags/SSD算法/" rel="tag"># SSD算法</a>
+          
+        </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
               <a href="/2019/08/20/One-stage基本介绍/" rel="next" title="One-stage基本介绍">
@@ -351,6 +443,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+              <a href="/2019/08/22/目标检测常用名词/" rel="prev" title="目标检测常用名词">
+                目标检测常用名词 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
     </footer>
@@ -380,8 +476,17 @@
 
   <aside id="sidebar" class="sidebar">
     <div class="sidebar-inner">
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
 
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -396,7 +501,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">47</span>
+          <span class="site-state-item-count">48</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -533,7 +638,13 @@
         
           
         
-        <span class="site-state-item-count">61</span>
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">64</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
@@ -610,7 +721,9 @@
         
           
         
-        <span class="site-state-item-count">31</span>
+          
+        
+        <span class="site-state-item-count">32</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
@@ -639,6 +752,23 @@
 
         </div>
       </div>
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#主干网络介绍"><span class="nav-text">主干网络介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多尺度feature-map预测"><span class="nav-text">多尺度feature map预测</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SSD系列算法优化及扩展"><span class="nav-text">SSD系列算法优化及扩展</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
     </div>
   </aside>

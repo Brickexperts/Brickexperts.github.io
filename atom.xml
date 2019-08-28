@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-08-21T01:05:49.046Z</updated>
+  <updated>2019-08-24T03:26:29.629Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,16 +17,61 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>目标检测常用名词</title>
+    <link href="http://yoursite.com/2019/08/22/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E5%B8%B8%E7%94%A8%E5%90%8D%E8%AF%8D/"/>
+    <id>http://yoursite.com/2019/08/22/目标检测常用名词/</id>
+    <published>2019-08-22T01:49:17.000Z</published>
+    <updated>2019-08-24T03:26:29.629Z</updated>
+    
+    <content type="html"><![CDATA[<p>图像分类：一张图像中是否包含某种物体</p><p>物体检测识别：若细分该任务可得到两个子任务，即目标检测，与目标识别，首先检测是视觉感知得第一步，它尽可能搜索出图像中某一块存在目标（形状、位置）。而目标识别类似于图像分类，用于判决当前找到得图像块得目标具体是什么类别。</p><p>语义分割：按对象得内容进行图像得分割，分割的依据是内容，即对象类别。</p><p>实例分割：按对象个体进行分割，分割的依据是单个目标。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%8717.png" alt></p><p><strong>滑动窗口</strong>——为什么要有候选区域？既然目标是在图像中的某一区域，那么最直接的方法就是滑窗法（sliding window approach），就是遍历图像的所有区域，用不同大小的窗口在整个图像上滑动，那么就会产生所有的矩形区域，然后再后续排查，思路很简单，但是开销巨大。</p><p>region proposal（RP）：候选区域</p><p>IOU：region proposal与Ground Truth的窗口的交集比并集的比值，相当于准确率。‘</p><p>SPP：Spatial Pyramid Pooling  空间金字塔采样  在pooing的过程中计算pooling后的结果对应的两个像素点映射到feature map上所占的范围，然后在那个范围中进行max或者average。</p><p>ROI Pooling：就是将一个个大小不同的box矩形框，都映射到大小为w*h的矩形框。</p><p>Anchor：请看<a href="[https://brickexperts.github.io/2019/08/18/Two-stage%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D/#more](https://brickexperts.github.io/2019/08/18/Two-stage基本介绍/#more)">Two-stage基本介绍</a></p><p>GT box:Ground Truth box</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%8722.png" alt></p><p>如上图所示，绿色的框为飞机的Ground Truth，红色的框是提取的Region Proposal。那么即便红色的框被分类器识别为飞机，但是由于红色的框定位不准(IoU&lt;0.5)，那么这张图相当于没有正确的检测出飞机。如果我们能对红色的框进行微调，使得经过微调后的窗口跟Ground Truth更接近，这样岂不是定位会更准确。</p><p>后面遇见会继续完善。。。。。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;图像分类：一张图像中是否包含某种物体&lt;/p&gt;
+&lt;p&gt;物体检测识别：若细分该任务可得到两个子任务，即目标检测，与目标识别，首先检测是视觉感知得第一步，它尽可能搜索出图像中某一块存在目标（形状、位置）。而目标识别类似于图像分类，用于判决当前找到得图像块得目标具体是什么类别。&lt;/
+      
+    
+    </summary>
+    
+      <category term="目标检测" scheme="http://yoursite.com/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
+    
+      <category term="常用名词解释" scheme="http://yoursite.com/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/%E5%B8%B8%E7%94%A8%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A/"/>
+    
+    
+      <category term="目标检测" scheme="http://yoursite.com/tags/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
+    
+  </entry>
+  
+  <entry>
     <title>SSD系列算法</title>
     <link href="http://yoursite.com/2019/08/21/SSD%E7%B3%BB%E5%88%97%E7%AE%97%E6%B3%95/"/>
     <id>http://yoursite.com/2019/08/21/SSD系列算法/</id>
     <published>2019-08-21T01:05:48.000Z</published>
-    <updated>2019-08-21T01:05:49.046Z</updated>
+    <updated>2019-08-28T01:48:43.863Z</updated>
+    
+    <content type="html"><![CDATA[<p>SDD的网络架构：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%8718.png" alt></p><p>SSD以VGG16作为基础网络，并且在VGG上新增加了conv6、conv7、conv8、conv9、conv10、conv11这五层卷积层来获得更多的feature map。</p><h2 id="主干网络介绍"><a href="#主干网络介绍" class="headerlink" title="主干网络介绍"></a>主干网络介绍</h2><p>主干网络原始作者采用的VGG，我们也可以将其他神经网络作为主干网络。例如：ResNet、MobileNets等</p><p>将VGG网络最后两个FC层改成卷积，并增加4个卷积层。因为完整的VGG通常是用来处理分类任务的，对于分类任务而言，我们在最终输出的时候会采用FC层将最终的feature map来映射到向量。向量对应当前需要分类的物体在不同类别上的概率分布。而目标检测不需要分类，所以我们将全连接层去掉。</p><h2 id="多尺度feature-map预测"><a href="#多尺度feature-map预测" class="headerlink" title="多尺度feature map预测"></a>多尺度feature map预测</h2><p>多尺度feature map预测，也就是在预测的时候，在接下来预测的时候，针对接下来六个不同的尺寸进行预测。如下图的六条连线，分别是38*38、19*19、10*10、5*5、3*3、1*1。将这六个不同尺度的feature map分别作为检测、预测层的输入，最后通过NMS进行筛选和合并。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%8720.png" alt></p><p>对于六种不同尺度的网络，我们通常使用pooling来降采样。对于每一层的feature map，我们输入到相应的预测网络中。而预测网络中，我们会包括Prior box的提取过程。Prior box对应Fast R-CNN中Anchor的概念，也就是说，在Prior box中，feature map上的每一个点都作为一个cell（相当于Anchor）。以这个cell为中心，按照等比的放缩，找到它在原始图片的位置。接着以这个点为中心，提取不同尺度bounding box。而这些不同尺度的bounding box就是Prior box。然后对于每一个Prior box，我们通过和真值比较，就能够拿到它的label。对于每一个Prior box，我们都会分别预测它的类别概率和坐标（x，y，w，h）。也就是说，对于每一个cell，我们会将它对应到不同的Prior box，分别来预测当前这个Prior box所对应当前这个类别的概率分布和坐标。</p><p><strong>对Prior Box的具体定义：</strong></p><p>这里我们假设Prior Box的输入是m*n维的feature map。</p><p>如果每一个点都作为cell，那就会有m<em>n个cell。接着每个cell上生成固定尺寸和不同长宽比例的box。每个cell对应k个bounging box，每个bounding box预测c个类别分数和4个偏移坐标。其中c个类别分数实际上是当前bounding box所对应的不同类别的概率分布。如果输入大小为m\</em>n，那就会输出(c+4)*k*m*n。其中尺寸(scale)和比例(ratio)是超参数。</p><p>接下来我们看看Prior box是怎么生成的：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%8721.png" alt></p><p>每个feature map上的点定义了六种长宽比的default box。也就是说，最后对于每一个anchor都会获得六个不同尺寸和长宽比的default box。对于38<em>38层，每个feature map上的点，我们都会提取4个default box作为prior box。对于19\</em>19层、10*10层、5*5，提取6个default box也就是全部都是prior box。而3*3、1*1提取4个default作为prior box。所以最后得到8732个prior box(38*38*4+19*19*6+10*10*6+5*5*6+3*3*4+1*1*4)。<strong>prior box就是选择的default box</strong>。尺寸和比例都是可以通过SSD的配置文件进行配置，后面实战详解。</p><p>对default box进行筛选成为prior box：每一个feature map cell不是k个default box都取，prior box与GT box(<a href="https://brickexperts.github.io/" target="_blank" rel="noopener">Ground Truth box</a>)做匹配，IOU&gt;阈值为正样本。IOU&lt;阈值 为负样本。介于正样本和负样本中间阈值的default box去掉。</p><h2 id="SSD系列算法优化及扩展"><a href="#SSD系列算法优化及扩展" class="headerlink" title="SSD系列算法优化及扩展"></a>SSD系列算法优化及扩展</h2><p>SSD算法对小目标不够鲁棒，原因最主要是浅层feature map的表征能力不够强。</p><p>DSSD：</p><p>DSSD相当原来的SSD模型主要作了两大更新。一是替换掉VGG，而改用了Resnet-101作为特征提取网络并在对不同尺度feature maps特征进行default boxes检测时使用了更新的检测单元；二则在网络的后端使用了多个deconvolution layers以有效地扩展低维度信息的contextual information，从而有效地提高了小尺度目标的检测。</p><p>下图为DSSD模型与SSD模型的整体网络结构对比：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SSD4.png" alt></p><p>DSOD：</p><p>SSD+DenseNet=DSOD</p><p>DSOD可以从0开始训练数据，不需要预训练模型。</p><p>FSSD：</p><p>借鉴了FPN的思想，重构了一组pyramid feature map（金字塔特征），使得算法的精度有了明显特征，速度也没有下降很多。具体是把网络中某些feature调整为同一size再contact（连接），得到一个像素层，以此层为base layer来生成pyramid feature map，作者称之为Feature Fusion Module。</p><p>Feature Fusion</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SSD2.png" alt></p><p>对上面图的解读：</p><p>​    (a) image pyramid </p><p>​    (b) rcnn系列，只在最后一层feature预测 </p><p>​    (c) FPN，语义信息一层传递回去，而且有很多相加的计算 </p><p>​    (d) SSD，在各个level的feature上直接预测，每个level之间没联系 </p><p>​    (e) FSSD的做法，把各个level的feature concat，然后从fusion feature上生成feature pyramid</p><p>FSSD网络结构：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SSD3.png" alt></p><p>RSSD：</p><p>rainbow concatenation方式(pooling加deconvolution)融合不同层的特征，再增加不同层之间feature map关系的同时也增加了不同层的feature map个数。这种融合方式不仅解决了传统SSD算法存在的重复框问题，同时一定程度上解决了small object的检测问题。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SSD1.png" alt></p>]]></content>
     
     <summary type="html">
     
+      
+      
+        &lt;p&gt;SDD的网络架构：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%8718.png&quot; alt&gt;&lt;/p&gt;
+&lt;p&gt;SSD以VGG1
+      
+    
     </summary>
     
+      <category term="目标检测" scheme="http://yoursite.com/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
+    
+      <category term="one-stage" scheme="http://yoursite.com/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/one-stage/"/>
+    
+      <category term="SSD" scheme="http://yoursite.com/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/one-stage/SSD/"/>
+    
+    
+      <category term="SSD算法" scheme="http://yoursite.com/tags/SSD%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -66,9 +111,9 @@
     <link href="http://yoursite.com/2019/08/18/Two-stage%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D/"/>
     <id>http://yoursite.com/2019/08/18/Two-stage基本介绍/</id>
     <published>2019-08-18T09:09:22.000Z</published>
-    <updated>2019-08-18T09:36:01.751Z</updated>
+    <updated>2019-08-22T02:23:46.976Z</updated>
     
-    <content type="html"><![CDATA[<p>​    Two-stage相对于one-stage准确度高，但是速度相对one-stage慢。</p><p>Two-stage常见算法：RCNN、Fast RCNN、Faster RCNN、Faster RCNN变种。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%8714.png" alt></p><p>Two-stage核心组件：</p><p><strong>CNN网络</strong></p><p> CNN网络设计原则：</p><p>从简到繁再到简的卷积神经网</p><p>多尺度特征融合的网络</p><p>更轻量级的CNN网络</p><p><strong>RPN网络</strong></p><p>区域推荐（Anchor机制）</p><p>ROI Pooling</p><p>分类和回归</p>]]></content>
+    <content type="html"><![CDATA[<p>​    Two-stage相对于one-stage准确度高，但是速度相对one-stage慢。</p><p>Two-stage常见算法：RCNN、Fast RCNN、Faster RCNN、Faster RCNN变种。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%8714.png" alt></p><p>Two-stage核心组件：</p><p><strong>CNN网络</strong></p><p> CNN网络设计原则：</p><p>从简到繁再到简的卷积神经网</p><p>多尺度特征融合的网络</p><p>更轻量级的CNN网络</p><p><strong>RPN网络</strong></p><p>区域推荐（Anchor机制）：首先我们需要知道anchor的本质是什么，本质是SPP(spatial pyramid pooling)思想的逆向。而SPP本身是做什么的呢，就是将不同尺寸的输入resize成为相同尺寸的输出。所以SPP的逆向就是，将相同尺寸的输出，倒推得到不同尺寸的输入。当前的feature map的大小是n*c*w*h（n是张数，c是层数，w是宽，h是高），对于当前这个feature map上，也就是w<em>h上，选择其中的每一个点作为锚点（也就是候选区域的中心点），我们以每一个点作为中心点去提取候选区域。这样的每一个点都是Anchor。而这个候选区域通常都有比例：对于Fast  R-CNN三个面积尺寸（128^2，256^2，512^2），然后在每个面积尺寸下，取三种不同的长宽比例（1:1,1:2,2:1）。一个feature map可以提取w\</em>h*9个候选区域。我们示意图如下：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%8716.png" alt></p><p>ROI Pooling</p><p>分类和回归</p>]]></content>
     
     <summary type="html">
     
@@ -571,36 +616,6 @@
       <category term="opencv" scheme="http://yoursite.com/categories/python/opencv/"/>
     
       <category term="opencv(7)" scheme="http://yoursite.com/categories/python/opencv/opencv-7/"/>
-    
-    
-      <category term="视觉处理" scheme="http://yoursite.com/tags/%E8%A7%86%E8%A7%89%E5%A4%84%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>opencv(6)</title>
-    <link href="http://yoursite.com/2019/08/08/opencv-6/"/>
-    <id>http://yoursite.com/2019/08/08/opencv-6/</id>
-    <published>2019-08-08T07:03:02.000Z</published>
-    <updated>2019-08-09T01:51:38.877Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="特征提取"><a href="#特征提取" class="headerlink" title="特征提取"></a>特征提取</h2><p>图像特征：可以表达图像中对象的主要信息、并且以此为依据可以从其他未知图像中检测出相似或者相同图像。</p><p>常见的图像特征：边缘、角点、纹理</p><p>角点检测：cv2.cornerHarris()</p><p>img:输入图像</p><p>blockSize：角点检测中要考虑的领域大小</p><p>ksize：Sobel求导中使用的窗口大小</p><p>k：方程参数，参数为[0.04，0.06]</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv83.png" alt></p><p>亚像素级的角点检测：红色是原先的角点，绿色像素是修正后的像素</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv84.png" alt></p><p>适合于跟踪的角点检测：cv2.goodFeaturesToTrack():</p><p>输入灰度图像、检测的角点数目、设置角点的质量水平，0-1之间，低于这个数的都会被忽略、设置两个角点间的最短欧式距离。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv85.png" alt></p><p>SIFT尺度不变特征变换匹配算法：</p><p>cv2.xfeatures2d.SIFT_create()：创建sift特征器</p><p>sift.detect()可以在图像找到关键点。如果想在图像的特定区域搜索，可以创建一个掩膜图像作为参数。属性如下：</p><p>pt：表示图像中关键点的x坐标和y坐标</p><p>size：表示特征的直径</p><p>angle：表示特征的方向</p><p>response：表示关键点强度</p><p>octave：表示特征所在金字塔的层级</p><p>class_id：表示关键点的ID</p><p>sift.compute():计算关键点的描述符，在sift.detect后使用。</p><p>sift.detectAndCompute()：直接找到关键点并计算出描述符</p><p>cv2.drawKeypoints():</p><p>image:原始图像</p><p>keypoints：特征点向量</p><p>outimage：特征点绘制的画布图像，可以是原图像</p><p>color：绘制的特征点颜色，可以是原图像。</p><p>flags：五种绘制模式：</p><p>DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS:就会绘制代表关键点大小的圆圈甚至可以绘制除关键点的方向。 </p><p>DEFAULT：只绘制特征点的坐标点,显示在图像上就是一个个小圆点,每个小圆点的圆心坐标都是特征点的坐标。 </p><p>DRAW_OVER_OUTIMG：函数不创建输出的图像,而是直接在输出图像变量空间绘制,要求本身输出图像变量就是一个初始化好了的,size与type都是已经初始化好的变量 </p><p>NOT_DRAW_SINGLE_POINTS：单点的特征点不被绘制 </p><p>DRAW_RICH_KEYPOINTS：绘制特征点的时候绘制的是一个个带有方向的圆,这种方法同时显示图像的坐标,size，和方向,是最能显示特征的一种绘制方式</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv86.png" alt></p><p>SURF：加速稳健特征算法，加快版的SIFT。与SIFT类似</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv87.png" alt></p><p>BRIEF:这是一种特征描述符，他不提供查找特征的方法。所以我们需要使用其他的特征检测器。例如：SIFT或SURF。推荐使用STAR。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv88.png" alt></p><p>orb检测：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv89.png" alt></p><p>bf暴力匹配：</p><p>cv2.BFMatcher()：创建一个BFMatcher对象。参数：</p><p>​     normType：指定使用的距离测试类型。默认值为cv2.NORM_L2。cv2.NORM_L1也行。这两种适用于SIFT和SURF。对于ORB,BRIEF，应使用cv2.NORM_HAMMING。如果VTA_K==3或4，normType应设置为cv2.NORM_HAMMING2。</p><p>​     crossCheck：默认为False。如果设置为True，匹配条件就会更加严格。</p><p>BFMatcher对象具有两个方法：match()和knnMatch()。第一种方法会返回最佳匹配，第二个方法为每个关键点返回k个最佳匹配（降序排列后取前k个）。</p><p>cv2.drawMatches cv2.drawMatchsKnn：就像使用 cv2.drawKeypoints() 绘制关点一样我们可以使用 cv2.drawMatches()来绘制匹配的点。它会将两幅图像先水平排列然后在最佳匹配的点之间绘制直线从原图像到目标图像。如果前面使用的是BFMatcher.knnMatch()现在我们可以使用函数 cv2.drawMatchsKnn 为每个关键点和它的 k 个最佳匹配点绘制匹配线。如果 k 等于 2就会为每个关键点绘制两条最佳匹配直线。如果我们选择性绘制就给函数传入一个掩模。</p><p> 对ORB描述符进行暴力匹配：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv90.png" alt></p><p>match=bf.match(des1，des2)：返回值是一个DMatch对象列表。具有以下属性：</p><p> DMatch.distance - 描述符之间的距离。越小越好。 </p><p>• DMatch.trainIdx - 目标图像中描述符的索引。</p><p> • DMatch.queryIdx - 查询图像中描述符的索引。</p><p> • DMatch.imgIdx - 目标图像的索引</p><p>对SIFT描述符进行暴力匹配：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv91.png" alt></p><p>FLANN匹配器：</p><p>cv2.FlannBasedMatcher( [, indexParams[, searchParams]] )</p><p>indexParams：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv92.png" alt></p><p>searchParams：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv93.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv94.png" alt></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;特征提取&quot;&gt;&lt;a href=&quot;#特征提取&quot; class=&quot;headerlink&quot; title=&quot;特征提取&quot;&gt;&lt;/a&gt;特征提取&lt;/h2&gt;&lt;p&gt;图像特征：可以表达图像中对象的主要信息、并且以此为依据可以从其他未知图像中检测出相似或者相同图像。&lt;/p&gt;
-&lt;p&gt;常见的图像
-      
-    
-    </summary>
-    
-      <category term="python" scheme="http://yoursite.com/categories/python/"/>
-    
-      <category term="opencv" scheme="http://yoursite.com/categories/python/opencv/"/>
-    
-      <category term="opencv(6)" scheme="http://yoursite.com/categories/python/opencv/opencv-6/"/>
     
     
       <category term="视觉处理" scheme="http://yoursite.com/tags/%E8%A7%86%E8%A7%89%E5%A4%84%E7%90%86/"/>
