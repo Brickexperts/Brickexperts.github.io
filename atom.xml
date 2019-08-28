@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-08-24T03:26:29.629Z</updated>
+  <updated>2019-08-28T07:09:55.945Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,66 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>人脸检测数据集构造</title>
+    <link href="http://yoursite.com/2019/08/28/%E4%BA%BA%E8%84%B8%E6%A3%80%E6%B5%8B%E6%95%B0%E6%8D%AE%E9%9B%86%E6%9E%84%E9%80%A0/"/>
+    <id>http://yoursite.com/2019/08/28/人脸检测数据集构造/</id>
+    <published>2019-08-28T07:08:15.000Z</published>
+    <updated>2019-08-28T07:09:55.945Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="目标检测" scheme="http://yoursite.com/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
+    
+      <category term="one—stage" scheme="http://yoursite.com/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/one%E2%80%94stage/"/>
+    
+      <category term="SSD" scheme="http://yoursite.com/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/one%E2%80%94stage/SSD/"/>
+    
+      <category term="SSD实战" scheme="http://yoursite.com/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/one%E2%80%94stage/SSD/SSD%E5%AE%9E%E6%88%98/"/>
+    
+      <category term="构造数据集" scheme="http://yoursite.com/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/one%E2%80%94stage/SSD/SSD%E5%AE%9E%E6%88%98/%E6%9E%84%E9%80%A0%E6%95%B0%E6%8D%AE%E9%9B%86/"/>
+    
+    
+      <category term="SSD算法" scheme="http://yoursite.com/tags/SSD%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SSD实战-人脸检测</title>
+    <link href="http://yoursite.com/2019/08/28/SSD%E5%AE%9E%E6%88%98-%E4%BA%BA%E8%84%B8%E6%A3%80%E6%B5%8B/"/>
+    <id>http://yoursite.com/2019/08/28/SSD实战-人脸检测/</id>
+    <published>2019-08-28T01:51:26.000Z</published>
+    <updated>2019-08-28T07:07:05.868Z</updated>
+    
+    <content type="html"><![CDATA[<p>人脸标注方法：矩形标注和椭圆形标注</p><p>矩形标注都是用一个矩形框将画面中的人脸区域包含在内，这种标记方法很难给出一个恰好包含面部的矩形框。而人脸天然呈现椭圆形，椭圆形标注是一种较为准确的方法。椭圆形标注返回值包括：椭圆的长轴半径、椭圆的短轴半径、椭圆长轴偏转角度、椭圆圆心x坐标、椭圆圆心y坐标。</p><p>判断算法性能好坏：</p><p>每一个标记只允许有一个检测与之相对应，也就是说，我们检测出来的每一个人脸图像只能同我们在标注中人脸图像中数据中的一个相对应。如果有多个，就会视为重复检测。重复检测会被视为错误检测。接着我们就可以得出正确率和错误率，可以画出ROC曲线和PR曲线。可以根据曲线看出算法的好坏。</p><p>WIDERFace数据集：打开<a href="http://mmlab.ie.cuhk.edu.hk/project/WIDERFace" target="_blank" rel="noopener">人脸检测数据集地址</a>下载数据集。</p><p>人脸采集常用方法：</p><p><strong>活体检测</strong>  判断用户是否为正常操作，通过指定用户做随机动作，一搬有张嘴、摇头、点头、凝视、眨眼等等，防止照片攻击。判断用户是否真实在操作，指定用户上下移动手机，防止视频攻击和非正常动作的攻击。</p><p><strong>3D检测</strong>  验证采集到的是否为立体人像，能够防止平面照片、不同弯曲程度的照片等。</p><p><strong>连续检测</strong>  通过连续的检测，验证运动轨迹是否正常，防止跳过活体检测直接替换采集的照片，也能防止中途换人。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;人脸标注方法：矩形标注和椭圆形标注&lt;/p&gt;
+&lt;p&gt;矩形标注都是用一个矩形框将画面中的人脸区域包含在内，这种标记方法很难给出一个恰好包含面部的矩形框。而人脸天然呈现椭圆形，椭圆形标注是一种较为准确的方法。椭圆形标注返回值包括：椭圆的长轴半径、椭圆的短轴半径、椭圆长轴偏转角度、
+      
+    
+    </summary>
+    
+      <category term="目标检测" scheme="http://yoursite.com/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
+    
+      <category term="one-stage" scheme="http://yoursite.com/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/one-stage/"/>
+    
+      <category term="SSD" scheme="http://yoursite.com/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/one-stage/SSD/"/>
+    
+      <category term="SSD实战" scheme="http://yoursite.com/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/one-stage/SSD/SSD%E5%AE%9E%E6%88%98/"/>
+    
+      <category term="人脸检测综述" scheme="http://yoursite.com/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/one-stage/SSD/SSD%E5%AE%9E%E6%88%98/%E4%BA%BA%E8%84%B8%E6%A3%80%E6%B5%8B%E7%BB%BC%E8%BF%B0/"/>
+    
+    
+      <category term="SSD算法" scheme="http://yoursite.com/tags/SSD%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
   
   <entry>
     <title>目标检测常用名词</title>
@@ -49,7 +109,7 @@
     <link href="http://yoursite.com/2019/08/21/SSD%E7%B3%BB%E5%88%97%E7%AE%97%E6%B3%95/"/>
     <id>http://yoursite.com/2019/08/21/SSD系列算法/</id>
     <published>2019-08-21T01:05:48.000Z</published>
-    <updated>2019-08-28T01:48:43.863Z</updated>
+    <updated>2019-08-28T01:53:22.710Z</updated>
     
     <content type="html"><![CDATA[<p>SDD的网络架构：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%8718.png" alt></p><p>SSD以VGG16作为基础网络，并且在VGG上新增加了conv6、conv7、conv8、conv9、conv10、conv11这五层卷积层来获得更多的feature map。</p><h2 id="主干网络介绍"><a href="#主干网络介绍" class="headerlink" title="主干网络介绍"></a>主干网络介绍</h2><p>主干网络原始作者采用的VGG，我们也可以将其他神经网络作为主干网络。例如：ResNet、MobileNets等</p><p>将VGG网络最后两个FC层改成卷积，并增加4个卷积层。因为完整的VGG通常是用来处理分类任务的，对于分类任务而言，我们在最终输出的时候会采用FC层将最终的feature map来映射到向量。向量对应当前需要分类的物体在不同类别上的概率分布。而目标检测不需要分类，所以我们将全连接层去掉。</p><h2 id="多尺度feature-map预测"><a href="#多尺度feature-map预测" class="headerlink" title="多尺度feature map预测"></a>多尺度feature map预测</h2><p>多尺度feature map预测，也就是在预测的时候，在接下来预测的时候，针对接下来六个不同的尺寸进行预测。如下图的六条连线，分别是38*38、19*19、10*10、5*5、3*3、1*1。将这六个不同尺度的feature map分别作为检测、预测层的输入，最后通过NMS进行筛选和合并。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%8720.png" alt></p><p>对于六种不同尺度的网络，我们通常使用pooling来降采样。对于每一层的feature map，我们输入到相应的预测网络中。而预测网络中，我们会包括Prior box的提取过程。Prior box对应Fast R-CNN中Anchor的概念，也就是说，在Prior box中，feature map上的每一个点都作为一个cell（相当于Anchor）。以这个cell为中心，按照等比的放缩，找到它在原始图片的位置。接着以这个点为中心，提取不同尺度bounding box。而这些不同尺度的bounding box就是Prior box。然后对于每一个Prior box，我们通过和真值比较，就能够拿到它的label。对于每一个Prior box，我们都会分别预测它的类别概率和坐标（x，y，w，h）。也就是说，对于每一个cell，我们会将它对应到不同的Prior box，分别来预测当前这个Prior box所对应当前这个类别的概率分布和坐标。</p><p><strong>对Prior Box的具体定义：</strong></p><p>这里我们假设Prior Box的输入是m*n维的feature map。</p><p>如果每一个点都作为cell，那就会有m<em>n个cell。接着每个cell上生成固定尺寸和不同长宽比例的box。每个cell对应k个bounging box，每个bounding box预测c个类别分数和4个偏移坐标。其中c个类别分数实际上是当前bounding box所对应的不同类别的概率分布。如果输入大小为m\</em>n，那就会输出(c+4)*k*m*n。其中尺寸(scale)和比例(ratio)是超参数。</p><p>接下来我们看看Prior box是怎么生成的：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%8721.png" alt></p><p>每个feature map上的点定义了六种长宽比的default box。也就是说，最后对于每一个anchor都会获得六个不同尺寸和长宽比的default box。对于38<em>38层，每个feature map上的点，我们都会提取4个default box作为prior box。对于19\</em>19层、10*10层、5*5，提取6个default box也就是全部都是prior box。而3*3、1*1提取4个default作为prior box。所以最后得到8732个prior box(38*38*4+19*19*6+10*10*6+5*5*6+3*3*4+1*1*4)。<strong>prior box就是选择的default box</strong>。尺寸和比例都是可以通过SSD的配置文件进行配置，后面实战详解。</p><p>对default box进行筛选成为prior box：每一个feature map cell不是k个default box都取，prior box与GT box(<a href="https://brickexperts.github.io/" target="_blank" rel="noopener">Ground Truth box</a>)做匹配，IOU&gt;阈值为正样本。IOU&lt;阈值 为负样本。介于正样本和负样本中间阈值的default box去掉。</p><h2 id="SSD系列算法优化及扩展"><a href="#SSD系列算法优化及扩展" class="headerlink" title="SSD系列算法优化及扩展"></a>SSD系列算法优化及扩展</h2><p>SSD算法对小目标不够鲁棒，原因最主要是浅层feature map的表征能力不够强。</p><p>DSSD：</p><p>DSSD相当原来的SSD模型主要作了两大更新。一是替换掉VGG，而改用了Resnet-101作为特征提取网络并在对不同尺度feature maps特征进行default boxes检测时使用了更新的检测单元；二则在网络的后端使用了多个deconvolution layers以有效地扩展低维度信息的contextual information，从而有效地提高了小尺度目标的检测。</p><p>下图为DSSD模型与SSD模型的整体网络结构对比：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SSD4.png" alt></p><p>DSOD：</p><p>SSD+DenseNet=DSOD</p><p>DSOD可以从0开始训练数据，不需要预训练模型。</p><p>FSSD：</p><p>借鉴了FPN的思想，重构了一组pyramid feature map（金字塔特征），使得算法的精度有了明显特征，速度也没有下降很多。具体是把网络中某些feature调整为同一size再contact（连接），得到一个像素层，以此层为base layer来生成pyramid feature map，作者称之为Feature Fusion Module。</p><p>Feature Fusion</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SSD2.png" alt></p><p>对上面图的解读：</p><p>​    (a) image pyramid </p><p>​    (b) rcnn系列，只在最后一层feature预测 </p><p>​    (c) FPN，语义信息一层传递回去，而且有很多相加的计算 </p><p>​    (d) SSD，在各个level的feature上直接预测，每个level之间没联系 </p><p>​    (e) FSSD的做法，把各个level的feature concat，然后从fusion feature上生成feature pyramid</p><p>FSSD网络结构：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SSD3.png" alt></p><p>RSSD：</p><p>rainbow concatenation方式(pooling加deconvolution)融合不同层的特征，再增加不同层之间feature map关系的同时也增加了不同层的feature map个数。这种融合方式不仅解决了传统SSD算法存在的重复框问题，同时一定程度上解决了small object的检测问题。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SSD1.png" alt></p>]]></content>
     
@@ -69,6 +129,8 @@
       <category term="one-stage" scheme="http://yoursite.com/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/one-stage/"/>
     
       <category term="SSD" scheme="http://yoursite.com/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/one-stage/SSD/"/>
+    
+      <category term="SSD原理" scheme="http://yoursite.com/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/one-stage/SSD/SSD%E5%8E%9F%E7%90%86/"/>
     
     
       <category term="SSD算法" scheme="http://yoursite.com/tags/SSD%E7%AE%97%E6%B3%95/"/>
@@ -557,68 +619,6 @@
     
     
       <category term="机器学习" scheme="http://yoursite.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>特征工程</title>
-    <link href="http://yoursite.com/2019/08/09/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/"/>
-    <id>http://yoursite.com/2019/08/09/特征工程/</id>
-    <published>2019-08-09T02:53:28.000Z</published>
-    <updated>2019-08-12T01:18:53.519Z</updated>
-    
-    <content type="html"><![CDATA[<p>​    前些天我把python的处理图像的库——opencv总结了一下，但这终究是传统方法处理图像。现在都是用深度学习网络处理图像。所以，在学深度学习之前，我看了些机器学习的知识。但在看机器学习的算法前，我们先来看看特征工程。</p><p>特征工程三大知识：特征抽取、特征预处理、特征降维。</p><h2 id="特征抽取"><a href="#特征抽取" class="headerlink" title="特征抽取"></a>特征抽取</h2><p>字典特征抽取，把数据中的以字符串标记的数据转化为one-hot编码。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML1.png" alt></p><p>由上面代码可得下面的稀疏（sparse）矩阵：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML2.png" alt></p><p>将稀疏矩阵转为矩阵：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML3.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML4.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML6.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML7.png" alt></p><p>将矩阵转化为字典：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML8.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML9.png" alt></p><p>文本特征抽取：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML10.png" alt></p><p>和字典特征抽取不一样的是CountVectorizer没有sparse参数，只能通过矩阵的toarray转化为数组</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML12.png" alt></p><p>可得：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML11.png" alt></p><p><strong>注意：单个字母不统计。因为单个英文字母没有依据</strong></p><p>如果文本是中文，根据需要的词频给文本添加空格。同样，单个字无法统计</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML13.png" alt></p><p>利用jieba分词对数据进行one-hot编码：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML14.png" alt></p><p>TF-IDF特征抽取：用以评估一个词对于一个文件集或一个语料库中的其中一份文件的重要程度</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML15.png" alt></p><h2 id="特征预处理"><a href="#特征预处理" class="headerlink" title="特征预处理"></a>特征预处理</h2><p>数据归一化处理：通过对原始数据进行交换把数据映射到（默认为[0,1]）之间</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML16.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML17.png" alt></p><p>归一化缺点：注意在特定场景最大值最小值是变化的。另外，最大值与最小值非常容易受异常点的影响，所以这种方法的鲁棒性差，只适合传统精确小数据场景。</p><p>数据标准化处理:通过对原始数据进行变换把数据变换到均值为0，方差为1的范围。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML18.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML19.png" alt></p><p>标准化总结：在已有样本足够多的情况下比较稳定，适合现代嘈杂大数据场景</p><p>缺失值处理方法:</p><p>删除：如果每列或者行数据缺失值达到一定比例时，建议放弃整行或者整列</p><p>插补：可以通过缺失值每行或者每列的平均值、中位数来填充</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML20.png" alt></p><h2 id="数据降维："><a href="#数据降维：" class="headerlink" title="数据降维："></a>数据降维：</h2><p>减少特征的数量。这里的维度代表特征的个数。两种方法：1.特征选择 2.主成分分析</p><p>特征选择：特征选择就是单纯地从提取到的所有特征中选择部分特征作为训练集特征，特征在选择前和选择后可以改变值、也不改变值。但是选择后的特征维数肯定比选择前小。主要方法：Filter（过滤式）、Embedded（嵌入式）、Wrapper（包裹式）</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML21.png" alt></p><p>主成分分析：PCA技术，PCA是一种分析、简化数据集的技术。特征数达到数百才会使用</p><p>目的：是数据维数压缩，尽可能降低原数据的维数，损失少量信息</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML22.png" alt></p><p>PCA语法：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML23.png" alt></p><p>n_components取值可以是小数和整数：小数的取值范围是0-1，代表降维后的维度是原本维度的0-1倍数，整数的值是降维降几个维。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;​    前些天我把python的处理图像的库——opencv总结了一下，但这终究是传统方法处理图像。现在都是用深度学习网络处理图像。所以，在学深度学习之前，我看了些机器学习的知识。但在看机器学习的算法前，我们先来看看特征工程。&lt;/p&gt;
-&lt;p&gt;特征工程三大知识：特征抽取、特
-      
-    
-    </summary>
-    
-      <category term="python" scheme="http://yoursite.com/categories/python/"/>
-    
-      <category term="机器学习" scheme="http://yoursite.com/categories/python/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="特征工程" scheme="http://yoursite.com/categories/python/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/"/>
-    
-    
-      <category term="机器学习" scheme="http://yoursite.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>opencv(7)</title>
-    <link href="http://yoursite.com/2019/08/09/opencv-7/"/>
-    <id>http://yoursite.com/2019/08/09/opencv-7/</id>
-    <published>2019-08-09T02:33:14.000Z</published>
-    <updated>2019-08-09T02:49:40.038Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="直方图"><a href="#直方图" class="headerlink" title="直方图"></a>直方图</h2><p>横坐标：图像中各个像素的灰度级</p><p>纵坐标：具有该灰度级的像素个数</p><p>归一化直方图：</p><p>横坐标：图像中各个像素的灰度级</p><p>纵坐标：出现这个灰度级的概率</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv96.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv97.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv98.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv99.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv100.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv101.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv102.png" alt></p><p>掩膜：通过掩膜可以将一张图的某块区域的直方图画出来</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv103.png" alt></p><p>直方图均值化：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv104.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv105.png" alt></p><p>注意:用cv2.equalizeHist进行直方图均衡化处理时，对彩色图像进行处理时，分通道进行。灰度图像直接均衡化</p><p>利用CLAHE有限对比适应性直方图均衡化，对彩色图像也是分通道进行。灰度图像直接均衡化。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv106.png" alt></p><h2 id="背景建模："><a href="#背景建模：" class="headerlink" title="背景建模："></a>背景建模：</h2><p>以高斯混合模型为基础的背景/前景分割算法</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv107.png" alt></p><p>apply可以得到前景的掩膜</p><h2 id="傅里叶变换"><a href="#傅里叶变换" class="headerlink" title="傅里叶变换"></a>傅里叶变换</h2><p>补  。。。。。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;直方图&quot;&gt;&lt;a href=&quot;#直方图&quot; class=&quot;headerlink&quot; title=&quot;直方图&quot;&gt;&lt;/a&gt;直方图&lt;/h2&gt;&lt;p&gt;横坐标：图像中各个像素的灰度级&lt;/p&gt;
-&lt;p&gt;纵坐标：具有该灰度级的像素个数&lt;/p&gt;
-&lt;p&gt;归一化直方图：&lt;/p&gt;
-&lt;p&gt;横坐标：图
-      
-    
-    </summary>
-    
-      <category term="python" scheme="http://yoursite.com/categories/python/"/>
-    
-      <category term="opencv" scheme="http://yoursite.com/categories/python/opencv/"/>
-    
-      <category term="opencv(7)" scheme="http://yoursite.com/categories/python/opencv/opencv-7/"/>
-    
-    
-      <category term="视觉处理" scheme="http://yoursite.com/tags/%E8%A7%86%E8%A7%89%E5%A4%84%E7%90%86/"/>
     
   </entry>
   

@@ -1,6 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[人脸检测数据集构造]]></title>
+    <url>%2F2019%2F08%2F28%2F%E4%BA%BA%E8%84%B8%E6%A3%80%E6%B5%8B%E6%95%B0%E6%8D%AE%E9%9B%86%E6%9E%84%E9%80%A0%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>目标检测</category>
+        <category>one—stage</category>
+        <category>SSD</category>
+        <category>SSD实战</category>
+        <category>构造数据集</category>
+      </categories>
+      <tags>
+        <tag>SSD算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[SSD实战-人脸检测]]></title>
+    <url>%2F2019%2F08%2F28%2FSSD%E5%AE%9E%E6%88%98-%E4%BA%BA%E8%84%B8%E6%A3%80%E6%B5%8B%2F</url>
+    <content type="text"><![CDATA[人脸标注方法：矩形标注和椭圆形标注 矩形标注都是用一个矩形框将画面中的人脸区域包含在内，这种标记方法很难给出一个恰好包含面部的矩形框。而人脸天然呈现椭圆形，椭圆形标注是一种较为准确的方法。椭圆形标注返回值包括：椭圆的长轴半径、椭圆的短轴半径、椭圆长轴偏转角度、椭圆圆心x坐标、椭圆圆心y坐标。 判断算法性能好坏： 每一个标记只允许有一个检测与之相对应，也就是说，我们检测出来的每一个人脸图像只能同我们在标注中人脸图像中数据中的一个相对应。如果有多个，就会视为重复检测。重复检测会被视为错误检测。接着我们就可以得出正确率和错误率，可以画出ROC曲线和PR曲线。可以根据曲线看出算法的好坏。 WIDERFace数据集：打开人脸检测数据集地址下载数据集。 人脸采集常用方法： 活体检测 判断用户是否为正常操作，通过指定用户做随机动作，一搬有张嘴、摇头、点头、凝视、眨眼等等，防止照片攻击。判断用户是否真实在操作，指定用户上下移动手机，防止视频攻击和非正常动作的攻击。 3D检测 验证采集到的是否为立体人像，能够防止平面照片、不同弯曲程度的照片等。 连续检测 通过连续的检测，验证运动轨迹是否正常，防止跳过活体检测直接替换采集的照片，也能防止中途换人。]]></content>
+      <categories>
+        <category>目标检测</category>
+        <category>one-stage</category>
+        <category>SSD</category>
+        <category>SSD实战</category>
+        <category>人脸检测综述</category>
+      </categories>
+      <tags>
+        <tag>SSD算法</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[目标检测常用名词]]></title>
     <url>%2F2019%2F08%2F22%2F%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E5%B8%B8%E7%94%A8%E5%90%8D%E8%AF%8D%2F</url>
     <content type="text"><![CDATA[图像分类：一张图像中是否包含某种物体 物体检测识别：若细分该任务可得到两个子任务，即目标检测，与目标识别，首先检测是视觉感知得第一步，它尽可能搜索出图像中某一块存在目标（形状、位置）。而目标识别类似于图像分类，用于判决当前找到得图像块得目标具体是什么类别。 语义分割：按对象得内容进行图像得分割，分割的依据是内容，即对象类别。 实例分割：按对象个体进行分割，分割的依据是单个目标。 滑动窗口——为什么要有候选区域？既然目标是在图像中的某一区域，那么最直接的方法就是滑窗法（sliding window approach），就是遍历图像的所有区域，用不同大小的窗口在整个图像上滑动，那么就会产生所有的矩形区域，然后再后续排查，思路很简单，但是开销巨大。 region proposal（RP）：候选区域 IOU：region proposal与Ground Truth的窗口的交集比并集的比值，相当于准确率。‘ SPP：Spatial Pyramid Pooling 空间金字塔采样 在pooing的过程中计算pooling后的结果对应的两个像素点映射到feature map上所占的范围，然后在那个范围中进行max或者average。 ROI Pooling：就是将一个个大小不同的box矩形框，都映射到大小为w*h的矩形框。 Anchor：请看Two-stage基本介绍 GT box:Ground Truth box 如上图所示，绿色的框为飞机的Ground Truth，红色的框是提取的Region Proposal。那么即便红色的框被分类器识别为飞机，但是由于红色的框定位不准(IoU&lt;0.5)，那么这张图相当于没有正确的检测出飞机。如果我们能对红色的框进行微调，使得经过微调后的窗口跟Ground Truth更接近，这样岂不是定位会更准确。 后面遇见会继续完善。。。。。]]></content>
@@ -20,6 +50,7 @@
         <category>目标检测</category>
         <category>one-stage</category>
         <category>SSD</category>
+        <category>SSD原理</category>
       </categories>
       <tags>
         <tag>SSD算法</tag>
