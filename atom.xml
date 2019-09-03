@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-09-03T11:35:07.804Z</updated>
+  <updated>2019-09-03T14:01:05.002Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>激活函数以及作用</title>
+    <link href="http://yoursite.com/2019/09/03/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/"/>
+    <id>http://yoursite.com/2019/09/03/激活函数/</id>
+    <published>2019-09-03T13:37:07.000Z</published>
+    <updated>2019-09-03T14:01:05.002Z</updated>
+    
+    <content type="html"><![CDATA[<p>本片博客介绍以下激活函数以及激活函数的作用。</p><p>首先激活函数是非线性连续的，激活函数有Sigmoid、tanh、Relu、Leaky Relu、Maxout、ELU。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL50.png" alt></p><p>激活函数（Activation functions）对于人工神经网络模型去学习、理解非常复杂和非线性的函数来说具有十分重要的作用。它们将非线性特性引入到我们的网络中。其主要目的是将A-NN模型中一个节点的输入信号转换成一个输出信号。该输出信号现在被用作堆叠中下一个层的输入。</p><p>问题一：为什么我们不能在不激活输入信号的情况下完成此操作呢？</p><p>如果我们不运用激活函数的话，则输出信号将仅仅是一个简单的线性函数。线性函数一个一级多项式。现如今，线性方程是很容易解决的，但是它们的复杂性有限，并且从数据中学习复杂函数映射的能力更小。一个没有激活函数的神经网络将只不过是一个线性回归模型（Linear regression Model）罢了，它功率有限，并且大多数情况下执行得并不好。我们希望我们的神经网络不仅仅可以学习和计算线性函数，而且还要比这复杂得多。同样是因为没有激活函数，我们的神经网络将无法学习和模拟其他复杂类型的数据，例如图像、视频、音频、语音等。这就是为什么我们要使用人工神经网络技术，诸如深度学习（Deep learning），来理解一些复杂的事情，一些相互之间具有很多隐藏层的非线性问题，而这也可以帮助我们了解复杂的数据。</p><p>问题二：那么为什么我们需要非线性函数？</p><p>非线性函数是那些一级以上的函数，而且当绘制非线性函数时它们具有曲率。现在我们需要一个可以学习和表示几乎任何东西的神经网络模型，以及可以将输入映射到输出的任意复杂函数。神经网络被认为是通用函数近似器（Universal Function Approximators）。这意味着他们可以计算和学习任何函数。几乎我们可以想到的任何过程都可以表示为神经网络中的函数计算。</p><p>接下来介绍一下常用的激活函数：sigmoid、tanh、Relu</p><p>sigmoid：该函数是将取值为 (−∞,+∞)(−∞,+∞) 的数映射到 (0,1)(0,1) 之间。sigmoid函数的公式以及图形如下：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL45.png" alt></p><p>缺点：当 zz 值<strong>非常大</strong>或者<strong>非常小</strong>时，通过上图我们可以看到，sigmoid函数的导数 g′(z)将接近 00 。这会导致权重 W 的梯度将接近 00 ，使得梯度更新十分缓慢，即<strong>梯度消失</strong></p><p>tanh：该函数是将取值为 (−∞,+∞)(−∞,+∞) 的数映射到 (−1,1)(−1,1) 之间，其公式与图形为：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL42.png" alt></p><p>tanh函数的缺点同sigmoid函数的第一个缺点一样，当 zz <strong>很大或很小</strong>时，g′(z)接近于 0 ，会导致梯度很小，权重更新非常缓慢，即<strong>梯度消失问题</strong>。</p><p>Relu函数：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL41.png" alt></p><p>Leaky Relu：这是一种对ReLU函数改进的函数，又称为PReLU函数，但其并不常用。其公式与图形如下：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL43.png" alt></p><p>  其中a取值在（0，1）之间</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;本片博客介绍以下激活函数以及激活函数的作用。&lt;/p&gt;
+&lt;p&gt;首先激活函数是非线性连续的，激活函数有Sigmoid、tanh、Relu、Leaky Relu、Maxout、ELU。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.
+      
+    
+    </summary>
+    
+      <category term="深度学习" scheme="http://yoursite.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="激活函数" scheme="http://yoursite.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/"/>
+    
+    
+      <category term="激活函数" scheme="http://yoursite.com/tags/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>SSD实战-tensorflow实现目标检测</title>
@@ -498,7 +527,7 @@
     <link href="http://yoursite.com/2019/08/09/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%EF%BC%883%EF%BC%89/"/>
     <id>http://yoursite.com/2019/08/09/深度学习（3）/</id>
     <published>2019-08-09T05:03:29.000Z</published>
-    <updated>2019-09-03T12:44:45.950Z</updated>
+    <updated>2019-09-03T13:39:49.221Z</updated>
     
     <content type="html"><![CDATA[<p>​    感知机：有n个输入数据，通过权重与各数据之间的计算和，比较激活函数结果，得出输出。感知机是解决分类问题。</p><p>神经网络的基本组成包括输入层、隐藏层、输出层。卷积神经网络的特点在于隐藏层分为卷积层和池化层。</p><p>神经网络的种类：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL30.png" alt></p><p>神经网络的策略是交叉熵损失，优化是通过反向传播算法（相当于梯度下降 ）。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL31.png" alt></p><p>简单神经网络：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL32.png" alt></p><p>卷积神经网络：</p><p>卷积层：通过在原始图像上平移来提取特征</p><p>零填充方式：SAME和VALID。</p><p>当填充方式为SAME时：全零填充，无法取整时，向上取值</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL33.png" alt></p><p>当填充方式为VALID时，不使用全零填充，无法取整时，向上取值</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL34.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL35.png" alt></p><p>卷积向下取整，池化向上取整</p><p>例：当卷积层100个filter，5*5，步长为1，零填充是2时。输入[28,28,1]大小的图像，输出[26,26,100]的图像。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL36.png" alt></p><p>池化层：通过特征后稀疏参数来减少学习的参数，降低网络的复杂度（最大池化和平均值化）</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL37.png" alt></p>]]></content>
     
@@ -514,11 +543,9 @@
     
     </summary>
     
-      <category term="python" scheme="http://yoursite.com/categories/python/"/>
+      <category term="深度学习" scheme="http://yoursite.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
-      <category term="深度学习" scheme="http://yoursite.com/categories/python/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="深度学习（3）" scheme="http://yoursite.com/categories/python/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%EF%BC%883%EF%BC%89/"/>
+      <category term="深度学习（3）" scheme="http://yoursite.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%EF%BC%883%EF%BC%89/"/>
     
     
       <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
@@ -530,7 +557,7 @@
     <link href="http://yoursite.com/2019/08/09/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%EF%BC%882%EF%BC%89/"/>
     <id>http://yoursite.com/2019/08/09/深度学习（2）/</id>
     <published>2019-08-09T04:53:25.000Z</published>
-    <updated>2019-08-09T05:03:13.437Z</updated>
+    <updated>2019-09-03T13:39:02.321Z</updated>
     
     <content type="html"><![CDATA[<h2 id="数据读取"><a href="#数据读取" class="headerlink" title="数据读取"></a>数据读取</h2><p>通过线程和队列提高速度。可以边取数据边训练</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL19.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL20.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL@1.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL21.png" alt></p><h2 id="模型的保存和加载"><a href="#模型的保存和加载" class="headerlink" title="模型的保存和加载"></a>模型的保存和加载</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL22.png" alt></p><p>模型保存：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL23.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL24.png" alt></p><p>模型加载：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL25.png" alt></p><h2 id="添加权重参数、损失值等的变化"><a href="#添加权重参数、损失值等的变化" class="headerlink" title="添加权重参数、损失值等的变化"></a>添加权重参数、损失值等的变化</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL26.png" alt></p><p>首先收集变量：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL27.png" alt></p><p>而后在会话中运行：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL28.png" alt></p>]]></content>
     
@@ -544,11 +571,9 @@
     
     </summary>
     
-      <category term="python" scheme="http://yoursite.com/categories/python/"/>
+      <category term="深度学习" scheme="http://yoursite.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
-      <category term="深度学习" scheme="http://yoursite.com/categories/python/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="深度学习（2）" scheme="http://yoursite.com/categories/python/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%EF%BC%882%EF%BC%89/"/>
+      <category term="深度学习（2）" scheme="http://yoursite.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%EF%BC%882%EF%BC%89/"/>
     
     
       <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
@@ -560,7 +585,7 @@
     <link href="http://yoursite.com/2019/08/09/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%EF%BC%881%EF%BC%89/"/>
     <id>http://yoursite.com/2019/08/09/深度学习（1）/</id>
     <published>2019-08-09T04:17:39.000Z</published>
-    <updated>2019-08-09T04:52:39.127Z</updated>
+    <updated>2019-09-03T13:38:46.831Z</updated>
     
     <content type="html"><![CDATA[<h2 id="tensorflow基本知识"><a href="#tensorflow基本知识" class="headerlink" title="tensorflow基本知识"></a>tensorflow基本知识</h2><p>在tensorflow中把数据称为张量（tensor）。</p><p>张量的阶：相当于数组的维度。    </p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL1.png" alt></p><p>张量的属性：graph、op、name、shape</p><p>tensorflow中张量形状分为动态形状和静态形状，其在于有没有生成一个新的张量数据。静态形状的修改不能跨维度修改</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL2.png" alt></p><p>把操作称为节点（OP），所有操作都是一个OP。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL3.png" alt></p><p>整个程序的结构称为图（graph）</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL5.png" alt></p><p>运算程序的图称为会话（Session）。一次只能运行一个图</p><p>会话的作用：1、运行图的结构 2、分配资源运算 3、掌握资源</p><p>会话需要进行资源释放，需要run后进行close。否则可以使用with作为上下文管理器</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL6.png" alt></p><p>可以在会话当中指定图去运行</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL7.png" alt></p><p>sess.run(fetches，feed_dict=None,graph=None)启动整个图。</p><p>用来运行op和计算tensor</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL9.png" alt></p><p>feed_dict常与placeholder(占位符)一起使用</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190809123839.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL8.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL10.png" alt></p><p>变量：tensorflow中的变量也是一种op，是一种特殊的张量能够进行存储持久化，它的值就是张量，默认被训练。其中有个trainable参数默认为True，如果改为False，变量将不再变化。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL11.png" alt></p><h2 id="tf-reduce-mean"><a href="#tf-reduce-mean" class="headerlink" title="tf.reduce_mean()"></a>tf.reduce_mean()</h2><p>函数用于计算张量tensor沿着指定的数轴（tensor的某一维度）上的的平均值，主要用作降维或者计算tensor（图像）的平均值。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL12.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL13.png" alt></p><p>如果想设置为原来向量的维度，keep_dims=True。</p><h2 id="图的可视化（tensorboard）"><a href="#图的可视化（tensorboard）" class="headerlink" title="图的可视化（tensorboard）"></a>图的可视化（tensorboard）</h2><p>首先通过pip安装，而后在会话中进行写入事件。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL14.png" alt></p><p>最后在命令行启动</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL15.png" alt></p><p>双引号中间填绝对路径，注意不要出现中文和空格。</p><h2 id="变量作用域："><a href="#变量作用域：" class="headerlink" title="变量作用域："></a>变量作用域：</h2><p>让模型更直观的显示。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL16.png" alt></p><h2 id="深度学习中的线性回归："><a href="#深度学习中的线性回归：" class="headerlink" title="深度学习中的线性回归："></a>深度学习中的线性回归：</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL17.png" alt></p>]]></content>
     
@@ -573,43 +598,12 @@
     
     </summary>
     
-      <category term="python" scheme="http://yoursite.com/categories/python/"/>
+      <category term="深度学习" scheme="http://yoursite.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
-      <category term="深度学习" scheme="http://yoursite.com/categories/python/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="深度学习（1）" scheme="http://yoursite.com/categories/python/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%EF%BC%881%EF%BC%89/"/>
+      <category term="深度学习（1）" scheme="http://yoursite.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%EF%BC%881%EF%BC%89/"/>
     
     
       <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>机器学习（2）</title>
-    <link href="http://yoursite.com/2019/08/09/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%EF%BC%882%EF%BC%89/"/>
-    <id>http://yoursite.com/2019/08/09/机器学习（2）/</id>
-    <published>2019-08-09T03:48:50.000Z</published>
-    <updated>2019-08-09T04:07:48.826Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="模型的保存和加载"><a href="#模型的保存和加载" class="headerlink" title="模型的保存和加载"></a>模型的保存和加载</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML40.png" alt></p><p>joblib.dump():保存模型，第一个参数是估计器，第二个参数是保存模型的目录。模型的文件格式是pkl。</p><p>joblib.load()：读取模型。参数是模型的目录</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML56.png" alt></p><h2 id="线性回归"><a href="#线性回归" class="headerlink" title="线性回归"></a>线性回归</h2><p>线性回归通过一个或多个自变量和因变量之间进行建模的回归分析，其中可以为一个或多个自变量之间的线性组合</p><p>公式:h(w)=w0+w1x+w2x2+…</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML42.png" alt></p><p>正规方程和梯度下降的性能评估：均方误差</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML43.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML45.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML44.png" alt></p><p>过拟合：一个假设在训练数据上能够获得比其他假设更好的拟合，但是在训练数据外的数据集上却不能很好地拟合数据，此时认为这个假设出现了过拟合的现象。(模型过于复杂)</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML46.png" alt></p><p>解决方法：正则化。用岭回归实现</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML47.png" alt></p><p>欠拟合：一个假设在训练数据上不能获得更好的拟合，但是在训练数据外的数据集上也不能很好地拟合数据。此时认为这个假设出现了欠拟合的现象。(模型过于简单) 解决办法是添加数据的特征数量。</p><h2 id="分类算法-逻辑回归"><a href="#分类算法-逻辑回归" class="headerlink" title="分类算法-逻辑回归"></a>分类算法-逻辑回归</h2><p>解决二分类问题</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML48.png" alt></p><p>penalty是正则化的方式是l2，C是正则化力度</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML49.png" alt></p><h2 id="k—means"><a href="#k—means" class="headerlink" title="k—means"></a>k—means</h2><p>k代表数据划分为几个类别</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML50.png" alt></p><p>聚类评估标准：轮廓系数，范围在[-1,1]越接近1，效果越好</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML51.png" alt></p><h2 id="精确率和召回率"><a href="#精确率和召回率" class="headerlink" title="精确率和召回率"></a>精确率和召回率</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML52.png" alt></p><p>分类模型评估API：F1-score,反应了模型的稳健性</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML53.png" alt></p><p>模型选择和调优：1、交叉验证 2、网格搜索</p><p>交叉验证为了让被评估的模型更加准确可信</p><p>网格搜索是用来调参数的。通常情况下，有很多参数是需要手动指定的（如k-近邻算法的k）但是手动过于繁杂。所以需要对模型预设几种超参数组合，每组超参数都采用交叉验证来进行评估。</p><p>sklearn.model_Selection.GridSearchCV</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML54.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML55.png" alt></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;模型的保存和加载&quot;&gt;&lt;a href=&quot;#模型的保存和加载&quot; class=&quot;headerlink&quot; title=&quot;模型的保存和加载&quot;&gt;&lt;/a&gt;模型的保存和加载&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Br
-      
-    
-    </summary>
-    
-      <category term="python" scheme="http://yoursite.com/categories/python/"/>
-    
-      <category term="机器学习" scheme="http://yoursite.com/categories/python/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="机器学习（2）" scheme="http://yoursite.com/categories/python/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%EF%BC%882%EF%BC%89/"/>
-    
-    
-      <category term="机器学习" scheme="http://yoursite.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
