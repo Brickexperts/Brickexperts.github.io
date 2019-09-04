@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-09-03T14:01:05.002Z</updated>
+  <updated>2019-09-04T14:30:34.203Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>数据库概述</title>
+    <link href="http://yoursite.com/2019/09/04/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%BF%B0/"/>
+    <id>http://yoursite.com/2019/09/04/数据库概述/</id>
+    <published>2019-09-04T12:02:01.000Z</published>
+    <updated>2019-09-04T14:30:34.203Z</updated>
+    
+    <content type="html"><![CDATA[<p>​    大三老狗已正式上线，这学期学了新的课程。其中一门就是数据库，总结一下所学的内容。</p><p>数据与信息的联系：数据是信息的符号表示或载体。信息是数据的内涵，是对数据的语义解释。</p><p>数据库数据具有永久存储、有组织、可共享三个基本特点。</p><p>数据库系统(DBS)由计算机硬件、数据库、数据库管理系统、应用软件和数据库管理系统组成。</p><p>数据库设计时面向数据模型对象、数据库系统的数据冗余度小、数据共享度高、数据库系统的数据和程序之间具有较高的独立性、数据库中数据的最小存取单位是数据项、数据库系统通过DBMS进行数据安全性、完整性、并发控制和数据恢复控制。</p><p>数据库数据物理独立性高是指当数据的物理结构（存储结构）发生变化时，应用程序不需要修改也可以正常工作</p><p>数据库数据逻辑独立性高是指当数据库系统的数据全局逻辑结构改变时，它们对应的应用程序不需要改变仍可以正常运行</p><p>DBMS的功能结构</p><p>​    数据定义功能：能够提供数据定义语言(DDL)和相应的建库机制。用户利用DDL可以方便建立数据库。</p><p>​    数据操纵功能：实现数据的插入、修改、删除、查询、统计等数据存取操作的功能称为数据操纵功能。数据库管理系统通过提供数据操纵语言(DML)实现其数据操纵功能。</p><p>​    运行管理功能：包括并发控制、数据的存取控制、数据完整性条件的检查和执行、数据库内部的维护等</p><p>​    建立和维护功能：指数据的载入、转储、重组织功能及数据库的恢复功能，指数据库结构的修改、变更及扩充功能。</p><p>从数据库管理系统的角度查看，数据库系统通常采用外模式、模式、内模式三级模式结构。从数据库最终用户的角度看，数据库系统的就够分为单用户结构、主从结构、分布式结构、客户/服务器结构。</p><p>外模式：也称为子模式或用户模式。它是数据库用户看见和使用的、对局部数据的逻辑结构和特征的描述，是与某一应用有关的数据的逻辑表示。</p><p>模式：模式是数据库中数据的逻辑结构和特征的描述。它仅仅涉及到<strong>型</strong>的描述，不涉及到具体的值。模式的具体值被称为模式的一个实例。同一模式可以有很多实例。模式是相对稳定的，实例是相对变动的。模式反映的是数据的结构及其关系，而实例反映的是数据某一时刻的状态。</p><p>内模式：也称存储模式，它是对数据的物理结构和存储结构的描述，是数据在数据库内部的表示方式。</p><p>为了能够在内部实现这三个抽象层次的联系和转换，数据库系统在这三级模式之间提供了两层映像：外模式/概念模式映像、概念模式/内模式映像。这两层映像保证了数据库系统中的数据能够具有较高的逻辑独立性和物理独立性。</p><p>外模式/模式映像保证了数据与程序间的逻辑独立性，模式/内模式映像保证了数据的物理独立性。</p><p>逻辑独立性：当数据库的整体逻辑结构发生变化时，通过调整外模式和模式之间的映像，使得外模式中的局部数据及其结构不变，程序不在修改。</p><p>物理独立性：当数据库的存储结构发生变化时，通过调整模式和内模式之间的映像，使得整体模式不变，当然外模式及应用程序不用改变。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;​    大三老狗已正式上线，这学期学了新的课程。其中一门就是数据库，总结一下所学的内容。&lt;/p&gt;
+&lt;p&gt;数据与信息的联系：数据是信息的符号表示或载体。信息是数据的内涵，是对数据的语义解释。&lt;/p&gt;
+&lt;p&gt;数据库数据具有永久存储、有组织、可共享三个基本特点。&lt;/p&gt;
+&lt;p&gt;
+      
+    
+    </summary>
+    
+      <category term="数据库" scheme="http://yoursite.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+      <category term="数据库概述" scheme="http://yoursite.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%BF%B0/"/>
+    
+    
+      <category term="数据库" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+  </entry>
   
   <entry>
     <title>激活函数以及作用</title>
@@ -50,12 +80,30 @@
     <link href="http://yoursite.com/2019/09/03/SSD%E5%AE%9E%E6%88%98-tensorflow%E5%AE%9E%E7%8E%B0%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
     <id>http://yoursite.com/2019/09/03/SSD实战-tensorflow实现目标检测/</id>
     <published>2019-09-03T11:35:07.000Z</published>
-    <updated>2019-09-03T11:35:07.804Z</updated>
+    <updated>2019-09-03T14:05:37.345Z</updated>
+    
+    <content type="html"><![CDATA[<p>​    因为caffe的环境实在是难搭，所以将实战的框架改为tensorflow</p>]]></content>
     
     <summary type="html">
     
+      
+      
+        &lt;p&gt;​    因为caffe的环境实在是难搭，所以将实战的框架改为tensorflow&lt;/p&gt;
+
+      
+    
     </summary>
     
+      <category term="目标检测" scheme="http://yoursite.com/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
+    
+      <category term="one-stage" scheme="http://yoursite.com/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/one-stage/"/>
+    
+      <category term="SSD" scheme="http://yoursite.com/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/one-stage/SSD/"/>
+    
+      <category term="SSD实战" scheme="http://yoursite.com/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/one-stage/SSD/SSD%E5%AE%9E%E6%88%98/"/>
+    
+    
+      <category term="SSD实战" scheme="http://yoursite.com/tags/SSD%E5%AE%9E%E6%88%98/"/>
     
   </entry>
   
@@ -160,7 +208,7 @@
     <link href="http://yoursite.com/2019/08/21/SSD%E7%B3%BB%E5%88%97%E7%AE%97%E6%B3%95/"/>
     <id>http://yoursite.com/2019/08/21/SSD系列算法/</id>
     <published>2019-08-21T01:05:48.000Z</published>
-    <updated>2019-09-03T12:55:14.259Z</updated>
+    <updated>2019-09-04T11:54:49.116Z</updated>
     
     <content type="html"><![CDATA[<h2 id="主干网络介绍"><a href="#主干网络介绍" class="headerlink" title="主干网络介绍"></a>主干网络介绍</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%8720.png" alt></p><p>主干网络原始作者采用的VGG16，我们也可以将其他神经网络作为主干网络。例如：ResNet、MobileNets等</p><p>输入300<em>300的image，将VGG16网络FC6、FC7换成conv6和conv7，同时将池化层变为stride=1，pool_size=3\</em>3，这样做的目的是为了不减少feature map  size，为了配合这种变化，conv6会使用扩张率为6的带孔卷积。</p><p>​    <strong>带孔卷积</strong>：就是不增加参数数量和model复杂度的情况下扩大卷积的感受域，用dialation_rate设置扩张率。类似于形态学操作中的膨胀。具体看<a href="[https://brickexperts.github.io/2019/08/22/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E5%B8%B8%E7%94%A8%E5%90%8D%E8%AF%8D/#more](https://brickexperts.github.io/2019/08/22/目标检测常用名词/#more)">目标检测常用名词</a></p><p>接着然后移除dropout层和fc8层，并新增conv7，conv8，conv9，conv10，conv11，在检测数据集上做finetuing。其中VGG16中的Conv4_3层将作为用于检测的第一个特征图。conv4_3层特征图大小是38×38，但是该层比较靠前，其norm较大，所以在其后面增加了一个L2 Normalization层（参见ParseNet），以保证和后面的检测层差异不是很大，这个和Batch Normalization层不太一样，其仅仅是对每个像素点在channle维度做归一化，而Batch Normalization层是在[batch_size, width, height]三个维度上做归一化。归一化后一般设置一个可训练的放缩变量gamma。</p><h2 id="多尺度feature-map预测"><a href="#多尺度feature-map预测" class="headerlink" title="多尺度feature map预测"></a>多尺度feature map预测</h2><p>多尺度feature map预测，也就是在预测的时候，在接下来预测的时候，针对接下来六个不同的尺寸进行预测。如下图的六条连线，分别是38*38、19*19、10*10、5*5、3*3、1*1。将这六个不同尺度的feature map分别作为检测、预测层的输入，最后通过NMS进行筛选和合并。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%8720.png" alt></p><p>对于六种不同尺度的网络，我们通常使用pooling来降采样。对于每一层的feature map，我们输入到相应的预测网络中。而预测网络中，我们会包括Prior box的提取过程。Prior box对应Fast R-CNN中Anchor的概念，也就是说，在Prior box中，feature map上的每一个点都作为一个cell（相当于Anchor）。以这个cell为中心，按照等比的放缩，找到它在原始图片的位置。接着以这个点为中心，提取不同尺度bounding box。而这些不同尺度的bounding box就是Prior box。然后对于每一个Prior box，我们通过和真值比较，就能够拿到它的label。对于每一个Prior box，我们都会分别预测它的类别概率和坐标（x，y，w，h）。也就是说，对于每一个cell，我们会将它对应到不同的Prior box，分别来预测当前这个Prior box所对应当前这个类别的概率分布和坐标。</p><p><strong>对Prior Box的具体定义：</strong></p><p>这里我们假设Prior Box的输入是m*n维的feature map。</p><p>如果每一个点都作为cell，那就会有m<em>n个cell。接着每个cell上生成固定尺寸和不同长宽比例的box。每个cell对应k个bounging box，每个bounding box预测c个类别分数和4个偏移坐标。其中c个类别分数实际上是当前bounding box所对应的不同类别的概率分布。如果输入大小为m\</em>n，那就会输出(c+4)*k*m*n。其中尺寸(scale)和比例(ratio)是超参数。</p><p>接下来我们看看Prior box是怎么生成的：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%8721.png" alt></p><p>每个feature map上的点定义了六种长宽比的default box。也就是说，最后对于每一个anchor都会获得六个不同尺寸和长宽比的default box。对于38<em>38层，每个feature map上的点，我们都会提取4个default box作为prior box。对于19\</em>19层、10*10层、5*5，提取6个default box也就是全部都是prior box。而3*3、1*1提取4个default作为prior box。所以最后得到8732个prior box(38*38*4+19*19*6+10*10*6+5*5*6+3*3*4+1*1*4)。<strong>prior box就是选择的default box</strong>。尺寸和比例都是可以通过SSD的配置文件进行配置，后面实战详解。</p><p>对default box进行筛选成为prior box：每一个feature map cell不是k个default box都取，prior box与GT box(<a href="https://brickexperts.github.io/" target="_blank" rel="noopener">Ground Truth box</a>)做匹配，IOU&gt;阈值为正样本。IOU&lt;阈值 为负样本。介于正样本和负样本中间阈值的default box去掉。</p><h2 id="SSD系列算法优化及扩展"><a href="#SSD系列算法优化及扩展" class="headerlink" title="SSD系列算法优化及扩展"></a>SSD系列算法优化及扩展</h2><p>SSD算法对小目标不够鲁棒，原因最主要是浅层feature map的表征能力不够强。</p><p>DSSD：</p><p>DSSD相当原来的SSD模型主要作了两大更新。一是替换掉VGG，而改用了Resnet-101作为特征提取网络并在对不同尺度feature maps特征进行default boxes检测时使用了更新的检测单元；二则在网络的后端使用了多个deconvolution layers以有效地扩展低维度信息的contextual information，从而有效地提高了小尺度目标的检测。</p><p>下图为DSSD模型与SSD模型的整体网络结构对比：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SSD4.png" alt></p><p>DSOD：</p><p>SSD+DenseNet=DSOD</p><p>DSOD可以从0开始训练数据，不需要预训练模型。</p><p>FSSD：</p><p>借鉴了FPN的思想，重构了一组pyramid feature map（金字塔特征），使得算法的精度有了明显特征，速度也没有下降很多。具体是把网络中某些feature调整为同一size再contact（连接），得到一个像素层，以此层为base layer来生成pyramid feature map，作者称之为Feature Fusion Module。</p><p>Feature Fusion</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SSD2.png" alt></p><p>对上面图的解读：</p><p>​    (a) image pyramid </p><p>​    (b) rcnn系列，只在最后一层feature预测 </p><p>​    (c) FPN，语义信息一层传递回去，而且有很多相加的计算 </p><p>​    (d) SSD，在各个level的feature上直接预测，每个level之间没联系 </p><p>​    (e) FSSD的做法，把各个level的feature concat，然后从fusion feature上生成feature pyramid</p><p>FSSD网络结构：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SSD3.png" alt></p><p>RSSD：</p><p>rainbow concatenation方式(pooling加deconvolution)融合不同层的特征，再增加不同层之间feature map关系的同时也增加了不同层的feature map个数。这种融合方式不仅解决了传统SSD算法存在的重复框问题，同时一定程度上解决了small object的检测问题。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SSD1.png" alt></p>]]></content>
     
@@ -574,33 +622,6 @@
       <category term="深度学习" scheme="http://yoursite.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
       <category term="深度学习（2）" scheme="http://yoursite.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%EF%BC%882%EF%BC%89/"/>
-    
-    
-      <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>深度学习（1）</title>
-    <link href="http://yoursite.com/2019/08/09/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%EF%BC%881%EF%BC%89/"/>
-    <id>http://yoursite.com/2019/08/09/深度学习（1）/</id>
-    <published>2019-08-09T04:17:39.000Z</published>
-    <updated>2019-09-03T13:38:46.831Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="tensorflow基本知识"><a href="#tensorflow基本知识" class="headerlink" title="tensorflow基本知识"></a>tensorflow基本知识</h2><p>在tensorflow中把数据称为张量（tensor）。</p><p>张量的阶：相当于数组的维度。    </p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL1.png" alt></p><p>张量的属性：graph、op、name、shape</p><p>tensorflow中张量形状分为动态形状和静态形状，其在于有没有生成一个新的张量数据。静态形状的修改不能跨维度修改</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL2.png" alt></p><p>把操作称为节点（OP），所有操作都是一个OP。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL3.png" alt></p><p>整个程序的结构称为图（graph）</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL5.png" alt></p><p>运算程序的图称为会话（Session）。一次只能运行一个图</p><p>会话的作用：1、运行图的结构 2、分配资源运算 3、掌握资源</p><p>会话需要进行资源释放，需要run后进行close。否则可以使用with作为上下文管理器</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL6.png" alt></p><p>可以在会话当中指定图去运行</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL7.png" alt></p><p>sess.run(fetches，feed_dict=None,graph=None)启动整个图。</p><p>用来运行op和计算tensor</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL9.png" alt></p><p>feed_dict常与placeholder(占位符)一起使用</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190809123839.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL8.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL10.png" alt></p><p>变量：tensorflow中的变量也是一种op，是一种特殊的张量能够进行存储持久化，它的值就是张量，默认被训练。其中有个trainable参数默认为True，如果改为False，变量将不再变化。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL11.png" alt></p><h2 id="tf-reduce-mean"><a href="#tf-reduce-mean" class="headerlink" title="tf.reduce_mean()"></a>tf.reduce_mean()</h2><p>函数用于计算张量tensor沿着指定的数轴（tensor的某一维度）上的的平均值，主要用作降维或者计算tensor（图像）的平均值。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL12.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL13.png" alt></p><p>如果想设置为原来向量的维度，keep_dims=True。</p><h2 id="图的可视化（tensorboard）"><a href="#图的可视化（tensorboard）" class="headerlink" title="图的可视化（tensorboard）"></a>图的可视化（tensorboard）</h2><p>首先通过pip安装，而后在会话中进行写入事件。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL14.png" alt></p><p>最后在命令行启动</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL15.png" alt></p><p>双引号中间填绝对路径，注意不要出现中文和空格。</p><h2 id="变量作用域："><a href="#变量作用域：" class="headerlink" title="变量作用域："></a>变量作用域：</h2><p>让模型更直观的显示。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL16.png" alt></p><h2 id="深度学习中的线性回归："><a href="#深度学习中的线性回归：" class="headerlink" title="深度学习中的线性回归："></a>深度学习中的线性回归：</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL17.png" alt></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;tensorflow基本知识&quot;&gt;&lt;a href=&quot;#tensorflow基本知识&quot; class=&quot;headerlink&quot; title=&quot;tensorflow基本知识&quot;&gt;&lt;/a&gt;tensorflow基本知识&lt;/h2&gt;&lt;p&gt;在tensorflow中把数据称为张量（te
-      
-    
-    </summary>
-    
-      <category term="深度学习" scheme="http://yoursite.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="深度学习（1）" scheme="http://yoursite.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%EF%BC%881%EF%BC%89/"/>
     
     
       <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
