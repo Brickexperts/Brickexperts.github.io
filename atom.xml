@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-09-07T14:10:30.951Z</updated>
+  <updated>2019-09-08T08:11:20.855Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>随机森林</title>
+    <link href="http://yoursite.com/2019/09/08/%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/"/>
+    <id>http://yoursite.com/2019/09/08/随机森林/</id>
+    <published>2019-09-08T08:10:06.000Z</published>
+    <updated>2019-09-08T08:11:20.855Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="随机森林："><a href="#随机森林：" class="headerlink" title="随机森林："></a>随机森林：</h2><p>随机森林是一个包含多个决策树的分类器，并且其输出的类别是由个别树输出的类别的众数而定。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML38.png" alt></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;随机森林：&quot;&gt;&lt;a href=&quot;#随机森林：&quot; class=&quot;headerlink&quot; title=&quot;随机森林：&quot;&gt;&lt;/a&gt;随机森林：&lt;/h2&gt;&lt;p&gt;随机森林是一个包含多个决策树的分类器，并且其输出的类别是由个别树输出的类别的众数而定。&lt;/p&gt;
+&lt;p&gt;&lt;img sr
+      
+    
+    </summary>
+    
+      <category term="机器学习" scheme="http://yoursite.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="随机森林" scheme="http://yoursite.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/"/>
+    
+    
+      <category term="机器学习" scheme="http://yoursite.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>数据库的数据模型</title>
@@ -186,16 +214,16 @@
     <link href="http://yoursite.com/2019/09/07/%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/"/>
     <id>http://yoursite.com/2019/09/07/决策树和随机森林/</id>
     <published>2019-09-07T08:05:29.000Z</published>
-    <updated>2019-09-07T08:07:27.409Z</updated>
+    <updated>2019-09-08T08:39:53.867Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="决策树"><a href="#决策树" class="headerlink" title="决策树"></a>决策树</h2><p>信息熵：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML34.png" alt></p><p>信息增益：就是熵和特征条件熵的差</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML35.png" alt></p><p>随机变量的不确定性（熵）越小，信息增益越大，这个特征的表现就越好</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML36.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML37.png" alt></p><p>随机森林：随机森林是一个包含多个决策树的分类器，并且其输出的类别是由个别树输出的类别的众数而定。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML38.png" alt></p>]]></content>
+    <content type="html"><![CDATA[<h2 id="决策树推导"><a href="#决策树推导" class="headerlink" title="决策树推导"></a>决策树推导</h2><p>首先看看下面这组数据集：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML96.png" alt></p><p>得出下面这颗决策树：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML97.png" alt></p><p><strong>关键概念</strong>：</p><p>​    信息熵公式：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML34.png" alt></p><p>​    信息增益公式：就是熵和特征条件熵的差</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML35.png" alt></p><p>​    随机变量的不确定性（熵）越小，信息增益越大，这个特征的表现就越好</p><p>决策树算法的需要解决的核心问题：</p><p>​    1、如何从数据表中找出最佳节点和最佳分支？</p><p>​    2、如何让决策树停止生长，防止过拟合？</p><p>决策树的基本过程：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML101.png" alt></p><p>直到没有更多的特征可用，或整体的不纯度指标已经最优，决策树就会停止生长。</p><h2 id="决策树五大模块"><a href="#决策树五大模块" class="headerlink" title="决策树五大模块"></a>决策树五大模块</h2><p>sklearn中决策树的类都在”tree“模块下，这个模块包含了五个类：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML98.png" alt></p><h2 id="分类树参数解读"><a href="#分类树参数解读" class="headerlink" title="分类树参数解读"></a>分类树参数解读</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML102.png" alt></p><h4 id="criterion"><a href="#criterion" class="headerlink" title="criterion"></a>criterion</h4><p>为了要将表格转化为一棵树，决策树需要找出最佳节点和最佳的分枝方法，对分类树来说，衡量这个“最佳”的指标<br>叫做“不纯度”。通常来说，不纯度越低，决策树对训练集的拟合越好。现在使用的决策树算法在分枝方法上的核心<br>大多是围绕在对某个不纯度相关指标的最优化上。不纯度基于节点来计算，树中的每个节点都会有一个不纯度，并且子节点的不纯度一定是低于父节点的，也就是说，在同一棵决策树上，叶子节点的不纯度一定是最低的。 </p><p>criterion这个参数正是用来决定不纯度的计算方法的：</p><p>​    1、输入”entropy“，使用信息熵</p><p>​    2、输入”gini“，使用基尼系数</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML100.png" alt></p><p>其中t代表给定的节点，i代表标签的任意分类，$p(i|t)$代表标签分类i在节点t上所占的比例。注意，当使用信息熵<br>时，sklearn实际计算的是基于信息熵的信息增益(Information Gain)，即父节点的信息熵和子节点的信息熵之差。信息熵对不纯度更加敏感。</p><h4 id="random-state-amp-splitter"><a href="#random-state-amp-splitter" class="headerlink" title="random_state&amp;splitter"></a>random_state&amp;splitter</h4><p>random_state用来设置分枝中的随机模式的参数，默认None，在高维度时随机性会表现更明显，低维度的数据<br>（比如鸢尾花数据集），随机性几乎不会显现。输入任意整数，会一直长出同一棵树，让模型稳定下来。<br>splitter也是用来控制决策树中的随机选项的，有两种输入值，输入”best”，决策树在分枝时虽然随机，但是还是会<br>优先选择更重要的特征进行分枝（重要性可以通过属性feature_importances_查看），输入“random”，决策树在<br>分枝时会更加随机，树会因为含有更多的不必要信息而更深更大，并因这些不必要信息而降低对训练集的拟合。这<br>也是防止过拟合的一种方式。当你预测到你的模型会过拟合，用这两个参数来帮助你降低树建成之后过拟合的可能<br>性。当然，树一旦建成，我们依然是使用剪枝参数来防止过拟合 </p><h4 id="max-depth"><a href="#max-depth" class="headerlink" title="max_depth"></a>max_depth</h4><p>限制树的最大深度，超过设定深度的树枝全部剪掉<br>这是用得最广泛的剪枝参数，在高维度低样本量时非常有效。决策树多生长一层，对样本量的需求会增加一倍，所<br>以限制树深度能够有效地限制过拟合。在集成算法中也非常实用。实际使用时，建议从=3开始尝试，看看拟合的效<br>果再决定是否增加设定深度。</p><h4 id="min-samples-leaf-amp-min-samples-split"><a href="#min-samples-leaf-amp-min-samples-split" class="headerlink" title="min_samples_leaf&amp;min_samples_split"></a>min_samples_leaf&amp;min_samples_split</h4><p>min_samples_leaf限定，一个节点在分枝后的每个子节点都必须包含至少min_samples_leaf个训练样本，否则分枝就不会发生，或者，分枝会朝着满足每个子节点都包含min_samples_leaf个样本的方向去发生。一般搭配max_depth使用，在回归树中有神奇的效果，可以让模型变得更加平滑。这个参数的数量设置得太小会引起过拟合，设置得太大就会阻止模型学习数据。一般来说，建议从=5开始使用。如果叶节点中含有的样本量变化很大，建议输入浮点数作为样本量的百分比来使用。同时，这个参数可以保证每个叶子的最小尺寸，可以在回归问题中避免低方差，过拟合的叶子节点出现。对于类别不多的分类问题，=1通常就是最佳选择。<br>min_samples_split限定，一个节点必须要包含至少min_samples_split个训练样本，这个节点才允许被分枝，否则<br>分枝就不会发生。 </p><h4 id="max-features-amp-min-impurity-decrease"><a href="#max-features-amp-min-impurity-decrease" class="headerlink" title="max_features&amp;min_impurity_decrease"></a>max_features&amp;min_impurity_decrease</h4><p>max_features限制分枝时考虑的特征个数，超过限制个数的特征都会被舍弃。和max_depth异曲同工，max_features是用来限制高维度数据的过拟合的剪枝参数，但其方法比较暴力，是直接限制可以使用的特征数量而强行使决策树停下的参数，在不知道决策树中的各个特征的重要性的情况下，强行设定这个参数可能会导致模型学习不足。如果希望通过降维的方式防止过拟合，建议使用PCA，ICA或者特征选择模块中的降维算法。<br>min_impurity_decrease限制信息增益的大小，信息增益小于设定数值的分枝不会发生。这是在0.19版本种更新的<br>功能，在0.19版本之前时使用min_impurity_split。 </p><h4 id="class-weight-amp-min-weight-fraction-leaf"><a href="#class-weight-amp-min-weight-fraction-leaf" class="headerlink" title="class_weight&amp;min_weight_fraction_leaf"></a>class_weight&amp;min_weight_fraction_leaf</h4><p>完成样本标签平衡的参数。样本不平衡是指在一组数据集中，标签的一类天生占有很大的比例。比如说，在银行要判断“一个办了信用卡的人是否会违约”，就是是vs否（1%：99%）的比例。这种分类状况下，即便模型什么也不做，全把结果预测成“否”，正确率也能有99%。因此我们要使用class_weight参数对样本标签进行一定的均衡，给少量的标签更多的权重，让模型更偏向少数类，向捕获少数类的方向建模。该参数默认None，此模式表示自动给与数据集中的所有标签相同的权重。有了权重之后，样本量就不再是单纯地记录数目，而是受输入的权重影响了，因此这时候剪枝，就需要搭配min_weight_fraction_leaf这个基于权重的剪枝参数来使用。另请注意，基于权重的剪枝参数（例如min_weight_fraction_leaf）将比不知道样本权重的标准（比如min_samples_leaf）更少偏向主导类。如果样本是加权的，则使用基于权重的预修剪标准来更容易优化树结构，这确保叶节点至少包含样本权重的总和的一小部分。 </p><p>coding：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML37.png" alt></p><h2 id="决策树的本地保存：Graphviz"><a href="#决策树的本地保存：Graphviz" class="headerlink" title="决策树的本地保存：Graphviz"></a>决策树的本地保存：Graphviz</h2><p>windows版本下载地址：<a href="https://graphviz.gitlab.io/_pages/Download/Download_windows.html" target="_blank" rel="noopener">https://graphviz.gitlab.io/_pages/Download/Download_windows.html</a></p><p>双击msi文件，一直next就完事了。</p><p>找到bin文件夹</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML103.png" alt></p><p>在下面这张图片的位置加入环境变量</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML106.png" alt></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML105.png" alt></p><p>用dot -version检查是否安装成功</p><p>将dot文件转为png文件的命令：dot -Tpng *.dot -o *.png</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML107.png" alt></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.feature_extraction <span class="keyword">import</span> DictVectorizer</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">from</span> sklearn.tree <span class="keyword">import</span> DecisionTreeClassifier,export_graphviz</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">titan=pd.read_csv(<span class="string">"http://biostat.mc.vanderbilt.edu/wiki/pub/Main/DataSets/titanic.txt"</span>)</span><br><span class="line">x=titan[[<span class="string">"pclass"</span>,<span class="string">"age"</span>,<span class="string">"sex"</span>]]</span><br><span class="line">y=titan[<span class="string">"survived"</span>]</span><br><span class="line">x[<span class="string">"age"</span>].fillna(x[<span class="string">"age"</span>].mean(),inplace=<span class="literal">True</span>)</span><br><span class="line">x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=<span class="number">0.25</span>)</span><br><span class="line">dict=DictVectorizer(sparse=<span class="literal">False</span>)</span><br><span class="line">x_train=dict.fit_transform(x_train.to_dict(orient=<span class="string">"records"</span>))</span><br><span class="line">x_test=dict.transform(x_test.to_dict(orient=<span class="string">"records"</span>))</span><br><span class="line">dec=DecisionTreeClassifier()</span><br><span class="line">dec.fit(x_train,y_train)</span><br><span class="line">print(<span class="string">"准确率为："</span>,dec.score(x_test,y_test))</span><br><span class="line"><span class="comment">#图形化</span></span><br><span class="line">export_graphviz(dec,out_file=<span class="string">"./tree.dot"</span>,feature_names=[<span class="string">"age"</span>,<span class="string">"pclass=1st"</span>,<span class="string">"pclass=2nd"</span>,<span class="string">"pclass=3rd"</span>,<span class="string">"female"</span>,<span class="string">"male"</span>])</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h2 id=&quot;决策树&quot;&gt;&lt;a href=&quot;#决策树&quot; class=&quot;headerlink&quot; title=&quot;决策树&quot;&gt;&lt;/a&gt;决策树&lt;/h2&gt;&lt;p&gt;信息熵：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Brickexper
+        &lt;h2 id=&quot;决策树推导&quot;&gt;&lt;a href=&quot;#决策树推导&quot; class=&quot;headerlink&quot; title=&quot;决策树推导&quot;&gt;&lt;/a&gt;决策树推导&lt;/h2&gt;&lt;p&gt;首先看看下面这组数据集：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://raw.githubuserconten
       
     
     </summary>
@@ -572,37 +600,6 @@
     
     
       <category term="Two-stage" scheme="http://yoursite.com/tags/Two-stage/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>NMS算法</title>
-    <link href="http://yoursite.com/2019/08/18/NMS%E7%AE%97%E6%B3%95/"/>
-    <id>http://yoursite.com/2019/08/18/NMS算法/</id>
-    <published>2019-08-18T08:33:12.000Z</published>
-    <updated>2019-08-18T08:48:18.449Z</updated>
-    
-    <content type="html"><![CDATA[<p>​    NMS全称是非极大值抑制算法。</p><p>目的：为了消除多余的框，找到最佳的物体检测的位置。</p><p>思想:选取那些邻域里分数最高的窗口，同时抑制那些分数低的窗口。</p><p>其实NMS的处理不太合理。所以有人提出了Soft-NMS。</p><p>NMS和Soft-NMS的区别：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%8713.png" alt></p><p>相邻区域内的检测框的分数进行调整而非彻底抑制，从而提高了高检索率情况下的准确率。再低检索率时仍能对物体检测性能有明显提升。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;​    NMS全称是非极大值抑制算法。&lt;/p&gt;
-&lt;p&gt;目的：为了消除多余的框，找到最佳的物体检测的位置。&lt;/p&gt;
-&lt;p&gt;思想:选取那些邻域里分数最高的窗口，同时抑制那些分数低的窗口。&lt;/p&gt;
-&lt;p&gt;其实NMS的处理不太合理。所以有人提出了Soft-NMS。&lt;/p&gt;
-&lt;p&gt;
-      
-    
-    </summary>
-    
-      <category term="目标检测" scheme="http://yoursite.com/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
-    
-      <category term="NMS算法" scheme="http://yoursite.com/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/NMS%E7%AE%97%E6%B3%95/"/>
-    
-    
-      <category term="目标检测算法" scheme="http://yoursite.com/tags/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
