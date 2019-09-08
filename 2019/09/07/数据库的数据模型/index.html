@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="generator" content="Hexo 3.9.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.3.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.3.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    search: {
+      root: '/',
+      path: 'search.xml'
+    },
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    }
+  };
+</script>
+
+  <meta name="description" content="建立数据库系统离不开数据模型，本文介绍了常用的数据模型。重点介绍了关系数据模型的数据结构、数据操作、数据约束。 由于计算机不可能直接处理现实中的具体事物，所以人们必须事先把具体事物转换成计算机能够处理的数据。在数据库中用数据模型这个工具来抽象、表示和处理现实世界中的数据和信息。通俗的说，数据模型就是对现实世界的模拟、描述、表示。数据模型应该满足以下三个要求： 1、比较真实地描述现实世界 2、易为用">
+<meta name="keywords" content="数据库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据库的数据模型">
+<meta property="og:url" content="http://yoursite.com/2019/09/07/数据库的数据模型/index.html">
+<meta property="og:site_name" content="DY的个人博客">
+<meta property="og:description" content="建立数据库系统离不开数据模型，本文介绍了常用的数据模型。重点介绍了关系数据模型的数据结构、数据操作、数据约束。 由于计算机不可能直接处理现实中的具体事物，所以人们必须事先把具体事物转换成计算机能够处理的数据。在数据库中用数据模型这个工具来抽象、表示和处理现实世界中的数据和信息。通俗的说，数据模型就是对现实世界的模拟、描述、表示。数据模型应该满足以下三个要求： 1、比较真实地描述现实世界 2、易为用">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-07T14:10:30.951Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据库的数据模型">
+<meta name="twitter:description" content="建立数据库系统离不开数据模型，本文介绍了常用的数据模型。重点介绍了关系数据模型的数据结构、数据操作、数据约束。 由于计算机不可能直接处理现实中的具体事物，所以人们必须事先把具体事物转换成计算机能够处理的数据。在数据库中用数据模型这个工具来抽象、表示和处理现实世界中的数据和信息。通俗的说，数据模型就是对现实世界的模拟、描述、表示。数据模型应该满足以下三个要求： 1、比较真实地描述现实世界 2、易为用">
+  <link rel="alternate" href="/atom.xml" title="DY的个人博客" type="application/atom+xml">
+  <link rel="canonical" href="http://yoursite.com/2019/09/07/数据库的数据模型/">
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>数据库的数据模型 | DY的个人博客</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">DY的个人博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+    <ul id="menu" class="menu">
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-search">
+          <a href="javascript:;" class="popup-trigger">
+          
+            <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+    </div>
+</nav>
+
+</div>
+    </header>
+
+    
+
+  <a href="https://github.com/Brickexperts" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/07/数据库的数据模型/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="湛蓝星空">
+      <meta itemprop="description" content="这个人贼菜">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DY的个人博客">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">数据库的数据模型
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-07 19:17:44 / 修改时间：22:10:30" itemprop="dateCreated datePublished" datetime="2019-09-07T19:17:44+08:00">2019-09-07</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据库/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据库/数据模型/" itemprop="url" rel="index"><span itemprop="name">数据模型</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          <br>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>建立数据库系统离不开数据模型，本文介绍了常用的数据模型。重点介绍了关系数据模型的数据结构、数据操作、数据约束。</p>
+<p>由于计算机不可能直接处理现实中的具体事物，所以人们必须事先把具体事物转换成计算机能够处理的数据。在数据库中用数据模型这个工具来抽象、表示和处理现实世界中的数据和信息。通俗的说，数据模型就是对现实世界的模拟、描述、表示。数据模型应该满足以下三个要求：</p>
+<p>1、比较真实地描述现实世界</p>
+<p>2、易为用户所理解</p>
+<p>3、易于在计算机上实现</p>
+<p><strong>为什么需要数据模型？</strong></p>
+<p>由于数据的定义与操作从应用程序中剥离出来，交由DBMS来统一管理。于是DBMS需要采用某种数据结构来定义、存储所要管理的数据。这种狭义的数据结构类似于DBMS的数据模型。</p>
+<p><strong>数据模型含有哪些内容？</strong></p>
+<p>数据模型含有数据的静态结构、数据的动态操作(增删改查)、数据的完整性约束(描述数据、数据之间的联系、数据语义及完整性限制)。</p>
+<p>​    1、数据结构</p>
+<p>​         用于描述系统的静态特性，数据结构不仅要描述数据本身，还要描述数据之间的联系。数据结构是刻画一个数据模型性质最重要方面</p>
+<p>​    2、数据操作</p>
+<p>​        用于描述系统的动态特性。包括操作及有关的操作规则。数据库的主要操作：增删改查</p>
+<p>​    3、数据的约束条件</p>
+<p>​        是一组完整性规则的集合。完整性规则是数据模型中的数据及其联系所具有的约束规则，用来限定数据库状态以及状态的变化， 以保证数据的正确。</p>
+<p><strong>实体联系数据模型的地位与作用：</strong></p>
+<p>实体联系模型(Entity Relationship Model，ERM)是用得最多且最成熟的概念数据模型。</p>
+<p>数据模型是用来描述数据的一组概念和定义，是描述数据的手段。</p>
+<p>​    概念数据模型：面向用户、面向现实世界。它是按用户的观点对数据和信息建模。与DBMS无关，如E-R模型。</p>
+<p>​    逻辑模型：用户从数据库管理系统看到的数据模型。与DBMS有关，如层次数据模型、网状数据模型、关系数据模型。它是按计算机系统的观点对数据建模</p>
+<p>​    物理模型：是对数据最底层的抽象，描述数据在系统内部的表述方式和存取方法。，在磁盘或磁带上的存储方式和存取方法。</p>
+<p>逻辑模型和物理模型都属于数据模型。概念数据模型只用于数据库设计，数据模型用于DBMS的实现。</p>
+<p>数据模式是对数据结构、联系和约束的描述。<strong>数据模型是描述数据的手段，而数据模式是用给定的数据模型对数据的具体描述。</strong></p>
+<p>信息世界中的基本概念：</p>
+<p>​    (1)  实体(Entity)：客观存在并可相互区别的事物称为实体。可以是具体的人、事、物体或抽象的概念。</p>
+<p>​    (2)  属性(Attribute)：实体所具有的某一个特性称为属性。一个实体可以由若干个属性来刻画</p>
+<p>​    (3)  键(Key)或称为码：唯一标识实体的属性集称为码</p>
+<p>​    (4)  域(Domain)：属性的取值范围称为该属性的域</p>
+<p>​    (5)  实体型(Entity Type)：用实体名及其属性名集合来抽象和刻画同类实体称为实体型</p>
+<p>​    (6)  实体集(Entity Set)：同一类型实体的集合称为实体集</p>
+<p>​    (7)  联系(Relationship)：现实世界中事物内部以及事物之间的联系在信息世界中反映为实体内部的联系和实体之间的联系。实体内部的联系通常是指组成实体的各属性之间的联系实体之间的联系通常是指不同实体集之间的联系。</p>
+<p>概念模型的表示方法：实体-联系方法，该方法用E-R图来描述现实世界的概念模型。</p>
+<p>​          实体型：用矩形表示，矩形框内写明实体名</p>
+<p>​           属性：用椭圆表示，并用无向边将其与相应的实体连接起来。</p>
+<p>​           联系：用菱形表示，菱形框内写明联系名，并用无向边分别与有关实体连接起来，同时在无向边旁标上联系的类型（1：1，1：n或m：n）</p>
+<p>​           键：用下划线表示。</p>
+<p>最常用的数据模型</p>
+<p>​    非关系模型</p>
+<p>​        层次模型：层次数据模型用树形结构表示各类实体以及实体之间的联系。现实世界中许多实体之间的联系就呈现出一种很自然的层次关系。如：行政机构、家庭关系等。层次模型是以记录为结点的有向树。</p>
+<p>​    满足以下两个条件称为层次模型：</p>
+<p>​        (1)  有且仅有一个结点无双亲。这个结点称为“根节点”</p>
+<p>​        (2)  其它节点有且仅有一个双亲，但可以有多个后继</p>
+<p>​        网状模型：用层次模型表示非树形结构很不直接，网状模型可克服这一弊病。网状模型比层次模型更具普遍性。它去掉了层次模型的两个限制，允许结点有多个双亲结点。比层次模型更能直接地描述现实世界。</p>
+<p>​            网状结构特点：</p>
+<p>​                 (1) 允许一个以上的结点无双亲；</p>
+<p>​                 (2)  一个结点可以有多于一个的双亲，也可以有多个后继。两个结点间可有两种或多种联系(复合联系)。可能有回路存在。</p>
+<p>​    关系数据模型：简称关系模型，关系模型中的所谓“关系”是有特定含义的。广义地说，任何数据模型都描述一定事物数据之间的关系。层次模型描述数据之间的从属层次关系，网状模型描述数据之间的多种从属的网状关系。</p>
+<p>​        关系数据模型的数据结构：</p>
+<p>​            关系(Relation)：一个关系对应通常说的一张表</p>
+<p>​            元祖(Tuple)：表中的一行即为一个元祖</p>
+<p>​            属性(Attribute)：表中的一列即为一个属性。给每一个属性起一个名称即属性名。</p>
+<p>​            主码(Key)：表中的某个属性组，它可以唯一确定一个元祖。</p>
+<p>​            域(Domain)：属性的取值范围</p>
+<p>​            分量：元祖中的一个属性值</p>
+<p>​            关系模式：对关系的一个属性值。关系名(属性1，属性2，……，属性n)</p>
+<p>​    面向对象模型：</p>
+<p>​    对象关系模型</p>
+
+    </div>
+
+    
+    
+    
+<div>
+	
+		<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">----本文结束，感谢您的阅读。如有错，请指正。----</div>
+    
+</div>
+
+	
+</div>
+    
+      <div>
+        <div id="reward-container">
+  <div>谢谢老板。你的支持将鼓励我继续创作！</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.jpg" alt="湛蓝星空 微信支付">
+        <p>微信支付</p>
+      </div>
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/alipay.jpg" alt="湛蓝星空 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+      </div>
+
+    <footer class="post-footer">
+          
+        
+        <div class="post-tags">
+            <a href="/tags/数据库/" rel="tag"># 数据库</a>
+          
+        </div>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+              <a href="/2019/09/07/模型的评判和调优/" rel="next" title="模型的评判和调优">
+                <i class="fa fa-chevron-left"></i> 模型的评判和调优
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+          </div>
+        </div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.jpg"
+      alt="湛蓝星空">
+  <p class="site-author-name" itemprop="name">湛蓝星空</p>
+  <div class="site-description motion-element" itemprop="description">这个人贼菜</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">62</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">83</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">36</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/Brickexperts" title="GitHub &rarr; https://github.com/Brickexperts" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+  </div>
+
+
+
+        </div>
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">湛蓝星空</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+
+    
+
+  </div>
+
+  
+    
+    
+  
+  <script color='0,0,0' opacity='0.5' zIndex='-1' count='150' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  <script src="/js/utils.js?v=7.3.0"></script>
+  <script src="/js/motion.js?v=7.3.0"></script>
+
+  
+  <script src="/js/affix.js?v=7.3.0"></script>
+  <script src="/js/schemes/pisces.js?v=7.3.0"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.3.0"></script>
+<script src="/js/post-details.js?v=7.3.0"></script>
+
+
+
+  <script src="/js/next-boot.js?v=7.3.0"></script>
+
+  
+
+  
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.3.0"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

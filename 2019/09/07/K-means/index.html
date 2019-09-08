@@ -57,37 +57,23 @@
   };
 </script>
 
-  <meta name="description" content="模型的保存和加载 joblib.dump():保存模型，第一个参数是估计器，第二个参数是保存模型的目录。模型的文件格式是pkl。 joblib.load()：读取模型。参数是模型的目录  线性回归线性回归通过一个或多个自变量和因变量之间进行建模的回归分析，其中可以为一个或多个自变量之间的线性组合 公式:h(w)=w0+w1x+w2x2+…  正规方程和梯度下降的性能评估：均方误差    过拟合：一">
+  <meta name="description" content="k—meansk代表数据划分为几个类别  聚类评估标准：轮廓系数，范围在[-1,1]越接近1，效果越好">
 <meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="机器学习（2）">
-<meta property="og:url" content="http://yoursite.com/2019/08/09/机器学习（2）/index.html">
+<meta property="og:title" content="K-means">
+<meta property="og:url" content="http://yoursite.com/2019/09/07/K-means/index.html">
 <meta property="og:site_name" content="DY的个人博客">
-<meta property="og:description" content="模型的保存和加载 joblib.dump():保存模型，第一个参数是估计器，第二个参数是保存模型的目录。模型的文件格式是pkl。 joblib.load()：读取模型。参数是模型的目录  线性回归线性回归通过一个或多个自变量和因变量之间进行建模的回归分析，其中可以为一个或多个自变量之间的线性组合 公式:h(w)=w0+w1x+w2x2+…  正规方程和梯度下降的性能评估：均方误差    过拟合：一">
+<meta property="og:description" content="k—meansk代表数据划分为几个类别  聚类评估标准：轮廓系数，范围在[-1,1]越接近1，效果越好">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML40.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML56.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML42.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML43.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML45.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML44.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML46.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML47.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML48.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML49.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML50.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML51.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML52.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML53.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML54.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML55.png">
-<meta property="og:updated_time" content="2019-09-03T13:39:33.464Z">
+<meta property="og:updated_time" content="2019-09-07T08:16:03.722Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="机器学习（2）">
-<meta name="twitter:description" content="模型的保存和加载 joblib.dump():保存模型，第一个参数是估计器，第二个参数是保存模型的目录。模型的文件格式是pkl。 joblib.load()：读取模型。参数是模型的目录  线性回归线性回归通过一个或多个自变量和因变量之间进行建模的回归分析，其中可以为一个或多个自变量之间的线性组合 公式:h(w)=w0+w1x+w2x2+…  正规方程和梯度下降的性能评估：均方误差    过拟合：一">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML40.png">
+<meta name="twitter:title" content="K-means">
+<meta name="twitter:description" content="k—meansk代表数据划分为几个类别  聚类评估标准：轮廓系数，范围在[-1,1]越接近1，效果越好">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML50.png">
   <link rel="alternate" href="/atom.xml" title="DY的个人博客" type="application/atom+xml">
-  <link rel="canonical" href="http://yoursite.com/2019/08/09/机器学习（2）/">
+  <link rel="canonical" href="http://yoursite.com/2019/09/07/K-means/">
 
 
 <script id="page.configurations">
@@ -96,7 +82,7 @@
   };
 </script>
 
-  <title>机器学习（2） | DY的个人博客</title>
+  <title>K-means | DY的个人博客</title>
   
 
 
@@ -262,7 +248,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/09/机器学习（2）/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/07/K-means/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="湛蓝星空">
@@ -276,7 +262,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">机器学习（2）
+          <h1 class="post-title" itemprop="name headline">K-means
 
               
             
@@ -296,21 +282,11 @@
                 
               
 
-              <time title="创建时间：2019-08-09 11:48:50" itemprop="dateCreated datePublished" datetime="2019-08-09T11:48:50+08:00">2019-08-09</time>
+              <time title="创建时间：2019-09-07 16:09:47 / 修改时间：16:16:03" itemprop="dateCreated datePublished" datetime="2019-09-07T16:09:47+08:00">2019-09-07</time>
             </span>
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-09-03 21:39:33" itemprop="dateModified" datetime="2019-09-03T21:39:33+08:00">2019-09-03</time>
-              </span>
             
           
             <span class="post-meta-item">
@@ -328,7 +304,7 @@
                   ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/机器学习/机器学习（2）/" itemprop="url" rel="index"><span itemprop="name">机器学习（2）</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/机器学习/K-means/" itemprop="url" rel="index"><span itemprop="name">K-means</span></a></span>
 
                 
                 
@@ -347,39 +323,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="模型的保存和加载"><a href="#模型的保存和加载" class="headerlink" title="模型的保存和加载"></a>模型的保存和加载</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML40.png" alt></p>
-<p>joblib.dump():保存模型，第一个参数是估计器，第二个参数是保存模型的目录。模型的文件格式是pkl。</p>
-<p>joblib.load()：读取模型。参数是模型的目录</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML56.png" alt></p>
-<h2 id="线性回归"><a href="#线性回归" class="headerlink" title="线性回归"></a>线性回归</h2><p>线性回归通过一个或多个自变量和因变量之间进行建模的回归分析，其中可以为一个或多个自变量之间的线性组合</p>
-<p>公式:h(w)=w0+w1x+w2x2+…</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML42.png" alt></p>
-<p>正规方程和梯度下降的性能评估：均方误差</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML43.png" alt></p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML45.png" alt></p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML44.png" alt></p>
-<p>过拟合：一个假设在训练数据上能够获得比其他假设更好的拟合，但是在训练数据外的数据集上却不能很好地拟合数据，此时认为这个假设出现了过拟合的现象。(模型过于复杂)</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML46.png" alt></p>
-<p>解决方法：正则化。用岭回归实现</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML47.png" alt></p>
-<p>欠拟合：一个假设在训练数据上不能获得更好的拟合，但是在训练数据外的数据集上也不能很好地拟合数据。此时认为这个假设出现了欠拟合的现象。(模型过于简单) 解决办法是添加数据的特征数量。</p>
-<h2 id="分类算法-逻辑回归"><a href="#分类算法-逻辑回归" class="headerlink" title="分类算法-逻辑回归"></a>分类算法-逻辑回归</h2><p>解决二分类问题</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML48.png" alt></p>
-<p>penalty是正则化的方式是l2，C是正则化力度</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML49.png" alt></p>
-<h2 id="k—means"><a href="#k—means" class="headerlink" title="k—means"></a>k—means</h2><p>k代表数据划分为几个类别</p>
+        <h2 id="k—means"><a href="#k—means" class="headerlink" title="k—means"></a>k—means</h2><p>k代表数据划分为几个类别</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML50.png" alt></p>
 <p>聚类评估标准：轮廓系数，范围在[-1,1]越接近1，效果越好</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML51.png" alt></p>
-<h2 id="精确率和召回率"><a href="#精确率和召回率" class="headerlink" title="精确率和召回率"></a>精确率和召回率</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML52.png" alt></p>
-<p>分类模型评估API：F1-score,反应了模型的稳健性</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML53.png" alt></p>
-<p>模型选择和调优：1、交叉验证 2、网格搜索</p>
-<p>交叉验证为了让被评估的模型更加准确可信</p>
-<p>网格搜索是用来调参数的。通常情况下，有很多参数是需要手动指定的（如k-近邻算法的k）但是手动过于繁杂。所以需要对模型预设几种超参数组合，每组超参数都采用交叉验证来进行评估。</p>
-<p>sklearn.model_Selection.GridSearchCV</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML54.png" alt></p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML55.png" alt></p>
 
     </div>
 
@@ -431,8 +378,8 @@
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2019/08/09/机器学习（1）/" rel="next" title="机器学习（1）">
-                <i class="fa fa-chevron-left"></i> 机器学习（1）
+              <a href="/2019/09/07/逻辑回归/" rel="next" title="逻辑回归">
+                <i class="fa fa-chevron-left"></i> 逻辑回归
               </a>
             
           </div>
@@ -440,8 +387,8 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2019/08/09/深度学习（1）/" rel="prev" title="深度学习（1）">
-                深度学习（1） <i class="fa fa-chevron-right"></i>
+              <a href="/2019/09/07/模型的评判和调优/" rel="prev" title="模型的评判和调优">
+                模型的评判和调优 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -498,7 +445,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-count">62</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -661,7 +608,25 @@
         
           
         
-        <span class="site-state-item-count">74</span>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">83</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
@@ -746,7 +711,9 @@
         
           
         
-        <span class="site-state-item-count">35</span>
+          
+        
+        <span class="site-state-item-count">36</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
@@ -785,7 +752,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#模型的保存和加载"><span class="nav-text">模型的保存和加载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线性回归"><span class="nav-text">线性回归</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分类算法-逻辑回归"><span class="nav-text">分类算法-逻辑回归</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#k—means"><span class="nav-text">k—means</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#精确率和召回率"><span class="nav-text">精确率和召回率</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#k—means"><span class="nav-text">k—means</span></a></li></ol></div>
             
 
           </div>

@@ -86,7 +86,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B21.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B22.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B23.png">
-<meta property="og:updated_time" content="2019-08-06T03:08:28.270Z">
+<meta property="og:updated_time" content="2019-09-05T11:58:43.870Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python中的线程">
 <meta name="twitter:description" content="重要的话写在前面：进程间不共享全局变量，线程间共享全局变量。 同步：按预定的先后次序进行运行                异步：不确定的次序 对于操作系统来说，一个任务就是一个进程。进程内的子任务成为线程 ，一个进程至少有一个线程 多任务执行的方式： 多进程 多线程 多进程+多线程 多线程：Python的标准库提供了两个模块：_thread和threading，_thread是低级模块，thre">
@@ -301,11 +301,21 @@
                 
               
 
-              <time title="创建时间：2019-08-06 10:34:04 / 修改时间：11:08:28" itemprop="dateCreated datePublished" datetime="2019-08-06T10:34:04+08:00">2019-08-06</time>
+              <time title="创建时间：2019-08-06 10:34:04" itemprop="dateCreated datePublished" datetime="2019-08-06T10:34:04+08:00">2019-08-06</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-09-05 19:58:43" itemprop="dateModified" datetime="2019-09-05T19:58:43+08:00">2019-09-05</time>
+              </span>
             
           
             <span class="post-meta-item">
@@ -393,14 +403,14 @@
 <p>Events：它是由线程设置的信号标志，如果信号标志为真，则其他线程等待直到信号接触。</p>
 <p>Event对象实现了简单的线程通信机制，它提供了设置信号，清除信号，等待等用于实现线程间的通信。</p>
 <p>event = threading.Event() 创建一个event</p>
-<p>1 设置信号</p>
+<p>1、设置信号</p>
 <p>event.set()</p>
 <p>使用Event的set（）方法可以设置Event对象内部的信号标志为真。Event对象提供了isSet（）方法来判断其内部信号标志的状态。</p>
 <p>当使用event对象的set（）方法后，isSet（）方法返回真</p>
-<p>2 清除信号</p>
+<p>2、清除信号</p>
 <p>event.clear()</p>
 <p>使用Event对象的clear（）方法可以清除Event对象内部的信号标志，即将其设为假，当使用Event的clear方法后，isSet()方法返回假</p>
-<p>3 等待</p>
+<p>3 、等待</p>
 <p>event.wait()</p>
 <p>Event对象wait的方法只有在内部信号为真的时候才会很快的执行并完成返回。当Event对象的内部信号标志为假时，则wait方法一直等待到其为真时才返回。也就是说必须set新号标志为真</p>
 <p>主线程在等事件设置后才继续执行</p>
@@ -429,7 +439,7 @@
 <p>threadpool.makeRequest(开启多线程的函数，函数相关参数，[回调函数])</p>
 <p>putRequest:将所有要运行多线程的请求扔进线程池。</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B18.png" alt></p>
-<p>concerrent.futures：</p>
+<p>concerrent.futures：这个模块轻松绕开GIL</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B19.png" alt></p>
 <p>ThreadPoolExecutor构造实例的时候，传入max_workers参数来设置线程池中最多能同时运行的线程数目。</p>
 <p>使用submit函数来提交线程需要执行的任务（函数名和参数）到线程池中，并返回该任务的句柄（类似于文件、画图），注意submit()不是阻塞的，而是立即返回。</p>
@@ -559,7 +569,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-count">62</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -722,7 +732,25 @@
         
           
         
-        <span class="site-state-item-count">74</span>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">83</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
@@ -807,7 +835,9 @@
         
           
         
-        <span class="site-state-item-count">35</span>
+          
+        
+        <span class="site-state-item-count">36</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>

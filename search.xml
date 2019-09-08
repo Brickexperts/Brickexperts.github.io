@@ -1,6 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[数据库的数据模型]]></title>
+    <url>%2F2019%2F09%2F07%2F%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B%2F</url>
+    <content type="text"><![CDATA[建立数据库系统离不开数据模型，本文介绍了常用的数据模型。重点介绍了关系数据模型的数据结构、数据操作、数据约束。 由于计算机不可能直接处理现实中的具体事物，所以人们必须事先把具体事物转换成计算机能够处理的数据。在数据库中用数据模型这个工具来抽象、表示和处理现实世界中的数据和信息。通俗的说，数据模型就是对现实世界的模拟、描述、表示。数据模型应该满足以下三个要求： 1、比较真实地描述现实世界 2、易为用户所理解 3、易于在计算机上实现 为什么需要数据模型？ 由于数据的定义与操作从应用程序中剥离出来，交由DBMS来统一管理。于是DBMS需要采用某种数据结构来定义、存储所要管理的数据。这种狭义的数据结构类似于DBMS的数据模型。 数据模型含有哪些内容？ 数据模型含有数据的静态结构、数据的动态操作(增删改查)、数据的完整性约束(描述数据、数据之间的联系、数据语义及完整性限制)。 ​ 1、数据结构 ​ 用于描述系统的静态特性，数据结构不仅要描述数据本身，还要描述数据之间的联系。数据结构是刻画一个数据模型性质最重要方面 ​ 2、数据操作 ​ 用于描述系统的动态特性。包括操作及有关的操作规则。数据库的主要操作：增删改查 ​ 3、数据的约束条件 ​ 是一组完整性规则的集合。完整性规则是数据模型中的数据及其联系所具有的约束规则，用来限定数据库状态以及状态的变化， 以保证数据的正确。 实体联系数据模型的地位与作用： 实体联系模型(Entity Relationship Model，ERM)是用得最多且最成熟的概念数据模型。 数据模型是用来描述数据的一组概念和定义，是描述数据的手段。 ​ 概念数据模型：面向用户、面向现实世界。它是按用户的观点对数据和信息建模。与DBMS无关，如E-R模型。 ​ 逻辑模型：用户从数据库管理系统看到的数据模型。与DBMS有关，如层次数据模型、网状数据模型、关系数据模型。它是按计算机系统的观点对数据建模 ​ 物理模型：是对数据最底层的抽象，描述数据在系统内部的表述方式和存取方法。，在磁盘或磁带上的存储方式和存取方法。 逻辑模型和物理模型都属于数据模型。概念数据模型只用于数据库设计，数据模型用于DBMS的实现。 数据模式是对数据结构、联系和约束的描述。数据模型是描述数据的手段，而数据模式是用给定的数据模型对数据的具体描述。 信息世界中的基本概念： ​ (1) 实体(Entity)：客观存在并可相互区别的事物称为实体。可以是具体的人、事、物体或抽象的概念。 ​ (2) 属性(Attribute)：实体所具有的某一个特性称为属性。一个实体可以由若干个属性来刻画 ​ (3) 键(Key)或称为码：唯一标识实体的属性集称为码 ​ (4) 域(Domain)：属性的取值范围称为该属性的域 ​ (5) 实体型(Entity Type)：用实体名及其属性名集合来抽象和刻画同类实体称为实体型 ​ (6) 实体集(Entity Set)：同一类型实体的集合称为实体集 ​ (7) 联系(Relationship)：现实世界中事物内部以及事物之间的联系在信息世界中反映为实体内部的联系和实体之间的联系。实体内部的联系通常是指组成实体的各属性之间的联系实体之间的联系通常是指不同实体集之间的联系。 概念模型的表示方法：实体-联系方法，该方法用E-R图来描述现实世界的概念模型。 ​ 实体型：用矩形表示，矩形框内写明实体名 ​ 属性：用椭圆表示，并用无向边将其与相应的实体连接起来。 ​ 联系：用菱形表示，菱形框内写明联系名，并用无向边分别与有关实体连接起来，同时在无向边旁标上联系的类型（1：1，1：n或m：n） ​ 键：用下划线表示。 最常用的数据模型 ​ 非关系模型 ​ 层次模型：层次数据模型用树形结构表示各类实体以及实体之间的联系。现实世界中许多实体之间的联系就呈现出一种很自然的层次关系。如：行政机构、家庭关系等。层次模型是以记录为结点的有向树。 ​ 满足以下两个条件称为层次模型： ​ (1) 有且仅有一个结点无双亲。这个结点称为“根节点” ​ (2) 其它节点有且仅有一个双亲，但可以有多个后继 ​ 网状模型：用层次模型表示非树形结构很不直接，网状模型可克服这一弊病。网状模型比层次模型更具普遍性。它去掉了层次模型的两个限制，允许结点有多个双亲结点。比层次模型更能直接地描述现实世界。 ​ 网状结构特点： ​ (1) 允许一个以上的结点无双亲； ​ (2) 一个结点可以有多于一个的双亲，也可以有多个后继。两个结点间可有两种或多种联系(复合联系)。可能有回路存在。 ​ 关系数据模型：简称关系模型，关系模型中的所谓“关系”是有特定含义的。广义地说，任何数据模型都描述一定事物数据之间的关系。层次模型描述数据之间的从属层次关系，网状模型描述数据之间的多种从属的网状关系。 ​ 关系数据模型的数据结构： ​ 关系(Relation)：一个关系对应通常说的一张表 ​ 元祖(Tuple)：表中的一行即为一个元祖 ​ 属性(Attribute)：表中的一列即为一个属性。给每一个属性起一个名称即属性名。 ​ 主码(Key)：表中的某个属性组，它可以唯一确定一个元祖。 ​ 域(Domain)：属性的取值范围 ​ 分量：元祖中的一个属性值 ​ 关系模式：对关系的一个属性值。关系名(属性1，属性2，……，属性n) ​ 面向对象模型： ​ 对象关系模型]]></content>
+      <categories>
+        <category>数据库</category>
+        <category>数据模型</category>
+      </categories>
+      <tags>
+        <tag>数据库</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[模型的评判和调优]]></title>
+    <url>%2F2019%2F09%2F07%2F%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AF%84%E5%88%A4%E5%92%8C%E8%B0%83%E4%BC%98%2F</url>
+    <content type="text"><![CDATA[精确率和召回率 分类模型评估API：F1-score,反应了模型的稳健性 模型选择和调优：1、交叉验证 2、网格搜索 交叉验证为了让被评估的模型更加准确可信 网格搜索是用来调参数的。通常情况下，有很多参数是需要手动指定的（如k-近邻算法的k）但是手动过于繁杂。所以需要对模型预设几种超参数组合，每组超参数都采用交叉验证来进行评估。 sklearn.model_Selection.GridSearchCV]]></content>
+      <categories>
+        <category>机器学习</category>
+        <category>模型的评判和调优</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[K-means]]></title>
+    <url>%2F2019%2F09%2F07%2FK-means%2F</url>
+    <content type="text"><![CDATA[k—meansk代表数据划分为几个类别 聚类评估标准：轮廓系数，范围在[-1,1]越接近1，效果越好]]></content>
+      <categories>
+        <category>机器学习</category>
+        <category>K-means</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[逻辑回归]]></title>
+    <url>%2F2019%2F09%2F07%2F%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%2F</url>
+    <content type="text"><![CDATA[分类算法-逻辑回归解决二分类问题 penalty是正则化的方式是l2，C是正则化力度]]></content>
+      <categories>
+        <category>机器学习</category>
+        <category>逻辑回归</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[线性回归]]></title>
+    <url>%2F2019%2F09%2F07%2F%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%2F</url>
+    <content type="text"><![CDATA[##线性回归原理 回归是一种应用广泛的预测建模技术，这种技术的核心在于预测的结果是连续型变量。决策树，随机森林，支持向量机的分类器等分类算法的预测标签是分类变量，多以{0，1}来表示，而无监督学习算法比如PCA，KMeans的目标根本不是求解出标签，注意加以区别。 线性回归的类可能是我们目前为止学到的最简单的类，仅有四个参数就可以完成一个完整的算法。并且看得出，这些参数中并没有一个是必填的，更没有对我们的模型有不可替代作用的参数。这说明，线性回归的性能，往往取决于数据本身，而并非是我们的调参能力，线性回归也因此对数据有着很高的要求。幸运的是，现实中大部分连续型变量之间，都存在着或多或少的线性联系。所以线性回归虽然简单，却很强大。顺便一提，sklearn中的线性回归可以处理多标签问题，只需要在fit的时候输入多维度标签就可以了。 线性回归是机器学习中最简单的回归算法，多元线性回归指的就是一个样本有多个特征的线性回归问题。对于一个有 个特征的样本 而言，它的回归结果可以写作一个几乎人人熟悉的方程 ： W被统称为模型的参数。W0被称为截距W1-Wn被称为回归系数。这个表达式，其实就和我们小学时就无比熟悉的y=ax+b是同样的性质。其中y是我们的目标变量，也就是标签。 Xi1-Xin是样本i上的特征不同特征。如果考虑我们有m个样本，则m个样本的回归结果可以被写作： 我们可以使用矩阵来表示这个方程： y=Xw，其中y是包含了m个全部的样本的回归结果的列向量。粗体的大写字母表示矩阵。我们可以使用矩阵来表示这个方程，其中w可以被看做是一个结构为(1,n)的列矩阵，X是一个结构为(m,n)的特征矩阵。这个预测函数的本质就是我们需要构建的模型，而构造预测函数的核心就是找出模型的参数向量w 。 在多元线性回归中，我们在损失函数如下定义： 因此，我们认为这个损失函数衡量了我们构造的模型的预测结果和真实标签的差异，因此我们固然希望我们的预测结果和真实值差异越小越好。所以我们的求解目标就可以转化成 ： 第一次看不明白上面红字，这个2表示L2范式。也就是我们损失函数代表的含义，在L2范式上开平方，就是我们的损失函数。上面这个式子，正是sklearn当中，用在类Linear_model.LinerRegression背后使用的损失函数，我们往往称呼这个式子为SSE(残差平方和)或RSS(误差平方和)。 现在问题转换成了求解让RSS最小化的参数向量 ，这种通过最小化真实值和预测值之间的RSS来求解参数的方法叫做最小二乘法。接下来，我们对w求导。 我们让求导后的一阶导数为0，并且我们的特征矩阵X肯定不会是一个所有元素都为0的矩阵。得： 线性回归APIsklearn中的线性模型模块是linear_model。 coding： 模型评估指标回归类算法的模型评估一直都是回归算法中的一个难点，但不像我们曾经讲过的无监督学习算法中的轮廓系数等等评估指标，回归类与分类型算法的模型评估其实是相似的法则——找真实标签和预测值的差异。只不过在分类型算法中，这个差异只有一种角度来评判，那就是是否预测到了正确的分类，而在我们的回归类算法中，我们有两种不同的角度来看待回归的效果：这两种角度，分别对于着不同得模型评估指标。第一，我们是否预测到了正确的数值。第二，我们是否拟合到了足够的信息。 sklearn当中，我们有两种方式调用这个评估指标，一种是使用sklearn专用的模型评估模块metrics里的类mean_squared_error，另一种是调用交叉验证的类cross_val_score并使用里面的scoring参数来设置使用均方误差 ​ 注：y_lr_predict表示std_y.inverse_transform(ypredict),也就是预测得最终价格 12345678910111213141516171819from sklearn.linear_model import LinearRegression as LRfrom sklearn.model_selection import train_test_splitfrom sklearn.preprocessing import StandardScalerfrom sklearn.model_selection import cross_val_scorefrom sklearn.metrics import mean_squared_errorfrom sklearn.datasets import fetch_california_housing as fchhousevalue=fch()xtrain,xtest,ytrain,ytest=train_test_split(housevalue.data,housevalue.target,test_size=0.3,random_state=420)std_x=StandardScaler()xtrain=std_x.fit_transform(xtrain)xtest=std_x.transform(xtest)std_y=StandardScaler()ytrain=std_y.fit_transform(ytrain.reshape(-1,1))ytest=std_y.transform(ytest.reshape(-1,1))reg=LR().fit(xtrain,ytrain)ypredict=reg.predict(xtest)print(std_y.inverse_transform(ypredict))print("均方误差：",mean_squared_error(std_y.inverse_transform(ytest),std_y.inverse_transform(ypredict)))print(cross_val_score(reg,housevalue.data,housevalue.target,cv=10,scoring="mean_squared_error")) 这里如果我们运行上面的代码，会在第十九行报错： 我们在决策树和随机森林中都提到过，虽然均方误差永远为正，但是sklearn中的参数scoring下，均方误差作为评判标准时，却是计算”负均方误差“（neg_mean_squared_error）。这是因为sklearn在计算模型评估指标的时候，会考虑指标本身的性质，均方误差本身是一种误差，所以被sklearn划分为模型的一种损失(loss)。在sklearn当中，所有的损失都使用负数表示，因此均方误差也被显示为负数了。真正的均方误差MSE的数值，其实就是neg_mean_squared_error去掉负号的数字。 我们可以将scoring改为”neg_mean_absolute_error” 。 1print(cross_val_score(reg,housevalue.data,housevalue.target,cv=10,scoring="neg_mean_squared_error")) 为了衡量模型对数据上的信息量的捕捉，我们定义了R^2和可解释性方差分数(explained_variance_score，EVS)来帮助: 在R^2和EVS中，分子是真实值和预测值之差的差值，也就是我们的模型没有捕获到的信息总量，分母是真实标签所带的信息量，所以两者都衡量1-我们的模型没有捕获到的信息量占真实标签中所带的信息量的比例，所以，两者都是越接近1越好。 R^2我们也可以使用三种方式来调用，一种是直接从metrics中导入r2_score，输入预测值和真实值后打分。第二种是直接从线性回归LinearRegression的接口score来进行调用。第三种是在交叉验证中，输入”r2”来调用。EVS有两种调用方法，可以从metrics中导入，也可以在交叉验证中输入”explained_variance“来调用 。 12print("R2",r2_score(ypredict,ytest))print(reg.score(xtest,ytest)) ????为什么结果不一样呢？然而看R2的计算公式，R2明显和分类模型的指标中的accuracy或者precision不一样，R2涉及到的计算中对预测值和真实值有极大的区别，必须是预测值在分子，真实值在分母。所以我们在调用metrcis模块中的模型评估指标的时候，必须要检查清楚，指标的参数中，究竟是要求我们先输入真实值还是先输入预测值 。所以我们要指定参数： 1234#直接用r2_scoreprint("R2",r2_score(y_true=ytest,y_pred=ypredict))#利用接口scoreprint(reg.score(xtest,ytest)) 123456#EVS的两种调用方法from sklearn.metrics import explained_variance_score as evs#第一种print(cross_val_score(reg,housevalue.data,housevalue.target,cv=10,scoring="explained_variance"))#第二种print("evs",evs(ytest,ypredict)) 过拟合：一个假设在训练数据上能够获得比其他假设更好的拟合，但是在训练数据外的数据集上却不能很好地拟合数据，此时认为这个假设出现了过拟合的现象。(模型过于复杂) 解决方法：正则化。用岭回归实现 欠拟合：一个假设在训练数据上不能获得更好的拟合，但是在训练数据外的数据集上也不能很好地拟合数据。此时认为这个假设出现了欠拟合的现象。(模型过于简单) 解决办法是添加数据的特征数量。]]></content>
+      <categories>
+        <category>机器学习</category>
+        <category>线性回归</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[模型的保存和加载]]></title>
+    <url>%2F2019%2F09%2F07%2F%E6%A8%A1%E5%9E%8B%E7%9A%84%E4%BF%9D%E5%AD%98%E5%92%8C%E5%8A%A0%E8%BD%BD%2F</url>
+    <content type="text"><![CDATA[模型的保存和加载 joblib.dump():保存模型，第一个参数是估计器，第二个参数是保存模型的目录。模型的文件格式是pkl。 joblib.load()：读取模型。参数是模型的目录]]></content>
+      <categories>
+        <category>机器学习</category>
+        <category>模型的保存和加载</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[决策树和随机森林]]></title>
+    <url>%2F2019%2F09%2F07%2F%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97%2F</url>
+    <content type="text"><![CDATA[决策树信息熵： 信息增益：就是熵和特征条件熵的差 随机变量的不确定性（熵）越小，信息增益越大，这个特征的表现就越好 随机森林：随机森林是一个包含多个决策树的分类器，并且其输出的类别是由个别树输出的类别的众数而定。]]></content>
+      <categories>
+        <category>机器学习</category>
+        <category>决策树和随机森林</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[朴素贝叶斯]]></title>
+    <url>%2F2019%2F09%2F07%2F%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF%2F</url>
+    <content type="text"><![CDATA[分类算法—朴素贝叶斯关键概念 ​ 联合概率：X取值为x和Y取值为y两个事件同时发生的概率，表示为P(X=x,Y=y) ​ 条件概率：在X取值为x的前提下，Y取值为y的概率。表示为P(Y=y|X=x) 这里的C代表类别，W代表特征。 我们学习的其它分类算法总是有一个特点：这些算法先从训练集中学习，获取某种信息来建立模型，然后用模型去对测试集进行预测。比如逻辑回归，我们要先从训练集中获取让损失函数最小的参数，然后用参数建立模型，再对测试集进行预测。在比如支持向量机，我们要先从训练集中获取让边际最大的决策边界，然后 用决策边界对测试集进行预测。相同的流程在决策树，随机森林中也出现，我们在ﬁt的时候必然已经构造好了能够让对测试集进行判断的模型。而朴素贝叶斯，似乎没有这个过程。这说明，朴素贝叶斯是一个不建模的算法。以往我们学的不建模算法，比如KMeans，比如PCA，都是无监督学习，而朴素贝叶斯是第一个有监督的，不建模的分类算法。我们认为，训练集和测试集都来自于同一个不可获得的大样本下，并且这个大样本下的各种属性所表现出来的规律应当是一致的，因此训练集上计算出来的各种概率，可以直接放到测试集上来使用。即便不建模，也可以完成分类。 sklearn中，基于高斯分布、伯努利分布、多项式分布为我们提供了四个朴素贝叶斯的分类器 sklearnnaive_bayes.GaussianNB(priors=None,var_smoothing=1e-09):高斯朴素贝叶斯，通过假设P(Xi|Y)是服从高斯分布(正态分布)，估计每个特征下每个类别上的条件概率。对于每个特征下的取值，有以下公式： 1234567891011121314from sklearn.naive_bayes import GaussianNBfrom sklearn.datasets import load_digitsfrom sklearn.model_selection import train_test_splitdigits = load_digits()X, y = digits.data, digits.targetXtrain,Xtest,Ytrain,Ytest = train_test_split(X,y,test_size=0.3,random_state=420)gnb = GaussianNB().fit(Xtrain,Ytrain)#查看分数acc_score = gnb.score(Xtest,Ytest)#查看预测结果Y_pred = gnb.predict(Xtest)#查看预测的概率结果prob = gnb.predict_proba(Xtest)print(prob)]]></content>
+      <categories>
+        <category>机器学习</category>
+        <category>朴素贝叶斯</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[k-近邻算法]]></title>
+    <url>%2F2019%2F09%2F07%2Fk-%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[分类算法-k近邻算法(KNN)：如果一个样本在特征空间中的k个最相似(即特征空间中最邻近)的样本中的大多数属于某一个类别，则该样本也属于这个类别。 如何求距离： k值取很小，容易受异常点影响 k值取很大,容易受k值数量的波动]]></content>
+      <categories>
+        <category>机器学习</category>
+        <category>k-近邻算法</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[SVM解读]]></title>
+    <url>%2F2019%2F09%2F05%2FSVM%E8%A7%A3%E8%AF%BB%2F</url>
+    <content type="text"><![CDATA[​ 支持向量机(SVM)是机器学习中获得关注最多的算法。它是我们除了集成算法之外，接触的第一个强学习器。从学术的角度看，SVM是最接近深度学习的机器学习方法。 支持向量机原理的三层理解： 支持向量机所做的事情其实非常容易理解，看下图： 上图是一组两种标签的数据，两种标签分别用圆和方块代表。支持向量机的分类方法，是在这组分布中找出一个超平面作为决策边界，使模型在数据上的分类误差尽量接近于小，尤其是在位置数据集上的分类误差(泛化误差)尽量小。 关键概念： ​ 超平面：在几何中，超平面是一个空间的子空间，它是维度比所在空间小一维的空间。 如果数据空间本身是三维的， 则其超平面是二维平面，而如果数据空间本身是二维的，则其超平面是一维的直线。 ​ 决策边界：在二分类问题中，如果一个超平面能够将数据划分为两个集合，其中每个集合中包含单独的一个类别，我们就 说这个超平面是数据的“决策边界”。 决策边界一侧的所有点在分类为属于一个类，而另一个类的所有店分类属于另一个类。比如上面的数据集，我们很容易的在方块和圆的中间画一条线并让所有落在直线左边的样本被分类为方块，在直线右边的样本被分类为圆。如果把数据当作我们的训练集，只要直线的一边只有一种类型的数据，就没有分类错误，我们的训练误差就会为0。 所以，对于一个数据集来说，让训练误差为0的决策边界可以有无数条。 但在此基础上，我们无法保证这条决策边界在未知数据集（测试集）上的表现也会优秀。对于现有的数据集来说， 我们有B1和B2两条可能的决策边界。我们可以把决策边界B1向两边平移，直到碰到离这条决策边界最近的方块和圆圈后停下，形成两个新的超平面，分别是b11和b12，并且我们将原始的决策边界移动到b11和b12的中间，确保B1到b11和b12的距离相等。在b11和b12中间的距离，叫做 这条决策边界的边际(margin)，通常记作d。对B2也执行同样的操作，然后我们来对比一下两个决策边界。现在两条决策边界右边的数据都被判断为圆，左边的数据都被判断为方块，两条决策边界在现在的数据集上的训练误差都是0，没有一个样本被分错。 接着我们引入和原本的数据集相同分布的测试样本（红色所示），平面中的样本变多了，此时我们可以发现，对于B1而言，依然没有一个样本被分错，这条决策边界上的泛化误差也是0。但是对于B2而言，却有三个方块被误认成了圆，有两个圆被误分类成了方块，这条决策边界上的泛化误差就远远大于B1了。这个例子表现出，拥有更大边际的决策边界在分类中的泛化误差更小，这一点可以由结构风险最小化定律来证明（SRM）。如果边际很小，则任何轻微扰动都会对决策边界的分类产生很大的影响。边际很小的情况，是一种模型在训练集上表现很好，却在测试集上表现糟糕的情况，所以会“过拟合”。所以我们在找寻决策边界的时候，希望边际越大越好。 结论：支持向量机，就是通过找出边际最多的决策边界，来对数据进行分类的分类器。 我们让所有紫色点的标签为1，红色点的标签为-1。我们要在这个数据集上寻找一个决策边界，在二维平面上，决 策边界（超平面）就是一条直线。二维平面上的任意一条线可以被表示为： 我们将此表达式变换一下： 其中[a, -1]就是我们的参数向量 ， 就是我们的特征向量， 是我们的截距。 我们要求解参数向量w和截距b 。如果在决策边界上任意取两个点Xa，Xb，并带入决策边界的表达式，则有： 将两式相减，得： Xa和Xb是一条直线上的两个点，相减后的得到的向量方向是由Xb指向Xa，所以Xa-Xb的方向是平行于他们所在的直线——我们的决策边界的。而w与Xa-Xb相互垂直，所以参数向量w方向必然是垂直于我们的决策边界。 此时，我们有了我们得决策边界，任意一个紫色得点Xp就可以表示为： 由于紫色的点所代表的标签y是1，所以我们规定，p&gt;0。 同样的，对于任意一个红色的点Xr而言，我们可以将它表示为： 由于红色点所表示的标签y是-1，所以我们规定，r&lt;0 由上面得知：如果我们有新的测试数据Xt，则Xt的标签就可以根据以下式子来判定： 注意：p和r的符号是我们人为规定的 两类数据中距离我们的决策边界 最近的点，这些点就被称为支持向量。 紫色类的点为Xp ，红色类的点为Xr，则我们可以得到： 两个式子相减，得： 如下图所示： (Xp-Xr)可表示为两点之间的连线，而我们的边际d是平行于w的，所以我们现在，相当于是得到 了三角型中的斜边，并且知道一条直角边的方向。在线性代数中，向量有这样的性质：向量a除以向量b的模长||b|| ，可以得到向量a在向量b的方向上的投影的长度。所以，我们另上述式子两边同时除以||w||，则可以得到 最大边界所对应的决策边界，那问题就简单了，要最大化d，就求解w的最小值。极值问题可以相互转化，我们可以把求解w的最小值转化为，求解以下函数的最小值： 之所以要在模长上加上平方，是因为模长的本质是一个距离，所以它是一个带根号的存在，我们对它取平方，是为了消除根号。 我们得到我们SVM的损失函数： 至此，SVM的第一层理解就完成了。 用拉格朗日对偶函数求解线性SVM 当然，不是所有数据都是线性可分的，不是所有数据我们都能够一眼看出，有一条直线，或一个平面，甚至一个超平面可以将数据完全分开。比如下面的环形数据。对于这样的数据，我们需要对它进行一个升维变化，将数据从原始的空间x投射到新空间F(x)中。升维之后，我们明显可以找出一个平面，能够将数据切分开来。 F是一个映射函数，它代表了某种能够将数据升维的非线性的变换，我们对数据进行这样的变换，确保数据在自己的空间中一定能够线性可分。 这种变换非常巧妙，但也带有一些实现问题。 首先，我们可能不清楚应该什么样的数据应该使用什么类型的映射函数来确保可以在变换空间中找出线性决策边界。极端情况下，数据可能会被映射到无限维度的空间中，这种高维空间可能不是那么友好，维度越多，推导和计算的难度都会随之暴增。而解决这些问题的是核函数。 关键概念：核函数是一种能够使用数据原始空间中的向量计算来表示升维后的空间中的点积结果的数学方式。]]></content>
+      <categories>
+        <category>机器学习</category>
+        <category>SVM</category>
+        <category>SVM解读</category>
+      </categories>
+      <tags>
+        <tag>SVM</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[数据库概述]]></title>
     <url>%2F2019%2F09%2F04%2F%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%BF%B0%2F</url>
     <content type="text"><![CDATA[​ 大三老狗已正式上线，这学期学了新的课程。其中一门就是数据库，总结一下所学的内容。 数据与信息的联系：数据是信息的符号表示或载体。信息是数据的内涵，是对数据的语义解释。 数据库数据具有永久存储、有组织、可共享三个基本特点。 数据库系统(DBS)由计算机硬件、数据库、数据库管理系统、应用软件和数据库管理系统组成。 数据库设计时面向数据模型对象、数据库系统的数据冗余度小、数据共享度高、数据库系统的数据和程序之间具有较高的独立性、数据库中数据的最小存取单位是数据项、数据库系统通过DBMS进行数据安全性、完整性、并发控制和数据恢复控制。 数据库数据物理独立性高是指当数据的物理结构（存储结构）发生变化时，应用程序不需要修改也可以正常工作 数据库数据逻辑独立性高是指当数据库系统的数据全局逻辑结构改变时，它们对应的应用程序不需要改变仍可以正常运行 DBMS的功能结构 ​ 数据定义功能：能够提供数据定义语言(DDL)和相应的建库机制。用户利用DDL可以方便建立数据库。 ​ 数据操纵功能：实现数据的插入、修改、删除、查询、统计等数据存取操作的功能称为数据操纵功能。数据库管理系统通过提供数据操纵语言(DML)实现其数据操纵功能。 ​ 运行管理功能：包括并发控制、数据的存取控制、数据完整性条件的检查和执行、数据库内部的维护等 ​ 建立和维护功能：指数据的载入、转储、重组织功能及数据库的恢复功能，指数据库结构的修改、变更及扩充功能。 从数据库管理系统的角度查看，数据库系统通常采用外模式、模式、内模式三级模式结构。从数据库最终用户的角度看，数据库系统的就够分为单用户结构、主从结构、分布式结构、客户/服务器结构。 外模式：也称为子模式或用户模式。它是数据库用户看见和使用的、对局部数据的逻辑结构和特征的描述，是与某一应用有关的数据的逻辑表示。 模式：模式是数据库中数据的逻辑结构和特征的描述。它仅仅涉及到型的描述，不涉及到具体的值。模式的具体值被称为模式的一个实例。同一模式可以有很多实例。模式是相对稳定的，实例是相对变动的。模式反映的是数据的结构及其关系，而实例反映的是数据某一时刻的状态。 内模式：也称存储模式，它是对数据的物理结构和存储结构的描述，是数据在数据库内部的表示方式。 为了能够在内部实现这三个抽象层次的联系和转换，数据库系统在这三级模式之间提供了两层映像：外模式/概念模式映像、概念模式/内模式映像。这两层映像保证了数据库系统中的数据能够具有较高的逻辑独立性和物理独立性。 外模式/模式映像保证了数据与程序间的逻辑独立性，模式/内模式映像保证了数据的物理独立性。 逻辑独立性：当数据库的整体逻辑结构发生变化时，通过调整外模式和模式之间的映像，使得外模式中的局部数据及其结构不变，程序不在修改。 物理独立性：当数据库的存储结构发生变化时，通过调整模式和内模式之间的映像，使得整体模式不变，当然外模式及应用程序不用改变。]]></content>
@@ -270,24 +391,12 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[机器学习（2）]]></title>
-    <url>%2F2019%2F08%2F09%2F%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%EF%BC%882%EF%BC%89%2F</url>
-    <content type="text"><![CDATA[模型的保存和加载 joblib.dump():保存模型，第一个参数是估计器，第二个参数是保存模型的目录。模型的文件格式是pkl。 joblib.load()：读取模型。参数是模型的目录 线性回归线性回归通过一个或多个自变量和因变量之间进行建模的回归分析，其中可以为一个或多个自变量之间的线性组合 公式:h(w)=w0+w1x+w2x2+… 正规方程和梯度下降的性能评估：均方误差 过拟合：一个假设在训练数据上能够获得比其他假设更好的拟合，但是在训练数据外的数据集上却不能很好地拟合数据，此时认为这个假设出现了过拟合的现象。(模型过于复杂) 解决方法：正则化。用岭回归实现 欠拟合：一个假设在训练数据上不能获得更好的拟合，但是在训练数据外的数据集上也不能很好地拟合数据。此时认为这个假设出现了欠拟合的现象。(模型过于简单) 解决办法是添加数据的特征数量。 分类算法-逻辑回归解决二分类问题 penalty是正则化的方式是l2，C是正则化力度 k—meansk代表数据划分为几个类别 聚类评估标准：轮廓系数，范围在[-1,1]越接近1，效果越好 精确率和召回率 分类模型评估API：F1-score,反应了模型的稳健性 模型选择和调优：1、交叉验证 2、网格搜索 交叉验证为了让被评估的模型更加准确可信 网格搜索是用来调参数的。通常情况下，有很多参数是需要手动指定的（如k-近邻算法的k）但是手动过于繁杂。所以需要对模型预设几种超参数组合，每组超参数都采用交叉验证来进行评估。 sklearn.model_Selection.GridSearchCV]]></content>
+    <title><![CDATA[机器学习算法分类和数据分割]]></title>
+    <url>%2F2019%2F08%2F09%2FML%E7%AE%97%E6%B3%95%E5%88%86%E7%B1%BB%E5%92%8C%E6%95%B0%E6%8D%AE%E5%88%86%E5%89%B2%2F</url>
+    <content type="text"><![CDATA[机器学习算法分类 区分监督学习和非监督学习的方法：看是否有标准答案。无监督学习无标准答案，只有特征值。 区分分类问题和回归问题的方法:目标值是否是离散型。目标值是离散型，则是分类问题。目标值是连续型，则是回归问题。 数据分割模型=算法+数据 数据分为训练集和测试集 fit_transform=fit+transform：fit做的是计算平均值和标准差，transform做的是转化]]></content>
       <categories>
         <category>机器学习</category>
-        <category>机器学习（2）</category>
-      </categories>
-      <tags>
-        <tag>机器学习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[机器学习（1）]]></title>
-    <url>%2F2019%2F08%2F09%2F%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%EF%BC%881%EF%BC%89%2F</url>
-    <content type="text"><![CDATA[机器学习算法分类 区分监督学习和非监督学习的方法：看是否有标准答案。无监督学习无标准答案，只有特征值。 区分分类问题和回归问题的方法:目标值是否是离散型。目标值是离散型，则是分类问题。目标值是连续型，则是回归问题。 数据分割模型=算法+数据 数据分为训练集和测试集 fit_transform=fit+transform：fit做的是计算平均值和标准差，transform做的是转化 分类算法-k近邻算法(KNN)：如果一个样本在特征空间中的k个最相似(即特征空间中最邻近)的样本中的大多数属于某一个类别，则该样本也属于这个类别。 如何求距离： k值取很小，容易受异常点影响 k值取很大,容易受k值数量的波动 分类算法—朴素贝叶斯朴素代表特征独立,不需要调参。这是基于概率的预测 这里的C代表类别，W代表特征。 决策树信息熵： 信息增益：就是熵和特征条件熵的差 随机变量的不确定性（熵）越小，信息增益越大，这个特征的表现就越好 随机森林：随机森林是一个包含多个决策树的分类器，并且其输出的类别是由个别树输出的类别的众数而定。]]></content>
-      <categories>
-        <category>机器学习</category>
-        <category>机器学习（1）</category>
+        <category>算法分类和数据分割</category>
       </categories>
       <tags>
         <tag>机器学习</tag>
@@ -296,9 +405,8 @@
   <entry>
     <title><![CDATA[特征工程]]></title>
     <url>%2F2019%2F08%2F09%2F%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B%2F</url>
-    <content type="text"><![CDATA[​ 前些天我把python的处理图像的库——opencv总结了一下，但这终究是传统方法处理图像。现在都是用深度学习网络处理图像。所以，在学深度学习之前，我看了些机器学习的知识。但在看机器学习的算法前，我们先来看看特征工程。 特征工程三大知识：特征抽取、特征预处理、特征降维。 特征抽取字典特征抽取，把数据中的以字符串标记的数据转化为one-hot编码。 由上面代码可得下面的稀疏（sparse）矩阵： 将稀疏矩阵转为矩阵： 将矩阵转化为字典： 文本特征抽取： 和字典特征抽取不一样的是CountVectorizer没有sparse参数，只能通过矩阵的toarray转化为数组 可得： 注意：单个字母不统计。因为单个英文字母没有依据 如果文本是中文，根据需要的词频给文本添加空格。同样，单个字无法统计 利用jieba分词对数据进行one-hot编码： TF-IDF特征抽取：用以评估一个词对于一个文件集或一个语料库中的其中一份文件的重要程度 特征预处理数据归一化处理：通过对原始数据进行交换把数据映射到（默认为[0,1]）之间 归一化缺点：注意在特定场景最大值最小值是变化的。另外，最大值与最小值非常容易受异常点的影响，所以这种方法的鲁棒性差，只适合传统精确小数据场景。 数据标准化处理:通过对原始数据进行变换把数据变换到均值为0，方差为1的范围。 标准化总结：在已有样本足够多的情况下比较稳定，适合现代嘈杂大数据场景 缺失值处理方法: 删除：如果每列或者行数据缺失值达到一定比例时，建议放弃整行或者整列 插补：可以通过缺失值每行或者每列的平均值、中位数来填充 数据降维：减少特征的数量。这里的维度代表特征的个数。两种方法：1.特征选择 2.主成分分析 特征选择：特征选择就是单纯地从提取到的所有特征中选择部分特征作为训练集特征，特征在选择前和选择后可以改变值、也不改变值。但是选择后的特征维数肯定比选择前小。主要方法：Filter（过滤式）、Embedded（嵌入式）、Wrapper（包裹式） 主成分分析：PCA技术，PCA是一种分析、简化数据集的技术。特征数达到数百才会使用 目的：是数据维数压缩，尽可能降低原数据的维数，损失少量信息 PCA语法： n_components取值可以是小数和整数：小数的取值范围是0-1，代表降维后的维度是原本维度的0-1倍数，整数的值是降维降几个维。]]></content>
+    <content type="text"><![CDATA[​ 前些天我把python的处理图像的库——opencv总结了一下，但这终究是传统方法处理图像。现在都是用深度学习网络处理图像。所以，在学深度学习之前，我看了些机器学习的知识。但在看机器学习的算法前，我们先来看看特征工程。 sklearn中的数据堪称完美，各大教材的数据也是一样。但是到我们现实应用中时，发现模型调用效果差，这是因为现实中的数据离完美的数据集差十万八千里。所以数据预处理和特征工程是必要的。 sklearn中六大板块有两大板块是关于数据预处理和特征工程的：也就是黄色标识的两个模块 特征工程三大知识：特征抽取、特征预处理、特征降维。 特征抽取在机器学习中，大多数算法都只能处理数值型数据，不能处理文字。在sklearn当中，除了专用来处理文字的算法，其它的算法在fit的时候全部要求输入数组和矩阵，也不能导入文字型数据。然而在现实生活中，许多标签和特征在数据收集完毕后，都不是以数字来表现的。为了让数据适应算法，我们必须将数据进行编码，即将文字型数据转换为数值型。 preprocessing.LabelEncoder：标签专用，能够将分类转换为分类数值。这个没运行成功，好像是我的数据集有问题。我自己设了个数据 123456789101112131415from pandas import DataFrame,Seriesfrom sklearn.preprocessing import LabelEncoderimport pandas as pddata=DataFrame(data=[[-1,2],[-0.5,6],[0,18],[1,18]])print(data)y=data.iloc[:,-1]#要输入的是标签，所以容许一维数组print(y)le=LabelEncoder()le.fit(y) #导入数据，调取结果label=le.transform(y)#print(le.fit_transform(y))print("调取结果是：",label)print(le.classes_) #查看标签中有多少类型data.iloc[:,-1]=labelprint(data) 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105![](https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML68.png)**preprocessing.OrdinalEncoder**：特征专用，能够将分类特征转换为分类数值字典特征抽取，把数据中的以字符串标记的数据转化为one-hot编码。![](https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML1.png)由上面代码可得下面的稀疏（sparse）矩阵：![](https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML2.png)将稀疏矩阵转为矩阵：![](https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML3.png)![](https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML4.png)![](https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML6.png)![](https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML7.png)将矩阵转化为字典：![](https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML8.png)![](https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML9.png)文本特征抽取：![](https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML10.png)和字典特征抽取不一样的是CountVectorizer没有sparse参数，只能通过矩阵的toarray转化为数组![](https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML12.png)可得：![](https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML11.png)**注意：单个字母不统计。因为单个英文字母没有依据**如果文本是中文，根据需要的词频给文本添加空格。同样，单个字无法统计![](https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML13.png)利用jieba分词对数据进行one-hot编码：![](https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML14.png)TF-IDF特征抽取：用以评估一个词对于一个文件集或一个语料库中的其中一份文件的重要程度![](https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML15.png)## 特征预处理数据归一化处理：通过对原始数据进行交换把数据映射到（默认为[0,1]）之间![](https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML16.png)![](https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML17.png)归一化缺点：注意在特定场景最大值最小值是变化的。另外，最大值与最小值非常容易受异常点的影响，所以这种方法的鲁棒性差，只适合传统精确小数据场景。数据标准化处理:通过对原始数据进行变换把数据变换到均值为0，方差为1的范围。![](https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML18.png)![](https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML19.png)标准化总结：在已有样本足够多的情况下比较稳定，适合现代嘈杂大数据场景。除了StandardScaler和MinMaxScaler之外，sklearn也提供了各种其他的缩放处理：![](https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML60.png)缺失值处理方法:老版本用Imputer，新版本用SimpleImputer删除：如果每列或者行数据缺失值达到一定比例时，建议放弃整行或者整列插补：可以通过缺失值每行或者每列的平均值、中位数来填充Imputer：![](https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML20.png)SimpleImputer：![](https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML69.png)![](https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML66.png)```pythonimport pandas as pdfrom sklearn.preprocessing import LabelEncoderfrom sklearn.impute import SimpleImputerdata=pd.read_csv("train.csv",index_col=0)#打印行数，列数，列索引，列非空值个数，列类型，内存占用print(data.info())Age = data.loc[:,"Age"].values.reshape(-1,1) #sklearn当中特征矩阵必须是二维imp_mean = SimpleImputer() #实例化，默认均值填补imp_mean = imp_mean.fit_transform(Age) #fit_transform一步完成调取结果data.loc[:,"Age"]=imp_mean #使用中位数填补Ageprint(data["Age"]) 处理连续型特征：二值化和分段 sklearn.preprocessing.Binarizer 根据阈值将数据二值化(将特征值设置为0或1)，用于处理连续型变量。大于阈值的值映射为1，而小于或等于阈值的值映射为0。默认阈值为0时，特征中所有的正值都映射为1。 1234from sklearn.preprocessing import BinarizerAge=data.loc[:,"Age"].values.reshape(-1,1)Bin=Binarizer(threshold=30).fit_transform(Age)print(Bin) sklearn.preprocessing.KBinsDiscretizer 这是将连续变量划分为分类变量的类，能够将连续型变量排序后按顺序分箱后编码。三个重要参数： 12345678from sklearn.preprocessing import KBinsDiscretizerx=data.loc[:,"Age"].values.reshape(-1,1)est = KBinsDiscretizer(n_bins=3, encode='ordinal', strategy='uniform')est.fit_transform(x)#查看转换后分的箱:变成了一列中的三箱 set(est.fit_transform(X).ravel()) ravel降维est = KBinsDiscretizer(n_bins=3, encode='onehot', strategy='uniform') #查看转换后分的箱:变成了哑变量result=est.fit_transform(x).toarray()print(result) 数据降维：减少特征的数量。这里的维度代表特征的个数。两种方法：1.特征选择 2.主成分分析 特征选择：特征选择就是单纯地从提取到的所有特征中选择部分特征作为训练集特征，特征在选择前和选择后可以改变值、也不改变值。但是选择后的特征维数肯定比选择前小。主要方法：Filter（过滤式）、Embedded（嵌入式）、Wrapper（包裹式） 主成分分析：PCA技术，PCA是一种分析、简化数据集的技术。特征数达到数百才会使用 目的：是数据维数压缩，尽可能降低原数据的维数，损失少量信息 PCA语法： n_components取值可以是小数和整数：小数的取值范围是0-1，代表降维后的维度是原本维度的0-1倍数，整数的值是降维降几个维。]]></content>
       <categories>
-        <category>python</category>
         <category>机器学习</category>
         <category>特征工程</category>
       </categories>
@@ -538,7 +646,7 @@
   <entry>
     <title><![CDATA[python中的线程]]></title>
     <url>%2F2019%2F08%2F06%2Fpython%E4%B8%AD%E7%9A%84%E7%BA%BF%E7%A8%8B%2F</url>
-    <content type="text"><![CDATA[重要的话写在前面：进程间不共享全局变量，线程间共享全局变量。 同步：按预定的先后次序进行运行 异步：不确定的次序 对于操作系统来说，一个任务就是一个进程。进程内的子任务成为线程 ，一个进程至少有一个线程 多任务执行的方式： 多进程 多线程 多进程+多线程 多线程：Python的标准库提供了两个模块：_thread和threading，_thread是低级模块，threading是高级模块，对_thread进行了封装。绝大多数情况下，我们只需要使用threading这个高级模块。 传入参数为元祖。也就是即使只有一个参数，也要写逗号。 join():将线程加入到当前线程，并等待其终止 判断线程是否在运行： 守护线程：将daemon属性设为True，则该线程无法被连接 daemon属性可以保证主线程结束时可以同时结束子线程或者使主线程等待子线程结束后在结束。故称为守护线程。daemon默认为False，如需修改，必须在调用start()方法启动线程之前进行设置。不适用与idle的交互模式或脚本模式 当daemon属性为False时，主线程会检测子线程是否结束，如果子线程还在运行，则主线程会等待他完成后在退出。当daemon属性为True时，子线程没执行的不再执行，主线程直接退出。 通过轮询终止线程： threading的常用方法： ​ active_count() 当前活动的 Thread 对象个数 ​ current_thread() 返回当前 Thread 对象 ​ current_thread().name返回当前的Thread对象的名字 ​ get_ident() 返回当前线程 ​ enumerater() 返回当前活动 Thread 对象列表 ​ main_thread() 返回主 Thread 对象 ​ settrace(func) 为所有线程设置一个 trace 函数 ​ setprofile(func) 为所有线程设置一个 profile 函数 ​ stack_size([size]) 返回新创建线程栈大小；或为后续创建的线程设定栈大小为 size ​ TIMEOUT_MAX Lock.acquire(), RLock.acquire(), Condition.wait() 允许的最大值 threading 可用对象列表： ​ Thread 表示执行线程的对象 ​ Lock 锁原语对象 ​ RLock 可重入锁对象，使单一进程再次获得已持有的锁(递归锁) Condition： 条件变量对象，使得一个线程等待另一个线程满足特定条件，比如改变状态或某个值 ​ wait(timeout): 线程挂起，直到收到一个notify通知或者超时（可选的，浮点数，单位是秒s）才会被唤醒继续运行。wait()必须在已获得Lock前提下才能调用，否则会触发RuntimeError。 ​ condition = threading.Condition(lock=None) # 创建Condition对象 参数可以不传 ​ condition.acquire() # 加锁 ​ condition.release() # 解锁 ​ condition.wait(timeout=None) # 阻塞，直到有调用notify(),或者notify_all()时再触发 ​ condition.wait_for(predicate, timeout=None) # 阻塞，等待predicate条件为真时执行 ​ condition.notify(n=1) # 通知n个wait()的线程执行, n默认为1 ​ condition.notify_all() # 通知所有wait着的线程执行 ​ with condition: # 支持with语法，不必每次手动调用acquire()/release() Semaphore 为线程间共享的有限资源提供一个”计数器”，如果没有可用资源会被阻塞 Events：它是由线程设置的信号标志，如果信号标志为真，则其他线程等待直到信号接触。 Event对象实现了简单的线程通信机制，它提供了设置信号，清除信号，等待等用于实现线程间的通信。 event = threading.Event() 创建一个event 1 设置信号 event.set() 使用Event的set（）方法可以设置Event对象内部的信号标志为真。Event对象提供了isSet（）方法来判断其内部信号标志的状态。 当使用event对象的set（）方法后，isSet（）方法返回真 2 清除信号 event.clear() 使用Event对象的clear（）方法可以清除Event对象内部的信号标志，即将其设为假，当使用Event的clear方法后，isSet()方法返回假 3 等待 event.wait() Event对象wait的方法只有在内部信号为真的时候才会很快的执行并完成返回。当Event对象的内部信号标志为假时，则wait方法一直等待到其为真时才返回。也就是说必须set新号标志为真 主线程在等事件设置后才继续执行 event使用示范： Barrier :创建一个”阻碍”，必须达到指定数量的线程后才可以继续 每个线程中都调用了wait()方法，在所有（此处设置为3）线程调用wait方法之前是阻塞的。也就是说，只有等到3个线程都执行到了wait方法这句时，所有线程才继续执行。 计算处于alive的Thread对象数量： 多线程避免全局变量的改变：上锁。上锁后执行的代码越少越好。 互斥锁：Lock是比较低级的同步原语，当被锁定后不属于特定的线程。一个锁有两个状态:Locked和unLocked.刚创建的的Locked处于unlocked状态。如果锁处于unlocked状态，acquire()方法将其修改为Locked并立即返回。如果锁处于locked状态，则阻塞当前线程并等待其他线程释放锁，然后将其修改为locked并立即返回。release()方法用来将锁的状态从locked修改为unlocked并立即返回。如果锁的状态本来就是unlocked，则会抛出异常 可重入锁Rlock对象也是一种常用的线程同步原语，可被同一个线程acquire()多次。当locked状态时，某现场拥有该锁，当处于unlocked状态时，该锁不属于任何线程。Rlock对象的acquire()/release()调用对可以嵌套，仅当最后一个或者最外层的release执行结束后，锁才会被设置为unlocked状态 死锁：双方都在等待对方的条件满足 避免死锁的方法：1、添加超时事件 2、 尽量避免（银行家算法） Threadlocal：保存当前线程的专有状态，这个状态对其他线程不可见。 全局变量local就是一个ThreadLocal对象，每个Thread对它都可以读写student属性，但互不影响。你可以把local看成全局变量，但每个属性如local.student都是线程的局部变量，可以任意读写而互不干扰，也不用管理锁的问题，ThreadLocal内部会处理。一个ThreadLocal变量虽然是全局变量，但每个线程都只能读写自己线程的独立副本，互不干扰。ThreadLocal解决了参数在一个线程中各个函数之间互相传递的问题。 线程池：threadpool模块或concerrent.futures模块 threadpool模块比较老旧，不是主流。 threadpool.ThreadPool(poolsize)：定义一个线程池，创建了poolsize个线程。 threadpool.makeRequest(开启多线程的函数，函数相关参数，[回调函数]) putRequest:将所有要运行多线程的请求扔进线程池。 concerrent.futures： ThreadPoolExecutor构造实例的时候，传入max_workers参数来设置线程池中最多能同时运行的线程数目。 使用submit函数来提交线程需要执行的任务（函数名和参数）到线程池中，并返回该任务的句柄（类似于文件、画图），注意submit()不是阻塞的，而是立即返回。 通过submit函数返回的任务句柄，能够使用done()方法判断该任务是否结束。上面的例子可以看出，由于任务有2s的延时，在task1提交后立刻判断，task1还未完成，而在延时4s之后判断，task1就完成了。 使用cancel()方法可以取消提交的任务，如果任务已经在线程池中运行了，就取消不了。这个例子中，线程池的大小设置为2，任务已经在运行了，所以取消失败。如果改变线程池的大小为1，那么先提交的是task1，task2还在排队等候，这是时候就可以成功取消。 使用result()方法可以获取任务的返回值。查看内部代码，发现这个方法是阻塞的 as_completed:一次取出所有任务的结果。as_completed()方法是一个生成器，在没有任务完成的时候，会阻塞，在有某个任务完成的时候，会yield这个任务，就能执行for循环下面的语句，然后继续阻塞住，循环到所有的任务结束。从结果也可以看出，先完成的任务会先通知主线程。 map的作用和submit一样，但略有不同。输出顺序和参数列表的顺序相同 wait方法接受三个参数，等待的任务序列，超时时间，以及等待条件。等待条件return_when默认为ALL_COMPLTED，表明要等待所有的任务都结束。还可以设为FIRST_COMPLETED，表示第一个任务完成就结束等待。FITST_EXCEPTION(注意要导入) 通过类创建线程： t.start后一定调用run函数，不定义run函数该线程不执行。对其他函数的调用只能在run函数里执行。多线程可以共享全局变量，但当数据量大时，数据会出错（产生资源竞争）。 线程是真的多，看到最后。迷迷糊糊，有错一定要提醒我。而且很多我还没有用过。后面用到的话，会补充上去的。接下来说最后一个：GIL。何为GIL？ GIL：全局解释器锁 单CPU的系统中运行多个进程那样，内存中可以存放多个程序，但任意时刻，只有一个程序在CPU中运行。同样地，虽然Python解释器中可以“运行”多个线程，但在任意时刻，只有一个线程在解释器中运行。 GIL保证了多线程时只有一个线程被调用。 所以多进程效率比多线程高，但是进程间通信比线程难。 解决方法：用C语言写关键部分。模块（ctypes）]]></content>
+    <content type="text"><![CDATA[重要的话写在前面：进程间不共享全局变量，线程间共享全局变量。 同步：按预定的先后次序进行运行 异步：不确定的次序 对于操作系统来说，一个任务就是一个进程。进程内的子任务成为线程 ，一个进程至少有一个线程 多任务执行的方式： 多进程 多线程 多进程+多线程 多线程：Python的标准库提供了两个模块：_thread和threading，_thread是低级模块，threading是高级模块，对_thread进行了封装。绝大多数情况下，我们只需要使用threading这个高级模块。 传入参数为元祖。也就是即使只有一个参数，也要写逗号。 join():将线程加入到当前线程，并等待其终止 判断线程是否在运行： 守护线程：将daemon属性设为True，则该线程无法被连接 daemon属性可以保证主线程结束时可以同时结束子线程或者使主线程等待子线程结束后在结束。故称为守护线程。daemon默认为False，如需修改，必须在调用start()方法启动线程之前进行设置。不适用与idle的交互模式或脚本模式 当daemon属性为False时，主线程会检测子线程是否结束，如果子线程还在运行，则主线程会等待他完成后在退出。当daemon属性为True时，子线程没执行的不再执行，主线程直接退出。 通过轮询终止线程： threading的常用方法： ​ active_count() 当前活动的 Thread 对象个数 ​ current_thread() 返回当前 Thread 对象 ​ current_thread().name返回当前的Thread对象的名字 ​ get_ident() 返回当前线程 ​ enumerater() 返回当前活动 Thread 对象列表 ​ main_thread() 返回主 Thread 对象 ​ settrace(func) 为所有线程设置一个 trace 函数 ​ setprofile(func) 为所有线程设置一个 profile 函数 ​ stack_size([size]) 返回新创建线程栈大小；或为后续创建的线程设定栈大小为 size ​ TIMEOUT_MAX Lock.acquire(), RLock.acquire(), Condition.wait() 允许的最大值 threading 可用对象列表： ​ Thread 表示执行线程的对象 ​ Lock 锁原语对象 ​ RLock 可重入锁对象，使单一进程再次获得已持有的锁(递归锁) Condition： 条件变量对象，使得一个线程等待另一个线程满足特定条件，比如改变状态或某个值 ​ wait(timeout): 线程挂起，直到收到一个notify通知或者超时（可选的，浮点数，单位是秒s）才会被唤醒继续运行。wait()必须在已获得Lock前提下才能调用，否则会触发RuntimeError。 ​ condition = threading.Condition(lock=None) # 创建Condition对象 参数可以不传 ​ condition.acquire() # 加锁 ​ condition.release() # 解锁 ​ condition.wait(timeout=None) # 阻塞，直到有调用notify(),或者notify_all()时再触发 ​ condition.wait_for(predicate, timeout=None) # 阻塞，等待predicate条件为真时执行 ​ condition.notify(n=1) # 通知n个wait()的线程执行, n默认为1 ​ condition.notify_all() # 通知所有wait着的线程执行 ​ with condition: # 支持with语法，不必每次手动调用acquire()/release() Semaphore 为线程间共享的有限资源提供一个”计数器”，如果没有可用资源会被阻塞 Events：它是由线程设置的信号标志，如果信号标志为真，则其他线程等待直到信号接触。 Event对象实现了简单的线程通信机制，它提供了设置信号，清除信号，等待等用于实现线程间的通信。 event = threading.Event() 创建一个event 1、设置信号 event.set() 使用Event的set（）方法可以设置Event对象内部的信号标志为真。Event对象提供了isSet（）方法来判断其内部信号标志的状态。 当使用event对象的set（）方法后，isSet（）方法返回真 2、清除信号 event.clear() 使用Event对象的clear（）方法可以清除Event对象内部的信号标志，即将其设为假，当使用Event的clear方法后，isSet()方法返回假 3 、等待 event.wait() Event对象wait的方法只有在内部信号为真的时候才会很快的执行并完成返回。当Event对象的内部信号标志为假时，则wait方法一直等待到其为真时才返回。也就是说必须set新号标志为真 主线程在等事件设置后才继续执行 event使用示范： Barrier :创建一个”阻碍”，必须达到指定数量的线程后才可以继续 每个线程中都调用了wait()方法，在所有（此处设置为3）线程调用wait方法之前是阻塞的。也就是说，只有等到3个线程都执行到了wait方法这句时，所有线程才继续执行。 计算处于alive的Thread对象数量： 多线程避免全局变量的改变：上锁。上锁后执行的代码越少越好。 互斥锁：Lock是比较低级的同步原语，当被锁定后不属于特定的线程。一个锁有两个状态:Locked和unLocked.刚创建的的Locked处于unlocked状态。如果锁处于unlocked状态，acquire()方法将其修改为Locked并立即返回。如果锁处于locked状态，则阻塞当前线程并等待其他线程释放锁，然后将其修改为locked并立即返回。release()方法用来将锁的状态从locked修改为unlocked并立即返回。如果锁的状态本来就是unlocked，则会抛出异常 可重入锁Rlock对象也是一种常用的线程同步原语，可被同一个线程acquire()多次。当locked状态时，某现场拥有该锁，当处于unlocked状态时，该锁不属于任何线程。Rlock对象的acquire()/release()调用对可以嵌套，仅当最后一个或者最外层的release执行结束后，锁才会被设置为unlocked状态 死锁：双方都在等待对方的条件满足 避免死锁的方法：1、添加超时事件 2、 尽量避免（银行家算法） Threadlocal：保存当前线程的专有状态，这个状态对其他线程不可见。 全局变量local就是一个ThreadLocal对象，每个Thread对它都可以读写student属性，但互不影响。你可以把local看成全局变量，但每个属性如local.student都是线程的局部变量，可以任意读写而互不干扰，也不用管理锁的问题，ThreadLocal内部会处理。一个ThreadLocal变量虽然是全局变量，但每个线程都只能读写自己线程的独立副本，互不干扰。ThreadLocal解决了参数在一个线程中各个函数之间互相传递的问题。 线程池：threadpool模块或concerrent.futures模块 threadpool模块比较老旧，不是主流。 threadpool.ThreadPool(poolsize)：定义一个线程池，创建了poolsize个线程。 threadpool.makeRequest(开启多线程的函数，函数相关参数，[回调函数]) putRequest:将所有要运行多线程的请求扔进线程池。 concerrent.futures：这个模块轻松绕开GIL ThreadPoolExecutor构造实例的时候，传入max_workers参数来设置线程池中最多能同时运行的线程数目。 使用submit函数来提交线程需要执行的任务（函数名和参数）到线程池中，并返回该任务的句柄（类似于文件、画图），注意submit()不是阻塞的，而是立即返回。 通过submit函数返回的任务句柄，能够使用done()方法判断该任务是否结束。上面的例子可以看出，由于任务有2s的延时，在task1提交后立刻判断，task1还未完成，而在延时4s之后判断，task1就完成了。 使用cancel()方法可以取消提交的任务，如果任务已经在线程池中运行了，就取消不了。这个例子中，线程池的大小设置为2，任务已经在运行了，所以取消失败。如果改变线程池的大小为1，那么先提交的是task1，task2还在排队等候，这是时候就可以成功取消。 使用result()方法可以获取任务的返回值。查看内部代码，发现这个方法是阻塞的 as_completed:一次取出所有任务的结果。as_completed()方法是一个生成器，在没有任务完成的时候，会阻塞，在有某个任务完成的时候，会yield这个任务，就能执行for循环下面的语句，然后继续阻塞住，循环到所有的任务结束。从结果也可以看出，先完成的任务会先通知主线程。 map的作用和submit一样，但略有不同。输出顺序和参数列表的顺序相同 wait方法接受三个参数，等待的任务序列，超时时间，以及等待条件。等待条件return_when默认为ALL_COMPLTED，表明要等待所有的任务都结束。还可以设为FIRST_COMPLETED，表示第一个任务完成就结束等待。FITST_EXCEPTION(注意要导入) 通过类创建线程： t.start后一定调用run函数，不定义run函数该线程不执行。对其他函数的调用只能在run函数里执行。多线程可以共享全局变量，但当数据量大时，数据会出错（产生资源竞争）。 线程是真的多，看到最后。迷迷糊糊，有错一定要提醒我。而且很多我还没有用过。后面用到的话，会补充上去的。接下来说最后一个：GIL。何为GIL？ GIL：全局解释器锁 单CPU的系统中运行多个进程那样，内存中可以存放多个程序，但任意时刻，只有一个程序在CPU中运行。同样地，虽然Python解释器中可以“运行”多个线程，但在任意时刻，只有一个线程在解释器中运行。 GIL保证了多线程时只有一个线程被调用。 所以多进程效率比多线程高，但是进程间通信比线程难。 解决方法：用C语言写关键部分。模块（ctypes）]]></content>
       <categories>
         <category>python</category>
         <category>线程</category>

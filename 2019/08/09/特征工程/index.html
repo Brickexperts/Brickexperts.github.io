@@ -57,41 +57,24 @@
   };
 </script>
 
-  <meta name="description" content="​    前些天我把python的处理图像的库——opencv总结了一下，但这终究是传统方法处理图像。现在都是用深度学习网络处理图像。所以，在学深度学习之前，我看了些机器学习的知识。但在看机器学习的算法前，我们先来看看特征工程。 特征工程三大知识：特征抽取、特征预处理、特征降维。 特征抽取字典特征抽取，把数据中的以字符串标记的数据转化为one-hot编码。  由上面代码可得下面的稀疏（sparse">
+  <meta name="description" content="​    前些天我把python的处理图像的库——opencv总结了一下，但这终究是传统方法处理图像。现在都是用深度学习网络处理图像。所以，在学深度学习之前，我看了些机器学习的知识。但在看机器学习的算法前，我们先来看看特征工程。 sklearn中的数据堪称完美，各大教材的数据也是一样。但是到我们现实应用中时，发现模型调用效果差，这是因为现实中的数据离完美的数据集差十万八千里。所以数据预处理和特征工">
 <meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="特征工程">
 <meta property="og:url" content="http://yoursite.com/2019/08/09/特征工程/index.html">
 <meta property="og:site_name" content="DY的个人博客">
-<meta property="og:description" content="​    前些天我把python的处理图像的库——opencv总结了一下，但这终究是传统方法处理图像。现在都是用深度学习网络处理图像。所以，在学深度学习之前，我看了些机器学习的知识。但在看机器学习的算法前，我们先来看看特征工程。 特征工程三大知识：特征抽取、特征预处理、特征降维。 特征抽取字典特征抽取，把数据中的以字符串标记的数据转化为one-hot编码。  由上面代码可得下面的稀疏（sparse">
+<meta property="og:description" content="​    前些天我把python的处理图像的库——opencv总结了一下，但这终究是传统方法处理图像。现在都是用深度学习网络处理图像。所以，在学深度学习之前，我看了些机器学习的知识。但在看机器学习的算法前，我们先来看看特征工程。 sklearn中的数据堪称完美，各大教材的数据也是一样。但是到我们现实应用中时，发现模型调用效果差，这是因为现实中的数据离完美的数据集差十万八千里。所以数据预处理和特征工">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML1.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML2.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML3.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML4.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML6.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML7.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML8.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML9.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML10.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML12.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML11.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML13.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML14.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML15.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML16.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML17.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML18.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML19.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML20.png">
+<meta property="og:image" content="c:%5CUsers%5C%E6%B9%9B%E8%93%9D%E6%98%9F%E7%A9%BA%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1567819232721.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML70.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML21.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML22.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML23.png">
-<meta property="og:updated_time" content="2019-08-12T01:18:53.519Z">
+<meta property="og:updated_time" content="2019-09-07T08:00:18.218Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="特征工程">
-<meta name="twitter:description" content="​    前些天我把python的处理图像的库——opencv总结了一下，但这终究是传统方法处理图像。现在都是用深度学习网络处理图像。所以，在学深度学习之前，我看了些机器学习的知识。但在看机器学习的算法前，我们先来看看特征工程。 特征工程三大知识：特征抽取、特征预处理、特征降维。 特征抽取字典特征抽取，把数据中的以字符串标记的数据转化为one-hot编码。  由上面代码可得下面的稀疏（sparse">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML1.png">
+<meta name="twitter:description" content="​    前些天我把python的处理图像的库——opencv总结了一下，但这终究是传统方法处理图像。现在都是用深度学习网络处理图像。所以，在学深度学习之前，我看了些机器学习的知识。但在看机器学习的算法前，我们先来看看特征工程。 sklearn中的数据堪称完美，各大教材的数据也是一样。但是到我们现实应用中时，发现模型调用效果差，这是因为现实中的数据离完美的数据集差十万八千里。所以数据预处理和特征工">
+<meta name="twitter:image" content="c:%5CUsers%5C%E6%B9%9B%E8%93%9D%E6%98%9F%E7%A9%BA%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1567819232721.png">
   <link rel="alternate" href="/atom.xml" title="DY的个人博客" type="application/atom+xml">
   <link rel="canonical" href="http://yoursite.com/2019/08/09/特征工程/">
 
@@ -315,7 +298,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-12 09:18:53" itemprop="dateModified" datetime="2019-08-12T09:18:53+08:00">2019-08-12</time>
+                <time title="修改时间：2019-09-07 16:00:18" itemprop="dateModified" datetime="2019-09-07T16:00:18+08:00">2019-09-07</time>
               </span>
             
           
@@ -327,21 +310,14 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/机器学习/" itemprop="url" rel="index"><span itemprop="name">机器学习</span></a></span>
 
                 
                 
                   ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/机器学习/" itemprop="url" rel="index"><span itemprop="name">机器学习</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/机器学习/特征工程/" itemprop="url" rel="index"><span itemprop="name">特征工程</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/机器学习/特征工程/" itemprop="url" rel="index"><span itemprop="name">特征工程</span></a></span>
 
                 
                 
@@ -361,44 +337,26 @@
 
       
         <p>​    前些天我把python的处理图像的库——opencv总结了一下，但这终究是传统方法处理图像。现在都是用深度学习网络处理图像。所以，在学深度学习之前，我看了些机器学习的知识。但在看机器学习的算法前，我们先来看看特征工程。</p>
+<p>sklearn中的数据堪称完美，各大教材的数据也是一样。但是到我们现实应用中时，发现模型调用效果差，这是因为现实中的数据离完美的数据集差十万八千里。所以数据预处理和特征工程是必要的。</p>
+<p>sklearn中六大板块有两大板块是关于数据预处理和特征工程的：也就是黄色标识的两个模块</p>
+<p><img src="C:%5CUsers%5C%E6%B9%9B%E8%93%9D%E6%98%9F%E7%A9%BA%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1567819232721.png" alt="1567819232721"></p>
 <p>特征工程三大知识：特征抽取、特征预处理、特征降维。</p>
-<h2 id="特征抽取"><a href="#特征抽取" class="headerlink" title="特征抽取"></a>特征抽取</h2><p>字典特征抽取，把数据中的以字符串标记的数据转化为one-hot编码。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML1.png" alt></p>
-<p>由上面代码可得下面的稀疏（sparse）矩阵：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML2.png" alt></p>
-<p>将稀疏矩阵转为矩阵：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML3.png" alt></p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML4.png" alt></p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML6.png" alt></p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML7.png" alt></p>
-<p>将矩阵转化为字典：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML8.png" alt></p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML9.png" alt></p>
-<p>文本特征抽取：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML10.png" alt></p>
-<p>和字典特征抽取不一样的是CountVectorizer没有sparse参数，只能通过矩阵的toarray转化为数组</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML12.png" alt></p>
-<p>可得：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML11.png" alt></p>
-<p><strong>注意：单个字母不统计。因为单个英文字母没有依据</strong></p>
-<p>如果文本是中文，根据需要的词频给文本添加空格。同样，单个字无法统计</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML13.png" alt></p>
-<p>利用jieba分词对数据进行one-hot编码：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML14.png" alt></p>
-<p>TF-IDF特征抽取：用以评估一个词对于一个文件集或一个语料库中的其中一份文件的重要程度</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML15.png" alt></p>
-<h2 id="特征预处理"><a href="#特征预处理" class="headerlink" title="特征预处理"></a>特征预处理</h2><p>数据归一化处理：通过对原始数据进行交换把数据映射到（默认为[0,1]）之间</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML16.png" alt></p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML17.png" alt></p>
-<p>归一化缺点：注意在特定场景最大值最小值是变化的。另外，最大值与最小值非常容易受异常点的影响，所以这种方法的鲁棒性差，只适合传统精确小数据场景。</p>
-<p>数据标准化处理:通过对原始数据进行变换把数据变换到均值为0，方差为1的范围。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML18.png" alt></p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML19.png" alt></p>
-<p>标准化总结：在已有样本足够多的情况下比较稳定，适合现代嘈杂大数据场景</p>
-<p>缺失值处理方法:</p>
-<p>删除：如果每列或者行数据缺失值达到一定比例时，建议放弃整行或者整列</p>
-<p>插补：可以通过缺失值每行或者每列的平均值、中位数来填充</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML20.png" alt></p>
+<h2 id="特征抽取"><a href="#特征抽取" class="headerlink" title="特征抽取"></a>特征抽取</h2><p>在机器学习中，大多数算法都只能处理数值型数据，不能处理文字。在sklearn当中，除了专用来处理文字的算法，其它的算法在fit的时候全部要求输入数组和矩阵，也不能导入文字型数据。然而在现实生活中，许多标签和特征在数据收集完毕后，都不是以数字来表现的。为了让数据适应算法，我们必须将数据进行编码，即将文字型数据转换为数值型。</p>
+<p><strong>preprocessing.LabelEncoder</strong>：标签专用，能够将分类转换为分类数值。这个没运行成功，好像是我的数据集有问题。我自己设了个数据</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pandas <span class="keyword">import</span> DataFrame,Series</span><br><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> LabelEncoder</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">data=DataFrame(data=[[<span class="number">-1</span>,<span class="number">2</span>],[<span class="number">-0.5</span>,<span class="number">6</span>],[<span class="number">0</span>,<span class="number">18</span>],[<span class="number">1</span>,<span class="number">18</span>]])</span><br><span class="line">print(data)</span><br><span class="line">y=data.iloc[:,<span class="number">-1</span>]<span class="comment">#要输入的是标签，所以容许一维数组</span></span><br><span class="line">print(y)</span><br><span class="line">le=LabelEncoder()</span><br><span class="line">le.fit(y)       <span class="comment">#导入数据，调取结果</span></span><br><span class="line">label=le.transform(y)</span><br><span class="line"><span class="comment">#print(le.fit_transform(y))</span></span><br><span class="line">print(<span class="string">"调取结果是："</span>,label)</span><br><span class="line">print(le.classes_)     <span class="comment">#查看标签中有多少类型</span></span><br><span class="line">data.iloc[:,<span class="number">-1</span>]=label</span><br><span class="line">print(data)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">![](https:<span class="regexp">//</span>raw.githubusercontent.com<span class="regexp">/Brickexperts/</span>Figurebed<span class="regexp">/master/</span>ML68.png)</span><br><span class="line"></span><br><span class="line">**preprocessing.OrdinalEncoder**：特征专用，能够将分类特征转换为分类数值</span><br><span class="line"></span><br><span class="line">字典特征抽取，把数据中的以字符串标记的数据转化为one-hot编码。</span><br><span class="line"></span><br><span class="line">![](https:<span class="regexp">//</span>raw.githubusercontent.com<span class="regexp">/Brickexperts/</span>Figurebed<span class="regexp">/master/</span>ML1.png)</span><br><span class="line"></span><br><span class="line">由上面代码可得下面的稀疏（sparse）矩阵：</span><br><span class="line"></span><br><span class="line">![](https:<span class="regexp">//</span>raw.githubusercontent.com<span class="regexp">/Brickexperts/</span>Figurebed<span class="regexp">/master/</span>ML2.png)</span><br><span class="line"></span><br><span class="line">将稀疏矩阵转为矩阵：</span><br><span class="line"></span><br><span class="line">![](https:<span class="regexp">//</span>raw.githubusercontent.com<span class="regexp">/Brickexperts/</span>Figurebed<span class="regexp">/master/</span>ML3.png)</span><br><span class="line"></span><br><span class="line">![](https:<span class="regexp">//</span>raw.githubusercontent.com<span class="regexp">/Brickexperts/</span>Figurebed<span class="regexp">/master/</span>ML4.png)</span><br><span class="line"></span><br><span class="line">![](https:<span class="regexp">//</span>raw.githubusercontent.com<span class="regexp">/Brickexperts/</span>Figurebed<span class="regexp">/master/</span>ML6.png)</span><br><span class="line"></span><br><span class="line">![](https:<span class="regexp">//</span>raw.githubusercontent.com<span class="regexp">/Brickexperts/</span>Figurebed<span class="regexp">/master/</span>ML7.png)</span><br><span class="line"></span><br><span class="line">将矩阵转化为字典：</span><br><span class="line"></span><br><span class="line">![](https:<span class="regexp">//</span>raw.githubusercontent.com<span class="regexp">/Brickexperts/</span>Figurebed<span class="regexp">/master/</span>ML8.png)</span><br><span class="line"></span><br><span class="line">![](https:<span class="regexp">//</span>raw.githubusercontent.com<span class="regexp">/Brickexperts/</span>Figurebed<span class="regexp">/master/</span>ML9.png)</span><br><span class="line"></span><br><span class="line">文本特征抽取：</span><br><span class="line"></span><br><span class="line">![](https:<span class="regexp">//</span>raw.githubusercontent.com<span class="regexp">/Brickexperts/</span>Figurebed<span class="regexp">/master/</span>ML10.png)</span><br><span class="line"></span><br><span class="line">和字典特征抽取不一样的是CountVectorizer没有sparse参数，只能通过矩阵的toarray转化为数组</span><br><span class="line"></span><br><span class="line">![](https:<span class="regexp">//</span>raw.githubusercontent.com<span class="regexp">/Brickexperts/</span>Figurebed<span class="regexp">/master/</span>ML12.png)</span><br><span class="line"></span><br><span class="line">可得：</span><br><span class="line"></span><br><span class="line">![](https:<span class="regexp">//</span>raw.githubusercontent.com<span class="regexp">/Brickexperts/</span>Figurebed<span class="regexp">/master/</span>ML11.png)</span><br><span class="line"></span><br><span class="line">**注意：单个字母不统计。因为单个英文字母没有依据**</span><br><span class="line"></span><br><span class="line">如果文本是中文，根据需要的词频给文本添加空格。同样，单个字无法统计</span><br><span class="line"></span><br><span class="line">![](https:<span class="regexp">//</span>raw.githubusercontent.com<span class="regexp">/Brickexperts/</span>Figurebed<span class="regexp">/master/</span>ML13.png)</span><br><span class="line"></span><br><span class="line">利用jieba分词对数据进行one-hot编码：</span><br><span class="line"></span><br><span class="line">![](https:<span class="regexp">//</span>raw.githubusercontent.com<span class="regexp">/Brickexperts/</span>Figurebed<span class="regexp">/master/</span>ML14.png)</span><br><span class="line"></span><br><span class="line">TF-IDF特征抽取：用以评估一个词对于一个文件集或一个语料库中的其中一份文件的重要程度</span><br><span class="line"></span><br><span class="line">![](https:<span class="regexp">//</span>raw.githubusercontent.com<span class="regexp">/Brickexperts/</span>Figurebed<span class="regexp">/master/</span>ML15.png)</span><br><span class="line"></span><br><span class="line"><span class="comment">## 特征预处理</span></span><br><span class="line"></span><br><span class="line">数据归一化处理：通过对原始数据进行交换把数据映射到（默认为[<span class="number">0</span>,<span class="number">1</span>]）之间</span><br><span class="line"></span><br><span class="line">![](https:<span class="regexp">//</span>raw.githubusercontent.com<span class="regexp">/Brickexperts/</span>Figurebed<span class="regexp">/master/</span>ML16.png)</span><br><span class="line"></span><br><span class="line">![](https:<span class="regexp">//</span>raw.githubusercontent.com<span class="regexp">/Brickexperts/</span>Figurebed<span class="regexp">/master/</span>ML17.png)</span><br><span class="line"></span><br><span class="line">归一化缺点：注意在特定场景最大值最小值是变化的。另外，最大值与最小值非常容易受异常点的影响，所以这种方法的鲁棒性差，只适合传统精确小数据场景。</span><br><span class="line"></span><br><span class="line">数据标准化处理:通过对原始数据进行变换把数据变换到均值为<span class="number">0</span>，方差为<span class="number">1</span>的范围。</span><br><span class="line"></span><br><span class="line">![](https:<span class="regexp">//</span>raw.githubusercontent.com<span class="regexp">/Brickexperts/</span>Figurebed<span class="regexp">/master/</span>ML18.png)</span><br><span class="line"></span><br><span class="line">![](https:<span class="regexp">//</span>raw.githubusercontent.com<span class="regexp">/Brickexperts/</span>Figurebed<span class="regexp">/master/</span>ML19.png)</span><br><span class="line"></span><br><span class="line">标准化总结：在已有样本足够多的情况下比较稳定，适合现代嘈杂大数据场景。</span><br><span class="line"></span><br><span class="line">除了StandardScaler和MinMaxScaler之外，sklearn也提供了各种其他的缩放处理：</span><br><span class="line"></span><br><span class="line">![](https:<span class="regexp">//</span>raw.githubusercontent.com<span class="regexp">/Brickexperts/</span>Figurebed<span class="regexp">/master/</span>ML60.png)</span><br><span class="line"></span><br><span class="line">缺失值处理方法:老版本用Imputer，新版本用SimpleImputer</span><br><span class="line"></span><br><span class="line">删除：如果每列或者行数据缺失值达到一定比例时，建议放弃整行或者整列</span><br><span class="line"></span><br><span class="line">插补：可以通过缺失值每行或者每列的平均值、中位数来填充</span><br><span class="line"></span><br><span class="line">Imputer：</span><br><span class="line"></span><br><span class="line">![](https:<span class="regexp">//</span>raw.githubusercontent.com<span class="regexp">/Brickexperts/</span>Figurebed<span class="regexp">/master/</span>ML20.png)</span><br><span class="line"></span><br><span class="line">SimpleImputer：</span><br><span class="line"></span><br><span class="line">![](https:<span class="regexp">//</span>raw.githubusercontent.com<span class="regexp">/Brickexperts/</span>Figurebed<span class="regexp">/master/</span>ML69.png)</span><br><span class="line"></span><br><span class="line">![](https:<span class="regexp">//</span>raw.githubusercontent.com<span class="regexp">/Brickexperts/</span>Figurebed<span class="regexp">/master/</span>ML66.png)</span><br><span class="line"></span><br><span class="line">```python</span><br><span class="line">import pandas as pd</span><br><span class="line">from sklearn.preprocessing import LabelEncoder</span><br><span class="line">from sklearn.impute import SimpleImputer</span><br><span class="line">data=pd.read_csv(<span class="string">"train.csv"</span>,index_col=<span class="number">0</span>)</span><br><span class="line"><span class="comment">#打印行数，列数，列索引，列非空值个数，列类型，内存占用</span></span><br><span class="line">print(data.info())</span><br><span class="line">Age = data.loc[:,<span class="string">"Age"</span>].values.reshape(-<span class="number">1</span>,<span class="number">1</span>)         <span class="comment">#sklearn当中特征矩阵必须是二维</span></span><br><span class="line">imp_mean = SimpleImputer()                          <span class="comment">#实例化，默认均值填补</span></span><br><span class="line">imp_mean = imp_mean.fit_transform(Age)             <span class="comment">#fit_transform一步完成调取结果</span></span><br><span class="line">data.loc[:,<span class="string">"Age"</span>]=imp_mean                             <span class="comment">#使用中位数填补Age</span></span><br><span class="line">print(data[<span class="string">"Age"</span>])</span><br></pre></td></tr></table></figure>
+
+<p>处理连续型特征：二值化和分段</p>
+<p>sklearn.preprocessing.Binarizer</p>
+<p>根据阈值将数据二值化(将特征值设置为0或1)，用于处理连续型变量。大于阈值的值映射为1，而小于或等于阈值的值映射为0。默认阈值为0时，特征中所有的正值都映射为1。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> Binarizer</span><br><span class="line">Age=data.loc[:,<span class="string">"Age"</span>].values.reshape(<span class="number">-1</span>,<span class="number">1</span>)</span><br><span class="line">Bin=Binarizer(threshold=<span class="number">30</span>).fit_transform(Age)</span><br><span class="line">print(Bin)</span><br></pre></td></tr></table></figure>
+
+<p>sklearn.preprocessing.KBinsDiscretizer</p>
+<p>这是将连续变量划分为分类变量的类，能够将连续型变量排序后按顺序分箱后编码。三个重要参数：</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML70.png" alt></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> KBinsDiscretizer</span><br><span class="line">x=data.loc[:,<span class="string">"Age"</span>].values.reshape(<span class="number">-1</span>,<span class="number">1</span>)</span><br><span class="line">est = KBinsDiscretizer(n_bins=<span class="number">3</span>, encode=<span class="string">'ordinal'</span>, strategy=<span class="string">'uniform'</span>)</span><br><span class="line">est.fit_transform(x)</span><br><span class="line"><span class="comment">#查看转换后分的箱:变成了一列中的三箱 set(est.fit_transform(X).ravel())    ravel降维</span></span><br><span class="line">est = KBinsDiscretizer(n_bins=<span class="number">3</span>, encode=<span class="string">'onehot'</span>, strategy=<span class="string">'uniform'</span>) <span class="comment">#查看转换后分的箱:变成了哑变量</span></span><br><span class="line">result=est.fit_transform(x).toarray()</span><br><span class="line">print(result)</span><br></pre></td></tr></table></figure>
+
 <h2 id="数据降维："><a href="#数据降维：" class="headerlink" title="数据降维："></a>数据降维：</h2><p>减少特征的数量。这里的维度代表特征的个数。两种方法：1.特征选择 2.主成分分析</p>
 <p>特征选择：特征选择就是单纯地从提取到的所有特征中选择部分特征作为训练集特征，特征在选择前和选择后可以改变值、也不改变值。但是选择后的特征维数肯定比选择前小。主要方法：Filter（过滤式）、Embedded（嵌入式）、Wrapper（包裹式）</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML21.png" alt></p>
@@ -468,8 +426,8 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2019/08/09/机器学习（1）/" rel="prev" title="机器学习（1）">
-                机器学习（1） <i class="fa fa-chevron-right"></i>
+              <a href="/2019/08/09/ML算法分类和数据分割/" rel="prev" title="机器学习算法分类和数据分割">
+                机器学习算法分类和数据分割 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -526,7 +484,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-count">62</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -689,7 +647,25 @@
         
           
         
-        <span class="site-state-item-count">74</span>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">83</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
@@ -774,7 +750,9 @@
         
           
         
-        <span class="site-state-item-count">35</span>
+          
+        
+        <span class="site-state-item-count">36</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
@@ -813,7 +791,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#特征抽取"><span class="nav-text">特征抽取</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特征预处理"><span class="nav-text">特征预处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据降维："><span class="nav-text">数据降维：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#特征抽取"><span class="nav-text">特征抽取</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据降维："><span class="nav-text">数据降维：</span></a></li></ol></div>
             
 
           </div>
