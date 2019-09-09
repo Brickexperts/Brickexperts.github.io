@@ -72,7 +72,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML114.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML115.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML51.png">
-<meta property="og:updated_time" content="2019-09-09T11:19:11.451Z">
+<meta property="og:updated_time" content="2019-09-09T11:22:37.750Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="K-means">
 <meta name="twitter:description" content="无监督学习与聚类算法有监督学习的模型在训练的时候，即需要特征矩阵X，也需要真实标签y。机器学习当中，还有相当一部分算法属于“无监督学习”，无监督的算法在训练的时候只需要特征矩阵X，不需要标签。而聚类算法，就是无监督学习的代表算法。 聚类算法又叫做“无监督分类”，其目的是将数据划分成有意义或有用的组（或簇）。这种划分可以基于我们的业务需求或建模需求来完成，也可以单纯地帮助我们探索数据的自然结构和分布">
@@ -300,7 +300,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-09-09 19:19:11" itemprop="dateModified" datetime="2019-09-09T19:19:11+08:00">2019-09-09</time>
+                <time title="修改时间：2019-09-09 19:22:37" itemprop="dateModified" datetime="2019-09-09T19:22:37+08:00">2019-09-09</time>
               </span>
             
           
@@ -347,8 +347,8 @@
 <p>在KMeans算法中，簇的个数K是一个超参数，需要我们人为输入来确定。KMeans的核心任务就是根据我们设定好的K，找出K个最优的质心，并将离这些质心最近的数据分别分配到这些质心代表的簇中去。具体过程可以总结如下 ：</p>
 <p>​        1、随机抽取k个样本作为最初的质心</p>
 <p>​        2、开始循环</p>
-<p>​            2.1、将每个样本点分配到离他们最近的质心，生成k个簇</p>
-<p>​            2.2、对于每个簇，计算所有被分到该簇的样本点的平均值作为新的质心</p>
+<p>​                2.1、将每个样本点分配到离他们最近的质心，生成k个簇</p>
+<p>​                2.2、对于每个簇，计算所有被分到该簇的样本点的平均值作为新的质心</p>
 <p>​        3、当质心的位置不在发生变化，迭代停止，聚类完成</p>
 <p>那什么情况下，质心的位置会不再变化呢？当我们找到一个质心，在每次迭代中被分配到这个质心上的样本都是一致的，即每次新生成的簇都是一致的，所有的样本点都不会再从一个簇转移到另一个簇，质心就不会变化了。</p>
 <p>对于一个簇来说，所有样本点到质心的距离之和越小，我们就认为这个簇中的样本越相似，簇内差异就越小。而距<br>离的衡量方法有多种，令x表示簇中的一个样本点，ui表示该簇中的质心，n表示每个样本点中的特征数目，i表示组<br>成点x的每个特征，则该样本点到质心的距离可以由以下距离来度量：</p>
