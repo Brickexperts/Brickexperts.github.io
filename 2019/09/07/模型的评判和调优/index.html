@@ -57,22 +57,22 @@
   };
 </script>
 
-  <meta name="description" content="精确率和召回率 分类模型评估API：F1-score,反应了模型的稳健性  模型选择和调优：1、交叉验证 2、网格搜索 交叉验证为了让被评估的模型更加准确可信 网格搜索是用来调参数的。通常情况下，有很多参数是需要手动指定的（如k-近邻算法的k）但是手动过于繁杂。所以需要对模型预设几种超参数组合，每组超参数都采用交叉验证来进行评估。 sklearn.model_Selection.GridSearc">
+  <meta name="description" content="精确率和召回率 分类模型评估API：F1-score,反应了模型的稳健性  模型选择和调优交叉验证交叉验证为了让被评估的模型更加准确可信 网格搜索网格搜索是用来调参数的。通常情况下，有很多参数是需要手动指定的（如k-近邻算法的k）但是手动过于繁杂。所以需要对模型预设几种超参数组合，每组超参数都采用交叉验证来进行评估。 sklearn.model_Selection.GridSearchCV">
 <meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="模型的评判和调优">
 <meta property="og:url" content="http://yoursite.com/2019/09/07/模型的评判和调优/index.html">
 <meta property="og:site_name" content="DY的个人博客">
-<meta property="og:description" content="精确率和召回率 分类模型评估API：F1-score,反应了模型的稳健性  模型选择和调优：1、交叉验证 2、网格搜索 交叉验证为了让被评估的模型更加准确可信 网格搜索是用来调参数的。通常情况下，有很多参数是需要手动指定的（如k-近邻算法的k）但是手动过于繁杂。所以需要对模型预设几种超参数组合，每组超参数都采用交叉验证来进行评估。 sklearn.model_Selection.GridSearc">
+<meta property="og:description" content="精确率和召回率 分类模型评估API：F1-score,反应了模型的稳健性  模型选择和调优交叉验证交叉验证为了让被评估的模型更加准确可信 网格搜索网格搜索是用来调参数的。通常情况下，有很多参数是需要手动指定的（如k-近邻算法的k）但是手动过于繁杂。所以需要对模型预设几种超参数组合，每组超参数都采用交叉验证来进行评估。 sklearn.model_Selection.GridSearchCV">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML52.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML53.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML54.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML55.png">
-<meta property="og:updated_time" content="2019-09-07T08:16:56.717Z">
+<meta property="og:updated_time" content="2019-09-10T03:42:12.618Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="模型的评判和调优">
-<meta name="twitter:description" content="精确率和召回率 分类模型评估API：F1-score,反应了模型的稳健性  模型选择和调优：1、交叉验证 2、网格搜索 交叉验证为了让被评估的模型更加准确可信 网格搜索是用来调参数的。通常情况下，有很多参数是需要手动指定的（如k-近邻算法的k）但是手动过于繁杂。所以需要对模型预设几种超参数组合，每组超参数都采用交叉验证来进行评估。 sklearn.model_Selection.GridSearc">
+<meta name="twitter:description" content="精确率和召回率 分类模型评估API：F1-score,反应了模型的稳健性  模型选择和调优交叉验证交叉验证为了让被评估的模型更加准确可信 网格搜索网格搜索是用来调参数的。通常情况下，有很多参数是需要手动指定的（如k-近邻算法的k）但是手动过于繁杂。所以需要对模型预设几种超参数组合，每组超参数都采用交叉验证来进行评估。 sklearn.model_Selection.GridSearchCV">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML52.png">
   <link rel="alternate" href="/atom.xml" title="DY的个人博客" type="application/atom+xml">
   <link rel="canonical" href="http://yoursite.com/2019/09/07/模型的评判和调优/">
@@ -284,11 +284,21 @@
                 
               
 
-              <time title="创建时间：2019-09-07 16:11:22 / 修改时间：16:16:56" itemprop="dateCreated datePublished" datetime="2019-09-07T16:11:22+08:00">2019-09-07</time>
+              <time title="创建时间：2019-09-07 16:11:22" itemprop="dateCreated datePublished" datetime="2019-09-07T16:11:22+08:00">2019-09-07</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-09-10 11:42:12" itemprop="dateModified" datetime="2019-09-10T11:42:12+08:00">2019-09-10</time>
+              </span>
             
           
             <span class="post-meta-item">
@@ -328,9 +338,8 @@
         <h2 id="精确率和召回率"><a href="#精确率和召回率" class="headerlink" title="精确率和召回率"></a>精确率和召回率</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML52.png" alt></p>
 <p>分类模型评估API：F1-score,反应了模型的稳健性</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML53.png" alt></p>
-<p>模型选择和调优：1、交叉验证 2、网格搜索</p>
-<p>交叉验证为了让被评估的模型更加准确可信</p>
-<p>网格搜索是用来调参数的。通常情况下，有很多参数是需要手动指定的（如k-近邻算法的k）但是手动过于繁杂。所以需要对模型预设几种超参数组合，每组超参数都采用交叉验证来进行评估。</p>
+<h2 id="模型选择和调优"><a href="#模型选择和调优" class="headerlink" title="模型选择和调优"></a>模型选择和调优</h2><h3 id="交叉验证"><a href="#交叉验证" class="headerlink" title="交叉验证"></a>交叉验证</h3><p>交叉验证为了让被评估的模型更加准确可信</p>
+<h3 id="网格搜索"><a href="#网格搜索" class="headerlink" title="网格搜索"></a>网格搜索</h3><p>网格搜索是用来调参数的。通常情况下，有很多参数是需要手动指定的（如k-近邻算法的k）但是手动过于繁杂。所以需要对模型预设几种超参数组合，每组超参数都采用交叉验证来进行评估。</p>
 <p>sklearn.model_Selection.GridSearchCV</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML54.png" alt></p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML55.png" alt></p>
@@ -761,7 +770,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#精确率和召回率"><span class="nav-text">精确率和召回率</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#精确率和召回率"><span class="nav-text">精确率和召回率</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模型选择和调优"><span class="nav-text">模型选择和调优</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#交叉验证"><span class="nav-text">交叉验证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网格搜索"><span class="nav-text">网格搜索</span></a></li></ol></li></ol></div>
             
 
           </div>
