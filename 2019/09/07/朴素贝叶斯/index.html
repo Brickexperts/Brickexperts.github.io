@@ -77,7 +77,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/bayes7.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/bayes8.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/bayes9.png">
-<meta property="og:updated_time" content="2019-09-12T14:05:22.094Z">
+<meta property="og:updated_time" content="2019-09-12T14:12:42.219Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="朴素贝叶斯">
 <meta name="twitter:description" content="贝叶斯的性质关键概念 ​    联合概率：X取值为x和Y取值为y两个事件同时发生的概率，表示为P(X=x,Y=y) ​    条件概率：在X取值为x的前提下，Y取值为y的概率。表示为P(Y=y|X=x)  这里的C代表类别，W代表特征。 我们学习的其它分类算法总是有一个特点：这些算法先从训练集中学习，获取某种信息来建立模型，然后用模型去对测试集进行预测。比如逻辑回归，我们要先从训练集中获取让损失函">
@@ -305,7 +305,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-09-12 22:05:22" itemprop="dateModified" datetime="2019-09-12T22:05:22+08:00">2019-09-12</time>
+                <time title="修改时间：2019-09-12 22:12:42" itemprop="dateModified" datetime="2019-09-12T22:12:42+08:00">2019-09-12</time>
               </span>
             
           
@@ -400,7 +400,7 @@
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/bayes7.png" alt></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> MinMaxScaler</span><br><span class="line"><span class="keyword">from</span> sklearn.naive_bayes <span class="keyword">import</span> MultinomialNB</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> make_blobs</span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> brier_score_loss</span><br><span class="line">class_1 = <span class="number">500</span></span><br><span class="line">class_2 = <span class="number">500</span> <span class="comment">#两个类别分别设定500个样本</span></span><br><span class="line">centers = [[<span class="number">0.0</span>, <span class="number">0.0</span>], [<span class="number">2.0</span>, <span class="number">2.0</span>]] <span class="comment">#设定两个类别的中心</span></span><br><span class="line">clusters_std = [<span class="number">0.5</span>, <span class="number">0.5</span>] <span class="comment">#设定两个类别的方差</span></span><br><span class="line">X, y = make_blobs(n_samples=[class_1, class_2],</span><br><span class="line">centers=centers,</span><br><span class="line">cluster_std=clusters_std,</span><br><span class="line">random_state=<span class="number">0</span>, shuffle=<span class="literal">False</span>)</span><br><span class="line">Xtrain, Xtest, Ytrain, Ytest = train_test_split(X,y</span><br><span class="line">,test_size=<span class="number">0.3</span></span><br><span class="line">,random_state=<span class="number">420</span>)</span><br><span class="line"><span class="comment">#先归一化，保证输入多项式朴素贝叶斯的特征矩阵中不带有负数</span></span><br><span class="line">mms = MinMaxScaler().fit(Xtrain)</span><br><span class="line">Xtrain_ = mms.transform(Xtrain)</span><br><span class="line">Xtest_ = mms.transform(Xtest)</span><br><span class="line"><span class="comment">#先归一化，保证输入多项式朴素贝叶斯的特征矩阵中不带有负数</span></span><br><span class="line">mms = MinMaxScaler().fit(Xtrain)</span><br><span class="line">Xtrain_ = mms.transform(Xtrain)</span><br><span class="line">Xtest_ = mms.transform(Xtest)</span><br><span class="line">mnb = MultinomialNB().fit(Xtrain_, Ytrain)</span><br><span class="line">mnb.predict(Xtest_)</span><br><span class="line">mnb.predict_proba(Xtest_)</span><br><span class="line">mnb.score(Xtest_,Ytest)</span><br><span class="line">print(brier_score_loss(Ytest,mnb.predict_proba(Xtest_)[:,<span class="number">1</span>],pos_label=<span class="number">1</span>))</span><br></pre></td></tr></table></figure>
 
-<p>其实效果不是很理想，来试试看把Xtiain转换成分类型数据吧。注意我们的Xtrain没有经过归一化，因为做哑变量之后自然所有的数据就不会又负数了。看下面的代码：</p>
+<p>其实效果不是很理想，来试试看把Xtrain转换成分类型数据吧。注意我们的Xtrain没有经过归一化，因为做哑变量之后自然所有的数据就不会又负数了。看下面的代码：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> KBinsDiscretizer</span><br><span class="line">kbs = KBinsDiscretizer(n_bins=<span class="number">10</span>, encode=<span class="string">'onehot'</span>).fit(Xtrain)</span><br><span class="line">Xtrain_ = kbs.transform(Xtrain)</span><br><span class="line">Xtest_ = kbs.transform(Xtest)</span><br><span class="line">mnb = MultinomialNB().fit(Xtrain_, Ytrain)</span><br><span class="line">mnb.score(Xtest_,Ytest)</span><br><span class="line">print(brier_score_loss(Ytest,mnb.predict_proba(Xtest_)[:,<span class="number">1</span>],pos_label=<span class="number">1</span>))</span><br></pre></td></tr></table></figure>
 
 <h2 id="伯努利朴素贝叶斯"><a href="#伯努利朴素贝叶斯" class="headerlink" title="伯努利朴素贝叶斯"></a>伯努利朴素贝叶斯</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/bayes8.png" alt></p>
@@ -526,7 +526,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">66</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -709,7 +709,13 @@
         
           
         
-        <span class="site-state-item-count">84</span>
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">87</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
