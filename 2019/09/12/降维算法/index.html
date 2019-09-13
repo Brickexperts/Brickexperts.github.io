@@ -73,7 +73,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/PCA3.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/PCA4.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/PCA5.png">
-<meta property="og:updated_time" content="2019-09-13T04:45:30.794Z">
+<meta property="og:updated_time" content="2019-09-13T04:54:56.847Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="降维算法">
 <meta name="twitter:description" content="降维算法中的”降维“，指的是降低特征矩阵中特征的数量。降维的目的是为了让算法运算更快，效果更好。对图像来说，维度就是图像中特征向量的数量。 sklearn中的降维算法sklearn中降维算法都被包括在模块decomposition中   PCA在降维过程中，我们会减少特征的数量，这意味着删除数据，数据量变少则表示模型可以获取的信息会变少，模型的表现可能会因此受影响。同时，在高维数据中，必然有一些特">
@@ -301,7 +301,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-09-13 12:45:30" itemprop="dateModified" datetime="2019-09-13T12:45:30+08:00">2019-09-13</time>
+                <time title="修改时间：2019-09-13 12:54:56" itemprop="dateModified" datetime="2019-09-13T12:54:56+08:00">2019-09-13</time>
               </span>
             
           
@@ -368,7 +368,7 @@
 <p>“arpack”：从scipy.sparse.linalg.svds调用ARPACK分解器来运行截断奇异值分解(SVD truncated)，分解时就将特征数量降到n_components中输入的数值k，可以加快运算速度，适合特征矩阵很大的时候，但一般用于特征矩阵为稀疏矩阵的情况，此过程包含一定的随机性。</p>
 <p>“randomized”，通过Halko等人的随机方法进行随机SVD。在”full”方法中，分解器会根据原始数据和输入的n_components值去计算和寻找符合需求的新特征向量，但是在”randomized”方法中，分解器会先生成多个随机向量，然后一一去检测这些随机向量中是否有任何一个符合我们的分解需求，如果符合，就保留这个随机向量，并基于这个随机向量来构建后续的向量空间。这个方法已经被Halko等人证明，比”full”模式下计算快很多，并且还能够保证模型运行效果。适合特征矩阵巨大，计算量庞大的情况。</p>
 <h5 id="random-state"><a href="#random-state" class="headerlink" title="random_state"></a>random_state</h5><p>参数random_state在参数svd_solver的值为”arpack” or “randomized”的时候生效，可以控制这两种SVD模式中的随机模式。通常我们就选用”auto“，不必对这个参数纠结太多。</p>
-<h5 id="参数列表"><a href="#参数列表" class="headerlink" title="参数列表"></a>参数列表</h5><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/PCA1.png" alt></p>
+<h3 id="PCA参数、属性和接口"><a href="#PCA参数、属性和接口" class="headerlink" title="PCA参数、属性和接口"></a>PCA参数、属性和接口</h3><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/PCA1.png" alt></p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/PCA2.png" alt></p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/PCA3.png" alt></p>
 <h5 id="属性列表"><a href="#属性列表" class="headerlink" title="属性列表"></a>属性列表</h5><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/PCA4.png" alt></p>
@@ -815,7 +815,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#sklearn中的降维算法"><span class="nav-text">sklearn中的降维算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PCA"><span class="nav-text">PCA</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#重要参数"><span class="nav-text">重要参数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#选择最好的n-components"><span class="nav-text">选择最好的n_components</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#累积可解释方差贡献率曲线"><span class="nav-text">累积可解释方差贡献率曲线</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#最大似然估计自选超参数"><span class="nav-text">最大似然估计自选超参数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#按信息占比选超参数"><span class="nav-text">按信息占比选超参数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PCA中的SVD"><span class="nav-text">PCA中的SVD</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#重要参数-1"><span class="nav-text">重要参数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#svd-solver"><span class="nav-text">svd_solver</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#random-state"><span class="nav-text">random_state</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#参数列表"><span class="nav-text">参数列表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#属性列表"><span class="nav-text">属性列表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#接口列表"><span class="nav-text">接口列表</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PCA对手写数字数据集的降维"><span class="nav-text">PCA对手写数字数据集的降维</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#sklearn中的降维算法"><span class="nav-text">sklearn中的降维算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PCA"><span class="nav-text">PCA</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#重要参数"><span class="nav-text">重要参数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#选择最好的n-components"><span class="nav-text">选择最好的n_components</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#累积可解释方差贡献率曲线"><span class="nav-text">累积可解释方差贡献率曲线</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#最大似然估计自选超参数"><span class="nav-text">最大似然估计自选超参数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#按信息占比选超参数"><span class="nav-text">按信息占比选超参数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PCA中的SVD"><span class="nav-text">PCA中的SVD</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#重要参数-1"><span class="nav-text">重要参数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#svd-solver"><span class="nav-text">svd_solver</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#random-state"><span class="nav-text">random_state</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PCA参数、属性和接口"><span class="nav-text">PCA参数、属性和接口</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#属性列表"><span class="nav-text">属性列表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#接口列表"><span class="nav-text">接口列表</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PCA对手写数字数据集的降维"><span class="nav-text">PCA对手写数字数据集的降维</span></a></li></ol></div>
             
 
           </div>
