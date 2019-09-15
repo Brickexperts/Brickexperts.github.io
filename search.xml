@@ -6,7 +6,8 @@
     <content type="text"></content>
       <categories>
         <category>机器学习</category>
-        <category>SVM(2)</category>
+        <category>SVM</category>
+        <category>SVM解读(2)</category>
       </categories>
       <tags>
         <tag>SVM</tag>
@@ -175,6 +176,7 @@
       <categories>
         <category>机器学习</category>
         <category>SVM</category>
+        <category>SVM解读(1)</category>
       </categories>
       <tags>
         <tag>SVM</tag>
