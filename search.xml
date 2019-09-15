@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[SVM解读(2)]]></title>
     <url>%2F2019%2F09%2F15%2FSVM%E8%A7%A3%E8%AF%BB(2)%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[当然，不是所有数据都是线性可分的，不是所有数据我们都能够一眼看出，有一条直线，或一个平面，甚至一个超平面可以将数据完全分开。比如下面的环形数据。对于这样的数据，我们需要对它进行一个升维变化，将数据从原始的空间x投射到新空间F(x)中。升维之后，我们明显可以找出一个平面，能够将数据切分开来。 F是一个映射函数，它代表了某种能够将数据升维的非线性的变换，我们对数据进行这样的变换，确保数据在自己的空间中一定能够线性可分。 这种变换非常巧妙，但也带有一些实现问题。 首先，我们可能不清楚应该什么样的数据应该使用什么类型的映射函数来确保可以在变换空间中找出线性决策边界。极端情况下，数据可能会被映射到无限维度的空间中，这种高维空间可能不是那么友好，维度越多，推导和计算的难度都会随之暴增。而解决这些问题的是核函数。 关键概念：核函数是一种能够使用数据原始空间中的向量计算来表示升维后的空间中的点积结果的数学方式。]]></content>
       <categories>
         <category>机器学习</category>
         <category>SVM</category>
@@ -482,7 +482,6 @@
       <categories>
         <category>python</category>
         <category>opencv</category>
-        <category>opencv(7)</category>
       </categories>
       <tags>
         <tag>视觉处理</tag>
@@ -495,7 +494,6 @@
       <categories>
         <category>python</category>
         <category>opencv</category>
-        <category>opencv(6)</category>
       </categories>
       <tags>
         <tag>视觉处理</tag>
@@ -508,7 +506,6 @@
       <categories>
         <category>python</category>
         <category>opencv</category>
-        <category>opencv(5)</category>
       </categories>
       <tags>
         <tag>视觉处理</tag>
@@ -521,7 +518,6 @@
       <categories>
         <category>python</category>
         <category>opencv</category>
-        <category>opencv(4)</category>
       </categories>
       <tags>
         <tag>视觉处理</tag>
@@ -534,7 +530,6 @@
       <categories>
         <category>python</category>
         <category>opencv</category>
-        <category>opencv(3)</category>
       </categories>
       <tags>
         <tag>视觉处理</tag>
@@ -547,7 +542,6 @@
       <categories>
         <category>python</category>
         <category>opencv</category>
-        <category>opencv(2)</category>
       </categories>
       <tags>
         <tag>视觉处理</tag>
@@ -560,7 +554,6 @@
       <categories>
         <category>python</category>
         <category>opencv</category>
-        <category>opencv(1)</category>
       </categories>
       <tags>
         <tag>视觉处理</tag>
