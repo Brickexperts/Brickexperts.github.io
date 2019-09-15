@@ -107,8 +107,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SVM48.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SVM49.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SVM50.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SVM22.png">
-<meta property="og:updated_time" content="2019-09-15T05:58:27.057Z">
+<meta property="og:updated_time" content="2019-09-15T06:12:55.274Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SVM解读(1)">
 <meta name="twitter:description" content="​    支持向量机(SVM)是机器学习中获得关注最多的算法。它是我们除了集成算法之外，接触的第一个强学习器。从学术的角度看，SVM是最接近深度学习的机器学习方法。 sklearn中的支持向量机 注意，除了特别表明是线性的两个类LinearSVC和LinearSVR之外，其他的所有类都是同时支持线性和非线性的。NuSVC和NuSVC可以手动调节支持向量的数目，其他参数都与最常用的SVC和SVR一致">
@@ -336,7 +335,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-09-15 13:58:27" itemprop="dateModified" datetime="2019-09-15T13:58:27+08:00">2019-09-15</time>
+                <time title="修改时间：2019-09-15 14:12:55" itemprop="dateModified" datetime="2019-09-15T14:12:55+08:00">2019-09-15</time>
               </span>
             
           
@@ -486,10 +485,6 @@
 <p>其中x<sub>test</sub>是任意测试样本，sign(h)是h&gt;0时返回-1的符号函数。到这里，我们也就完成了对SVM的第二层理解的大部分内容，我们了解了线性SVM的四种相关函数：损失函数的初始形态、拉格朗日函数、拉格朗日对偶函数以及最后的决策函数。</p>
 <h3 id="第三层理解"><a href="#第三层理解" class="headerlink" title="第三层理解"></a>第三层理解</h3><p>熟练以上的推导过程，就是我们的第三层理解。</p>
 <h2 id="线性SVM决策过程的可视化"><a href="#线性SVM决策过程的可视化" class="headerlink" title="线性SVM决策过程的可视化"></a>线性SVM决策过程的可视化</h2><p>我们可以使用sklearn的式子来可视化我们的决策边界、支持向量、以及决策边界平行的两个超平面。</p>
-<p>当然，不是所有数据都是线性可分的，不是所有数据我们都能够一眼看出，有一条直线，或一个平面，甚至一个超平面可以将数据完全分开。比如下面的环形数据。对于这样的数据，我们需要对它进行一个升维变化，将数据从原始的空间x投射到新空间F(x)中。升维之后，我们明显可以找出一个平面，能够将数据切分开来。 F是一个映射函数，它代表了某种能够将数据升维的非线性的变换，我们对数据进行这样的变换，确保数据在自己的空间中一定能够线性可分。 </p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SVM22.png" alt></p>
-<p>这种变换非常巧妙，但也带有一些实现问题。 首先，我们可能不清楚应该什么样的数据应该使用什么类型的映射函数来确保可以在变换空间中找出线性决策边界。极端情况下，数据可能会被映射到无限维度的空间中，这种高维空间可能不是那么友好，维度越多，推导和计算的难度都会随之暴增。而解决这些问题的是<strong>核函数</strong>。</p>
-<p><strong>关键概念：</strong>核函数是一种能够使用数据原始空间中的向量计算来表示升维后的空间中的点积结果的数学方式。</p>
 
     </div>
 
@@ -771,19 +766,7 @@
         
           
         
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-        <span class="site-state-item-count">80</span>
+        <span class="site-state-item-count">74</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
