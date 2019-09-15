@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-09-15T05:47:15.527Z</updated>
+  <updated>2019-09-15T05:54:17.529Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -18,15 +18,21 @@
   
   <entry>
     <title>SVM解读(2)</title>
-    <link href="http://yoursite.com/2019/09/15/SVM%E8%A7%A3%E8%AF%BB-2/"/>
-    <id>http://yoursite.com/2019/09/15/SVM解读-2/</id>
+    <link href="http://yoursite.com/2019/09/15/SVM%E8%A7%A3%E8%AF%BB(2)/"/>
+    <id>http://yoursite.com/2019/09/15/SVM解读(2)/</id>
     <published>2019-09-15T05:47:15.000Z</published>
-    <updated>2019-09-15T05:47:15.527Z</updated>
+    <updated>2019-09-15T05:54:17.529Z</updated>
     
     <summary type="html">
     
     </summary>
     
+      <category term="机器学习" scheme="http://yoursite.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="SVM(2)" scheme="http://yoursite.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/SVM-2/"/>
+    
+    
+      <category term="SVM" scheme="http://yoursite.com/tags/SVM/"/>
     
   </entry>
   
@@ -387,8 +393,8 @@
   
   <entry>
     <title>SVM解读(1)</title>
-    <link href="http://yoursite.com/2019/09/05/SVM%E8%A7%A3%E8%AF%BB/"/>
-    <id>http://yoursite.com/2019/09/05/SVM解读/</id>
+    <link href="http://yoursite.com/2019/09/05/SVM%E8%A7%A3%E8%AF%BB(1)/"/>
+    <id>http://yoursite.com/2019/09/05/SVM解读(1)/</id>
     <published>2019-09-05T14:16:50.000Z</published>
     <updated>2019-09-15T05:47:44.414Z</updated>
     
