@@ -57,13 +57,13 @@
   };
 </script>
 
-  <meta name="description" content="非线性SVM与核函数SVC在非线性数据上的推广为了能够找出非线性数据的线性决策边界，我们需要将数据从原始的空间x投射到新空间$\Phi$(x)中。 $\Phi$ 是一个映射函数，它代表了某种非线性的变换，如同我们之前所做过的使用r来升维一样，这种非线性变换看起来是一种非常有效的方式。使用这种变换，线性SVM的原理可以被很容易推广到非线性情况下，其推到过程核逻辑都与线性SVM一摸一样，只不过在第一决">
+  <meta name="description" content="非线性SVM与核函数SVC在非线性数据上的推广为了能够找出非线性数据的线性决策边界，我们需要将数据从原始的空间x投射到新空间$\Phi$(x)中。$\Phi$是一个映射函数，它代表了某种非线性的变换，如同我们之前所做过的使用r来升维一样，这种非线性变换看起来是一种非常有效的方式。使用这种变换，线性SVM的原理可以被很容易推广到非线性情况下，其推到过程核逻辑都与线性SVM一摸一样，只不过在第一决策边">
 <meta name="keywords" content="SVM">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SVM解读(2)">
 <meta property="og:url" content="http://yoursite.com/2019/09/15/SVM解读(2)/index.html">
 <meta property="og:site_name" content="DY的个人博客">
-<meta property="og:description" content="非线性SVM与核函数SVC在非线性数据上的推广为了能够找出非线性数据的线性决策边界，我们需要将数据从原始的空间x投射到新空间$\Phi$(x)中。 $\Phi$ 是一个映射函数，它代表了某种非线性的变换，如同我们之前所做过的使用r来升维一样，这种非线性变换看起来是一种非常有效的方式。使用这种变换，线性SVM的原理可以被很容易推广到非线性情况下，其推到过程核逻辑都与线性SVM一摸一样，只不过在第一决">
+<meta property="og:description" content="非线性SVM与核函数SVC在非线性数据上的推广为了能够找出非线性数据的线性决策边界，我们需要将数据从原始的空间x投射到新空间$\Phi$(x)中。$\Phi$是一个映射函数，它代表了某种非线性的变换，如同我们之前所做过的使用r来升维一样，这种非线性变换看起来是一种非常有效的方式。使用这种变换，线性SVM的原理可以被很容易推广到非线性情况下，其推到过程核逻辑都与线性SVM一摸一样，只不过在第一决策边">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SVM52.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SVM52.png">
@@ -81,10 +81,10 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SVM65.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SVM66.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SVM67.png">
-<meta property="og:updated_time" content="2019-09-16T08:46:13.232Z">
+<meta property="og:updated_time" content="2019-09-16T08:52:50.945Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SVM解读(2)">
-<meta name="twitter:description" content="非线性SVM与核函数SVC在非线性数据上的推广为了能够找出非线性数据的线性决策边界，我们需要将数据从原始的空间x投射到新空间$\Phi$(x)中。 $\Phi$ 是一个映射函数，它代表了某种非线性的变换，如同我们之前所做过的使用r来升维一样，这种非线性变换看起来是一种非常有效的方式。使用这种变换，线性SVM的原理可以被很容易推广到非线性情况下，其推到过程核逻辑都与线性SVM一摸一样，只不过在第一决">
+<meta name="twitter:description" content="非线性SVM与核函数SVC在非线性数据上的推广为了能够找出非线性数据的线性决策边界，我们需要将数据从原始的空间x投射到新空间$\Phi$(x)中。$\Phi$是一个映射函数，它代表了某种非线性的变换，如同我们之前所做过的使用r来升维一样，这种非线性变换看起来是一种非常有效的方式。使用这种变换，线性SVM的原理可以被很容易推广到非线性情况下，其推到过程核逻辑都与线性SVM一摸一样，只不过在第一决策边">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SVM52.png">
   <link rel="alternate" href="/atom.xml" title="DY的个人博客" type="application/atom+xml">
   <link rel="canonical" href="http://yoursite.com/2019/09/15/SVM解读(2)/">
@@ -309,7 +309,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-09-16 16:46:13" itemprop="dateModified" datetime="2019-09-16T16:46:13+08:00">2019-09-16</time>
+                <time title="修改时间：2019-09-16 16:52:50" itemprop="dateModified" datetime="2019-09-16T16:52:50+08:00">2019-09-16</time>
               </span>
             
           
@@ -347,14 +347,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="非线性SVM与核函数"><a href="#非线性SVM与核函数" class="headerlink" title="非线性SVM与核函数"></a>非线性SVM与核函数</h2><h3 id="SVC在非线性数据上的推广"><a href="#SVC在非线性数据上的推广" class="headerlink" title="SVC在非线性数据上的推广"></a>SVC在非线性数据上的推广</h3><p>为了能够找出非线性数据的线性决策边界，我们需要将数据从原始的空间x投射到新空间$\Phi$(x)中。 $\Phi$ 是一个映射函数，它代表了某种非线性的变换，如同我们之前所做过的使用r来升维一样，这种非线性变换看起来是一种非常有效的方式。使用这种变换，线性SVM的原理可以被很容易推广到非线性情况下，其推到过程核逻辑都与线性SVM一摸一样，只不过在第一决策边界之前，我们必须先对数据进行升维，即将原始的x转换成$\Phi$。</p>
-<h3 id="重要参数kernel"><a href="#重要参数kernel" class="headerlink" title="重要参数kernel"></a>重要参数kernel</h3><p>这种变换非常巧妙，但也带有一些实现问题。首先，我们可能不清楚应该什么样的数据应该使用什么类型的映射函数来确保可以在变换空间中找出线性决策边界。极端情况下，数据可能会被映射到无限维度的空间中，这种高维空间可能不是那么友好，维度越多，推导和计算的难度都会随之暴增。其次，已知适当的映射函数，我们想要计算类似于 $ \Phi $ (x)<sub>i</sub>* $\Phi $ (x<sub>test</sub>)这样的点积，计算量无法巨大。要找出超平面所付出的代价是非常昂贵的。</p>
+        <h2 id="非线性SVM与核函数"><a href="#非线性SVM与核函数" class="headerlink" title="非线性SVM与核函数"></a>非线性SVM与核函数</h2><h3 id="SVC在非线性数据上的推广"><a href="#SVC在非线性数据上的推广" class="headerlink" title="SVC在非线性数据上的推广"></a>SVC在非线性数据上的推广</h3><p>为了能够找出非线性数据的线性决策边界，我们需要将数据从原始的空间x投射到新空间$\Phi$(x)中。$\Phi$是一个映射函数，它代表了某种非线性的变换，如同我们之前所做过的使用r来升维一样，这种非线性变换看起来是一种非常有效的方式。使用这种变换，线性SVM的原理可以被很容易推广到非线性情况下，其推到过程核逻辑都与线性SVM一摸一样，只不过在第一决策边界之前，我们必须先对数据进行升维，即将原始的x转换成$\Phi$。</p>
+<h3 id="重要参数kernel"><a href="#重要参数kernel" class="headerlink" title="重要参数kernel"></a>重要参数kernel</h3><p>这种变换非常巧妙，但也带有一些实现问题。首先，我们可能不清楚应该什么样的数据应该使用什么类型的映射函数来确保可以在变换空间中找出线性决策边界。极端情况下，数据可能会被映射到无限维度的空间中，这种高维空间可能不是那么友好，维度越多，推导和计算的难度都会随之暴增。其次，已知适当的映射函数，我们想要计算类似于 $\Phi$(x)<sub>i</sub>* $\Phi $(x<sub>test</sub>)这样的点积，计算量无法巨大。要找出超平面所付出的代价是非常昂贵的。</p>
 <p><strong>关键概念</strong>：核函数</p>
-<p>而解决上面这些问题的数学方式，叫做”核技巧”。是一种能够使用数据原始空间中的向量计算来表示升维后的空间中的点积结果的数学方式。具体体现为，K(u,v)= $ \Phi $ (u) * $\Phi $ (v)。而这个原始空间中的点积函数K(u,v)，就被叫做“核函数”。</p>
+<p>而解决上面这些问题的数学方式，叫做”核技巧”。是一种能够使用数据原始空间中的向量计算来表示升维后的空间中的点积结果的数学方式。具体体现为，K(u,v)= $\Phi$(u)*$\Phi$(v)。而这个原始空间中的点积函数K(u,v)，就被叫做“核函数”。</p>
 <p>核函数能够帮助我们解决三个问题：</p>
-<p>​    第一，有了核函数之后，我们无需去担心$\Phi$究竟应该是什么样，因为非线性SVM中的核函数都是正定核函数(positive definite kernel functions)，他们都满足美世定律(Mercer’s theorem)，确保了高维空间中任意两个向量的点积一定可以被低维空间中的这两个向量的某种计算来表示。</p>
-<p>​    第二，使用核函数计算低维度中的向量关系比计算原来的$ \Phi $(x<sub>i</sub>) * $ \Phi $(x<sub>test</sub>)要简单太多了。</p>
-<p>​    第三，因为计算是在原始空间中进行，所以避免了维度诅咒的问题。 </p>
+<p>第一，有了核函数之后，我们无需去担心$\Phi$究竟应该是什么样，因为非线性SVM中的核函数都是正定核函数(positive definite kernel functions)，他们都满足美世定律(Mercer’s theorem)，确保了高维空间中任意两个向量的点积一定可以被低维空间中的这两个向量的某种计算来表示。</p>
+<p>第二，使用核函数计算低维度中的向量关系比计算原来的$ \Phi $(x<sub>i</sub>) * $ \Phi $(x<sub>test</sub>)要简单太多了。</p>
+<p>第三，因为计算是在原始空间中进行，所以避免了维度诅咒的问题。 </p>
 <p>选用不同的核函数，就可以解决不同数据分布下的寻找超平面问题。在SVC中，这个功能由参数“kernel”和一系列与核函数相关的参数来进行控制。之前的代码中我们一直使用这个参数并输入”linear”，但却没有给大家详细讲解，也是因为如果不先理解核函数本身，很难说明这个参数到底在做什么。参数“kernel”在sklearn中可选以下几种选项：</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SVM52.png" alt></p>
 <p>可以看出，除了选项”linear”之外，其他核函数都可以处理非线性问题。多项式核函数有次数d，当d为1的时候它就是再处理线性问题，当d为更高次项的时候它就是在处理非线性问题。我们之前画图时使用的是选项“linear”，自然不能处理环形数据这样非线性的状况。而刚才我们使用的计算r的方法，其实是高斯径向基核函数所对应的功能，在参数”kernel“中输入”rbf“就可以使用这种核函数。</p>
@@ -376,7 +376,7 @@
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SVM56.png" alt></p>
 <p>不过，这些超平面现在无法让数据上的训练误差等于0了，因为此时存在了一个混杂在红色点中的紫色点。于是，我们需要放松我们原始判别函数中的不等条件，来让决策边界能够适用于我们的异常点。于是我们引入松弛系数$\zeta$来帮助我们优化原始的判别函数：</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SVM57.png" alt></p>
-<p>其中$\zeta$&gt;0。可以看的出，这其实是将原来的虚线超平面向图像的上方和下方平移。松弛系数其实蛮好理解的，看上图，在红色点附近的蓝色点在原本的判别函数中必定会被分为红色，所有一定会判断错。我们现在做一条与决策边界平行，且过蓝色点的直线&omega;<em>x<sub>i</sub>+b=1- $ \zeta $<sub>i</sub>(图中的蓝色虚线)。这条直线是由&omega;*x<sub>i</sub>+b=1平移得到，所以两条直线在纵坐标上的差异就是$\zeta$。而点&omega;x<sub>i</sub>+b=1的距离就可以表示为 $ \zeta $\</em>&omega;/||&omega;||，即$ \zeta $在&omega;方向上的投影。由于单位向量是固定的，所以$ \zeta $可以作为蓝色点在原始的决策边界上的分类错误的程度的表示。隔得越远，分的越错。<strong>注意：$ \zeta $ 并不是点到决策超平面的距离本身。</strong></p>
+<p>其中$\zeta$&gt;0。可以看的出，这其实是将原来的虚线超平面向图像的上方和下方平移。松弛系数其实蛮好理解的，看上图，在红色点附近的蓝色点在原本的判别函数中必定会被分为红色，所有一定会判断错。我们现在做一条与决策边界平行，且过蓝色点的直线&omega;<em>x<sub>i</sub>+b=1- $\zeta$<sub>i</sub>(图中的蓝色虚线)。这条直线是由&omega;*x<sub>i</sub>+b=1平移得到，所以两条直线在纵坐标上的差异就是$\zeta$。而点&omega;x<sub>i</sub>+b=1的距离就可以表示为 $ \zeta $\</em>&omega;/||&omega;||，即$ \zeta $在&omega;方向上的投影。由于单位向量是固定的，所以$ \zeta $可以作为蓝色点在原始的决策边界上的分类错误的程度的表示。隔得越远，分的越错。<strong>注意：$\zeta$并不是点到决策超平面的距离本身。</strong></p>
 <p>不难注意到，我们让&omega;^x<sub>i</sub>+b&gt;=1-$\zeta$<sub>i</sub>作为我们的新决策超平面，是有一定的问题的。虽然我们把异常的蓝色点分类正确了，但我们同时也分错了一系列红色的点。所以我们必须在我们求解最大边际的损失函数中加上一个惩罚项，用来惩罚我们具有巨大松弛系数的决策超平面。我们的拉格朗日函数，拉格朗日对偶函数，也因此都被松弛系数改变。现在，我们的损失函数为 </p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SVM58.png" alt></p>
 <p>C是用来控制惩罚力度的系数</p>
