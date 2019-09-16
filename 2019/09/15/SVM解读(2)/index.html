@@ -81,7 +81,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SVM65.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SVM66.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SVM67.png">
-<meta property="og:updated_time" content="2019-09-16T08:05:01.481Z">
+<meta property="og:updated_time" content="2019-09-16T08:27:48.374Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SVM解读(2)">
 <meta name="twitter:description" content="非线性SVM与核函数SVC在非线性数据上的推广为了能够找出非线性数据的线性决策边界，我们需要将数据从原始的空间x投射到新空间$\Phi$(x)中。 $\Phi$是一个映射函数，它代表了某种非线性的变换，如同我们之前所做过的使用r来升维一样，这种非线性变换看起来是一种非常有效的方式。使用这种变换，线性SVM的原理可以被很容易推广到非线性情况下，其推到过程核逻辑都与线性SVM一摸一样，只不过在第一决策">
@@ -309,7 +309,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-09-16 16:05:01" itemprop="dateModified" datetime="2019-09-16T16:05:01+08:00">2019-09-16</time>
+                <time title="修改时间：2019-09-16 16:27:48" itemprop="dateModified" datetime="2019-09-16T16:27:48+08:00">2019-09-16</time>
               </span>
             
           
@@ -348,7 +348,7 @@
 
       
         <h2 id="非线性SVM与核函数"><a href="#非线性SVM与核函数" class="headerlink" title="非线性SVM与核函数"></a>非线性SVM与核函数</h2><h3 id="SVC在非线性数据上的推广"><a href="#SVC在非线性数据上的推广" class="headerlink" title="SVC在非线性数据上的推广"></a>SVC在非线性数据上的推广</h3><p>为了能够找出非线性数据的线性决策边界，我们需要将数据从原始的空间x投射到新空间$\Phi$(x)中。 $\Phi$是一个映射函数，它代表了某种非线性的变换，如同我们之前所做过的使用r来升维一样，这种非线性变换看起来是一种非常有效的方式。使用这种变换，线性SVM的原理可以被很容易推广到非线性情况下，其推到过程核逻辑都与线性SVM一摸一样，只不过在第一决策边界之前，我们必须先对数据进行升维，即将原始的x转换成$\Phi$(x)。</p>
-<h3 id="重要参数kernel"><a href="#重要参数kernel" class="headerlink" title="重要参数kernel"></a>重要参数kernel</h3><p>这种变换非常巧妙，但也带有一些实现问题。首先，我们可能不清楚应该什么样的数据应该使用什么类型的映射函数来确保可以在变换空间中找出线性决策边界。极端情况下，数据可能会被映射到无限维度的空间中，这种高维空间可能不是那么友好，维度越多，推导和计算的难度都会随之暴增。其次，已知适当的映射函数，我们想要计算类似于$\Phi$(x<sub>i</sub>)*$\Phi$(x<sub>test</sub>)这样的点积，计算量无法巨大。要找出超平面所付出的代价是非常昂贵的。</p>
+<h3 id="重要参数kernel"><a href="#重要参数kernel" class="headerlink" title="重要参数kernel"></a>重要参数kernel</h3><p>这种变换非常巧妙，但也带有一些实现问题。首先，我们可能不清楚应该什么样的数据应该使用什么类型的映射函数来确保可以在变换空间中找出线性决策边界。极端情况下，数据可能会被映射到无限维度的空间中，这种高维空间可能不是那么友好，维度越多，推导和计算的难度都会随之暴增。其次，已知适当的映射函数，我们想要计算类似于$\Phi$(x<sub>i</sub>)*(x<sub>test</sub>)这样的点积，计算量无法巨大。要找出超平面所付出的代价是非常昂贵的。</p>
 <p><strong>关键概念</strong>：核函数</p>
 <p>而解决上面这些问题的数学方式，叫做”核技巧”。是一种能够使用数据原始空间中的向量计算来表示升维后的空间中的点积结果的数学方式。具体体现为，K(u,v)=$\Phi$(u)*$\Phi$(v)。而这个原始空间中的点积函数K(u,v)，就被叫做“核函数”。</p>
 <p>核函数能够帮助我们解决三个问题：</p>
