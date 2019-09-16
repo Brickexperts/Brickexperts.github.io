@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="generator" content="Hexo 3.9.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.3.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.3.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    search: {
+      root: '/',
+      path: 'search.xml'
+    },
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    }
+  };
+</script>
+
+  <meta name="description" content="参数C的理解进阶在SVM(2)说到有一些数据，可能是线性可分，但在线性可分状况下训练准确率不能达到100%，即无法让训练误差为0，这样的数据被我们称为“存在软间隔的数据”。此时此刻，我们需要让我们决策边界能够忍受一小部分训练误差，我们就不能单纯地寻求最大边际了。 因为对于软间隔地数据来说，边际越大被分错的样本也就会越多，因此我们需要找出一个”最大边际“与”被分错的样本数量“之间的平衡。因此，我们引">
+<meta name="keywords" content="SVM">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SVM解读(3)">
+<meta property="og:url" content="http://yoursite.com/2019/09/16/SVM解读(3)/index.html">
+<meta property="og:site_name" content="DY的个人博客">
+<meta property="og:description" content="参数C的理解进阶在SVM(2)说到有一些数据，可能是线性可分，但在线性可分状况下训练准确率不能达到100%，即无法让训练误差为0，这样的数据被我们称为“存在软间隔的数据”。此时此刻，我们需要让我们决策边界能够忍受一小部分训练误差，我们就不能单纯地寻求最大边际了。 因为对于软间隔地数据来说，边际越大被分错的样本也就会越多，因此我们需要找出一个”最大边际“与”被分错的样本数量“之间的平衡。因此，我们引">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SVM55.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML52.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SVM68.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SVM69.png">
+<meta property="og:updated_time" content="2019-09-16T14:48:39.404Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SVM解读(3)">
+<meta name="twitter:description" content="参数C的理解进阶在SVM(2)说到有一些数据，可能是线性可分，但在线性可分状况下训练准确率不能达到100%，即无法让训练误差为0，这样的数据被我们称为“存在软间隔的数据”。此时此刻，我们需要让我们决策边界能够忍受一小部分训练误差，我们就不能单纯地寻求最大边际了。 因为对于软间隔地数据来说，边际越大被分错的样本也就会越多，因此我们需要找出一个”最大边际“与”被分错的样本数量“之间的平衡。因此，我们引">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SVM55.png">
+  <link rel="alternate" href="/atom.xml" title="DY的个人博客" type="application/atom+xml">
+  <link rel="canonical" href="http://yoursite.com/2019/09/16/SVM解读(3)/">
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>SVM解读(3) | DY的个人博客</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">DY的个人博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+    <ul id="menu" class="menu">
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-search">
+          <a href="javascript:;" class="popup-trigger">
+          
+            <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+    </div>
+</nav>
+
+</div>
+    </header>
+
+    
+
+  <a href="https://github.com/Brickexperts" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/16/SVM解读(3)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="湛蓝星空">
+      <meta itemprop="description" content="这个人贼菜">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DY的个人博客">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">SVM解读(3)
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-16 19:00:53 / 修改时间：22:48:39" itemprop="dateCreated datePublished" datetime="2019-09-16T19:00:53+08:00">2019-09-16</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/机器学习/" itemprop="url" rel="index"><span itemprop="name">机器学习</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/机器学习/SVM/" itemprop="url" rel="index"><span itemprop="name">SVM</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          <br>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="参数C的理解进阶"><a href="#参数C的理解进阶" class="headerlink" title="参数C的理解进阶"></a>参数C的理解进阶</h2><p>在SVM(2)说到有一些数据，可能是线性可分，但在线性可分状况下训练准确率不能达到100%，即无法让训练误差为0，这样的数据被我们称为“存在软间隔的数据”。此时此刻，我们需要让我们决策边界能够忍受一小部分训练误差，我们就不能单纯地寻求最大边际了。 因为对于软间隔地数据来说，边际越大被分错的样本也就会越多，因此我们需要找出一个”最大边际“与”被分错的样本数量“之间的平衡。因此，我们引入松弛系数ζ和松弛系数的系数C作为一个惩罚项，来惩罚我们对最大边际的追求。 </p>
+<p>那我们的参数C如何影响我们的决策边界呢？在硬间隔的时候，我们的决策边界完全由两个支持向量和最小化损失函数（最大化边际）来决定，而我们的支持向量是两个标签类别不一致的点，即分别是正样本和负样本。然而在软间隔情况下我们的边际依然由支持向量决定，但此时此刻的支持向量可能就不再是来自两种标签类别的点了，而是分布在决策边界两边的，同类别的点。回忆一下我们的图像： </p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SVM55.png" alt></p>
+<p>此时我们的虚线超平面&omega;*x+b=1-ζ<sub>i</sub>是由混杂在红色点中间的紫色点来决定的，所以此时此刻，这个蓝色点就是我们的支持向量了。所以软间隔让决定两条虚线超平面的支持向量可能是来自于同一个类别的样本点，而硬间隔的时候两条虚线超平面必须是由来自两个不同类别的支持向量决定的。而C值会决定我们究竟是依赖红色点作为支持向量（只追求最大边界），还是我们要依赖软间隔中，混杂在红色点中的紫色点来作为支持向量（追求最大边界和判断正确的平衡）。如果C值设定比较大，那SVC可能会选择边际较小的，能够更好地分类所有训练点的决策边界，不过模型的训练时间也会更长。如果C的设定值较小，那SVC会尽量最大化边界，尽量将掉落在决策边界另一方的样本点预测正确，决策功能会更简单，但代价是训练的准确度，因为此时会有更多红色的点被分类错误。换句话说，C在SVM中的影响就像正则化参数对逻辑回归的影响。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> matplotlib.colors <span class="keyword">import</span> ListedColormap</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> svm</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> make_circles, make_moons, make_blobs,make_classification</span><br><span class="line">n_samples = <span class="number">100</span></span><br><span class="line">datasets = [</span><br><span class="line">make_moons(n_samples=n_samples, noise=<span class="number">0.2</span>, random_state=<span class="number">0</span>),</span><br><span class="line">make_circles(n_samples=n_samples, noise=<span class="number">0.2</span>, factor=<span class="number">0.5</span>, random_state=<span class="number">1</span>),</span><br><span class="line">make_blobs(n_samples=n_samples, centers=<span class="number">2</span>, random_state=<span class="number">5</span>),</span><br><span class="line">make_classification(n_samples=n_samples,n_features =</span><br><span class="line"><span class="number">2</span>,n_informative=<span class="number">2</span>,n_redundant=<span class="number">0</span>, random_state=<span class="number">5</span>)</span><br><span class="line">]</span><br><span class="line">Kernel = [<span class="string">"linear"</span>]</span><br><span class="line"><span class="comment">#四个数据集分别是什么样子呢？</span></span><br><span class="line"><span class="keyword">for</span> X,Y <span class="keyword">in</span> datasets:</span><br><span class="line">    plt.figure(figsize=(<span class="number">5</span>,<span class="number">4</span>))</span><br><span class="line">    plt.scatter(X[:,<span class="number">0</span>],X[:,<span class="number">1</span>],c=Y,s=<span class="number">50</span>,cmap=<span class="string">"rainbow"</span>)</span><br><span class="line">nrows=len(datasets)</span><br><span class="line">ncols=len(Kernel) + <span class="number">1</span></span><br><span class="line">fig, axes = plt.subplots(nrows, ncols,figsize=(<span class="number">10</span>,<span class="number">16</span>))</span><br><span class="line">    <span class="comment">#第一层循环：在不同的数据集中循环</span></span><br><span class="line"><span class="keyword">for</span> ds_cnt, (X,Y) <span class="keyword">in</span> enumerate(datasets):</span><br><span class="line">    ax = axes[ds_cnt, <span class="number">0</span>]</span><br><span class="line">    <span class="keyword">if</span> ds_cnt == <span class="number">0</span>:</span><br><span class="line">        ax.set_title(<span class="string">"Input data"</span>)</span><br><span class="line">    ax.scatter(X[:, <span class="number">0</span>], X[:, <span class="number">1</span>], c=Y, zorder=<span class="number">10</span>, cmap=plt.cm.Paired,edgecolors=<span class="string">'k'</span>)</span><br><span class="line">    ax.set_xticks(())</span><br><span class="line">    ax.set_yticks(())</span><br><span class="line">    <span class="keyword">for</span> est_idx, kernel <span class="keyword">in</span> enumerate(Kernel):</span><br><span class="line">        ax = axes[ds_cnt, est_idx + <span class="number">1</span>]</span><br><span class="line">        clf = svm.SVC(kernel=kernel, gamma=<span class="number">2</span>).fit(X, Y)</span><br><span class="line">        score = clf.score(X, Y)</span><br><span class="line">        ax.scatter(X[:, <span class="number">0</span>], X[:, <span class="number">1</span>], c=Y</span><br><span class="line">                   , zorder=<span class="number">10</span></span><br><span class="line">                   , cmap=plt.cm.Paired, edgecolors=<span class="string">'k'</span>)</span><br><span class="line">        ax.scatter(clf.support_vectors_[:, <span class="number">0</span>], clf.support_vectors_[:, <span class="number">1</span>], s=<span class="number">100</span>,</span><br><span class="line">                   facecolors=<span class="string">'none'</span>, zorder=<span class="number">10</span>, edgecolors=<span class="string">'white'</span>)</span><br><span class="line">        x_min, x_max = X[:, <span class="number">0</span>].min() - <span class="number">.5</span>, X[:, <span class="number">0</span>].max() + <span class="number">.5</span></span><br><span class="line">        y_min, y_max = X[:, <span class="number">1</span>].min() - <span class="number">.5</span>, X[:, <span class="number">1</span>].max() + <span class="number">.5</span></span><br><span class="line">        XX, YY = np.mgrid[x_min:x_max:<span class="number">200j</span>, y_min:y_max:<span class="number">200j</span>]</span><br><span class="line">        Z = clf.decision_function(np.c_[XX.ravel(), YY.ravel()]).reshape(XX.shape)</span><br><span class="line">        ax.pcolormesh(XX, YY, Z &gt; <span class="number">0</span>, cmap=plt.cm.Paired)</span><br><span class="line">        ax.contour(XX, YY, Z, colors=[<span class="string">'k'</span>, <span class="string">'k'</span>, <span class="string">'k'</span>], linestyles=[<span class="string">'--'</span>, <span class="string">'-'</span>, <span class="string">'--'</span>],</span><br><span class="line">                   levels=[<span class="number">-1</span>, <span class="number">0</span>, <span class="number">1</span>])</span><br><span class="line">        ax.set_xticks(())</span><br><span class="line">        ax.set_yticks(())</span><br><span class="line">        <span class="keyword">if</span> ds_cnt == <span class="number">0</span>:</span><br><span class="line">            ax.set_title(kernel)</span><br><span class="line">        ax.text(<span class="number">0.95</span>, <span class="number">0.06</span>, (<span class="string">'%.2f'</span> % score).lstrip(<span class="string">'0'</span>)</span><br><span class="line">                , size=<span class="number">15</span></span><br><span class="line">                , bbox=dict(boxstyle=<span class="string">'round'</span>, alpha=<span class="number">0.8</span>, facecolor=<span class="string">'white'</span>)</span><br><span class="line">                <span class="comment"># 为分数添加一个白色的格子作为底色</span></span><br><span class="line">                , transform=ax.transAxes  <span class="comment"># 确定文字所对应的坐标轴，就是ax子图的坐标轴本身</span></span><br><span class="line">                , horizontalalignment=<span class="string">'right'</span>  <span class="comment"># 位于坐标轴的什么方向</span></span><br><span class="line">                )</span><br><span class="line">plt.tight_layout()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p>白色圈圈出的就是我们的支持向量，大家可以看到，所有在两条虚线超平面之间的点，和虚线超平面外，但属于另一个类别的点，都被我们认为是支持向量。并不是因为这些点都在我们的超平面上，而是因为我们的超平面由所有的这些点来决定，我们可以通过调节C来移动我们的超平面，让超平面过任何一个白色圈圈出的点。参数C就是这样影响了我们的决策，可以说是彻底改变了SVM的决策过程。</p>
+<h2 id="样本不均衡问题"><a href="#样本不均衡问题" class="headerlink" title="样本不均衡问题"></a>样本不均衡问题</h2><p>分类问题永远逃不过的痛点是样本不均衡问题。样本不均衡是指在一组数据集中，标签的一类天生占有很大的比例，但我们有着捕捉出某种特定的分类的需求的状况。</p>
+<p>分类问题天生会倾向于多数的类，让多数类更容易被判断准确，少数类被牺牲掉。因此对于模型而言，样本量越大的标签可以学习的信息越多，算法就会更加依赖于从多数类中学到的信息来进行判断。如果我们希望捕获少数类，模型就会失败。其次，模型评估指标会失去意义。 </p>
+<h3 id="class-weight"><a href="#class-weight" class="headerlink" title="class_weight"></a>class_weight</h3><p>可输入字典或者”balanced”，可不填，默认None 对SVC，将类i的参数C设置为class_weight [i] * C。如果没有给出具体的class_weight，则所有类都被假设为占有相同的权重1，模型会根据数据原本的状况去训练。如果希望改善样本不均衡状况，请输入形如{“标签的值1”：权重1，”标签的值2”：权重2}的字典，则参数C将会自动被设为：标签的值1的C：权重1 * C，标签的值2的C：权重2*C或者，可以使用“balanced”模式，这个模式使用y的值自动调整与输入数据中的类频率成反比的权重为n_samples/(n_classes * np.bincount(y)) </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> svm</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> make_blobs</span><br><span class="line">class_1 = <span class="number">500</span> <span class="comment">#类别1有500个样本</span></span><br><span class="line">class_2 = <span class="number">50</span> <span class="comment">#类别2只有50个</span></span><br><span class="line">centers = [[<span class="number">0.0</span>, <span class="number">0.0</span>], [<span class="number">2.0</span>, <span class="number">2.0</span>]] <span class="comment">#设定两个类别的中心</span></span><br><span class="line">clusters_std = [<span class="number">1.5</span>, <span class="number">0.5</span>] <span class="comment">#设定两个类别的方差，通常来说，样本量比较大的类别会更加松散</span></span><br><span class="line">X, y = make_blobs(n_samples=[class_1, class_2],</span><br><span class="line">centers=centers,</span><br><span class="line">cluster_std=clusters_std,</span><br><span class="line">random_state=<span class="number">0</span>, shuffle=<span class="literal">False</span>)</span><br><span class="line"><span class="comment">#看看数据集长什么样</span></span><br><span class="line">plt.scatter(X[:, <span class="number">0</span>], X[:, <span class="number">1</span>], c=y, cmap=<span class="string">"rainbow"</span>,s=<span class="number">10</span>)</span><br><span class="line"><span class="comment">#其中红色点是少数类，紫色点是多数类</span></span><br><span class="line">clf = svm.SVC(kernel=<span class="string">'linear'</span>, C=<span class="number">1.0</span>)</span><br><span class="line">clf.fit(X, y)</span><br><span class="line"><span class="comment">#设定class_weight</span></span><br><span class="line">wclf = svm.SVC(kernel=<span class="string">'linear'</span>, class_weight=&#123;<span class="number">1</span>: <span class="number">10</span>&#125;)</span><br><span class="line">wclf.fit(X, y)</span><br><span class="line"><span class="comment">#给两个模型分别打分看看，这个分数是accuracy准确度</span></span><br><span class="line">print(<span class="string">"没设定class_weight："</span>,clf.score(X,y))</span><br><span class="line">print(<span class="string">"设定class_weight："</span>,wclf.score(X,y))</span><br><span class="line">plt.figure(figsize=(<span class="number">6</span>,<span class="number">5</span>))</span><br><span class="line">plt.scatter(X[:, <span class="number">0</span>], X[:, <span class="number">1</span>], c=y, cmap=<span class="string">"rainbow"</span>,s=<span class="number">10</span>)</span><br><span class="line">ax = plt.gca() <span class="comment">#获取当前的子图，如果不存在，则创建新的子图</span></span><br><span class="line">xlim = ax.get_xlim()</span><br><span class="line">ylim = ax.get_ylim()</span><br><span class="line">xx = np.linspace(xlim[<span class="number">0</span>], xlim[<span class="number">1</span>], <span class="number">30</span>)</span><br><span class="line">yy = np.linspace(ylim[<span class="number">0</span>], ylim[<span class="number">1</span>], <span class="number">30</span>)</span><br><span class="line">YY, XX = np.meshgrid(yy, xx)</span><br><span class="line">xy = np.vstack([XX.ravel(), YY.ravel()]).T</span><br><span class="line"><span class="comment">#第二步：找出我们的样本点到决策边界的距离</span></span><br><span class="line">Z_clf = clf.decision_function(xy).reshape(XX.shape)</span><br><span class="line">a = ax.contour(XX, YY, Z_clf, colors=<span class="string">'black'</span>, levels=[<span class="number">0</span>], alpha=<span class="number">0.5</span>, linestyles=[<span class="string">'-'</span>])</span><br><span class="line">Z_wclf = wclf.decision_function(xy).reshape(XX.shape)</span><br><span class="line">b = ax.contour(XX, YY, Z_wclf, colors=<span class="string">'red'</span>, levels=[<span class="number">0</span>], alpha=<span class="number">0.5</span>, linestyles=[<span class="string">'-'</span>])</span><br><span class="line"><span class="comment">#第三步：画图例 a.collections调用这个等高线对象中画的所有线，返回一个惰性对象</span></span><br><span class="line">plt.legend([a.collections[<span class="number">0</span>], b.collections[<span class="number">0</span>]], [<span class="string">"non weighted"</span>, <span class="string">"weighted"</span>],</span><br><span class="line">loc=<span class="string">"upper right"</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p>从图像上可以看出，灰色是我们做样本平衡之前的决策边界。灰色线上方的点被分为一类，下方的点被分为另一类。可以看到，大约有一半少数类（红色）被分错，多数类（紫色点）几乎都被分类正确了。红色是我们做样本平衡之后的决策边界，同样是红色线上方一类，红色线下方一类。可以看到，做了样本平衡后，少数类几乎全部都被分类正确了，但是多数类有许多被分错了。</p>
+<p>从准确率的角度来看，不做样本平衡的时候准确率反而更高，做了样本平衡准确率反而变低了，这是因为做了样本平衡后，为了要更有效地捕捉出少数类，模型误伤了许多多数类样本，而多数类被分错的样本数量 &gt; 少数类被分类正确的样本数量，使得模型整体的精确性下降。现在，如果我们的目的是模型整体的准确率，那我们就要拒绝样本平衡，使用class_weight被设置之前的模型。而在现实情况中，我们往往都在捕捉少数类。因为有些情况是宁愿误伤，也要尽量的捕捉少数类。</p>
+<h2 id="SVC的模型评估指标"><a href="#SVC的模型评估指标" class="headerlink" title="SVC的模型评估指标"></a>SVC的模型评估指标</h2><p>上面说了，我们往往都在捕捉少数类的。但是单纯地追求捕捉出少数类，就会成本太高，而不顾及少数类，又会无法达成模型的效果。所以在现实中，我们往往在寻找捕获少数类的能力和将多数类判错后需要付出的成本的平衡。如果一个模型在能够尽量捕获少数类的情况下，还能够尽量对多数类判断正确，则这个模型就非常优秀了。为了评估这样的能力，我们将引入新的模型评估指标：混淆矩阵和ROC曲线来帮助我们 </p>
+<h3 id="混淆矩阵-Confusion-Matrix"><a href="#混淆矩阵-Confusion-Matrix" class="headerlink" title="混淆矩阵(Confusion Matrix)"></a>混淆矩阵(Confusion Matrix)</h3><h4 id="精确率和召回率"><a href="#精确率和召回率" class="headerlink" title="精确率和召回率"></a>精确率和召回率</h4><p>精确度Precision，又叫查准率，表示所有被我们预测为是少数类的样本中，真正的少数类所占的比例 </p>
+<p>召回率Recall，又被称为敏感度(sensitivity)，真正率，查全率，表示所有真实为1的样本中，被我们预测正确的样<br>本所占的比例。</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML52.png" alt></p>
+<p>如果我们希望不计一切代价，找出少数类，那我们就会追求高召回率，相反如果我们的目标不是尽量捕获少数类，那我们就不需要在意召回率。 注意召回率和精确度的分子是相同的，只是分母不同。而召回率和精确度是此消彼长的，两者之间的平衡代表了捕捉少数类的需求和尽量不要误伤多数类的需求的平衡。究竟要偏向于哪一方，取决于我们的业务需求：<br>究竟是误伤多数类的成本更高，还是无法捕捉少数类的代价更高。</p>
+<p>为了同时兼顾精确度和召回率，我们创造了两者的调和平均数作为考量两者平衡的综合性指标，称之为F1measure。两个数之间的调和平均倾向于靠近两个数中比较小的那一个数，因此我们追求尽量高的F1 measure，能够保证我们的精确度和召回率都比较高。F1 measure在[0,1]之间分布，越接近1越好：</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SVM68.png" alt></p>
+<h4 id="假负率、特异度-真负率-、假正率"><a href="#假负率、特异度-真负率-、假正率" class="headerlink" title="假负率、特异度(真负率)、假正率"></a>假负率、特异度(真负率)、假正率</h4><p>从Recall延申出来的另一个评估指标叫做假负率（False Negative Rate），它等于 1 - Recall，用于衡量所有真实为1的样本中，被我们错误判断为0的，通常用得不多。 </p>
+<p>特异度(Specificity)，也叫做真负率。表示所有真实为0的样本中，被正确预测为0的样本所占的比例。在支持向量机中，可以形象地表示为，决策边界下方的点占所有蓝色点的比例。特异度衡量了一个模型将多数类判断正确的能力，而1 - specificity就是一个模型将多数类判断错误的能力，叫做假正率。</p>
+<p>sklearn当中提供了大量的类来帮助我们了解和使用混淆矩阵：</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SVM69.png" alt></p>
+<h3 id="ROC曲线"><a href="#ROC曲线" class="headerlink" title="ROC曲线"></a>ROC曲线</h3><p>ROC曲线，全称The Receiver Operating Characteristic Curve，译为受试者操作特性曲线。这是一条以不同阈值下的假正率FPR为横坐标，不同阈值下的召回率Recall为纵坐标的曲线。让我们先从概率和阈值开始看起。 </p>
+<h4 id="概率-probability-与阈值-threshold"><a href="#概率-probability-与阈值-threshold" class="headerlink" title="概率(probability)与阈值(threshold)"></a>概率(probability)与阈值(threshold)</h4>
+    </div>
+
+    
+    
+    
+<div>
+	
+		<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">----本文结束，感谢您的阅读。如有错，请指正。----</div>
+    
+</div>
+
+	
+</div>
+    
+      <div>
+        <div id="reward-container">
+  <div>谢谢老板。你的支持将鼓励我继续创作！</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.jpg" alt="湛蓝星空 微信支付">
+        <p>微信支付</p>
+      </div>
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/alipay.jpg" alt="湛蓝星空 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+      </div>
+
+    <footer class="post-footer">
+          
+        
+        <div class="post-tags">
+            <a href="/tags/SVM/" rel="tag"># SVM</a>
+          
+        </div>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+              <a href="/2019/09/15/SVM解读(2)/" rel="next" title="SVM解读(2)">
+                <i class="fa fa-chevron-left"></i> SVM解读(2)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+          </div>
+        </div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.jpg"
+      alt="湛蓝星空">
+  <p class="site-author-name" itemprop="name">湛蓝星空</p>
+  <div class="site-description motion-element" itemprop="description">这个人贼菜</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">68</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">36</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/Brickexperts" title="GitHub &rarr; https://github.com/Brickexperts" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+  </div>
+
+
+
+        </div>
+      </div>
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#参数C的理解进阶"><span class="nav-text">参数C的理解进阶</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#样本不均衡问题"><span class="nav-text">样本不均衡问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#class-weight"><span class="nav-text">class_weight</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SVC的模型评估指标"><span class="nav-text">SVC的模型评估指标</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#混淆矩阵-Confusion-Matrix"><span class="nav-text">混淆矩阵(Confusion Matrix)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#精确率和召回率"><span class="nav-text">精确率和召回率</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#假负率、特异度-真负率-、假正率"><span class="nav-text">假负率、特异度(真负率)、假正率</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ROC曲线"><span class="nav-text">ROC曲线</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#概率-probability-与阈值-threshold"><span class="nav-text">概率(probability)与阈值(threshold)</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">湛蓝星空</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+
+    
+
+  </div>
+
+  
+    
+    
+  
+  <script color='0,0,0' opacity='0.5' zIndex='-1' count='150' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  <script src="/js/utils.js?v=7.3.0"></script>
+  <script src="/js/motion.js?v=7.3.0"></script>
+
+  
+  <script src="/js/affix.js?v=7.3.0"></script>
+  <script src="/js/schemes/pisces.js?v=7.3.0"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.3.0"></script>
+<script src="/js/post-details.js?v=7.3.0"></script>
+
+
+
+  <script src="/js/next-boot.js?v=7.3.0"></script>
+
+  
+
+  
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.3.0"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
