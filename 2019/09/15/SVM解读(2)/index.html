@@ -57,13 +57,13 @@
   };
 </script>
 
-  <meta name="description" content="非线性SVM与核函数SVC在非线性数据上的推广为了能够找出非线性数据的线性决策边界，我们需要将数据从原始的空间x投射到新空间$\Phi$(x)中。$\Phi$是一个映射函数，它代表了某种非线性的变换，如同我们之前所做过的使用r来升维一样，这种非线性变换看起来是一种非常有效的方式。使用这种变换，线性SVM的原理可以被很容易推广到非线性情况下，其推到过程核逻辑都与线性SVM一摸一样，只不过在第一决策边">
+  <meta name="description" content="非线性SVM与核函数SVC在非线性数据上的推广为了能够找出非线性数据的线性决策边界，我们需要将数据从原始的空间x投射到新空间$\Phi$(x)中，Φ是一个映射函数，它代表了某种非线性的变换，如同我们之前所做过的使用r来升维一样，这种非线性变换看起来是一种非常有效的方式。使用这种变换，线性SVM的原理可以被很容易推广到非线性情况下，其推到过程核逻辑都与线性SVM一摸一样，只不过在第一决策边界之前，我">
 <meta name="keywords" content="SVM">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SVM解读(2)">
 <meta property="og:url" content="http://yoursite.com/2019/09/15/SVM解读(2)/index.html">
 <meta property="og:site_name" content="DY的个人博客">
-<meta property="og:description" content="非线性SVM与核函数SVC在非线性数据上的推广为了能够找出非线性数据的线性决策边界，我们需要将数据从原始的空间x投射到新空间$\Phi$(x)中。$\Phi$是一个映射函数，它代表了某种非线性的变换，如同我们之前所做过的使用r来升维一样，这种非线性变换看起来是一种非常有效的方式。使用这种变换，线性SVM的原理可以被很容易推广到非线性情况下，其推到过程核逻辑都与线性SVM一摸一样，只不过在第一决策边">
+<meta property="og:description" content="非线性SVM与核函数SVC在非线性数据上的推广为了能够找出非线性数据的线性决策边界，我们需要将数据从原始的空间x投射到新空间$\Phi$(x)中，Φ是一个映射函数，它代表了某种非线性的变换，如同我们之前所做过的使用r来升维一样，这种非线性变换看起来是一种非常有效的方式。使用这种变换，线性SVM的原理可以被很容易推广到非线性情况下，其推到过程核逻辑都与线性SVM一摸一样，只不过在第一决策边界之前，我">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SVM52.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SVM52.png">
@@ -81,10 +81,10 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SVM65.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SVM66.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SVM67.png">
-<meta property="og:updated_time" content="2019-09-16T08:52:50.945Z">
+<meta property="og:updated_time" content="2019-09-16T09:43:24.038Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SVM解读(2)">
-<meta name="twitter:description" content="非线性SVM与核函数SVC在非线性数据上的推广为了能够找出非线性数据的线性决策边界，我们需要将数据从原始的空间x投射到新空间$\Phi$(x)中。$\Phi$是一个映射函数，它代表了某种非线性的变换，如同我们之前所做过的使用r来升维一样，这种非线性变换看起来是一种非常有效的方式。使用这种变换，线性SVM的原理可以被很容易推广到非线性情况下，其推到过程核逻辑都与线性SVM一摸一样，只不过在第一决策边">
+<meta name="twitter:description" content="非线性SVM与核函数SVC在非线性数据上的推广为了能够找出非线性数据的线性决策边界，我们需要将数据从原始的空间x投射到新空间$\Phi$(x)中，Φ是一个映射函数，它代表了某种非线性的变换，如同我们之前所做过的使用r来升维一样，这种非线性变换看起来是一种非常有效的方式。使用这种变换，线性SVM的原理可以被很容易推广到非线性情况下，其推到过程核逻辑都与线性SVM一摸一样，只不过在第一决策边界之前，我">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SVM52.png">
   <link rel="alternate" href="/atom.xml" title="DY的个人博客" type="application/atom+xml">
   <link rel="canonical" href="http://yoursite.com/2019/09/15/SVM解读(2)/">
@@ -309,7 +309,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-09-16 16:52:50" itemprop="dateModified" datetime="2019-09-16T16:52:50+08:00">2019-09-16</time>
+                <time title="修改时间：2019-09-16 17:43:24" itemprop="dateModified" datetime="2019-09-16T17:43:24+08:00">2019-09-16</time>
               </span>
             
           
@@ -347,7 +347,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="非线性SVM与核函数"><a href="#非线性SVM与核函数" class="headerlink" title="非线性SVM与核函数"></a>非线性SVM与核函数</h2><h3 id="SVC在非线性数据上的推广"><a href="#SVC在非线性数据上的推广" class="headerlink" title="SVC在非线性数据上的推广"></a>SVC在非线性数据上的推广</h3><p>为了能够找出非线性数据的线性决策边界，我们需要将数据从原始的空间x投射到新空间$\Phi$(x)中。$\Phi$是一个映射函数，它代表了某种非线性的变换，如同我们之前所做过的使用r来升维一样，这种非线性变换看起来是一种非常有效的方式。使用这种变换，线性SVM的原理可以被很容易推广到非线性情况下，其推到过程核逻辑都与线性SVM一摸一样，只不过在第一决策边界之前，我们必须先对数据进行升维，即将原始的x转换成$\Phi$。</p>
+        <h2 id="非线性SVM与核函数"><a href="#非线性SVM与核函数" class="headerlink" title="非线性SVM与核函数"></a>非线性SVM与核函数</h2><h3 id="SVC在非线性数据上的推广"><a href="#SVC在非线性数据上的推广" class="headerlink" title="SVC在非线性数据上的推广"></a>SVC在非线性数据上的推广</h3><p>为了能够找出非线性数据的线性决策边界，我们需要将数据从原始的空间x投射到新空间$\Phi$(x)中，Φ是一个映射函数，它代表了某种非线性的变换，如同我们之前所做过的使用r来升维一样，这种非线性变换看起来是一种非常有效的方式。使用这种变换，线性SVM的原理可以被很容易推广到非线性情况下，其推到过程核逻辑都与线性SVM一摸一样，只不过在第一决策边界之前，我们必须先对数据进行升维，即将原始的x转换成$\Phi$。</p>
 <h3 id="重要参数kernel"><a href="#重要参数kernel" class="headerlink" title="重要参数kernel"></a>重要参数kernel</h3><p>这种变换非常巧妙，但也带有一些实现问题。首先，我们可能不清楚应该什么样的数据应该使用什么类型的映射函数来确保可以在变换空间中找出线性决策边界。极端情况下，数据可能会被映射到无限维度的空间中，这种高维空间可能不是那么友好，维度越多，推导和计算的难度都会随之暴增。其次，已知适当的映射函数，我们想要计算类似于 $\Phi$(x)<sub>i</sub>* $\Phi $(x<sub>test</sub>)这样的点积，计算量无法巨大。要找出超平面所付出的代价是非常昂贵的。</p>
 <p><strong>关键概念</strong>：核函数</p>
 <p>而解决上面这些问题的数学方式，叫做”核技巧”。是一种能够使用数据原始空间中的向量计算来表示升维后的空间中的点积结果的数学方式。具体体现为，K(u,v)= $\Phi$(u)*$\Phi$(v)。而这个原始空间中的点积函数K(u,v)，就被叫做“核函数”。</p>
@@ -389,6 +389,8 @@
 <p>sklearn类SVC背后使用的最终公式。公式中现在唯一的新变量，松弛系数的惩罚力度C，由我们的参数C来进行控制。 </p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SVM62.png" alt></p>
 <p>在实际使用中，C和核函数的相关参数（gamma，degree等等）们搭配，往往是SVM调参的重点。与gamma不同，C没有在对偶函数中出现，并且是明确了调参目标的，所以我们可以明确我们究竟是否需要训练集上的高精确度来调整C的方向。默认情况下C为1，通常来说这都是一个合理的参数。 如果我们的数据很嘈杂，那我们往往减小C。当然，我们也可以使用网格搜索或者学习曲线来调整C的值。 </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> StratifiedShuffleSplit</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> GridSearchCV</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_breast_cancer</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> svm</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">data = load_breast_cancer()</span><br><span class="line">X = data.data</span><br><span class="line">y = data.target</span><br><span class="line">C1_range = np.linspace(<span class="number">0.01</span>,<span class="number">30</span>,<span class="number">50</span>)</span><br><span class="line">C2_range=np.linspace(<span class="number">0.01</span>,<span class="number">30</span>,<span class="number">50</span>)</span><br><span class="line">C3_range=np.linspace(<span class="number">5</span>,<span class="number">7</span>,<span class="number">50</span>)</span><br><span class="line">param_grid1 = dict(C=C1_range)</span><br><span class="line">cv = StratifiedShuffleSplit(n_splits=<span class="number">5</span>, test_size=<span class="number">0.3</span>, random_state=<span class="number">420</span>)</span><br><span class="line">grid1 = GridSearchCV(svm.SVC(kernel = <span class="string">"linear"</span>,gamma=</span><br><span class="line">    <span class="number">0.012742749857031322</span>,cache_size=<span class="number">5000</span>),</span><br><span class="line">param_grid=param_grid1, cv=cv)</span><br><span class="line">grid1.fit(X, y)</span><br><span class="line">print(<span class="string">"linear  The best parameters are %s with a score of %0.5f"</span> % (grid1.best_params_,</span><br><span class="line">grid1.best_score_))</span><br><span class="line">param_grid2=dict(C=C2_range)</span><br><span class="line">grid2 = GridSearchCV(svm.SVC(kernel = <span class="string">"rbf"</span>,gamma=</span><br><span class="line">    <span class="number">0.012742749857031322</span>,cache_size=<span class="number">5000</span>),</span><br><span class="line">param_grid=param_grid2, cv=cv)</span><br><span class="line">grid2.fit(X, y)</span><br><span class="line">print(<span class="string">"rbf(0.01,30,50)   The best parameters are %s with a score of %0.5f"</span> % (grid2.best_params_,</span><br><span class="line">grid2.best_score_))</span><br><span class="line">param_grid3=dict(C=C3_range)</span><br><span class="line">grid3=GridSearchCV(svm.SVC(kernel=<span class="string">"rbf"</span>,gamma=<span class="number">0.012742749857031322</span>,cache_size=<span class="number">5000</span>),param_grid=param_grid3)</span><br><span class="line">grid3.fit(X,y)</span><br><span class="line">print(<span class="string">"rbf(5,7,50)  "</span>,grid3.best_params_)</span><br><span class="line">print(<span class="string">"rbf(5,7,50)  "</span>,grid3.best_score_)</span><br></pre></td></tr></table></figure>
+
 <h2 id="SVC的参数、属性和接口"><a href="#SVC的参数、属性和接口" class="headerlink" title="SVC的参数、属性和接口"></a>SVC的参数、属性和接口</h2><h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SVM63.png" alt></p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SVM64.png" alt></p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SVM65.png" alt></p>
