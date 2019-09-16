@@ -81,7 +81,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SVM65.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SVM66.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SVM67.png">
-<meta property="og:updated_time" content="2019-09-16T09:54:48.419Z">
+<meta property="og:updated_time" content="2019-09-16T10:44:46.855Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SVM解读(2)">
 <meta name="twitter:description" content="非线性SVM与核函数SVC在非线性数据上的推广为了能够找出非线性数据的线性决策边界，我们需要将数据从原始的空间x投射到新空间Φ(x)中，Φ是一个映射函数，它代表了某种非线性的变换，如同我们之前所做过的使用r来升维一样，这种非线性变换看起来是一种非常有效的方式。使用这种变换，线性SVM的原理可以被很容易推广到非线性情况下，其推到过程核逻辑都与线性SVM一摸一样，只不过在第一决策边界之前，我们必须先对">
@@ -309,7 +309,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-09-16 17:54:48" itemprop="dateModified" datetime="2019-09-16T17:54:48+08:00">2019-09-16</time>
+                <time title="修改时间：2019-09-16 18:44:46" itemprop="dateModified" datetime="2019-09-16T18:44:46+08:00">2019-09-16</time>
               </span>
             
           
@@ -374,10 +374,10 @@
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SVM55.png" alt></p>
 <p>看上图，原来的决策边界&omega;<em>x+b=0，原本的平行于决策边界的两个虚线超平面&omega;\</em>x+b=1和&omega;*x+b=-1都依然有效。我们的原始判别函数是:</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SVM56.png" alt></p>
-<p>不过，这些超平面现在无法让数据上的训练误差等于0了，因为此时存在了一个混杂在红色点中的紫色点。于是，我们需要放松我们原始判别函数中的不等条件，来让决策边界能够适用于我们的异常点。于是我们引入松弛系数$\zeta$来帮助我们优化原始的判别函数：</p>
+<p>不过，这些超平面现在无法让数据上的训练误差等于0了，因为此时存在了一个混杂在红色点中的紫色点。于是，我们需要放松我们原始判别函数中的不等条件，来让决策边界能够适用于我们的异常点。于是我们引入松弛系数Φ来帮助我们优化原始的判别函数：</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SVM57.png" alt></p>
-<p>其中ζ&gt;0。可以看的出，这其实是将原来的虚线超平面向图像的上方和下方平移。松弛系数其实蛮好理解的，看上图，在红色点附近的蓝色点在原本的判别函数中必定会被分为红色，所有一定会判断错。我们现在做一条与决策边界平行，且过蓝色点的直线&omega;<em>x<sub>i</sub>+b=1- ζ<sub>i</sub>(图中的蓝色虚线)。这条直线是由&omega;*x<sub>i</sub>+b=1平移得到，所以两条直线在纵坐标上的差异就是ζ。而点&omega;x<sub>i</sub>+b=1的距离就可以表示为 ζ\</em>&omega;/||&omega;||，即ζ在&omega;方向上的投影。由于单位向量是固定的，所以ζ可以作为蓝色点在原始的决策边界上的分类错误的程度的表示。隔得越远，分的越错。<strong>注意：ζ并不是点到决策超平面的距离本身。</strong></p>
-<p>不难注意到，我们让&omega;^x<sub>i</sub>+b&gt;=1-ζ<sub>i</sub>作为我们的新决策超平面，是有一定的问题的。虽然我们把异常的蓝色点分类正确了，但我们同时也分错了一系列红色的点。所以我们必须在我们求解最大边际的损失函数中加上一个惩罚项，用来惩罚我们具有巨大松弛系数的决策超平面。我们的拉格朗日函数，拉格朗日对偶函数，也因此都被松弛系数改变。现在，我们的损失函数为 </p>
+<p>其中ζ<sub>i</sub>&gt;0。可以看的出，这其实是将原来的虚线超平面向图像的上方和下方平移。松弛系数其实蛮好理解的，看上图，在红色点附近的蓝色点在原本的判别函数中必定会被分为红色，所有一定会判断错。我们现在做一条与决策边界平行，且过蓝色点的直线&omega;<em>x<sub>i</sub>+b=1- ζ<sub>i</sub>(图中的蓝色虚线)。这条直线是由&omega;*x<sub>i</sub>+b=1平移得到，所以两条直线在纵坐标上的差异就是ζ<sub>i</sub>。而点&omega;x<sub>i</sub>+b=1的距离就可以表示为 ζ<sub>i</sub>\</em>&omega;/||&omega;||，即ζ<sub>i</sub>在&omega;方向上的投影。由于单位向量是固定的，所以ζ可以作为蓝色点在原始的决策边界上的分类错误的程度的表示。隔得越远，分的越错。<strong>注意：ζ<sub>i</sub>并不是点到决策超平面的距离本身。</strong></p>
+<p>不难注意到，我们让&omega;*x<sub>i</sub>+b&gt;=1-ζ<sub>i</sub>作为我们的新决策超平面，是有一定的问题的。虽然我们把异常的蓝色点分类正确了，但我们同时也分错了一系列红色的点。所以我们必须在我们求解最大边际的损失函数中加上一个惩罚项，用来惩罚我们具有巨大松弛系数的决策超平面。我们的拉格朗日函数，拉格朗日对偶函数，也因此都被松弛系数改变。现在，我们的损失函数为 </p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SVM58.png" alt></p>
 <p>C是用来控制惩罚力度的系数</p>
 <p>我们的拉格朗日函数为(其中$\mu$是第二个拉格朗日乘数)</p>
