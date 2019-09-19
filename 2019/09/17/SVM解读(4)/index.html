@@ -70,7 +70,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SVM76.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SVM77.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SVM79.png">
-<meta property="og:updated_time" content="2019-09-17T15:00:25.074Z">
+<meta property="og:updated_time" content="2019-09-19T10:21:17.990Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SVM解读(4)">
 <meta name="twitter:description" content="使用SVC时的其他考虑SVC处理多分类问题之前的所有的SVM的(1)-(3)内容，全部是基于二分类的情况来说明的。因为支持向量机是天生二分类的模型。但是，它也可以做多分类。但是SVC在多分类情况的推广是很难的。因为要研究透彻多分类状况下的SVC，就必须研究透彻多分类时所需要的决策边界个数，每个决策边界所需要的支持向量个数，以及这些支持向量如何组合起来计算拉格朗日乘数。本小节只说一小部分。支持向量机">
@@ -285,11 +285,21 @@
                 
               
 
-              <time title="创建时间：2019-09-17 15:13:10 / 修改时间：23:00:25" itemprop="dateCreated datePublished" datetime="2019-09-17T15:13:10+08:00">2019-09-17</time>
+              <time title="创建时间：2019-09-17 15:13:10" itemprop="dateCreated datePublished" datetime="2019-09-17T15:13:10+08:00">2019-09-17</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-09-19 18:21:17" itemprop="dateModified" datetime="2019-09-19T18:21:17+08:00">2019-09-19</time>
+              </span>
             
           
             <span class="post-meta-item">
@@ -344,7 +354,7 @@
 <p>线性支持向量机其实与SVC类中选择”linear”作为核函数的功能类似，但是其背后的实现库是liblinear而不是libsvm，这使得在线性数据上，linearSVC的运行速度比SVC中的“linear”核函数要快，不过两者的运行结果相似。在现实中，许多数据都是线性的，因此我们可以依赖计算得更快得LinearSVC类。除此之外，线性支持向量可以很容易地推广到大样本上，还可以支持稀疏矩阵，多分类中也支持ovr方案。 </p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SVM79.png" alt></p>
 <p>和SVC一样，LinearSVC也有C这个惩罚参数，但LinearSVC在C变大时对C不太敏感，并且在某个阈值之后就不能再改善结果了。</p>
-<h2 id="SVC案例"><a href="#SVC案例" class="headerlink" title="SVC案例"></a>SVC案例</h2>
+
     </div>
 
     
@@ -639,7 +649,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用SVC时的其他考虑"><span class="nav-text">使用SVC时的其他考虑</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SVC处理多分类问题"><span class="nav-text">SVC处理多分类问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#decision-function-shape"><span class="nav-text">decision_function_shape</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线性支持向量机类LinearSVC"><span class="nav-text">线性支持向量机类LinearSVC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SVC案例"><span class="nav-text">SVC案例</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用SVC时的其他考虑"><span class="nav-text">使用SVC时的其他考虑</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SVC处理多分类问题"><span class="nav-text">SVC处理多分类问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#decision-function-shape"><span class="nav-text">decision_function_shape</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线性支持向量机类LinearSVC"><span class="nav-text">线性支持向量机类LinearSVC</span></a></li></ol></div>
             
 
           </div>
