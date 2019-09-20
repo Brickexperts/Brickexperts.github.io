@@ -79,7 +79,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/functools1.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/functoolss.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/functools2.png">
-<meta property="og:updated_time" content="2019-09-20T08:57:53.360Z">
+<meta property="og:updated_time" content="2019-09-20T09:12:09.651Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python常用模块（2）">
 <meta name="twitter:description" content="collection：collections是Python内建的一个集合模块，提供了许多有用的集合类。 nametuplenamedtuple是一个函数，它用来创建一个自定义的tuple对象，并且规定了tuple元素的个数，并可以用属性而不是索引来引用tuple的某个元素。这样一来，我们用namedtuple可以很方便地定义一种数据类型，它具备tuple的不变性，又可以根据属性来引用，使用十分方便">
@@ -307,7 +307,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-09-20 16:57:53" itemprop="dateModified" datetime="2019-09-20T16:57:53+08:00">2019-09-20</time>
+                <time title="修改时间：2019-09-20 17:12:09" itemprop="dateModified" datetime="2019-09-20T17:12:09+08:00">2019-09-20</time>
               </span>
             
           
@@ -380,10 +380,10 @@
 <p>random.choice(sequence) 从序列中产生一个随机数</p>
 <p>random.shuffle(x[, random]) 将一个列表中的元素打乱</p>
 <p>random.sample(sequence, k) 从序列中随机获取指定长度的片断</p>
-<h2 id="functools"><a href="#functools" class="headerlink" title="functools"></a>functools</h2><p><strong>reduce(function, sequence, value)</strong>：对sequence中的item顺序迭代调用function，如果有value，还可以作为初始值调用。function接收的参数个数只能为2，先把sequence中第一个值和第二个值当参数传给function，再把function的返回值和第三个值当参数传给function，然后只返回一个结果。</p>
+<h2 id="functools"><a href="#functools" class="headerlink" title="functools"></a>functools</h2><h3 id="reduce-function-sequence-value"><a href="#reduce-function-sequence-value" class="headerlink" title="reduce(function, sequence, value)"></a>reduce(function, sequence, value)</h3><p>对sequence中的item顺序迭代调用function，如果有value，还可以作为初始值调用。function接收的参数个数只能为2，先把sequence中第一个值和第二个值当参数传给function，再把function的返回值和第三个值当参数传给function，然后只返回一个结果。</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/functools1.png" alt></p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/functoolss.png" alt></p>
-<p><strong>partial</strong>：基于一个函数创建一个新的可调用对象，把原函数的某些参数固定。</p>
+<h3 id="partial"><a href="#partial" class="headerlink" title="partial"></a>partial</h3><p>基于一个函数创建一个新的可调用对象，把原函数的某些参数固定。</p>
 <p>偏函数：只需要传一次值，后面想传就传</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/functools2.png" alt></p>
 
@@ -683,7 +683,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#collection："><span class="nav-text">collection：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#nametuple"><span class="nav-text">nametuple</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#deque"><span class="nav-text">deque</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#defaultdict"><span class="nav-text">defaultdict</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OrderedDict"><span class="nav-text">OrderedDict</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Counter"><span class="nav-text">Counter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#itemgetter"><span class="nav-text">itemgetter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ChainMap"><span class="nav-text">ChainMap</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#random"><span class="nav-text">random</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#functools"><span class="nav-text">functools</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#collection："><span class="nav-text">collection：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#nametuple"><span class="nav-text">nametuple</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#deque"><span class="nav-text">deque</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#defaultdict"><span class="nav-text">defaultdict</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OrderedDict"><span class="nav-text">OrderedDict</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Counter"><span class="nav-text">Counter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#itemgetter"><span class="nav-text">itemgetter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ChainMap"><span class="nav-text">ChainMap</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#random"><span class="nav-text">random</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#functools"><span class="nav-text">functools</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#reduce-function-sequence-value"><span class="nav-text">reduce(function, sequence, value)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#partial"><span class="nav-text">partial</span></a></li></ol></li></ol></div>
             
 
           </div>
