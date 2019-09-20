@@ -57,13 +57,13 @@
   };
 </script>
 
-  <meta name="description" content="textwrap用来重新格式化文本的输出 fill() 调整换行符,每行显示给定宽度  dedent()：去除缩进  indent():给定前缀  首行缩进：  多余的省略号：shorter()  wrap():wrap(s,width) 以单词为单位(包括字符)最大长度不超过width个字符  itertoolsPython的内建模块itertools提供了非常有用的用于操作迭代对象的函数 co">
+  <meta name="description" content="textwrap用来重新格式化文本的输出 fill()调整换行符,每行显示给定宽度  dedent()去除缩进  indent()给定前缀  首行缩进： 多余的省略号shorter()  wrap():wrap(s,width) 以单词为单位(包括字符)最大长度不超过width个字符  itertoolsPython的内建模块itertools提供了非常有用的用于操作迭代对象的函数 count()">
 <meta name="keywords" content="python常用模块">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python常用模块（3）">
 <meta property="og:url" content="http://yoursite.com/2019/08/07/python常用模块（3）/index.html">
 <meta property="og:site_name" content="DY的个人博客">
-<meta property="og:description" content="textwrap用来重新格式化文本的输出 fill() 调整换行符,每行显示给定宽度  dedent()：去除缩进  indent():给定前缀  首行缩进：  多余的省略号：shorter()  wrap():wrap(s,width) 以单词为单位(包括字符)最大长度不超过width个字符  itertoolsPython的内建模块itertools提供了非常有用的用于操作迭代对象的函数 co">
+<meta property="og:description" content="textwrap用来重新格式化文本的输出 fill()调整换行符,每行显示给定宽度  dedent()去除缩进  indent()给定前缀  首行缩进： 多余的省略号shorter()  wrap():wrap(s,width) 以单词为单位(包括字符)最大长度不超过width个字符  itertoolsPython的内建模块itertools提供了非常有用的用于操作迭代对象的函数 count()">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/textwrap1.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/textwrap2.png">
@@ -84,10 +84,10 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/itertools11.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/itertools12.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/itertools13.png">
-<meta property="og:updated_time" content="2019-09-15T06:24:00.785Z">
+<meta property="og:updated_time" content="2019-09-20T09:01:27.288Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python常用模块（3）">
-<meta name="twitter:description" content="textwrap用来重新格式化文本的输出 fill() 调整换行符,每行显示给定宽度  dedent()：去除缩进  indent():给定前缀  首行缩进：  多余的省略号：shorter()  wrap():wrap(s,width) 以单词为单位(包括字符)最大长度不超过width个字符  itertoolsPython的内建模块itertools提供了非常有用的用于操作迭代对象的函数 co">
+<meta name="twitter:description" content="textwrap用来重新格式化文本的输出 fill()调整换行符,每行显示给定宽度  dedent()去除缩进  indent()给定前缀  首行缩进： 多余的省略号shorter()  wrap():wrap(s,width) 以单词为单位(包括字符)最大长度不超过width个字符  itertoolsPython的内建模块itertools提供了非常有用的用于操作迭代对象的函数 count()">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/textwrap1.png">
   <link rel="alternate" href="/atom.xml" title="DY的个人博客" type="application/atom+xml">
   <link rel="canonical" href="http://yoursite.com/2019/08/07/python常用模块（3）/">
@@ -312,7 +312,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-09-15 14:24:00" itemprop="dateModified" datetime="2019-09-15T14:24:00+08:00">2019-09-15</time>
+                <time title="修改时间：2019-09-20 17:01:27" itemprop="dateModified" datetime="2019-09-20T17:01:27+08:00">2019-09-20</time>
               </span>
             
           
@@ -351,43 +351,41 @@
 
       
         <h2 id="textwrap"><a href="#textwrap" class="headerlink" title="textwrap"></a>textwrap</h2><p>用来重新格式化文本的输出</p>
-<p>fill() 调整换行符,每行显示给定宽度</p>
+<h3 id="fill"><a href="#fill" class="headerlink" title="fill()"></a>fill()</h3><p>调整换行符,每行显示给定宽度</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/textwrap1.png" alt></p>
-<p>dedent()：去除缩进</p>
+<h3 id="dedent"><a href="#dedent" class="headerlink" title="dedent()"></a>dedent()</h3><p>去除缩进</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/textwrap2.png" alt></p>
-<p>indent():给定前缀</p>
+<h3 id="indent"><a href="#indent" class="headerlink" title="indent()"></a>indent()</h3><p>给定前缀</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/textwrap3.png" alt></p>
-<p>首行缩进：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/textwrap4.png" alt></p>
-<p>多余的省略号：shorter()</p>
+<h3 id="首行缩进："><a href="#首行缩进：" class="headerlink" title="首行缩进："></a>首行缩进：</h3><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/textwrap4.png" alt></p>
+<h3 id="多余的省略号"><a href="#多余的省略号" class="headerlink" title="多余的省略号"></a>多余的省略号</h3><p>shorter()</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/wraptext5.png" alt></p>
-<p>wrap():wrap(s,width) 以单词为单位(包括字符)最大长度不超过width个字符</p>
+<h3 id="wrap"><a href="#wrap" class="headerlink" title="wrap()"></a>wrap()</h3><p>:wrap(s,width) 以单词为单位(包括字符)最大长度不超过width个字符</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/wraptext6.png" alt></p>
 <h2 id="itertools"><a href="#itertools" class="headerlink" title="itertools"></a>itertools</h2><p>Python的内建模块itertools提供了非常有用的用于操作迭代对象的函数</p>
-<p><strong>count</strong>()会创建一个无限的迭代器，所以下述代码会打印出自然数序列，根本停不下来，只能按Ctrl+C退出。</p>
+<h3 id="count"><a href="#count" class="headerlink" title="count()"></a>count()</h3><p>count()会创建一个无限的迭代器，所以下述代码会打印出自然数序列，根本停不下来，只能按Ctrl+C退出。</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/itertools.png" alt></p>
-<p><strong>cycle()</strong>会把传入的一个序列无限重复下去：</p>
+<h3 id="cycle"><a href="#cycle" class="headerlink" title="cycle()"></a>cycle()</h3><p>cycle()会把传入的一个序列无限重复下去：</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/itertools1.png" alt></p>
-<p><strong>repeat()</strong>负责把一个元素无限重复下去，不过如果提供第二个参数就可以限定重复次数：</p>
+<h3 id="repeat"><a href="#repeat" class="headerlink" title="repeat()"></a>repeat()</h3><p>repeat()负责把一个元素无限重复下去，不过如果提供第二个参数就可以限定重复次数：</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/itertools2.png" alt></p>
-<p><strong>chain()</strong>可以把一组迭代对象串联起来，形成一个更大的迭代器：</p>
+<h3 id="chain"><a href="#chain" class="headerlink" title="chain"></a>chain</h3><p>chain()可以把一组迭代对象串联起来，形成一个更大的迭代器：</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/itertools3.png" alt></p>
-<p><strong>groupby()</strong>把迭代器中相邻的重复元素挑出来放在一起：</p>
+<h3 id="groupby"><a href="#groupby" class="headerlink" title="groupby()"></a>groupby()</h3><p>groupby()把迭代器中相邻的重复元素挑出来放在一起：</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/itertools5.png" alt></p>
 <p>实际上挑选规则是通过函数完成的，只要作用于函数的两个元素返回的值相等，这两个元素就被认为是在一组的，而函数返回值作为组的key。如果我们要忽略大小写分组，就可以让元素’A’和’a’都返回相同的key：</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/itertools6.png" alt></p>
-<p><strong>permutations()</strong>:输出输入序列的全排列,考虑顺序</p>
+<h3 id="permutations"><a href="#permutations" class="headerlink" title="permutations()"></a>permutations()</h3><p>输出输入序列的全排列,考虑顺序</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/itertools7.png" alt></p>
-<p><strong>combinations()</strong>:同上，不过不考虑顺序</p>
+<h3 id="combinations"><a href="#combinations" class="headerlink" title="combinations()"></a>combinations()</h3><p>同上，不过不考虑顺序</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/itertools8.png" alt></p>
-<p><strong>product()</strong>:输出输入序列的笛卡儿积</p>
+<h3 id="product"><a href="#product" class="headerlink" title="product()"></a>product()</h3><p>输出输入序列的笛卡儿积</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/itertools9.png" alt></p>
-<p><strong>compress</strong>：可以对一个序列的筛选结果施加到另一个相关的序列上</p>
+<h3 id="compress"><a href="#compress" class="headerlink" title="compress"></a>compress</h3><p>可以对一个序列的筛选结果施加到另一个相关的序列上</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/itertools10.png" alt></p>
-<p><strong>dropwhile()</strong>:筛选满足条件的元素</p>
-<p><strong>islice()</strong>：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/itertools11.png" alt></p>
-<p><strong>zip_longest</strong>：zip可产生元祖。当其中摸个输入序列中没有元素可以继续迭代时，迭代过程结束。所以整个迭代的长度和最短的输入序列相同。</p>
+<h3 id="dropwhile"><a href="#dropwhile" class="headerlink" title="dropwhile()"></a>dropwhile()</h3><p>筛选满足条件的元素</p>
+<h3 id="islice"><a href="#islice" class="headerlink" title="islice()"></a>islice()</h3><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/itertools11.png" alt></p>
+<h3 id="zip-longes"><a href="#zip-longes" class="headerlink" title="zip_longes"></a>zip_longes</h3><p>zip可产生元祖。当其中摸个输入序列中没有元素可以继续迭代时，迭代过程结束。所以整个迭代的长度和最短的输入序列相同。</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/itertools12.png" alt></p>
 <p>如果不想这样就用zip_longest：</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/itertools13.png" alt></p>
@@ -688,7 +686,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#textwrap"><span class="nav-text">textwrap</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#itertools"><span class="nav-text">itertools</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#textwrap"><span class="nav-text">textwrap</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#fill"><span class="nav-text">fill()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dedent"><span class="nav-text">dedent()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#indent"><span class="nav-text">indent()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#首行缩进："><span class="nav-text">首行缩进：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多余的省略号"><span class="nav-text">多余的省略号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#wrap"><span class="nav-text">wrap()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#itertools"><span class="nav-text">itertools</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#count"><span class="nav-text">count()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cycle"><span class="nav-text">cycle()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#repeat"><span class="nav-text">repeat()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#chain"><span class="nav-text">chain</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#groupby"><span class="nav-text">groupby()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#permutations"><span class="nav-text">permutations()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#combinations"><span class="nav-text">combinations()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#product"><span class="nav-text">product()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#compress"><span class="nav-text">compress</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dropwhile"><span class="nav-text">dropwhile()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#islice"><span class="nav-text">islice()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zip-longes"><span class="nav-text">zip_longes</span></a></li></ol></li></ol></div>
             
 
           </div>
