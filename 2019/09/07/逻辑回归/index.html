@@ -70,8 +70,12 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/logistic3.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/logistic4.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/logistic5.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/Logistic34.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/Logisic32.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/Logistic31.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/Logisic33.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/logistic33.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/logistic6.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/logistic8.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/logistic7.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/logistic9.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/logistic15.png">
@@ -82,13 +86,13 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/logistic22.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/logistic23.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/logistic24.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/logistic8.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/Logistic34.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/logistic11.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/logistic16.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/logistic17.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/logistic18.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML49.png">
-<meta property="og:updated_time" content="2019-09-15T06:31:11.837Z">
+<meta property="og:updated_time" content="2019-09-20T14:10:32.871Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="逻辑回归">
 <meta name="twitter:description" content="逻辑回归推导过程逻辑回归是一种名为“回归”的线性分类器，其本质是由线性回归变化而来。想理解逻辑回归，先回顾以下线性回归。线性回归写作一个人人熟悉的方程：  &amp;theta;被统称为模型的参数，其中&amp;theta;被称为截距。&amp;theta;1——&amp;theta;n被称为系数。我们可以用矩阵表示这个方程，其中x和&amp;theta;都可以被看作是一个列矩阵：  线性回归的任务，就是构造一个预测函数z来映射输入的特">
@@ -316,7 +320,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-09-15 14:31:11" itemprop="dateModified" datetime="2019-09-15T14:31:11+08:00">2019-09-15</time>
+                <time title="修改时间：2019-09-20 22:10:32" itemprop="dateModified" datetime="2019-09-20T22:10:32+08:00">2019-09-20</time>
               </span>
             
           
@@ -360,13 +364,19 @@
 <p>而g(z)就是我们逻辑回归返回的标签值。此时,y(x)的取值都在[0,1]之间，因此 y(x)和1-y(x)相加必然为1。令y(x)除以1-y(x)可以得到形似几率得y(x)/(1-y(x))，在此基础上取对数，得：</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/logistic5.png" alt></p>
 <p>不难发现，g(z)的形似几率取对数的本质其实就是我们的线性回归z，我们实际上是在对线性回归模型的预测结果取对数几率来让其的结果无限逼近0和1。因此，其对应的模型被称为”对数几率回归“（logistic Regression），也就是我们的逻辑回归，这个名为“回归”却是用来做分类工作的分类器。</p>
-<h2 id="逻辑回归的类"><a href="#逻辑回归的类" class="headerlink" title="逻辑回归的类"></a>逻辑回归的类</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/logistic6.png" alt></p>
 <p>逻辑回归有着基于训练数据求解参数&theta;的需求，并且希望训练出来的模型能够尽可能地拟合训练数据，即模型在训练集上的预测准确率越靠近100%越好。因此，我们使用”损失函数“这个评估指标，来衡量参数&theta;的优劣，即这一组参数能否使模型在训练集上表现优异。</p>
-<p>​    <strong>关键概念</strong>：损失函数，衡量参数&theta;的优劣的评估指标，用来求解最优参数的工具损失函数小，模型在训练集上表现优异，拟合充分，参数优秀损失函数大，模型在训练集上表现差劲，拟合不足，参数糟糕我们追求，能够让损失函数最小化的参数组合。<strong>注意：没有”求解参数“需求的模型没有损失函数，比如KNN，决策树。</strong> </p>
-<p>逻辑回归的损失函数是由最大似然法来推导出来的，具体结果可以写作 ：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/logistic8.png" alt></p>
-<p>&theta;表示求解出来的一组参数，m是样本的个数，yi是样本i上真实的标签。y&theta;(xi)是样本i上，基于参数&theta;计算出来的逻辑回归返回值，xi是样本i的取值。我们的目标，就是求解出使J(&theta;)最小的&theta;的取值。</p>
-<p>由于我们追求损失函数的最小值，让模型在训练集上表现最优，可能会引发另一个问题：如果模型在训练集上表示优秀，却在测试集上表现糟糕，模型就会过拟合。虽然逻辑回归和线性回归是天生欠拟合的模型，但我们还是需要控制过拟合的技术来帮助我们调整模型，对逻辑回归中过拟合的控制，通过正则化来实现。</p>
+<p>​    <strong>关键概念</strong>：损失函数，衡量参数&theta;的优劣的评估指标，用来求解最优参数的工具损失函数小，模型在训练集上表现优异，拟合充分，参数优秀损失函数大，模型在训练集上表现差劲，拟合不足，参数糟糕我们追求，能够让损失函数最小化的参数组合。<strong>注意：没有”求解参数“需求的模型没有损失函数，比如KNN，决策树。</strong> 损失函数是衡量单一训练样例的效果。成本函数用于衡量参数w和b的效果。</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/Logistic34.png" alt></p>
+<p>既然是最大似然，我们的目标当然是要最大化似然概率：</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/Logisic32.png" alt></p>
+<p>对于二分类问题有：</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/Logistic31.png" alt></p>
+<p>用一个式子表示上面这个分段的函数(写成相乘的形式)：</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/Logisic33.png" alt></p>
+<p>如果用hθ(xi)表示p0，1 - hθ(xi)表示p1，将max函数换成min，则得到最终形式：</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/logistic33.png" alt></p>
+<p>由于我们追求成本函数的最小值，让模型在训练集上表现最优，可能会引发另一个问题：如果模型在训练集上表示优秀，却在测试集上表现糟糕，模型就会过拟合。虽然逻辑回归和线性回归是天生欠拟合的模型，但我们还是需要控制过拟合的技术来帮助我们调整模型，对逻辑回归中过拟合的控制，通过正则化来实现。</p>
+<h2 id="逻辑回归的类"><a href="#逻辑回归的类" class="headerlink" title="逻辑回归的类"></a>逻辑回归的类</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/logistic6.png" alt></p>
 <h2 id="linear-model-LogisticRegression"><a href="#linear-model-LogisticRegression" class="headerlink" title="linear_model.LogisticRegression"></a>linear_model.LogisticRegression</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/logistic7.png" alt></p>
 <h3 id="正则化重要参数"><a href="#正则化重要参数" class="headerlink" title="正则化重要参数"></a>正则化重要参数</h3><p>正则化是用来防止模型过拟合的过程，常用的有L1正则化和L2正则化两种选项，分别通过在损失函数后加上参数向量&theta;的L1范式和L2范式的倍数来实现。这个增加的范式，被称为“正则项”，也被称为”惩罚项”。损失函数改变，基于损失函数的最优化来求解的参数取值必然改变，我们以此来调节模型拟合的程度。其中L1范数表现为参数向量中的每个参数的绝对值之和，L2范数表现为参数向量中的每个参数的平方和的开方值。 </p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/logistic9.png" alt></p>
@@ -398,10 +408,12 @@
 
 <h3 id="系数累加法"><a href="#系数累加法" class="headerlink" title="系数累加法"></a>系数累加法</h3><p>系数累加法的原理非常简单。在PCA中，我们通过绘制累积可解释方差贡献率曲线来选择超参数，在逻辑回归中我们可以使用系数coef_来这样做，并且我们选择特征个数的逻辑也是类似的：找出曲线由锐利变平滑的转折点，转折点之前被累加的特征都是我们需要的，转折点之后的我们都不需要。不过这种方法相对比较麻烦，因为我们要先对特征系数进行从大到小的排序，还要确保我们知道排序后的每个系数对应的原始特征的位置，才能够正确找出那些重要的特征。如果要使用这样的方法，不如直接使用嵌入法来得方便。</p>
 <h3 id="包装法"><a href="#包装法" class="headerlink" title="包装法"></a>包装法</h3><p>相对的，包装法可以直接设定我们需要的特征个数。</p>
-<h2 id="梯度下降"><a href="#梯度下降" class="headerlink" title="梯度下降"></a>梯度下降</h2><p>之前提到过，逻辑回归的数学目的是求解能够让模型最优化的参数&theta;的值，即求解能够让损失函数最小化的 的值，而这个求解过程，对于二元逻辑回归来说，有多种方法可以选择，最常见的有梯度下降法(Gradient Descent)，坐标轴下降法(Coordinate Descent)，牛顿法(Newton-Raphson method)等，每种方法都涉及复杂的数学原理，但这些计算在执行的任务其实是类似的。 </p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/logistic8.png" alt></p>
-<p>以梯度下降法为例，我们来看看求解过程是如何完成的。下面这个华丽的平面就是我们的损失函数在输入了一组特征矩阵和标签之后在三维立体坐标系中的图像。现在，我们寻求的是损失函数的最小值，也就是图像的最低点（看起来像是深蓝色区域的某处），一旦我们获取了图像在最低点的取值J(&theta;)0，在我们的损失函数公式中，唯一未知的就是我们的参数向量&theta;。</p>
+<h2 id="梯度下降"><a href="#梯度下降" class="headerlink" title="梯度下降"></a>梯度下降</h2><p>之前提到过，逻辑回归的数学目的是求解能够让模型最优化的参数&theta;的值，即求解能够让损失函数最小化的 的值，而这个求解过程，对于二元逻辑回归来说，有多种方法可以选择，最常见的有梯度下降法(Gradient Descent)，坐标轴下降法(Coordinate Descent)，牛顿法(Newton-Raphson method)等，每种方法都涉及复杂的数学原理，但这些计算在执行的任务其实是类似的。 成本函数就是1/m的损失函数之和。损失函数可以衡量算法的结果，成本函数可以看出参数w和b在训练集上的效果。</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/Logistic34.png" alt></p>
+<p>以梯度下降法为例，我们来看看求解过程是如何完成的。下面这个华丽的平面就是我们的损失函数在输入了一组特征矩阵和标签之后在三维立体坐标系中的图像。现在，我们寻求的是损失函数的最小值，也就是图像的最低点（看起来像是深蓝色区域的某处），一旦我们获取了图像在最低点的取值J(&theta;)，在我们的损失函数公式中，唯一未知的就是我们的参数向量&theta;。</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/logistic11.png" alt></p>
+<p>首先，我们先随机初始化，用某个初始化的值初始化w和b。梯度下降法所做的就是从初始化点开始，朝最抖的下坡方向走一步。在梯度下降一步后，或许在那里停下，或者继续沿着当前最抖的方向走，这是梯度下降的一次迭代。在得到全局最优解或接近全局最优解前，一直都在给w和b赋新值。</p>
+<p>让w=w-&alpha;<em>dJ(w)/dw，在算法收敛前，我们会重复这样去做。这里的&alpha;是学习率或者梯度下降法中的步长，dJ(w)/d(w)是导数。让b=b-&alpha;\</em> dJ(w,b)/db更新b。dJ(w,b)/db是偏导。</p>
 <p><strong>步长的概念与解惑</strong>：</p>
 <p>许多博客和教材在描述步长的时候，声称它是”梯度下降中每一步沿梯度的反方向前进的长度“，”沿着最陡峭最易下山的位置走的那一步的长度“或者”梯度下降中每一步损失函数减小的量“，甚至有说，步长是二维平面著名的求导三角形中的”斜边“或者“对边”的。<strong>这些说法都是错误的</strong></p>
 <p>请看下图，A(&theta;a,J(&theta;a))就是小球最初的位置，B(&theta;b,J(&theta;b))就是一次滚动后小球移动到的位置。从A到B的方向就是梯度向量的反方向，指向损失函数在A点下降最快的方向。而梯度向量的大小是点A在图像上对&theta;求导后的结果，也是点A切线方向的斜率，橙色角的tan结果，记作d。 梯度下降每走一步，损失函数减小的量，是损失函数在&theta;变化之后的取值的变化，写作J(&theta;b)-J(&theta;a)。梯度下降每走一步，参数变量的变化，写作&theta;a-&theta;b，根据我们参数向量的迭代公式，就是我们的步长<em>梯度向量的大小。记作&alpha;\</em>d，这是三角形的邻边。梯度下降中每走一步，也就是三角形中的斜边。</p>
@@ -539,7 +551,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">71</span>
+          <span class="site-state-item-count">72</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -679,7 +691,9 @@
         
           
         
-        <span class="site-state-item-count">37</span>
+          
+        
+        <span class="site-state-item-count">38</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
