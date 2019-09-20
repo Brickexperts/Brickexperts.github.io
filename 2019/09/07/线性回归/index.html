@@ -68,7 +68,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML95.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML82.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML83.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML84.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/line40.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML85.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML88.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML89.png">
@@ -105,7 +105,7 @@
 <meta property="og:image" content="c:%5CUsers%5C%E6%B9%9B%E8%93%9D%E6%98%9F%E7%A9%BA%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1568183504767.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/line19.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/line20.png">
-<meta property="og:updated_time" content="2019-09-15T06:31:22.569Z">
+<meta property="og:updated_time" content="2019-09-20T08:34:18.770Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="线性回归">
 <meta name="twitter:description" content="线性回归原理回归是一种应用广泛的预测建模技术，这种技术的核心在于预测的结果是连续型变量。决策树，随机森林，支持向量机的分类器等分类算法的预测标签是分类变量，多以{0，1}来表示，而无监督学习算法比如PCA，KMeans的目标根本不是求解出标签，注意加以区别。 线性回归的类可能是我们目前为止学到的最简单的类，仅有四个参数就可以完成一个完整的算法。并且看得出，这些参数中并没有一个是必填的，更没有对我们">
@@ -333,7 +333,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-09-15 14:31:22" itemprop="dateModified" datetime="2019-09-15T14:31:22+08:00">2019-09-15</time>
+                <time title="修改时间：2019-09-20 16:34:18" itemprop="dateModified" datetime="2019-09-20T16:34:18+08:00">2019-09-20</time>
               </span>
             
           
@@ -366,19 +366,19 @@
       
         <h2 id="线性回归原理"><a href="#线性回归原理" class="headerlink" title="线性回归原理"></a>线性回归原理</h2><p>回归是一种应用广泛的预测建模技术，这种技术的核心在于预测的结果是连续型变量。决策树，随机森林，支持向<br>量机的分类器等分类算法的预测标签是分类变量，多以{0，1}来表示，而无监督学习算法比如PCA，KMeans的目<br>标根本不是求解出标签，注意加以区别。</p>
 <p>线性回归的类可能是我们目前为止学到的最简单的类，仅有四个参数就可以完成一个完整的算法。并且看得出，这<br>些参数中并没有一个是必填的，更没有对我们的模型有不可替代作用的参数。这说明，线性回归的性能，往往取决<br>于数据本身，而并非是我们的调参能力，线性回归也因此对数据有着很高的要求。幸运的是，现实中大部分连续型<br>变量之间，都存在着或多或少的线性联系。所以线性回归虽然简单，却很强大。顺便一提，sklearn中的线性回归<br>可以处理多标签问题，只需要在fit的时候输入多维度标签就可以了。</p>
-<p>线性回归是机器学习中最简单的回归算法，多元线性回归指的就是一个样本有多个特征的线性回归问题。对于一个<br>有 个特征的样本 而言，它的回归结果可以写作一个几乎人人熟悉的方程 ：</p>
+<p>线性回归是机器学习中最简单的回归算法，多元线性回归指的就是一个样本有多个特征的线性回归问题。对于一个<br>有n个特征的样本i而言，它的回归结果可以写作一个几乎人人熟悉的方程 ：</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML95.png" alt></p>
-<p>W被统称为模型的参数。W0被称为截距W1-Wn被称为回归系数。这个表达式，其实就和我们小学时就无比熟悉的y=ax+b是同样的性质。其中y是我们的目标变量，也就是标签。 Xi1-Xin是样本i上的特征不同特征。如果考虑我们有m个样本，则m个样本的回归结果可以被写作： </p>
+<p>&omega;被统称为模型的参数。&omega;0被称为截距&omega;<sub>1</sub>~&omega;<sub>n</sub>被称为回归系数。这个表达式，其实就和我们小学时就无比熟悉的y=ax+b是同样的性质。其中y是我们的目标变量，也就是标签。 X<sub>i1</sub>-X<sub>in</sub>是样本i上的特征不同特征。如果考虑我们有m个样本，则m个样本的回归结果可以被写作： </p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML82.png" alt></p>
 <p>我们可以使用矩阵来表示这个方程：</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML83.png" alt></p>
-<p>y=Xw，其中y是包含了m个全部的样本的回归结果的列向量。粗体的大写字母表示矩阵。我们可以使用矩阵来表示这个方程，其中w可以被看做是一个结构为(1,n)的列矩阵，X是一个结构为(m,n)的特征矩阵。这个预测函数的本质就是我们需要构建的模型，而构造预测函数的核心就是找出模型的参数向量w 。</p>
+<p>y=X&omega;，其中y是包含了m个全部的样本的回归结果的列向量。粗体的大写字母表示矩阵。我们可以使用矩阵来表示这个方程，其中&omega;可以被看做是一个结构为(1,n)的列矩阵，X是一个结构为(m,n)的特征矩阵。这个预测函数的本质就是我们需要构建的模型，而构造预测函数的核心就是找出模型的参数向量&omega;。</p>
 <p>在多元线性回归中，我们在损失函数如下定义：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML84.png" alt></p>
-<p>因此，我们认为这个损失函数衡量了我们构造的模型的预测结果和真实标签的差异，因此我们固然希望我们的预测结果和真实值差异越小越好。所以我们的求解目标就可以转化成 ：</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/line40.png" alt></p>
+<p>在这个平方结果下，我们的真实标签和预测值分别如上图表示，也就是说，这个损失函数是在计算我们的真实标签和预测值之间的距离。因此，我们认为这个损失函数衡量了我们构造的模型的预测结果和真实标签的差异，因此我们固然希望我们的预测结果和真实值差异越小越好。所以我们的求解目标就可以转化成 ：</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML85.png" alt></p>
-<p><strong>第一次看不明白上面红字，这个2表示L2范式。也就是我们损失函数代表的含义，在L2范式上开平方，就是我们的损失函数</strong>。上面这个式子，正是sklearn当中，用在类Linear_model.LinerRegression背后使用的损失函数，我们往往称呼这个式子为SSE(残差平方和)或RSS(误差平方和)。</p>
-<p>现在问题转换成了求解让RSS最小化的参数向量 ，这种通过最小化真实值和预测值之间的RSS来求解参数的方法叫做最小二乘法。接下来，我们对w求导。</p>
+<p><strong>第一次看不明白上面红字，后面看了书，才明白。这个2表示L2范式。也就是我们损失函数代表的含义，在L2范式上开平方，就是我们的损失函数</strong>。上面这个式子，正是sklearn当中，用在类Linear_model.LinerRegression背后使用的损失函数，我们往往称呼这个式子为SSE(残差平方和)或RSS(误差平方和)。</p>
+<p>现在问题转换成了求解让RSS最小化的参数向量 ，这种通过最小化真实值和预测值之间的RSS来求解参数的方法叫做最小二乘法。接下来，我们对&omega;求导。</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML88.png" alt></p>
 <p>我们让求导后的一阶导数为0，并且我们的特征矩阵X肯定不会是一个所有元素都为0的矩阵。得：</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML89.png" alt></p>
@@ -610,7 +610,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">70</span>
+          <span class="site-state-item-count">71</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -659,7 +659,9 @@
         
           
         
-        <span class="site-state-item-count">17</span>
+          
+        
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
