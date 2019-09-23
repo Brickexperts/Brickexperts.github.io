@@ -57,28 +57,32 @@
   };
 </script>
 
-  <meta name="description" content="主干网络介绍 主干网络原始作者采用的VGG16，我们也可以将其他神经网络作为主干网络。例如：ResNet、MobileNets等 输入300300的image，将VGG16网络FC6、FC7换成conv6和conv7，同时将池化层变为stride=1，pool_size=3\3，这样做的目的是为了不减少feature map  size，为了配合这种变化，conv6会使用扩张率为6的带孔卷积。 ​">
-<meta name="keywords" content="SSD算法">
+  <meta name="description" content="符号约定首先看下图：  我们假设n[l] 表示第 l 层的神经元的数量，那么这个单隐层的神经网络的输入层、隐含层和输出层的维度分别是：n[0]= n_x =3、n[1]=4、n[2]=1。 那么根据浅层神经网络的正向传播的分析，如果一次性输入带有 m 个样本的矩阵 X 我们可以得到：  W^[1] = (4, 3), Z^[1] = (4, m), A^[1] = (4, m) W^[2] = (">
+<meta name="keywords" content="深度学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SSD系列算法">
-<meta property="og:url" content="http://yoursite.com/2019/08/21/SSD系列算法/index.html">
+<meta property="og:title" content="浅层神经网络的反向传播">
+<meta property="og:url" content="http://yoursite.com/2019/09/23/浅层神经网络的反向传播/index.html">
 <meta property="og:site_name" content="DY的个人博客">
-<meta property="og:description" content="主干网络介绍 主干网络原始作者采用的VGG16，我们也可以将其他神经网络作为主干网络。例如：ResNet、MobileNets等 输入300300的image，将VGG16网络FC6、FC7换成conv6和conv7，同时将池化层变为stride=1，pool_size=3\3，这样做的目的是为了不减少feature map  size，为了配合这种变化，conv6会使用扩张率为6的带孔卷积。 ​">
+<meta property="og:description" content="符号约定首先看下图：  我们假设n[l] 表示第 l 层的神经元的数量，那么这个单隐层的神经网络的输入层、隐含层和输出层的维度分别是：n[0]= n_x =3、n[1]=4、n[2]=1。 那么根据浅层神经网络的正向传播的分析，如果一次性输入带有 m 个样本的矩阵 X 我们可以得到：  W^[1] = (4, 3), Z^[1] = (4, m), A^[1] = (4, m) W^[2] = (">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%8720.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%8720.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%8721.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SSD4.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SSD2.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SSD3.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SSD1.png">
-<meta property="og:updated_time" content="2019-09-15T06:36:48.771Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190923161512.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190923162211.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190923202203.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190923203151.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190923203936.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190923203959.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190923204207.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190923204516.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190923204639.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190923210356.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190923210037.png">
+<meta property="og:updated_time" content="2019-09-23T13:12:45.344Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SSD系列算法">
-<meta name="twitter:description" content="主干网络介绍 主干网络原始作者采用的VGG16，我们也可以将其他神经网络作为主干网络。例如：ResNet、MobileNets等 输入300300的image，将VGG16网络FC6、FC7换成conv6和conv7，同时将池化层变为stride=1，pool_size=3\3，这样做的目的是为了不减少feature map  size，为了配合这种变化，conv6会使用扩张率为6的带孔卷积。 ​">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%8720.png">
+<meta name="twitter:title" content="浅层神经网络的反向传播">
+<meta name="twitter:description" content="符号约定首先看下图：  我们假设n[l] 表示第 l 层的神经元的数量，那么这个单隐层的神经网络的输入层、隐含层和输出层的维度分别是：n[0]= n_x =3、n[1]=4、n[2]=1。 那么根据浅层神经网络的正向传播的分析，如果一次性输入带有 m 个样本的矩阵 X 我们可以得到：  W^[1] = (4, 3), Z^[1] = (4, m), A^[1] = (4, m) W^[2] = (">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190923161512.png">
   <link rel="alternate" href="/atom.xml" title="DY的个人博客" type="application/atom+xml">
-  <link rel="canonical" href="http://yoursite.com/2019/08/21/SSD系列算法/">
+  <link rel="canonical" href="http://yoursite.com/2019/09/23/浅层神经网络的反向传播/">
 
 
 <script id="page.configurations">
@@ -87,7 +91,7 @@
   };
 </script>
 
-  <title>SSD系列算法 | DY的个人博客</title>
+  <title>浅层神经网络的反向传播 | DY的个人博客</title>
   
 
 
@@ -253,7 +257,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/21/SSD系列算法/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/23/浅层神经网络的反向传播/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="湛蓝星空">
@@ -267,7 +271,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">SSD系列算法
+          <h1 class="post-title" itemprop="name headline">浅层神经网络的反向传播
 
               
             
@@ -287,21 +291,11 @@
                 
               
 
-              <time title="创建时间：2019-08-21 09:05:48" itemprop="dateCreated datePublished" datetime="2019-08-21T09:05:48+08:00">2019-08-21</time>
+              <time title="创建时间：2019-09-23 16:11:03 / 修改时间：21:12:45" itemprop="dateCreated datePublished" datetime="2019-09-23T16:11:03+08:00">2019-09-23</time>
             </span>
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-09-15 14:36:48" itemprop="dateModified" datetime="2019-09-15T14:36:48+08:00">2019-09-15</time>
-              </span>
             
           
             <span class="post-meta-item">
@@ -312,21 +306,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/目标检测/" itemprop="url" rel="index"><span itemprop="name">目标检测</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/目标检测/One-stage/" itemprop="url" rel="index"><span itemprop="name">One-stage</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/目标检测/One-stage/SSD/" itemprop="url" rel="index"><span itemprop="name">SSD</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/深度学习/" itemprop="url" rel="index"><span itemprop="name">深度学习</span></a></span>
 
                 
                 
@@ -345,44 +325,101 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="主干网络介绍"><a href="#主干网络介绍" class="headerlink" title="主干网络介绍"></a>主干网络介绍</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%8720.png" alt></p>
-<p>主干网络原始作者采用的VGG16，我们也可以将其他神经网络作为主干网络。例如：ResNet、MobileNets等</p>
-<p>输入300<em>300的image，将VGG16网络FC6、FC7换成conv6和conv7，同时将池化层变为stride=1，pool_size=3\</em>3，这样做的目的是为了不减少feature map  size，为了配合这种变化，conv6会使用扩张率为6的带孔卷积。</p>
-<p>​    <strong>带孔卷积</strong>：就是不增加参数数量和model复杂度的情况下扩大卷积的感受域，用dialation_rate设置扩张率。类似于形态学操作中的膨胀。具体看<a href="[https://brickexperts.github.io/2019/08/22/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E5%B8%B8%E7%94%A8%E5%90%8D%E8%AF%8D/#more](https://brickexperts.github.io/2019/08/22/目标检测常用名词/#more)">目标检测常用名词</a></p>
-<p>接着然后移除dropout层和fc8层，并新增conv7，conv8，conv9，conv10，conv11，在检测数据集上做finetuing。其中VGG16中的Conv4_3层将作为用于检测的第一个特征图。conv4_3层特征图大小是38×38，但是该层比较靠前，其norm较大，所以在其后面增加了一个L2 Normalization层（参见ParseNet），以保证和后面的检测层差异不是很大，这个和Batch Normalization层不太一样，其仅仅是对每个像素点在channle维度做归一化，而Batch Normalization层是在[batch_size, width, height]三个维度上做归一化。归一化后一般设置一个可训练的放缩变量gamma。</p>
-<h2 id="多尺度feature-map预测"><a href="#多尺度feature-map预测" class="headerlink" title="多尺度feature map预测"></a>多尺度feature map预测</h2><p>多尺度feature map预测，也就是在预测的时候，在接下来预测的时候，针对接下来六个不同的尺寸进行预测。如下图的六条连线，分别是38*38、19*19、10*10、5*5、3*3、1*1。将这六个不同尺度的feature map分别作为检测、预测层的输入，最后通过NMS进行筛选和合并。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%8720.png" alt></p>
-<p>对于六种不同尺度的网络，我们通常使用pooling来降采样。对于每一层的feature map，我们输入到相应的预测网络中。而预测网络中，我们会包括Prior box的提取过程。Prior box对应Fast R-CNN中Anchor的概念，也就是说，在Prior box中，feature map上的每一个点都作为一个cell（相当于Anchor）。以这个cell为中心，按照等比的放缩，找到它在原始图片的位置。接着以这个点为中心，提取不同尺度bounding box。而这些不同尺度的bounding box就是Prior box。然后对于每一个Prior box，我们通过和真值比较，就能够拿到它的label。对于每一个Prior box，我们都会分别预测它的类别概率和坐标（x，y，w，h）。也就是说，对于每一个cell，我们会将它对应到不同的Prior box，分别来预测当前这个Prior box所对应当前这个类别的概率分布和坐标。</p>
-<p><strong>对Prior Box的具体定义：</strong></p>
-<p>这里我们假设Prior Box的输入是m*n维的feature map。</p>
-<p>如果每一个点都作为cell，那就会有m<em>n个cell。接着每个cell上生成固定尺寸和不同长宽比例的box。每个cell对应k个bounging box，每个bounding box预测c个类别分数和4个偏移坐标。其中c个类别分数实际上是当前bounding box所对应的不同类别的概率分布。如果输入大小为m\</em>n，那就会输出(c+4)*k*m*n。其中尺寸(scale)和比例(ratio)是超参数。</p>
-<p>接下来我们看看Prior box是怎么生成的：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%8721.png" alt></p>
-<p>每个feature map上的点定义了六种长宽比的default box。也就是说，最后对于每一个anchor都会获得六个不同尺寸和长宽比的default box。对于38<em>38层，每个feature map上的点，我们都会提取4个default box作为prior box。对于19\</em>19层、10*10层、5*5，提取6个default box也就是全部都是prior box。而3*3、1*1提取4个default作为prior box。所以最后得到8732个prior box(38*38*4+19*19*6+10*10*6+5*5*6+3*3*4+1*1*4)。<strong>prior box就是选择的default box</strong>。尺寸和比例都是可以通过SSD的配置文件进行配置，后面实战详解。</p>
-<p>对default box进行筛选成为prior box：每一个feature map cell不是k个default box都取，prior box与GT box(<a href="https://brickexperts.github.io/" target="_blank" rel="noopener">Ground Truth box</a>)做匹配，IOU&gt;阈值为正样本。IOU&lt;阈值 为负样本。介于正样本和负样本中间阈值的default box去掉。</p>
-<h2 id="SSD系列算法优化及扩展"><a href="#SSD系列算法优化及扩展" class="headerlink" title="SSD系列算法优化及扩展"></a>SSD系列算法优化及扩展</h2><p>SSD算法对小目标不够鲁棒，原因最主要是浅层feature map的表征能力不够强。</p>
-<p>DSSD：</p>
-<p>DSSD相当原来的SSD模型主要作了两大更新。一是替换掉VGG，而改用了Resnet-101作为特征提取网络并在对不同尺度feature maps特征进行default boxes检测时使用了更新的检测单元；二则在网络的后端使用了多个deconvolution layers以有效地扩展低维度信息的contextual information，从而有效地提高了小尺度目标的检测。</p>
-<p>下图为DSSD模型与SSD模型的整体网络结构对比：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SSD4.png" alt></p>
-<p>DSOD：</p>
-<p>SSD+DenseNet=DSOD</p>
-<p>DSOD可以从0开始训练数据，不需要预训练模型。</p>
-<p>FSSD：</p>
-<p>借鉴了FPN的思想，重构了一组pyramid feature map（金字塔特征），使得算法的精度有了明显特征，速度也没有下降很多。具体是把网络中某些feature调整为同一size再contact（连接），得到一个像素层，以此层为base layer来生成pyramid feature map，作者称之为Feature Fusion Module。</p>
-<p>Feature Fusion</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SSD2.png" alt></p>
-<p>对上面图的解读：</p>
-<p>​    (a) image pyramid </p>
-<p>​    (b) rcnn系列，只在最后一层feature预测 </p>
-<p>​    (c) FPN，语义信息一层传递回去，而且有很多相加的计算 </p>
-<p>​    (d) SSD，在各个level的feature上直接预测，每个level之间没联系 </p>
-<p>​    (e) FSSD的做法，把各个level的feature concat，然后从fusion feature上生成feature pyramid</p>
-<p>FSSD网络结构：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SSD3.png" alt></p>
-<p>RSSD：</p>
-<p>rainbow concatenation方式(pooling加deconvolution)融合不同层的特征，再增加不同层之间feature map关系的同时也增加了不同层的feature map个数。这种融合方式不仅解决了传统SSD算法存在的重复框问题，同时一定程度上解决了small object的检测问题。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SSD1.png" alt></p>
+        <h2 id="符号约定"><a href="#符号约定" class="headerlink" title="符号约定"></a>符号约定</h2><p>首先看下图：</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190923161512.png" alt></p>
+<p>我们假设n[l] 表示第 l 层的神经元的数量，那么这个单隐层的神经网络的输入层、隐含层和输出层的维度分别是：n[0]= n_x =3、n[1]=4、n[2]=1。</p>
+<p>那么根据<a href="[https://brickexperts.github.io/2019/09/23/%E6%B5%85%E5%B1%82%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E6%AD%A3%E5%90%91%E4%BC%A0%E6%92%AD/#more](https://brickexperts.github.io/2019/09/23/浅层神经网络的正向传播/#more)">浅层神经网络的正向传播</a>的分析，如果一次性输入带有 m 个样本的矩阵 X 我们可以得到：</p>
+<blockquote>
+<p>W^[1] = (4, 3), Z^[1] = (4, m), A^[1] = (4, m)</p>
+<p>W^[2] = (1, 4), Z^[2] = (1, m), A^[2] = (1, m)</p>
+</blockquote>
+<p>可以总结出如下规律，对第 l 层的单元而言：</p>
+<blockquote>
+<p>W^[l] = (n^[l], n^[l-1]),</p>
+<p>Z^[l] = (n^[l], m),</p>
+<p>A^[1] = (n^[l], m).</p>
+</blockquote>
+<p>另外，还有一个规律：</p>
+<blockquote>
+<p>对任意层而言：</p>
+<p>dW 的维度和 W 的维度相同</p>
+<p>dZ 的维度和 Z 的维度相同</p>
+<p>dA 的维度和 A 的维度相同</p>
+</blockquote>
+<p>注意：以上出现的符号都是将m个样本向量化后的表达。</p>
+<h2 id="单个样本的梯度计算"><a href="#单个样本的梯度计算" class="headerlink" title="单个样本的梯度计算"></a>单个样本的梯度计算</h2><p>讲反向传播前，我们先回顾一下单个样本的正向传播的过程：</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190923162211.png" alt></p>
+<p>其中计算z^[1]时用到的 x 可以看做是 a^[0]，σ( ) 是激活函数中一种，一般情况下，我们更习惯用用 g( ) 来表示激活函数。于是将上述式子一般化可以得到第 l 层的公式为：</p>
+<blockquote>
+<p>z^[l] = W^[l]a^[l-1] + b^[l] ——— ①</p>
+<p>a^[l] = g^[l] ( z^[l] ) ——————- ②</p>
+</blockquote>
+<p>由于我们输入的样本只有一个，所以各个向量的维度如下：</p>
+<blockquote>
+<p>W^[l] = (n^[l], n^[l-1]),</p>
+<p>z^[l] = (n^[l], 1),</p>
+<p>a^[1] = (n^[l], 1).</p>
+</blockquote>
+<p>我们现在根据式子 ① 和 ② 来讨论反向传播的过程。</p>
+<p>因为正向传播的时候我们依次计算了z^[1], a^[1], z^[2], a^[2]最终得到了损失函数L。所以反向传播的时候，我们要从L向前计算梯度。</p>
+<p>第一步计算 da^[2] 和 dz^[2]进而算出 dW^[2] 和 db^[2]：PS：说实话，没看懂下面这个怎么求导的</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190923202203.png" alt></p>
+<blockquote>
+<p>说明1：</p>
+<p>dz^[2] 的维度和z^[2]相同，da^[2] 的维度和a^[2]相同，为(1, 1)</p>
+<p>g’( z^[2] ) 的维度与 z^[2]维度相同，为(1, 1)</p>
+<p>在第二层中，a^[2] 与 z^[2]的维度也相同，为(1, 1)</p>
+<p>实际上，dz^[2] 应该等于da^[2] 与 g’( z^[2] ) 的内积的结果，理由我们我们先向下看</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190923203151.png" alt></p>
+<blockquote>
+<p>说明2 ：</p>
+<p>上图中我们可以得到 dW^[2] = dz^[2]乘上 a^[1] 的转置，这里是因为 :</p>
+<p>dW^[2] 和 W^[2] 的形状是一样的(n^[2], n^[1])也就是(1, 4)，</p>
+<p>dz^[2] 和 z^[2] 的形状是一样的(n^[2], 1)也就是(1, 1)，</p>
+<p>a^[1] 的形状是 (n^[1], 1) 也就是(4, 1)，可以得到 a^[1] 的转置 a^( [1]T ) 的形状是 (1, 4)，</p>
+<p>这样 dz^[2] 和 a^[1] 的转置 的乘积的形状才能是 dW^[2] 的形状 (1, 4)；</p>
+<p>因此 dW^[2] = dz^[2]乘上 a^[1] 的转置。</p>
+<p>这里给我们的启发是：<strong>向前求导的时候注意矩阵的维度变化，通过分析矩阵的维度来判断矩阵是否需要进行转置操作</strong>。</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190923203936.png" alt></p>
+<p>第二步计算 da^[1] 和 dz^[1]进而算出 dW^[1] 和 db^[1]</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190923203959.png" alt></p>
+<blockquote>
+<p>检查矩阵形状是否匹配：（4，1）* （1，1），匹配</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190923204207.png" alt></p>
+<blockquote>
+<p>说明3：</p>
+<p>dz^[1] 的维度和z^[1]相同，da^[1] 的维度和a^[1]相同，均为(4, 1)</p>
+<p>W^[2]T 的维度是 (4, 1)，dz^[2] 的维度是 (1, 1) ，二者的乘积与da^[1] 维度相同。</p>
+<p>g’( z^[1] ) 的维度与 z^[1]维度相同，也与da^[1] 维度相同，为(4, 1)。</p>
+<p>所以想得到维度为 (4, 1) 的dz^[1] ，da^[1] 与 g’( z^[1] ) 直接的关系为<strong>内积</strong></p>
+<p>这里给我们的启发是：<strong>向前求导的时候注意矩阵的维度变化，通过分析矩阵的维度来判断矩阵是否需要进行内积操作</strong>。这里就解释了说明（1）留下的问题。</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190923204516.png" alt></p>
+<blockquote>
+<p>检查维度：（4，3）=（4，3）*（1，3），正确</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190923204639.png" alt></p>
+<h2 id="多个样本的梯度运算"><a href="#多个样本的梯度运算" class="headerlink" title="多个样本的梯度运算"></a>多个样本的梯度运算</h2><p>用m个样本作为输入，并进行<strong>向量化</strong>后正向传播的公式：</p>
+<blockquote>
+<p>Z^[1] = W^[1]X + b^[1]</p>
+<p>A^[1] = g^[1] ( Z^[1] )</p>
+<p>Z^[2] = W^[2]A^[1] + b^[2]</p>
+<p>A^[2] = g^[2] ( Z^[2] )</p>
+</blockquote>
+<p>由于引入了m个样本，我们也要有个成本函数来衡量整体的表现情况，我们的目的是让J达到最小值</p>
+<p>下图中左边列举了我们上面所推导的各种式子，其中图中所用的激活函数 g^[2] () 为sigmoid函数，因而dz^[2] = a^[2] - y。这些左边的式子都是针对单个样本而言的，而右边则是将m个样本作为输入并向量化后的公式的表达形式。</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190923210356.png" alt></p>
+<blockquote>
+<p>上图的说明：</p>
+<p>1、由于成本函数 J 是所有的 损失函数 L 的值求和后的<strong>平均值</strong>， <strong>那么 J 对 W^[1], b^[1], W^[2], b^[2] 的导数 等价于 各个 L 对 W^[1], b^[1], W^[2], b^[2] 的导数求和后的平均值</strong>。所以dW^[1], db^[1], dW^[2], db^[2]的式子中需要乘上 1 / m。</p>
+<p>2、计算db^[1]和db^[2]时的程序代码的sum函数的第二个参数 axis=1 表示水平相加求和。</p>
+<p>3、keepdims=True是为了保持矩阵的shape属性值是我们熟悉的()中有两个数字的形式，例如(1, m)，(4, m)等，如果不加上可能得到的是奇怪的(1, )，(4, )这样的形式。</p>
+</blockquote>
+<h2 id="更新参数"><a href="#更新参数" class="headerlink" title="更新参数"></a>更新参数</h2><p>最后，不要忘了要更新参数（式子中的&alpha;是学习率）</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190923210037.png" alt></p>
 
     </div>
 
@@ -429,13 +466,13 @@
           
         
         <div class="post-tags">
-            <a href="/tags/SSD算法/" rel="tag"># SSD算法</a>
+            <a href="/tags/深度学习/" rel="tag"># 深度学习</a>
           
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2019/08/20/One-stage基本介绍/" rel="next" title="One-stage基本介绍">
-                <i class="fa fa-chevron-left"></i> One-stage基本介绍
+              <a href="/2019/09/23/浅层神经网络的正向传播/" rel="next" title="浅层神经网络的正向传播">
+                <i class="fa fa-chevron-left"></i> 浅层神经网络的正向传播
               </a>
             
           </div>
@@ -443,10 +480,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2019/08/22/目标检测常用名词/" rel="prev" title="目标检测常用名词">
-                目标检测常用名词 <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
     </footer>
@@ -684,7 +717,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#主干网络介绍"><span class="nav-text">主干网络介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多尺度feature-map预测"><span class="nav-text">多尺度feature map预测</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SSD系列算法优化及扩展"><span class="nav-text">SSD系列算法优化及扩展</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#符号约定"><span class="nav-text">符号约定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单个样本的梯度计算"><span class="nav-text">单个样本的梯度计算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多个样本的梯度运算"><span class="nav-text">多个样本的梯度运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更新参数"><span class="nav-text">更新参数</span></a></li></ol></div>
             
 
           </div>
