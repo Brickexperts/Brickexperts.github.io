@@ -57,29 +57,32 @@
   };
 </script>
 
-  <meta name="description" content="​    感知机：有n个输入数据，通过权重与各数据之间的计算和，比较激活函数结果，得出输出。感知机是解决分类问题。 神经网络的基本组成包括输入层、隐藏层、输出层。卷积神经网络的特点在于隐藏层分为卷积层和池化层。 神经网络的种类：  神经网络的策略是交叉熵损失，优化是通过反向传播算法（相当于梯度下降 ）。  简单神经网络：  卷积神经网络： 卷积层：通过在原始图像上平移来提取特征 零填充方式：SAM">
+  <meta name="description" content="数据读取通过线程和队列提高速度。可以边取数据边训练     模型的保存和加载 模型保存：   模型加载：  添加权重参数、损失值等的变化 首先收集变量：  而后在会话中运行：">
 <meta name="keywords" content="深度学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="深度学习（3）">
-<meta property="og:url" content="http://yoursite.com/2019/08/09/深度学习（3）/index.html">
+<meta property="og:title" content="tensorflow（2）">
+<meta property="og:url" content="http://yoursite.com/2019/08/09/tensorflow（2）/index.html">
 <meta property="og:site_name" content="DY的个人博客">
-<meta property="og:description" content="​    感知机：有n个输入数据，通过权重与各数据之间的计算和，比较激活函数结果，得出输出。感知机是解决分类问题。 神经网络的基本组成包括输入层、隐藏层、输出层。卷积神经网络的特点在于隐藏层分为卷积层和池化层。 神经网络的种类：  神经网络的策略是交叉熵损失，优化是通过反向传播算法（相当于梯度下降 ）。  简单神经网络：  卷积神经网络： 卷积层：通过在原始图像上平移来提取特征 零填充方式：SAM">
+<meta property="og:description" content="数据读取通过线程和队列提高速度。可以边取数据边训练     模型的保存和加载 模型保存：   模型加载：  添加权重参数、损失值等的变化 首先收集变量：  而后在会话中运行：">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL30.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL31.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL32.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL33.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL34.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL35.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL36.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL37.png">
-<meta property="og:updated_time" content="2019-09-15T06:28:05.264Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL19.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL20.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL@1.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL21.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL22.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL23.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL24.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL25.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL26.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL27.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL28.png">
+<meta property="og:updated_time" content="2019-09-23T06:59:58.053Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="深度学习（3）">
-<meta name="twitter:description" content="​    感知机：有n个输入数据，通过权重与各数据之间的计算和，比较激活函数结果，得出输出。感知机是解决分类问题。 神经网络的基本组成包括输入层、隐藏层、输出层。卷积神经网络的特点在于隐藏层分为卷积层和池化层。 神经网络的种类：  神经网络的策略是交叉熵损失，优化是通过反向传播算法（相当于梯度下降 ）。  简单神经网络：  卷积神经网络： 卷积层：通过在原始图像上平移来提取特征 零填充方式：SAM">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL30.png">
+<meta name="twitter:title" content="tensorflow（2）">
+<meta name="twitter:description" content="数据读取通过线程和队列提高速度。可以边取数据边训练     模型的保存和加载 模型保存：   模型加载：  添加权重参数、损失值等的变化 首先收集变量：  而后在会话中运行：">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL19.png">
   <link rel="alternate" href="/atom.xml" title="DY的个人博客" type="application/atom+xml">
-  <link rel="canonical" href="http://yoursite.com/2019/08/09/深度学习（3）/">
+  <link rel="canonical" href="http://yoursite.com/2019/08/09/tensorflow（2）/">
 
 
 <script id="page.configurations">
@@ -88,7 +91,7 @@
   };
 </script>
 
-  <title>深度学习（3） | DY的个人博客</title>
+  <title>tensorflow（2） | DY的个人博客</title>
   
 
 
@@ -254,7 +257,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/09/深度学习（3）/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/09/tensorflow（2）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="湛蓝星空">
@@ -268,7 +271,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">深度学习（3）
+          <h1 class="post-title" itemprop="name headline">tensorflow（2）
 
               
             
@@ -288,7 +291,7 @@
                 
               
 
-              <time title="创建时间：2019-08-09 13:03:29" itemprop="dateCreated datePublished" datetime="2019-08-09T13:03:29+08:00">2019-08-09</time>
+              <time title="创建时间：2019-08-09 12:53:25" itemprop="dateCreated datePublished" datetime="2019-08-09T12:53:25+08:00">2019-08-09</time>
             </span>
           
             
@@ -301,7 +304,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-09-15 14:28:05" itemprop="dateModified" datetime="2019-09-15T14:28:05+08:00">2019-09-15</time>
+                <time title="修改时间：2019-09-23 14:59:58" itemprop="dateModified" datetime="2019-09-23T14:59:58+08:00">2019-09-23</time>
               </span>
             
           
@@ -314,6 +317,13 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/深度学习/" itemprop="url" rel="index"><span itemprop="name">深度学习</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/深度学习/tensorflow/" itemprop="url" rel="index"><span itemprop="name">tensorflow</span></a></span>
 
                 
                 
@@ -332,27 +342,22 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>​    感知机：有n个输入数据，通过权重与各数据之间的计算和，比较激活函数结果，得出输出。感知机是解决分类问题。</p>
-<p>神经网络的基本组成包括输入层、隐藏层、输出层。卷积神经网络的特点在于隐藏层分为卷积层和池化层。</p>
-<p>神经网络的种类：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL30.png" alt></p>
-<p>神经网络的策略是交叉熵损失，优化是通过反向传播算法（相当于梯度下降 ）。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL31.png" alt></p>
-<p>简单神经网络：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL32.png" alt></p>
-<p>卷积神经网络：</p>
-<p>卷积层：通过在原始图像上平移来提取特征</p>
-<p>零填充方式：SAME和VALID。</p>
-<p>当填充方式为SAME时：全零填充，无法取整时，向上取值</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL33.png" alt></p>
-<p>当填充方式为VALID时，不使用全零填充，无法取整时，向上取值</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL34.png" alt></p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL35.png" alt></p>
-<p>卷积向下取整，池化向上取整</p>
-<p>例：当卷积层100个filter，5*5，步长为1，零填充是2时。输入[28,28,1]大小的图像，输出[26,26,100]的图像。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL36.png" alt></p>
-<p>池化层：通过特征后稀疏参数来减少学习的参数，降低网络的复杂度（最大池化和平均值化）</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL37.png" alt></p>
+        <h2 id="数据读取"><a href="#数据读取" class="headerlink" title="数据读取"></a>数据读取</h2><p>通过线程和队列提高速度。可以边取数据边训练</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL19.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL20.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL@1.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL21.png" alt></p>
+<h2 id="模型的保存和加载"><a href="#模型的保存和加载" class="headerlink" title="模型的保存和加载"></a>模型的保存和加载</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL22.png" alt></p>
+<p>模型保存：</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL23.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL24.png" alt></p>
+<p>模型加载：</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL25.png" alt></p>
+<h2 id="添加权重参数、损失值等的变化"><a href="#添加权重参数、损失值等的变化" class="headerlink" title="添加权重参数、损失值等的变化"></a>添加权重参数、损失值等的变化</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL26.png" alt></p>
+<p>首先收集变量：</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL27.png" alt></p>
+<p>而后在会话中运行：</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL28.png" alt></p>
 
     </div>
 
@@ -404,8 +409,8 @@
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2019/08/09/深度学习（2）/" rel="next" title="深度学习（2）">
-                <i class="fa fa-chevron-left"></i> 深度学习（2）
+              <a href="/2019/08/09/tensorflow（1）/" rel="next" title="tensorflow（1）">
+                <i class="fa fa-chevron-left"></i> tensorflow（1）
               </a>
             
           </div>
@@ -413,8 +418,8 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2019/08/10/魔法方法/" rel="prev" title="魔法方法">
-                魔法方法 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/08/09/tensorflow（3）/" rel="prev" title="tensorflow（3）">
+                tensorflow（3） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -446,8 +451,17 @@
 
   <aside id="sidebar" class="sidebar">
     <div class="sidebar-inner">
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
 
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -462,7 +476,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">72</span>
+          <span class="site-state-item-count">73</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -513,7 +527,9 @@
         
           
         
-        <span class="site-state-item-count">18</span>
+          
+        
+        <span class="site-state-item-count">19</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
@@ -633,6 +649,23 @@
 
         </div>
       </div>
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据读取"><span class="nav-text">数据读取</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模型的保存和加载"><span class="nav-text">模型的保存和加载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加权重参数、损失值等的变化"><span class="nav-text">添加权重参数、损失值等的变化</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
     </div>
   </aside>
