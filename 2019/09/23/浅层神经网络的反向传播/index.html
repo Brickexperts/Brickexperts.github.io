@@ -67,7 +67,6 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190923161512.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190923162211.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190924223704.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190923203151.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190923203936.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190923203959.png">
@@ -76,7 +75,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190923204639.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190923210356.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190923210037.png">
-<meta property="og:updated_time" content="2019-09-24T14:47:49.656Z">
+<meta property="og:updated_time" content="2019-09-25T12:18:36.110Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅层神经网络的反向传播">
 <meta name="twitter:description" content="符号约定首先看下图：  我们假设n[l] 表示第 l 层的神经元的数量，那么这个单隐层的神经网络的输入层、隐含层和输出层的维度分别是：n[0]= n_x =3、n[1]=4、n[2]=1。 那么根据浅层神经网络的正向传播的分析，如果一次性输入带有 m 个样本的矩阵 X 我们可以得到：  W^[1] = (4, 3), Z^[1] = (4, m), A^[1] = (4, m) W^[2] = (">
@@ -304,7 +303,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-09-24 22:47:49" itemprop="dateModified" datetime="2019-09-24T22:47:49+08:00">2019-09-24</time>
+                <time title="修改时间：2019-09-25 20:18:36" itemprop="dateModified" datetime="2019-09-25T20:18:36+08:00">2019-09-25</time>
               </span>
             
           
@@ -374,9 +373,9 @@
 <p>因为正向传播的时候我们依次计算了z^[1], a^[1], z^[2], a^[2]最终得到了损失函数L。所以反向传播的时候，我们要从L向前计算梯度。</p>
 <p>第一步计算dz^[2]和da^[2]进而算出 dW^[2] 和 db^[2]：</p>
 <blockquote>
-<p>da^[2]=da^[2]/dz^[2]=a^[2]*(1-a^[2])</p>
+<p>da^[2]=dL/da^[2]=  -y/a^[2]+(1-y)/(1-a^[2])</p>
+<p>dz^[2]=dL/da^[2]*da^[2]/dz^[2]=-y(1-a^[2])+(1-y)a^[2] = a^[2] - y</p>
 </blockquote>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190924223704.png" alt></p>
 <blockquote>
 <p>说明1：</p>
 <p>dz^[2] 的维度和z^[2]相同，da^[2] 的维度和a^[2]相同，为(1, 1)</p>
