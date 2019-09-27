@@ -70,6 +70,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190926175439.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190926175826.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190926181404.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190927174449.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190926195030.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190926195243.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190926195734.png">
@@ -78,7 +79,12 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190926205807.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190926223148.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190926223758.png">
-<meta property="og:updated_time" content="2019-09-26T14:50:03.328Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190927164855.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190927170025.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190927170142.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190927171813.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190927174247.png">
+<meta property="og:updated_time" content="2019-09-27T09:56:02.616Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git介绍和基本操作">
 <meta name="twitter:description" content="最近经常用到git和GitHub，但是命令很多都忘记了。故写一篇博客回顾并总结一下 git介绍git是目前世界上最先进的分布式版本系统。 git的两大特点 版本控制：可以解决多人同时开发的代码问题，也可以解决找回历史代码的问题 分布式：git是分布式版本控制系统，同一个git仓库，可以分布到不同的机器上，首先找一台电脑充当服务器的角色。每天24小时开机，其它每个人都从这个“服务器”仓库克隆一份自己">
@@ -293,11 +299,21 @@
                 
               
 
-              <time title="创建时间：2019-09-26 16:02:15 / 修改时间：22:50:03" itemprop="dateCreated datePublished" datetime="2019-09-26T16:02:15+08:00">2019-09-26</time>
+              <time title="创建时间：2019-09-26 16:02:15" itemprop="dateCreated datePublished" datetime="2019-09-26T16:02:15+08:00">2019-09-26</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-09-27 17:56:02" itemprop="dateModified" datetime="2019-09-27T17:56:02+08:00">2019-09-27</time>
+              </span>
             
           
             <span class="post-meta-item">
@@ -348,12 +364,14 @@
 <p>图中的commit 12c6a……代表版本序列号</p>
 <p>随便放了一张图片进项目，第二次提交项目</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190926181404.png" alt></p>
-<h3 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h3><p>在git中，有个HEAD指针一直指向当前的版本。用HEAD^代表HEAD前一个版本，HEAD^^代表前两个版本。其它版本类推。那前一百个要写100个^吗？答案当然是不用的，用HEAD<del>100。HEAD</del>1 等价于  HEAD^。</p>
+<p>如果版本记录过程，以简短形式显示：</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190927174449.png" alt></p>
+<h3 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h3><p>在git中，有个HEAD指针一直指向当前的版本。用HEAD^代表HEAD前一个版本，HEAD^^代表前两个版本。其它版本类推。那前一百个要写100个^吗？答案当然是不用的，用HEAD~100。HEAD~1 等价于  HEAD^。</p>
 <p>git reset –hard HEAD</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190926195030.png" alt></p>
 <p>git reset –hard 版本号：这里的版本号就是commit后的版本序列号</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190926195243.png" alt></p>
-<p>版本号不需要写完，写完前几个好码就好了。</p>
+<p>版本号不需要写完，写完前几个号码就好了。</p>
 <h3 id="查看操作记录"><a href="#查看操作记录" class="headerlink" title="查看操作记录"></a>查看操作记录</h3><p>git reflog</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190926195734.png" alt></p>
 <h3 id="工作区和暂存区"><a href="#工作区和暂存区" class="headerlink" title="工作区和暂存区"></a>工作区和暂存区</h3><p>工作区就相当于我们的目录</p>
@@ -373,7 +391,19 @@
 <p>如果是add后，先利用reset取消暂存的变更重新回到工作区：</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190926223758.png" alt></p>
 <p>接着用git checkout –文件名.文件格式 丢弃工作区的改动</p>
-<h3 id="对比文件的不同"><a href="#对比文件的不同" class="headerlink" title="对比文件的不同"></a>对比文件的不同</h3>
+<p>如果是commit了，就版本回退</p>
+<h3 id="对比文件的不同"><a href="#对比文件的不同" class="headerlink" title="对比文件的不同"></a>对比文件的不同</h3><p><strong>对比工作区和某个版本中文件的不同</strong></p>
+<p>git diff 某个版本库  – 比较的文件</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190927164855.png" alt></p>
+<p><strong>对比两个版本间的不同</strong></p>
+<p>git diff 某个版本库  某个版本库 – 比较的文件</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190927170025.png" alt></p>
+<p>两个版本交换位置，得出的效果是不同的</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190927170142.png" alt></p>
+<h3 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h3><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190927171813.png" alt></p>
+<p>如果是add到暂存区，也是和之前一样，先reset，再checkout。</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190927174247.png" alt></p>
+
     </div>
 
     
@@ -674,7 +704,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#git介绍"><span class="nav-text">git介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git基本操作"><span class="nav-text">git基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化"><span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#版本创建"><span class="nav-text">版本创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看版本记录"><span class="nav-text">查看版本记录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#版本回退"><span class="nav-text">版本回退</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看操作记录"><span class="nav-text">查看操作记录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工作区和暂存区"><span class="nav-text">工作区和暂存区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#撤销修改"><span class="nav-text">撤销修改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对比文件的不同"><span class="nav-text">对比文件的不同</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#git介绍"><span class="nav-text">git介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git基本操作"><span class="nav-text">git基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化"><span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#版本创建"><span class="nav-text">版本创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看版本记录"><span class="nav-text">查看版本记录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#版本回退"><span class="nav-text">版本回退</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看操作记录"><span class="nav-text">查看操作记录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工作区和暂存区"><span class="nav-text">工作区和暂存区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#撤销修改"><span class="nav-text">撤销修改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对比文件的不同"><span class="nav-text">对比文件的不同</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除文件"><span class="nav-text">删除文件</span></a></li></ol></li></ol></div>
             
 
           </div>
