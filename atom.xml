@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-09-28T08:10:43.733Z</updated>
+  <updated>2019-09-28T10:01:01.820Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,12 +21,24 @@
     <link href="http://yoursite.com/2019/09/28/Github%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
     <id>http://yoursite.com/2019/09/28/Github的使用/</id>
     <published>2019-09-28T08:10:43.000Z</published>
-    <updated>2019-09-28T08:10:43.733Z</updated>
+    <updated>2019-09-28T10:01:01.820Z</updated>
+    
+    <content type="html"><![CDATA[<p>github的账户创建和仓库创建比较简单，就不赘述了</p><h2 id="github添加ssh账户"><a href="#github添加ssh账户" class="headerlink" title="github添加ssh账户"></a>github添加ssh账户</h2><p>首先，点击账户，选择setting</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20190928164421.png" alt></p><p>直接添加就完事了。那我们怎么生成ssh公钥呢？</p><p>先回到用户的主目录下，编辑文件.gitconfig，修改某台机器的git配置。修改为注册github的邮箱，填写用户名</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20190928165020.png" alt></p><p>接着执行命令，ssh-keygen -t rsa -C “邮箱地址”，一路yes。最后生成三个文件：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20190928165739.png" alt></p><p>id_rsa是机器私钥，自己保留。id_rsa.pub就是我们的公钥。把公钥内容复制到第一张图New SSH Key后的位置。名字可以随便取。</p><h2 id="克隆项目"><a href="#克隆项目" class="headerlink" title="克隆项目"></a>克隆项目</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20190928170507.png" alt></p><p>接着git clone SSH</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20190928172714.png" alt></p><p>这个再cmd下执行同样有效。</p><p>如果出错了，执行以下代码：先执行eval “$(ssh-agent -s)”，再执行ssh-add</p><p>不只是可以使用SSH，也可以使用HTTPS。</p><p>git  clone  网址         </p><p>在cmd上同样是有效的。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20190928172950.png" alt></p><h2 id="推送代码"><a href="#推送代码" class="headerlink" title="推送代码"></a>推送代码</h2><p>推送前：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20190928174030.png" alt></p><p>图中的红框是分支。</p><p>推送分支就是把给分支上的所有本地提交库推送到远程库，推送时要指定本地分支，这样，git就会把该分支推送到远程库对应的远程分支上。</p><p>git push origin 分支名称</p><h2 id="本地分支跟踪远程分支"><a href="#本地分支跟踪远程分支" class="headerlink" title="本地分支跟踪远程分支"></a>本地分支跟踪远程分支</h2><p>git branch –set-upstream-to=origin/远程分支名词  本地分支名称</p><p>跟踪后，如果本地分支和远程分支的进度不一样，使用命令 git status 会提醒。</p><h2 id="拉取代码"><a href="#拉取代码" class="headerlink" title="拉取代码"></a>拉取代码</h2><p>git pull orgin 分支名称</p>]]></content>
     
     <summary type="html">
     
+      
+      
+        &lt;p&gt;github的账户创建和仓库创建比较简单，就不赘述了&lt;/p&gt;
+&lt;h2 id=&quot;github添加ssh账户&quot;&gt;&lt;a href=&quot;#github添加ssh账户&quot; class=&quot;headerlink&quot; title=&quot;github添加ssh账户&quot;&gt;&lt;/a&gt;github添加ssh账户
+      
+    
     </summary>
     
+      <category term="git和github" scheme="http://yoursite.com/categories/git%E5%92%8Cgithub/"/>
+    
+    
+      <category term="Github" scheme="http://yoursite.com/tags/Github/"/>
     
   </entry>
   
