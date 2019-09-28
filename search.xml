@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[上传项目到GitHub]]></title>
+    <url>%2F2019%2F09%2F28%2F%E4%B8%8A%E4%BC%A0%E9%A1%B9%E7%9B%AE%E5%88%B0GitHub%2F</url>
+    <content type="text"><![CDATA[首先登录GitHub，没有账号的申请一个。很简单，跳过。 新建一个仓库： 记住这个网址，之后用到 进入项目的目录，点击空白处，选择git Bash。 输入git init，会发现当前目录下多了一个.git文件夹 接着输入git add . 这个是将项目上所有的文件添加到仓库中的意思，如果想添加某个特定的文件，只需把.换成这个特定的文件名即可。 输入git commit -m “first commit”，表示你对这次提交的注释，双引号里面的内容可以根据个人的需要 输入git remote add origin https://自己的仓库url地址（上面有说到） 将本地的仓库关联到github上， 输入git push -u origin master，这是把代码上传到github仓库的意思]]></content>
+      <categories>
+        <category>git和github</category>
+      </categories>
+      <tags>
+        <tag>Github</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Github的使用]]></title>
     <url>%2F2019%2F09%2F28%2FGithub%E7%9A%84%E4%BD%BF%E7%94%A8%2F</url>
     <content type="text"><![CDATA[github的账户创建和仓库创建比较简单，就不赘述了 github添加ssh账户首先，点击账户，选择setting 直接添加就完事了。那我们怎么生成ssh公钥呢？ 先回到用户的主目录下，编辑文件.gitconfig，修改某台机器的git配置。修改为注册github的邮箱，填写用户名 接着执行命令，ssh-keygen -t rsa -C “邮箱地址”，一路yes。最后生成三个文件： id_rsa是机器私钥，自己保留。id_rsa.pub就是我们的公钥。把公钥内容复制到第一张图New SSH Key后的位置。名字可以随便取。 克隆项目 接着git clone SSH 这个再cmd下执行同样有效。 如果出错了，执行以下代码：先执行eval “$(ssh-agent -s)”，再执行ssh-add 不只是可以使用SSH，也可以使用HTTPS。 git clone 网址 在cmd上同样是有效的。 推送代码推送前： 图中的红框是分支。 推送分支就是把给分支上的所有本地提交库推送到远程库，推送时要指定本地分支，这样，git就会把该分支推送到远程库对应的远程分支上。 git push origin 分支名称 本地分支跟踪远程分支git branch –set-upstream-to=origin/远程分支名词 本地分支名称 跟踪后，如果本地分支和远程分支的进度不一样，使用命令 git status 会提醒。 拉取代码git pull orgin 分支名称]]></content>
