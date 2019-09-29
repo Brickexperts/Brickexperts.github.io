@@ -80,7 +80,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190923153223.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190923153359.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190923153641.png">
-<meta property="og:updated_time" content="2019-09-25T10:27:28.638Z">
+<meta property="og:updated_time" content="2019-09-29T11:32:04.164Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅层神经网络的正向传播">
 <meta name="twitter:description" content="神经网络概览在逻辑回归中，我们的模型大概是这样的，得到的a即是预测结果y帽。  如果把上面的图片抽象化，可以得到以下模型：  再进一步简化得到：  上图里，小圆圈是sigmoid单元，它要完成的工作就是先计算 z 然后计算 a 最终作为 y帽 输出。 进而，我们看看下图，这是较为简单的神经网络的样子，它无非就是将多个 sigmoid 单元组合在一起，形成了更复杂的结构。图中每个单元都需要接收数据的">
@@ -308,7 +308,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-09-25 18:27:28" itemprop="dateModified" datetime="2019-09-25T18:27:28+08:00">2019-09-25</time>
+                <time title="修改时间：2019-09-29 19:32:04" itemprop="dateModified" datetime="2019-09-29T19:32:04+08:00">2019-09-29</time>
               </span>
             
           
@@ -365,7 +365,7 @@
 <p>z^[1] 是个 (4, 1) 的矩阵。可以再进一步通过 sigmoid 函数得到</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190923152206.png" alt></p>
 <p>至此，第一层神经网络得任务已完成</p>
-<p>第二层也就是隐藏层的工作，无非就是把第一层的 a^[1] 作为输入，继续用 W^[2] 与 a^[1] 相乘 再加上 b^[2] 得到 z^[2]，再通过 sigmoid 函数得到 a^[2] 也就是最终的预测结果 y帽。</p>
+<p>第二层也就是输出层的工作，无非就是把第一层的 a^[1] 作为输入，继续用 W^[2] 与 a^[1] 相乘 再加上 b^[2] 得到 z^[2]，再通过 sigmoid 函数得到 a^[2] 也就是最终的预测结果 y帽。</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190923152532.png" alt></p>
 <p>至此，我们就完成了一个样本的输出。接下来看看如何用矩阵实现多样本的正向输出。</p>
 <h2 id="计算多样本的输出"><a href="#计算多样本的输出" class="headerlink" title="计算多样本的输出"></a>计算多样本的输出</h2><p>假设我们有m个样本，每个样本有3个特征，并且隐藏层也是4个单元。</p>
@@ -498,7 +498,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">79</span>
+          <span class="site-state-item-count">80</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
