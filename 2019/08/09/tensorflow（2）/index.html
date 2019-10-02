@@ -57,13 +57,13 @@
   };
 </script>
 
-  <meta name="description" content="数据读取通过线程和队列提高速度。可以边取数据边训练     模型的保存和加载 模型保存：   模型加载：  添加权重参数、损失值等的变化 首先收集变量：  而后在会话中运行：">
+  <meta name="description" content="数据读取通过线程和队列提高速度。可以边取数据边训练     模型的保存和加载 模型保存：  模型加载： 添加权重参数、损失值等的变化 首先收集变量： 而后在会话中运行： 感知机有n个输入数据，通过权重与各数据之间的计算和，比较激活函数结果，得出输出。感知机是解决分类问题。 神经网络的基本组成包括输入层、隐藏层、输出层。卷积神经网络的特点在于隐藏层分为卷积层和池化层。 神经网络的种类： 神经网络的策">
 <meta name="keywords" content="深度学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="tensorflow（2）">
 <meta property="og:url" content="http://yoursite.com/2019/08/09/tensorflow（2）/index.html">
 <meta property="og:site_name" content="DY的个人博客">
-<meta property="og:description" content="数据读取通过线程和队列提高速度。可以边取数据边训练     模型的保存和加载 模型保存：   模型加载：  添加权重参数、损失值等的变化 首先收集变量：  而后在会话中运行：">
+<meta property="og:description" content="数据读取通过线程和队列提高速度。可以边取数据边训练     模型的保存和加载 模型保存：  模型加载： 添加权重参数、损失值等的变化 首先收集变量： 而后在会话中运行： 感知机有n个输入数据，通过权重与各数据之间的计算和，比较激活函数结果，得出输出。感知机是解决分类问题。 神经网络的基本组成包括输入层、隐藏层、输出层。卷积神经网络的特点在于隐藏层分为卷积层和池化层。 神经网络的种类： 神经网络的策">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL19.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL20.png">
@@ -76,10 +76,13 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL26.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL27.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL28.png">
-<meta property="og:updated_time" content="2019-09-23T06:59:58.053Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL30.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL31.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL32.png">
+<meta property="og:updated_time" content="2019-09-30T14:46:28.316Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="tensorflow（2）">
-<meta name="twitter:description" content="数据读取通过线程和队列提高速度。可以边取数据边训练     模型的保存和加载 模型保存：   模型加载：  添加权重参数、损失值等的变化 首先收集变量：  而后在会话中运行：">
+<meta name="twitter:description" content="数据读取通过线程和队列提高速度。可以边取数据边训练     模型的保存和加载 模型保存：  模型加载： 添加权重参数、损失值等的变化 首先收集变量： 而后在会话中运行： 感知机有n个输入数据，通过权重与各数据之间的计算和，比较激活函数结果，得出输出。感知机是解决分类问题。 神经网络的基本组成包括输入层、隐藏层、输出层。卷积神经网络的特点在于隐藏层分为卷积层和池化层。 神经网络的种类： 神经网络的策">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL19.png">
   <link rel="alternate" href="/atom.xml" title="DY的个人博客" type="application/atom+xml">
   <link rel="canonical" href="http://yoursite.com/2019/08/09/tensorflow（2）/">
@@ -304,7 +307,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-09-23 14:59:58" itemprop="dateModified" datetime="2019-09-23T14:59:58+08:00">2019-09-23</time>
+                <time title="修改时间：2019-09-30 22:46:28" itemprop="dateModified" datetime="2019-09-30T22:46:28+08:00">2019-09-30</time>
               </span>
             
           
@@ -348,16 +351,18 @@
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL@1.png" alt></p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL21.png" alt></p>
 <h2 id="模型的保存和加载"><a href="#模型的保存和加载" class="headerlink" title="模型的保存和加载"></a>模型的保存和加载</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL22.png" alt></p>
-<p>模型保存：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL23.png" alt></p>
+<h3 id="模型保存："><a href="#模型保存：" class="headerlink" title="模型保存："></a>模型保存：</h3><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL23.png" alt></p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL24.png" alt></p>
-<p>模型加载：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL25.png" alt></p>
+<h3 id="模型加载："><a href="#模型加载：" class="headerlink" title="模型加载："></a>模型加载：</h3><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL25.png" alt></p>
 <h2 id="添加权重参数、损失值等的变化"><a href="#添加权重参数、损失值等的变化" class="headerlink" title="添加权重参数、损失值等的变化"></a>添加权重参数、损失值等的变化</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL26.png" alt></p>
-<p>首先收集变量：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL27.png" alt></p>
-<p>而后在会话中运行：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL28.png" alt></p>
+<h3 id="首先收集变量："><a href="#首先收集变量：" class="headerlink" title="首先收集变量："></a>首先收集变量：</h3><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL27.png" alt></p>
+<h3 id="而后在会话中运行："><a href="#而后在会话中运行：" class="headerlink" title="而后在会话中运行："></a>而后在会话中运行：</h3><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL28.png" alt></p>
+<h2 id="感知机"><a href="#感知机" class="headerlink" title="感知机"></a>感知机</h2><p>有n个输入数据，通过权重与各数据之间的计算和，比较激活函数结果，得出输出。感知机是解决分类问题。</p>
+<p>神经网络的基本组成包括输入层、隐藏层、输出层。卷积神经网络的特点在于隐藏层分为卷积层和池化层。</p>
+<h2 id="神经网络的种类："><a href="#神经网络的种类：" class="headerlink" title="神经网络的种类："></a>神经网络的种类：</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL30.png" alt></p>
+<p>神经网络的策略是交叉熵损失，优化是通过反向传播算法（相当于梯度下降 ）。</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL31.png" alt></p>
+<h2 id="简单神经网络："><a href="#简单神经网络：" class="headerlink" title="简单神经网络："></a>简单神经网络：</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/DL32.png" alt></p>
 
     </div>
 
@@ -418,8 +423,8 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2019/08/09/tensorflow（3）/" rel="prev" title="tensorflow（3）">
-                tensorflow（3） <i class="fa fa-chevron-right"></i>
+              <a href="/2019/08/10/魔法方法/" rel="prev" title="魔法方法">
+                魔法方法 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -529,7 +534,9 @@
         
           
         
-        <span class="site-state-item-count">19</span>
+          
+        
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
@@ -620,7 +627,9 @@
         
           
         
-        <span class="site-state-item-count">38</span>
+          
+        
+        <span class="site-state-item-count">39</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
@@ -659,7 +668,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据读取"><span class="nav-text">数据读取</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模型的保存和加载"><span class="nav-text">模型的保存和加载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加权重参数、损失值等的变化"><span class="nav-text">添加权重参数、损失值等的变化</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据读取"><span class="nav-text">数据读取</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模型的保存和加载"><span class="nav-text">模型的保存和加载</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#模型保存："><span class="nav-text">模型保存：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模型加载："><span class="nav-text">模型加载：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加权重参数、损失值等的变化"><span class="nav-text">添加权重参数、损失值等的变化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#首先收集变量："><span class="nav-text">首先收集变量：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#而后在会话中运行："><span class="nav-text">而后在会话中运行：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#感知机"><span class="nav-text">感知机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#神经网络的种类："><span class="nav-text">神经网络的种类：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简单神经网络："><span class="nav-text">简单神经网络：</span></a></li></ol></div>
             
 
           </div>
