@@ -83,7 +83,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191003200138.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191003200328.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191003201235.png">
-<meta property="og:updated_time" content="2019-10-03T12:34:39.613Z">
+<meta property="og:updated_time" content="2019-10-03T12:56:52.847Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深度卷积网络">
 <meta name="twitter:description" content="经典网络LeNet - 5LeNet-5是专门为灰度图训练的。所以他的图像样本的深度都是1。 LeNet-5的网络结构：  AlexNet网络结构：  实际上论文的原文是使用224x224x3的，但经过试验发现227x227x3效果更好。 VGG-16网络结构：  从左至右，一张彩色图片输入到网络，白色框是卷积层，红色是池化，蓝色是全连接层，棕色框是预测层。预测层的作用是将全连接层输出的信息转化为">
@@ -311,7 +311,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-10-03 20:34:39" itemprop="dateModified" datetime="2019-10-03T20:34:39+08:00">2019-10-03</time>
+                <time title="修改时间：2019-10-03 20:56:52" itemprop="dateModified" datetime="2019-10-03T20:56:52+08:00">2019-10-03</time>
               </span>
             
           
@@ -405,12 +405,9 @@
 <p>由于前面的层都冻结了，相当于一个固定函数，不需要改变，因为我们不训练它。</p>
 <p><strong>网络层数越多，需要冻结的层数越少，需要训练的层数就越多。</strong></p>
 <h2 id="数据扩充"><a href="#数据扩充" class="headerlink" title="数据扩充"></a>数据扩充</h2><p> 数据扩充也叫数据增强。因为计算机视觉相对于机器学习，数据较少。所以数据增强为了增加数据的数量。下面我们讲一下数据增强的办法：</p>
-<p>垂直镜像对称</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191003200138.png" alt></p>
-<p>随机裁剪</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191003200328.png" alt></p>
-<p>色彩转换 </p>
-<p>给RGB三个通道加上不同的失真值</p>
+<h3 id="垂直镜像对称"><a href="#垂直镜像对称" class="headerlink" title="垂直镜像对称"></a>垂直镜像对称</h3><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191003200138.png" alt></p>
+<h3 id="随机裁剪"><a href="#随机裁剪" class="headerlink" title="随机裁剪"></a>随机裁剪</h3><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191003200328.png" alt></p>
+<h3 id="色彩转换"><a href="#色彩转换" class="headerlink" title="色彩转换"></a>色彩转换</h3><p>给RGB三个通道加上不同的失真值</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191003201235.png" alt></p>
 <p>这些可以轻易改变图像的颜色，但是对目标的识别还是保持不变的。所以使用这种数据增强方法使得模型对照片的颜色更改更具鲁棒性。</p>
 
@@ -714,7 +711,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#经典网络"><span class="nav-text">经典网络</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#LeNet-5"><span class="nav-text">LeNet - 5</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AlexNet"><span class="nav-text">AlexNet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#VGG-16"><span class="nav-text">VGG-16</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#残差网络"><span class="nav-text">残差网络</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么残差网络有用？"><span class="nav-text">为什么残差网络有用？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1x1的卷积"><span class="nav-text">1x1的卷积</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Inception网络"><span class="nav-text">Inception网络</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#搭建inception网络："><span class="nav-text">搭建inception网络：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Inception-network："><span class="nav-text">Inception network：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#迁移学习"><span class="nav-text">迁移学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据扩充"><span class="nav-text">数据扩充</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#经典网络"><span class="nav-text">经典网络</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#LeNet-5"><span class="nav-text">LeNet - 5</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AlexNet"><span class="nav-text">AlexNet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#VGG-16"><span class="nav-text">VGG-16</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#残差网络"><span class="nav-text">残差网络</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么残差网络有用？"><span class="nav-text">为什么残差网络有用？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1x1的卷积"><span class="nav-text">1x1的卷积</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Inception网络"><span class="nav-text">Inception网络</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#搭建inception网络："><span class="nav-text">搭建inception网络：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Inception-network："><span class="nav-text">Inception network：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#迁移学习"><span class="nav-text">迁移学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据扩充"><span class="nav-text">数据扩充</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#垂直镜像对称"><span class="nav-text">垂直镜像对称</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#随机裁剪"><span class="nav-text">随机裁剪</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#色彩转换"><span class="nav-text">色彩转换</span></a></li></ol></li></ol></div>
             
 
           </div>
