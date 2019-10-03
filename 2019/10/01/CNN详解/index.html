@@ -98,7 +98,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191002093447.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191001173024.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191002101140.png">
-<meta property="og:updated_time" content="2019-10-02T04:17:00.179Z">
+<meta property="og:updated_time" content="2019-10-03T02:34:17.837Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CNN详解">
 <meta name="twitter:description" content="全连接神经网络的局限性过去的文章中，我们都是对 64×64 的小图片进行操作，实际上，因为每张图片都有 3 个颜色通道，它的数据量是 64×64×3=12288。 现代计算机中，64×64 真的是很小的图片，如果想处理大一点的图片，比如1000×1000，那么最终输入层的数据量是300万，假设我们有一个隐藏层，含有1000个神经元构成的全连接网络，那么数据量将达到 1000*300万，也就是30亿">
@@ -326,7 +326,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-10-02 12:17:00" itemprop="dateModified" datetime="2019-10-02T12:17:00+08:00">2019-10-02</time>
+                <time title="修改时间：2019-10-03 10:34:17" itemprop="dateModified" datetime="2019-10-03T10:34:17+08:00">2019-10-03</time>
               </span>
             
           
@@ -440,7 +440,7 @@
 <p>它可以完成RGB三个通道上垂直边缘的检测工作。这也解释了为什么过滤器使用3个通道：也就是说如果你想获得RGB三个通道上的特征，那么你使用的过滤器也得是3个通道的。</p>
 <p>如果你除了垂直边界，还想要检测更多的边界怎么办？可以使用更多 3维 甚至更多的过滤器，如下图框住的部分，我们增加了一组过滤器：</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191002082118.png" alt></p>
-<p>这样，两组过滤器就得到了两组边界，我们一般会将卷积后得到的图叠加在一起，得到上图右上角的 4x4x2 的图像。如果你还想得到更多的边界特征，使用更多的3维的过滤器即可。</p>
+<p>这样，两组过滤器就得到了两组边界，我们一般会将卷积后得到的图叠加在一起，得到上图左边的 4x4x2 的图像。如果你还想得到更多的边界特征，使用更多的3维的过滤器即可。</p>
 <p>现在我们对维度进行总结：</p>
 <blockquote>
 <p>首先我们假设我们的没有padding且步长为1，这时候使用 n × n × nc 原图和 nc’ 个 f × f × fc 的过滤器进行卷积，得到 (n-f+1) × (n-f+1) × nc’ 的图像</p>
@@ -565,6 +565,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+              <a href="/2019/10/02/深度卷积网络/" rel="prev" title="深度卷积网络">
+                深度卷积网络 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
     </footer>
@@ -619,7 +623,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">78</span>
+          <span class="site-state-item-count">79</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

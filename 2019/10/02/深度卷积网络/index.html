@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="generator" content="Hexo 3.9.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.3.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.3.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    search: {
+      root: '/',
+      path: 'search.xml'
+    },
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    }
+  };
+</script>
+
+  <meta name="description" content="经典网络LeNet - 5LeNet-5是专门为灰度图训练的。所以他的图像样本的深度都是1。 LeNet-5的网络结构：  AlexNet网络结构：  实际上论文的原文是使用224x224x3的，但经过试验发现227x227x3效果更好。 VGG-16网络结构：  从左至右，一张彩色图片输入到网络，白色框是卷积层，红色是池化，蓝色是全连接层，棕色框是预测层。预测层的作用是将全连接层输出的信息转化为">
+<meta name="keywords" content="卷积神经网络">
+<meta property="og:type" content="article">
+<meta property="og:title" content="深度卷积网络">
+<meta property="og:url" content="http://yoursite.com/2019/10/02/深度卷积网络/index.html">
+<meta property="og:site_name" content="DY的个人博客">
+<meta property="og:description" content="经典网络LeNet - 5LeNet-5是专门为灰度图训练的。所以他的图像样本的深度都是1。 LeNet-5的网络结构：  AlexNet网络结构：  实际上论文的原文是使用224x224x3的，但经过试验发现227x227x3效果更好。 VGG-16网络结构：  从左至右，一张彩色图片输入到网络，白色框是卷积层，红色是池化，蓝色是全连接层，棕色框是预测层。预测层的作用是将全连接层输出的信息转化为">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191002154958.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191002155614.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191002161015.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191002163255.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/img_0007.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191002205234.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191002205913.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191002211057.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191002213518.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191003102559.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191003103150.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191003111139.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191003111653.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191003112235.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191003130518.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191003200138.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191003200328.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191003201235.png">
+<meta property="og:updated_time" content="2019-10-03T12:34:39.613Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="深度卷积网络">
+<meta name="twitter:description" content="经典网络LeNet - 5LeNet-5是专门为灰度图训练的。所以他的图像样本的深度都是1。 LeNet-5的网络结构：  AlexNet网络结构：  实际上论文的原文是使用224x224x3的，但经过试验发现227x227x3效果更好。 VGG-16网络结构：  从左至右，一张彩色图片输入到网络，白色框是卷积层，红色是池化，蓝色是全连接层，棕色框是预测层。预测层的作用是将全连接层输出的信息转化为">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191002154958.png">
+  <link rel="alternate" href="/atom.xml" title="DY的个人博客" type="application/atom+xml">
+  <link rel="canonical" href="http://yoursite.com/2019/10/02/深度卷积网络/">
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>深度卷积网络 | DY的个人博客</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">DY的个人博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+    <ul id="menu" class="menu">
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-search">
+          <a href="javascript:;" class="popup-trigger">
+          
+            <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+    </div>
+</nav>
+
+</div>
+    </header>
+
+    
+
+  <a href="https://github.com/Brickexperts" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/02/深度卷积网络/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="湛蓝星空">
+      <meta itemprop="description" content="这个人贼菜">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DY的个人博客">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">深度卷积网络
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-10-02 12:25:39" itemprop="dateCreated datePublished" datetime="2019-10-02T12:25:39+08:00">2019-10-02</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-10-03 20:34:39" itemprop="dateModified" datetime="2019-10-03T20:34:39+08:00">2019-10-03</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/深度学习/" itemprop="url" rel="index"><span itemprop="name">深度学习</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/深度学习/卷积神经网络/" itemprop="url" rel="index"><span itemprop="name">卷积神经网络</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          <br>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="经典网络"><a href="#经典网络" class="headerlink" title="经典网络"></a>经典网络</h2><h3 id="LeNet-5"><a href="#LeNet-5" class="headerlink" title="LeNet - 5"></a>LeNet - 5</h3><p>LeNet-5是专门为灰度图训练的。所以他的图像样本的深度都是1。</p>
+<p>LeNet-5的网络结构：</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191002154958.png" alt></p>
+<h3 id="AlexNet"><a href="#AlexNet" class="headerlink" title="AlexNet"></a>AlexNet</h3><p>网络结构：</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191002155614.png" alt></p>
+<p>实际上论文的原文是使用224x224x3的，但经过试验发现227x227x3效果更好。</p>
+<h3 id="VGG-16"><a href="#VGG-16" class="headerlink" title="VGG-16"></a>VGG-16</h3><p>网络结构：</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191002161015.png" alt></p>
+<p>从左至右，一张彩色图片输入到网络，白色框是卷积层，红色是池化，蓝色是全连接层，棕色框是预测层。预测层的作用是将全连接层输出的信息转化为相应的类别概率，而起到分类作用。</p>
+<p>可以看到 VGG16 是13个卷积层+3个全连接层叠加而成。</p>
+<h2 id="残差网络"><a href="#残差网络" class="headerlink" title="残差网络"></a>残差网络</h2><p>网络越深越难训练，因为存在梯度消失和梯度爆炸的问题。本小节学习跳远连接。跳远连接可从某一个网络层激活，然后迅速反馈给另外一层甚至是神经网络的更深层。我们可以利用跳远连接构建能够训练深度网络的ResNets。</p>
+<p>ResNets是由残差块构建的。那什么是残差块？看下图</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191002163255.png" alt></p>
+<p>这是一个两层的神经网络，它在L层进行激活，得到a[ l +1]再次进行激活，两层之后得到a[ l +2]。下图中的黑色部分即为计算过程。</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/img_0007.png" alt></p>
+<p>而在残差网络中，我们直接将a^[ l ]拷贝到蓝色箭头所指位置。在线性激活之后、Relu非线性激活之前加上a[ l ]，不在沿着原来的主路径传递。这就意味者我们主路径过程的第四个式子替换为蓝色式子，也正是这个蓝色式子中加上的a[ l ]产生了一个残差块。</p>
+<h3 id="为什么残差网络有用？"><a href="#为什么残差网络有用？" class="headerlink" title="为什么残差网络有用？"></a>为什么残差网络有用？</h3><p>一个网络深度越深，它在训练集上训练网络的效率会有所减弱，但对于ResNets就不完全是这样了。</p>
+<p>上一张图已经说过a^[ l +2]=g(z^[ l +2]+a^[ l ])，添加项a^[ l ]是刚添加的跳远连接的输入。解开这个式子，得：</p>
+<p>a^[ l+2]=g(w^[ l+2] * a^[ l+1]+b^[ l+2]+a^[ l ])，这里w和b为关键值。如果w和b均为0，那a^[ l+2]=g(a^[ l ])=a^[ l ](假设这里得激活函数是Relu)。结果表明，残差块学习这个恒等式函数残差块并不难，跳远连接让我们很容易的得到a^[ l+2]=a^[ l ]</p>
+<p>这意味着，即使给神经网络增加了这两层，它的效率也并不逊色于更简单的神经网络。因为对它来说，学习恒等函数对它来说很简单，尽管它多了两层，也只是把a^[ l ]的值赋给a^[ l+2]。</p>
+<p><strong>所以，残差网络有用的原因是这些函数残差块学习恒等函数非常容易。</strong></p>
+<h2 id="1x1的卷积"><a href="#1x1的卷积" class="headerlink" title="1x1的卷积"></a>1x1的卷积</h2><p>看到这个标题，你也许会迷惑，1x1的卷积能做什么呢？不就是乘以数字吗？结果并非如此</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191002205234.png" alt></p>
+<p>看上图，你会觉得这个1x1的过滤器没什么用，只是对输入矩阵乘以某个数字。但这个1x1的过滤器仅仅是对于6x6x1的信道图片效果不好 。如果是一张6x6x32的图片就不一样了。</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191002205913.png" alt></p>
+<p>具体来说，1x1卷积所实现的功能是遍历这36个单元格。计算输入图中32个数字和过滤器中32个数字的乘积，然后应用Relu函数。我们以一个单元格为例，用着36个数字乘以这个输入层上1x1的切片，得到一个实数画在下面图中。</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191002211057.png" alt></p>
+<p>这个1x1x32的过滤器中的32可以这样理解，一个神经元的输入是32个数字，乘以相同高度和宽度上某个切片上的32个数字。这三十二个数字具有不同信道，乘以32个权重，然后应用Relu非线性函数。一般来说，如果过滤器不止一个，就好像有多个输入单元，其输入内容为一个切片上所有数字，输出结果是6x6x过滤器数量。所以1x1卷积可以从根本上理解为这32个单元都应用了一个全连接神经网络。全连接层的作用是输入32个数字和过滤器数量，标记为nc^[ l+1]。在36个单元上重复此过程，输出结果是6x6x过滤器数量。这种方法通常称为1x1卷积，也成为Network in Network。</p>
+<p>下面是一个1x1卷积的应用：</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191002213518.png" alt></p>
+<p>假设这是一个28x28x192的输入层，我们可以利用池化层压缩它的高度和宽度。但是如果信道数量很大，我们该如何把它压缩为28x28x32维度的层呢？我们可以用32个大小为1x1的过滤器，每个过滤器的大小都是1x1x192维，因为过滤器中信道的数量必须与输入层中信道的数量一致。因此过滤器数量为32，输出层为28x28x32。这就是压缩nc的方法。</p>
+<h2 id="Inception网络"><a href="#Inception网络" class="headerlink" title="Inception网络"></a>Inception网络</h2><p>构建卷积层是，我们需要决定过滤器的大小是3x3还是5x5或者其它大小？或者要不要添加池化层？而我们接下来要讲的Inception就是代替我们来做决定的。虽然网络结构会变得非常复杂，但网络表现得非常好。我们来看一下原理。</p>
+<p>基本思想：不需要人为的决定使用哪个过滤器，或者是否需要池化，而是由网络自行确定这些参数。人们只需给出这些参数的所有可能值，然后把这些输出连起来，让网络自己学习它需要什么样的参数，采用哪些过滤器组合。</p>
+<p>举个例子：</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191003102559.png" alt></p>
+<p>如果我们直接计算上图，我们的计算成本为28x28x32x5x5x192</p>
+<p>但是我们用1x1卷积后：</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191003103150.png" alt></p>
+<p>我们的计算成本变为28x28x16x192+28x28x32x5x5x16，使用1x1卷积后计算成本是没使用前的1/10。</p>
+<p>下面再举一个例子：</p>
+<p>例如：上一层的输出为100x100x128，经过具有256个输出的5x5卷积层之后(stride=1，pad=”SAME”)，输出数据的大小为100x100x256。其中，卷积层的参数为5x5x128x256。假如上一层输出先经过具有32个输出的1x1卷积层，这时得图片输出为100x100x32，接着再经过具有256个输出的5x5卷积层，那么最终的输出数据的大小仍为100x100x256，但卷积参数量已经减少为1x1x128x32 + 5x5x32x256，大约减少了4倍。</p>
+<p>在inception结构中，大量采用了1x1的矩阵，主要是两点作用：1）对数据进行降维；2）引入更多的非线性，提高泛化能力，因为卷积后要经过ReLU激活函数。</p>
+<h3 id="搭建inception网络："><a href="#搭建inception网络：" class="headerlink" title="搭建inception网络："></a>搭建inception网络：</h3><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191003111139.png" alt></p>
+<p>inception就是将这些模块都组合到一起。</p>
+<h3 id="Inception-network："><a href="#Inception-network：" class="headerlink" title="Inception network："></a>Inception network：</h3><p>下面这个图就是Inception的网络：</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191003111653.png" alt></p>
+<p>看起来很复杂，但我们截取其中一个环节，如上图的红色框。就会发现这不正是我们搭建的inception吗。另外，再一些inception模块前网络会使用最大池化层来修改高和宽的维度。</p>
+<p>其实上图的Inception并不完整，看下图：</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191003112235.png" alt></p>
+<p>多出了红色框住的部分。这些分支是做什么的呢?这些分支是通过隐藏层做出预测。</p>
+<h2 id="迁移学习"><a href="#迁移学习" class="headerlink" title="迁移学习"></a>迁移学习</h2><p>我们在做计算机视觉的应用时，相对于从头训练权重，下载别人训练好的网络结构的权重作为我们预训练，然后转换到感兴趣的任务上。别人的训练过程可能是需要花费好几周，并且需要很多的GPU找最优的过程，这就意味着我们可以下载别人开源的权重参数并把它当做一个很好的初始化，用在我们的神经网络上。这就是迁移学习。</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191003130518.png" alt></p>
+<p>假如我们在做一个识别任务，却没有很多的训练集。我们就可以把别人的网络下载，冻结所有层的参数。我们只需要训练和我们Softmax层有关的参数，然后把别人Softmax改成我们自己Softmax。通过别人的训练的权重，我们可能会得到一个好的结果，即使我们的训练集并不多。</p>
+<p>由于前面的层都冻结了，相当于一个固定函数，不需要改变，因为我们不训练它。</p>
+<p><strong>网络层数越多，需要冻结的层数越少，需要训练的层数就越多。</strong></p>
+<h2 id="数据扩充"><a href="#数据扩充" class="headerlink" title="数据扩充"></a>数据扩充</h2><p> 数据扩充也叫数据增强。因为计算机视觉相对于机器学习，数据较少。所以数据增强为了增加数据的数量。下面我们讲一下数据增强的办法：</p>
+<p>垂直镜像对称</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191003200138.png" alt></p>
+<p>随机裁剪</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191003200328.png" alt></p>
+<p>色彩转换 </p>
+<p>给RGB三个通道加上不同的失真值</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191003201235.png" alt></p>
+<p>这些可以轻易改变图像的颜色，但是对目标的识别还是保持不变的。所以使用这种数据增强方法使得模型对照片的颜色更改更具鲁棒性。</p>
+
+    </div>
+
+    
+    
+    
+<div>
+	
+		<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">----本文结束，感谢您的阅读。如有错，请指正。----</div>
+    
+</div>
+
+	
+</div>
+    
+      <div>
+        <div id="reward-container">
+  <div>大哥大嫂过年好！支持我一下呗</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.jpg" alt="湛蓝星空 微信支付">
+        <p>微信支付</p>
+      </div>
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/alipay.jpg" alt="湛蓝星空 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+      </div>
+
+    <footer class="post-footer">
+          
+        
+        <div class="post-tags">
+            <a href="/tags/卷积神经网络/" rel="tag"># 卷积神经网络</a>
+          
+        </div>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+              <a href="/2019/10/01/CNN详解/" rel="next" title="CNN详解">
+                <i class="fa fa-chevron-left"></i> CNN详解
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+          </div>
+        </div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.jpg"
+      alt="湛蓝星空">
+  <p class="site-author-name" itemprop="name">湛蓝星空</p>
+  <div class="site-description motion-element" itemprop="description">这个人贼菜</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">79</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/Brickexperts" title="GitHub &rarr; https://github.com/Brickexperts" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+  </div>
+
+
+
+        </div>
+      </div>
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#经典网络"><span class="nav-text">经典网络</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#LeNet-5"><span class="nav-text">LeNet - 5</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AlexNet"><span class="nav-text">AlexNet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#VGG-16"><span class="nav-text">VGG-16</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#残差网络"><span class="nav-text">残差网络</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么残差网络有用？"><span class="nav-text">为什么残差网络有用？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1x1的卷积"><span class="nav-text">1x1的卷积</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Inception网络"><span class="nav-text">Inception网络</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#搭建inception网络："><span class="nav-text">搭建inception网络：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Inception-network："><span class="nav-text">Inception network：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#迁移学习"><span class="nav-text">迁移学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据扩充"><span class="nav-text">数据扩充</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">湛蓝星空</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+
+    
+
+  </div>
+
+  
+    
+    
+  
+  <script color='0,0,0' opacity='0.5' zIndex='-1' count='150' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  <script src="/js/utils.js?v=7.3.0"></script>
+  <script src="/js/motion.js?v=7.3.0"></script>
+
+  
+  <script src="/js/affix.js?v=7.3.0"></script>
+  <script src="/js/schemes/pisces.js?v=7.3.0"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.3.0"></script>
+<script src="/js/post-details.js?v=7.3.0"></script>
+
+
+
+  <script src="/js/next-boot.js?v=7.3.0"></script>
+
+  
+
+  
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.3.0"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
