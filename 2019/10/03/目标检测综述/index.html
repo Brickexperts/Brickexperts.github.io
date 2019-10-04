@@ -74,7 +74,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191004145926.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191004150615.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191004151006.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191004151227.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191004172940.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191004151258.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191004151527.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191004151813.png">
@@ -89,7 +89,10 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191004165505.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191004165617.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191004170554.png">
-<meta property="og:updated_time" content="2019-10-04T09:21:09.879Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191004175438.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191004140243.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191004185914.png">
+<meta property="og:updated_time" content="2019-10-04T12:11:07.528Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="目标检测综述">
 <meta name="twitter:description" content="目标定位图片分类任务我们已经熟悉了，就是算法遍历图片，判断其中的对象是不是汽车，这就是图片分类。这节课我们要学习构建神经网络的另一个问题，即定位分类问题。这意味着，我们不仅要用算法判断图片中是不是一辆汽车，还要在图片中标记出它的位置，用边框或红色方框把汽车圈起来，这就是定位分类问题。其中“定位”的意思是判断汽车在图片中的具体位置。之后，我们再讲讲当图片中有多个对象时，应该如何检测它们，并确定出位置">
@@ -317,7 +320,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-10-04 17:21:09" itemprop="dateModified" datetime="2019-10-04T17:21:09+08:00">2019-10-04</time>
+                <time title="修改时间：2019-10-04 20:11:07" itemprop="dateModified" datetime="2019-10-04T20:11:07+08:00">2019-10-04</time>
               </span>
             
           
@@ -377,8 +380,8 @@
 <h2 id="目标检测"><a href="#目标检测" class="headerlink" title="目标检测"></a>目标检测</h2><p>学过了对象定位和特征点检测，今天我们来构建一个对象检测算法。接下来，我们将学习如何通过卷积网络进行对象检测，采用的是基于滑动窗口的目标检测算法。</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191004151006.png" alt></p>
 <p>假如你想构建一个汽车检测算法，步骤是，首先创建一个标签训练集，也就是x和y表示适当剪切的汽车图片样本，这张图片（编号1）x是一个正样本，因为它是一辆汽车图片，这几张图片（编号2、3）也有汽车，但这两张（编号4、5）没有汽车。出于我们对这个训练集的期望，你一开始可以使用适当剪切的图片，就是整张图片x几乎都被汽车占据，你可以照张照片，然后剪切，剪掉汽车以外的部分，使汽车居于中间位置，并基本占据整张图片。有了这个标签训练集，你就可以开始训练卷积网络了，输入这些适当剪切过的图片（编号6），卷积网络输出y，0或1表示图片中有汽车或没有汽车。训练完这个卷积网络，就可以用它来实现滑动窗口目标检测，具体步骤如下。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191004151227.png" alt></p>
-<p>假设上图这是一张测试图片，首先选定一个特定大小的窗口，比如图片左上方这个窗口(应该是空白的)，将这个红色小方块输入卷积神经网络，卷积网络开始进行预测，即判断红色方框内有没有汽车。</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191004172940.png" alt></p>
+<p>假设上图这是一张测试图片，首先选定一个特定大小的窗口，比如图片下方这个窗口，将这个红色小方块输入卷积神经网络，卷积网络开始进行预测，即判断红色方框内有没有汽车。</p>
 <p>滑动窗口目标检测算法接下来会继续处理第二个图像，即红色方框稍向右滑动之后的区域，并输入给卷积网络，因此输入给卷积网络的只有红色方框内的区域，再次运行卷积网络，然后处理第三个图像，依次重复操作，直到这个窗口滑过图像的每一个角落。</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191004151258.png" alt></p>
 <p>接着我们重复上述过程，不过这次我们选择一个更大的窗口，截取更大的区域，并输入给卷积神经网络处理，你可以根据卷积网络对输入大小调整这个区域，然后输入给卷积网络，输出0或1。如下图。</p>
@@ -387,7 +390,7 @@
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191004151813.png" alt></p>
 <p>这种算法叫作滑动窗口目标检测，因为我们以某个步幅滑动这些方框窗口遍历整张图片，对这些方形区域进行分类，判断里面有没有汽车。</p>
 <p>滑动窗口目标检测算法也有很明显的缺点，就是计算成本，因为你在图片中剪切出太多小方块，卷积网络要一个个地处理。如果你选用的步幅很大，显然会减少输入卷积网络的窗口个数，但是粗糙间隔尺寸可能会影响性能。反之，如果采用小粒度或小步幅，传递给卷积网络的小窗口会特别多，这意味着超高的计算成本。</p>
-<h2 id="滑动窗口的卷积实现"><a href="#滑动窗口的卷积实现" class="headerlink" title="滑动窗口的卷积实现"></a>滑动窗口的卷积实现</h2><p>为了构建滑动窗口的卷积应用，首先要知道如何把<strong>神经网络的全连接层转化为卷积层</strong>。Let’s go。</p>
+<h2 id="滑动窗口的卷积实现"><a href="#滑动窗口的卷积实现" class="headerlink" title="滑动窗口的卷积实现"></a>滑动窗口的卷积实现</h2><p>为了构建滑动窗口的卷积应用，首先要知道如何把<strong>神经网络的全连接层转化为卷积层</strong>。</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191004152353.png" alt></p>
 <p>假设对象检测算法输入一个14×14×3的图像，图像很小，不过演示起来方便。在这里过滤器大小为5×5，数量是16，14×14×3的图像在过滤器处理之后映射为10×10×16。然后通过参数为2×2的最大池化操作，图像减小到5×5×16。然后添加一个连接400个单元的全连接层，接着再添加一个全连接层，最后通过<strong>softmax</strong>单元输出。为了跟下图区分开，我先做一点改动，用4个数字来表示，它们分别对应softmax单元所输出的4个分类出现的概率。这4个分类可以是行人、汽车、摩托车和背景或其它对象。</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191004152537.png" alt></p>
@@ -424,6 +427,18 @@
 <p>接下来，逐一审视剩下的矩形，找出概率最高p<sub>c</sub>= 0.8，我们就认为这里检测出一辆车（左边车辆），然后非极大值抑制算法就会去掉其他lOU值很高的矩形。所以现在每个矩形都会被高亮显示或者变暗，如果你直接抛弃变暗的矩形，那就剩下高亮显示的那些，这就是最后得到的两个预测结果。</p>
 <p>所以这就是非极大值抑制，非最大值意味着你只输出概率最大的分类结果，但抑制很接近，但不是最大的其他预测结果，所以这方法叫做非极大值抑制。</p>
 <p>在这里只介绍了算法检测单个对象的情况，如果你尝试同时检测三个对象，比如说行人、汽车、摩托，那么输出向量就会有三个额外的分量。事实证明，正确的做法是独立进行三次非极大值抑制，对每个输出类别都做一次。</p>
+<h2 id="Anchor-Boxes"><a href="#Anchor-Boxes" class="headerlink" title="Anchor Boxes"></a>Anchor Boxes</h2><p>到目前为止，对象检测中存在的一个问题是每个格子只能检测出一个对象，如果你想让一个格子检测出多个对象，你可以这么做，就是使用<strong>anchor box</strong>这个概念。</p>
+<p>假设有这样一张图片，对于这个例子，我们继续使用3x3网格。</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191004175438.png" alt></p>
+<p>注意人的中点和汽车的中点几乎在同一个地方，两者都落入同一个格子。对于那个同一个格子，y输出</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191004140243.png" alt></p>
+<p>我们可以检测着三个类别：行人、汽车、摩托车。它将无法输出检测结果，所以我必须从两个检测结果中选一个。</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191004185914.png" alt></p>
+<p>而anchor box的思路是，这样子，预先定义两个不同形状的anchor box，或者anchor box形状，你要做的是把预测结果和这两个anchor box关联起来。一般来说，你可能会用更多的anchor box，可能要5个甚至更多，但对于这个视频，我们就用两个anchor box，这样介绍起来简单一些。</p>
+<p>我们要做的是定义类别标签。用的向量不再是上面那个y=[p<sub>c</sub>  b<sub>x</sub>  b<sub>y</sub>  b<sub>h</sub>  b<sub>w</sub>  c<sub>1</sub>  c<sub>2</sub>  c<sub>3</sub>]^T，而是重复两次，y=[p<sub>c</sub>  b<sub>x</sub>  b<sub>y</sub>  b<sub>h</sub>  b<sub>w</sub>  c<sub>1</sub>  c<sub>2</sub>  c<sub>3</sub>  p<sub>c</sub>  b<sub>x</sub>  b<sub>y</sub>  b<sub>h</sub>  b<sub>w</sub>  c<sub>1</sub>  c<sub>2</sub>  c<sub>3</sub>]^T。前面的p<sub>c</sub>  b<sub>x</sub>  b<sub>y</sub>  b<sub>h</sub>  b<sub>w</sub>  c<sub>1</sub>  c<sub>2</sub>  c<sub>3</sub> 是和anchor box1关联的8个参数，后面的8个参数适合anchor box2相关联。</p>
+<p>因为行人的形状更类似于anchor box 1的形状，而不是anchor box 2的形状，所以你可以用这8个数值（前8个参数），这么编码p<sub>c</sub>=1代表有个行人，用b<sub>x</sub>,b<sub>y</sub>,b<sub>h</sub>,b<sub>w</sub>编码包住行人的边界框，然后用c<sub>1</sub>=1,c<sub>2</sub>=0,c<sub>3</sub>=0来说明这个对象是个行人。然后是车子，因为车子的边界框比起anchor box 1更像anchor box 2的形状。这样编码，p<sub>c</sub>=1,b<sub>x</sub>,b<sub>y</sub>,b<sub>h</sub>,b<sub>w</sub>, c<sub>1</sub>=0,c<sub>2</sub>=1,c<sub>3</sub>=0。</p>
+<p>假设车子的边界框形状是这样，更像anchor box 2，如果这里只有一辆车，行人走开了，那么anchor box 2分量还是一样的，要记住这是向量对应anchor box 2的分量和anchor box 1对应的向量分量，你要填的就是，里面没有任何对象，所以 ，然后剩下的就是？。编码：y=[0  ?  ?  ?  ?  ?  ?  ?  1 b<sub>x</sub>  b<sub>y</sub>  b<sub>h</sub>  b<sub>w</sub>  0  1  0]。</p>
+<p>最后，你应该怎么选择anchor box呢？人们一般手工指定anchor box形状，你可以选择5到10个anchor box形状，覆盖到多种不同的形状，可以涵盖你想要检测的对象的各种形状。</p>
 
     </div>
 
@@ -725,7 +740,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#目标定位"><span class="nav-text">目标定位</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特征点检测"><span class="nav-text">特征点检测</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#目标检测"><span class="nav-text">目标检测</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#滑动窗口的卷积实现"><span class="nav-text">滑动窗口的卷积实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Boungding-Box预测"><span class="nav-text">Boungding Box预测</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#交并比（IOU）"><span class="nav-text">交并比（IOU）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#非极大值抑制（NMS）"><span class="nav-text">非极大值抑制（NMS）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#目标定位"><span class="nav-text">目标定位</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特征点检测"><span class="nav-text">特征点检测</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#目标检测"><span class="nav-text">目标检测</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#滑动窗口的卷积实现"><span class="nav-text">滑动窗口的卷积实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Boungding-Box预测"><span class="nav-text">Boungding Box预测</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#交并比（IOU）"><span class="nav-text">交并比（IOU）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#非极大值抑制（NMS）"><span class="nav-text">非极大值抑制（NMS）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Anchor-Boxes"><span class="nav-text">Anchor Boxes</span></a></li></ol></div>
             
 
           </div>
