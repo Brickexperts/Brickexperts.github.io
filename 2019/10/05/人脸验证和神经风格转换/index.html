@@ -57,24 +57,20 @@
   };
 </script>
 
-  <meta name="description" content="在这次实战中，我们使用了caffe来作为我们的框架。所以，在打包数据格式的时候，打包成VOC数据格式的数据集，得到的数据集将采用LMDB的格式对数据进行封装。如果用的是tensorflow来训练SSD模型，那就将数据打包成TFRecoder数据格式的数据。 Caffe-SSD数据集构造流程： 1、生成VOC个数数据集（图片、XML标注信息文件） 2、修改Caffe-SSD数据打包脚本相关路径配置">
-<meta name="keywords" content="SSD算法">
+  <meta name="description" content="这个人贼菜">
+<meta name="keywords" content="人脸验证">
 <meta property="og:type" content="article">
-<meta property="og:title" content="人脸检测数据集构造">
-<meta property="og:url" content="http://yoursite.com/2019/08/28/人脸检测数据集构造/index.html">
+<meta property="og:title" content="人脸验证和神经风格转换">
+<meta property="og:url" content="http://yoursite.com/2019/10/05/人脸验证和神经风格转换/index.html">
 <meta property="og:site_name" content="DY的个人博客">
-<meta property="og:description" content="在这次实战中，我们使用了caffe来作为我们的框架。所以，在打包数据格式的时候，打包成VOC数据格式的数据集，得到的数据集将采用LMDB的格式对数据进行封装。如果用的是tensorflow来训练SSD模型，那就将数据打包成TFRecoder数据格式的数据。 Caffe-SSD数据集构造流程： 1、生成VOC个数数据集（图片、XML标注信息文件） 2、修改Caffe-SSD数据打包脚本相关路径配置">
+<meta property="og:description" content="这个人贼菜">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SSD6.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SSD7.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SSD9.png">
-<meta property="og:updated_time" content="2019-09-15T06:46:23.677Z">
+<meta property="og:updated_time" content="2019-10-05T01:42:10.042Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="人脸检测数据集构造">
-<meta name="twitter:description" content="在这次实战中，我们使用了caffe来作为我们的框架。所以，在打包数据格式的时候，打包成VOC数据格式的数据集，得到的数据集将采用LMDB的格式对数据进行封装。如果用的是tensorflow来训练SSD模型，那就将数据打包成TFRecoder数据格式的数据。 Caffe-SSD数据集构造流程： 1、生成VOC个数数据集（图片、XML标注信息文件） 2、修改Caffe-SSD数据打包脚本相关路径配置">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SSD6.png">
+<meta name="twitter:title" content="人脸验证和神经风格转换">
+<meta name="twitter:description" content="这个人贼菜">
   <link rel="alternate" href="/atom.xml" title="DY的个人博客" type="application/atom+xml">
-  <link rel="canonical" href="http://yoursite.com/2019/08/28/人脸检测数据集构造/">
+  <link rel="canonical" href="http://yoursite.com/2019/10/05/人脸验证和神经风格转换/">
 
 
 <script id="page.configurations">
@@ -83,7 +79,7 @@
   };
 </script>
 
-  <title>人脸检测数据集构造 | DY的个人博客</title>
+  <title>人脸验证和神经风格转换 | DY的个人博客</title>
   
 
 
@@ -249,7 +245,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/28/人脸检测数据集构造/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/05/人脸验证和神经风格转换/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="湛蓝星空">
@@ -263,7 +259,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">人脸检测数据集构造
+          <h1 class="post-title" itemprop="name headline">人脸验证和神经风格转换
 
               
             
@@ -283,21 +279,11 @@
                 
               
 
-              <time title="创建时间：2019-08-28 15:08:15" itemprop="dateCreated datePublished" datetime="2019-08-28T15:08:15+08:00">2019-08-28</time>
+              <time title="创建时间：2019-10-05 09:39:06 / 修改时间：09:42:10" itemprop="dateCreated datePublished" datetime="2019-10-05T09:39:06+08:00">2019-10-05</time>
             </span>
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-09-15 14:46:23" itemprop="dateModified" datetime="2019-09-15T14:46:23+08:00">2019-09-15</time>
-              </span>
             
           
             <span class="post-meta-item">
@@ -309,20 +295,6 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/目标检测/" itemprop="url" rel="index"><span itemprop="name">目标检测</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/目标检测/One-stage/" itemprop="url" rel="index"><span itemprop="name">One-stage</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/目标检测/One-stage/SSD/" itemprop="url" rel="index"><span itemprop="name">SSD</span></a></span>
 
                 
                 
@@ -341,154 +313,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>在这次实战中，我们使用了caffe来作为我们的框架。所以，在打包数据格式的时候，打包成VOC数据格式的数据集，得到的数据集将采用LMDB的格式对数据进行封装。如果用的是tensorflow来训练SSD模型，那就将数据打包成TFRecoder数据格式的数据。</p>
-<p>Caffe-SSD数据集构造流程：</p>
-<p>1、生成VOC个数数据集（图片、XML标注信息文件）</p>
-<p>2、修改Caffe-SSD数据打包脚本相关路径配置</p>
-<p>3、运行Caffe-SSD数据打包脚本</p>
-<p>VOC格式数据集的目录下有三个文件夹：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SSD6.png" alt></p>
-<p>Annotation中保存的是xml格式的label信息</p>
-<p>ImageSet中Main目录中存放不同照片列表文件</p>
-<p>​    train.txt：训练图片文件名列表</p>
-<p>​    val.txt：验证图片文件名列表</p>
-<p>​    trianval.txt：训练和验证的图片文件名列表</p>
-<p>​    test.txt：测试图片文件名列表</p>
-<p>JPEGImages目录存放所有的图片集。Annotation和JPEGImages一一对应。</p>
-<p>WIDERFace数据集：打开<a href="http://mmlab.ie.cuhk.edu.hk/project/WIDERFace" target="_blank" rel="noopener">人脸检测数据集地址</a>下载数据集。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SSD7.png" alt></p>
-<p>下载数据的训练集、验证集、测试集和标注信息。</p>
-<p>打开标注信息，可以看到文件夹中有很多txt文件，打开看一下：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SSD9.png" alt>****</p>
-<p>对于VOC格式的数据集，最主要的是生成两个文件。一个是图片的标注数据，另一个是图片数据。对于图片数据，我们只需要将wider_face的图片放到对应目录下，而对于标注数据，我们需要将上面图片的文件进行解析来重新生成针对每张图片的标注信息，这个信息用XML格式存储。</p>
-<p>对于wider_face转为voc，首先创建Annotation、ImageSets、JPEGImages三个文件夹，其中ImageSets中再创建一个Main文件夹。</p>
-<p>将wider_face转为voc的coding：</p>
-<p><code>import os,cv2,sys,shutil
-from xml.dom.minidom import Document
-def writexml(filename,saveing,bboxes,xmlpath):
-  doc=Document()
-  annotation=doc.createElement(&quot;annotation&quot;)
-  doc.appendChild(annotation)
-  folder=doc.createElement(&quot;folder&quot;)
-  folder_name=doc.createTextNode(&quot;widerface&quot;)
-  folder.appendChild(folder_name)
-  annotation.appendChild(folder)
-  filenamenode=doc.createElement(&quot;filename&quot;)
-  filename_name=doc.createTextNode(filename)
-  filenamenode.appendChild(filename_name)
-  annotation.appendChild(filenamenode)
-  source=doc.createElement(&quot;source&quot;)
-  annotation.appendChild(source)
-  database=doc.createElement(&quot;database&quot;)
-  database.appendChild(doc.createTextNode(&quot;wider face database&quot;))
-  source.appendChild(database)
-  annotation_s=doc.createElement(&quot;annotation&quot;)
-  annotation_s.appendChild(doc.createTextNode(&quot;PASCAL VOC2007&quot;))
-  source.appendChild(annotation_s)
-  image=doc.createElement(&quot;image&quot;)
-  image.appendChild(doc.createTextNode(&quot;flickr&quot;))
-  source.appendChild(image)
-  flickrid=doc.createElement(&quot;flickrid&quot;)
-  source.appendChild(doc.createTextNode(&quot;-1&quot;))
-  source.appendChild(flickrid)
-  owner=doc.createElement(&quot;owner&quot;)
-  annotation.appendChild(owner)
-  flickrid_o=doc.createElement(&quot;flickrid&quot;)
-  flickrid_o.appendChild(doc.createTextNode(&quot;yanyu&quot;))
-  owner.appendChild(flickrid_o)
-  name_o=doc.createElement(&quot;name&quot;)
-  name_o.appendChild(doc.createTextNode(&quot;yanyu&quot;))
-  owner.appendChild(name_o)
-  size=doc.createElement(&quot;size&quot;)
-  annotation.appendChild(size)
-  width=doc.createElement(&quot;width&quot;)
-  width.appendChild(doc.createTextNode(str(saveing.shape[1])))
-  height=doc.createElement(&quot;height&quot;)
-  height.appendChild(doc.createTextNode(str(saveing.shape[0])))
-  depth=doc.createElement(&quot;depth&quot;)
-  depth.appendChild(doc.createTextNode(str(saveing.shape[2])))
-  size.appendChild(width)
-  size.appendChild(height)
-  size.appendChild(depth)
-  segmented=doc.createElement(&quot;segmented&quot;)
-  segmented.appendChild(doc.createTextNode(&quot;0&quot;))
-  annotation.appendChild(segmented)
-  for i in range(len(bboxes)):
-    bbox=bboxes[i]
-    objects=doc.createElement(&quot;object&quot;)
-    annotation.appendChild(objects)
-    object_name=doc.createElement(&quot;name&quot;)
-    object_name.appendChild(doc.createTextNode(&quot;face&quot;))
-    objects.appendChild(object_name)
-    pose=doc.createElement(&quot;pose&quot;)
-    pose.appendChild(doc.createTextNode(&quot;Unspecified&quot;))
-    objects.appendChild(pose)
-    truncated=doc.createElement(&quot;truncated&quot;)
-    truncated.appendChild(doc.createTextNode(&quot;1&quot;))
-    objects.appendChild(truncated)
-    difficult=doc.createElement(&quot;difficult&quot;)
-    difficult.appendChild(difficult)
-    difficult.appendChild(doc.createTextNode(&quot;0&quot;))
-    objects.appendChild(difficult)
-    bndbox=doc.createElement(&quot;bndbox&quot;)
-    objects.appendChild(bndbox)
-    xmin=doc.createElement(&quot;xmin&quot;)
-    xmin.appendChild(doc.createTextNode(str(bbox[0])))
-    bndbox.appendChild(xmin)
-    ymin=doc.createElement(&quot;ymin&quot;)
-    ymin.appendChild(doc.createTextNode(str(bbox[1])))
-    bndbox.appendChild(ymin)
-    xmax=doc.createElement(&quot;xmax&quot;)
-    xmax.appendChild(doc.createTextNode(str(bbox[0]+bbox[2])))
-    bndbox.appendChild(xmax)
-    ymax=doc.createElement(&quot;ymax&quot;)
-    ymax.appendChild(doc.createTextNode(str(bbox[1]+bbox[3])))
-    bndbox.appendChild(ymax)
-  f=open(xmlpath,&quot;w&quot;)
-  f.write(doc.toprettyxml(indent=&quot; &quot;))
-  f.close()
-rootdir=&quot;./wider_face&quot;
-def convertimgset(img_set):
-  imgdir=rootdir+&quot;/WIDER_&quot;+img_set+&quot;/images&quot;
-  gtfilepath=rootdir+&quot;/wider_face_split/wider_face_&quot;+img_set+&quot;_bbx_gt.txt&quot;
-  fwrite=open(rootdir+&quot;/ImageSets/Main&quot;+img_set+&quot;.txt&quot;,&quot;w&quot;)
-  index=0
-  with open(gtfilepath,&quot;r&quot;) as gtfiles:
-    while(index&lt;1000):
-      filename=gtfiles.readline()[:-1]
-      if (filename==&quot;&quot;):
-        continue
-      imgpath=imgdir+&quot;/&quot;+filename
-      img=cv2.imread(imgpath)
-      if not img.data:
-        break
-      numbbox=int(gtfiles.readline())
-      bboxes=[]
-      for i in range(numbbox):
-        line=gtfiles.readline()
-        lines=line.split()
-        lines=lines[0:4]
-        bbox=(int(lines[0]),int(lines[1]),int(lines[2]),int(lines[3]))
-        bboxes.append(bbox)
-      filename=filename.replace(&quot;/&quot;,&quot; &quot;)
-      if len(bboxes)==0:
-        print(&quot;no face&quot;)
-      cv2.imwrite(&quot;{}/JPEGImages/{}&quot;.format(rootdir,filename),img)
-      fwrite.write(filename.split(&quot;.&quot;)[0]+&quot;\n&quot;)
-      xmlpath=&quot;{}/Annotations/{}&quot;.format(rootdir,filename.split(&quot;.&quot;)[0])
-      writexml(filename,img,bboxes,xmlpath)
-      print(&quot;第%d张成功的图片&quot; % index)
-      index+=1
-    fwrite.close()
-if __name__==&quot;__main__&quot;:
-  img_sets=[&quot;train&quot;,&quot;val&quot;]
-  for img_set in img_sets:
-    convertimgset(img_set)
-  shutil.move(rootdir+&quot;/ImageSets/Main/&quot;+&quot;train.txt&quot;,rootdir+&quot;/ImageSets/Main/&quot;+&quot;trainval.txt&quot;)
-  shutil.move(rootdir+&quot;/ImageSets/Main/&quot;+&quot;val.txt&quot;,rootdir+&quot;/ImageSets/Main/&quot;+&quot;test.txt&quot;)</code></p>
-<p>这篇博客废了。。。。caffe的环境太难搭了。。。。</p>
-<p>我将框架换成tensorflow，进行另一个实战</p>
-
+        
     </div>
 
     
@@ -534,13 +359,13 @@ if __name__==&quot;__main__&quot;:
           
         
         <div class="post-tags">
-            <a href="/tags/SSD算法/" rel="tag"># SSD算法</a>
+            <a href="/tags/人脸验证/" rel="tag"># 人脸验证</a>
           
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2019/08/28/人脸检测综述/" rel="next" title="人脸检测综述">
-                <i class="fa fa-chevron-left"></i> 人脸检测综述
+              <a href="/2019/10/03/目标检测组件/" rel="next" title="目标检测组件">
+                <i class="fa fa-chevron-left"></i> 目标检测组件
               </a>
             
           </div>
@@ -548,10 +373,6 @@ if __name__==&quot;__main__&quot;:
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2019/09/03/激活函数/" rel="prev" title="激活函数以及作用">
-                激活函数以及作用 <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
     </footer>
@@ -650,9 +471,7 @@ if __name__==&quot;__main__&quot;:
         
           
         
-          
-        
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">19</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
@@ -745,7 +564,11 @@ if __name__==&quot;__main__&quot;:
         
           
         
-        <span class="site-state-item-count">39</span>
+          
+        
+          
+        
+        <span class="site-state-item-count">41</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
