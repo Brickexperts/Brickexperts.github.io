@@ -57,20 +57,19 @@
   };
 </script>
 
-  <meta name="description" content="​    Two-stage相对于one-stage准确度高，但是速度相对one-stage慢。 Two-stage常见算法：RCNN、Fast RCNN、Faster RCNN、Faster RCNN变种。  Two-stage核心组件： CNN网络  CNN网络设计原则： 从简到繁再到简的卷积神经网 多尺度特征融合的网络 更轻量级的CNN网络 RPN网络 区域推荐（Anchor机制）：首先我们">
+  <meta name="description" content="​    Two-stage相对于one-stage准确度高，但是速度相对one-stage慢。 Two-stage常见算法：RCNN、Fast RCNN、Faster RCNN、Faster RCNN变种。">
 <meta name="keywords" content="Two-stage">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Two-stage基本介绍">
 <meta property="og:url" content="http://yoursite.com/2019/08/18/Two-stage基本介绍/index.html">
 <meta property="og:site_name" content="DY的个人博客">
-<meta property="og:description" content="​    Two-stage相对于one-stage准确度高，但是速度相对one-stage慢。 Two-stage常见算法：RCNN、Fast RCNN、Faster RCNN、Faster RCNN变种。  Two-stage核心组件： CNN网络  CNN网络设计原则： 从简到繁再到简的卷积神经网 多尺度特征融合的网络 更轻量级的CNN网络 RPN网络 区域推荐（Anchor机制）：首先我们">
+<meta property="og:description" content="​    Two-stage相对于one-stage准确度高，但是速度相对one-stage慢。 Two-stage常见算法：RCNN、Fast RCNN、Faster RCNN、Faster RCNN变种。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%8714.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%8716.png">
-<meta property="og:updated_time" content="2019-09-15T06:26:24.554Z">
+<meta property="og:updated_time" content="2019-10-05T01:46:22.004Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Two-stage基本介绍">
-<meta name="twitter:description" content="​    Two-stage相对于one-stage准确度高，但是速度相对one-stage慢。 Two-stage常见算法：RCNN、Fast RCNN、Faster RCNN、Faster RCNN变种。  Two-stage核心组件： CNN网络  CNN网络设计原则： 从简到繁再到简的卷积神经网 多尺度特征融合的网络 更轻量级的CNN网络 RPN网络 区域推荐（Anchor机制）：首先我们">
+<meta name="twitter:description" content="​    Two-stage相对于one-stage准确度高，但是速度相对one-stage慢。 Two-stage常见算法：RCNN、Fast RCNN、Faster RCNN、Faster RCNN变种。">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%8714.png">
   <link rel="alternate" href="/atom.xml" title="DY的个人博客" type="application/atom+xml">
   <link rel="canonical" href="http://yoursite.com/2019/08/18/Two-stage基本介绍/">
@@ -295,7 +294,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-09-15 14:26:24" itemprop="dateModified" datetime="2019-09-15T14:26:24+08:00">2019-09-15</time>
+                <time title="修改时间：2019-10-05 09:46:22" itemprop="dateModified" datetime="2019-10-05T09:46:22+08:00">2019-10-05</time>
               </span>
             
           
@@ -314,7 +313,7 @@
                   ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/目标检测/Two-stage算法/" itemprop="url" rel="index"><span itemprop="name">Two-stage算法</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/目标检测/Two-stage/" itemprop="url" rel="index"><span itemprop="name">Two-stage</span></a></span>
 
                 
                 
@@ -336,17 +335,6 @@
         <p>​    Two-stage相对于one-stage准确度高，但是速度相对one-stage慢。</p>
 <p>Two-stage常见算法：RCNN、Fast RCNN、Faster RCNN、Faster RCNN变种。</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%8714.png" alt></p>
-<p>Two-stage核心组件：</p>
-<p><strong>CNN网络</strong></p>
-<p> CNN网络设计原则：</p>
-<p>从简到繁再到简的卷积神经网</p>
-<p>多尺度特征融合的网络</p>
-<p>更轻量级的CNN网络</p>
-<p><strong>RPN网络</strong></p>
-<p>区域推荐（Anchor机制）：首先我们需要知道anchor的本质是什么，本质是SPP(spatial pyramid pooling)思想的逆向。而SPP本身是做什么的呢，就是将不同尺寸的输入resize成为相同尺寸的输出。所以SPP的逆向就是，将相同尺寸的输出，倒推得到不同尺寸的输入。当前的feature map的大小是n*c*w*h（n是张数，c是层数，w是宽，h是高），对于当前这个feature map上，也就是w<em>h上，选择其中的每一个点作为锚点（也就是候选区域的中心点），我们以每一个点作为中心点去提取候选区域。这样的每一个点都是Anchor。而这个候选区域通常都有比例：对于Fast  R-CNN三个面积尺寸（128^2，256^2，512^2），然后在每个面积尺寸下，取三种不同的长宽比例（1:1,1:2,2:1）。一个feature map可以提取w\</em>h*9个候选区域。我们示意图如下：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%8716.png" alt></p>
-<p>ROI Pooling</p>
-<p>分类和回归</p>
 
     </div>
 
