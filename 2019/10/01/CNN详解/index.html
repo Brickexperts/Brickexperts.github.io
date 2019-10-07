@@ -98,7 +98,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191002093447.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191001173024.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191002101140.png">
-<meta property="og:updated_time" content="2019-10-03T02:34:17.837Z">
+<meta property="og:updated_time" content="2019-10-07T12:03:04.374Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CNN详解">
 <meta name="twitter:description" content="全连接神经网络的局限性过去的文章中，我们都是对 64×64 的小图片进行操作，实际上，因为每张图片都有 3 个颜色通道，它的数据量是 64×64×3=12288。 现代计算机中，64×64 真的是很小的图片，如果想处理大一点的图片，比如1000×1000，那么最终输入层的数据量是300万，假设我们有一个隐藏层，含有1000个神经元构成的全连接网络，那么数据量将达到 1000*300万，也就是30亿">
@@ -326,7 +326,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-10-03 10:34:17" itemprop="dateModified" datetime="2019-10-03T10:34:17+08:00">2019-10-03</time>
+                <time title="修改时间：2019-10-07 20:03:04" itemprop="dateModified" datetime="2019-10-07T20:03:04+08:00">2019-10-07</time>
               </span>
             
           
@@ -408,7 +408,7 @@
 <p>当然很难手动设置过滤器的值去过滤某个特殊角度（比如31°）的边缘，我们通常是<strong>将过滤器中的9个数字当成9个参数</strong>。随机初始化这些参数后，通过神经网络的学习来获得一组值，用于过滤某个角度的边缘。</p>
 <p>目前主流网络的过滤器的大小一般是1x1、3x3、5x5等，数值一般不会太大，因为我们希望这些过滤器可以获得一些更细微的边缘特征。另外，一般将长和宽都取奇数，具体原因我们讲到Padding的时候再解释。</p>
 <h4 id="Padding"><a href="#Padding" class="headerlink" title="Padding"></a>Padding</h4><p>Padding是填充。什么是填充呢？</p>
-<p>在前面，我们的例子一个6<em>6的矩阵经过一个3\</em>3的过滤器后，得到一个4*4的新矩阵。但是这样的话会有两个缺点，第一个缺点就是我们每次做卷积运算的时候，我们的图像都会缩小。可能我们在做完几次卷积之后，我们的图像就会变得很小。第二个缺点是角落边的像素点只会被使用一次，像下图的绿色。但是如果是中间的像素点(类似图中的红色框)，就会被使用很多次。</p>
+<p>在前面，我们的例子一个6*6的矩阵经过一个3*3的过滤器后，得到一个4*4的新矩阵。但是这样的话会有两个缺点，第一个缺点就是我们每次做卷积运算的时候，我们的图像都会缩小。可能我们在做完几次卷积之后，我们的图像就会变得很小。第二个缺点是角落边的像素点只会被使用一次，像下图的绿色。但是如果是中间的像素点(类似图中的红色框)，就会被使用很多次。</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191001210310.png" alt></p>
 <p>所以，那些边缘或者角落的像素点在输出时使用较少。这意味者，我们将丢掉图片边缘区域。如果这里有重要信息，那我们就得不偿失了。</p>
 <p>那我们该怎么解决这个问题呢？这时候就用到Padding了。我们可以在卷积操作之前填充这个图像。我们可以沿着图像的边缘再填充一层像素(通常为0，因为用0填充不影响原来的图片特征)。这样做的话，我们的原始图片像素就有6<em>6变成了8\</em>8。接着我们对这幅8*8的图像进行卷积，得到的新矩阵就不是4*4的，而是6*6的。<strong>规律：n*n维的矩阵填充了P个像素点后再经过一个f*f过滤器后，得到一个（n+2p-f+1）*（n+2p-f+1）维度的新矩阵。</strong></p>
