@@ -92,7 +92,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191015222734.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191015224734.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191015225125.png">
-<meta property="og:updated_time" content="2019-10-16T13:27:12.309Z">
+<meta property="og:updated_time" content="2019-10-16T14:10:53.596Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="超参数调试、batch正则化">
 <meta name="twitter:description" content="调试处理关于训练深度最难的事情之一是要处理的参数的数量，从学习速率到Momentum（动量梯度下降法）的参数。如果使用Momentum或Adam优化算法的参数，&amp;beta;1，&amp;beta;2和ξ，也许你还得选择层数，也许还得选择不同层中隐藏单元的数量，也许还想使用学习率衰减。所以，使用的不是单一的学习率a。接着，当然可能还需要选择mini-batch的大小。 &amp;beta;1、&amp;beta;2、ξ推荐">
@@ -320,7 +320,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-10-16 21:27:12" itemprop="dateModified" datetime="2019-10-16T21:27:12+08:00">2019-10-16</time>
+                <time title="修改时间：2019-10-16 22:10:53" itemprop="dateModified" datetime="2019-10-16T22:10:53+08:00">2019-10-16</time>
               </span>
             
           
@@ -397,17 +397,17 @@
 <p>Batch 归一化的作用是它适用的归一化过程，不只是输入层，甚至同样适用于神经网络中的深度隐藏层。应用 Batch 归一化了一些隐藏单元值中的平均值和方差，不过训练输入和这些隐藏单元值的一个区别是，也许不想隐藏单元值必须是平均值 0 和方差 1。γ和β参数控制使得均值和方差可以是 0 和 1，也可以是其它值。 </p>
 <p><strong>注意</strong>：均值不是平均值，是数学期望。</p>
 <h2 id="将Batch-Norm拟合进神经网络"><a href="#将Batch-Norm拟合进神经网络" class="headerlink" title="将Batch Norm拟合进神经网络"></a>将Batch Norm拟合进神经网络</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191014212240.png" alt></p>
-<p>假设有一个这样的神经网络，之前的知识说过，我们可以认为每个单元负责计算两件事。第一，它先计算z，然后应用其到激活函数中再计算a，所以可以认为，每个圆圈代表着两步的计算过程。同样的，对于下一层而言，那就是$z^{[2]}<em>{1}$和$z^{[2]}</em>{2}$等。所以如果没有应用Batch归一化，会把输入X拟合到第一隐藏层，然后首先计算z<sup>[1]</sup>，这是由&omega;<sup>[1]</sup>和b<sup>[1]</sup>两个参数控制的。接着，通常而言，会把z<sup>[1]</sup>拟合到激活函数以计算a<sup>[1]</sup>。但Batch归一化的做法是将z<sup>[1]</sup>值进行Batch归一化，简称<strong>BN</strong>，此过程将由&beta;<sup>[1]</sup>和&gamma;<sup>[1]</sup>两参数控制，这一操作会给你一个新的规范化的z<sup>[1]</sup>值（z<del><sup>[1]</sup>），然后将其输入激活函数中得到a<sup>[1]</sup>，即a<sup>[1]</sup>=g<sup>[1]</sup>(z</del><sup>[1]</sup>)。</p>
+<p>假设有一个这样的神经网络，之前的知识说过，我们可以认为每个单元负责计算两件事。第一，它先计算z，然后应用其到激活函数中再计算a，所以可以认为，每个圆圈代表着两步的计算过程。同样的，对于下一层而言，那就是$z^{[2]}{1}$和$z^{[2]}_{2}$等。所以如果没有应用Batch归一化，会把输入X拟合到第一隐藏层，然后首先计算z<sup>[1]</sup>，这是由&omega;<sup>[1]</sup>和b<sup>[1]</sup>两个参数控制的。接着，通常而言，会把z<sup>[1]</sup>拟合到激活函数以计算a<sup>[1]</sup>。但Batch归一化的做法是将z<sup>[1]</sup>值进行Batch归一化，简称<strong>BN</strong>，此过程将由&beta;<sup>[1]</sup>和&gamma;<sup>[1]</sup>两参数控制，这一操作会给你一个新的规范化的z<sup>[1]</sup>值（z~<sup>[1]</sup>），然后将其输入激活函数中得到a<sup>[1]</sup>，即a<sup>[1]</sup>=g<sup>[1]</sup>(z~<sup>[1]</sup>)。</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191014215107.png" alt></p>
 <p>现在，你已在第一层进行了计算，此时Batch归一化发生在z的计算和a之间，接下来，你需要应用a<sup>[1]</sup>值来计算，此过程是由&omega;<sup>[1]</sup>和b<sup>[1]</sup>控制的。与第一层所做的类似，也会将进行Batch归一化，现在我们简称<strong>BN</strong>，这是由下一层的Batch归一化参数所管制的，即&beta;<sup>[2]</sup>和&gamma;<sup>[2]</sup>，现在你得到z~<sup>[2]</sup>，再通过激活函数计算出a<sup>[2]</sup>。</p>
-<p>所以，得出结论的是batch归一化是发生在计算z和a之间的。与其使用没有归一化的z值，不如用归一化的z<del>值，也就是第一层的z</del><sup>[1]</sup>。第二层同理，也是与其应用z值，不如应用z~<sup>[2]</sup>值。所以，我们以前的网络参数&omega;<sup>[1]</sup>、b<sup>[1]</sup>、&omega;<sup>[2]</sup>、b<sup>[2]</sup>将加上&beta;<sup>[1]</sup>、&beta;<sup>[2]</sup>、&gamma;<sup>[1]</sup>、&gamma;<sup>[2]</sup>等参数。<strong>注意</strong>：这里的&beta;<sup>[1]</sup>、&beta;<sup>[2]</sup>和超参数&beta;没有关系</p>
+<p>所以，得出结论的是batch归一化是发生在计算z和a之间的。与其使用没有归一化的z值，不如用归一化的z~值，也就是第一层的z~<sup>[1]</sup>。第二层同理，也是与其应用z值，不如应用z~<sup>[2]</sup>值。所以，我们以前的网络参数&omega;<sup>[1]</sup>、b<sup>[1]</sup>、&omega;<sup>[2]</sup>、b<sup>[2]</sup>将加上&beta;<sup>[1]</sup>、&beta;<sup>[2]</sup>、&gamma;<sup>[1]</sup>、&gamma;<sup>[2]</sup>等参数。<strong>注意</strong>：这里的&beta;<sup>[1]</sup>、&beta;<sup>[2]</sup>和超参数&beta;没有关系</p>
 <p>&beta;<sup>1]</sup>、&beta;<sup>[2]</sup>、&gamma;<sup>[1]</sup>、&gamma;<sup>[2]</sup>等是算法的新参数。接下来就是使用梯度下降法来执行它。举个例子，对于给定层，计算d&beta;<sup>[1]</sup>，接着更新参数为&beta;<sup>[1]</sup>=&beta;<sup>[1]</sup>-&alpha;d&beta;<sup>[1]</sup>。你也可以使用Adam或RMSprop或Momentum，以更新参数&beta;和&gamma;，并不是只应用梯度下降法。</p>
 <p>实践中，我们常将batch归一化和mibi-bacth一起使用。我们用第一个mini-batch{X<sup>[1]</sup>}，然后应用&omega;<sup>[1]</sup>和b<sup>[1]</sup>计算z<sup>[1]</sup>，接着用batch归一化得到z~<sup>[1]</sup>，再应用激活函数得到a<sup>[1]</sup>。然后接着用&omega;<sup>[2]</sup>和b<sup>[2]</sup>计算z<sup>[2]</sup>。</p>
 <p>类似的工作，你会在第二个mini-batch（X<sup>{2}</sup>）上计算z<sup>[1]</sup>，然后用Batch归一化来计算，所以Batch归一化的此步中，用的是第二个mini-batch（X<sup>{2}</sup>）中的数据使归一化。然后在mini-batch（X<sup>{3}</sup>）上同样这样做，继续训练。</p>
 <p>先前说过每层的参数是&omega;<sup>[ l ]</sup>和b<sup>[ l ]</sup>，还有&beta;<sup>[ l ]</sup>和&gamma;<sup>[ l ]</sup>，请注意计算z的方式如下，z<sup>[ l ]</sup>=&omega;<sup>[ l ]</sup> * a<sup>[l-1]</sup>+b<sup>[ l ]</sup>，但Batch归一化做的是，要看这个mini-batch，先将z<sup>[ l ]</sup>归一化，结果为均值0和标准方差，再由&beta;和&gamma;重缩放，但这意味着，无论b<sup>[ l ]</sup>的值是多少，都是要被减去的，因为在Batch归一化的过程中，要计算z<sup>[ l ]</sup>的均值，再减去平均值，在此例中的mini-batch中增加任何常数，数值都不会改变，因为加上的任何常数都将会被均值减去所抵消。</p>
-<p>所以，我们在使用batch归一化时，我们可以消除b<sup>[ l ]</sup>这个参数。或者也可以设置为0。那么式子将从z<sup>[ l ]</sup>=&omega;<sup>[ l ]</sup> * a<sup>[l-1]</sup>+b<sup>[ l ]</sup>变为z<sup>[ l ]</sup>=&omega;<sup>[ l ]</sup> * a<sup>[l-1]</sup>。然后归一化z<sup>[ l ]</sup>，得z<del><sup>[ l ]</sup>=&gamma;<sup>[ l ]</sup> * z<sup>[ l ]</sup>+&beta;<sup>[ l ]</sup>，所以最后我们会用&beta;<sup>[ l ]</sup>，以便决定z</del><sup>[ l ]</sup>的取值。</p>
+<p>所以，我们在使用batch归一化时，我们可以消除b<sup>[ l ]</sup>这个参数。或者也可以设置为0。那么式子将从z<sup>[ l ]</sup>=&omega;<sup>[ l ]</sup> * a<sup>[l-1]</sup>+b<sup>[ l ]</sup>变为z<sup>[ l ]</sup>=&omega;<sup>[ l ]</sup> * a<sup>[l-1]</sup>。然后归一化z<sup>[ l ]</sup>，得z~<sup>[ l ]</sup>=&gamma;<sup>[ l ]</sup> * z<sup>[ l ]</sup>+&beta;<sup>[ l ]</sup>，所以最后我们会用&beta;<sup>[ l ]</sup>，以便决定z~<sup>[ l ]</sup>的取值。</p>
 <p>总结一下关于如何用 Batch 归一化来应用梯度下降法：</p>
-<p>假设使用 mini-batch梯度下降法，运行t = 1到 batch 数量的 for 循环，会在 mini-batchX<sup>{t}</sup>上应用正向 prop，每个隐藏层都应用正向 prop，用 Batch 归一化代替z<sup>[l]</sup>为z<del><sup>[l]</sup>。接下来，它确保在这个 mini-batch 中，z值有归一化的均值和方差，归一化均值和方差后是z</del><sup>[ l ]</sup> ，然后，你用反向 prop 计算：dw<sup>[ l ]</sup>，db[l]，dβ<sup>[ l ]</sup> ，ddγ<sup>[ l ]</sup>。 尽管严格来说，因为要去掉b，这部分其实已经去掉了。最后，更新这些参数：</p>
+<p>假设使用 mini-batch梯度下降法，运行t = 1到 batch 数量的 for 循环，会在 mini-batchX<sup>{t}</sup>上应用正向 prop，每个隐藏层都应用正向 prop，用 Batch 归一化代替z<sup>[l]</sup>为z~<sup>[l]</sup>。接下来，它确保在这个 mini-batch 中，z值有归一化的均值和方差，归一化均值和方差后是z~<sup>[ l ]</sup> ，然后，你用反向 prop 计算：dw<sup>[ l ]</sup>，db[l]，dβ<sup>[ l ]</sup> ，dγ<sup>[ l ]</sup>。 尽管严格来说，因为要去掉b，这部分其实已经去掉了。最后，更新这些参数：</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191015143440.png" alt></p>
 <h2 id="batch-norm为什么会管用？"><a href="#batch-norm为什么会管用？" class="headerlink" title="batch norm为什么会管用？"></a>batch norm为什么会管用？</h2><p>一个原因是，你已经看到如何归一化输入特征值x，使其均值为0，方差1，它又是怎样加速学习的，有一些从0到1而不是从1到1000的特征值，通过归一化所有的输入特征值x，以获得类似范围的值，可以加速学习。所以Batch归一化起的作用的原因，直观的一点就是，它在做类似的工作，但不仅仅对于这里的输入值，还有隐藏单元的值，这只是Batch归一化作用的冰山一角，还有些深层的原理，它会有助于你对Batch归一化的作用有更深的理解，让我们一起来看看吧。</p>
 <p>Batch归一化有效的第二个原因是，它可以使权重比你的网络更滞后或更深层，比如，第10层的权重相比于神经网络中前层的权重更能经受得住变化。</p>
