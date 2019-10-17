@@ -7,7 +7,7 @@
 <html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.0.0">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -61,35 +61,33 @@
 <meta name="keywords" content="视觉处理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="opencv(2)">
-<meta property="og:url" content="http://yoursite.com/2019/08/08/opencv-2/index.html">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;08&#x2F;08&#x2F;opencv-2&#x2F;index.html">
 <meta property="og:site_name" content="DY的个人博客">
 <meta property="og:description" content="图像滤波：即在尽量保留图像细节特征的条件下对目标图像的噪声进行抑制，是图像预处理中不可缺少的操作，其处理效果的好坏将直接影响到后续图像处理和分析的有效性和可靠性。 图像滤波图像滤波的目的   a、消除图像中混入的噪声       b、为图像识别抽取出图像特征 均值滤波，用blur函数  方框滤波：进行归一化处理后，和均值滤波相同。当normalize为零时，不进行归一化处理。当normalize为">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv22.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv23.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv24.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv25.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv26.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv27.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv28.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv29.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv30.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv31.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv32.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv33.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv34.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv35.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv36.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv37.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv38.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv39.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv40.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv41.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv22.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv23.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv24.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv25.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv26.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv27.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv28.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv29.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv30.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv31.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv32.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv33.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv34.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv35.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv36.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv37.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv38.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv39.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv40.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv41.png">
 <meta property="og:updated_time" content="2019-09-15T06:09:15.779Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="opencv(2)">
-<meta name="twitter:description" content="图像滤波：即在尽量保留图像细节特征的条件下对目标图像的噪声进行抑制，是图像预处理中不可缺少的操作，其处理效果的好坏将直接影响到后续图像处理和分析的有效性和可靠性。 图像滤波图像滤波的目的   a、消除图像中混入的噪声       b、为图像识别抽取出图像特征 均值滤波，用blur函数  方框滤波：进行归一化处理后，和均值滤波相同。当normalize为零时，不进行归一化处理。当normalize为">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv22.png">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv22.png">
   <link rel="alternate" href="/atom.xml" title="DY的个人博客" type="application/atom+xml">
   <link rel="canonical" href="http://yoursite.com/2019/08/08/opencv-2/">
 
@@ -213,7 +211,7 @@
 
   </li>
         <li class="menu-item menu-item-search">
-          <a href="javascript:;" class="popup-trigger">
+          <a href="javascript:;" target="_blank" rel="noopener" class="popup-trigger">
           
             <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
         </li>
@@ -354,49 +352,49 @@
         <p>图像滤波：即在尽量保留图像细节特征的条件下对目标图像的噪声进行抑制，是图像预处理中不可缺少的操作，其处理效果的好坏将直接影响到后续图像处理和分析的有效性和可靠性。</p>
 <h2 id="图像滤波"><a href="#图像滤波" class="headerlink" title="图像滤波"></a>图像滤波</h2><p>图像滤波的目的   a、消除图像中混入的噪声       b、为图像识别抽取出图像特征</p>
 <p><strong>均值滤波</strong>，用blur函数</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv22.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv22.png" alt=""></p>
 <p><strong>方框滤波</strong>：进行归一化处理后，和均值滤波相同。当normalize为零时，不进行归一化处理。当normalize为一时，进行归一化处理（默认）。目标图像深度通常于原始图像一样，值为-1。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv23.png" alt></p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv24.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv23.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv24.png" alt=""></p>
 <p><strong>高斯滤波</strong>：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv25.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv25.png" alt=""></p>
 <p><strong>注意</strong>：ksize：核大小必须为单数        sigmaX、sigmaY：控制权重</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv26.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv26.png" alt=""></p>
 <p><strong>中值滤波</strong>：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv27.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv27.png" alt=""></p>
 <p>两种边缘保留滤波：</p>
 <p><strong>biateraFilter</strong>：能在保持边界清晰的情况下有效的去除噪音</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv28.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv28.png" alt=""></p>
 <p><strong>filter2D</strong>:对2D图像实施低通滤波。去除噪音，模糊图像</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv29.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv29.png" alt=""></p>
 <h2 id="膨胀和腐蚀"><a href="#膨胀和腐蚀" class="headerlink" title="膨胀和腐蚀"></a>膨胀和腐蚀</h2><p>膨胀、腐蚀时用到的kernel的形状一般有下面三种： </p>
 <p>矩形: MORPH_RECT </p>
 <p>交叉形: MORPH_CROSS </p>
 <p>椭圆形: MORPH_ELLIPSE </p>
 <p><strong>图像腐蚀</strong>：调用erode函数</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv30.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv30.png" alt=""></p>
 <p><strong>图像膨胀</strong>：调用dialate</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv31.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv31.png" alt=""></p>
 <p><strong>开运算</strong>：先通过图像腐蚀，后经过图像膨胀可以图像去噪。iteration表示次数</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv32.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv32.png" alt=""></p>
 <p><strong>闭运算</strong>：先是先通过图像膨胀，后经过图像腐蚀</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv33.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv33.png" alt=""></p>
 <p><strong>梯度运算</strong>：图像膨胀-图像腐蚀</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv34.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv34.png" alt=""></p>
 <p><strong>图像礼帽（图像顶帽）</strong>：原始图像-开运算图像，得到噪声图像</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv35.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv35.png" alt=""></p>
 <p><strong>图像黑帽</strong>：闭运算-原始图像</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv36.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv36.png" alt=""></p>
 <h2 id="求梯度"><a href="#求梯度" class="headerlink" title="求梯度"></a>求梯度</h2><p>梯度简单来说就是求导。Sobel，Scharr是求一阶导数或二阶导数。Scharr是对Sobel的优化。Laplacian是求二阶导数。</p>
 <p>Sobel算子：当一个像素右边的值减去左边的值不为零，该像素为边界。</p>
 <p>计算梯度的函数：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv37.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv37.png" alt=""></p>
 <p>ddepth通常取cv2.CV_64F。</p>
 <p>dx=0,dy=1计算y轴的边界,dx=1,dy=0计算x轴的边界。满足条件dx&gt;=0&amp;&amp;dy&gt;=0&amp;&amp;dx+dy=1</p>
 <p>将图像中的负值转为正：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv38.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv38.png" alt=""></p>
 <p>将一个图像的边缘提取出来：如果没有converScaleAbs，所有的负值都会被截断为0.换句话就是把边界丢掉。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv39.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv39.png" alt=""></p>
 <p>Scharr算子：比sobel算子精准，使用方法基本一样</p>
 <p>计算梯度调用函数：cv2.Scharr(src,ddpetch,dx,dy)</p>
 <p>des=cv2.Scharr(src,ddpetch,dx,dy) 等价于des=cv2.Sobel(src,ddpetch,dx,dy,-1)</p>
@@ -408,10 +406,10 @@
 <p>  * BORDER_REFLECT_101</p>
 <p>  * BORDER_WRAP</p>
 <p>  * BORDER_CONSTANT</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv40.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv40.png" alt=""></p>
 <h2 id="canny函数提取图片边缘"><a href="#canny函数提取图片边缘" class="headerlink" title="canny函数提取图片边缘"></a>canny函数提取图片边缘</h2><p>cv2.canny(img,threshold1,threshold2)    img代表原始图像，threshold1、threshold2为阈值。两个阈值越小，得出图像边缘越详细。反之，边框越边缘。</p>
 <p>提取原理步骤：1、高斯模糊 - GaussianBlur  2、灰度转换 - cvtColor  3、计算梯度 – Sobel/Scharr  4、非最大信号抑制5、高低阈值输出二值图像</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv41.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv41.png" alt=""></p>
 
     </div>
 
@@ -458,7 +456,7 @@
           
         
         <div class="post-tags">
-            <a href="/tags/视觉处理/" rel="tag"># 视觉处理</a>
+            <a href="/tags/%E8%A7%86%E8%A7%89%E5%A4%84%E7%90%86/" rel="tag"># 视觉处理</a>
           
         </div>
         <div class="post-nav">
@@ -528,7 +526,7 @@
   <nav class="site-state motion-element">
       <div class="site-state-item site-state-posts">
         
-          <a href="/archives/">
+          <a href="/archives/%20%7C%7C%20archive">
         
           <span class="site-state-item-count">83</span>
           <span class="site-state-item-name">日志</span>
@@ -540,7 +538,7 @@
       <div class="site-state-item site-state-categories">
         
           
-            <a href="/categories/">
+            <a href="/categories/%20%7C%7C%20th">
           
         
         
@@ -599,7 +597,7 @@
       <div class="site-state-item site-state-tags">
         
           
-            <a href="/tags/">
+            <a href="/tags/%20%7C%7C%20tags">
           
         
         

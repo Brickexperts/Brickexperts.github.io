@@ -7,7 +7,7 @@
 <html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.0.0">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -61,39 +61,37 @@
 <meta name="keywords" content="python的数学计算模块">
 <meta property="og:type" content="article">
 <meta property="og:title" content="numpy">
-<meta property="og:url" content="http://yoursite.com/2019/08/06/numpy/index.html">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;08&#x2F;06&#x2F;numpy&#x2F;index.html">
 <meta property="og:site_name" content="DY的个人博客">
 <meta property="og:description" content="​    最近这几年，机器学习和深度学习大火。而这其中的数据计算是非常多，而这得益于python的numpy模块。多提一句：numpy是没有GIL（多线程解释器锁）的。所以，numpy中的计算是非常快的。那什么是GIL呢？请看python的多线程。话不多说，让我们开启今天的数学之旅。PS：numpy很多API，我还没有学完。我只是总结了一部分，后面会补充的。 通过array生成矩阵： 可以通过dt">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy1.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy3.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy5.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy6.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy7.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy8.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy9.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy10.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy11.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy13.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy14.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy15.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy16.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy17.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy18.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy19.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy20.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy21.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy22.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy30.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy31.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy32.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy34.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;numpy1.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;numpy3.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;numpy5.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;numpy6.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;numpy7.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;numpy8.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;numpy9.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;numpy10.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;numpy11.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;numpy13.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;numpy14.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;numpy15.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;numpy.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;numpy16.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;numpy17.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;numpy18.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;numpy19.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;numpy20.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;numpy21.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;numpy22.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;numpy30.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;numpy31.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;numpy32.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;numpy34.png">
 <meta property="og:updated_time" content="2019-09-18T06:57:36.616Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="numpy">
-<meta name="twitter:description" content="​    最近这几年，机器学习和深度学习大火。而这其中的数据计算是非常多，而这得益于python的numpy模块。多提一句：numpy是没有GIL（多线程解释器锁）的。所以，numpy中的计算是非常快的。那什么是GIL呢？请看python的多线程。话不多说，让我们开启今天的数学之旅。PS：numpy很多API，我还没有学完。我只是总结了一部分，后面会补充的。 通过array生成矩阵： 可以通过dt">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy1.png">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;numpy1.png">
   <link rel="alternate" href="/atom.xml" title="DY的个人博客" type="application/atom+xml">
   <link rel="canonical" href="http://yoursite.com/2019/08/06/numpy/">
 
@@ -217,7 +215,7 @@
 
   </li>
         <li class="menu-item menu-item-search">
-          <a href="javascript:;" class="popup-trigger">
+          <a href="javascript:;" target="_blank" rel="noopener" class="popup-trigger">
           
             <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
         </li>
@@ -336,7 +334,7 @@
                   ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/数学计算/" itemprop="url" rel="index"><span itemprop="name">数学计算</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/%E6%95%B0%E5%AD%A6%E8%AE%A1%E7%AE%97/" itemprop="url" rel="index"><span itemprop="name">数学计算</span></a></span>
 
                 
                 
@@ -356,37 +354,37 @@
 
       
         <p>​    最近这几年，机器学习和深度学习大火。而这其中的数据计算是非常多，而这得益于python的numpy模块。多提一句：numpy是没有GIL（多线程解释器锁）的。所以，numpy中的计算是非常快的。那什么是GIL呢？请看python的多线程。话不多说，让我们开启今天的数学之旅。PS：numpy很多API，我还没有学完。我只是总结了一部分，后面会补充的。</p>
-<h4 id="通过array生成矩阵："><a href="#通过array生成矩阵：" class="headerlink" title="通过array生成矩阵："></a>通过array生成矩阵：</h4><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy1.png" alt></p>
+<h4 id="通过array生成矩阵："><a href="#通过array生成矩阵：" class="headerlink" title="通过array生成矩阵："></a>通过array生成矩阵：</h4><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy1.png" alt=""></p>
 <p>可以通过dtype设置矩阵数据的类型。astype可以修改数据类型。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy3.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy3.png" alt=""></p>
 <p>还有其他生成矩阵的方式：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy5.png" alt></p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy6.png" alt></p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy7.png" alt></p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy8.png" alt></p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy9.png" alt></p>
-<h4 id="numpy生成随机数："><a href="#numpy生成随机数：" class="headerlink" title="numpy生成随机数："></a>numpy生成随机数：</h4><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy10.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy5.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy6.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy7.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy8.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy9.png" alt=""></p>
+<h4 id="numpy生成随机数："><a href="#numpy生成随机数：" class="headerlink" title="numpy生成随机数："></a>numpy生成随机数：</h4><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy10.png" alt=""></p>
 <p>seed的使用方法：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy11.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy11.png" alt=""></p>
 <p>使用RandomState获得随机数生成器</p>
 <p>&gt;&gt;&gt;rdm=np.random.RandomState(2)    #  2是随机数种子<br>&gt;&gt;&gt;a=np.random.randint(0,20,(3,4))<br>&gt;&gt;&gt;a<br>array([[ 8, 11,  1,  5],<br>       [ 3,  8,  0, 18],<br>       [ 5, 15,  8, 14]])</p>
 <h4 id="reshape-amp-resize"><a href="#reshape-amp-resize" class="headerlink" title="reshape&amp;resize"></a>reshape&amp;resize</h4><p>可以通过reshape修改列表的行数和列数，resize改变数组的尺寸大小。根据reshape传入的参数判断转为哪种数组。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy13.png" alt></p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy14.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy13.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy14.png" alt=""></p>
 <h4 id="numpy运算"><a href="#numpy运算" class="headerlink" title="numpy运算"></a>numpy运算</h4><p>加、减、乘、除类似。如果两个矩阵形状相同，两个矩阵对应的元素做操作。若两个矩阵形状不相同，其中一个矩阵的维度与另一个矩阵的维度相同，可以在该维度上做操作。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy15.png" alt></p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy15.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy.png" alt=""></p>
 <p>通过axis求每行（列）的元素和或最大、最小值。0代表列，1代表行。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy16.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy16.png" alt=""></p>
 <p>还可以获得最大、最小值：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy17.png" alt></p>
-<h4 id="其他一些计算-累加、累差、中位数、平均值"><a href="#其他一些计算-累加、累差、中位数、平均值" class="headerlink" title="其他一些计算:累加、累差、中位数、平均值"></a>其他一些计算:累加、累差、中位数、平均值</h4><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy18.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy17.png" alt=""></p>
+<h4 id="其他一些计算-累加、累差、中位数、平均值"><a href="#其他一些计算-累加、累差、中位数、平均值" class="headerlink" title="其他一些计算:累加、累差、中位数、平均值"></a>其他一些计算:累加、累差、中位数、平均值</h4><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy18.png" alt=""></p>
 <p>对clip函数的解释：小于5的元素都设为5，大于9的元素都设为9</p>
 <h4 id="flatten"><a href="#flatten" class="headerlink" title="flatten"></a>flatten</h4><p>对数组展开为一维数组</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy19.png" alt></p>
-<h4 id="numpy的合并："><a href="#numpy的合并：" class="headerlink" title="numpy的合并："></a>numpy的合并：</h4><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy20.png" alt></p>
-<h4 id="numpy的分割："><a href="#numpy的分割：" class="headerlink" title="numpy的分割："></a>numpy的分割：</h4><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy21.png" alt></p>
-<h4 id="转置矩阵："><a href="#转置矩阵：" class="headerlink" title="转置矩阵："></a>转置矩阵：</h4><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy22.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy19.png" alt=""></p>
+<h4 id="numpy的合并："><a href="#numpy的合并：" class="headerlink" title="numpy的合并："></a>numpy的合并：</h4><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy20.png" alt=""></p>
+<h4 id="numpy的分割："><a href="#numpy的分割：" class="headerlink" title="numpy的分割："></a>numpy的分割：</h4><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy21.png" alt=""></p>
+<h4 id="转置矩阵："><a href="#转置矩阵：" class="headerlink" title="转置矩阵："></a>转置矩阵：</h4><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy22.png" alt=""></p>
 <h4 id="numpy-linspace-start-stop-num-endpoint-retstep-dtype"><a href="#numpy-linspace-start-stop-num-endpoint-retstep-dtype" class="headerlink" title="numpy.linspace(start,stop,num,endpoint,retstep,dtype)"></a>numpy.linspace(start,stop,num,endpoint,retstep,dtype)</h4><p>该方法的作用是子啊start和stop之间产生num个线性向量。每个向量之间的距离是相同的。创建等差数列</p>
 <p>start：起始点</p>
 <p>stop：终止点</p>
@@ -398,15 +396,15 @@
 <p>&gt;&gt;&gt; import numpy as np</p>
 <p>&gt;&gt;&gt;b=np.array([1,2,3,4,5,6])<br>&gt;&gt;&gt;b[np.newaxis]<br>&gt;&gt;&gt;array([[1, 2, 3, 4, 5, 6]])</p>
 <h4 id="numpy-meshgrid："><a href="#numpy-meshgrid：" class="headerlink" title="numpy.meshgrid："></a>numpy.meshgrid：</h4><p>生成网格点坐标矩阵</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy30.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy30.png" alt=""></p>
 <p>由上图，得知meshgrid的作用是：根据传入的两个一维数组参数生成两个数组元素的列表。如果第一个参数是xarray，维度是xdimesion，第二个参数是yarray，维度是ydimesion。那么生成的第一个二维数组是以xarray为行，共ydimesion行的向量；而第二个二维数组是以yarray的转置为列，共xdimesion列的向量</p>
 <p>可能你看到这还不明白，看下图：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy31.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy31.png" alt=""></p>
 <p>A,B,C,D,E,F是6个网格点，坐标如图，如何用矩阵形式（<strong>坐标矩阵</strong>）来批量描述这些点的坐标呢？答案如下：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy32.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy32.png" alt=""></p>
 <p>这就是坐标矩阵——横坐标矩阵X中的每个元素，与纵坐标矩阵Y中对应位置元素，共同构成一个点的完整坐标。</p>
 <h4 id="numpy-logspace"><a href="#numpy-logspace" class="headerlink" title="numpy.logspace"></a>numpy.logspace</h4><p>创建等比数列，参数和logspace差不多，第四个参数代表基数。默认为10，如果想要修改其默认基数，输入第四个参数base，改变就可以了。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy34.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy34.png" alt=""></p>
 <p>未完待续……</p>
 
     </div>
@@ -454,12 +452,12 @@
           
         
         <div class="post-tags">
-            <a href="/tags/python的数学计算模块/" rel="tag"># python的数学计算模块</a>
+            <a href="/tags/python%E7%9A%84%E6%95%B0%E5%AD%A6%E8%AE%A1%E7%AE%97%E6%A8%A1%E5%9D%97/" rel="tag"># python的数学计算模块</a>
           
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2019/08/06/网络编程/" rel="next" title="网络编程">
+              <a href="/2019/08/06/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" rel="next" title="网络编程">
                 <i class="fa fa-chevron-left"></i> 网络编程
               </a>
             
@@ -468,7 +466,7 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2019/08/06/python中的线程/" rel="prev" title="python中的线程">
+              <a href="/2019/08/06/python%E4%B8%AD%E7%9A%84%E7%BA%BF%E7%A8%8B/" rel="prev" title="python中的线程">
                 python中的线程 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -524,7 +522,7 @@
   <nav class="site-state motion-element">
       <div class="site-state-item site-state-posts">
         
-          <a href="/archives/">
+          <a href="/archives/%20%7C%7C%20archive">
         
           <span class="site-state-item-count">83</span>
           <span class="site-state-item-name">日志</span>
@@ -536,7 +534,7 @@
       <div class="site-state-item site-state-categories">
         
           
-            <a href="/categories/">
+            <a href="/categories/%20%7C%7C%20th">
           
         
         
@@ -595,7 +593,7 @@
       <div class="site-state-item site-state-tags">
         
           
-            <a href="/tags/">
+            <a href="/tags/%20%7C%7C%20tags">
           
         
         

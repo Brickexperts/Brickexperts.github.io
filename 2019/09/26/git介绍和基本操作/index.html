@@ -7,7 +7,7 @@
 <html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.0.0">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -61,36 +61,34 @@
 <meta name="keywords" content="git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git介绍和基本操作">
-<meta property="og:url" content="http://yoursite.com/2019/09/26/git介绍和基本操作/index.html">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;09&#x2F;26&#x2F;git%E4%BB%8B%E7%BB%8D%E5%92%8C%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C&#x2F;index.html">
 <meta property="og:site_name" content="DY的个人博客">
 <meta property="og:description" content="最近经常用到git和GitHub，但是命令很多都忘记了。故写一篇博客回顾并总结一下 git介绍git是目前世界上最先进的分布式版本系统。 git的两大特点 版本控制：可以解决多人同时开发的代码问题，也可以解决找回历史代码的问题 分布式：git是分布式版本控制系统，同一个git仓库，可以分布到不同的机器上，首先找一台电脑充当服务器的角色。每天24小时开机，其它每个人都从这个“服务器”仓库克隆一份自己">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190926172454.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190926172852.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190926175439.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190926175826.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190926181404.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190927174449.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190926195030.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190926195243.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190926195734.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190926205054.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190926205425.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190926205807.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190926223148.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190926223758.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190927164855.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190927170025.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190927170142.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190927171813.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190927174247.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;20190926172454.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;20190926172852.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;20190926175439.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;20190926175826.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;20190926181404.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;20190927174449.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;20190926195030.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;20190926195243.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;20190926195734.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;20190926205054.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;20190926205425.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;20190926205807.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;20190926223148.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;20190926223758.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;20190927164855.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;20190927170025.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;20190927170142.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;20190927171813.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;20190927174247.png">
 <meta property="og:updated_time" content="2019-09-28T08:11:56.423Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="git介绍和基本操作">
-<meta name="twitter:description" content="最近经常用到git和GitHub，但是命令很多都忘记了。故写一篇博客回顾并总结一下 git介绍git是目前世界上最先进的分布式版本系统。 git的两大特点 版本控制：可以解决多人同时开发的代码问题，也可以解决找回历史代码的问题 分布式：git是分布式版本控制系统，同一个git仓库，可以分布到不同的机器上，首先找一台电脑充当服务器的角色。每天24小时开机，其它每个人都从这个“服务器”仓库克隆一份自己">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190926172454.png">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;20190926172454.png">
   <link rel="alternate" href="/atom.xml" title="DY的个人博客" type="application/atom+xml">
-  <link rel="canonical" href="http://yoursite.com/2019/09/26/git介绍和基本操作/">
+  <link rel="canonical" href="http://yoursite.com/2019/09/26/git%E4%BB%8B%E7%BB%8D%E5%92%8C%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/">
 
 
 <script id="page.configurations">
@@ -212,7 +210,7 @@
 
   </li>
         <li class="menu-item menu-item-search">
-          <a href="javascript:;" class="popup-trigger">
+          <a href="javascript:;" target="_blank" rel="noopener" class="popup-trigger">
           
             <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
         </li>
@@ -265,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/26/git介绍和基本操作/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/26/git%E4%BB%8B%E7%BB%8D%E5%92%8C%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="湛蓝星空">
@@ -324,7 +322,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/git和github/" itemprop="url" rel="index"><span itemprop="name">git和github</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/git%E5%92%8Cgithub/" itemprop="url" rel="index"><span itemprop="name">git和github</span></a></span>
 
                 
                 
@@ -351,58 +349,58 @@
 <p>git的安装就不赘述了，直接下好安转包。一路next就完事了(不用改安装路径)。</p>
 <h2 id="git基本操作"><a href="#git基本操作" class="headerlink" title="git基本操作"></a>git基本操作</h2><h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p>通过git我们可以管理一个目录下的代码，首先我们通过<strong>git init</strong>创建一个版本库</p>
 <p>随机切到一个目录，点击空白区域。点击Git Bash Here，如图中所示：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190926172454.png" alt></p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190926172852.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190926172454.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190926172852.png" alt=""></p>
 <p>这样我们就有一个格式为 .git 文件</p>
 <h3 id="版本创建"><a href="#版本创建" class="headerlink" title="版本创建"></a>版本创建</h3><p>首先，git add 文件名.文件格式：添加某个特定的文件</p>
 <p>或</p>
 <p> git add . ：将目录上所有的文件添加到仓库 </p>
 <p>接着，git commit -m “对这个版本的说明信息”</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190926175439.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190926175439.png" alt=""></p>
 <h3 id="查看版本记录"><a href="#查看版本记录" class="headerlink" title="查看版本记录"></a>查看版本记录</h3><p>使用 git log</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190926175826.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190926175826.png" alt=""></p>
 <p>图中的commit 12c6a……代表版本序列号</p>
 <p>随便放了一张图片进项目，第二次提交项目</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190926181404.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190926181404.png" alt=""></p>
 <p>如果版本记录过程，以简短形式显示：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190927174449.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190927174449.png" alt=""></p>
 <h3 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h3><p>在git中，有个HEAD指针一直指向当前的版本。用HEAD^代表HEAD前一个版本，HEAD^^代表前两个版本。其它版本类推。那前一百个要写100个^吗？答案当然是不用的，用HEAD~100。HEAD~1 等价于  HEAD^。</p>
 <p>git reset –hard HEAD</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190926195030.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190926195030.png" alt=""></p>
 <p>git reset –hard 版本号：这里的版本号就是commit后的版本序列号</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190926195243.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190926195243.png" alt=""></p>
 <p>版本号不需要写完，写完前几个号码就好了。</p>
 <h3 id="查看操作记录"><a href="#查看操作记录" class="headerlink" title="查看操作记录"></a>查看操作记录</h3><p>git reflog</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190926195734.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190926195734.png" alt=""></p>
 <h3 id="工作区和暂存区"><a href="#工作区和暂存区" class="headerlink" title="工作区和暂存区"></a>工作区和暂存区</h3><p>工作区就相当于我们的目录</p>
 <p>在工作区中，有一个隐藏目录 .git，这个不是工作区。而是git的版本库。其中存了很多东西，其中最重要的是称为stage(或者叫index)的暂存区，还有git为我们自动创建的第一个分支master，以及指向master的一个指针HEAD。</p>
 <p>前面讲了我们把文件往git版本库里添加进去，是分两步执行的：</p>
 <p>第一步是git add把文件添加进去，实际上就是把文件添加到暂存区</p>
 <p>第二步是git commit提交更改，实际上就是把暂存区的所有内容提交到当前分支</p>
 <p>用git status查看当前的状态。如果有新的文件或有文件在修改之后、在add之前，会出现以下情况：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190926205054.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190926205054.png" alt=""></p>
 <p>把新的文件add之后，得出以下情况：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190926205425.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190926205425.png" alt=""></p>
 <p>经历add和commit后使用status：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190926205807.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190926205807.png" alt=""></p>
 <p>git管理文件的修改，<strong>它只会提交暂存区的修改来创建版本</strong>。也就是说，在修改或创建一个新文件后，不add到暂存区而直接commit，git也会说文件被修改。</p>
 <h3 id="撤销修改"><a href="#撤销修改" class="headerlink" title="撤销修改"></a>撤销修改</h3><p>git checkout –文件名.文件格式</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190926223148.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190926223148.png" alt=""></p>
 <p>如果是add后，先利用reset取消暂存的变更重新回到工作区：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190926223758.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190926223758.png" alt=""></p>
 <p>接着用git checkout –文件名.文件格式 丢弃工作区的改动</p>
 <p>如果是commit了，就版本回退</p>
 <h3 id="对比文件的不同"><a href="#对比文件的不同" class="headerlink" title="对比文件的不同"></a>对比文件的不同</h3><p><strong>对比工作区和某个版本中文件的不同</strong></p>
 <p>git diff 某个版本库  – 比较的文件</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190927164855.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190927164855.png" alt=""></p>
 <p><strong>对比两个版本间的不同</strong></p>
 <p>git diff 某个版本库  某个版本库 – 比较的文件</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190927170025.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190927170025.png" alt=""></p>
 <p>两个版本交换位置，得出的效果是不同的</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190927170142.png" alt></p>
-<h3 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h3><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190927171813.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190927170142.png" alt=""></p>
+<h3 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h3><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190927171813.png" alt=""></p>
 <p>如果是add到暂存区，也是和之前一样，先reset，再checkout。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190927174247.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190927174247.png" alt=""></p>
 
     </div>
 
@@ -454,7 +452,7 @@
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2019/09/24/Python实现浅层神经网络/" rel="next" title="Python实现浅层神经网络">
+              <a href="/2019/09/24/Python%E5%AE%9E%E7%8E%B0%E6%B5%85%E5%B1%82%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" rel="next" title="Python实现浅层神经网络">
                 <i class="fa fa-chevron-left"></i> Python实现浅层神经网络
               </a>
             
@@ -463,7 +461,7 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2019/09/27/git的分支管理/" rel="prev" title="git的分支管理">
+              <a href="/2019/09/27/git%E7%9A%84%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86/" rel="prev" title="git的分支管理">
                 git的分支管理 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -519,7 +517,7 @@
   <nav class="site-state motion-element">
       <div class="site-state-item site-state-posts">
         
-          <a href="/archives/">
+          <a href="/archives/%20%7C%7C%20archive">
         
           <span class="site-state-item-count">83</span>
           <span class="site-state-item-name">日志</span>
@@ -531,7 +529,7 @@
       <div class="site-state-item site-state-categories">
         
           
-            <a href="/categories/">
+            <a href="/categories/%20%7C%7C%20th">
           
         
         
@@ -590,7 +588,7 @@
       <div class="site-state-item site-state-tags">
         
           
-            <a href="/tags/">
+            <a href="/tags/%20%7C%7C%20tags">
           
         
         

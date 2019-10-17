@@ -7,7 +7,7 @@
 <html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.0.0">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -57,28 +57,26 @@
   };
 </script>
 
-  <meta name="description" content="​    今天我们来讲一下python的异常。何为异常？即是一个事件，该事件会在程序执行过程中发生，影响了程序的正常执行。异常时python对象，表示一个错误。当python脚本发生异常时我们需要捕获处理它，否则程序会终止执行。 ##try/except可以用来捕获异常   ##一个try捕获多个异常：  ##一个try对多个except：根据不同的except做不同的操作  ##try-fina">
+  <meta name="description" content="​    今天我们来讲一下python的异常。何为异常？即是一个事件，该事件会在程序执行过程中发生，影响了程序的正常执行。异常时python对象，表示一个错误。当python脚本发生异常时我们需要捕获处理它，否则程序会终止执行。 ##try&#x2F;except可以用来捕获异常   ##一个try捕获多个异常：  ##一个try对多个except：根据不同的except做不同的操作  ##try-fina">
 <meta name="keywords" content="python异常">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python异常">
-<meta property="og:url" content="http://yoursite.com/2019/08/05/python异常/index.html">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;08&#x2F;05&#x2F;python%E5%BC%82%E5%B8%B8&#x2F;index.html">
 <meta property="og:site_name" content="DY的个人博客">
-<meta property="og:description" content="​    今天我们来讲一下python的异常。何为异常？即是一个事件，该事件会在程序执行过程中发生，影响了程序的正常执行。异常时python对象，表示一个错误。当python脚本发生异常时我们需要捕获处理它，否则程序会终止执行。 ##try/except可以用来捕获异常   ##一个try捕获多个异常：  ##一个try对多个except：根据不同的except做不同的操作  ##try-fina">
+<meta property="og:description" content="​    今天我们来讲一下python的异常。何为异常？即是一个事件，该事件会在程序执行过程中发生，影响了程序的正常执行。异常时python对象，表示一个错误。当python脚本发生异常时我们需要捕获处理它，否则程序会终止执行。 ##try&#x2F;except可以用来捕获异常   ##一个try捕获多个异常：  ##一个try对多个except：根据不同的except做不同的操作  ##try-fina">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%BC%82%E5%B8%B82.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%AE%9C%E6%98%8C.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%BC%82%E5%B8%B83.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%BC%82%E5%B8%B84.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%BC%82%E5%B8%B85.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%BC%82%E5%B8%B86.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%BC%82%E5%B8%B87.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;%E5%BC%82%E5%B8%B82.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;%E5%AE%9C%E6%98%8C.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;%E5%BC%82%E5%B8%B83.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;%E5%BC%82%E5%B8%B84.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;%E5%BC%82%E5%B8%B85.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;%E5%BC%82%E5%B8%B86.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;%E5%BC%82%E5%B8%B87.png">
 <meta property="og:updated_time" content="2019-09-15T06:21:10.093Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python异常">
-<meta name="twitter:description" content="​    今天我们来讲一下python的异常。何为异常？即是一个事件，该事件会在程序执行过程中发生，影响了程序的正常执行。异常时python对象，表示一个错误。当python脚本发生异常时我们需要捕获处理它，否则程序会终止执行。 ##try/except可以用来捕获异常   ##一个try捕获多个异常：  ##一个try对多个except：根据不同的except做不同的操作  ##try-fina">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%BC%82%E5%B8%B82.png">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;%E5%BC%82%E5%B8%B82.png">
   <link rel="alternate" href="/atom.xml" title="DY的个人博客" type="application/atom+xml">
-  <link rel="canonical" href="http://yoursite.com/2019/08/05/python异常/">
+  <link rel="canonical" href="http://yoursite.com/2019/08/05/python%E5%BC%82%E5%B8%B8/">
 
 
 <script id="page.configurations">
@@ -200,7 +198,7 @@
 
   </li>
         <li class="menu-item menu-item-search">
-          <a href="javascript:;" class="popup-trigger">
+          <a href="javascript:;" target="_blank" rel="noopener" class="popup-trigger">
           
             <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
         </li>
@@ -253,7 +251,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/05/python异常/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/05/python%E5%BC%82%E5%B8%B8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="湛蓝星空">
@@ -333,19 +331,19 @@
       
         <p>​    今天我们来讲一下python的异常。何为异常？即是一个事件，该事件会在程序执行过程中发生，影响了程序的正常执行。异常时python对象，表示一个错误。当python脚本发生异常时我们需要捕获处理它，否则程序会终止执行。</p>
 <p>##try/except可以用来捕获异常</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%BC%82%E5%B8%B82.png" alt></p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%AE%9C%E6%98%8C.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%BC%82%E5%B8%B82.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%AE%9C%E6%98%8C.png" alt=""></p>
 <p>##一个try捕获多个异常：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%BC%82%E5%B8%B83.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%BC%82%E5%B8%B83.png" alt=""></p>
 <p>##一个try对多个except：根据不同的except做不同的操作</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%BC%82%E5%B8%B84.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%BC%82%E5%B8%B84.png" alt=""></p>
 <p>##try-finally语句无论是否发生异常都将执行最后的代码。</p>
 <p>##异常传递</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%BC%82%E5%B8%B85.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%BC%82%E5%B8%B85.png" alt=""></p>
 <p>##raise自定义异常：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%BC%82%E5%B8%B86.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%BC%82%E5%B8%B86.png" alt=""></p>
 <p>##最后是python的标准异常：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%BC%82%E5%B8%B87.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%BC%82%E5%B8%B87.png" alt=""></p>
 
     </div>
 
@@ -392,12 +390,12 @@
           
         
         <div class="post-tags">
-            <a href="/tags/python异常/" rel="tag"># python异常</a>
+            <a href="/tags/python%E5%BC%82%E5%B8%B8/" rel="tag"># python异常</a>
           
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2019/08/04/python数据类型/" rel="next" title="python数据类型">
+              <a href="/2019/08/04/python%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" rel="next" title="python数据类型">
                 <i class="fa fa-chevron-left"></i> python数据类型
               </a>
             
@@ -406,7 +404,7 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2019/08/05/类和对象/" rel="prev" title="类和对象">
+              <a href="/2019/08/05/%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/" rel="prev" title="类和对象">
                 类和对象 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -453,7 +451,7 @@
   <nav class="site-state motion-element">
       <div class="site-state-item site-state-posts">
         
-          <a href="/archives/">
+          <a href="/archives/%20%7C%7C%20archive">
         
           <span class="site-state-item-count">83</span>
           <span class="site-state-item-name">日志</span>
@@ -465,7 +463,7 @@
       <div class="site-state-item site-state-categories">
         
           
-            <a href="/categories/">
+            <a href="/categories/%20%7C%7C%20th">
           
         
         
@@ -524,7 +522,7 @@
       <div class="site-state-item site-state-tags">
         
           
-            <a href="/tags/">
+            <a href="/tags/%20%7C%7C%20tags">
           
         
         

@@ -7,7 +7,7 @@
 <html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.0.0">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -61,18 +61,16 @@
 <meta name="keywords" content="目标检测算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NMS算法">
-<meta property="og:url" content="http://yoursite.com/2019/08/18/NMS算法/index.html">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;08&#x2F;18&#x2F;NMS%E7%AE%97%E6%B3%95&#x2F;index.html">
 <meta property="og:site_name" content="DY的个人博客">
 <meta property="og:description" content="​    NMS全称是非极大值抑制算法。 目的：为了消除多余的框，找到最佳的物体检测的位置。 思想:选取那些邻域里分数最高的窗口，同时抑制那些分数低的窗口。 其实NMS的处理不太合理。所以有人提出了Soft-NMS。 NMS和Soft-NMS的区别：  相邻区域内的检测框的分数进行调整而非彻底抑制，从而提高了高检索率情况下的准确率。再低检索率时仍能对物体检测性能有明显提升。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%8713.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;%E7%9B%AE%E6%A0%8713.png">
 <meta property="og:updated_time" content="2019-09-15T06:26:34.891Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="NMS算法">
-<meta name="twitter:description" content="​    NMS全称是非极大值抑制算法。 目的：为了消除多余的框，找到最佳的物体检测的位置。 思想:选取那些邻域里分数最高的窗口，同时抑制那些分数低的窗口。 其实NMS的处理不太合理。所以有人提出了Soft-NMS。 NMS和Soft-NMS的区别：  相邻区域内的检测框的分数进行调整而非彻底抑制，从而提高了高检索率情况下的准确率。再低检索率时仍能对物体检测性能有明显提升。">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%8713.png">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;%E7%9B%AE%E6%A0%8713.png">
   <link rel="alternate" href="/atom.xml" title="DY的个人博客" type="application/atom+xml">
-  <link rel="canonical" href="http://yoursite.com/2019/08/18/NMS算法/">
+  <link rel="canonical" href="http://yoursite.com/2019/08/18/NMS%E7%AE%97%E6%B3%95/">
 
 
 <script id="page.configurations">
@@ -194,7 +192,7 @@
 
   </li>
         <li class="menu-item menu-item-search">
-          <a href="javascript:;" class="popup-trigger">
+          <a href="javascript:;" target="_blank" rel="noopener" class="popup-trigger">
           
             <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
         </li>
@@ -247,7 +245,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/18/NMS算法/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/18/NMS%E7%AE%97%E6%B3%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="湛蓝星空">
@@ -306,7 +304,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/目标检测/" itemprop="url" rel="index"><span itemprop="name">目标检测</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/" itemprop="url" rel="index"><span itemprop="name">目标检测</span></a></span>
 
                 
                 
@@ -330,7 +328,7 @@
 <p>思想:选取那些邻域里分数最高的窗口，同时抑制那些分数低的窗口。</p>
 <p>其实NMS的处理不太合理。所以有人提出了Soft-NMS。</p>
 <p>NMS和Soft-NMS的区别：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%8713.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%8713.png" alt=""></p>
 <p>相邻区域内的检测框的分数进行调整而非彻底抑制，从而提高了高检索率情况下的准确率。再低检索率时仍能对物体检测性能有明显提升。</p>
 
     </div>
@@ -378,12 +376,12 @@
           
         
         <div class="post-tags">
-            <a href="/tags/目标检测算法/" rel="tag"># 目标检测算法</a>
+            <a href="/tags/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E7%AE%97%E6%B3%95/" rel="tag"># 目标检测算法</a>
           
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2019/08/18/DPM算法/" rel="next" title="DPM算法">
+              <a href="/2019/08/18/DPM%E7%AE%97%E6%B3%95/" rel="next" title="DPM算法">
                 <i class="fa fa-chevron-left"></i> DPM算法
               </a>
             
@@ -392,7 +390,7 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2019/08/18/Two-stage基本介绍/" rel="prev" title="Two-stage基本介绍">
+              <a href="/2019/08/18/Two-stage%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D/" rel="prev" title="Two-stage基本介绍">
                 Two-stage基本介绍 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -439,7 +437,7 @@
   <nav class="site-state motion-element">
       <div class="site-state-item site-state-posts">
         
-          <a href="/archives/">
+          <a href="/archives/%20%7C%7C%20archive">
         
           <span class="site-state-item-count">83</span>
           <span class="site-state-item-name">日志</span>
@@ -451,7 +449,7 @@
       <div class="site-state-item site-state-categories">
         
           
-            <a href="/categories/">
+            <a href="/categories/%20%7C%7C%20th">
           
         
         
@@ -510,7 +508,7 @@
       <div class="site-state-item site-state-tags">
         
           
-            <a href="/tags/">
+            <a href="/tags/%20%7C%7C%20tags">
           
         
         

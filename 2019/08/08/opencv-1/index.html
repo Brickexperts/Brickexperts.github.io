@@ -7,7 +7,7 @@
 <html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.0.0">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -61,35 +61,33 @@
 <meta name="keywords" content="视觉处理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="opencv(1)">
-<meta property="og:url" content="http://yoursite.com/2019/08/08/opencv-1/index.html">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;08&#x2F;08&#x2F;opencv-1&#x2F;index.html">
 <meta property="og:site_name" content="DY的个人博客">
 <meta property="og:description" content="​    因为我是对图像处理的方面比较感兴趣的。所以我也是对python的视觉处理模块opencv进行了学习。这个模块虽然是传统方法，但还是蛮有用的。而且它有上千个API，我总结了以下我所学到的。开始吧。 cv2是opencv的扩展模块。      imread第二个参数类型:  cv2.imwrite:保存图片 下文中：绝对路径代表绝对路径也行  改变图片某行某列的像素：  批量改变图片像素：">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv1.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv2.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv3.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv4.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv5.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv6.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv8.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv9.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv10.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv11.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190808132723.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv12.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv13.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv14.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv16.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv17.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv18.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv19.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv20.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv21.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv1.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv2.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv3.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv4.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv5.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv6.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv8.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv9.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv10.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv11.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;20190808132723.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv12.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv13.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv14.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv16.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv17.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv18.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv19.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv20.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv21.png">
 <meta property="og:updated_time" content="2019-09-15T06:08:59.392Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="opencv(1)">
-<meta name="twitter:description" content="​    因为我是对图像处理的方面比较感兴趣的。所以我也是对python的视觉处理模块opencv进行了学习。这个模块虽然是传统方法，但还是蛮有用的。而且它有上千个API，我总结了以下我所学到的。开始吧。 cv2是opencv的扩展模块。      imread第二个参数类型:  cv2.imwrite:保存图片 下文中：绝对路径代表绝对路径也行  改变图片某行某列的像素：  批量改变图片像素：">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv1.png">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv1.png">
   <link rel="alternate" href="/atom.xml" title="DY的个人博客" type="application/atom+xml">
   <link rel="canonical" href="http://yoursite.com/2019/08/08/opencv-1/">
 
@@ -213,7 +211,7 @@
 
   </li>
         <li class="menu-item menu-item-search">
-          <a href="javascript:;" class="popup-trigger">
+          <a href="javascript:;" target="_blank" rel="noopener" class="popup-trigger">
           
             <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
         </li>
@@ -353,53 +351,53 @@
       
         <p>​    因为我是对图像处理的方面比较感兴趣的。所以我也是对python的视觉处理模块<strong>opencv</strong>进行了学习。这个模块虽然是传统方法，但还是蛮有用的。而且它有上千个API，我总结了以下我所学到的。开始吧。</p>
 <p>cv2是opencv的扩展模块。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv1.png" alt>    </p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv1.png" alt="">    </p>
 <p>imread第二个参数类型:</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv2.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv2.png" alt=""></p>
 <p>cv2.imwrite:保存图片</p>
 <p><strong>下文中：绝对路径代表绝对路径也行</strong> </p>
 <p>改变图片某行某列的像素：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv3.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv3.png" alt=""></p>
 <p>批量改变图片像素：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv4.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv4.png" alt=""></p>
 <p>获取图像属性：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv5.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv5.png" alt=""></p>
 <p>拆分通道：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv6.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv6.png" alt=""></p>
 <p>合并通道：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv8.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv8.png" alt=""></p>
 <p>图片移位：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv9.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv9.png" alt=""></p>
 <p>将两张图片加在一起：1、取模加法   2、饱和运算</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv10.png" alt></p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv11.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv10.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv11.png" alt=""></p>
 <p><strong>注意</strong>：两张图片的大小和类型相等</p>
 <p>减法(subtract)、乘法(multiply)和除法(divide)和加法(add)类似</p>
 <p>图像融合：将两张或两张以上的图片融合到一张图片上</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190808132723.png" alt></p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv12.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190808132723.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv12.png" alt=""></p>
 <p>图像缩放（参数必须为整数）：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv13.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv13.png" alt=""></p>
 <p>图像翻转：调用cv2.flip(原始图像，flipcode)</p>
 <p>三种情况：</p>
 <p>filpcode=0：以x轴为对称轴的上下翻转</p>
 <p>flipcode&gt;0:以Y轴为对称轴的左右翻转</p>
 <p>flipcode&lt;0:X、Y轴各翻转一次</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv14.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv14.png" alt=""></p>
 <p>图像颜色反转：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv16.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv16.png" alt=""></p>
 <p>图片打上马赛克：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv17.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv17.png" alt=""></p>
 <p>图片上写字：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv18.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv18.png" alt=""></p>
 <p>图片修补：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv19.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv19.png" alt=""></p>
 <p>图片亮度增强：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv20.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv20.png" alt=""></p>
 <p>图像阈值分割：调用了threshold函数</p>
 <p>五种分割方法：</p>
 <p>二进制阈值化（cv2.THRESH_BINARY）：选定一个阈值，用每一个像素的阈值和该阈值比较，大于该阈值则将该像素阈点值设为最大，若小于该阈值，则将该像素点阈值设为零。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv21.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv21.png" alt=""></p>
 <p>反二进制阈值化（cv.THRESH_BINARY_INV）：选定一个阈值，用每一个像素的阈值和该阈值比较，大于该阈值则将该像素点的阈值设为零，若小于该阈值，则将该像素点阈值设为最大。</p>
 <p>截断阈值化（cv.THRESH_TRUNC）：选定个阈值，用每一个像素的阈值和该阈值比较，大于该阈值则将该像素点的阈值设为该阈值，小于该阈值的像素点的阈值不变。</p>
 <p>阈值化为0（THRESH_TOZERO）：先选定一个阈值，像素点的灰度值大于该阈值的不进行任何改变；像素点的灰度值小于该阈值的，其灰度值全部变为0。 </p>
@@ -451,12 +449,12 @@
           
         
         <div class="post-tags">
-            <a href="/tags/视觉处理/" rel="tag"># 视觉处理</a>
+            <a href="/tags/%E8%A7%86%E8%A7%89%E5%A4%84%E7%90%86/" rel="tag"># 视觉处理</a>
           
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2019/08/08/时间模块/" rel="next" title="时间模块">
+              <a href="/2019/08/08/%E6%97%B6%E9%97%B4%E6%A8%A1%E5%9D%97/" rel="next" title="时间模块">
                 <i class="fa fa-chevron-left"></i> 时间模块
               </a>
             
@@ -512,7 +510,7 @@
   <nav class="site-state motion-element">
       <div class="site-state-item site-state-posts">
         
-          <a href="/archives/">
+          <a href="/archives/%20%7C%7C%20archive">
         
           <span class="site-state-item-count">83</span>
           <span class="site-state-item-name">日志</span>
@@ -524,7 +522,7 @@
       <div class="site-state-item site-state-categories">
         
           
-            <a href="/categories/">
+            <a href="/categories/%20%7C%7C%20th">
           
         
         
@@ -583,7 +581,7 @@
       <div class="site-state-item site-state-tags">
         
           
-            <a href="/tags/">
+            <a href="/tags/%20%7C%7C%20tags">
           
         
         

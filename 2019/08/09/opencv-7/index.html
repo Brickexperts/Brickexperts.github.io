@@ -7,7 +7,7 @@
 <html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.0.0">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -61,27 +61,25 @@
 <meta name="keywords" content="视觉处理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="opencv(7)">
-<meta property="og:url" content="http://yoursite.com/2019/08/09/opencv-7/index.html">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;08&#x2F;09&#x2F;opencv-7&#x2F;index.html">
 <meta property="og:site_name" content="DY的个人博客">
 <meta property="og:description" content="直方图横坐标：图像中各个像素的灰度级 纵坐标：具有该灰度级的像素个数 归一化直方图： 横坐标：图像中各个像素的灰度级 纵坐标：出现这个灰度级的概率        掩膜：通过掩膜可以将一张图的某块区域的直方图画出来  直方图均值化：   注意:用cv2.equalizeHist进行直方图均衡化处理时，对彩色图像进行处理时，分通道进行。灰度图像直接均衡化 利用CLAHE有限对比适应性直方图均衡化，对彩">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv96.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv97.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv98.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv99.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv100.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv101.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv102.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv103.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv104.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv105.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv106.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv107.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv96.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv97.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv98.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv99.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv100.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv101.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv102.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv103.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv104.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv105.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv106.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv107.png">
 <meta property="og:updated_time" content="2019-09-15T06:10:21.183Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="opencv(7)">
-<meta name="twitter:description" content="直方图横坐标：图像中各个像素的灰度级 纵坐标：具有该灰度级的像素个数 归一化直方图： 横坐标：图像中各个像素的灰度级 纵坐标：出现这个灰度级的概率        掩膜：通过掩膜可以将一张图的某块区域的直方图画出来  直方图均值化：   注意:用cv2.equalizeHist进行直方图均衡化处理时，对彩色图像进行处理时，分通道进行。灰度图像直接均衡化 利用CLAHE有限对比适应性直方图均衡化，对彩">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv96.png">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv96.png">
   <link rel="alternate" href="/atom.xml" title="DY的个人博客" type="application/atom+xml">
   <link rel="canonical" href="http://yoursite.com/2019/08/09/opencv-7/">
 
@@ -205,7 +203,7 @@
 
   </li>
         <li class="menu-item menu-item-search">
-          <a href="javascript:;" class="popup-trigger">
+          <a href="javascript:;" target="_blank" rel="noopener" class="popup-trigger">
           
             <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
         </li>
@@ -348,23 +346,23 @@
 <p>归一化直方图：</p>
 <p>横坐标：图像中各个像素的灰度级</p>
 <p>纵坐标：出现这个灰度级的概率</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv96.png" alt></p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv97.png" alt></p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv98.png" alt></p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv99.png" alt></p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv100.png" alt></p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv101.png" alt></p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv102.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv96.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv97.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv98.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv99.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv100.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv101.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv102.png" alt=""></p>
 <p>掩膜：通过掩膜可以将一张图的某块区域的直方图画出来</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv103.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv103.png" alt=""></p>
 <p>直方图均值化：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv104.png" alt></p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv105.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv104.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv105.png" alt=""></p>
 <p>注意:用cv2.equalizeHist进行直方图均衡化处理时，对彩色图像进行处理时，分通道进行。灰度图像直接均衡化</p>
 <p>利用CLAHE有限对比适应性直方图均衡化，对彩色图像也是分通道进行。灰度图像直接均衡化。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv106.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv106.png" alt=""></p>
 <h2 id="背景建模："><a href="#背景建模：" class="headerlink" title="背景建模："></a>背景建模：</h2><p>以高斯混合模型为基础的背景/前景分割算法</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv107.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv107.png" alt=""></p>
 <p>apply可以得到前景的掩膜</p>
 <h2 id="傅里叶变换"><a href="#傅里叶变换" class="headerlink" title="傅里叶变换"></a>傅里叶变换</h2><p>补  。。。。。</p>
 
@@ -413,7 +411,7 @@
           
         
         <div class="post-tags">
-            <a href="/tags/视觉处理/" rel="tag"># 视觉处理</a>
+            <a href="/tags/%E8%A7%86%E8%A7%89%E5%A4%84%E7%90%86/" rel="tag"># 视觉处理</a>
           
         </div>
         <div class="post-nav">
@@ -427,7 +425,7 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2019/08/09/特征工程/" rel="prev" title="数据预处理与特征工程">
+              <a href="/2019/08/09/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/" rel="prev" title="数据预处理与特征工程">
                 数据预处理与特征工程 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -483,7 +481,7 @@
   <nav class="site-state motion-element">
       <div class="site-state-item site-state-posts">
         
-          <a href="/archives/">
+          <a href="/archives/%20%7C%7C%20archive">
         
           <span class="site-state-item-count">83</span>
           <span class="site-state-item-name">日志</span>
@@ -495,7 +493,7 @@
       <div class="site-state-item site-state-categories">
         
           
-            <a href="/categories/">
+            <a href="/categories/%20%7C%7C%20th">
           
         
         
@@ -554,7 +552,7 @@
       <div class="site-state-item site-state-tags">
         
           
-            <a href="/tags/">
+            <a href="/tags/%20%7C%7C%20tags">
           
         
         

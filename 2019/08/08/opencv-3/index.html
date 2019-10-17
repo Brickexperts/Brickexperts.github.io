@@ -7,7 +7,7 @@
 <html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.0.0">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -61,37 +61,35 @@
 <meta name="keywords" content="视觉处理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="opencv(3)">
-<meta property="og:url" content="http://yoursite.com/2019/08/08/opencv-3/index.html">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;08&#x2F;08&#x2F;opencv-3&#x2F;index.html">
 <meta property="og:site_name" content="DY的个人博客">
 <meta property="og:description" content="图像轮廓和图像边缘不一样，边缘不连续。将边缘连接成一个整体构成轮廓。 提取图像轮廓的方法：先调用cv2.findContours()，后调用cv2.drawCont() cv2.findCount函数使用方法:  参数mode的几种方式：  参数method的几种方法：    轮廓特征：cv2.moments()会将计算得到的矩以一个字典的形式返回。  轮廓面积可以使用函数 cv2.contour">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv42.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv43.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv44.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv45.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv46.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190808134950.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv47.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv448.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv54.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv49.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv50.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv51.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv52.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv53.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv55.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv56.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv57.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv58.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv60.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv95..png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv59.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv62.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv42.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv43.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv44.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv45.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv46.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;20190808134950.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv47.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv448.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv54.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv49.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv50.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv51.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv52.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv53.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv55.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv56.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv57.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv58.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv60.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv95..png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv59.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv62.png">
 <meta property="og:updated_time" content="2019-09-15T06:09:37.209Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="opencv(3)">
-<meta name="twitter:description" content="图像轮廓和图像边缘不一样，边缘不连续。将边缘连接成一个整体构成轮廓。 提取图像轮廓的方法：先调用cv2.findContours()，后调用cv2.drawCont() cv2.findCount函数使用方法:  参数mode的几种方式：  参数method的几种方法：    轮廓特征：cv2.moments()会将计算得到的矩以一个字典的形式返回。  轮廓面积可以使用函数 cv2.contour">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv42.png">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv42.png">
   <link rel="alternate" href="/atom.xml" title="DY的个人博客" type="application/atom+xml">
   <link rel="canonical" href="http://yoursite.com/2019/08/08/opencv-3/">
 
@@ -215,7 +213,7 @@
 
   </li>
         <li class="menu-item menu-item-search">
-          <a href="javascript:;" class="popup-trigger">
+          <a href="javascript:;" target="_blank" rel="noopener" class="popup-trigger">
           
             <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
         </li>
@@ -356,58 +354,58 @@
         <h2 id="图像轮廓"><a href="#图像轮廓" class="headerlink" title="图像轮廓"></a>图像轮廓</h2><p>和图像边缘不一样，边缘不连续。将边缘连接成一个整体构成轮廓。</p>
 <p>提取图像轮廓的方法：先调用cv2.findContours()，后调用cv2.drawCont()</p>
 <p>cv2.findCount函数使用方法:</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv42.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv42.png" alt=""></p>
 <p>参数mode的几种方式：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv43.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv43.png" alt=""></p>
 <p>参数method的几种方法：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv44.png" alt></p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv45.png" alt></p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv46.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv44.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv45.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv46.png" alt=""></p>
 <h2 id="轮廓特征："><a href="#轮廓特征：" class="headerlink" title="轮廓特征："></a>轮廓特征：</h2><p>cv2.moments()会将计算得到的<strong>矩</strong>以一个字典的形式返回。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190808134950.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190808134950.png" alt=""></p>
 <p><strong>轮廓面积</strong>可以使用函数 cv2.contourArea() 计算得到</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv47.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv47.png" alt=""></p>
 <p><strong>轮廓周长</strong>：cv2.arcLength(cnt，True) 函数的第二个参数用来指定对象的形状是闭合的(True)，还是打开的。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv448.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv448.png" alt=""></p>
 <p><strong>轮廓近似</strong>：cv2.approxPolyDP(cnt，epsilon，True)</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv54.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv54.png" alt=""></p>
 <p><strong>凸包</strong>：函数cv2.convexHull() 可以用来检测一个曲线是否具有凸性缺陷并能纠正凸性缺陷。凸性曲线总是凸出来的，至少是平的。如果有地方凹去了就叫做凸性缺陷。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv49.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv49.png" alt=""></p>
 <p><strong>凸性检测</strong>：cv2.isContourConvex()可以用来检测一个曲线是不是凸的，返回True和False。</p>
 <p><strong>边界矩形</strong>：直边界矩形和旋转的边界矩形。</p>
 <p><strong>直边界矩形</strong>：面积不是最小的。x,y,w,h=cv2.boundingRect()。x,y,为矩形左上角的坐标，w,h为矩形的宽和高</p>
 <p><strong>旋转的边界矩形</strong>：面积最小。考虑了对象的旋转。cv2.minAreaRect())。返回的是一个 Box2D 结构，其中包含矩形左上点的坐标x，y矩形的宽和高w，h以及旋度。但是绘制个矩形矩形的 4 个点可以函数cv2.boxPoints() 获 得。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv50.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv50.png" alt=""></p>
 <p><strong>最小外接圆</strong>：cv2.minEnlosingCircle()</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv51.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv51.png" alt=""></p>
 <p><strong>椭圆拟合</strong>：旋转边界矩形的内切圆   cv2.fitEllipse(cnt)</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv52.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv52.png" alt=""></p>
 <p><strong>形状匹配</strong>：cv2.matchShape()可以帮我们比较两个形状或轮廓的相似度。返回值越小，匹配越好。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv53.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv53.png" alt=""></p>
 <h2 id="getStructuringElement"><a href="#getStructuringElement" class="headerlink" title="getStructuringElement"></a>getStructuringElement</h2><p>构建一个核。前面腐蚀膨胀的numpy构建的结构化元素是正方形的</p>
 <p>getStructuringElement  与 Numpy 定义的元素结构是完全一样的这个函数的第一个参数表示内核的形状，有三种形状可以选择。</p>
 <p>矩形：MORPH_RECT;</p>
 <p>交叉形：MORPH_CROSS;</p>
 <p>椭圆形：MORPH_ELLIPSE;</p>
 <p>第二和第三个参数分别是内核的尺寸以及锚点的位置。对于锚点的位置，有默认值（-1,-1），表示锚点位于中心点。element形状唯一依赖锚点位置，其他情况下，锚点只是影响了形态学运算结果的偏移。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv55.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv55.png" alt=""></p>
 <h2 id="透视变换"><a href="#透视变换" class="headerlink" title="透视变换"></a>透视变换</h2><p>在不同的视觉拍摄同一个物体，会有不同的图像。透视变换就是类似于改变拍摄物体的角度</p>
 <p>仿射变换：由平移、错切、缩放、反转、旋转复合而成，是透视变换的特殊形式</p>
 <p>OpenCV提供了两个变换函数cv2.warpAﬃne(仿射变换)和cv2.warpPerspective(透视变换) ，cv2.warpAﬃne 接收的参数是 2×3 的变换矩阵，而cv2.warpPerspective 接收的参数是 3×3 的变换矩阵。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv56.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv56.png" alt=""></p>
 <p>函数cv2.warpAﬃne() 的第三个参数的是输出图像的大小。它的格式应是图像的(宽,高)。注意的是图像的宽对应的是列数，高对应的是行数。可以实现图片平移。可以和cv2.getAffineTransform配合使用</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv57.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv57.png" alt=""></p>
 <p>其中两个参数是变换前后的位置关系</p>
 <p>函数cv2.warpPerspective配合cv2.getPerspectiveTransform()使用。同时可以用findHomography返回的单应性矩阵。</p>
 <p>getPersonspectiveTransform得出变换矩阵：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv58.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv58.png" alt=""></p>
 <p>得出变换矩阵以后用warpPerspective()：第一个参数是输入图像，M是变换矩阵，第三个参数是输出图像的大小</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv60.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv60.png" alt=""></p>
 <p>findHomography：提供正确估计的好的匹配被叫做inliers，而其他的叫做outliers。cv2.findHomography()返回一个掩图来指定inline和outline。第一个和第二个参数分别是原图像和目的图像，第三个参数可选为cv2.RANSAC、cv2.LMEDS.第二个参数取值范围在1到10。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv95..png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv95..png" alt=""></p>
 <p>getPerspectiveTransform和findHomography的区别：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv59.png" alt></p>
-<h2 id="旋转：cv2-getRotationMatrix2D"><a href="#旋转：cv2-getRotationMatrix2D" class="headerlink" title="旋转：cv2.getRotationMatrix2D()"></a>旋转：cv2.getRotationMatrix2D()</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv62.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv59.png" alt=""></p>
+<h2 id="旋转：cv2-getRotationMatrix2D"><a href="#旋转：cv2-getRotationMatrix2D" class="headerlink" title="旋转：cv2.getRotationMatrix2D()"></a>旋转：cv2.getRotationMatrix2D()</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv62.png" alt=""></p>
 
     </div>
 
@@ -454,7 +452,7 @@
           
         
         <div class="post-tags">
-            <a href="/tags/视觉处理/" rel="tag"># 视觉处理</a>
+            <a href="/tags/%E8%A7%86%E8%A7%89%E5%A4%84%E7%90%86/" rel="tag"># 视觉处理</a>
           
         </div>
         <div class="post-nav">
@@ -524,7 +522,7 @@
   <nav class="site-state motion-element">
       <div class="site-state-item site-state-posts">
         
-          <a href="/archives/">
+          <a href="/archives/%20%7C%7C%20archive">
         
           <span class="site-state-item-count">83</span>
           <span class="site-state-item-name">日志</span>
@@ -536,7 +534,7 @@
       <div class="site-state-item site-state-categories">
         
           
-            <a href="/categories/">
+            <a href="/categories/%20%7C%7C%20th">
           
         
         
@@ -595,7 +593,7 @@
       <div class="site-state-item site-state-tags">
         
           
-            <a href="/tags/">
+            <a href="/tags/%20%7C%7C%20tags">
           
         
         

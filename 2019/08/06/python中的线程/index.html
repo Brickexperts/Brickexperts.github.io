@@ -7,7 +7,7 @@
 <html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.0.0">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -61,38 +61,36 @@
 <meta name="keywords" content="python线程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python中的线程">
-<meta property="og:url" content="http://yoursite.com/2019/08/06/python中的线程/index.html">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;08&#x2F;06&#x2F;python%E4%B8%AD%E7%9A%84%E7%BA%BF%E7%A8%8B&#x2F;index.html">
 <meta property="og:site_name" content="DY的个人博客">
 <meta property="og:description" content="重要的话写在前面：进程间不共享全局变量，线程间共享全局变量。 同步：按预定的先后次序进行运行                异步：不确定的次序 对于操作系统来说，一个任务就是一个进程。进程内的子任务成为线程 ，一个进程至少有一个线程 多任务执行的方式： 多进程 多线程 多进程+多线程 多线程：Python的标准库提供了两个模块：_thread和threading，_thread是低级模块，thre">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B1.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B2.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B4.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B5.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B6.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B7.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B8.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B10.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B11.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B12.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B13.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B14.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B15.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B16.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B17.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B18.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B19.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B20.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B21.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B22.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B23.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;%E7%BA%BF%E7%A8%8B1.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;%E7%BA%BF%E7%A8%8B2.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;%E7%BA%BF%E7%A8%8B4.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;%E7%BA%BF%E7%A8%8B5.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;%E7%BA%BF%E7%A8%8B6.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;%E7%BA%BF%E7%A8%8B7.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;%E7%BA%BF%E7%A8%8B8.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;%E7%BA%BF%E7%A8%8B10.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;%E7%BA%BF%E7%A8%8B11.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;%E7%BA%BF%E7%A8%8B12.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;%E7%BA%BF%E7%A8%8B13.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;%E7%BA%BF%E7%A8%8B14.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;%E7%BA%BF%E7%A8%8B15.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;%E7%BA%BF%E7%A8%8B16.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;%E7%BA%BF%E7%A8%8B17.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;%E7%BA%BF%E7%A8%8B18.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;%E7%BA%BF%E7%A8%8B19.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;%E7%BA%BF%E7%A8%8B20.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;%E7%BA%BF%E7%A8%8B21.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;%E7%BA%BF%E7%A8%8B22.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;%E7%BA%BF%E7%A8%8B23.png">
 <meta property="og:updated_time" content="2019-09-15T06:29:19.546Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python中的线程">
-<meta name="twitter:description" content="重要的话写在前面：进程间不共享全局变量，线程间共享全局变量。 同步：按预定的先后次序进行运行                异步：不确定的次序 对于操作系统来说，一个任务就是一个进程。进程内的子任务成为线程 ，一个进程至少有一个线程 多任务执行的方式： 多进程 多线程 多进程+多线程 多线程：Python的标准库提供了两个模块：_thread和threading，_thread是低级模块，thre">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B1.png">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;%E7%BA%BF%E7%A8%8B1.png">
   <link rel="alternate" href="/atom.xml" title="DY的个人博客" type="application/atom+xml">
-  <link rel="canonical" href="http://yoursite.com/2019/08/06/python中的线程/">
+  <link rel="canonical" href="http://yoursite.com/2019/08/06/python%E4%B8%AD%E7%9A%84%E7%BA%BF%E7%A8%8B/">
 
 
 <script id="page.configurations">
@@ -214,7 +212,7 @@
 
   </li>
         <li class="menu-item menu-item-search">
-          <a href="javascript:;" class="popup-trigger">
+          <a href="javascript:;" target="_blank" rel="noopener" class="popup-trigger">
           
             <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
         </li>
@@ -267,7 +265,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/06/python中的线程/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/06/python%E4%B8%AD%E7%9A%84%E7%BA%BF%E7%A8%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="湛蓝星空">
@@ -353,22 +351,22 @@
 <p>多线程</p>
 <p>多进程+多线程</p>
 <p>多线程：Python的标准库提供了两个模块：_thread和threading，_thread是低级模块，threading是高级模块，对_thread进行了封装。绝大多数情况下，我们只需要使用threading这个高级模块。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B1.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B1.png" alt=""></p>
 <p>传入参数为元祖。也就是即使只有一个参数，也要写逗号。</p>
 <p>join():将线程加入到当前线程，并等待其终止</p>
 <p>判断线程是否在运行：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B2.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B2.png" alt=""></p>
 <p>守护线程：将daemon属性设为True，则该线程无法被连接</p>
 <p>daemon属性可以保证主线程结束时可以同时结束子线程或者使主线程等待子线程结束后在结束。故称为守护线程。daemon默认为False，如需修改，必须在调用start()方法启动线程之前进行设置。<strong>不适用与idle的交互模式或脚本模式</strong></p>
 <p>当daemon属性为False时，主线程会检测子线程是否结束，如果子线程还在运行，则主线程会等待他完成后在退出。当daemon属性为True时，子线程没执行的不再执行，主线程直接退出。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B4.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B4.png" alt=""></p>
 <p>通过轮询终止线程：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B5.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B5.png" alt=""></p>
 <p>threading的常用方法：</p>
 <p>​    active_count() 当前活动的 Thread 对象个数</p>
 <p>​    current_thread() 返回当前 Thread 对象</p>
 <p>​    current_thread().name返回当前的Thread对象的名字</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B6.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B6.png" alt=""></p>
 <p>​    get_ident() 返回当前线程</p>
 <p>​    enumerater() 返回当前活动 Thread 对象列表</p>
 <p>​    main_thread() 返回主 Thread 对象</p>
@@ -390,9 +388,9 @@
 <p>​    condition.notify(n=1)        # 通知n个wait()的线程执行, n默认为1</p>
 <p>​    condition.notify_all()       # 通知所有wait着的线程执行</p>
 <p>​     with condition:              # 支持with语法，不必每次手动调用acquire()/release() </p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B7.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B7.png" alt=""></p>
 <p>Semaphore 为线程间共享的有限资源提供一个”计数器”，如果没有可用资源会被阻塞</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B8.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B8.png" alt=""></p>
 <p>Events：它是由线程设置的信号标志，如果信号标志为真，则其他线程等待直到信号接触。</p>
 <p>Event对象实现了简单的线程通信机制，它提供了设置信号，清除信号，等待等用于实现线程间的通信。</p>
 <p>event = threading.Event() 创建一个event</p>
@@ -407,46 +405,46 @@
 <p>event.wait()</p>
 <p>Event对象wait的方法只有在内部信号为真的时候才会很快的执行并完成返回。当Event对象的内部信号标志为假时，则wait方法一直等待到其为真时才返回。也就是说必须set新号标志为真</p>
 <p>主线程在等事件设置后才继续执行</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B10.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B10.png" alt=""></p>
 <p>event使用示范：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B11.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B11.png" alt=""></p>
 <p>Barrier :创建一个”阻碍”，必须达到指定数量的线程后才可以继续</p>
 <p>每个线程中都调用了wait()方法，在所有（此处设置为3）线程调用wait方法之前是阻塞的。也就是说，只有等到3个线程都执行到了wait方法这句时，所有线程才继续执行。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B12.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B12.png" alt=""></p>
 <p>计算处于alive的Thread对象数量：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B13.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B13.png" alt=""></p>
 <p>多线程避免全局变量的改变：上锁。上锁后执行的代码越少越好。</p>
 <p>互斥锁：Lock是比较低级的同步原语，当被锁定后不属于特定的线程。一个锁有两个状态:Locked和unLocked.刚创建的的Locked处于unlocked状态。如果锁处于unlocked状态，acquire()方法将其修改为Locked并立即返回。如果锁处于locked状态，则阻塞当前线程并等待其他线程释放锁，然后将其修改为locked并立即返回。release()方法用来将锁的状态从locked修改为unlocked并立即返回。如果锁的状态本来就是unlocked，则会抛出异常</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B14.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B14.png" alt=""></p>
 <p>可重入锁Rlock对象也是一种常用的线程同步原语，可被同一个线程acquire()多次。当locked状态时，某现场拥有该锁，当处于unlocked状态时，该锁不属于任何线程。Rlock对象的acquire()/release()调用对可以嵌套，仅当最后一个或者最外层的release执行结束后，锁才会被设置为unlocked状态</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B15.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B15.png" alt=""></p>
 <p>死锁：双方都在等待对方的条件满足</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B16.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B16.png" alt=""></p>
 <p>避免死锁的方法：1、添加超时事件  2、 尽量避免（银行家算法）</p>
 <p>Threadlocal：保存当前线程的专有状态，这个状态对其他线程不可见。</p>
 <p>全局变量local就是一个ThreadLocal对象，每个Thread对它都可以读写student属性，但互不影响。你可以把local看成全局变量，但每个属性如local.student都是线程的局部变量，可以任意读写而互不干扰，也不用管理锁的问题，ThreadLocal内部会处理。一个ThreadLocal变量虽然是全局变量，但每个线程都只能读写自己线程的独立副本，互不干扰。ThreadLocal解决了参数在一个线程中各个函数之间互相传递的问题。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B17.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B17.png" alt=""></p>
 <p>线程池：threadpool模块或concerrent.futures模块</p>
 <p>threadpool模块比较老旧，不是主流。</p>
 <p>threadpool.ThreadPool(poolsize)：定义一个线程池，创建了poolsize个线程。</p>
 <p>threadpool.makeRequest(开启多线程的函数，函数相关参数，[回调函数])</p>
 <p>putRequest:将所有要运行多线程的请求扔进线程池。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B18.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B18.png" alt=""></p>
 <p>concerrent.futures：这个模块轻松绕开GIL</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B19.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B19.png" alt=""></p>
 <p>ThreadPoolExecutor构造实例的时候，传入max_workers参数来设置线程池中最多能同时运行的线程数目。</p>
 <p>使用submit函数来提交线程需要执行的任务（函数名和参数）到线程池中，并返回该任务的句柄（类似于文件、画图），注意submit()不是阻塞的，而是立即返回。</p>
 <p>通过submit函数返回的任务句柄，能够使用done()方法判断该任务是否结束。上面的例子可以看出，由于任务有2s的延时，在task1提交后立刻判断，task1还未完成，而在延时4s之后判断，task1就完成了。</p>
 <p>使用cancel()方法可以取消提交的任务，如果任务已经在线程池中运行了，就取消不了。这个例子中，线程池的大小设置为2，任务已经在运行了，所以取消失败。如果改变线程池的大小为1，那么先提交的是task1，task2还在排队等候，这是时候就可以成功取消。</p>
 <p>使用result()方法可以获取任务的返回值。查看内部代码，发现这个方法是阻塞的</p>
 <p>as_completed:一次取出所有任务的结果。as_completed()方法是一个生成器，在没有任务完成的时候，会阻塞，在有某个任务完成的时候，会yield这个任务，就能执行for循环下面的语句，然后继续阻塞住，循环到所有的任务结束。从结果也可以看出，先完成的任务会先通知主线程。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B20.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B20.png" alt=""></p>
 <p>map的作用和submit一样，但略有不同。输出顺序和参数列表的顺序相同</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B21.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B21.png" alt=""></p>
 <p>wait方法接受三个参数，等待的任务序列，超时时间，以及等待条件。等待条件return_when默认为ALL_COMPLTED，表明要等待所有的任务都结束。还可以设为FIRST_COMPLETED，表示第一个任务完成就结束等待。FITST_EXCEPTION(注意要导入)</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B22.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B22.png" alt=""></p>
 <p>通过类创建线程：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B23.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%BA%BF%E7%A8%8B23.png" alt=""></p>
 <p>t.start后一定调用run函数，不定义run函数该线程不执行。对其他函数的调用只能在run函数里执行。多线程可以共享全局变量，但当数据量大时，数据会出错（产生资源竞争）。</p>
 <p>线程是真的多，看到最后。迷迷糊糊，有错一定要提醒我。而且很多我还没有用过。后面用到的话，会补充上去的。接下来说最后一个：GIL。何为GIL？</p>
 <p>GIL：全局解释器锁</p>
@@ -499,7 +497,7 @@
           
         
         <div class="post-tags">
-            <a href="/tags/python线程/" rel="tag"># python线程</a>
+            <a href="/tags/python%E7%BA%BF%E7%A8%8B/" rel="tag"># python线程</a>
           
         </div>
         <div class="post-nav">
@@ -513,7 +511,7 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2019/08/06/python中的进程/" rel="prev" title="python中的进程">
+              <a href="/2019/08/06/python%E4%B8%AD%E7%9A%84%E8%BF%9B%E7%A8%8B/" rel="prev" title="python中的进程">
                 python中的进程 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -560,7 +558,7 @@
   <nav class="site-state motion-element">
       <div class="site-state-item site-state-posts">
         
-          <a href="/archives/">
+          <a href="/archives/%20%7C%7C%20archive">
         
           <span class="site-state-item-count">83</span>
           <span class="site-state-item-name">日志</span>
@@ -572,7 +570,7 @@
       <div class="site-state-item site-state-categories">
         
           
-            <a href="/categories/">
+            <a href="/categories/%20%7C%7C%20th">
           
         
         
@@ -631,7 +629,7 @@
       <div class="site-state-item site-state-tags">
         
           
-            <a href="/tags/">
+            <a href="/tags/%20%7C%7C%20tags">
           
         
         

@@ -7,7 +7,7 @@
 <html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.0.0">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -61,19 +61,17 @@
 <meta name="keywords" content="matplotlib">
 <meta property="og:type" content="article">
 <meta property="og:title" content="matplotlib画图总结">
-<meta property="og:url" content="http://yoursite.com/2019/09/18/matplotlib画图总结/index.html">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;09&#x2F;18&#x2F;matplotlib%E7%94%BB%E5%9B%BE%E6%80%BB%E7%BB%93&#x2F;index.html">
 <meta property="og:site_name" content="DY的个人博客">
 <meta property="og:description" content="本片博客介绍了matplotlib画图的API，API很多，只总结了部分自己用到的。开始吧 没有这个库的，pip安装一下。 首先将matplotlib中的pyplot导入，如下： import matplotlib.pyplot as plt，所以以下的plt都是pyplot。 plt.scatter画散点图 123456789101112131415import matplotlib.pyplo">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/matplotlib1.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/matplotlib2.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;matplotlib1.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;matplotlib2.png">
 <meta property="og:updated_time" content="2019-09-19T11:13:24.152Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="matplotlib画图总结">
-<meta name="twitter:description" content="本片博客介绍了matplotlib画图的API，API很多，只总结了部分自己用到的。开始吧 没有这个库的，pip安装一下。 首先将matplotlib中的pyplot导入，如下： import matplotlib.pyplot as plt，所以以下的plt都是pyplot。 plt.scatter画散点图 123456789101112131415import matplotlib.pyplo">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/matplotlib1.png">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;matplotlib1.png">
   <link rel="alternate" href="/atom.xml" title="DY的个人博客" type="application/atom+xml">
-  <link rel="canonical" href="http://yoursite.com/2019/09/18/matplotlib画图总结/">
+  <link rel="canonical" href="http://yoursite.com/2019/09/18/matplotlib%E7%94%BB%E5%9B%BE%E6%80%BB%E7%BB%93/">
 
 
 <script id="page.configurations">
@@ -195,7 +193,7 @@
 
   </li>
         <li class="menu-item menu-item-search">
-          <a href="javascript:;" class="popup-trigger">
+          <a href="javascript:;" target="_blank" rel="noopener" class="popup-trigger">
           
             <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
         </li>
@@ -248,7 +246,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/18/matplotlib画图总结/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/18/matplotlib%E7%94%BB%E5%9B%BE%E6%80%BB%E7%BB%93/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="湛蓝星空">
@@ -334,7 +332,7 @@
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">x = list(range(1,1001))</span><br><span class="line">y = [x*<span class="number">*2</span> <span class="keyword">for</span> x <span class="keyword">in</span> x]</span><br><span class="line"><span class="comment">#s代表点的面积</span></span><br><span class="line"><span class="comment">#c代表颜色</span></span><br><span class="line">plt.scatter(x,y,<span class="attribute">c</span>=<span class="string">"green"</span>,s=20)</span><br><span class="line"><span class="comment">#设置标题并加上轴标签</span></span><br><span class="line">plt.title(<span class="string">"Squares Numbers"</span>,<span class="attribute">fontsize</span>=24)</span><br><span class="line">plt.xlabel(<span class="string">"Value"</span>,<span class="attribute">fontsize</span>=14)</span><br><span class="line">plt.xlabel(<span class="string">"Square of Value"</span>,<span class="attribute">fontsize</span>=14)</span><br><span class="line"><span class="comment">#设置刻度标记的大小</span></span><br><span class="line">plt.tick_params(<span class="attribute">axis</span>=<span class="string">'both'</span>,which='major',labelsize=14)</span><br><span class="line"><span class="comment">#设置每个坐标的取值范围</span></span><br><span class="line">plt.axis([0,1100,0,1100000])</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
 
 <p>上面的代码运行后，是一条线。那是因为点太多了。绘制很多点的时候，轮廓会连在一起。要删除数据点的轮廓可用scatter，传递参数edgecolor=”none”</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/matplotlib1.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/matplotlib1.png" alt=""></p>
 <p>模块pyplot内置了一组颜色映射，要使用这些颜色映射，你需要告诉pyplot该如何设置数据集中每个点的颜色。</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">x = list(range(1,1001))</span><br><span class="line">y = [x*<span class="number">*2</span> <span class="keyword">for</span> x <span class="keyword">in</span> x]</span><br><span class="line"><span class="comment">#s代表点的面积</span></span><br><span class="line"><span class="comment">#cmap设置颜色映射</span></span><br><span class="line">plt.scatter(x,y,<span class="attribute">s</span>=20,c=y,cmap=plt.cm.Greens)</span><br><span class="line"><span class="comment">#设置标题并加上轴标签</span></span><br><span class="line">plt.title(<span class="string">"Squares Numbers"</span>,<span class="attribute">fontsize</span>=24)</span><br><span class="line">plt.xlabel(<span class="string">"Value"</span>,<span class="attribute">fontsize</span>=14)</span><br><span class="line">plt.xlabel(<span class="string">"Square of Value"</span>,<span class="attribute">fontsize</span>=14)</span><br><span class="line"><span class="comment">#设置刻度标记的大小</span></span><br><span class="line">plt.tick_params(<span class="attribute">axis</span>=<span class="string">'both'</span>,which='major',labelsize=14)</span><br><span class="line"><span class="comment">#设置每个坐标的取值范围</span></span><br><span class="line">plt.axis([0,1100,0,1100000])</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
 
@@ -343,8 +341,8 @@
 <figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#plt</span><span class="selector-class">.show</span>()</span><br><span class="line"><span class="selector-tag">plt</span><span class="selector-class">.savefig</span>(<span class="string">"save.jpg"</span>,bbox_inches=<span class="string">"tight"</span>)</span><br></pre></td></tr></table></figure>
 
 <h4 id="plt-bar"><a href="#plt-bar" class="headerlink" title="plt.bar"></a>plt.bar</h4><p>画柱状图，默认是竖直条形图。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/matplotlib2.png" alt></p>
-<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">import</span> matplotlib.pyplot as plt</span><br><span class="line"><span class="built_in">import</span> numpy as np</span><br><span class="line"><span class="attr">y</span> = [<span class="number">20</span>, <span class="number">10</span>, <span class="number">30</span>, <span class="number">25</span>, <span class="number">15</span>]</span><br><span class="line"><span class="attr">x</span> = np.arange(<span class="number">5</span>)</span><br><span class="line"><span class="attr">p1</span> = plt.bar(x, <span class="attr">height=y,</span> <span class="attr">width=0.5,</span> )</span><br><span class="line"><span class="comment"># 展示图形</span></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/matplotlib2.png" alt=""></p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot as plt</span><br><span class="line"><span class="keyword">import</span> numpy as np</span><br><span class="line">y = [<span class="number">20</span>, <span class="number">10</span>, <span class="number">30</span>, <span class="number">25</span>, <span class="number">15</span>]</span><br><span class="line">x = np.arange(<span class="number">5</span>)</span><br><span class="line">p1 = plt.bar(x, height=y, width=<span class="number">0.5</span>, )</span><br><span class="line"># 展示图形</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
 
 <p>水平条形图：需要把orientation改为horizontal，然后x与y的数据交换</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">import numpy as np</span><br><span class="line">x = [20, 10, 30, 25, 15]</span><br><span class="line">y = np.arange(5)</span><br><span class="line"><span class="comment"># x= 起始位置，bottom= 水平条的底部(左侧), y轴， height：水平条的宽度</span></span><br><span class="line"><span class="comment">#width：水平条的长度</span></span><br><span class="line">p1 = plt.bar(<span class="attribute">x</span>=0, <span class="attribute">bottom</span>=y, <span class="attribute">height</span>=0.5, <span class="attribute">width</span>=x, <span class="attribute">orientation</span>=<span class="string">"horizontal"</span>)</span><br><span class="line"><span class="comment"># 展示图形</span></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
@@ -436,7 +434,7 @@
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2019/09/17/SVM解读(4)/" rel="next" title="SVM解读(4)">
+              <a href="/2019/09/17/SVM%E8%A7%A3%E8%AF%BB(4)/" rel="next" title="SVM解读(4)">
                 <i class="fa fa-chevron-left"></i> SVM解读(4)
               </a>
             
@@ -445,7 +443,7 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2019/09/19/关系数据库/" rel="prev" title="关系数据库">
+              <a href="/2019/09/19/%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="prev" title="关系数据库">
                 关系数据库 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -501,7 +499,7 @@
   <nav class="site-state motion-element">
       <div class="site-state-item site-state-posts">
         
-          <a href="/archives/">
+          <a href="/archives/%20%7C%7C%20archive">
         
           <span class="site-state-item-count">83</span>
           <span class="site-state-item-name">日志</span>
@@ -513,7 +511,7 @@
       <div class="site-state-item site-state-categories">
         
           
-            <a href="/categories/">
+            <a href="/categories/%20%7C%7C%20th">
           
         
         
@@ -572,7 +570,7 @@
       <div class="site-state-item site-state-tags">
         
           
-            <a href="/tags/">
+            <a href="/tags/%20%7C%7C%20tags">
           
         
         

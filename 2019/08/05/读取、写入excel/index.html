@@ -7,7 +7,7 @@
 <html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.0.0">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -61,21 +61,19 @@
 <meta name="keywords" content="xlrd、xlwt">
 <meta property="og:type" content="article">
 <meta property="og:title" content="读取、写入excel">
-<meta property="og:url" content="http://yoursite.com/2019/08/05/读取、写入excel/index.html">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;08&#x2F;05&#x2F;%E8%AF%BB%E5%8F%96%E3%80%81%E5%86%99%E5%85%A5excel&#x2F;index.html">
 <meta property="og:site_name" content="DY的个人博客">
 <meta property="og:description" content="​    今天我们来讲一下python如何对excel进行 读取和写入操作。 ##xlrd只支持对excel文件个是为xls文件的读取。  table = data.sheets()[0]                             #通过索引顺序获取 table = data.sheet_by_index(sheet_index)) #通过索引顺序获取 table = data.sh">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/excel.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/excel1.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/excel2.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/excel3.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;excel.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;excel1.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;excel2.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;excel3.png">
 <meta property="og:updated_time" content="2019-09-15T06:21:30.520Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="读取、写入excel">
-<meta name="twitter:description" content="​    今天我们来讲一下python如何对excel进行 读取和写入操作。 ##xlrd只支持对excel文件个是为xls文件的读取。  table = data.sheets()[0]                             #通过索引顺序获取 table = data.sheet_by_index(sheet_index)) #通过索引顺序获取 table = data.sh">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/excel.png">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;excel.png">
   <link rel="alternate" href="/atom.xml" title="DY的个人博客" type="application/atom+xml">
-  <link rel="canonical" href="http://yoursite.com/2019/08/05/读取、写入excel/">
+  <link rel="canonical" href="http://yoursite.com/2019/08/05/%E8%AF%BB%E5%8F%96%E3%80%81%E5%86%99%E5%85%A5excel/">
 
 
 <script id="page.configurations">
@@ -197,7 +195,7 @@
 
   </li>
         <li class="menu-item menu-item-search">
-          <a href="javascript:;" class="popup-trigger">
+          <a href="javascript:;" target="_blank" rel="noopener" class="popup-trigger">
           
             <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
         </li>
@@ -250,7 +248,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/05/读取、写入excel/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/05/%E8%AF%BB%E5%8F%96%E3%80%81%E5%86%99%E5%85%A5excel/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="湛蓝星空">
@@ -330,12 +328,12 @@
       
         <p>​    今天我们来讲一下python如何对excel进行 读取和写入操作。</p>
 <p>##xlrd只支持对excel文件个是为xls文件的读取。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/excel.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/excel.png" alt=""></p>
 <p>table = data.sheets()[0]                             #通过索引顺序获取</p>
 <p>table = data.sheet_by_index(sheet_index)) #通过索引顺序获取</p>
 <p>table = data.sheet_by_name(sheet_name)#通过名称获取</p>
 <p>name=workbook_r.sheet_names()     #获取文件的所有工作表名字</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/excel1.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/excel1.png" alt=""></p>
 <p>对行的操作：</p>
 <p>nrows = table.nrows  #获取该sheet中的有效行数</p>
 <p>table.row(rowx)  #返回由该行中所有的单元格对象组成的列表</p>
@@ -353,12 +351,12 @@
 <p>单元格</p>
 <p>A1= table.cell(0,0).value</p>
 <p>C4=able.cell(2,3).value</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/excel2.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/excel2.png" alt=""></p>
 <p>使用行列索引</p>
 <p>cell_A1 = table.row(0)[0].value</p>
 <p>cell_A2 = table.col(1)[0].value</p>
 <p>##xlwt只支持对Excel文件格式为xls文件的写入</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/excel3.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/excel3.png" alt=""></p>
 <p>add_sheet(sheet_name):    添加sheet</p>
 <p>get_sheet(Sheet_name):    选择sheet</p>
 <p>save(file_name):          保存</p>
@@ -408,12 +406,12 @@
           
         
         <div class="post-tags">
-            <a href="/tags/xlrd、xlwt/" rel="tag"># xlrd、xlwt</a>
+            <a href="/tags/xlrd%E3%80%81xlwt/" rel="tag"># xlrd、xlwt</a>
           
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2019/08/05/垃圾回收GC/" rel="next" title="垃圾回收GC">
+              <a href="/2019/08/05/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6GC/" rel="next" title="垃圾回收GC">
                 <i class="fa fa-chevron-left"></i> 垃圾回收GC
               </a>
             
@@ -422,7 +420,7 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2019/08/05/正则表达式/" rel="prev" title="正则表达式">
+              <a href="/2019/08/05/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="prev" title="正则表达式">
                 正则表达式 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -469,7 +467,7 @@
   <nav class="site-state motion-element">
       <div class="site-state-item site-state-posts">
         
-          <a href="/archives/">
+          <a href="/archives/%20%7C%7C%20archive">
         
           <span class="site-state-item-count">83</span>
           <span class="site-state-item-name">日志</span>
@@ -481,7 +479,7 @@
       <div class="site-state-item site-state-categories">
         
           
-            <a href="/categories/">
+            <a href="/categories/%20%7C%7C%20th">
           
         
         
@@ -540,7 +538,7 @@
       <div class="site-state-item site-state-tags">
         
           
-            <a href="/tags/">
+            <a href="/tags/%20%7C%7C%20tags">
           
         
         

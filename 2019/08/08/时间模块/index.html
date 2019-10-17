@@ -7,7 +7,7 @@
 <html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.0.0">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -61,33 +61,31 @@
 <meta name="keywords" content="python时间管理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="时间模块">
-<meta property="og:url" content="http://yoursite.com/2019/08/08/时间模块/index.html">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;08&#x2F;08&#x2F;%E6%97%B6%E9%97%B4%E6%A8%A1%E5%9D%97&#x2F;index.html">
 <meta property="og:site_name" content="DY的个人博客">
 <meta property="og:description" content="​    今天我们来讲一下python里面的时间模块。time 模块提供各种时间相关的功能。在 Python 中，与时间处理有关的模块包括：time，datetime 以及 calendar。 首先先来一波术语解释： 时间戳（timestamp）的方式：通常来说，时间戳表示的是从 1970 年 1 月 1 日 00:00:00 开始按秒计算的偏移量（time.gmtime(0)）此模块中的函数无法">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time1.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time2.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time5.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time3.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time6.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time10.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time7.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time8.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time9.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time11.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time12.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time13.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time14.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time15.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time16.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time17.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;time1.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;time2.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;time5.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;time3.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;time6.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;time10.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;time7.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;time8.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;time9.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;time11.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;time12.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;time13.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;time14.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;time15.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;time16.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;time17.png">
 <meta property="og:updated_time" content="2019-09-15T06:24:21.468Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="时间模块">
-<meta name="twitter:description" content="​    今天我们来讲一下python里面的时间模块。time 模块提供各种时间相关的功能。在 Python 中，与时间处理有关的模块包括：time，datetime 以及 calendar。 首先先来一波术语解释： 时间戳（timestamp）的方式：通常来说，时间戳表示的是从 1970 年 1 月 1 日 00:00:00 开始按秒计算的偏移量（time.gmtime(0)）此模块中的函数无法">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time1.png">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;time1.png">
   <link rel="alternate" href="/atom.xml" title="DY的个人博客" type="application/atom+xml">
-  <link rel="canonical" href="http://yoursite.com/2019/08/08/时间模块/">
+  <link rel="canonical" href="http://yoursite.com/2019/08/08/%E6%97%B6%E9%97%B4%E6%A8%A1%E5%9D%97/">
 
 
 <script id="page.configurations">
@@ -209,7 +207,7 @@
 
   </li>
         <li class="menu-item menu-item-search">
-          <a href="javascript:;" class="popup-trigger">
+          <a href="javascript:;" target="_blank" rel="noopener" class="popup-trigger">
           
             <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
         </li>
@@ -262,7 +260,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/08/时间模块/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/08/%E6%97%B6%E9%97%B4%E6%A8%A1%E5%9D%97/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="湛蓝星空">
@@ -346,9 +344,9 @@
 <p>UTC（Coordinated Universal Time，世界协调时）也叫格林威治天文时间，是世界标准时间。在中国为 UTC+8</p>
 <p>DST（Daylight Saving Time）即夏令时的意思。一些实时函数的计算精度可能低于它们建议的值或参数，例如在大部分 Unix 系统，时钟一秒钟“滴答”50~100 次</p>
 <p>gmtime()，localtime()和 strptime() 以时间元祖（struct_time）的形式返回。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time1.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time1.png" alt=""></p>
 <p><strong>注一</strong>：范围真的是0-61.这是基于历史原因。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time2.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time2.png" alt=""></p>
 <p>##time</p>
 <p> <strong>time.altzone</strong>：返回格林威治西部的夏令时地区的偏移秒数；如果该地区在格林威治东部会返回负值（如西欧，包括英国）；对夏令时启用地区才能使用。</p>
 <p> <strong>time.asctime([t])</strong>：接受时间元组并返回一个可读的形式为”Tue Dec 11 18:07:14 2015”（2015年12月11日 周二 18时07分14秒）的 24 个字符的字符串。</p>
@@ -368,33 +366,33 @@
 <p><strong>time.tzname</strong>：time.tzname 属性是包含两个字符串的元组：第一是当地非夏令时区的名称，第二个是当地的 DST 时区的名称。</p>
 <p><strong>time.strftime(format[, t])</strong> ：把一个代表时间的元组或者 struct_time（如由 time.localtime() 和 time.gmtime() 返回）转化为格式化的时间字符串。如果 t 未指定，将传入 time.localtime()。如果元组中任何一个元素越界，将会抛出 ValueError 异常。</p>
 <p><strong>time.strptime(string[, format])</strong>：把一个格式化时间字符串转化为 struct_time。实际上它和 strftime() 是逆操作</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time5.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time5.png" alt=""></p>
 <p>format 格式如下：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time3.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time3.png" alt=""></p>
 <p>注1：“%p”只有与“%I”配合使用才有效果。</p>
 <p>注2：范围真的是*0 ~ 61（你没有看错哦）；60代表闰秒，61是基于历史原因保留。</p>
 <p>注3：当使用 strptime() 函数时，只有当在这年中的周数和天数被确定的时候%U <em>和</em> %W 才会被计算。</p>
 <h2 id="datetime"><a href="#datetime" class="headerlink" title="datetime"></a>datetime</h2><p><strong>datetime.today()</strong>：返回一个表示当前本地时间的 datetime 对象，等同于 datetime.fromtimestamp(time.time())</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time6.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time6.png" alt=""></p>
 <p><strong>datetime.now(tz=None)</strong>：返回一个表示当前本地时间的 datetime 对象；如果提供了参数 tz，则获取 tz 参数所指时区的本地时间</p>
 <p><strong>datetime.utcnow()</strong>:返回一个当前 UTC 时间的 datetime 对象</p>
 <p><strong>datetime.fromtimestamp(timestamp, tz=None)</strong>: 根据时间戮创建一个 datetime 对象，参数 tz 指定时区信息</p>
 <p><strong>datetime.utcfromtimestamp(timestamp)</strong>: 根据时间戮创建一个 UTC 时间的 datetime 对象</p>
 <p><strong>datetime.fromordinal(ordinal)</strong>: 返回对应 Gregorian 日历时间对应的 datetime 对象</p>
 <p><strong>datetime.combine(date, time)</strong>: 根据参数 date 和 time，创建一个 datetime 对象</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time10.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time10.png" alt=""></p>
 <p><strong>datetime.strptime(date_string, format)</strong>: 将格式化字符串转换为 datetime 对象</p>
 <p><strong>datetime.timedelta</strong>对象代表两个时间之间的时间差，两个date或datetime对象相减就可以返回一个timedelta对象。</p>
 <p>*<em>datetime.timedelta([days[, seconds[, microseconds[, milliseconds[, minutes[, hours[, weeks]]]]]]]) *</em></p>
 <p>往前算：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time7.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time7.png" alt=""></p>
 <p>往后算：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time8.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time8.png" alt=""></p>
 <p><strong>datetime.date()</strong>：返回一个 date 对象datetime.time() - 返回一个 time 对象（tzinfo 属性为 None）</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time9.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time9.png" alt=""></p>
 <p><strong>datetime.timetz()</strong>： 返回一个 time() 对象（带有 tzinfo 属性）</p>
 <p><strong>datetime.replace([year[, month[, day[, hour[, minute[, second[, microsecond[, tzinfo]]]]]]]])</strong>： 生成一个新的日期对象，用参数指定日期和时间代替原有对象中的属性</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time11.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time11.png" alt=""></p>
 <p><strong>datetime.astimezone(tz=None)</strong>： 传入一个新的 tzinfo 属性，返回根据新时区调整好的 datetime 对象</p>
 <p><strong>datetime.utcoffset()</strong>：如果 tzinfo 属性是 None，则返回 None；否则返回 self.tzinfo.utcoffset(self)</p>
 <p><strong>datetime.dst()</strong>：如果 tzinfo 属性是 None，则返回 None；否则返回 self.tzinfo.dst(self)</p>
@@ -404,18 +402,18 @@
 <p><strong>datetime.toordinal()</strong>：返回日期对应的 Gregorian Calendar 日期（类似于 self.date().toordinal()）</p>
 <p><strong>datetime.timestamp()</strong>：返回当前时间的时间戳（类似于 <a href="http://bbs.fishc.com/thread-51326-1-1.html" target="_blank" rel="noopener">time 模块</a>的 time.time()）</p>
 <p><strong>datetime.weekday()</strong>：返回 0 ~ 6 表示星期几（星期一是 0，依此类推）</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time12.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time12.png" alt=""></p>
 <p><strong>datetime.isoweekday()</strong>： 返回 1 ~ 7 表示星期几（星期一是1， 依此类推）</p>
 <p><strong>datetime.isocalendar()</strong> ：返回一个三元组格式 (year, month, day)</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time13.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time13.png" alt=""></p>
 <p><strong>datetime.isoformat(sep=’T’)</strong>：返回一个 ISO 8601 格式的日期字符串，如 “YYYY-MM-DD” 的字符串</p>
 <p><strong>datetime.__str__()</strong>：对于 date 对象 d 来说，str(d) 相当于 d.isoformat()</p>
 <p><strong>datetime.ctime()</strong>：返回一个表示日期的字符串，相当于 time模块的 time.ctime(time.mktime(d.timetuple()))</p>
 <p><strong>datetime.strftime(format)</strong>:返回自定义格式化字符串表示日期。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time14.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time14.png" alt=""></p>
 <p><strong>datetime.__format__(format)</strong>跟 datetime.strftime(format) 一样，这使得调用 str.format() 时可以指定 data 对象的字符串</p>
 <h2 id="calendar"><a href="#calendar" class="headerlink" title="calendar"></a>calendar</h2><p>calendar.calendar(year,w,l,c)(year为年份，w是每日宽度，c为间隔距离，l为每星期行数) 日历</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time15.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time15.png" alt=""></p>
 <p>*<em>calendar.isleap(year) *</em>：如果是闰年就返回True，否则返回False</p>
 <p><strong>calendar.leapdays(y1,y2)</strong>：返回y1与y2两年间的闰年总数</p>
 <p>*<em>calendar.month(year,month,w,l) *</em>：year代表年份，month代表月日历，每行宽度间隔为w，l是每星期的行数</p>
@@ -427,9 +425,9 @@
 <p><strong>calendar.timegm</strong>(时间元祖) 和time.gmtime相反</p>
 <p><strong>calendar.monthrange(year,month)</strong>：返回两个整数。第一个是该月第一天是星期几的日期码，第二个是该月的日期码。日从0（星期一）到6（星期日）;月从1到12。</p>
 <h2 id="timeit"><a href="#timeit" class="headerlink" title="timeit"></a>timeit</h2><p>测试一个函数的执行时间：timeit.timeit</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time16.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time16.png" alt=""></p>
 <p>timeit.repeat:返回一个包含了每次实验的执行时间的列表</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time17.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time17.png" alt=""></p>
 <p>三个时间模块的函数特别多，我也没有一一去试。用到的时候才会深究，各位看官根据自己的情况来试着使用起来吧。</p>
 
     </div>
@@ -477,12 +475,12 @@
           
         
         <div class="post-tags">
-            <a href="/tags/python时间管理/" rel="tag"># python时间管理</a>
+            <a href="/tags/python%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/" rel="tag"># python时间管理</a>
           
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2019/08/07/python常用模块（3）/" rel="next" title="python常用模块（3）">
+              <a href="/2019/08/07/python%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%9D%97%EF%BC%883%EF%BC%89/" rel="next" title="python常用模块（3）">
                 <i class="fa fa-chevron-left"></i> python常用模块（3）
               </a>
             
@@ -547,7 +545,7 @@
   <nav class="site-state motion-element">
       <div class="site-state-item site-state-posts">
         
-          <a href="/archives/">
+          <a href="/archives/%20%7C%7C%20archive">
         
           <span class="site-state-item-count">83</span>
           <span class="site-state-item-name">日志</span>
@@ -559,7 +557,7 @@
       <div class="site-state-item site-state-categories">
         
           
-            <a href="/categories/">
+            <a href="/categories/%20%7C%7C%20th">
           
         
         
@@ -618,7 +616,7 @@
       <div class="site-state-item site-state-tags">
         
           
-            <a href="/tags/">
+            <a href="/tags/%20%7C%7C%20tags">
           
         
         

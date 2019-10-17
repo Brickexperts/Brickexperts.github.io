@@ -7,7 +7,7 @@
 <html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.0.0">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -61,32 +61,30 @@
 <meta name="keywords" content="深度学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深度学习的实用层面">
-<meta property="og:url" content="http://yoursite.com/2019/10/08/深度学习的应用层面/index.html">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;08&#x2F;%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%BA%94%E7%94%A8%E5%B1%82%E9%9D%A2&#x2F;index.html">
 <meta property="og:site_name" content="DY的个人博客">
 <meta property="og:description" content="在配置训练、验证和测试数据集的过程中做出正确决策会在很大程度上帮助大家创建高效的神经网络。训练神经网络时，我们需要做出很多决策，例如：神经网络分多少层、每层含有多少个隐藏单元、学习速率是多少、各层采用哪些激活函数等问题。 训练、验证和测试集我们通常会将这些数据划分成三部分，一部分作为训练集（train set），一部分作为简单交叉验证集，有时也称之为验证集，方便起见，我就叫它验证集（dev set">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191008123133.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191008123354.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/forest5.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191008191606.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191008212828.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191008213026.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191009170758.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191009193402.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191009203859.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191009200928.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191009212210.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191009212709.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191009214916.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191009221916.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191009222132.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191008123133.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191008123354.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;forest5.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191008191606.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191008212828.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191008213026.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191009170758.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191009193402.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191009203859.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191009200928.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191009212210.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191009212709.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191009214916.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191009221916.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191009222132.png">
 <meta property="og:updated_time" content="2019-10-10T13:00:00.989Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="深度学习的实用层面">
-<meta name="twitter:description" content="在配置训练、验证和测试数据集的过程中做出正确决策会在很大程度上帮助大家创建高效的神经网络。训练神经网络时，我们需要做出很多决策，例如：神经网络分多少层、每层含有多少个隐藏单元、学习速率是多少、各层采用哪些激活函数等问题。 训练、验证和测试集我们通常会将这些数据划分成三部分，一部分作为训练集（train set），一部分作为简单交叉验证集，有时也称之为验证集，方便起见，我就叫它验证集（dev set">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191008123133.png">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191008123133.png">
   <link rel="alternate" href="/atom.xml" title="DY的个人博客" type="application/atom+xml">
-  <link rel="canonical" href="http://yoursite.com/2019/10/08/深度学习的应用层面/">
+  <link rel="canonical" href="http://yoursite.com/2019/10/08/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%BA%94%E7%94%A8%E5%B1%82%E9%9D%A2/">
 
 
 <script id="page.configurations">
@@ -208,7 +206,7 @@
 
   </li>
         <li class="menu-item menu-item-search">
-          <a href="javascript:;" class="popup-trigger">
+          <a href="javascript:;" target="_blank" rel="noopener" class="popup-trigger">
           
             <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
         </li>
@@ -261,7 +259,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/08/深度学习的应用层面/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/08/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%BA%94%E7%94%A8%E5%B1%82%E9%9D%A2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="湛蓝星空">
@@ -320,14 +318,14 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/深度学习/" itemprop="url" rel="index"><span itemprop="name">深度学习</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">深度学习</span></a></span>
 
                 
                 
                   ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/深度学习/改善深度神经网络/" itemprop="url" rel="index"><span itemprop="name">改善深度神经网络</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%94%B9%E5%96%84%E6%B7%B1%E5%BA%A6%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">改善深度神经网络</span></a></span>
 
                 
                 
@@ -351,20 +349,20 @@
 <p>接下来，我们开始对训练执行算法，通过验证集或简单交叉验证集选择最好的模型，经过充分验证，我们选定了最终模型，然后就可以在测试集上进行评估了，为了无偏评估算法的运行状况。</p>
 <p>在机器学习发展的小数据量时代，常见做法是将所有数据三七分，就是人们常说的70%验证集，30%测试集，如果没有明确设置验证集，也可以按照60%训练，20%验证和20%测试集来划分。没有测试集也不要紧，测试集的目的是对最终所选定的神经网络系统做出无偏估计，如果不需要无偏估计，也可以不设置测试集。</p>
 <p>在机器学习中，如果只有一个训练集和一个验证集，而没有独立的测试集，遇到这种情况，训练集还被人们称为训练集，而验证集则被称为测试集。</p>
-<h2 id="偏差（Bias）、方差（Variance）"><a href="#偏差（Bias）、方差（Variance）" class="headerlink" title="偏差（Bias）、方差（Variance）"></a>偏差（Bias）、方差（Variance）</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191008123133.png" alt></p>
+<h2 id="偏差（Bias）、方差（Variance）"><a href="#偏差（Bias）、方差（Variance）" class="headerlink" title="偏差（Bias）、方差（Variance）"></a>偏差（Bias）、方差（Variance）</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191008123133.png" alt=""></p>
 <p>假设这就是数据集，如果给这个数据集拟合一条直线，可能得到一个逻辑回归拟合，但它并不能很好地拟合该数据，这是高偏差（<strong>high bias</strong>）的情况，我们称为“欠拟合”（<strong>underfitting</strong>）。</p>
 <p>相反的如果我们拟合一个非常复杂的分类器，比如深度神经网络或含有隐藏单元的神经网络，可能就非常适用于这个数据集，但是这看起来也不是一种很好的拟合方式分类器方差较高（<strong>high variance</strong>），数据过度拟合（<strong>overfitting</strong>）。</p>
 <p>在两者之间，可能还有复杂程度适中，数据拟合适度的分类器，这个数据拟合看起来更加合理，我们称之为“适度拟合”（<strong>just right</strong>）是介于过度拟合和欠拟合中间的一类。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191008123354.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191008123354.png" alt=""></p>
 <p>下面举例子：</p>
 <p>假定训练集误差是1%，为了方便论证，假定验证集误差是11%，可以看出训练集设置得非常好，而验证集设置相对较差，我们可能过度拟合了训练集，在某种程度上，<strong>验证集并没有充分利用交叉验证集的作用，像这种情况，我们称之为“高方差”。</strong></p>
 <p>通过查看训练集误差和验证集误差，我们便可以诊断算法是否具有高方差。<strong>也就是说衡量训练集和验证集误差就可以得出不同结论。</strong></p>
 <p>假设训练集误差是15%，我们把训练集误差写在首行，验证集误差是16%，假设该案例中人的错误率几乎为0%，人们浏览这些图片，分辨出是不是猫。算法并没有在训练集中得到很好训练，如果训练数据的拟合度不高，就是数据欠拟合，就可以说这种算法偏差比较高。相反，它对于验证集产生的结果却是合理的，验证集中的错误率只比训练集的多了1%，所以这种算法偏差高，因为它甚至不能拟合训练集，这与上一张图最左边的图片相似。</p>
 <p>上面的分析都是基于假设预测，假设人眼辨别的错误率接近0%。最优误差也被称为贝叶斯误差。如果最优误差或贝叶斯误差非常高，比如15%。我们再看看上面这个分类器（训练误差15%，验证误差16%），15%的错误率对训练集来说也是非常合理的，偏差不高，方差也非常低。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/forest5.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/forest5.png" alt=""></p>
 <h2 id="正则化（Rugularization）"><a href="#正则化（Rugularization）" class="headerlink" title="正则化（Rugularization）"></a>正则化（Rugularization）</h2><p>如果你怀疑神经网络过度拟合了数据，即存在高方差问题，那么最先想到的方法可能是正则化，另一个解决高方差的方法就是准备更多数据，这也是非常可靠的办法，但你可能无法时时准备足够多的训练数据，或者，获取更多数据的成本很高，但正则化有助于避免过度拟合，或者减少网络误差，下面我们就来讲讲正则化的作用原理。</p>
 <h3 id="L2正则化"><a href="#L2正则化" class="headerlink" title="L2正则化"></a>L2正则化</h3><p>我们用逻辑回归讲解原理。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191008191606.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191008191606.png" alt=""></p>
 <p>&lambda;/2m乘以&omega;范数的平方。&omega;是欧几里得范数，&omega;的平方等于&omega;<sub>j</sub> (j值从1到n<sub>x</sub>)，也可以表示为&omega;<sup>T</sup>&omega;。此方法称为L2正则化。这里的&lambda;就是正则化参数。因为这里使用了欧几里得法线，被称为向量参数&omega;的L2范式。</p>
 <p>为什么只正则化参数&omega;呢？我们可以加上参数b吗？我们可以这么做，但是一般习惯省略不写。因为&omega;通常是一个高维参数矢量，已经可以表达高偏差问题，&omega;可能包含很多参数，我们不可能拟合所有参数，而b只是单个数字，所以&omega;几乎涵盖所有参数，而不是b。如果加了参数b，没什么影响。因为b也是众多参数的一个，想加就加，没有问题。</p>
 <p>L2正则化是最常见的正则化类型，还有L1正则化。L1正则化加的不是L2范式，而是正则项 &lambda;/m乘以$\sum_{j=1}^n $ |&omega;|，这也被称为参数&omega;向量的L1范数。(这里的n就是项数，和L2范式的nx一样)</p>
@@ -374,9 +372,9 @@
 <p>总结一下，如果正则化参数变得很大，参数W很小，z也会相对变小，此时忽略b的影响，z会相对变小，实际上，z的取值范围很小，这个激活函数，也就是曲线函数tanh会相对呈线性，整个神经网络会计算离线性函数近的值，这个线性函数非常简单，并不是一个极复杂的高度非线性函数，不会发生过拟合。</p>
 <p>###dropout正则化</p>
 <p>除了L2正则化，还有一个非常使用的正则化方法——Dropout(随机失活)。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191008212828.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191008212828.png" alt=""></p>
 <p>假设你在训练上图这样的神经网络，它存在过拟合，这就是<strong>dropout</strong>所要处理的，我们复制这个神经网络，<strong>dropout</strong>会遍历网络的每一层，并设置消除神经网络中节点的概率。假设网络中的每一层，每个节点都以抛硬币的方式设置概率，每个节点得以保留和消除的概率都是0.5，设置完节点概率，我们会消除一些节点，然后删除掉从该节点进出的连线，最后得到一个节点更少，规模更小的网络，然后用<strong>backprop</strong>方法进行训练。如下图：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191008213026.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191008213026.png" alt=""></p>
 <p>这是网络节点精简后的一个样本，对于其它样本，我们照旧以抛硬币的方式设置概率，保留一类节点集合，删除其它类型的节点集合。对于每个训练样本，我们都将采用一个精简后神经网络来训练它，这种方法似乎有点怪，单纯遍历节点，编码也是随机的，可它真的有效。不过可想而知，我们针对每个训练样本训练规模极小的网络，最后你可能会认识到为什么要正则化网络，因为我们在训练极小的网络。</p>
 <h3 id="如何实施dropout？"><a href="#如何实施dropout？" class="headerlink" title="如何实施dropout？"></a>如何实施dropout？</h3><p>吴恩达老师讲了最常用的方法。就是inverted dropout(随机失活)。</p>
 <p>首先定义变量d，d3表示一个三层的dropout向量:</p>
@@ -397,24 +395,24 @@
 <p>它的功能是，不论keep-prop的值是多少0.8，0.9甚至是1，如果keep-prop设置为1，那么就不存在dropout，因为它会保留所有节点。反向随机失活（inverted dropout）方法通过除以keep-prob，确保a<sup>[3]</sup>的期望值不变。</p>
 <h3 id="理解dropout"><a href="#理解dropout" class="headerlink" title="理解dropout"></a>理解dropout</h3><p><strong>Dropout</strong>可以随机删除网络中的神经单元，他为什么可以通过正则化发挥如此大的作用呢？</p>
 <p>直观上理解：不要依赖于任何一个特征，因为该单元的输入可能随时被清除，所以不愿意给任何一个输入加上太多权重。因此该单元通过这种方式传播下去，并为单元的四个输入增加一点权重，通过传播所有权重，dropout将产生收缩权重的平方范数的效果。和之前讲的L2正则化类似，实施dropout的结果实它会压缩权重，并完成一些预防过拟合的外层正则化。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191009170758.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191009170758.png" alt=""></p>
 <p>实施dropout的另一个细节是，这是一个拥有三个输入特征的网络，其中一个要选择的参数是keep-prob，它代表每一层上保留单元的概率。所以不同层的keep-prob也可以变化。第一层，矩阵W<sup>[1]</sup>是7×3，第二个权重矩阵W<sup>[2]</sup>是7×7，第三个权重矩阵W<sup>[3]</sup>是3×7，以此类推，W<sup>[2]</sup>是最大的权重矩阵，因为W<sup>[2]</sup>拥有最大参数集，即7×7，为了预防矩阵的过拟合，对于这一层，它的keep-prob值应该相对较低，假设是0.5。对于其它层，过拟合的程度可能没那么严重，它们的keep-prob值可能高一些，可能是0.7甚至更高，假设这里是0.7。如果在某一层，我们不必担心其过拟合的问题，那么keep-prob可以为1。</p>
 <p><strong>总结：</strong>如果我们担心某些层比其他层更容易发生过拟合，可以把某些层的keep-prob值设置得比其他层更低，缺点是为了使用交叉验证，我们要搜索更多得超级参数。另一种方案是在一些层上应用dropout，而有些层不用dropout应用。dropout的层只含有keep-prob这一个超参数。</p>
 <p>dropout一大缺点就是代价函数J不再被明确定义，因为每次迭代都会随机移除一些节点，如果再三检查梯度下降的性能，实际上是很难进行复查的。所以吴恩达老师推荐通常会关闭dropout函数，将keep-prob的值设为1，运行代码，确保J函数单调递减。然后打开dropout函数，希望在dropout过程中，代码并未引入bug。</p>
 <h3 id="其它正则化方法"><a href="#其它正则化方法" class="headerlink" title="其它正则化方法"></a>其它正则化方法</h3><h4 id="数据扩增"><a href="#数据扩增" class="headerlink" title="数据扩增"></a>数据扩增</h4><p>假设我们正在拟合猫咪图片分类器，如果我们想通过扩增训练数据来解决过拟合，但扩增数据代价高，而且有时候我们无法扩增数据，但我们可以通过添加这类图片来增加训练集。例如，水平翻转图片，并把它添加到训练集。所以现在训练集中有原图，还有翻转后的这张图片，所以通过水平翻转图片，训练集则可以增大一倍，因为训练集有冗余，这虽然不如我们额外收集一组新图片那么好，但这样做节省了获取更多猫咪图片的花费。</p>
 <p>除了水平翻转图片，你也可以随意裁剪图片，这张图是把原图旋转并随意放大后裁剪的，仍能辨别出图片中的猫咪。</p>
 <p>通过随意翻转和裁剪图片，我们可以增大数据集，额外生成假训练数据。和全新的，独立的猫咪图片数据相比，这些额外的假的数据无法包含像全新数据那么多的信息，但我们这么做基本没有花费，代价几乎为零，除了一些对抗性代价。以这种方式扩增算法数据，进而正则化数据集，减少过拟合比较廉价。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191009193402.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191009193402.png" alt=""></p>
 <p>对于光学字符识别，我们还可以通过添加数字，随意旋转或扭曲数字来扩增数据，把这些数字添加到训练集，它们仍然是数字。为了方便说明，我对字符做了强变形处理，所以数字4看起来是波形的，其实不用对数字4做这么夸张的扭曲，只要轻微的变形就好，我做成这样是为了让大家看的更清楚。实际操作的时候，我们通常对字符做更轻微的变形处理。因为这几个4看起来有点扭曲。所以，数据扩增可作为正则化方法使用，实际功能上也与正则化相似。</p>
-<h4 id="early-stopping"><a href="#early-stopping" class="headerlink" title="early stopping"></a>early stopping</h4><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191009203859.png" alt></p>
+<h4 id="early-stopping"><a href="#early-stopping" class="headerlink" title="early stopping"></a>early stopping</h4><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191009203859.png" alt=""></p>
 <p>因为在训练过程中，我们希望训练误差，代价函数J都在下降，通过early stopping，我们不但可以绘制上面这些内容，还可以绘制验证集误差，它可以是验证集上的分类误差，或验证集上的代价函数，逻辑损失和对数损失等，你会发现，验证集误差通常会先呈下降趋势，然后在某个节点处开始上升。early stopping 代表提早停止训练神经网络。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191009200928.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191009200928.png" alt=""></p>
 <p>当我们还未在神经网络上运行太多迭代过程的时候，参数&omega;接近0，因为随机初始化&omega;值时，它的值可能都是较小的随机值，所以在我们长期训练神经网络之前&omega;依然很小，在迭代过程和训练过程中&omega;的值会变得越来越大，比如在这儿，神经网络中参数&omega;的值已经非常大了，所以early stopping要做就是在中间点停止迭代过程，我们得到一个&omega;值中等大小的弗罗贝尼乌斯范数，与L2正则化相似，选择参数&omega;范数较小的神经网络，但愿那时的神经网络过度拟合不严重。</p>
 <p>early stopping 有一个缺点，接下来了解一下。</p>
 <p>在机器学习中，超级参数激增，选出可行的算法也变得越来越复杂。在重点优化代价函数时，你只需要留意&omega;和b，J(&omega;,b)的值越小越好，你只需要想办法减小这个值，其它的不用关注。然后，预防过拟合还有其他任务，就是减少方差”。</p>
 <p>缺点就是我们不能独立地处理这两个问题，因为提早停止梯度下降，也就是停止了优化代价函数J，因为现在你不再尝试降低代价函数J，所以代价函数J的值可能不够小，同时你又希望不出现过拟合，你没有采取不同的方式来解决这两个问题，而是用一种方法同时解决两个问题，这样做的结果是我要考虑的东西变得更复杂。</p>
 <h2 id="归一化输入"><a href="#归一化输入" class="headerlink" title="归一化输入"></a>归一化输入</h2><p>假设我们有一个数据集，它有两个输入特征，所以数据是二维的。下图即为数据集散点图:</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191009212210.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191009212210.png" alt=""></p>
 <p>训练神经网络，其中一个加速训练的方法就是归一化输入。假设一个训练集有两个特征，输入特征为2维，归一化需要两个步骤：</p>
 <ol>
 <li>零均值</li>
@@ -427,23 +425,23 @@
 </blockquote>
 <p>μ是一个向量，x等于每个训练数据x减去μ，意思是移动数据集，直到完成零均值化。</p>
 <p>输入数据经过零均值后，得出下面的散点图：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191009212709.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191009212709.png" alt=""></p>
 <p>第二步是归一化方差，注意特征x<sub>1</sub>的方差比特征x<sub>2</sub>的方差要大得多。</p>
 <blockquote>
 <p>μ=1/m x $\sum_{i=1}^m$(x<sup>(i)</sup>)<sup>2</sup></p>
 </blockquote>
 <p> &sigma;<sup>2</sup>是一个向量，它的每个特征都有方差。经过归一化方差后，得出下面结果：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191009214916.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191009214916.png" alt=""></p>
 <p>如果你用它来调整训练数据，那么用相同的μ和σ<sup>2</sup>来归一化测试集。尤其是，你不希望训练集和测试集的归一化有所不同，不论的μ值是什么，也不论的σ<sup>2</sup>值是什么，这两个公式中都会用到它们。所以你要用同样的方法调整测试集，而不是在训练集和测试集上分别预估μ和σ<sup>2</sup>。因为我们希望不论是训练数据还是测试数据，都是通过相同μ和σ<sup>2</sup>定义的相同数据转换，其中μ和σ<sup>2</sup>是由训练集数据计算得来的。</p>
 <p>为什么我们需要归一化输入特征？回想一下代价函数</p>
 <blockquote>
 <p>J(&omega;,b)=1/m x $\sum_{i=1}^m$L(y<sup>(i)</sup> hat , y<sup>(i)</sup>)</p>
 </blockquote>
 <p>如果输入未归一化的输入特征，代价函数如下：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191009221916.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191009221916.png" alt=""></p>
 <p>然而如果你归一化特征，代价函数平均起来看更对称，如果你在上图这样的代价函数上运行梯度下降法，你必须使用一个非常小的学习率。因为如果是在这个位置，梯度下降法可能需要多次迭代过程，直到最后找到最小值。但如果函数是一个更圆的球形轮廓，那么不论从哪个位置开始，梯度下降法都能够更直接地找到最小值，你可以在梯度下降法中使用较大步长，而不需要像在左图中那样反复执行。</p>
 <p>下图即为输入归一化输入特征的代价函数：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191009222132.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191009222132.png" alt=""></p>
 <p>如果输入特征处于不同范围内，可能有些特征值从0到1，有些从1到1000，那么归一化特征值就非常重要了。如果特征值处于相似范围内，那么归一化就不是很重要了。</p>
 <h2 id="梯度消失-梯度爆炸"><a href="#梯度消失-梯度爆炸" class="headerlink" title="梯度消失/梯度爆炸"></a>梯度消失/梯度爆炸</h2><p>训练神经网络，尤其是深度神经所面临的一个问题就是梯度消失或梯度爆炸，也就是你训练神经网络的时候，导数或坡度有时会变得非常大，或者非常小，甚至于以指数方式变小，这加大了训练的难度。</p>
 <p>吴恩达老师给我们的理解是：权重W只比1略大一点（或者说比单位矩阵略大一点），深度神经网络的激活函数将爆炸式增长，如果W比单位矩阵略小一点，激活函数将以指数级递减。</p>
@@ -494,12 +492,12 @@
           
         
         <div class="post-tags">
-            <a href="/tags/深度学习/" rel="tag"># 深度学习</a>
+            <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag"># 深度学习</a>
           
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2019/10/05/人脸验证和神经风格转换/" rel="next" title="人脸验证和神经风格转换">
+              <a href="/2019/10/05/%E4%BA%BA%E8%84%B8%E9%AA%8C%E8%AF%81%E5%92%8C%E7%A5%9E%E7%BB%8F%E9%A3%8E%E6%A0%BC%E8%BD%AC%E6%8D%A2/" rel="next" title="人脸验证和神经风格转换">
                 <i class="fa fa-chevron-left"></i> 人脸验证和神经风格转换
               </a>
             
@@ -508,7 +506,7 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2019/10/11/优化算法/" rel="prev" title="优化算法">
+              <a href="/2019/10/11/%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/" rel="prev" title="优化算法">
                 优化算法 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -564,7 +562,7 @@
   <nav class="site-state motion-element">
       <div class="site-state-item site-state-posts">
         
-          <a href="/archives/">
+          <a href="/archives/%20%7C%7C%20archive">
         
           <span class="site-state-item-count">83</span>
           <span class="site-state-item-name">日志</span>
@@ -576,7 +574,7 @@
       <div class="site-state-item site-state-categories">
         
           
-            <a href="/categories/">
+            <a href="/categories/%20%7C%7C%20th">
           
         
         
@@ -635,7 +633,7 @@
       <div class="site-state-item site-state-tags">
         
           
-            <a href="/tags/">
+            <a href="/tags/%20%7C%7C%20tags">
           
         
         

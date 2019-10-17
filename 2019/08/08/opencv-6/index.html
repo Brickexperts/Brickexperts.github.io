@@ -7,7 +7,7 @@
 <html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.0.0">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -61,27 +61,25 @@
 <meta name="keywords" content="视觉处理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="opencv(6)">
-<meta property="og:url" content="http://yoursite.com/2019/08/08/opencv-6/index.html">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;08&#x2F;08&#x2F;opencv-6&#x2F;index.html">
 <meta property="og:site_name" content="DY的个人博客">
 <meta property="og:description" content="特征提取图像特征：可以表达图像中对象的主要信息、并且以此为依据可以从其他未知图像中检测出相似或者相同图像。 常见的图像特征：边缘、角点、纹理 角点检测：cv2.cornerHarris() img:输入图像 blockSize：角点检测中要考虑的领域大小 ksize：Sobel求导中使用的窗口大小 k：方程参数，参数为[0.04，0.06]  亚像素级的角点检测：红色是原先的角点，绿色像素是修正后">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv83.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv84.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv85.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv86.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv87.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv88.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv89.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv90.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv91.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv92.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv93.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv94.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv83.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv84.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv85.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv86.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv87.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv88.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv89.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv90.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv91.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv92.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv93.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv94.png">
 <meta property="og:updated_time" content="2019-09-15T06:10:10.757Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="opencv(6)">
-<meta name="twitter:description" content="特征提取图像特征：可以表达图像中对象的主要信息、并且以此为依据可以从其他未知图像中检测出相似或者相同图像。 常见的图像特征：边缘、角点、纹理 角点检测：cv2.cornerHarris() img:输入图像 blockSize：角点检测中要考虑的领域大小 ksize：Sobel求导中使用的窗口大小 k：方程参数，参数为[0.04，0.06]  亚像素级的角点检测：红色是原先的角点，绿色像素是修正后">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv83.png">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;opencv83.png">
   <link rel="alternate" href="/atom.xml" title="DY的个人博客" type="application/atom+xml">
   <link rel="canonical" href="http://yoursite.com/2019/08/08/opencv-6/">
 
@@ -205,7 +203,7 @@
 
   </li>
         <li class="menu-item menu-item-search">
-          <a href="javascript:;" class="popup-trigger">
+          <a href="javascript:;" target="_blank" rel="noopener" class="popup-trigger">
           
             <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
         </li>
@@ -350,12 +348,12 @@
 <p>blockSize：角点检测中要考虑的领域大小</p>
 <p>ksize：Sobel求导中使用的窗口大小</p>
 <p>k：方程参数，参数为[0.04，0.06]</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv83.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv83.png" alt=""></p>
 <p>亚像素级的角点检测：红色是原先的角点，绿色像素是修正后的像素</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv84.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv84.png" alt=""></p>
 <p>适合于跟踪的角点检测：cv2.goodFeaturesToTrack():</p>
 <p>输入灰度图像、检测的角点数目、设置角点的质量水平，0-1之间，低于这个数的都会被忽略、设置两个角点间的最短欧式距离。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv85.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv85.png" alt=""></p>
 <p>SIFT尺度不变特征变换匹配算法：</p>
 <p>cv2.xfeatures2d.SIFT_create()：创建sift特征器</p>
 <p>sift.detect()可以在图像找到关键点。如果想在图像的特定区域搜索，可以创建一个掩膜图像作为参数。属性如下：</p>
@@ -378,13 +376,13 @@
 <p>DRAW_OVER_OUTIMG：函数不创建输出的图像,而是直接在输出图像变量空间绘制,要求本身输出图像变量就是一个初始化好了的,size与type都是已经初始化好的变量 </p>
 <p>NOT_DRAW_SINGLE_POINTS：单点的特征点不被绘制 </p>
 <p>DRAW_RICH_KEYPOINTS：绘制特征点的时候绘制的是一个个带有方向的圆,这种方法同时显示图像的坐标,size，和方向,是最能显示特征的一种绘制方式</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv86.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv86.png" alt=""></p>
 <p>SURF：加速稳健特征算法，加快版的SIFT。与SIFT类似</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv87.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv87.png" alt=""></p>
 <p>BRIEF:这是一种特征描述符，他不提供查找特征的方法。所以我们需要使用其他的特征检测器。例如：SIFT或SURF。推荐使用STAR。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv88.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv88.png" alt=""></p>
 <p>orb检测：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv89.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv89.png" alt=""></p>
 <p>bf暴力匹配：</p>
 <p>cv2.BFMatcher()：创建一个BFMatcher对象。参数：</p>
 <p>​     normType：指定使用的距离测试类型。默认值为cv2.NORM_L2。cv2.NORM_L1也行。这两种适用于SIFT和SURF。对于ORB,BRIEF，应使用cv2.NORM_HAMMING。如果VTA_K==3或4，normType应设置为cv2.NORM_HAMMING2。</p>
@@ -392,21 +390,21 @@
 <p>BFMatcher对象具有两个方法：match()和knnMatch()。第一种方法会返回最佳匹配，第二个方法为每个关键点返回k个最佳匹配（降序排列后取前k个）。</p>
 <p>cv2.drawMatches cv2.drawMatchsKnn：就像使用 cv2.drawKeypoints() 绘制关点一样我们可以使用 cv2.drawMatches()来绘制匹配的点。它会将两幅图像先水平排列然后在最佳匹配的点之间绘制直线从原图像到目标图像。如果前面使用的是BFMatcher.knnMatch()现在我们可以使用函数 cv2.drawMatchsKnn 为每个关键点和它的 k 个最佳匹配点绘制匹配线。如果 k 等于 2就会为每个关键点绘制两条最佳匹配直线。如果我们选择性绘制就给函数传入一个掩模。</p>
 <p> 对ORB描述符进行暴力匹配：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv90.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv90.png" alt=""></p>
 <p>match=bf.match(des1，des2)：返回值是一个DMatch对象列表。具有以下属性：</p>
 <p> DMatch.distance - 描述符之间的距离。越小越好。 </p>
 <p>• DMatch.trainIdx - 目标图像中描述符的索引。</p>
 <p> • DMatch.queryIdx - 查询图像中描述符的索引。</p>
 <p> • DMatch.imgIdx - 目标图像的索引</p>
 <p>对SIFT描述符进行暴力匹配：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv91.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv91.png" alt=""></p>
 <p>FLANN匹配器：</p>
 <p>cv2.FlannBasedMatcher( [, indexParams[, searchParams]] )</p>
 <p>indexParams：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv92.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv92.png" alt=""></p>
 <p>searchParams：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv93.png" alt></p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv94.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv93.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/opencv94.png" alt=""></p>
 
     </div>
 
@@ -453,7 +451,7 @@
           
         
         <div class="post-tags">
-            <a href="/tags/视觉处理/" rel="tag"># 视觉处理</a>
+            <a href="/tags/%E8%A7%86%E8%A7%89%E5%A4%84%E7%90%86/" rel="tag"># 视觉处理</a>
           
         </div>
         <div class="post-nav">
@@ -523,7 +521,7 @@
   <nav class="site-state motion-element">
       <div class="site-state-item site-state-posts">
         
-          <a href="/archives/">
+          <a href="/archives/%20%7C%7C%20archive">
         
           <span class="site-state-item-count">83</span>
           <span class="site-state-item-name">日志</span>
@@ -535,7 +533,7 @@
       <div class="site-state-item site-state-categories">
         
           
-            <a href="/categories/">
+            <a href="/categories/%20%7C%7C%20th">
           
         
         
@@ -594,7 +592,7 @@
       <div class="site-state-item site-state-tags">
         
           
-            <a href="/tags/">
+            <a href="/tags/%20%7C%7C%20tags">
           
         
         

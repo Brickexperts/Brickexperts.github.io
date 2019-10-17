@@ -7,7 +7,7 @@
 <html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.0.0">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -61,46 +61,44 @@
 <meta name="keywords" content="python数据结构">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python数据类型">
-<meta property="og:url" content="http://yoursite.com/2019/08/04/python数据类型/index.html">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;08&#x2F;04&#x2F;python%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B&#x2F;index.html">
 <meta property="og:site_name" content="DY的个人博客">
 <meta property="og:description" content="​    每种编程语言都有属于自己的数据类型。今天，我们就来讲一下python的数据类型——列表，元祖，字典，字符串，堆，集合，队列。 列表​     同时还有一些比较常用的方法，类似cmp(比较大小，python3已经找不到。如要使用，可以利用operator模块)，len(list)计算列表元素个数，max(list)求列表中的最大值，min(list)求最小值。下面对上面列表的排序方法(li">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%88%97%E8%A1%A8.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/list.sort.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/test.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/dict1.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/dict2.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/dict3.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/dict4.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/dict5.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/dict.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/heapq.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/set.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190804102844.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/set1.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/lifo.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/LIFO.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/queuepng">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/queue1.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/queue2.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/queue4.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/queue5.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/string.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/string2.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/string3.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/string4.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/string5.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/string6.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/string7.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/string8.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/string9.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;%E5%88%97%E8%A1%A8.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;list.sort.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;test.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;dict1.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;dict2.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;dict3.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;dict4.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;dict5.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;dict.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;heapq.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;set.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;20190804102844.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;set1.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;lifo.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;LIFO.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;queuepng">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;queue1.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;queue2.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;queue4.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;queue5.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;string.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;string2.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;string3.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;string4.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;string5.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;string6.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;string7.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;string8.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;string9.png">
 <meta property="og:updated_time" content="2019-09-15T06:20:46.053Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python数据类型">
-<meta name="twitter:description" content="​    每种编程语言都有属于自己的数据类型。今天，我们就来讲一下python的数据类型——列表，元祖，字典，字符串，堆，集合，队列。 列表​     同时还有一些比较常用的方法，类似cmp(比较大小，python3已经找不到。如要使用，可以利用operator模块)，len(list)计算列表元素个数，max(list)求列表中的最大值，min(list)求最小值。下面对上面列表的排序方法(li">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%88%97%E8%A1%A8.png">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;%E5%88%97%E8%A1%A8.png">
   <link rel="alternate" href="/atom.xml" title="DY的个人博客" type="application/atom+xml">
-  <link rel="canonical" href="http://yoursite.com/2019/08/04/python数据类型/">
+  <link rel="canonical" href="http://yoursite.com/2019/08/04/python%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
 
 
 <script id="page.configurations">
@@ -222,7 +220,7 @@
 
   </li>
         <li class="menu-item menu-item-search">
-          <a href="javascript:;" class="popup-trigger">
+          <a href="javascript:;" target="_blank" rel="noopener" class="popup-trigger">
           
             <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
         </li>
@@ -275,7 +273,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/04/python数据类型/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/04/python%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="湛蓝星空">
@@ -356,9 +354,9 @@
         <p>​    每种编程语言都有属于自己的数据类型。今天，我们就来讲一下python的数据类型——列表，元祖，字典，字符串，堆，集合，队列。</p>
 <h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><p>​    <img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%88%97%E8%A1%A8.png" alt="列表方法"></p>
 <p>同时还有一些比较常用的方法，类似cmp(比较大小，python3已经找不到。如要使用，可以利用operator模块)，len(list)计算列表元素个数，max(list)求列表中的最大值，min(list)求最小值。下面对上面列表的排序方法(list.sort)进行讲解：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/list.sort.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/list.sort.png" alt=""></p>
 <p>下张图片是对以上方法的coding：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/test.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/test.png" alt=""></p>
 <p>##元祖（tuple）</p>
 <p>元祖不像列表可以改变。<strong>元祖是不可变的</strong>。但可以利用切片灵活使用。</p>
 <h2 id="字典（dict）"><a href="#字典（dict）" class="headerlink" title="字典（dict）"></a>字典（dict）</h2><p>####注意：字典支持常见的集合操作（&amp;等操作）</p>
@@ -370,24 +368,24 @@
 <p>k in d 检查d中是否有含有键为k的值</p>
 <p>clear()：清除字典中所有的项</p>
 <p>fromkeys()：使用给定的键建立新的字典，每个键都对应一个默认的值None，也可以设立默认值</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/dict1.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/dict1.png" alt=""></p>
 <p>get():访问字典项，访问一个不存在的键时，没有异常。且可以定义默认值为None。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/dict2.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/dict2.png" alt=""></p>
 <p>items和iteritems：</p>
 <p>items将所有的项以列表方式返回，列表中的每一项都表示为（键，值）对的形式。</p>
 <p>iteritems方法的作用大致相同，但是会返回一个迭代器对象而不是列表。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/dict3.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/dict3.png" alt=""></p>
 <p>keys和iterkeys：</p>
 <p>keys方法将字典中的键以列表形式返回，而iterkeys则返回针对键的迭代器</p>
 <p>values和itervalues：</p>
 <p>values方法以列表的形式返回字典中的值，itervalues返回值的迭代器。与返回键的列表不同的是，返回值的列表中可以包含重复的元素。</p>
 <p>pop：用来获得对应于给定键的值，然后将这个键-值对从字典中移除。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/dict4.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/dict4.png" alt=""></p>
 <p>popitem：弹出随机的项</p>
 <p>setdefault：获得与给定键相关联的值，能在字典中不含有给定键的情况下设立相应的键值。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/dict5.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/dict5.png" alt=""></p>
 <p>update：可以利用一个字典项更新另外一个字典</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/dict.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/dict.png" alt=""></p>
 <h2 id="堆（heapq）"><a href="#堆（heapq）" class="headerlink" title="堆（heapq）"></a>堆（heapq）</h2><p>使用该数据类型前，我们先导入一个新的模块<strong>heapq</strong></p>
 <p>heappush(heap,x):将x入对</p>
 <p>heapop(heap)：将堆中最小的元素弹出</p>
@@ -395,38 +393,38 @@
 <p>heapreplace(heap,x)：将堆中最小的元素弹出，同时将x入堆</p>
 <p>nlargest(n,iter)：返回iter中前n大的元素</p>
 <p>nsmallest(n,iter)：返回iter中前n小的元素</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/heapq.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/heapq.png" alt=""></p>
 <h2 id="集合（set）"><a href="#集合（set）" class="headerlink" title="集合（set）"></a>集合（set）</h2><p>集合可取交集、取并集、取差集、对称差集：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/set.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/set.png" alt=""></p>
 <p>利用set做去重操作：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190804102844.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190804102844.png" alt=""></p>
 <p>集合分为可变集合和不可变集合：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/set1.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/set1.png" alt=""></p>
 <h2 id="队列（Queue）"><a href="#队列（Queue）" class="headerlink" title="队列（Queue）"></a>队列（Queue）</h2><p>在python中，队列时线程间最常用的交换数据形式，<strong>Queue</strong>模块时提供队列操作的模块。</p>
 <p>先进先出（FIFO）：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/lifo.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/lifo.png" alt=""></p>
 <p>先进后出（LIFO）：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/LIFO.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/LIFO.png" alt=""></p>
 <p>优先级队列：优先级队列put进去一个元祖，（优先级，数据），优先级数字越小，优先级越高。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/queuepng" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/queuepng" alt=""></p>
 <p><strong>注意</strong>：如果有两个元素优先级是一样的，那么在出队的时候是按照先进先出的顺序。</p>
 <p>双端队列：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/queue1.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/queue1.png" alt=""></p>
 <p>队列的方法：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/queue2.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/queue2.png" alt=""></p>
 <p>使用put方法往队列中添加元素，需要考虑是否能放下的问题如果放不下了，默认会阻塞(block=True)，阻塞时可以定义超时时间timeout。可以使用block=False设置阻塞时立即报错</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/queue4.png" alt></p>
-<p>使用get()从队列里取数据。如果为空的话，blocking= False 直接报 empty异常。如果blocking = True，就是等一会，timeout必须为 0或正数。None为一直等下去，0为不等，正数n为等待n秒还不能读取，报empty异常。<img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/queue5.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/queue4.png" alt=""></p>
+<p>使用get()从队列里取数据。如果为空的话，blocking= False 直接报 empty异常。如果blocking = True，就是等一会，timeout必须为 0或正数。None为一直等下去，0为不等，正数n为等待n秒还不能读取，报empty异常。<img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/queue5.png" alt=""></p>
 <h2 id="字符串（string）"><a href="#字符串（string）" class="headerlink" title="字符串（string）"></a>字符串（string）</h2><p>用+拼接字符串：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/string.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/string.png" alt=""></p>
 <p>将值转换为字符串的机制：</p>
 <p>1、通过str函数，把值转换为合理形式的字符串，以便用户可以理解</p>
 <p>2、通过repr函数创建一个字符串，以合法的python表达式的形式表示值</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/string2.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/string2.png" alt=""></p>
 <p>join和split：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/string3.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/string3.png" alt=""></p>
 <p>字符串格式化方式：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/string4.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/string4.png" alt=""></p>
 <p>capitalize()</p>
 <p>把字符串的第一个字符改为大写</p>
 <p>casefold()</p>
@@ -447,7 +445,7 @@
 <p>maketrans() 方法用于创建字符映射的转换表，对于接受两个参数的最简单的调用方式，第一个参数是字符串，表示需要转换的字符，第二个参数也是字符串表示转换的目标。</p>
 <p>注：两个字符串的长度必须相同，为一一对应的关系。</p>
 <p>translate(table)根据 table 的规则（可以由 str.maketrans(‘a’, ‘b’) 定制）转换字符串中的字符</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/string5.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/string5.png" alt=""></p>
 <p>index(sub[, start[, end]])</p>
 <p>跟 find 方法一样，不过如果 sub 不在 string 中会产生一个异常。</p>
 <p>isalnum()</p>
@@ -474,16 +472,16 @@
 <p>返回一个左对齐的字符串，并使用空格填充至长度为 width 的新字符串。</p>
 <p>rjust(width)</p>
 <p>返回一个右对齐的字符串，并使用空格填充至长度为 width 的新字符串。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/string6.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/string6.png" alt=""></p>
 <p>format也可以完成对齐的任务。“&lt;”：左对齐  “&gt;”：右对齐    “^”：居中对齐</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/string7.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/string7.png" alt=""></p>
 <p>lower()</p>
 <p>转换字符串中所有大写字符为小写。</p>
 <p>lstrip()</p>
 <p>去掉字符串左边的所有空格无法去除中间的字符</p>
 <p>rstrip()</p>
 <p>删除字符串末尾的空格。无法去除中间的字符</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/string8.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/string8.png" alt=""></p>
 <p>partition(sub)</p>
 <p>找到子字符串 sub，把字符串分成一个 3 元组 (pre_sub, sub, fol_sub)，如果字符串中不包含 sub 则返回 (‘原字符串’, ‘’, ‘’)</p>
 <p>replace(old, new[, count])</p>
@@ -508,7 +506,7 @@
 <p>转换字符串中的所有小写字符为大写。</p>
 <p>zfill(width)</p>
 <p>返回长度为 width 的字符串，原字符串右对齐，前边用 0 填充。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/string9.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/string9.png" alt=""></p>
 
     </div>
 
@@ -555,12 +553,12 @@
           
         
         <div class="post-tags">
-            <a href="/tags/python数据结构/" rel="tag"># python数据结构</a>
+            <a href="/tags/python%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag"># python数据结构</a>
           
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2019/08/03/我的第一篇博客/" rel="next" title="我的第一篇博客">
+              <a href="/2019/08/03/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" rel="next" title="我的第一篇博客">
                 <i class="fa fa-chevron-left"></i> 我的第一篇博客
               </a>
             
@@ -569,7 +567,7 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2019/08/05/python异常/" rel="prev" title="python异常">
+              <a href="/2019/08/05/python%E5%BC%82%E5%B8%B8/" rel="prev" title="python异常">
                 python异常 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -625,7 +623,7 @@
   <nav class="site-state motion-element">
       <div class="site-state-item site-state-posts">
         
-          <a href="/archives/">
+          <a href="/archives/%20%7C%7C%20archive">
         
           <span class="site-state-item-count">83</span>
           <span class="site-state-item-name">日志</span>
@@ -637,7 +635,7 @@
       <div class="site-state-item site-state-categories">
         
           
-            <a href="/categories/">
+            <a href="/categories/%20%7C%7C%20th">
           
         
         
@@ -696,7 +694,7 @@
       <div class="site-state-item site-state-tags">
         
           
-            <a href="/tags/">
+            <a href="/tags/%20%7C%7C%20tags">
           
         
         

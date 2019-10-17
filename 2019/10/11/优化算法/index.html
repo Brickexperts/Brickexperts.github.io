@@ -7,7 +7,7 @@
 <html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.0.0">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -61,36 +61,34 @@
 <meta name="keywords" content="深度学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="优化算法">
-<meta property="og:url" content="http://yoursite.com/2019/10/11/优化算法/index.html">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;11&#x2F;%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95&#x2F;index.html">
 <meta property="og:site_name" content="DY的个人博客">
 <meta property="og:description" content="Mini-batch 梯度下降我们之前学过，向量化能够让我们有效地对所有m个样本进行计算，所以我们要把训练样本放到巨大的矩阵X中。 X=[x(1) x(2)   x(3)   x(4)  ……  x(n) ]。Y也是如此，Y=[y(1) y(2)  y(3)   y(4)  ……  y(n) ]。所以X的维度是(nx,m)，Y的维度是(1,m)。向量化能够让我们相对较快地处理所有样本，如果m很大的">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191011191909.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191011222214.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191011222352.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191011222623.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191011223152.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191011222214.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191012113654.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191012113917.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191012160618.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191012173500.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191012200635.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191012224237.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191013142056.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191013143740.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191013144516.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191013144713.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191013144738.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191013144804.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191013150349.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191011191909.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191011222214.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191011222352.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191011222623.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191011223152.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191011222214.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191012113654.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191012113917.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191012160618.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191012173500.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191012200635.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191012224237.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191013142056.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191013143740.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191013144516.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191013144713.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191013144738.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191013144804.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191013150349.png">
 <meta property="og:updated_time" content="2019-10-13T07:14:26.790Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="优化算法">
-<meta name="twitter:description" content="Mini-batch 梯度下降我们之前学过，向量化能够让我们有效地对所有m个样本进行计算，所以我们要把训练样本放到巨大的矩阵X中。 X=[x(1) x(2)   x(3)   x(4)  ……  x(n) ]。Y也是如此，Y=[y(1) y(2)  y(3)   y(4)  ……  y(n) ]。所以X的维度是(nx,m)，Y的维度是(1,m)。向量化能够让我们相对较快地处理所有样本，如果m很大的">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191011191909.png">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191011191909.png">
   <link rel="alternate" href="/atom.xml" title="DY的个人博客" type="application/atom+xml">
-  <link rel="canonical" href="http://yoursite.com/2019/10/11/优化算法/">
+  <link rel="canonical" href="http://yoursite.com/2019/10/11/%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/">
 
 
 <script id="page.configurations">
@@ -212,7 +210,7 @@
 
   </li>
         <li class="menu-item menu-item-search">
-          <a href="javascript:;" class="popup-trigger">
+          <a href="javascript:;" target="_blank" rel="noopener" class="popup-trigger">
           
             <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
         </li>
@@ -265,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/11/优化算法/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/11/%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="湛蓝星空">
@@ -324,14 +322,14 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/深度学习/" itemprop="url" rel="index"><span itemprop="name">深度学习</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">深度学习</span></a></span>
 
                 
                 
                   ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/深度学习/改善深层神经网络/" itemprop="url" rel="index"><span itemprop="name">改善深层神经网络</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%94%B9%E5%96%84%E6%B7%B1%E5%B1%82%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">改善深层神经网络</span></a></span>
 
                 
                 
@@ -359,7 +357,7 @@
 <p>mini-batch的数量t组成X<sup>{t}</sup>和Y<sup>{t}</sup>，这就是10000个训练样本。包括相应的输入输出对。如果X<sup>{1}</sup>是一个有1000个样本的训练集，X<sup>{1}</sup>的维度应该是(n<sub>x</sub>,1000)，X<sup>[2]</sup>的应该也是(n<sub>x</sub>，1000)，以此类推，所有的子集维数都是(n<sub>x</sub>,1000)，对于Y也是一样的。</p>
 <p>之前我们执行前向传播，就是执行z<sup>[1]</sup>=W<sup>[1]</sup>X+b<sup>[1]</sup>。变成mini-batch后呢，把X替换成X<sup>[t]</sup>，即z<sup>[1]</sup>=W<sup>[1]</sup>X<sup>{t}</sup>+b<sup>[1]</sup>，然后执行A<sup>[1]k</sup>=g<sup>[1]</sup>(Z<sup>[1]</sup>)，依次类推，直到A<sup>[L]</sup>=g<sup>[L]</sup>(Z<sup>[L]</sup>)，这就是我们的预测值。注意：这里一次性处理的是1000个样本不是500万个样本。接着计算成本函数，因为子集规模是1000，所以J=1/1000$\sum_{i=1}^{1000}$L(y<sup>(i)</sup> 帽,y<sup>(i)</sup>)。</p>
 <p>如果我们使用了正则化，</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191011191909.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191011191909.png" alt=""></p>
 <p>你也会注意到，我们做的一切似曾相识，其实跟之前我们执行梯度下降法如出一辙，除了现在的对象不是X，Y，而是X<sup>{t}</sup>和Y<sup>{t}</sup>。接下来，执行反向传播来计算J<sup>{t}</sup>的梯度，你只是使用X<sup>{t}</sup>和Y<sup>{t}</sup>，然后更新加权值，W实际上是W<sup>[l]</sup>，更新为W<sup>[l]</sup>=W<sup>[l]</sup>-adW<sup>[l]</sup>。对b做相同处理，b<sup>[l]</sup>=b<sup>[l]</sup>-adb<sup>[l]</sup>。这是使用mini-batch梯度下降法训练样本的一步。被称为进行“一代”（<strong>1 epoch</strong>）的训练。一代这个词意味着只是遍历了一次训练集。我们可以在外围加一个for循环，从1到5000，因为我们有5000个各有1000个样本的组。</p>
 <p>使用batch梯度下降法，一次遍历训练集只能让你做一个梯度下降，使用mini-batch梯度下降法，一次遍历训练集，能让你做5000个梯度下降。</p>
 <h2 id="理解mini-batch"><a href="#理解mini-batch" class="headerlink" title="理解mini-batch"></a>理解mini-batch</h2><p>使用batch梯度下降法时，每次迭代都需要历遍整个训练集，可以预期每次迭代成本都会下降，所以如果成本函数是迭代次数的一个函数，它应该会随着每次迭代而减少，如果在某次迭代中增加了，那肯定出了问题，也许学习率太大。</p>
@@ -370,7 +368,7 @@
 <p>最后需要注意的是在你的mini-batch中，要确保X<sup>{t}</sup>和Y<sup>{t}</sup>要符合<strong>CPU</strong>/<strong>GPU</strong>内存，取决于你的应用方向以及训练集的大小。如果不符合内存，无论采取什么方法处理数据，结果变得惨不忍睹。</p>
 <h2 id="指数加权平均数"><a href="#指数加权平均数" class="headerlink" title="指数加权平均数"></a>指数加权平均数</h2><p>指数加权平均也叫指数加权移动平均，是一种常用的序列数据处理方式。</p>
 <p>它的计算公式是：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191011222214.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191011222214.png" alt=""></p>
 <p>其中，</p>
 <ul>
 <li>θ_t：为第 t 天的实际观察值，</li>
@@ -378,23 +376,23 @@
 <li>β： 为 V_{t-1} 的权重，是可调节的超参。( 0 &lt; β &lt; 1 )</li>
 </ul>
 <p>下面是一组气温数据，图中横轴为一年中的第几天，纵轴为气温：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191011222352.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191011222352.png" alt=""></p>
 <p>直接看上面的数据图会发现噪音很多，</p>
 <p>这时，我们<strong>可以用 指数加权平均 来提取这组数据的趋势，</strong></p>
 <p>按照前面的公式计算：</p>
 <p>这里先设置 β = 0.9，首先初始化 V_0 ＝ 0，然后计算出每个 V_t，将计算后得到的V_t表示出来，得到下图红色线：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191011222623.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191011222623.png" alt=""></p>
 <p>可以看出，红色的数据比蓝色的原数据更加平滑，少了很多噪音，并且刻画了原数据的趋势。</p>
 <p>指数加权平均，作为原数据的估计值，不仅可以 <strong>1. 抚平短期波动，起到了平滑的作用，2. 还能够将长线趋势或周期趋势显现出来</strong>。</p>
 <p>我们可以改变&beta;值，当&beta;=0.98时，得出下图的绿线。当&beta;=0.5，结果是下图的黄线。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191011223152.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191011223152.png" alt=""></p>
 <h2 id="理解指数加权平均数"><a href="#理解指数加权平均数" class="headerlink" title="理解指数加权平均数"></a>理解指数加权平均数</h2><p>上个小节，我们得出下面公式。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191011222214.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191011222214.png" alt=""></p>
 <p>我们进一步分析，来理解如何计算出每日温度的平均值</p>
 <p>使&beta;=0.9，得出下面公式：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191012113654.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191012113654.png" alt=""></p>
 <p>将第二个公式带到第一个，第三个公式带到第二个公式，一次类推，把这些展开：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191012113917.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191012113917.png" alt=""></p>
 <p>我们可以将v<sub>0</sub>，v<sub>1</sub>，v<sub>2</sub>等等写成明确的变量，不过在实际中执行的话，你要做的是，一开始将v<sub>0</sub>初始化为0，然后在第一天使v=&beta;v+(1-&beta;)&theta;<sub>1</sub>，然后第二天，更新v值，v=&beta;v+(1-&beta;)&theta;<sub>2</sub>，以此类推，有些人会把v加下标，来表示v是用来计算数据的指数加权平均数。</p>
 <p>指数加权平均数公式的好处之一在于，它占用极少内存，电脑内存中只占用一行数字而已，然后把最新数据代入公式，不断覆盖就可以了。</p>
 <h2 id="指数加权平均的偏差修正"><a href="#指数加权平均的偏差修正" class="headerlink" title="指数加权平均的偏差修正"></a>指数加权平均的偏差修正</h2><p>偏差修正可以让平均数运算更加准确</p>
@@ -403,7 +401,7 @@
 <p>v<sub>t</sub>=&beta;v<sub>t-1</sub>+(1-&beta;)&theta;<sub>t</sub></p>
 </blockquote>
 <p>得到的就是紫色曲线，而不是绿色曲线。后面紫色和绿色有大部分重合。PS：为什么？同时0.98，紫色曲线的起点低。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191012160618.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191012160618.png" alt=""></p>
 <p>计算移动平均数时，初始化v<sub>0</sub>，v<sub>1</sub>=0.98v<sub>0</sub>+0.02&theta;<sub>1</sub>，因为v<sub>0</sub>=0，所以0.98v<sub>0</sub>=0。所以v<sub>1</sub>=0.02&theta;<sub>1</sub>，如果第一天温度时40，v<sub>1</sub>=0.02 x 40=8。因此得到的值会小很多，所以第一天的温度估测不准。</p>
 <p>v<sub>1</sub>=0.98v<sub>0</sub>+0.02&theta;<sub>1</sub>，如果带入v<sub>1</sub>，然后相乘，v<sub>2</sub>=0.98 x 0.02&theta;<sub>1</sub> + 0.02&theta;<sub>2</sub>，假如&theta;<sub>1</sub>和&theta;<sub>2</sub>都是正数，计算后的v<sub>2</sub>要远小于&theta;<sub>2</sub>和&theta;<sub>1</sub>，所以不能很好预估这一年前两天的温度。</p>
 <p>有个办法可以修改这一估测，让估测变得更好，更准确，特别是在估测初期，也就是不用v<sub>t</sub>，而是用v<sub>t</sub>/1-&beta;<sup>t</sup>，t就是现在的天数。举个具体例子，当t=2时，1-&beta;<sup>t</sup>=1-0.98<sup>2</sup>=0.0396，因此对第二天温度的估测变成了</p>
@@ -412,7 +410,7 @@
 </blockquote>
 <p>也就是和的加权平均数，并去除了偏差。你会发现随着t增加，&beta;<sup>t</sup>接近于0，所以当t很大的时候，偏差修正几乎没有作用.因此当t较大的时候，紫线基本和绿线重合了。不过在开始学习阶段，你才开始预测热身练习，偏差修正可以帮助你更好预测温度，偏差修正可以帮助你使结果从紫线变成绿线。</p>
 <h2 id="动量梯度下降法"><a href="#动量梯度下降法" class="headerlink" title="动量梯度下降法"></a>动量梯度下降法</h2><p>还有一种算法叫做<strong>Momentum</strong>，或者叫做动量梯度下降法，运行速度几乎总是快于标准的梯度下降算法。基本的想法就是计算梯度的指数加权平均数，并利用该梯度更新的权重。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191012173500.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191012173500.png" alt=""></p>
 <p>如果优化成本函数，函数形状如图，红点代表最小值的位置，假设你从这里（蓝色点）开始梯度下降法，如果进行梯度下降法的一次迭代，无论是batch或mini-batch下降法，也许会指向这里，现在在椭圆的另一边，计算下一步梯度下降，结果或许如此，然后再计算一步，再一步，计算下去。我们发现梯度下降法要很多计算步骤。</p>
 <p>慢慢摆动到最小值，这种上下波动减慢了梯度下降法的速度，你就无法使用更大的学习率，如果你要用较大的学习率（紫色箭头），结果可能会偏离函数的范围，为了避免摆动过大，你要用一个较小的学习率。</p>
 <p>另一个看待问题的角度是，在竖直方向上，我们希望学习慢一点，因为我们不想要这些摆动。但在水平方向，我们希望快速从左向右移动，移向最小值，移向红点。所以使用动力梯度下降法，在每次迭代中，都会计算dW，db。我们要做的是计算v<sub>dW</sub>=&beta;v<sub>dW</sub>+(1-&beta;)dW，接着同样计算v<sub>db</sub>=&beta;v<sub>db</sub>+(1-&beta;)db。然后重新赋值权重，W=W-av<sub>dW</sub>，同样b=b-av<sub>dW</sub>，从而减缓梯度下降的幅度。</p>
@@ -426,32 +424,32 @@
 <p>S<sub>db</sub>=&beta;S<sub>db</sub>+(1-&beta;)db<sup>2</sup>，这里的平方也是对整个db平方。</p>
 </blockquote>
 <p> 接着，RMSprop会更新参数值。如下：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191012200635.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191012200635.png" alt=""></p>
 <p>我们希望，S<sub>dW</sub>相对较少，S<sub>db</sub>较大。因为垂直方向的微分要比水平方向的大得多，所以斜率在垂直方向特别大。所以db较大，dW较小。db的平方较大，所以S<sub>db</sub>的平方较大。dW会小，S<sub>dW</sub>也会小。结果就是纵轴上的更新要被一个较大的数相除，就能消除摆动，而水平方向的更新则被较小的数相除。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191012224237.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191012224237.png" alt=""></p>
 <p><strong>RMSprop</strong>的影响就是你的更新最后会变成这样（绿色线），纵轴方向上摆动较小，而横轴方向继续推进。还有个影响就是，你可以用一个更大学习率a，然后加快学习，而无须在纵轴上垂直方向偏离。</p>
 <h2 id="Adam优化算法"><a href="#Adam优化算法" class="headerlink" title="Adam优化算法"></a>Adam优化算法</h2><p><strong>Adam</strong>优化算法基本上就是将<strong>Momentum</strong>和<strong>RMSprop</strong>结合在一起，那么来看看如何使用Adam算法。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191013142056.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191013142056.png" alt=""></p>
 <p>本算法有很多超参数，分别有a、&beta;<sub>1</sub>、&beta;<sub>2</sub>、ξ四个超参数。a需要调试，尝试一系列的值，然后看哪个有效。&beta;<sub>1</sub>常用的值为0.9。至于&beta;<sub>2</sub>，推荐使用0.999，ξ为10<sup>-8</sup>。</p>
 <h2 id="学习率衰减"><a href="#学习率衰减" class="headerlink" title="学习率衰减"></a>学习率衰减</h2><p>加快学习算法的一个办法就是随时间慢慢减少学习率，我们将之称为学习率衰减。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191013143740.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191013143740.png" alt=""></p>
 <p>假设使用mini-batch梯度下降法，mini-batch数量不大，大概64或者128个样本，在迭代过程中会有噪音（蓝色线），下降朝向这里的最小值，但是不会精确地收敛，所以你的算法最后在附近摆动，并不会真正收敛，因为你用的a是固定值，不同的mini-batch中有噪音。</p>
 <p>但是如果要减少学习率的话，在初期的时候，a学习率还比较大，我们的学习还是相对较快，但随着a变小，我们的步伐也会变慢。而不是在训练过程中，大幅度在最小值附近摆动。</p>
 <p>所以慢慢减少a的本质在于，在学习初期，承受较大的步伐，但当开始收敛的时候，小一些的学习率能让你步伐小一些。</p>
 <p>我们应该拆分成不同的mini-batch。第一次遍历训练集叫做第一代，第二代就是第二代。以此类推，我们得出公式：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191013144516.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191013144516.png" alt=""></p>
 <p>decay-rate称为衰减率，epoch-num为代数，&alpha;<sub>0</sub>为初始学习率），注意这个衰减率是另一个你需要调整的超参数。</p>
 <p>当然还有其它衰减：</p>
 <p>方法二：指数衰减</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191013144713.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191013144713.png" alt=""></p>
 <p>方法三：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191013144738.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191013144738.png" alt=""></p>
 <p>方法四：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191013144804.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191013144804.png" alt=""></p>
 <p>方法五：手动衰减</p>
 <p>如果一次只训练一个模型，如果花上数小时或数天来训练，看看自己的模型训练，耗上数日，学习速率变慢了，然后把&alpha;调小一点。但这种方法只是在模型数量小的时候有用。</p>
 <h2 id="局部最优"><a href="#局部最优" class="headerlink" title="局部最优"></a>局部最优</h2><p>也许我们想优化一些参数，我们把它们称之为W<sub>1</sub>和W<sub>2</sub>，平面的高度就是损失函数。在图中似乎各处都分布着局部最优。梯度下降法或者某个算法可能困在一个局部最优中，而不会抵达全局最优。如果要作图计算一个数字，比如说这两个维度，就容易出现有多个不同局部最优的图，而这些低维的图曾经影响了我们的理解，但是这些理解并不正确。事实上，如果你要创建一个神经网络，通常梯度为零的点并不是这个图中的局部最优点，实际上成本函数的零梯度点，通常是鞍点。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191013150349.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191013150349.png" alt=""></p>
 <p>在高维度空间，我们更可能碰到鞍点。</p>
 <p>首先，你不太可能困在极差的局部最优中，条件是你在训练较大的神经网络，存在大量参数，并且成本函数J被定义在较高的维度空间。</p>
 <p>第二点，平稳段是一个问题，这样使得学习十分缓慢，这也是像Momentum或是RMSprop，Adam这样的算法，能够加速学习算法的地方。在这些情况下，更成熟的优化算法，如Adam算法，能够加快速度，让你尽早往下走出平稳段。</p>
@@ -502,12 +500,12 @@
           
         
         <div class="post-tags">
-            <a href="/tags/深度学习/" rel="tag"># 深度学习</a>
+            <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag"># 深度学习</a>
           
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2019/10/08/深度学习的应用层面/" rel="next" title="深度学习的实用层面">
+              <a href="/2019/10/08/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%BA%94%E7%94%A8%E5%B1%82%E9%9D%A2/" rel="next" title="深度学习的实用层面">
                 <i class="fa fa-chevron-left"></i> 深度学习的实用层面
               </a>
             
@@ -516,7 +514,7 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2019/10/13/超参数调试、batch正则化/" rel="prev" title="超参数调试、batch正则化">
+              <a href="/2019/10/13/%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E8%AF%95%E3%80%81batch%E6%AD%A3%E5%88%99%E5%8C%96/" rel="prev" title="超参数调试、batch正则化">
                 超参数调试、batch正则化 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -572,7 +570,7 @@
   <nav class="site-state motion-element">
       <div class="site-state-item site-state-posts">
         
-          <a href="/archives/">
+          <a href="/archives/%20%7C%7C%20archive">
         
           <span class="site-state-item-count">83</span>
           <span class="site-state-item-name">日志</span>
@@ -584,7 +582,7 @@
       <div class="site-state-item site-state-categories">
         
           
-            <a href="/categories/">
+            <a href="/categories/%20%7C%7C%20th">
           
         
         
@@ -643,7 +641,7 @@
       <div class="site-state-item site-state-tags">
         
           
-            <a href="/tags/">
+            <a href="/tags/%20%7C%7C%20tags">
           
         
         

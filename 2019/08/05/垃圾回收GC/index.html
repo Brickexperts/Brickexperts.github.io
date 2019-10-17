@@ -7,7 +7,7 @@
 <html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.0.0">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -61,23 +61,21 @@
 <meta name="keywords" content="python的GC">
 <meta property="og:type" content="article">
 <meta property="og:title" content="垃圾回收GC">
-<meta property="og:url" content="http://yoursite.com/2019/08/05/垃圾回收GC/index.html">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;08&#x2F;05&#x2F;%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6GC&#x2F;index.html">
 <meta property="og:site_name" content="DY的个人博客">
 <meta property="og:description" content="​    每种语言都有自己的垃圾回收机制。接下来我们来讲一下python的垃圾回收机制。 小整数对象池：python对小整数的定义为[-5，257)，这些整数对象是提前建立好的，不会被垃圾回收。单个字母也一样，但是当定义两个相同的字符串（没有空格等特殊符号），触发intern机制，引用计数为零，触发垃圾回收。  引用计数机制的优点：简单、实时性（一旦没有引用，内存就直接释放了）。 缺点：维护引用计">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/GC.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/GC1.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/GC2.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/GC3.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/GC5.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/GC6.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;GC.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;GC1.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;GC2.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;GC3.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;GC5.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;GC6.png">
 <meta property="og:updated_time" content="2019-09-15T06:21:20.360Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="垃圾回收GC">
-<meta name="twitter:description" content="​    每种语言都有自己的垃圾回收机制。接下来我们来讲一下python的垃圾回收机制。 小整数对象池：python对小整数的定义为[-5，257)，这些整数对象是提前建立好的，不会被垃圾回收。单个字母也一样，但是当定义两个相同的字符串（没有空格等特殊符号），触发intern机制，引用计数为零，触发垃圾回收。  引用计数机制的优点：简单、实时性（一旦没有引用，内存就直接释放了）。 缺点：维护引用计">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/GC.png">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;GC.png">
   <link rel="alternate" href="/atom.xml" title="DY的个人博客" type="application/atom+xml">
-  <link rel="canonical" href="http://yoursite.com/2019/08/05/垃圾回收GC/">
+  <link rel="canonical" href="http://yoursite.com/2019/08/05/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6GC/">
 
 
 <script id="page.configurations">
@@ -199,7 +197,7 @@
 
   </li>
         <li class="menu-item menu-item-search">
-          <a href="javascript:;" class="popup-trigger">
+          <a href="javascript:;" target="_blank" rel="noopener" class="popup-trigger">
           
             <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
         </li>
@@ -252,7 +250,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/05/垃圾回收GC/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/05/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6GC/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="湛蓝星空">
@@ -332,7 +330,7 @@
       
         <p>​    每种语言都有自己的垃圾回收机制。接下来我们来讲一下python的垃圾回收机制。</p>
 <p>小整数对象池：python对小整数的定义为[-5，257)，这些整数对象是提前建立好的，不会被垃圾回收。单个字母也一样，但是当定义两个相同的字符串（没有空格等特殊符号），触发intern机制，引用计数为零，触发垃圾回收。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/GC.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/GC.png" alt=""></p>
 <p>引用计数机制的优点：简单、实时性（一旦没有引用，内存就直接释放了）。</p>
 <p>缺点：维护引用计数消耗资源、循环引用</p>
 <p>python以引用计数为主，隔代回收为辅进行垃圾回收</p>
@@ -340,18 +338,18 @@
 <p>1、gc.set_debug(flags) 设置gc的debug日志，一般设置为gc.DEBUG_LEAK</p>
 <p>2、gc.collect([generation]) 显式进行垃圾回收，可以输入参数，0代表只检查第一代的对象，1代表检查一，二代的对象，2代表检查一，二，三代的对象，如果不传参数，执行一个full collection，也就是等于传2。 返回不可达（unreachable objects）对象的数目</p>
 <p>3、gc.get_threshold() 获取的gc模块中自动执行垃圾回收的频率</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/GC1.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/GC1.png" alt=""></p>
 <p>4、gc.set_threshold(threshold0[,threshold1[, threshold2]) 设置自动执行垃圾回收的频率。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/GC2.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/GC2.png" alt=""></p>
 <p>5、gc.get_count() 获取当前自动执行垃圾回收的计数器，返回一个长度为3的列表</p>
 <p>6、gc.disable() 把gc关闭,gc.enable()打开gc（默认打开）</p>
 <p>7.gc.garbage 存储垃圾</p>
 <p>导致引用计数+1的情况：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/GC3.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/GC3.png" alt=""></p>
 <p>导致引用计数-1的情况：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/GC5.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/GC5.png" alt=""></p>
 <p>查看一个对象的引用计数：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/GC6.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/GC6.png" alt=""></p>
 <p>因为调用函数的时候传入a，所以是2.真正的引用计数=sys.getrefcount()-1</p>
 
     </div>
@@ -399,12 +397,12 @@
           
         
         <div class="post-tags">
-            <a href="/tags/python的GC/" rel="tag"># python的GC</a>
+            <a href="/tags/python%E7%9A%84GC/" rel="tag"># python的GC</a>
           
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2019/08/05/工厂生产模式/" rel="next" title="工厂生产模式">
+              <a href="/2019/08/05/%E5%B7%A5%E5%8E%82%E7%94%9F%E4%BA%A7%E6%A8%A1%E5%BC%8F/" rel="next" title="工厂生产模式">
                 <i class="fa fa-chevron-left"></i> 工厂生产模式
               </a>
             
@@ -413,7 +411,7 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2019/08/05/读取、写入excel/" rel="prev" title="读取、写入excel">
+              <a href="/2019/08/05/%E8%AF%BB%E5%8F%96%E3%80%81%E5%86%99%E5%85%A5excel/" rel="prev" title="读取、写入excel">
                 读取、写入excel <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -460,7 +458,7 @@
   <nav class="site-state motion-element">
       <div class="site-state-item site-state-posts">
         
-          <a href="/archives/">
+          <a href="/archives/%20%7C%7C%20archive">
         
           <span class="site-state-item-count">83</span>
           <span class="site-state-item-name">日志</span>
@@ -472,7 +470,7 @@
       <div class="site-state-item site-state-categories">
         
           
-            <a href="/categories/">
+            <a href="/categories/%20%7C%7C%20th">
           
         
         
@@ -531,7 +529,7 @@
       <div class="site-state-item site-state-tags">
         
           
-            <a href="/tags/">
+            <a href="/tags/%20%7C%7C%20tags">
           
         
         
