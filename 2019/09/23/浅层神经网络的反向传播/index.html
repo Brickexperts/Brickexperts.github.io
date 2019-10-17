@@ -6,7 +6,7 @@
 
 <html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="generator" content="Hexo 4.0.0">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
@@ -57,13 +57,13 @@
   };
 </script>
 
-  <meta name="description" content="符号约定首先看下图：  我们假设n[l] 表示第 l 层的神经元的数量，那么这个单隐层的神经网络的输入层、隐含层和输出层的维度分别是：n[0]= n_x =3、n[1]=4、n[2]=1。 那么根据浅层神经网络的正向传播的分析，如果一次性输入带有 m 个样本的矩阵 X 我们可以得到：  W^[1] = (4, 3), Z^[1] = (4, m), A^[1] = (4, m) W^[2] = (">
+  <meta name="description" content="符号约定首先看下图：  我们假设n[l] 表示第 l 层的神经元的数量，那么这个单隐层的神经网络的输入层、隐含层和输出层的维度分别是：n[0]= n_x =3、n[1]=4、n[2]=1。 那么根据浅层神经网络的正向传播)的分析，如果一次性输入带有 m 个样本的矩阵 X 我们可以得到：  W^[1] = (4, 3), Z^[1] = (4, m), A^[1] = (4, m) W^[2] =">
 <meta name="keywords" content="深度学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="浅层神经网络的反向传播">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;09&#x2F;23&#x2F;%E6%B5%85%E5%B1%82%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD&#x2F;index.html">
 <meta property="og:site_name" content="DY的个人博客">
-<meta property="og:description" content="符号约定首先看下图：  我们假设n[l] 表示第 l 层的神经元的数量，那么这个单隐层的神经网络的输入层、隐含层和输出层的维度分别是：n[0]= n_x =3、n[1]=4、n[2]=1。 那么根据浅层神经网络的正向传播的分析，如果一次性输入带有 m 个样本的矩阵 X 我们可以得到：  W^[1] = (4, 3), Z^[1] = (4, m), A^[1] = (4, m) W^[2] = (">
+<meta property="og:description" content="符号约定首先看下图：  我们假设n[l] 表示第 l 层的神经元的数量，那么这个单隐层的神经网络的输入层、隐含层和输出层的维度分别是：n[0]= n_x =3、n[1]=4、n[2]=1。 那么根据浅层神经网络的正向传播)的分析，如果一次性输入带有 m 个样本的矩阵 X 我们可以得到：  W^[1] = (4, 3), Z^[1] = (4, m), A^[1] = (4, m) W^[2] =">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;20190923161512.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;20190923162211.png">
@@ -122,13 +122,13 @@
   .use-motion .logo-line-before i { left: initial; }
   .use-motion .logo-line-after i { right: initial; }
   </style>
-</noscript>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
-  <div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -336,7 +336,7 @@
         <h2 id="符号约定"><a href="#符号约定" class="headerlink" title="符号约定"></a>符号约定</h2><p>首先看下图：</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190923161512.png" alt=""></p>
 <p>我们假设n[l] 表示第 l 层的神经元的数量，那么这个单隐层的神经网络的输入层、隐含层和输出层的维度分别是：n[0]= n_x =3、n[1]=4、n[2]=1。</p>
-<p>那么根据<a href="[https://brickexperts.github.io/2019/09/23/%E6%B5%85%E5%B1%82%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E6%AD%A3%E5%90%91%E4%BC%A0%E6%92%AD/#more](https://brickexperts.github.io/2019/09/23/浅层神经网络的正向传播/#more)">浅层神经网络的正向传播</a>的分析，如果一次性输入带有 m 个样本的矩阵 X 我们可以得到：</p>
+<p>那么根据<a href="[https://brickexperts.github.io/2019/09/23/%E6%B5%85%E5%B1%82%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E6%AD%A3%E5%90%91%E4%BC%A0%E6%92%AD/#more](https://brickexperts.github.io/2019/09/23/浅层神经网络的正向传播/#more">浅层神经网络的正向传播</a>)的分析，如果一次性输入带有 m 个样本的矩阵 X 我们可以得到：</p>
 <blockquote>
 <p>W^[1] = (4, 3), Z^[1] = (4, m), A^[1] = (4, m)</p>
 <p>W^[2] = (1, 4), Z^[2] = (1, m), A^[2] = (1, m)</p>
@@ -359,8 +359,8 @@
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190923162211.png" alt=""></p>
 <p>其中计算z^[1]时用到的 x 可以看做是 a^[0]，σ( ) 是激活函数中一种，一般情况下，我们更习惯用用 g( ) 来表示激活函数。于是将上述式子一般化可以得到第 l 层的公式为：</p>
 <blockquote>
-<p>z^[l] = W^[l]a^[l-1] + b^[l] ——— ①</p>
-<p>a^[l] = g^[l] ( z^[l] ) ——————- ②</p>
+<p>z^[l] = W^[l]a^[l-1] + b^[l] ————- ①</p>
+<p>a^[l] = g^[l] ( z^[l] ) —————————- ②</p>
 </blockquote>
 <p>由于我们输入的样本只有一个，所以各个向量的维度如下：</p>
 <blockquote>
@@ -374,8 +374,6 @@
 <blockquote>
 <p>da^[2]=dL/da^[2]=  -y/a^[2]+(1-y)/(1-a^[2])</p>
 <p>dz^[2]= dL/dz^[2] = dL/da^[2]*da^[2]/dz^[2]=-y(1-a^[2])+(1-y)a^[2] = a^[2] - y</p>
-</blockquote>
-<blockquote>
 <p>说明1：</p>
 <p>dz^[2] 的维度和z^[2]相同，da^[2] 的维度和a^[2]相同，为(1, 1)</p>
 <p>g’( z^[2] ) 的维度与 z^[2]维度相同，为(1, 1)</p>
@@ -834,6 +832,7 @@
 
 
 
+  
 
 
 
@@ -852,7 +851,25 @@
 
 
 
-  <script src="/js/local-search.js?v=7.3.0"></script>
+
+  <script src="/js/local-search.js?v=7.3.0"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 
 

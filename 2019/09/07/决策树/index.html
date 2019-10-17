@@ -6,7 +6,7 @@
 
 <html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="generator" content="Hexo 4.0.0">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
@@ -127,13 +127,13 @@
   .use-motion .logo-line-before i { left: initial; }
   .use-motion .logo-line-after i { right: initial; }
   </style>
-</noscript>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
-  <div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -391,10 +391,9 @@
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML106.png" alt=""></p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML105.png" alt=""></p>
 <p>用dot -version检查是否安装成功</p>
-<p>将dot文件转为png文件的命令：dot -Tpng *.dot -o *.png</p>
+<p>将dot文件转为png文件的命令：dot -Tpng <em>.dot -o </em>.png</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/ML107.png" alt=""></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#分类树</span></span><br><span class="line"><span class="keyword">from</span> sklearn.feature_extraction <span class="keyword">import</span> DictVectorizer</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">from</span> sklearn.tree <span class="keyword">import</span> DecisionTreeClassifier,export_graphviz</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">titan=pd.read_csv(<span class="string">"http://biostat.mc.vanderbilt.edu/wiki/pub/Main/DataSets/titanic.txt"</span>)</span><br><span class="line">x=titan[[<span class="string">"pclass"</span>,<span class="string">"age"</span>,<span class="string">"sex"</span>]]</span><br><span class="line">y=titan[<span class="string">"survived"</span>]</span><br><span class="line">x[<span class="string">"age"</span>].fillna(x[<span class="string">"age"</span>].mean(),inplace=<span class="literal">True</span>)</span><br><span class="line">x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=<span class="number">0.25</span>)</span><br><span class="line">dict=DictVectorizer(sparse=<span class="literal">False</span>)</span><br><span class="line">x_train=dict.fit_transform(x_train.to_dict(orient=<span class="string">"records"</span>))</span><br><span class="line">x_test=dict.transform(x_test.to_dict(orient=<span class="string">"records"</span>))</span><br><span class="line">dec=DecisionTreeClassifier()</span><br><span class="line">dec.fit(x_train,y_train)</span><br><span class="line">print(<span class="string">"准确率为："</span>,dec.score(x_test,y_test))</span><br><span class="line"><span class="comment">#图形化</span></span><br><span class="line">export_graphviz(dec,out_file=<span class="string">"./tree.dot"</span>,feature_names=[<span class="string">"age"</span>,<span class="string">"pclass=1st"</span>,<span class="string">"pclass=2nd"</span>,<span class="string">"pclass=3rd"</span>,<span class="string">"female"</span>,<span class="string">"male"</span>])</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#回归树</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> sklearn.tree <span class="keyword">import</span> DecisionTreeRegressor</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">rng = np.random.RandomState(<span class="number">1</span>)</span><br><span class="line">X = np.sort(<span class="number">5</span> * rng.rand(<span class="number">80</span>,<span class="number">1</span>), axis=<span class="number">0</span>)</span><br><span class="line">y = np.sin(X).ravel()</span><br><span class="line">y[::<span class="number">5</span>] += <span class="number">3</span> * (<span class="number">0.5</span> - rng.rand(<span class="number">16</span>))</span><br><span class="line">regr_1 = DecisionTreeRegressor(max_depth=<span class="number">2</span>)</span><br><span class="line">regr_2 = DecisionTreeRegressor(max_depth=<span class="number">5</span>)</span><br><span class="line">regr_1.fit(X, y)</span><br><span class="line">regr_2.fit(X, y)</span><br><span class="line">X_test = np.arange(<span class="number">0.0</span>, <span class="number">5.0</span>, <span class="number">0.01</span>)[:, np.newaxis]</span><br><span class="line">y_1 = regr_1.predict(X_test)</span><br><span class="line">y_2 = regr_2.predict(X_test)</span><br><span class="line">plt.figure()</span><br><span class="line">plt.scatter(X, y, s=<span class="number">20</span>, edgecolor=<span class="string">"black"</span>,c=<span class="string">"darkorange"</span>, label=<span class="string">"data"</span>)</span><br><span class="line">plt.plot(X_test, y_1, color=<span class="string">"cornflowerblue"</span>,label=<span class="string">"max_depth=2"</span>, linewidth=<span class="number">2</span>)</span><br><span class="line">plt.plot(X_test, y_2, color=<span class="string">"yellowgreen"</span>, label=<span class="string">"max_depth=5"</span>, linewidth=<span class="number">2</span>)</span><br><span class="line">plt.xlabel(<span class="string">"data"</span>)</span><br><span class="line">plt.ylabel(<span class="string">"target"</span>)</span><br><span class="line">plt.title(<span class="string">"Decision Tree Regression"</span>)</span><br><span class="line">plt.legend()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
     </div>
 
@@ -796,6 +795,7 @@
 
 
 
+  
 
 
 
@@ -814,7 +814,25 @@
 
 
 
-  <script src="/js/local-search.js?v=7.3.0"></script>
+
+  <script src="/js/local-search.js?v=7.3.0"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 
 

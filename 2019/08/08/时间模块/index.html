@@ -6,7 +6,7 @@
 
 <html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="generator" content="Hexo 4.0.0">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
@@ -127,13 +127,13 @@
   .use-motion .logo-line-before i { left: initial; }
   .use-motion .logo-line-after i { right: initial; }
   </style>
-</noscript>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
-  <div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -347,8 +347,7 @@
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time1.png" alt=""></p>
 <p><strong>注一</strong>：范围真的是0-61.这是基于历史原因。</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time2.png" alt=""></p>
-<p>##time</p>
-<p> <strong>time.altzone</strong>：返回格林威治西部的夏令时地区的偏移秒数；如果该地区在格林威治东部会返回负值（如西欧，包括英国）；对夏令时启用地区才能使用。</p>
+<h2 id="time"><a href="#time" class="headerlink" title="time"></a>time</h2><p> <strong>time.altzone</strong>：返回格林威治西部的夏令时地区的偏移秒数；如果该地区在格林威治东部会返回负值（如西欧，包括英国）；对夏令时启用地区才能使用。</p>
 <p> <strong>time.asctime([t])</strong>：接受时间元组并返回一个可读的形式为”Tue Dec 11 18:07:14 2015”（2015年12月11日 周二 18时07分14秒）的 24 个字符的字符串。</p>
 <p><strong>time.clock()</strong>：用以浮点数计算的秒数返回当前的 CPU 时间。用来衡量不同程序的耗时，比 time.time() 更有用。<em>Python 3.3 以后不被推荐，由于该方法依赖操作系统，建议使用 perf_counter() 或 process_time() 代替（一个返回系统运行时间，一个返回进程运行时间，请按照实际需求选择）</em></p>
 <p><strong>time.ctime([secs])</strong> ：作用相当于 asctime(localtime(secs))，未给参数相当于 asctime()</p>
@@ -383,7 +382,7 @@
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time10.png" alt=""></p>
 <p><strong>datetime.strptime(date_string, format)</strong>: 将格式化字符串转换为 datetime 对象</p>
 <p><strong>datetime.timedelta</strong>对象代表两个时间之间的时间差，两个date或datetime对象相减就可以返回一个timedelta对象。</p>
-<p>*<em>datetime.timedelta([days[, seconds[, microseconds[, milliseconds[, minutes[, hours[, weeks]]]]]]]) *</em></p>
+<p><strong>datetime.timedelta([days[, seconds[, microseconds[, milliseconds[, minutes[, hours[, weeks]]]]]]]) </strong></p>
 <p>往前算：</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time7.png" alt=""></p>
 <p>往后算：</p>
@@ -414,10 +413,10 @@
 <p><strong>datetime.__format__(format)</strong>跟 datetime.strftime(format) 一样，这使得调用 str.format() 时可以指定 data 对象的字符串</p>
 <h2 id="calendar"><a href="#calendar" class="headerlink" title="calendar"></a>calendar</h2><p>calendar.calendar(year,w,l,c)(year为年份，w是每日宽度，c为间隔距离，l为每星期行数) 日历</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/time15.png" alt=""></p>
-<p>*<em>calendar.isleap(year) *</em>：如果是闰年就返回True，否则返回False</p>
+<p><strong>calendar.isleap(year) </strong>：如果是闰年就返回True，否则返回False</p>
 <p><strong>calendar.leapdays(y1,y2)</strong>：返回y1与y2两年间的闰年总数</p>
-<p>*<em>calendar.month(year,month,w,l) *</em>：year代表年份，month代表月日历，每行宽度间隔为w，l是每星期的行数</p>
-<p>*<em>calendar.prcal *</em>：相当于print(calendar.calendar(year,w,l,c))</p>
+<p><strong>calendar.month(year,month,w,l) </strong>：year代表年份，month代表月日历，每行宽度间隔为w，l是每星期的行数</p>
+<p><strong>calendar.prcal </strong>：相当于print(calendar.calendar(year,w,l,c))</p>
 <p><strong>calendar.prmonth(year,month,w,l)</strong>：相当于print(calendar.calendar(year,w,l,c))</p>
 <p><strong>calendar.weekday(year,month,day)</strong>： 返回指定日期的日期码，0-6（星期），1-12（月份）</p>
 <p><strong>calendar.firstweekday()</strong>返回当前起始日期的设置</p>
@@ -744,7 +743,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#datetime"><span class="nav-text">datetime</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#calendar"><span class="nav-text">calendar</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#timeit"><span class="nav-text">timeit</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#time"><span class="nav-text">time</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#datetime"><span class="nav-text">datetime</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#calendar"><span class="nav-text">calendar</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#timeit"><span class="nav-text">timeit</span></a></li></ol></div>
             
 
           </div>
@@ -830,6 +829,7 @@
 
 
 
+  
 
 
 
@@ -848,7 +848,25 @@
 
 
 
-  <script src="/js/local-search.js?v=7.3.0"></script>
+
+  <script src="/js/local-search.js?v=7.3.0"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 
 

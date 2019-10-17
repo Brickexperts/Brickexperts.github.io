@@ -6,7 +6,7 @@
 
 <html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="generator" content="Hexo 4.0.0">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
@@ -113,13 +113,13 @@
   .use-motion .logo-line-before i { left: initial; }
   .use-motion .logo-line-after i { right: initial; }
   </style>
-</noscript>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
-  <div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -330,26 +330,21 @@
 <p>import matplotlib.pyplot as plt，所以以下的plt都是pyplot。</p>
 <h4 id="plt-scatter"><a href="#plt-scatter" class="headerlink" title="plt.scatter"></a>plt.scatter</h4><p>画散点图</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">x = list(range(1,1001))</span><br><span class="line">y = [x*<span class="number">*2</span> <span class="keyword">for</span> x <span class="keyword">in</span> x]</span><br><span class="line"><span class="comment">#s代表点的面积</span></span><br><span class="line"><span class="comment">#c代表颜色</span></span><br><span class="line">plt.scatter(x,y,<span class="attribute">c</span>=<span class="string">"green"</span>,s=20)</span><br><span class="line"><span class="comment">#设置标题并加上轴标签</span></span><br><span class="line">plt.title(<span class="string">"Squares Numbers"</span>,<span class="attribute">fontsize</span>=24)</span><br><span class="line">plt.xlabel(<span class="string">"Value"</span>,<span class="attribute">fontsize</span>=14)</span><br><span class="line">plt.xlabel(<span class="string">"Square of Value"</span>,<span class="attribute">fontsize</span>=14)</span><br><span class="line"><span class="comment">#设置刻度标记的大小</span></span><br><span class="line">plt.tick_params(<span class="attribute">axis</span>=<span class="string">'both'</span>,which='major',labelsize=14)</span><br><span class="line"><span class="comment">#设置每个坐标的取值范围</span></span><br><span class="line">plt.axis([0,1100,0,1100000])</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
 <p>上面的代码运行后，是一条线。那是因为点太多了。绘制很多点的时候，轮廓会连在一起。要删除数据点的轮廓可用scatter，传递参数edgecolor=”none”</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/matplotlib1.png" alt=""></p>
 <p>模块pyplot内置了一组颜色映射，要使用这些颜色映射，你需要告诉pyplot该如何设置数据集中每个点的颜色。</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">x = list(range(1,1001))</span><br><span class="line">y = [x*<span class="number">*2</span> <span class="keyword">for</span> x <span class="keyword">in</span> x]</span><br><span class="line"><span class="comment">#s代表点的面积</span></span><br><span class="line"><span class="comment">#cmap设置颜色映射</span></span><br><span class="line">plt.scatter(x,y,<span class="attribute">s</span>=20,c=y,cmap=plt.cm.Greens)</span><br><span class="line"><span class="comment">#设置标题并加上轴标签</span></span><br><span class="line">plt.title(<span class="string">"Squares Numbers"</span>,<span class="attribute">fontsize</span>=24)</span><br><span class="line">plt.xlabel(<span class="string">"Value"</span>,<span class="attribute">fontsize</span>=14)</span><br><span class="line">plt.xlabel(<span class="string">"Square of Value"</span>,<span class="attribute">fontsize</span>=14)</span><br><span class="line"><span class="comment">#设置刻度标记的大小</span></span><br><span class="line">plt.tick_params(<span class="attribute">axis</span>=<span class="string">'both'</span>,which='major',labelsize=14)</span><br><span class="line"><span class="comment">#设置每个坐标的取值范围</span></span><br><span class="line">plt.axis([0,1100,0,1100000])</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
 <p>保存散点图：savefig</p>
 <p>保存图片之前，一定要把plt.show()注释掉，否则会保存一张空白的图片</p>
 <figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#plt</span><span class="selector-class">.show</span>()</span><br><span class="line"><span class="selector-tag">plt</span><span class="selector-class">.savefig</span>(<span class="string">"save.jpg"</span>,bbox_inches=<span class="string">"tight"</span>)</span><br></pre></td></tr></table></figure>
-
 <h4 id="plt-bar"><a href="#plt-bar" class="headerlink" title="plt.bar"></a>plt.bar</h4><p>画柱状图，默认是竖直条形图。</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/matplotlib2.png" alt=""></p>
 <figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot as plt</span><br><span class="line"><span class="keyword">import</span> numpy as np</span><br><span class="line">y = [<span class="number">20</span>, <span class="number">10</span>, <span class="number">30</span>, <span class="number">25</span>, <span class="number">15</span>]</span><br><span class="line">x = np.arange(<span class="number">5</span>)</span><br><span class="line">p1 = plt.bar(x, height=y, width=<span class="number">0.5</span>, )</span><br><span class="line"># 展示图形</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
 <p>水平条形图：需要把orientation改为horizontal，然后x与y的数据交换</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">import numpy as np</span><br><span class="line">x = [20, 10, 30, 25, 15]</span><br><span class="line">y = np.arange(5)</span><br><span class="line"><span class="comment"># x= 起始位置，bottom= 水平条的底部(左侧), y轴， height：水平条的宽度</span></span><br><span class="line"><span class="comment">#width：水平条的长度</span></span><br><span class="line">p1 = plt.bar(<span class="attribute">x</span>=0, <span class="attribute">bottom</span>=y, <span class="attribute">height</span>=0.5, <span class="attribute">width</span>=x, <span class="attribute">orientation</span>=<span class="string">"horizontal"</span>)</span><br><span class="line"><span class="comment"># 展示图形</span></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
 <h4 id="plt-plot-x-y-color-’red’-linewidth-2-5-linestyle-’-‘"><a href="#plt-plot-x-y-color-’red’-linewidth-2-5-linestyle-’-‘" class="headerlink" title="plt.plot(x,y,color=’red’,linewidth=2.5,linestyle=’-‘)"></a>plt.plot(x,y,color=’red’,linewidth=2.5,linestyle=’-‘)</h4><p> 画线，也可以用来画折线图。x是横坐标的值。y是纵坐标的值。color参数设置曲线颜色，linewidth设置曲线宽度，linestyle设置曲线风格。</p>
 <p>linestyle的可选参数：</p>
-<p>‘-‘       solid line style<br> ‘–’      dashed line style<br> ‘-.’      dash-dot line style<br> ‘:’       dotted line style</p>
+<p>‘-‘       solid line style<br> ‘—‘      dashed line style<br> ‘-.’      dash-dot line style<br> ‘:’       dotted line style</p>
 <h4 id="plt-figure"><a href="#plt-figure" class="headerlink" title="plt.figure()"></a>plt.figure()</h4><p>自定义画布大小，画图之前首先设置figure对象，此函数相当于设置一块自定义大小的画布，使得后面的图形输出在这块规定了大小的画布上，其中参数figsize设置画布大小。</p>
 <p>figure语法说明</p>
 <p>figure(num=None, figsize=None, dpi=None, facecolor=None, edgecolor=None, frameon=True)</p>
@@ -784,6 +779,7 @@
 
 
 
+  
 
 
 
@@ -802,7 +798,25 @@
 
 
 
-  <script src="/js/local-search.js?v=7.3.0"></script>
+
+  <script src="/js/local-search.js?v=7.3.0"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 
 

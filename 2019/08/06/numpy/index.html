@@ -6,7 +6,7 @@
 
 <html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="generator" content="Hexo 4.0.0">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
@@ -135,13 +135,13 @@
   .use-motion .logo-line-before i { left: initial; }
   .use-motion .logo-line-after i { right: initial; }
   </style>
-</noscript>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
-  <div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -367,7 +367,7 @@
 <p>seed的使用方法：</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy11.png" alt=""></p>
 <p>使用RandomState获得随机数生成器</p>
-<p>&gt;&gt;&gt;rdm=np.random.RandomState(2)    #  2是随机数种子<br>&gt;&gt;&gt;a=np.random.randint(0,20,(3,4))<br>&gt;&gt;&gt;a<br>array([[ 8, 11,  1,  5],<br>       [ 3,  8,  0, 18],<br>       [ 5, 15,  8, 14]])</p>
+<p>>&gt;&gt;rdm=np.random.RandomState(2)    #  2是随机数种子<br>>&gt;&gt;a=np.random.randint(0,20,(3,4))<br>>&gt;&gt;a<br>array([[ 8, 11,  1,  5],<br>       [ 3,  8,  0, 18],<br>       [ 5, 15,  8, 14]])</p>
 <h4 id="reshape-amp-resize"><a href="#reshape-amp-resize" class="headerlink" title="reshape&amp;resize"></a>reshape&amp;resize</h4><p>可以通过reshape修改列表的行数和列数，resize改变数组的尺寸大小。根据reshape传入的参数判断转为哪种数组。</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy13.png" alt=""></p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy14.png" alt=""></p>
@@ -393,8 +393,8 @@
 <p>retstep : bool, optional。If True, return (samples, step), where step is the spacing between samples.返回一个（array，num）元组，array是结果数组，num是间隔大小</p>
 <p>dtype : dtype, optional。The type of the output array. If dtype is not given, infer the data type from the other input arguments。输出数组的类型。如果没有给出dtype，则从其他输入参数推断数据类型。</p>
 <h4 id="numpy-newaxi："><a href="#numpy-newaxi：" class="headerlink" title="numpy.newaxi："></a>numpy.newaxi：</h4><p>插入新的维度</p>
-<p>&gt;&gt;&gt; import numpy as np</p>
-<p>&gt;&gt;&gt;b=np.array([1,2,3,4,5,6])<br>&gt;&gt;&gt;b[np.newaxis]<br>&gt;&gt;&gt;array([[1, 2, 3, 4, 5, 6]])</p>
+<p>>&gt;&gt; import numpy as np</p>
+<p>>&gt;&gt;b=np.array([1,2,3,4,5,6])<br>>&gt;&gt;b[np.newaxis]<br>>&gt;&gt;array([[1, 2, 3, 4, 5, 6]])</p>
 <h4 id="numpy-meshgrid："><a href="#numpy-meshgrid：" class="headerlink" title="numpy.meshgrid："></a>numpy.meshgrid：</h4><p>生成网格点坐标矩阵</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy30.png" alt=""></p>
 <p>由上图，得知meshgrid的作用是：根据传入的两个一维数组参数生成两个数组元素的列表。如果第一个参数是xarray，维度是xdimesion，第二个参数是yarray，维度是ydimesion。那么生成的第一个二维数组是以xarray为行，共ydimesion行的向量；而第二个二维数组是以yarray的转置为列，共xdimesion列的向量</p>
@@ -807,6 +807,7 @@
 
 
 
+  
 
 
 
@@ -825,7 +826,25 @@
 
 
 
-  <script src="/js/local-search.js?v=7.3.0"></script>
+
+  <script src="/js/local-search.js?v=7.3.0"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 
 

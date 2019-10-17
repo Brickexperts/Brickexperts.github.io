@@ -6,7 +6,7 @@
 
 <html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="generator" content="Hexo 4.0.0">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
@@ -119,13 +119,13 @@
   .use-motion .logo-line-before i { left: initial; }
   .use-motion .logo-line-after i { right: initial; }
   </style>
-</noscript>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
-  <div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -342,16 +342,12 @@
 <p>特征工程中有三种方式：特征提取，特征创造和特征选择。仔细观察上面的降维例子和上周我们讲解过的特征<br>选择，你发现有什么不同了吗?<br>特征选择是从已存在的特征中选取携带信息最多的，选完之后的特征依然具有可解释性，我们依然知道这个特征在原数据的哪个位置，代表着原数据上的什么含义。而PCA，是将已存在的特征进行压缩，降维完毕后的特征不是原本的特征矩阵中的任何一个特征，而是通过某些方式组合起来的新特征。通常来说，在新的特征矩阵生成之前，我们无法知晓PCA都建立了怎样的新特征向量，新特征矩阵生成之后也不具有可读性，我们无法判断新特征矩阵的特征是从原数据中的什么特征组合而来，新特征虽然带有原始数据的信息，却已经不是原数据上代表着的含义了。以PCA为代表的降维算法因此是特征创造（feature creation，或feature construction）的一种。 </p>
 <h3 id="重要参数"><a href="#重要参数" class="headerlink" title="重要参数"></a>重要参数</h3><p>n_compontents：n_components是我们降维后需要的维度，即降维后需要保留的特征数量。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_iris</span><br><span class="line"><span class="keyword">from</span> sklearn.decomposition <span class="keyword">import</span> PCA</span><br><span class="line">iris = load_iris()</span><br><span class="line">y = iris.target</span><br><span class="line">X = iris.data</span><br><span class="line">pca = PCA(n_components=<span class="number">2</span>) <span class="comment">#实例化</span></span><br><span class="line"><span class="comment">#也可以一步到位，x_dr=pca.fit_transform(X)</span></span><br><span class="line">pca = pca.fit(X) <span class="comment">#拟合模型</span></span><br><span class="line">X_dr = pca.transform(X) <span class="comment">#获取新矩阵</span></span><br><span class="line"><span class="string">"""可以写三行代码，也可以写成for循环</span></span><br><span class="line"><span class="string">plt.figure()</span></span><br><span class="line"><span class="string">plt.scatter(X_dr[y==0, 0], X_dr[y==0, 1], c="red", label=iris.target_names[0])</span></span><br><span class="line"><span class="string">plt.scatter(X_dr[y==1, 0], X_dr[y==1, 1], c="black", label=iris.target_names[1])</span></span><br><span class="line"><span class="string">plt.scatter(X_dr[y==2, 0], X_dr[y==2, 1], c="orange", label=iris.target_names[2])</span></span><br><span class="line"><span class="string">plt.legend()</span></span><br><span class="line"><span class="string">plt.title('PCA of IRIS dataset')</span></span><br><span class="line"><span class="string">plt.show()</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line">colors = [<span class="string">'red'</span>, <span class="string">'black'</span>, <span class="string">'orange'</span>]</span><br><span class="line">plt.figure()</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>]:</span><br><span class="line">    plt.scatter(X_dr[y == i, <span class="number">0</span>],X_dr[y == i, <span class="number">1</span>],alpha=<span class="number">.7</span>,c=colors[i],label=iris.target_names[i])</span><br><span class="line">plt.legend()</span><br><span class="line">plt.title(<span class="string">'PCA of IRIS dataset'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
 <h4 id="选择最好的n-components"><a href="#选择最好的n-components" class="headerlink" title="选择最好的n_components"></a>选择最好的n_components</h4><h5 id="累积可解释方差贡献率曲线"><a href="#累积可解释方差贡献率曲线" class="headerlink" title="累积可解释方差贡献率曲线"></a>累积可解释方差贡献率曲线</h5><p>当参数n_components中不填写任何值，则默认返回min(X.shape)个特征，一般来说，样本量都会大于特征数目，所以什么都不填就相当于转换了新特征空间，但没有减少特征的个数。一般来说，不会使用这种输入方式。但我们却可以使用这种输入方式来画出累计可解释方差贡献率曲线，以此选择最好的n_components的整数取值。累积可解释方差贡献率曲线是一条以降维后保留的特征个数为横坐标，降维后新特征矩阵捕捉到的可解释方差贡献率为纵坐标的曲线，能够帮助我们决定n_components最好的取值。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#接上面的代码</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">pca_line = PCA().fit(X)</span><br><span class="line"><span class="comment">#属性explained_variance_ratio，查看降维后每个新特征向量所占的信息量占原始数据总信息量的百分比</span></span><br><span class="line"><span class="comment">#又叫做可解释方差贡献率</span></span><br><span class="line">plt.plot([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>],np.cumsum(pca_line.explained_variance_ratio_))</span><br><span class="line">plt.xticks([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]) <span class="comment">#这是为了限制坐标轴显示为整数</span></span><br><span class="line">plt.xlabel(<span class="string">"number of components after dimension reduction"</span>)</span><br><span class="line">plt.ylabel(<span class="string">"cumulative explained variance ratio"</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
 <h5 id="最大似然估计自选超参数"><a href="#最大似然估计自选超参数" class="headerlink" title="最大似然估计自选超参数"></a>最大似然估计自选超参数</h5><p>除了输入整数，n_components还有哪些选择呢？让PCA用最大似然估计(maximum likelihood estimation)自选超参数的方法，输入“mle”作为n_components的参数输入，就可以调用这种方法。 </p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">pca_mle = PCA(n_components=<span class="string">"mle"</span>)</span><br><span class="line">pca_mle = pca_mle.fit(X)</span><br><span class="line">X_mle = pca_mle.transform(X)</span><br><span class="line"><span class="comment">#从这里看出，mle自动为我们选了几个特征</span></span><br><span class="line">print(X_mle.shape)</span><br></pre></td></tr></table></figure>
-
 <h5 id="按信息占比选超参数"><a href="#按信息占比选超参数" class="headerlink" title="按信息占比选超参数"></a>按信息占比选超参数</h5><p>输入[0,1]之间的浮点数，并且让参数svd_solver ==’full’，表示希望降维后的总解释性方差占比大于n_components指定的百分比，即是说，希望保留百分之多少的信息量。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">pca_f = PCA(n_components=<span class="number">0.97</span>,svd_solver=<span class="string">"full"</span>)</span><br><span class="line">pca_f = pca_f.fit(X)</span><br><span class="line">X_f = pca_f.transform(X)</span><br><span class="line"><span class="comment">#属性explained_variance_ratio，查看降维后每个新特征向量所占的信息量占原始数据总信息量的百分比</span></span><br><span class="line">print(pca_f.explained_variance_ratio_)</span><br></pre></td></tr></table></figure>
-
 <h3 id="PCA中的SVD"><a href="#PCA中的SVD" class="headerlink" title="PCA中的SVD"></a>PCA中的SVD</h3><p>其实上面的svd_solver是奇异值分解器。其实SVD可以跳过数学，不计算协方差矩阵，直接找出一个新特征向量组成的n维向量。也就是说，奇异值分解可以不计算协方差矩阵等等计算冗长的矩阵，就直接求出新特征空间和降维后的特征矩阵。简而言之，SVD在矩阵分解中的过程比PCA简单快速。</p>
 <h4 id="重要参数-1"><a href="#重要参数-1" class="headerlink" title="重要参数"></a>重要参数</h4><h5 id="svd-solver"><a href="#svd-solver" class="headerlink" title="svd_solver"></a>svd_solver</h5><p>参数svd_solver是在降维过程中，用来控制矩阵分解的一些细节的参数。有四种模式可选：”auto”, “full”, “arpack”,”randomized”，默认”auto”。</p>
 <p>“auto”：基于X.shape和n_components的默认策略来选择分解器：如果输入数据的尺寸大于500x500且要提取的特征数小于数据最小维度min(X.shape)的80％，就启用效率更高的”randomized“方法。否则，精确完整的SVD将被计算，截断将会在矩阵被分解完成后有选择地发生</p>
@@ -365,13 +361,10 @@
 <h5 id="属性列表"><a href="#属性列表" class="headerlink" title="属性列表"></a>属性列表</h5><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/PCA4.png" alt=""></p>
 <h5 id="接口列表"><a href="#接口列表" class="headerlink" title="接口列表"></a>接口列表</h5><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/PCA5.png" alt=""></p>
 <h2 id="PCA对手写数字数据集的降维"><a href="#PCA对手写数字数据集的降维" class="headerlink" title="PCA对手写数字数据集的降维"></a>PCA对手写数字数据集的降维</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.decomposition <span class="keyword">import</span> PCA</span><br><span class="line"><span class="keyword">from</span> sklearn.ensemble <span class="keyword">import</span> RandomForestClassifier <span class="keyword">as</span> RFC</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> cross_val_score</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">data = pd.read_csv(<span class="string">r"digit recognizor.csv"</span>)</span><br><span class="line">X = data.iloc[:,<span class="number">1</span>:]</span><br><span class="line">y = data.iloc[:,<span class="number">0</span>]</span><br><span class="line">pca_line = PCA().fit(X)</span><br><span class="line">plt.figure(figsize=[<span class="number">20</span>,<span class="number">5</span>])</span><br><span class="line">plt.plot(np.cumsum(pca_line.explained_variance_ratio_))</span><br><span class="line">plt.xlabel(<span class="string">"number of components after dimension reduction"</span>)</span><br><span class="line">plt.ylabel(<span class="string">"cumulative explained variance ratio"</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
 <p>接着降维后维度的学习曲线，继续缩小最佳维度的范围</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">score = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">101</span>,<span class="number">10</span>):</span><br><span class="line">    X_dr = PCA(i).fit_transform(X)</span><br><span class="line">    once = cross_val_score(RFC(n_estimators=<span class="number">10</span>,random_state=<span class="number">0</span>)</span><br><span class="line">    ,X_dr,y,cv=<span class="number">5</span>).mean()</span><br><span class="line">    score.append(once)</span><br><span class="line">plt.figure(figsize=[<span class="number">20</span>,<span class="number">5</span>])</span><br><span class="line">plt.plot(range(<span class="number">1</span>,<span class="number">101</span>,<span class="number">10</span>),score)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
 <p>细化学习曲线，找出降维后的最佳维度</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">score = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>,<span class="number">25</span>):</span><br><span class="line">    X_dr = PCA(i).fit_transform(X)</span><br><span class="line">    once = cross_val_score(RFC(n_estimators=<span class="number">10</span>,random_state=<span class="number">0</span>),X_dr,y,cv=<span class="number">5</span>).mean()</span><br><span class="line">    score.append(once)</span><br><span class="line">plt.figure(figsize=[<span class="number">20</span>,<span class="number">5</span>])</span><br><span class="line">plt.plot(range(<span class="number">10</span>,<span class="number">25</span>),score)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
 <p>导入找出的最佳维度进行降维，查看模型效果</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x_dr=PCA(<span class="number">23</span>).fit_transform(X)</span><br><span class="line">print(cross_val_score(RFC(n_estimators=<span class="number">100</span>,random_state=<span class="number">0</span>),x_dr,y,cv=<span class="number">5</span>).mean())</span><br></pre></td></tr></table></figure>
     </div>
@@ -774,6 +767,7 @@
 
 
 
+  
 
 
 
@@ -792,7 +786,25 @@
 
 
 
-  <script src="/js/local-search.js?v=7.3.0"></script>
+
+  <script src="/js/local-search.js?v=7.3.0"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 
 

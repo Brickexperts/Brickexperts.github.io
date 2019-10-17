@@ -6,7 +6,7 @@
 
 <html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="generator" content="Hexo 4.0.0">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
@@ -65,19 +65,19 @@
 <meta property="og:site_name" content="DY的个人博客">
 <meta property="og:description" content="​    今天来讲一下python里面较难的一个东西。我学到的python内容里面有两个东西是比较难的，一个是描述符，另一个就是今天讲的元类。 通过python知识散记我们知道global的功能是将局部变量转为全局变量，接下来要说的是globals()。这个globals()函数会以字典类型返回当前位置的全部全局变量。  __builtins__模块是默认加载的，在ipython中打开。  pyt">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;%E5%85%83%E7%B1%BB4.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;%E5%85%83%E7%B1%BB5.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;%E5%85%83%E7%B1%BB7.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;%E5%85%83%E7%B1%BB1.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;%E5%85%83%E7%B1%BB8.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;%E5%85%83%E7%B1%BB2.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;%E5%85%83%E7%B1%BB9.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;%E5%85%83%E7%B1%BB10.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;%E5%85%83%E7%B1%BB11.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;%E5%85%83%E7%B1%BB12.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;元类4.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;元类5.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;元类7.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;元类1.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;元类8.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;元类2.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;元类9.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;元类10.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;元类11.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;元类12.png">
 <meta property="og:updated_time" content="2019-09-15T06:24:55.456Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;%E5%85%83%E7%B1%BB4.png">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;元类4.png">
   <link rel="alternate" href="/atom.xml" title="DY的个人博客" type="application/atom+xml">
   <link rel="canonical" href="http://yoursite.com/2019/08/07/%E5%85%83%E7%B1%BB/">
 
@@ -121,13 +121,13 @@
   .use-motion .logo-line-before i { left: initial; }
   .use-motion .logo-line-after i { right: initial; }
   </style>
-</noscript>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
-  <div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -334,29 +334,29 @@
       
         <p>​    今天来讲一下python里面较难的一个东西。我学到的python内容里面有两个东西是比较难的，一个是描述符，另一个就是今天讲的元类。</p>
 <p>通过python知识散记我们知道global的功能是将局部变量转为全局变量，接下来要说的是globals()。这个globals()函数会以字典类型返回当前位置的全部全局变量。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%85%83%E7%B1%BB4.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/元类4.png" alt=""></p>
 <p>__builtins__模块是默认加载的，在ipython中打开。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%85%83%E7%B1%BB5.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/元类5.png" alt=""></p>
 <p><strong>python通过类创建对象，通过元类创建类。（类也是对象）</strong></p>
 <p>动态创建类：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%85%83%E7%B1%BB7.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/元类7.png" alt=""></p>
 <p>函数choose_class根据name的不同而动态的创建不同的类，但这种做法效率相当low。因为如果类多了就会要很多if-else来判断创建哪个类。</p>
 <p>通过type动态创建类。命名规则：</p>
 <p>type(类名，由父类名称构成的元祖（针对继承的情况，可以为空），包含属性的字典（名称和值）)</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%85%83%E7%B1%BB1.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/元类1.png" alt=""></p>
 <p>继承：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%85%83%E7%B1%BB8.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/元类8.png" alt=""></p>
 <p>添加实例方法：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%85%83%E7%B1%BB2.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/元类2.png" alt=""></p>
 <p>添加类方法：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%85%83%E7%B1%BB9.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/元类9.png" alt=""></p>
 <p>添加静态方法：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%85%83%E7%B1%BB10.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/元类10.png" alt=""></p>
 <p>元类应用：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%85%83%E7%B1%BB11.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/元类11.png" alt=""></p>
 <p>metaclass用来指定按照upper_attr来创建，如果不指定，则默认使用type创建。Foo传到class_name，父类(object)传到class_name，新的字典传到class_attr。</p>
 <p>用类完成以上代码：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%85%83%E7%B1%BB12.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/元类12.png" alt=""></p>
 
     </div>
 
@@ -732,6 +732,7 @@
 
 
 
+  
 
 
 
@@ -750,7 +751,25 @@
 
 
 
-  <script src="/js/local-search.js?v=7.3.0"></script>
+
+  <script src="/js/local-search.js?v=7.3.0"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 
 

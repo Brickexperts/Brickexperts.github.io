@@ -6,7 +6,7 @@
 
 <html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="generator" content="Hexo 4.0.0">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
@@ -116,13 +116,13 @@
   .use-motion .logo-line-before i { left: initial; }
   .use-motion .logo-line-after i { right: initial; }
   </style>
-</noscript>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
-  <div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -347,7 +347,7 @@
 <p>模型和超平面的数量变化了，SVC的很多计算、接口、属性都会发生变化，而参数decision_function_shape决定我们究竟使用哪一种分类模式。</p>
 <h4 id="decision-function-shape"><a href="#decision-function-shape" class="headerlink" title="decision_function_shape"></a>decision_function_shape</h4><p>可输入“ovo”，”ovr”，默认”ovr”，对所有分类器，选择使用ovo或者ovr模式。<br>选择ovr模式，则返回的decision_function结构为(n_samples，n_class)。但是当二分类时，尽管选用ovr模式，却会返回<br>(n_samples，)的结构。 </p>
 <p>选择ovo模式，则使用libsvm中原始的，结构为(n_samples,n_class<em>(n_class-1)/2)的decision_function接口。在ovo模式并且核函数为线性核的情况下，属性coef_和intercepe_会分别返回(n_class\</em>(n_class-1)/2,n_features) 和(n_class*(n_class-1)/2,)的结构，每行对应一个生成的二元分类器。ovo模式只在多分类的状况下使用。</p>
-<p>SVC的其它参数、属性和接口的列表在<a href="[https://brickexperts.github.io/2019/09/15/SVM%E8%A7%A3%E8%AF%BB(2)/#more](https://brickexperts.github.io/2019/09/15/SVM解读(2)/#more">SVM解读(2)</a></p>
+<p>SVC的其它参数、属性和接口的列表在<a href="[https://brickexperts.github.io/2019/09/15/SVM%E8%A7%A3%E8%AF%BB(2">SVM解读(2)</a>/#more](<a href="https://brickexperts.github.io/2019/09/15/SVM解读(2)/#more" target="_blank" rel="noopener">https://brickexperts.github.io/2019/09/15/SVM解读(2)/#more</a>)</p>
 <h2 id="线性支持向量机类LinearSVC"><a href="#线性支持向量机类LinearSVC" class="headerlink" title="线性支持向量机类LinearSVC"></a>线性支持向量机类LinearSVC</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SVM77.png" alt=""></p>
 <p>线性支持向量机其实与SVC类中选择”linear”作为核函数的功能类似，但是其背后的实现库是liblinear而不是libsvm，这使得在线性数据上，linearSVC的运行速度比SVC中的“linear”核函数要快，不过两者的运行结果相似。在现实中，许多数据都是线性的，因此我们可以依赖计算得更快得LinearSVC类。除此之外，线性支持向量可以很容易地推广到大样本上，还可以支持稀疏矩阵，多分类中也支持ovr方案。 </p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SVM79.png" alt=""></p>
@@ -753,6 +753,7 @@
 
 
 
+  
 
 
 
@@ -771,7 +772,25 @@
 
 
 
-  <script src="/js/local-search.js?v=7.3.0"></script>
+
+  <script src="/js/local-search.js?v=7.3.0"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 
 

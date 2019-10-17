@@ -6,7 +6,7 @@
 
 <html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="generator" content="Hexo 4.0.0">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
@@ -57,24 +57,24 @@
   };
 </script>
 
-  <meta name="description" content="​    今天我们来讲一下python的异常。何为异常？即是一个事件，该事件会在程序执行过程中发生，影响了程序的正常执行。异常时python对象，表示一个错误。当python脚本发生异常时我们需要捕获处理它，否则程序会终止执行。 ##try&#x2F;except可以用来捕获异常   ##一个try捕获多个异常：  ##一个try对多个except：根据不同的except做不同的操作  ##try-fina">
+  <meta name="description" content="​    今天我们来讲一下python的异常。何为异常？即是一个事件，该事件会在程序执行过程中发生，影响了程序的正常执行。异常时python对象，表示一个错误。当python脚本发生异常时我们需要捕获处理它，否则程序会终止执行。 try&#x2F;except可以用来捕获异常  一个try捕获多个异常： 一个try对多个except：根据不同的except做不同的操作 try-finally语句无论是否发生">
 <meta name="keywords" content="python异常">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python异常">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;08&#x2F;05&#x2F;python%E5%BC%82%E5%B8%B8&#x2F;index.html">
 <meta property="og:site_name" content="DY的个人博客">
-<meta property="og:description" content="​    今天我们来讲一下python的异常。何为异常？即是一个事件，该事件会在程序执行过程中发生，影响了程序的正常执行。异常时python对象，表示一个错误。当python脚本发生异常时我们需要捕获处理它，否则程序会终止执行。 ##try&#x2F;except可以用来捕获异常   ##一个try捕获多个异常：  ##一个try对多个except：根据不同的except做不同的操作  ##try-fina">
+<meta property="og:description" content="​    今天我们来讲一下python的异常。何为异常？即是一个事件，该事件会在程序执行过程中发生，影响了程序的正常执行。异常时python对象，表示一个错误。当python脚本发生异常时我们需要捕获处理它，否则程序会终止执行。 try&#x2F;except可以用来捕获异常  一个try捕获多个异常： 一个try对多个except：根据不同的except做不同的操作 try-finally语句无论是否发生">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;%E5%BC%82%E5%B8%B82.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;%E5%AE%9C%E6%98%8C.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;%E5%BC%82%E5%B8%B83.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;%E5%BC%82%E5%B8%B84.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;%E5%BC%82%E5%B8%B85.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;%E5%BC%82%E5%B8%B86.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;%E5%BC%82%E5%B8%B87.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;异常2.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;宜昌.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;异常3.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;异常4.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;异常5.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;异常6.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;异常7.png">
 <meta property="og:updated_time" content="2019-09-15T06:21:10.093Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;%E5%BC%82%E5%B8%B82.png">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;异常2.png">
   <link rel="alternate" href="/atom.xml" title="DY的个人博客" type="application/atom+xml">
   <link rel="canonical" href="http://yoursite.com/2019/08/05/python%E5%BC%82%E5%B8%B8/">
 
@@ -118,13 +118,13 @@
   .use-motion .logo-line-before i { left: initial; }
   .use-motion .logo-line-after i { right: initial; }
   </style>
-</noscript>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
-  <div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -330,20 +330,13 @@
 
       
         <p>​    今天我们来讲一下python的异常。何为异常？即是一个事件，该事件会在程序执行过程中发生，影响了程序的正常执行。异常时python对象，表示一个错误。当python脚本发生异常时我们需要捕获处理它，否则程序会终止执行。</p>
-<p>##try/except可以用来捕获异常</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%BC%82%E5%B8%B82.png" alt=""></p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%AE%9C%E6%98%8C.png" alt=""></p>
-<p>##一个try捕获多个异常：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%BC%82%E5%B8%B83.png" alt=""></p>
-<p>##一个try对多个except：根据不同的except做不同的操作</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%BC%82%E5%B8%B84.png" alt=""></p>
-<p>##try-finally语句无论是否发生异常都将执行最后的代码。</p>
-<p>##异常传递</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%BC%82%E5%B8%B85.png" alt=""></p>
-<p>##raise自定义异常：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%BC%82%E5%B8%B86.png" alt=""></p>
-<p>##最后是python的标准异常：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E5%BC%82%E5%B8%B87.png" alt=""></p>
+<h2 id="try-except可以用来捕获异常"><a href="#try-except可以用来捕获异常" class="headerlink" title="try/except可以用来捕获异常"></a>try/except可以用来捕获异常</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/异常2.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/宜昌.png" alt=""></p>
+<h2 id="一个try捕获多个异常："><a href="#一个try捕获多个异常：" class="headerlink" title="一个try捕获多个异常："></a>一个try捕获多个异常：</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/异常3.png" alt=""></p>
+<h2 id="一个try对多个except：根据不同的except做不同的操作"><a href="#一个try对多个except：根据不同的except做不同的操作" class="headerlink" title="一个try对多个except：根据不同的except做不同的操作"></a>一个try对多个except：根据不同的except做不同的操作</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/异常4.png" alt=""></p>
+<h2 id="try-finally语句无论是否发生异常都将执行最后的代码。"><a href="#try-finally语句无论是否发生异常都将执行最后的代码。" class="headerlink" title="try-finally语句无论是否发生异常都将执行最后的代码。"></a>try-finally语句无论是否发生异常都将执行最后的代码。</h2><h2 id="异常传递"><a href="#异常传递" class="headerlink" title="异常传递"></a>异常传递</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/异常5.png" alt=""></p>
+<h2 id="raise自定义异常："><a href="#raise自定义异常：" class="headerlink" title="raise自定义异常："></a>raise自定义异常：</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/异常6.png" alt=""></p>
+<h2 id="最后是python的标准异常："><a href="#最后是python的标准异常：" class="headerlink" title="最后是python的标准异常："></a>最后是python的标准异常：</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/异常7.png" alt=""></p>
 
     </div>
 
@@ -437,8 +430,17 @@
 
   <aside id="sidebar" class="sidebar">
     <div class="sidebar-inner">
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
 
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -640,6 +642,23 @@
 
         </div>
       </div>
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#try-except可以用来捕获异常"><span class="nav-text">try/except可以用来捕获异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一个try捕获多个异常："><span class="nav-text">一个try捕获多个异常：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一个try对多个except：根据不同的except做不同的操作"><span class="nav-text">一个try对多个except：根据不同的except做不同的操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#try-finally语句无论是否发生异常都将执行最后的代码。"><span class="nav-text">try-finally语句无论是否发生异常都将执行最后的代码。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#异常传递"><span class="nav-text">异常传递</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#raise自定义异常："><span class="nav-text">raise自定义异常：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最后是python的标准异常："><span class="nav-text">最后是python的标准异常：</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
     </div>
   </aside>
@@ -719,6 +738,7 @@
 
 
 
+  
 
 
 
@@ -737,7 +757,25 @@
 
 
 
-  <script src="/js/local-search.js?v=7.3.0"></script>
+
+  <script src="/js/local-search.js?v=7.3.0"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 
 

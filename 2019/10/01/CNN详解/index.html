@@ -6,7 +6,7 @@
 
 <html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="generator" content="Hexo 4.0.0">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
@@ -75,7 +75,7 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191001175037.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191001175208.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191001175359.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;%E5%8A%A8%E6%80%81.gif">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;动态.gif">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191001203230.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191001203434.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191001203509.png">
@@ -144,13 +144,13 @@
   .use-motion .logo-line-before i { left: initial; }
   .use-motion .logo-line-after i { right: initial; }
   </style>
-</noscript>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
-  <div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -390,7 +390,7 @@
 <p>不断的向右、向下移动，直到计算出所有的数据，这样就完成了卷积运算，得出下图：</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191001175359.png" alt=""></p>
 <p>下面这张图也可以帮助我们理解卷积运算(黄色的矩阵式过滤器)：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/%E5%8A%A8%E6%80%81.gif" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/动态.gif" alt=""></p>
 <p>最终经过卷积得到的图像，我们称之为<strong>特征图(Feature Map)</strong></p>
 <p>对于上述过程，也许你有很多疑问，比如过滤器是什么，为什么是3×3的，作用是什么，滑动的步长stride为什么是1，为什么得到4×4的矩阵，卷积有什么作用等，我们一一解答。</p>
 <h4 id="过滤器-filter"><a href="#过滤器-filter" class="headerlink" title="过滤器(filter)"></a>过滤器(filter)</h4><p>我们来看看下面的例子，本例子中我们用正数表示白色，0表示灰色，负数表示黑色。</p>
@@ -422,7 +422,7 @@
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191001214201.png" alt=""></p>
 <p>再继续向右向下移动过滤器，就可以得到下面的结果：</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191001214424.png" alt=""></p>
-<p><strong>规律：我们用一个f<em>f的过滤器卷积一个n*n的图像，Padding=p，步长为s，我们得到一个(n+2p-f)/s+1\</em>(n+2p-f)/s+1</strong></p>
+<p><strong>规律：我们用一个f<em>f的过滤器卷积一个n\</em>n的图像，Padding=p，步长为s，我们得到一个(n+2p-f)/s+1*(n+2p-f)/s+1</strong></p>
 <p>最后一个问题：如果我们的商不是整数呢？这时我们采用向下求整的策略。</p>
 <h4 id="三维卷积"><a href="#三维卷积" class="headerlink" title="三维卷积"></a>三维卷积</h4><p>上面的讲解你已经知道如何对灰度图进行卷积运算了，现在看看如何在有三个通道(RGB)的图像上进行卷积。</p>
 <p>假设彩色图像尺寸 6×6×3，这里的 3 指的是三个颜色通道。<strong>我们约定图像的通道数必须和过滤器的通道数匹配</strong>，所以需要增加过滤器的个数到3个。将他们叠在一起，进行卷积操作。6*6*3的图像经过一个3<em>3\</em>3过滤器得出一个新的4*4*1图像。</p>
@@ -459,7 +459,7 @@
 <p>g() 是激活函数，本例子中使用 ReLu</p>
 </blockquote>
 <p>卷积层的工作说明：</p>
-<p>式子中 w^[1] * a^[0] 是代表进行<strong>卷积运算</strong>得到两个特征图(也就是2个4x4的矩阵)，如下图的绿色框所示，接着再对两个特征图<strong>加上不同的偏置</strong>就得到了z^[1]，如下图红色框所示：</p>
+<p>式子中 w^[1] <em> a^[0] 是代表进行<strong>卷积运算</strong>得到两个特征图(也就是2个4x4的矩阵)，如下图的绿色框所示，接着再对两个特征图<em>*加上不同的偏置</em></em>就得到了z^[1]，如下图红色框所示：</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191002084726.png" alt=""></p>
 <p>进一步<strong>应用激活函数</strong>就得到了两个处理过的图像，将他们叠加在一起，就得到了这一层的输出 a^[1](上图右下角)。</p>
 <p><strong>注意</strong>：上图中的加偏置(b1,b2)均使用了python的广播</p>
@@ -904,6 +904,7 @@
 
 
 
+  
 
 
 
@@ -922,7 +923,25 @@
 
 
 
-  <script src="/js/local-search.js?v=7.3.0"></script>
+
+  <script src="/js/local-search.js?v=7.3.0"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 
 

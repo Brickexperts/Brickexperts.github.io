@@ -6,7 +6,7 @@
 
 <html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="generator" content="Hexo 4.0.0">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
@@ -146,13 +146,13 @@
   .use-motion .logo-line-before i { left: initial; }
   .use-motion .logo-line-after i { right: initial; }
   </style>
-</noscript>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
-  <div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -404,7 +404,7 @@
 <p>通过其他表来更新一个表：</p>
 <p>update 其他表 as 新名 inner join 被更新的表 as 新名 on  条件 set 需要改的数据</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/mysql7.png" alt=""></p>
-<h3 id="查询："><a href="#查询：" class="headerlink" title="查询："></a>查询：</h3><p>select * from 表名：查询整个表，*号代表全部</p>
+<h3 id="查询："><a href="#查询：" class="headerlink" title="查询："></a>查询：</h3><p>select <em> from 表名：查询整个表，</em>号代表全部</p>
 <p>select * from 表名 where ：根据条件查询</p>
 <p>select 查询的列名 from 表名：根据列名查询。查询多列时，列名间用,隔开</p>
 <p>select 查询的列名 as 列的新名字 from 表名：将列查询后以新的名字显示出来</p>
@@ -876,6 +876,7 @@
 
 
 
+  
 
 
 
@@ -894,7 +895,25 @@
 
 
 
-  <script src="/js/local-search.js?v=7.3.0"></script>
+
+  <script src="/js/local-search.js?v=7.3.0"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 
 

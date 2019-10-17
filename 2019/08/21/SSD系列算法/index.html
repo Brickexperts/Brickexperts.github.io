@@ -6,7 +6,7 @@
 
 <html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="generator" content="Hexo 4.0.0">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
@@ -65,16 +65,16 @@
 <meta property="og:site_name" content="DY的个人博客">
 <meta property="og:description" content="主干网络介绍 主干网络原始作者采用的VGG16，我们也可以将其他神经网络作为主干网络。例如：ResNet、MobileNets等 输入300300的image，将VGG16网络FC6、FC7换成conv6和conv7，同时将池化层变为stride=1，pool_size=3\3，这样做的目的是为了不减少feature map  size，为了配合这种变化，conv6会使用扩张率为6的带孔卷积。 ​">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;%E7%9B%AE%E6%A0%8720.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;%E7%9B%AE%E6%A0%8720.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;%E7%9B%AE%E6%A0%8721.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;目标20.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;目标20.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;目标21.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;SSD4.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;SSD2.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;SSD3.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;SSD1.png">
 <meta property="og:updated_time" content="2019-10-05T01:41:26.698Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;%E7%9B%AE%E6%A0%8720.png">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;目标20.png">
   <link rel="alternate" href="/atom.xml" title="DY的个人博客" type="application/atom+xml">
   <link rel="canonical" href="http://yoursite.com/2019/08/21/SSD%E7%B3%BB%E5%88%97%E7%AE%97%E6%B3%95/">
 
@@ -118,13 +118,13 @@
   .use-motion .logo-line-before i { left: initial; }
   .use-motion .logo-line-after i { right: initial; }
   </style>
-</noscript>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
-  <div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -336,19 +336,19 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="主干网络介绍"><a href="#主干网络介绍" class="headerlink" title="主干网络介绍"></a>主干网络介绍</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%8720.png" alt=""></p>
+        <h2 id="主干网络介绍"><a href="#主干网络介绍" class="headerlink" title="主干网络介绍"></a>主干网络介绍</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/目标20.png" alt=""></p>
 <p>主干网络原始作者采用的VGG16，我们也可以将其他神经网络作为主干网络。例如：ResNet、MobileNets等</p>
 <p>输入300<em>300的image，将VGG16网络FC6、FC7换成conv6和conv7，同时将池化层变为stride=1，pool_size=3\</em>3，这样做的目的是为了不减少feature map  size，为了配合这种变化，conv6会使用扩张率为6的带孔卷积。</p>
-<p>​    <strong>带孔卷积</strong>：就是不增加参数数量和model复杂度的情况下扩大卷积的感受域，用dialation_rate设置扩张率。类似于形态学操作中的膨胀。具体看<a href="[https://brickexperts.github.io/2019/08/22/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E5%B8%B8%E7%94%A8%E5%90%8D%E8%AF%8D/#more](https://brickexperts.github.io/2019/08/22/目标检测常用名词/#more)">目标检测常用名词</a></p>
+<p>​    <strong>带孔卷积</strong>：就是不增加参数数量和model复杂度的情况下扩大卷积的感受域，用dialation_rate设置扩张率。类似于形态学操作中的膨胀。具体看<a href="[https://brickexperts.github.io/2019/08/22/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E5%B8%B8%E7%94%A8%E5%90%8D%E8%AF%8D/#more](https://brickexperts.github.io/2019/08/22/目标检测常用名词/#more">目标检测常用名词</a>)</p>
 <p>接着然后移除dropout层和fc8层，并新增conv7，conv8，conv9，conv10，conv11，在检测数据集上做finetuing。其中VGG16中的Conv4_3层将作为用于检测的第一个特征图。conv4_3层特征图大小是38×38，但是该层比较靠前，其norm较大，所以在其后面增加了一个L2 Normalization层（参见ParseNet），以保证和后面的检测层差异不是很大，这个和Batch Normalization层不太一样，其仅仅是对每个像素点在channle维度做归一化，而Batch Normalization层是在[batch_size, width, height]三个维度上做归一化。归一化后一般设置一个可训练的放缩变量gamma。</p>
 <h2 id="多尺度feature-map预测"><a href="#多尺度feature-map预测" class="headerlink" title="多尺度feature map预测"></a>多尺度feature map预测</h2><p>多尺度feature map预测，也就是在预测的时候，在接下来预测的时候，针对接下来六个不同的尺寸进行预测。如下图的六条连线，分别是38*38、19*19、10*10、5*5、3*3、1*1。将这六个不同尺度的feature map分别作为检测、预测层的输入，最后通过NMS进行筛选和合并。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%8720.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/目标20.png" alt=""></p>
 <p>对于六种不同尺度的网络，我们通常使用pooling来降采样。对于每一层的feature map，我们输入到相应的预测网络中。而预测网络中，我们会包括Prior box的提取过程。Prior box对应Fast R-CNN中Anchor的概念，也就是说，在Prior box中，feature map上的每一个点都作为一个cell（相当于Anchor）。以这个cell为中心，按照等比的放缩，找到它在原始图片的位置。接着以这个点为中心，提取不同尺度bounding box。而这些不同尺度的bounding box就是Prior box。然后对于每一个Prior box，我们通过和真值比较，就能够拿到它的label。对于每一个Prior box，我们都会分别预测它的类别概率和坐标（x，y，w，h）。也就是说，对于每一个cell，我们会将它对应到不同的Prior box，分别来预测当前这个Prior box所对应当前这个类别的概率分布和坐标。</p>
 <p><strong>对Prior Box的具体定义：</strong></p>
 <p>这里我们假设Prior Box的输入是m*n维的feature map。</p>
 <p>如果每一个点都作为cell，那就会有m<em>n个cell。接着每个cell上生成固定尺寸和不同长宽比例的box。每个cell对应k个bounging box，每个bounding box预测c个类别分数和4个偏移坐标。其中c个类别分数实际上是当前bounding box所对应的不同类别的概率分布。如果输入大小为m\</em>n，那就会输出(c+4)*k*m*n。其中尺寸(scale)和比例(ratio)是超参数。</p>
 <p>接下来我们看看Prior box是怎么生成的：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/%E7%9B%AE%E6%A0%8721.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/目标21.png" alt=""></p>
 <p>每个feature map上的点定义了六种长宽比的default box。也就是说，最后对于每一个anchor都会获得六个不同尺寸和长宽比的default box。对于38<em>38层，每个feature map上的点，我们都会提取4个default box作为prior box。对于19\</em>19层、10*10层、5*5，提取6个default box也就是全部都是prior box。而3*3、1*1提取4个default作为prior box。所以最后得到8732个prior box(38*38*4+19*19*6+10*10*6+5*5*6+3*3*4+1*1*4)。<strong>prior box就是选择的default box</strong>。尺寸和比例都是可以通过SSD的配置文件进行配置，后面实战详解。</p>
 <p>对default box进行筛选成为prior box：每一个feature map cell不是k个default box都取，prior box与GT box(<a href="https://brickexperts.github.io/" target="_blank" rel="noopener">Ground Truth box</a>)做匹配，IOU&gt;阈值为正样本。IOU&lt;阈值 为负样本。介于正样本和负样本中间阈值的default box去掉。</p>
 <h2 id="SSD系列算法优化及扩展"><a href="#SSD系列算法优化及扩展" class="headerlink" title="SSD系列算法优化及扩展"></a>SSD系列算法优化及扩展</h2><p>SSD算法对小目标不够鲁棒，原因最主要是浅层feature map的表征能力不够强。</p>
@@ -775,6 +775,7 @@
 
 
 
+  
 
 
 
@@ -793,7 +794,25 @@
 
 
 
-  <script src="/js/local-search.js?v=7.3.0"></script>
+
+  <script src="/js/local-search.js?v=7.3.0"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 
 

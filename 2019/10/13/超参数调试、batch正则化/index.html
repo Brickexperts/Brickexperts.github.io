@@ -6,7 +6,7 @@
 
 <html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="generator" content="Hexo 4.0.0">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
@@ -138,13 +138,13 @@
   .use-motion .logo-line-before i { left: initial; }
   .use-motion .logo-line-after i { right: initial; }
   </style>
-</noscript>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
-  <div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -382,7 +382,7 @@
 <h2 id="归一化的激活函数"><a href="#归一化的激活函数" class="headerlink" title="归一化的激活函数"></a>归一化的激活函数</h2><p>在深度学习兴起后，最重要的一个思想是它的一个算法——Batch归一化。batch归一化会使你的参数搜索问题变得很容易，使神经网络对超参数的选择更加稳定，超参数的范围会更加庞大，工作效果也很好，也会是你的训练更加容易。接下来看一下原理。</p>
 <p>之前的逻辑回归，我们讲过归一化输入特征可以加快学习过程。计算了平均值，从训练集中减去平均值，计算了方差，接着根据方差归一化数据集。那么更深的模型呢？我们不仅输入了特征值x，而且第一层有激活值a<sup>[1]</sup>，第二层有激活层a<sup>[2]</sup>等。那么如果我们想训练&omega;<sup>[3]</sup>，b<sup>[3]</sup>，那归一化a<sup>[2]</sup>岂不是更好？便于我们训练&omega;<sup>[3]</sup>和b<sup>[3]</sup>。</p>
 <p>那么，我们能归一化每个隐藏层的a值吗？比如a<sup>[2]</sup>，但不仅仅是a<sup>[2]</sup>，可以是任何隐藏层的。a<sup>[2]</sup>的值是下一层的输入值，所以a<sup>[2]</sup>会影响&omega;<sup>[3]</sup>，b<sup>[3]</sup>的训练。这就是batch归一化的作用。严格来说，归一化的是z<sup>[2]</sup>，并不是a<sup>[2]</sup>。</p>
-<p>在神经网络中，假设你有一些隐藏单元值从z<sup>[1]</sup>到z<sup>[m]</sup>，这些来源于隐藏层，所以这样写会更准确，即z<sup>[ l ]<sup>( i )</sup></sup>为隐藏层，i从1到m，所以已知这些值。如下，你要计算平均值，强调一下，所有这些都是针对 l 层，但已省略 l 及方括号,计算方法如下：</p>
+<p>在神经网络中，假设你有一些隐藏单元值从z<sup>[1]</sup>到z<sup>[m]</sup>，这些来源于隐藏层，所以这样写会更准确，即z<sup>[ l ]<sup>( i )</sup>&lt;/sup&gt;为隐藏层，i从1到m，所以已知这些值。如下，你要计算平均值，强调一下，所有这些都是针对 l 层，但已省略 l 及方括号,计算方法如下：</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191014182957.png" alt=""></p>
 <p>分母中加上ε以防止δ为0的情况。</p>
 <p>所以现在我们已把这些z值标准化，化为含平均值 0 和标准单位方差，所以z的每一个分量都含有平均值 0 和方差 1，但我们不想让隐藏单元总是含有平均值 0 和方差 1，也许隐藏单元有了不同的分布会有意义，所以我们所要做的就是计算，我们称之为z~(i)：</p>
@@ -395,7 +395,7 @@
 <p>Batch 归一化的作用是它适用的归一化过程，不只是输入层，甚至同样适用于神经网络中的深度隐藏层。应用 Batch 归一化了一些隐藏单元值中的平均值和方差，不过训练输入和这些隐藏单元值的一个区别是，也许不想隐藏单元值必须是平均值 0 和方差 1。γ和β参数控制使得均值和方差可以是 0 和 1，也可以是其它值。 </p>
 <p><strong>注意</strong>：均值不是平均值，是数学期望。</p>
 <h2 id="将Batch-Norm拟合进神经网络"><a href="#将Batch-Norm拟合进神经网络" class="headerlink" title="将Batch Norm拟合进神经网络"></a>将Batch Norm拟合进神经网络</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191014212240.png" alt=""></p>
-<p>假设有一个这样的神经网络，之前的知识说过，我们可以认为每个单元负责计算两件事。第一，它先计算z，然后应用其到激活函数中再计算a，所以可以认为，每个圆圈代表着两步的计算过程。同样的，对于下一层而言，那就是$z^{[2]}<em>{1}$和$z^{[2]}</em>{2}$等。所以如果没有应用Batch归一化，会把输入X拟合到第一隐藏层，然后首先计算z<sup>[1]</sup>，这是由&omega;<sup>[1]</sup>和b<sup>[1]</sup>两个参数控制的。接着，通常而言，会把z<sup>[1]</sup>拟合到激活函数以计算a<sup>[1]</sup>。但Batch归一化的做法是将z<sup>[1]</sup>值进行Batch归一化，简称<strong>BN</strong>，此过程将由&beta;<sup>[1]</sup>和&gamma;<sup>[1]</sup>两参数控制，这一操作会给你一个新的规范化的z<sup>[1]</sup>值（z~<sup>[1]</sup>），然后将其输入激活函数中得到a<sup>[1]</sup>，即a<sup>[1]</sup>=g<sup>[1]</sup>(z~<sup>[1]</sup>)。</p>
+<p>假设有一个这样的神经网络，之前的知识说过，我们可以认为每个单元负责计算两件事。第一，它先计算z，然后应用其到激活函数中再计算a，所以可以认为，每个圆圈代表着两步的计算过程。同样的，对于下一层而言，那就是$z^{[2]}_{1}$和$z^{[2]}_{2}$等。所以如果没有应用Batch归一化，会把输入X拟合到第一隐藏层，然后首先计算z<sup>[1]</sup>，这是由&omega;<sup>[1]</sup>和b<sup>[1]</sup>两个参数控制的。接着，通常而言，会把z<sup>[1]</sup>拟合到激活函数以计算a<sup>[1]</sup>。但Batch归一化的做法是将z<sup>[1]</sup>值进行Batch归一化，简称<strong>BN</strong>，此过程将由&beta;<sup>[1]</sup>和&gamma;<sup>[1]</sup>两参数控制，这一操作会给你一个新的规范化的z<sup>[1]</sup>值（z~<sup>[1]</sup>），然后将其输入激活函数中得到a<sup>[1]</sup>，即a<sup>[1]</sup>=g<sup>[1]</sup>(z~<sup>[1]</sup>)。</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191014215107.png" alt=""></p>
 <p>现在，你已在第一层进行了计算，此时Batch归一化发生在z的计算和a之间，接下来，你需要应用a<sup>[1]</sup>值来计算，此过程是由&omega;<sup>[1]</sup>和b<sup>[1]</sup>控制的。与第一层所做的类似，也会将进行Batch归一化，现在我们简称<strong>BN</strong>，这是由下一层的Batch归一化参数所管制的，即&beta;<sup>[2]</sup>和&gamma;<sup>[2]</sup>，现在你得到z~<sup>[2]</sup>，再通过激活函数计算出a<sup>[2]</sup>。</p>
 <p>所以，得出结论的是batch归一化是发生在计算z和a之间的。与其使用没有归一化的z值，不如用归一化的z~值，也就是第一层的z~<sup>[1]</sup>。第二层同理，也是与其应用z值，不如应用z~<sup>[2]</sup>值。所以，我们以前的网络参数&omega;<sup>[1]</sup>、b<sup>[1]</sup>、&omega;<sup>[2]</sup>、b<sup>[2]</sup>将加上&beta;<sup>[1]</sup>、&beta;<sup>[2]</sup>、&gamma;<sup>[1]</sup>、&gamma;<sup>[2]</sup>等参数。<strong>注意</strong>：这里的&beta;<sup>[1]</sup>、&beta;<sup>[2]</sup>和超参数&beta;没有关系</p>
@@ -403,7 +403,7 @@
 <p>实践中，我们常将batch归一化和mibi-bacth一起使用。我们用第一个mini-batch{X<sup>[1]</sup>}，然后应用&omega;<sup>[1]</sup>和b<sup>[1]</sup>计算z<sup>[1]</sup>，接着用batch归一化得到z~<sup>[1]</sup>，再应用激活函数得到a<sup>[1]</sup>。然后接着用&omega;<sup>[2]</sup>和b<sup>[2]</sup>计算z<sup>[2]</sup>。</p>
 <p>类似的工作，你会在第二个mini-batch（X<sup>{2}</sup>）上计算z<sup>[1]</sup>，然后用Batch归一化来计算，所以Batch归一化的此步中，用的是第二个mini-batch（X<sup>{2}</sup>）中的数据使归一化。然后在mini-batch（X<sup>{3}</sup>）上同样这样做，继续训练。</p>
 <p>先前说过每层的参数是&omega;<sup>[ l ]</sup>和b<sup>[ l ]</sup>，还有&beta;<sup>[ l ]</sup>和&gamma;<sup>[ l ]</sup>，请注意计算z的方式如下，z<sup>[ l ]</sup>=&omega;<sup>[ l ]</sup> * a<sup>[l-1]</sup>+b<sup>[ l ]</sup>，但Batch归一化做的是，要看这个mini-batch，先将z<sup>[ l ]</sup>归一化，结果为均值0和标准方差，再由&beta;和&gamma;重缩放，但这意味着，无论b<sup>[ l ]</sup>的值是多少，都是要被减去的，因为在Batch归一化的过程中，要计算z<sup>[ l ]</sup>的均值，再减去平均值，在此例中的mini-batch中增加任何常数，数值都不会改变，因为加上的任何常数都将会被均值减去所抵消。</p>
-<p>所以，我们在使用batch归一化时，我们可以消除b<sup>[ l ]</sup>这个参数。或者也可以设置为0。那么式子将从z<sup>[ l ]</sup>=&omega;<sup>[ l ]</sup> * a<sup>[l-1]</sup>+b<sup>[ l ]</sup>变为z<sup>[ l ]</sup>=&omega;<sup>[ l ]</sup> * a<sup>[l-1]</sup>。然后归一化z<sup>[ l ]</sup>，得z~<sup>[ l ]</sup>=&gamma;<sup>[ l ]</sup> * z<sup>[ l ]</sup>+&beta;<sup>[ l ]</sup>，所以最后我们会用&beta;<sup>[ l ]</sup>，以便决定z~<sup>[ l ]</sup>的取值。</p>
+<p>所以，我们在使用batch归一化时，我们可以消除b<sup>[ l ]</sup>这个参数。或者也可以设置为0。那么式子将从z<sup>[ l ]</sup>=&omega;<sup>[ l ]</sup> <em> a<sup>[l-1]</sup>+b<sup>[ l ]</sup>变为z<sup>[ l ]</sup>=&omega;<sup>[ l ]</sup> </em> a<sup>[l-1]</sup>。然后归一化z<sup>[ l ]</sup>，得z~<sup>[ l ]</sup>=&gamma;<sup>[ l ]</sup> * z<sup>[ l ]</sup>+&beta;<sup>[ l ]</sup>，所以最后我们会用&beta;<sup>[ l ]</sup>，以便决定z~<sup>[ l ]</sup>的取值。</p>
 <p>总结一下关于如何用 Batch 归一化来应用梯度下降法：</p>
 <p>假设使用 mini-batch梯度下降法，运行t = 1到 batch 数量的 for 循环，会在 mini-batchX<sup>{t}</sup>上应用正向 prop，每个隐藏层都应用正向 prop，用 Batch 归一化代替z<sup>[l]</sup>为z~<sup>[l]</sup>。接下来，它确保在这个 mini-batch 中，z值有归一化的均值和方差，归一化均值和方差后是z~<sup>[ l ]</sup> ，然后，你用反向 prop 计算：dw<sup>[ l ]</sup>，db[l]，dβ<sup>[ l ]</sup> ，dγ<sup>[ l ]</sup>。 尽管严格来说，因为要去掉b，这部分其实已经去掉了。最后，更新这些参数：</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191015143440.png" alt=""></p>
@@ -413,13 +413,13 @@
 <p>看上面的素材。假设我们已经在某个网络上训练了所有黑猫的图像，如果我们将这个网络应用于有色猫。这种情况下，我们的效果可能不是很好。因为正面的例子不止左边的黑猫，还有右边其它颜色的猫。</p>
 <p>所以我们要使数据改变分布，想法名字叫“Covariate shift”。想法是这样的，如果你已经学习了x到y的映射，如果x的分布改变了，那么你可能需要重新训练你的学习算法。这种做法同样适用于，如果真实函数由x到y映射保持不变，正如此例中，因为真实函数是此图片是否是一只猫，训练你的函数的需要变得更加迫切，如果真实函数也改变，情况就更糟了。</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191016171250.png" alt=""></p>
-<p>看上图，看第三层网络。此网络已经学习了参数&omega;<sup>[3]</sup>和b<sup>[3]</sup>。它还得到了一些值，称为$a^{[2]}<em>{1}$、$a^{[2]}</em>{2}$、$a^{[2]}<em>{3}$、$a^{[2]}</em>{4}$，但这些值也可以变为x<sub>1</sub>、x<sub>2</sub>、x<sub>3</sub>、x<sub>4</sub>。第三层隐藏层要做的是，找到一种方式使这些值映射到y帽。再看网络左边前三层(包括输入层)，这个网络还有参数&omega;<sup>[2]</sup>、b<sup>[2]</sup>、&omega;<sup>[1]</sup>、b<sup>[1]</sup>，如果这些参数改变，这些a<sup>[2]</sup>的值也会变。所以从第三层隐藏层的角度来看，这些隐藏单元的值在不断地改变，所以它就有了“Covariate shift”的问题。</p>
-<p>Batch归一化做的，是它减少了这些隐藏值分布变化的数量。batch归一化讲的是当神经网络层更新参数时，batch归一化可以确保无论$z^{[2]}<em>{1}$、$z^{[2]}</em>{2}$、$z^{[2]}<em>{3}$、$z^{[2]}</em>{4}$怎么变化它们的均值和方差都保持不变。均值和方差是由&beta;<sup>[2]</sup>和&gamma;<sup>[2]</sup>决定的值，如果神经网络选择的话，可强制均值为0，方差为1，或其它任何均值和方差。</p>
+<p>看上图，看第三层网络。此网络已经学习了参数&omega;<sup>[3]</sup>和b<sup>[3]</sup>。它还得到了一些值，称为$a^{[2]}_{1}$、$a^{[2]}_{2}$、$a^{[2]}_{3}$、$a^{[2]}_{4}$，但这些值也可以变为x<sub>1</sub>、x<sub>2</sub>、x<sub>3</sub>、x<sub>4</sub>。第三层隐藏层要做的是，找到一种方式使这些值映射到y帽。再看网络左边前三层(包括输入层)，这个网络还有参数&omega;<sup>[2]</sup>、b<sup>[2]</sup>、&omega;<sup>[1]</sup>、b<sup>[1]</sup>，如果这些参数改变，这些a<sup>[2]</sup>的值也会变。所以从第三层隐藏层的角度来看，这些隐藏单元的值在不断地改变，所以它就有了“Covariate shift”的问题。</p>
+<p>Batch归一化做的，是它减少了这些隐藏值分布变化的数量。batch归一化讲的是当神经网络层更新参数时，batch归一化可以确保无论$z^{[2]}_{1}$、$z^{[2]}_{2}$、$z^{[2]}_{3}$、$z^{[2]}_{4}$怎么变化它们的均值和方差都保持不变。均值和方差是由&beta;<sup>[2]</sup>和&gamma;<sup>[2]</sup>决定的值，如果神经网络选择的话，可强制均值为0，方差为1，或其它任何均值和方差。</p>
 <p>Batch归一化减少了输入值改变的问题，它的确使这些值变得更稳定，神经网络的之后层就会有更坚实的基础。即使使输入分布改变了一些，它会改变得更少。它做的是当前层保持学习，当改变时，迫使后层适应的程度减小了，我们可以这样想，它减弱了前层参数的作用与后层参数的作用之间的联系，它使得网络每层都可以自己学习，稍稍独立于其它层，这有助于加速整个网络的学习。</p>
 <p>batch归一化还有一个作用，它有轻微的正则化效果。在mini-batch计算中，由均值和方差缩放的，因为是在mini-batch上计算的均值和方差，而不是在整个数据集上，它只是由一小部分数据估计得出的。所以和dropout相似，它往每个隐藏层的激活值上增加了噪音，dropout有增加噪音的方式，它使一个隐藏的单元，以一定的概率乘以0，以一定的概率乘以1，所以你的dropout含几重噪音，因为它乘以0或1。对比而言，Batch归一化含几重噪音，因为标准偏差的缩放和减去均值带来的额外噪音。这里的均值和标准差的估计值也是有噪音的，所以类似于dropout，Batch归一化有轻微的正则化效果，因为给隐藏单元添加了噪音，这迫使后部单元不过分依赖任何一个隐藏单元，类似于dropout。batch归一化给隐藏层增加了噪音，因此有轻微的正则化效果。因为添加的噪音很微小，所以并不是巨大的正则化效果。如果想得到dropout更大的正则化效果，可以将Batch归一化和dropout一起使用。</p>
 <h2 id="测试时的batch-norm"><a href="#测试时的batch-norm" class="headerlink" title="测试时的batch norm"></a>测试时的batch norm</h2><p>batch归一化将数据以mini-batch的形式逐一处理，但在测试时，需要对每个样本逐一处理。</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191016201010.png" alt=""></p>
-<p>在训练时，这些就是用来执行Batch归一化的等式。在一个mini-batch中，你将mini-batch的z<sup>(i)</sup>值求和，计算均值，所以这里你只把一个mini-batch中的样本都加起来，我用m来表示这个mini-batch中的样本数量，而不是整个训练集。然后计算方差，再算$z^{(i)}<em>{norm}$，即用均值和标准差来调整，加上ξ是为了数值稳定性。z~<sup>(i)</sup>是用&gamma;和&beta;再次调整$z^{(i)}</em>{norm}$得到的。</p>
+<p>在训练时，这些就是用来执行Batch归一化的等式。在一个mini-batch中，你将mini-batch的z<sup>(i)</sup>值求和，计算均值，所以这里你只把一个mini-batch中的样本都加起来，我用m来表示这个mini-batch中的样本数量，而不是整个训练集。然后计算方差，再算$z^{(i)}_{norm}$，即用均值和标准差来调整，加上ξ是为了数值稳定性。z~<sup>(i)</sup>是用&gamma;和&beta;再次调整$z^{(i)}_{norm}$得到的。</p>
 <p>请注意用于调节计算的μ和σ<sup>2</sup>是在整个mini-batch上进行计算，但是在测试时，不能将一个mini-batch中的6428或2056个样本同时处理，因此需要用其它方式来得到μ和σ<sup>2</sup>，而且如果只有一个样本，一个样本的均值和方差没有意义。那么实际上，为了将神经网络运用于测试，就需要单独估算μ和σ<sup>2</sup>，在典型的Batch归一化运用中，需要用一个指数加权平均来估算，这个平均数涵盖了所有mini-batch，接下来是具体解释。</p>
 <p>选择 l 层，假设我们用mini-batch，X<sup>[1]</sup>,X<sup>[2]</sup>,X<sup>[3]</sup>……以及对应的y值等等，那么在 l 层训练X<sup>{1}</sup>时，就得到了μ<sup>{1}[ l ]</sup>。当我们训练第二个mini-batch，我们就得到了μ<sup>{2}[ l ]</sup>，第三个mini-batch，就得到了μ<sup>{3}[1]</sup>值。正如我们之前用的指数加权平均来计算&theta;<sub>1</sub>，&theta;<sub>2</sub>，&theta;<sub>3</sub>的均值，当时是试着计算当前气温的指数加权平均，你会这样来追踪你看到的这个均值向量的最新平均值，于是这个指数加权平均就成了你对这一隐藏层的z均值的估值。同样的，你可以用指数加权平均来追踪你在这一层的第一个mini-batch中所见的的σ<sup>2</sup>值，以及第二个mini-batch中所见的的σ<sup>2</sup>值等等。因此在用不同的mini-batch训练神经网络的同时，能够得到你所查看的每一层的μ和σ<sup>2</sup>的平均数的实时数值。最后在测试时，我们只需要z值来计算$z^{(i)}_{norm}$，用μ和σ<sup>2</sup>的指数加权平均，用手头的最新数值来做调整，然后就可以用刚算出来的z<sub>norm</sub>和在神经网络训练过程中得到的&beta;和&gamma;参数来计算那个测试样本的z~值。</p>
 <h2 id="Softmax回归"><a href="#Softmax回归" class="headerlink" title="Softmax回归"></a>Softmax回归</h2><p>前面的讲过逻辑回归属于二分类，如果我们有多种可能的类型呢？</p>
@@ -428,7 +428,7 @@
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191015171121.png" alt=""></p>
 <p>最后一层的隐藏单元为4，为所分的类的数目。输出的值表示属于每个类的概率。它们加起来等于一。</p>
 <p>Softmax的具体步骤如下：</p>
-<p>在神经网络的最后一层，我们将会想往常一样计算各层的线性部分，z<sup>[ l ]</sup>是最后一层的z变量。z<sup>[ l ]</sup>=W<sup>[ l ]</sup> * a<sup>[l-1]</sup>+b<sup>[ l ]</sup>，算出了z后，我们需要应用Softmax激活函数。它的作用是这样的： 我们要计算一个临时变量，我们把它叫做t。它等于e<sup>z<sup>[ l ]</sup></sup>，这适用于每个元素。而这里的z<sup>[ l ]</sup>，在上面这个例子中，维度是4x1的。四维向量t=e<sup>z<sup>[ l ]</sup></sup>，这是对所有元素求幂，t也是一个4x1维向量，然后输出a<sup>[ l ]</sup>，基本上就是向量t，但是会归一化，使和为1。</p>
+<p>在神经网络的最后一层，我们将会想往常一样计算各层的线性部分，z<sup>[ l ]</sup>是最后一层的z变量。z<sup>[ l ]</sup>=W<sup>[ l ]</sup> * a<sup>[l-1]</sup>+b<sup>[ l ]</sup>，算出了z后，我们需要应用Softmax激活函数。它的作用是这样的： 我们要计算一个临时变量，我们把它叫做t。它等于e<sup>z<sup>[ l ]</sup>&lt;/sup&gt;，这适用于每个元素。而这里的z<sup>[ l ]</sup>，在上面这个例子中，维度是4x1的。四维向量t=e<sup>z<sup>[ l ]</sup>&lt;/sup&gt;，这是对所有元素求幂，t也是一个4x1维向量，然后输出a<sup>[ l ]</sup>，基本上就是向量t，但是会归一化，使和为1。</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191015174838.png" alt=""></p>
 <p>换句话说，a<sup>[ l ]</sup>也是一个4x1维向量。而这个思维向量的第 i 个元素：</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191015175116.png" alt=""></p>
@@ -863,6 +863,52 @@
 
 
 
+  
+    
+      <script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
 
 
 
@@ -881,7 +927,25 @@
 
 
 
-  <script src="/js/local-search.js?v=7.3.0"></script>
+
+  <script src="/js/local-search.js?v=7.3.0"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 
 

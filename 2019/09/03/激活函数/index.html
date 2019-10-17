@@ -6,7 +6,7 @@
 
 <html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="generator" content="Hexo 4.0.0">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
@@ -121,13 +121,13 @@
   .use-motion .logo-line-before i { left: initial; }
   .use-motion .logo-line-after i { right: initial; }
   </style>
-</noscript>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
-  <div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -359,7 +359,7 @@
 <p>  其中a取值在（0，1）之间</p>
 <p>总结一下Relu 激活函数的优点：</p>
 <p>Relu 函数在 z&gt;0 的部分的导数值都大于0，并且不趋近于0，因而梯度下降速度较快。</p>
-<p>Relu 函数在 z&lt;0 的部分的导数值都等于0，此时神经元（就是模型中的圆圆）就不会得到训练，产出所谓的稀疏性，降低训练出来的模型过分拟合的概率。但即使这样，也有足够多的神经元使得 z&gt;0。</p>
+<p>Relu 函数在 z<0 的部分的导数值都等于0，此时神经元（就是模型中的圆圆）就不会得到训练，产出所谓的稀疏性，降低训练出来的模型过分拟合的概率。但即使这样，也有足够多的神经元使得 z>0。</p>
 <h2 id="激活函数的导数"><a href="#激活函数的导数" class="headerlink" title="激活函数的导数"></a>激活函数的导数</h2><p>在进行神经网络反向传播的时候，需要计算激活函数的斜率或者导数</p>
 <h3 id="sigmoid的求导"><a href="#sigmoid的求导" class="headerlink" title="sigmoid的求导"></a>sigmoid的求导</h3><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/20190923145353.png" alt=""></p>
 <p>或者让 a=g(z)，得</p>
@@ -769,6 +769,7 @@
 
 
 
+  
 
 
 
@@ -787,7 +788,25 @@
 
 
 
-  <script src="/js/local-search.js?v=7.3.0"></script>
+
+  <script src="/js/local-search.js?v=7.3.0"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 
 
