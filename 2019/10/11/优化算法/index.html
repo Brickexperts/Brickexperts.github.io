@@ -84,7 +84,7 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191013144738.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191013144804.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191013150349.png">
-<meta property="og:updated_time" content="2019-10-13T07:14:26.790Z">
+<meta property="og:updated_time" content="2019-10-18T14:18:53.399Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191011191909.png">
   <link rel="alternate" href="/atom.xml" title="DY的个人博客" type="application/atom+xml">
@@ -310,7 +310,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-10-13 15:14:26" itemprop="dateModified" datetime="2019-10-13T15:14:26+08:00">2019-10-13</time>
+                <time title="修改时间：2019-10-18 22:18:53" itemprop="dateModified" datetime="2019-10-18T22:18:53+08:00">2019-10-18</time>
               </span>
             
           
@@ -406,7 +406,7 @@
 <p>v<sub>1</sub>=0.98v<sub>0</sub>+0.02&theta;<sub>1</sub>，如果带入v<sub>1</sub>，然后相乘，v<sub>2</sub>=0.98 x 0.02&theta;<sub>1</sub> + 0.02&theta;<sub>2</sub>，假如&theta;<sub>1</sub>和&theta;<sub>2</sub>都是正数，计算后的v<sub>2</sub>要远小于&theta;<sub>2</sub>和&theta;<sub>1</sub>，所以不能很好预估这一年前两天的温度。</p>
 <p>有个办法可以修改这一估测，让估测变得更好，更准确，特别是在估测初期，也就是不用v<sub>t</sub>，而是用v<sub>t</sub>/1-&beta;<sup>t</sup>，t就是现在的天数。举个具体例子，当t=2时，1-&beta;<sup>t</sup>=1-0.98<sup>2</sup>=0.0396，因此对第二天温度的估测变成了</p>
 <blockquote>
-<p>v<sup>2</sup>/0.0396=(0.0196&theta;<sup>1</sup>+0.02&theta;<sub>2</sub>)/0.0396</p>
+<p>v<sup>2</sup>/0.0396=(0.0196&theta;<sub>1</sub>+0.02&theta;<sub>2</sub>)/0.0396</p>
 </blockquote>
 <p>也就是和的加权平均数，并去除了偏差。你会发现随着t增加，&beta;<sup>t</sup>接近于0，所以当t很大的时候，偏差修正几乎没有作用.因此当t较大的时候，紫线基本和绿线重合了。不过在开始学习阶段，你才开始预测热身练习，偏差修正可以帮助你更好预测温度，偏差修正可以帮助你使结果从紫线变成绿线。</p>
 <h2 id="动量梯度下降法"><a href="#动量梯度下降法" class="headerlink" title="动量梯度下降法"></a>动量梯度下降法</h2><p>还有一种算法叫做<strong>Momentum</strong>，或者叫做动量梯度下降法，运行速度几乎总是快于标准的梯度下降算法。基本的想法就是计算梯度的指数加权平均数，并利用该梯度更新的权重。</p>
