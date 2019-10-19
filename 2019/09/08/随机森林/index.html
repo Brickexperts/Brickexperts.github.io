@@ -345,15 +345,15 @@
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/Tree5.png" alt=""></p>
 <h3 id="random-state"><a href="#random-state" class="headerlink" title="random_state"></a>random_state</h3><p>随机森林的本质是一种装袋集成算法(bagging)，装袋集成算法是对基评估器的预测结果进行平均或用多数表决元则来决定集成评估器的结果。决策树从最重要的特征中随机选择出一个特征来进行分枝，因此每次生成的决策树都不一样，这个功能由参数random_state控制。随机森林中其实也有random_state，用法和分类树中相似，只不过在分类树中，一个random_state只控制生成一棵树，而随机森林中的random_state控制的是生成森林的模式，而非让一个森林中只有一棵树。</p>
 <h4 id="bootstrap-amp-oob-score"><a href="#bootstrap-amp-oob-score" class="headerlink" title="bootstrap&amp;oob_score"></a>bootstrap&amp;oob_score</h4><p>要让基分类器尽量都不一样，一种很容易理解的方法是使用不同的训练集来进行训练，而袋装法正是通过有放回的随机抽样技术来形成不同的训练数据，bootstrap就是用来控制抽样技术的参数。<br>在一个含有n个样本的原始训练集中，我们进行随机采样，每次采样一个样本，并在抽取下一个样本之前将该样本放回原始训练集，也就是说下次采样时这个样本依然可能被采集到，这样采集n次，最终得到一个和原始训练集一样大的，n个样本组成的自助集。由于是随机采样，这样每次的自助集和原始数据集不同，和其他的采样集也是不同的。这样我们就可以自由创造取之不尽用之不竭，并且互不相同的自助集，用这些自助集来训练我们的基分类器，我们的基分类器自然也就各不相同了。<br><strong>bootstrap参数默认True，代表采用这种有放回的随机抽样技术</strong>。通常，这个参数不会被我们设置为False</p>
-<p>如果希望用袋外数据来测试，则需要在实例化时就将oob_score这个参数调整为True，训练完毕之后，我们可以用随机森林的另一个重要属性：oob_score_来查看我们的在袋外数据上测试的结果。</p>
+<p>如果希望用袋外数据来测试，则需要在实例化时就将oob<em>score这个参数调整为True，训练完毕之后，我们可以用随机森林的另一个重要属性：oob_score</em>来查看我们的在袋外数据上测试的结果。</p>
 <p>参数的详细解释和其它控制基评估器的参数请参考<a href="[https://brickexperts.github.io/2019/09/07/%E5%86%B3%E7%AD%96%E6%A0%91/#more](https://brickexperts.github.io/2019/09/07/决策树/#more">决策树</a>)</p>
-<h3 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h3><p>随机森林中有三个非常重要的属性：.estimators_，.oob_score_以及.feature_importances_。<br>.estimators_是用来查看随机森林中所有树的列表的。<br>.oob_score_指的是袋外得分。随机森林为了确保林中的每棵树都不尽相同，所以采用了对训练集进行有放回抽样的方式来不断组成信的训练集，在这个过程中，会有一些数据从来没有被随机挑选到，他们就被叫做“袋外数据”。这些袋外数据，没有被模型用来进行训练，sklearn可以帮助我们用他们来测试模型，测试的结果就由这个属性oob_score_来导出，本质还是模型的精确度。<br>而.feature_importances_和决策树中的.feature_importances_用法和含义都一致，是返回特征的重要性 </p>
+<h3 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h3><p>随机森林中有三个非常重要的属性：.estimators_，.oob<em>score\</em>以及.feature<em>importances\</em>。<br>.estimators_是用来查看随机森林中所有树的列表的。<br>.oob<em>score\</em>指的是袋外得分。随机森林为了确保林中的每棵树都不尽相同，所以采用了对训练集进行有放回抽样的方式来不断组成信的训练集，在这个过程中，会有一些数据从来没有被随机挑选到，他们就被叫做“袋外数据”。这些袋外数据，没有被模型用来进行训练，sklearn可以帮助我们用他们来测试模型，测试的结果就由这个属性oob<em>score\</em>来导出，本质还是模型的精确度。<br>而.feature<em>importances\</em>和决策树中的.feature<em>importances</em>用法和含义都一致，是返回特征的重要性 </p>
 <h3 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h3><p>随机森林的接口与决策树完全一致，因此依然有四个常用接口：apply, fit, predict和score。除此之外，还需要注意随机森林的predict_proba接口，这个接口返回每个测试样本对应的被分到每一类标签的概率，标签有几个分类就返回几个概率。如果是二分类问题，则predict_proba返回的数值大于0.5的，被分为1，小于0.5的，被分为0。传统的随机森林是利用袋装法中的规则，平均或少数服从多数来决定集成的结果，而sklearn中的随机森林是平均每个样本对应的predict_proba返回的概率，得到一个平均概率，从而决定测试样本的分类。</p>
 <h2 id="回归树"><a href="#回归树" class="headerlink" title="回归树"></a>回归树</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/forest8.png" alt=""></p>
 <p>所有的参数，属性与接口，全部和随机森林分类器一致。仅有的不同就是回归树与分类树的不同，不纯度的指标，参数Criterion不一致。 </p>
 <h3 id="criterion："><a href="#criterion：" class="headerlink" title="criterion："></a>criterion：</h3><p>回归树衡量分枝质量的指标，支持的标准有三种：<br>1）输入”mse”使用均方误差mean squared error(MSE)，父节点和叶子节点之间的均方误差的差额将被用来作为特征选择的标准，这种方法通过使用叶子节点的均值来最小化L2损失。</p>
 <p>2）输入“friedman_mse”使用费尔德曼均方误差，这种指标使用弗里德曼针对潜在分枝中的问题改进后的均方误差</p>
-<p>3）输入”mae”使用绝对平均误差MAE（mean absolute error），这种指标使用叶节点的中值来最小化L1损失，属性中最重要的依然是feature_importances_，接口依然是apply, fit, predict, score最核心 </p>
+<p>3）输入”mae”使用绝对平均误差MAE（mean absolute error），这种指标使用叶节点的中值来最小化L1损失，属性中最重要的依然是feature<em>importances</em>，接口依然是apply, fit, predict, score最核心 </p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/Tree1.png" alt=""></p>
 <p>其中N是样本数量，i是每一个数据样本，fi是模型回归出的数值，yi是样本点i实际的数值标签。所以MSE的本质，其实是样本真实数据与回归结果的差异。在回归树中，MSE不只是我们的分枝质量衡量指标，也是我们最常用的衡量回归树回归质量的指标，当我们在使用交叉验证，或者其他方式获取回归树的结果时，我们往往选择均方误差作为我们的评估（在分类树中这个指标是score代表的预测准确率）。在回归中，我们追求的是，MSE越小越好。然而，回归树的接口score返回的是R平方，并不是MSE。R平方被定义如下 ：</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/Tree2.png" alt=""></p>
@@ -784,6 +784,8 @@
 
 
 
+
+  
 
 
 

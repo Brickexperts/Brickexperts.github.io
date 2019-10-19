@@ -335,7 +335,7 @@
 
       
         <h2 id="使用SVC时的其他考虑"><a href="#使用SVC时的其他考虑" class="headerlink" title="使用SVC时的其他考虑"></a>使用SVC时的其他考虑</h2><h3 id="SVC处理多分类问题"><a href="#SVC处理多分类问题" class="headerlink" title="SVC处理多分类问题"></a>SVC处理多分类问题</h3><p>之前的所有的SVM的(1)-(3)内容，全部是基于二分类的情况来说明的。因为支持向量机是天生二分类的模型。但是，它也可以做多分类。但是SVC在多分类情况的推广是很难的。因为要研究透彻多分类状况下的SVC，就必须研究透彻多分类时所需要的决策边界个数，每个决策边界所需要的支持向量个数，以及这些支持向量如何组合起来计算拉格朗日乘数。本小节只说一小部分。支持向量机是天在生二分类的模型，所以支持向量机在处理多分类问题的时候，是把多分类问题转换成了二分类问题来解决。这种转换有两种模式，一种叫做“一对一”模式（one vs one），一种叫做“一对多”模式(one vs rest)。 </p>
-<p>在ovo模式下(一对一模式)上，标签中的所有类别都会被两两组合，每两个类别建立一个SVC模型，每个模型生成一个决策边界，分别进行二分类，这种模式下，对于n_class个标签类别的数据来说，SVC会生成总共$C^2_{n_class}$个模型，即会生成总共$C^2_{n_class}$个超平面，其中：</p>
+<p>在ovo模式下(一对一模式)上，标签中的所有类别都会被两两组合，每两个类别建立一个SVC模型，每个模型生成一个决策边界，分别进行二分类，这种模式下，对于n<em>class个标签类别的数据来说，SVC会生成总共$C^2</em>{n_class}$个模型，即会生成总共$C^2_{n_class}$个超平面，其中：</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SVM74.png" alt=""></p>
 <p>ovo模式下，二维空间的三分类状况：</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SVM75.png" alt=""></p>
@@ -346,7 +346,7 @@
 <p>当类别更多的时候，无论是ovr还是ovo模式需要的决策边界都会越来越多，模型也会越来越复杂，不过ovo模式下的模型计算会更加复杂，因为ovo模式中的决策边界数量增加更快，但相对的，ovo模型也会更加精确。ovr模型计算更快，但是效果往往不是很好。在硬件可以支持的情况下，还是建议选择ovo模式。 </p>
 <p>模型和超平面的数量变化了，SVC的很多计算、接口、属性都会发生变化，而参数decision_function_shape决定我们究竟使用哪一种分类模式。</p>
 <h4 id="decision-function-shape"><a href="#decision-function-shape" class="headerlink" title="decision_function_shape"></a>decision_function_shape</h4><p>可输入“ovo”，”ovr”，默认”ovr”，对所有分类器，选择使用ovo或者ovr模式。<br>选择ovr模式，则返回的decision_function结构为(n_samples，n_class)。但是当二分类时，尽管选用ovr模式，却会返回<br>(n_samples，)的结构。 </p>
-<p>选择ovo模式，则使用libsvm中原始的，结构为(n_samples,n_class<em>(n_class-1)/2)的decision_function接口。在ovo模式并且核函数为线性核的情况下，属性coef_和intercepe_会分别返回(n_class\</em>(n_class-1)/2,n_features) 和(n_class*(n_class-1)/2,)的结构，每行对应一个生成的二元分类器。ovo模式只在多分类的状况下使用。</p>
+<p>选择ovo模式，则使用libsvm中原始的，结构为(n<em>samples,n_class*(n_class-1)/2)的decision_function接口。在ovo模式并且核函数为线性核的情况下，属性coef</em>和intercepe_会分别返回(n_class*(n_class-1)/2,n_features) 和(n_class*(n_class-1)/2,)的结构，每行对应一个生成的二元分类器。ovo模式只在多分类的状况下使用。</p>
 <p>SVC的其它参数、属性和接口的列表在<a href="[https://brickexperts.github.io/2019/09/15/SVM%E8%A7%A3%E8%AF%BB(2">SVM解读(2)</a>/#more](<a href="https://brickexperts.github.io/2019/09/15/SVM解读(2)/#more" target="_blank" rel="noopener">https://brickexperts.github.io/2019/09/15/SVM解读(2)/#more</a>)</p>
 <h2 id="线性支持向量机类LinearSVC"><a href="#线性支持向量机类LinearSVC" class="headerlink" title="线性支持向量机类LinearSVC"></a>线性支持向量机类LinearSVC</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/SVM77.png" alt=""></p>
 <p>线性支持向量机其实与SVC类中选择”linear”作为核函数的功能类似，但是其背后的实现库是liblinear而不是libsvm，这使得在线性数据上，linearSVC的运行速度比SVC中的“linear”核函数要快，不过两者的运行结果相似。在现实中，许多数据都是线性的，因此我们可以依赖计算得更快得LinearSVC类。除此之外，线性支持向量可以很容易地推广到大样本上，还可以支持稀疏矩阵，多分类中也支持ovr方案。 </p>
@@ -752,6 +752,8 @@
 
 
 
+
+  
 
 
 

@@ -365,11 +365,11 @@
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/装饰器.png" alt=""></p>
 <p>装饰器完了，自己慢慢悟吧。</p>
 <h2 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h2><p>迭代器只能前进不能后退。使用迭代器不要求事先准备好整个迭代过程中的所有元素。迭代器仅仅在迭代到某个元素时才计算该元素，而在这之前或之后元素可以不存在或者被销毁。因此迭代器适合遍历一些数量巨大甚至无限的序列。</p>
-<p>Python中迭代器的本质上每次调用__next__()方法都返回下一个元素或抛出StopIteration的容器对象</p>
+<p>Python中迭代器的本质上每次调用__next<em>\</em>()方法都返回下一个元素或抛出StopIteration的容器对象</p>
 <p>由于Python中没有“迭代器”这个类，因此具有以下两个特性的类都可以称为“迭代器”类：</p>
-<p>1、有__next__()方法，返回容器的下一个元素或抛出StopIteration异常</p>
+<p>1、有__next<em>\</em>()方法，返回容器的下一个元素或抛出StopIteration异常</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python39.png" alt=""></p>
-<p>2、有__iter__()方法，返回迭代器本身</p>
+<p>2、有__iter<em>\</em>()方法，返回迭代器本身</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python40.png" alt=""></p>
 <p>all(iterable)：如果迭代器里面的所有元素都为True时,返回True;否则返回False</p>
 <p>any(iterable）：如果迭代器里面的所有元素为False,返回False;否则返回True.</p>
@@ -377,7 +377,7 @@
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python41.png" alt=""></p>
 <p>当yield存在函数时，函数就变成一个生成器。yield不像return那样返回值，而是每次产生多个值。每次使用yield产生一个值，函数就会被冻结。</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python42.png" alt=""></p>
-<p>用aim.__next__()得出结果：</p>
+<p>用aim.__next<em>\</em>()得出结果：</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python43.png" alt=""></p>
 <p>aim.send()得出结果：</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python45.png" alt=""></p>
@@ -783,6 +783,8 @@
 
 
 
+
+  
 
 
 
