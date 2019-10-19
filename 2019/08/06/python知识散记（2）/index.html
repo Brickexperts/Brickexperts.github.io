@@ -366,9 +366,9 @@
 <h2 id="常用内置函数补充："><a href="#常用内置函数补充：" class="headerlink" title="常用内置函数补充："></a>常用内置函数补充：</h2><p>复数可以通过<strong>complex（real，imag）</strong>来指定。conjugete提取共轭复数</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python21.png" alt=""></p>
 <p><strong>hasattr</strong>：hasattr() 函数用于判断对象是否包含对应的属性。如果对象有该属性返回 True，否则返回 False。</p>
-<h2 id="上下文管理器（context-manager）："><a href="#上下文管理器（context-manager）：" class="headerlink" title="上下文管理器（context manager）："></a>上下文管理器（context manager）：</h2><p>任何实现了__enter__和__exit<em>\</em>方法的对象都可称为上下文管理器</p>
+<h2 id="上下文管理器（context-manager）："><a href="#上下文管理器（context-manager）：" class="headerlink" title="上下文管理器（context manager）："></a>上下文管理器（context manager）：</h2><p>任何实现了__enter__和__exit__方法的对象都可称为上下文管理器</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python24.png" alt=""></p>
-<p>__enter__():方法返回资源对象，这里就是你将要打开的那个文件对象，__exit<em>\</em>()处理一些清除工作。因为File类实现上下文管理器，现在就可以使用with语句了。</p>
+<p>__enter__():方法返回资源对象，这里就是你将要打开的那个文件对象，__exit__()处理一些清除工作。因为File类实现上下文管理器，现在就可以使用with语句了。</p>
 <p>实现上下文管理器的其他方法：使用contextmanager装饰器</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/python25.png" alt=""></p>
 <h2 id="python的三种修饰符："><a href="#python的三种修饰符：" class="headerlink" title="python的三种修饰符："></a>python的三种修饰符：</h2><p>staticmethod、classmethod 和 property，作用分别是把类中定义的实例方法变成静态方法、类方法和类属性。staticmethod、classmethod具体看python的类和对象。</p>

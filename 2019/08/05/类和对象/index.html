@@ -357,9 +357,9 @@
 <p>类的方法：允许进行的操作</p>
 <p>类的抽象：拥有相同或者类似属性和行为的对象都可以抽象出一个类</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class.png" alt=""></p>
-<p>python调用_<em>init_</em>方法的作用：初始化对象</p>
+<p>python调用__init__方法的作用：初始化对象</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class1.png" alt=""></p>
-<p>python调用_<em>str_</em>方法：</p>
+<p>python调用__str__方法：</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class3.png" alt=""></p>
 <p>私有方法：外界不能直接调用</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class4.png" alt=""></p>
@@ -367,23 +367,23 @@
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class5.png" alt=""></p>
 <p>通过内部方法取值：</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class6.png" alt=""></p>
-<p>私有属性无法取值的原因是因为名字重整技术，其实可以通过<em>类名</em>属性可以访问：</p>
+<p>私有属性无法取值的原因是因为名字重整技术，其实可以通过_类名_属性可以访问：</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class7.png" alt=""></p>
 <p>在这里讲一下私有的原理：这是通过名字重整机制改变的。命名规则：_类名__num（尽量不要用）</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class8.png" alt=""></p>
-<p>python可以自己调用_<em>del<strong>方法，\</strong>del_</em>是该对象被删除后调用的方法，注意：这里的删除是没有引用对象</p>
+<p>python可以自己调用__del<strong>方法，\</strong>del__是该对象被删除后调用的方法，注意：这里的删除是没有引用对象</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class9.png" alt=""></p>
 <p>完全删除后（没有引用对象）：</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class10.png" alt=""></p>
 <p>测量对象的引用对象：用sys模块的sys.getrefcount，得出结果后减一。</p>
-<p>_<em>new_</em>方法：创建对象</p>
+<p>__new__方法：创建对象</p>
 <p>实例化对象相当于做三件事：</p>
-<p>1.通过_<em>init__来创建对象，然后找了一个变量来接收</em>_<em>init_</em>的返回值。这个返回值表示创建出来的对象引用。</p>
-<p>2._<em>init_</em>（刚刚创建出来的对象的引用）</p>
+<p>1.通过__init<strong>来创建对象，然后找了一个变量来接收_\</strong>init__的返回值。这个返回值表示创建出来的对象引用。</p>
+<p>2.__init__（刚刚创建出来的对象的引用）</p>
 <p>3.返回对象的引用。</p>
-<p><strong>__new<em>\</em>方法 和 <em>_init_</em>方法的区别</strong>:</p>
-<p>1.<em>_init_</em> 通常用于初始化一个新实例，控制这个初始化的过程，比如添加一些属性， 做一些额外的操作，发生在类实例被创建完以后。它是实例级别的方法。没有返回值。负责初始化</p>
-<p>2._<em>new__ 通常用于控制生成一个新实例的过程。它是类级别的方法，参数是cls。负责创建。\</em>_init<em>\</em>和<em>_new_</em>方法合起来相当于C++的构造函数。</p>
+<p><strong>__new__方法 和 __init__方法的区别</strong>:</p>
+<p>1.__init__ 通常用于初始化一个新实例，控制这个初始化的过程，比如添加一些属性， 做一些额外的操作，发生在类实例被创建完以后。它是实例级别的方法。没有返回值。负责初始化</p>
+<p>2.__new<strong> 通常用于控制生成一个新实例的过程。它是类级别的方法，参数是cls。负责创建。__init__和__new</strong>方法合起来相当于C++的构造函数。</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class11.png" alt=""></p>
 <p>下面讲一个新的概念：单例      单例是创建了多少个对象都是指向同一片内存。</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class12.png" alt=""></p>
@@ -423,7 +423,7 @@
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class24.png" alt=""></p>
 <p><strong>getattribute</strong>:属性拦截器</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/class25.png" alt=""></p>
-<p>使用类名调用类属性时，不会经过_<em>getattribute_</em>方法，其他均要调用。（可以用来做日志）</p>
+<p>使用类名调用类属性时，不会经过__getattribute__方法，其他均要调用。（可以用来做日志）</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/clas.png" alt=""></p>
 
     </div>
