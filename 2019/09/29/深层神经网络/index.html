@@ -57,19 +57,19 @@
   };
 </script>
 
-  <meta name="description" content="深层神经网络深层神经网络样子也许是下面这样的，也有可能是更多层的。  上图是一个四层的神经网络(输入层一般记为零层或不记住)，我们用L表示神经网络的层数，n^[l] 表示第 l 层的神经元数量 由于神经网络具有许多层，在下图中用方框代表一层，每个层都要完成各自的任务，流程图大致如下所示：  蓝框中的部分完成正向传播：  该过程的输入是 X 也就是 A^[0]，一层一层向后计算，最后得到A^[L]。">
+  <meta name="description" content="深层神经网络深层神经网络样子也许是下面这样的，也有可能是更多层的。  上图是一个四层的神经网络(输入层一般记为零层或不记住)，我们用L表示神经网络的层数，n^[l] 表示第 l 层的神经元数量 由于神经网络具有许多层，在下图中用方框代表一层，每个层都要完成各自的任务，流程图大致如下所示：  蓝框中的部分完成正向传播：  该过程的输入是 X 也就是 A[0]，一层一层向后计算，最后得到A[L]。 并">
 <meta name="keywords" content="深度学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深层神经网络">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;09&#x2F;29&#x2F;%E6%B7%B1%E5%B1%82%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C&#x2F;index.html">
 <meta property="og:site_name" content="DY的个人博客">
-<meta property="og:description" content="深层神经网络深层神经网络样子也许是下面这样的，也有可能是更多层的。  上图是一个四层的神经网络(输入层一般记为零层或不记住)，我们用L表示神经网络的层数，n^[l] 表示第 l 层的神经元数量 由于神经网络具有许多层，在下图中用方框代表一层，每个层都要完成各自的任务，流程图大致如下所示：  蓝框中的部分完成正向传播：  该过程的输入是 X 也就是 A^[0]，一层一层向后计算，最后得到A^[L]。">
+<meta property="og:description" content="深层神经网络深层神经网络样子也许是下面这样的，也有可能是更多层的。  上图是一个四层的神经网络(输入层一般记为零层或不记住)，我们用L表示神经网络的层数，n^[l] 表示第 l 层的神经元数量 由于神经网络具有许多层，在下图中用方框代表一层，每个层都要完成各自的任务，流程图大致如下所示：  蓝框中的部分完成正向传播：  该过程的输入是 X 也就是 A[0]，一层一层向后计算，最后得到A[L]。 并">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20190930110158.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;forward.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;forward4.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20190930164522.png">
-<meta property="og:updated_time" content="2019-10-03T13:10:50.818Z">
+<meta property="og:updated_time" content="2019-10-21T03:41:27.565Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20190930110158.png">
   <link rel="alternate" href="/atom.xml" title="DY的个人博客" type="application/atom+xml">
@@ -295,7 +295,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-10-03 21:10:50" itemprop="dateModified" datetime="2019-10-03T21:10:50+08:00">2019-10-03</time>
+                <time title="修改时间：2019-10-21 11:41:27" itemprop="dateModified" datetime="2019-10-21T11:41:27+08:00">2019-10-21</time>
               </span>
             
           
@@ -333,20 +333,20 @@
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/forward.png" alt=""></p>
 <p>蓝框中的部分完成正向传播：</p>
 <blockquote>
-<p>该过程的输入是 X 也就是 A^[0]，一层一层向后计算，最后得到A^[L]。</p>
-<p>并且，在各层 l 计算出 A^[l] 的同时，<strong>缓存</strong>各层的输出值 A^[l] 到变量 cache 中，因为反向传播将会用上。<strong>图中这里写错了，应该是A^[1]、A^[2]、A^[3]的。</strong></p>
+<p>该过程的输入是 X 也就是 A<sup>[0]</sup>，一层一层向后计算，最后得到A<sup>[L]</sup>。</p>
+<p>并且，在各层 l 计算出 A^[l] 的同时，<strong>缓存</strong>各层的输出值 A^[l] 到变量 cache 中，因为反向传播将会用上。<strong>图中这里写错了，应该是A<sup>[1]</sup>、A<sup>[2]</sup>、A<sup>[3]</sup>的。</strong></p>
 </blockquote>
 <p>绿框中的部分完成反向传播：</p>
 <blockquote>
-<p>该过程的输入是dA^[L]，并根据dA^[L]一步步向前计算，得到各层对应的dZ^[l]，dW^[l]，db^[l]</p>
-<p>此外，还要计算出 dA^[l - 1] 作为前一层的输入</p>
+<p>该过程的输入是dA<sup>[L]</sup>，并根据dA<sup>[L]</sup>一步步向前计算，得到各层对应的dZ<sup>[l]</sup>，dW<sup>[l]</sup>，db<sup>[l]</sup></p>
+<p>此外，还要计算出 dA<sup>[l - 1]</sup> 作为前一层的输入</p>
 </blockquote>
 <p>具体过程请看<a href="[https://brickexperts.github.io/2019/09/23/%E6%B5%85%E5%B1%82%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E6%AD%A3%E5%90%91%E4%BC%A0%E6%92%AD/#more](https://brickexperts.github.io/2019/09/23/浅层神经网络的正向传播/#more">浅层神经网络的正向传播</a>) 和 <a href="[https://brickexperts.github.io/2019/09/23/%E6%B5%85%E5%B1%82%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD/#more](https://brickexperts.github.io/2019/09/23/浅层神经网络的反向传播/#more">浅层神经网络的反向传播</a>)</p>
 <h2 id="核对矩阵的维数"><a href="#核对矩阵的维数" class="headerlink" title="核对矩阵的维数"></a>核对矩阵的维数</h2><p>为了在写代码的过程中减少出现bug，尤其是在进行反向传播的时候，我们要注意核对矩阵的维数，这个知识点我们前面将 <a href="[https://brickexperts.github.io/2019/09/23/%E6%B5%85%E5%B1%82%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD/#more](https://brickexperts.github.io/2019/09/23/浅层神经网络的反向传播/#more">浅层神经网络的反向传播</a>)的文章中也提到了，大致规律如下：</p>
 <blockquote>
-<p>W^[l] ： (n^[l], n^[l - 1])</p>
-<p>Z^[l] ： (n^[l], m),</p>
-<p>A^[l] ： (n^[l], m)</p>
+<p>W^[l] ： (n<sup>[ l ]</sup>, n<sup>[l - 1]</sup>)</p>
+<p>Z^[l] ： (n<sup>[ l ]</sup>, m),</p>
+<p>A^[l] ： (n<sup>[ l ]</sup>, m)</p>
 </blockquote>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/forward4.png" alt=""></p>
 <p>另外，还有一个规律：</p>
@@ -537,9 +537,7 @@
         
           
         
-          
-        
-        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-count">21</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>

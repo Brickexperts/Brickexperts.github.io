@@ -60,7 +60,7 @@
   <meta name="description" content="Mini-batch 梯度下降我们之前学过，向量化能够让我们有效地对所有m个样本进行计算，所以我们要把训练样本放到巨大的矩阵X中。 X=[x(1) x(2)   x(3)   x(4)  ……  x(n) ]。Y也是如此，Y=[y(1) y(2)  y(3)   y(4)  ……  y(n) ]。所以X的维度是(nx,m)，Y的维度是(1,m)。向量化能够让我们相对较快地处理所有样本，如果m很大的">
 <meta name="keywords" content="深度学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="优化算法">
+<meta property="og:title" content="优化算法的方法">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;11&#x2F;%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95&#x2F;index.html">
 <meta property="og:site_name" content="DY的个人博客">
 <meta property="og:description" content="Mini-batch 梯度下降我们之前学过，向量化能够让我们有效地对所有m个样本进行计算，所以我们要把训练样本放到巨大的矩阵X中。 X=[x(1) x(2)   x(3)   x(4)  ……  x(n) ]。Y也是如此，Y=[y(1) y(2)  y(3)   y(4)  ……  y(n) ]。所以X的维度是(nx,m)，Y的维度是(1,m)。向量化能够让我们相对较快地处理所有样本，如果m很大的">
@@ -84,7 +84,7 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191013144738.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191013144804.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191013150349.png">
-<meta property="og:updated_time" content="2019-10-18T14:18:53.399Z">
+<meta property="og:updated_time" content="2019-10-20T02:23:10.094Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191011191909.png">
   <link rel="alternate" href="/atom.xml" title="DY的个人博客" type="application/atom+xml">
@@ -97,7 +97,7 @@
   };
 </script>
 
-  <title>优化算法 | DY的个人博客</title>
+  <title>优化算法的方法 | DY的个人博客</title>
   
 
 
@@ -277,7 +277,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">优化算法
+          <h1 class="post-title" itemprop="name headline">优化算法的方法
 
               
             
@@ -310,7 +310,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-10-18 22:18:53" itemprop="dateModified" datetime="2019-10-18T22:18:53+08:00">2019-10-18</time>
+                <time title="修改时间：2019-10-20 10:23:10" itemprop="dateModified" datetime="2019-10-20T10:23:10+08:00">2019-10-20</time>
               </span>
             
           
@@ -406,16 +406,16 @@
 <p>v<sub>1</sub>=0.98v<sub>0</sub>+0.02&theta;<sub>1</sub>，如果带入v<sub>1</sub>，然后相乘，v<sub>2</sub>=0.98 x 0.02&theta;<sub>1</sub> + 0.02&theta;<sub>2</sub>，假如&theta;<sub>1</sub>和&theta;<sub>2</sub>都是正数，计算后的v<sub>2</sub>要远小于&theta;<sub>2</sub>和&theta;<sub>1</sub>，所以不能很好预估这一年前两天的温度。</p>
 <p>有个办法可以修改这一估测，让估测变得更好，更准确，特别是在估测初期，也就是不用v<sub>t</sub>，而是用v<sub>t</sub>/1-&beta;<sup>t</sup>，t就是现在的天数。举个具体例子，当t=2时，1-&beta;<sup>t</sup>=1-0.98<sup>2</sup>=0.0396，因此对第二天温度的估测变成了</p>
 <blockquote>
-<p>v<sup>2</sup>/0.0396=(0.0196&theta;<sub>1</sub>+0.02&theta;<sub>2</sub>)/0.0396</p>
+<p>v<sub>2</sub>/0.0396=(0.0196&theta;<sub>1</sub>+0.02&theta;<sub>2</sub>)/0.0396</p>
 </blockquote>
 <p>也就是和的加权平均数，并去除了偏差。你会发现随着t增加，&beta;<sup>t</sup>接近于0，所以当t很大的时候，偏差修正几乎没有作用.因此当t较大的时候，紫线基本和绿线重合了。不过在开始学习阶段，你才开始预测热身练习，偏差修正可以帮助你更好预测温度，偏差修正可以帮助你使结果从紫线变成绿线。</p>
 <h2 id="动量梯度下降法"><a href="#动量梯度下降法" class="headerlink" title="动量梯度下降法"></a>动量梯度下降法</h2><p>还有一种算法叫做<strong>Momentum</strong>，或者叫做动量梯度下降法，运行速度几乎总是快于标准的梯度下降算法。基本的想法就是计算梯度的指数加权平均数，并利用该梯度更新的权重。</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191012173500.png" alt=""></p>
-<p>如果优化成本函数，函数形状如图，红点代表最小值的位置，假设你从这里（蓝色点）开始梯度下降法，如果进行梯度下降法的一次迭代，无论是batch或mini-batch下降法，也许会指向这里，现在在椭圆的另一边，计算下一步梯度下降，结果或许如此，然后再计算一步，再一步，计算下去。我们发现梯度下降法要很多计算步骤。</p>
-<p>慢慢摆动到最小值，这种上下波动减慢了梯度下降法的速度，你就无法使用更大的学习率，如果你要用较大的学习率（紫色箭头），结果可能会偏离函数的范围，为了避免摆动过大，你要用一个较小的学习率。</p>
+<p>如果优化成本函数，函数形状如图，红点代表最小值的位置，假设从这里（蓝色点）开始梯度下降法，如果进行梯度下降法的一次迭代，无论是batch或mini-batch下降法，也许会指向这里，现在在椭圆的另一边，计算下一步梯度下降，结果或许如此，然后再计算一步，再一步，计算下去。我们发现梯度下降法要很多计算步骤。</p>
+<p>慢慢摆动到最小值，这种上下波动减慢了梯度下降法的速度，就无法使用更大的学习率，如果要用较大的学习率（紫色箭头），结果可能会偏离函数的范围，为了避免摆动过大，就要用一个较小的学习率。</p>
 <p>另一个看待问题的角度是，在竖直方向上，我们希望学习慢一点，因为我们不想要这些摆动。但在水平方向，我们希望快速从左向右移动，移向最小值，移向红点。所以使用动力梯度下降法，在每次迭代中，都会计算dW，db。我们要做的是计算v<sub>dW</sub>=&beta;v<sub>dW</sub>+(1-&beta;)dW，接着同样计算v<sub>db</sub>=&beta;v<sub>db</sub>+(1-&beta;)db。然后重新赋值权重，W=W-av<sub>dW</sub>，同样b=b-av<sub>dW</sub>，从而减缓梯度下降的幅度。</p>
-<p>想象你有一个碗，你拿一个球，微分项给了这个球一个加速度，此时球正向碗中间滚，球因为加速度越滚越快，而因为&beta;稍小于1，表现出一些摩擦力，所以球不会无限加速下去，所以不像梯度下降法，每一步都独立于之前的步骤，你的球可以向下滚，获得动量，可以从碗向下加速获得动量。</p>
-<p>所以你有两个超参数，学习率&alpha;以及&beta;参数。&beta;是指数加权平均数，常用值为0.9。</p>
+<p>想象有一个碗，再拿一个球，微分项给了这个球一个加速度，此时球正向碗中间滚，球因为加速度越滚越快，而因为&beta;稍小于1，表现出一些摩擦力，所以球不会无限加速下去，所以不像梯度下降法，每一步都独立于之前的步骤，球可以向下滚，获得动量，可以从碗向下加速获得动量。</p>
+<p>所以我们有两个超参数，学习率&alpha;以及&beta;参数。&beta;是指数加权平均数，常用值为0.9。</p>
 <h2 id="RMSprop"><a href="#RMSprop" class="headerlink" title="RMSprop"></a>RMSprop</h2><p>前面我们知道动力梯度下降法可以加快梯度下降，还有一个叫做<strong>RMSprop</strong>的算法，全称是<strong>root mean square prop</strong>算法，它也可以加速梯度下降，我们来看看它是如何运作的。</p>
 <p>复习前面的内容，如果我们执行梯度下降，虽然横轴方向正在推进，但纵轴方向会有大幅动摆动。所以，我们想减缓纵轴方向的学习，同时加快横轴方向的学习(至少不减慢)。RMSprop算法可以实现这个目标。</p>
 <p>在第t次迭代中，该算法会找出计算mini-batch的微分dW，db。这里我们不用v<sub>dW</sub>，而是用到新符号S<sub>dW</sub>。因此：</p>
@@ -505,8 +505,8 @@
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2019/10/08/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%BA%94%E7%94%A8%E5%B1%82%E9%9D%A2/" rel="next" title="深度学习的实用层面">
-                <i class="fa fa-chevron-left"></i> 深度学习的实用层面
+              <a href="/2019/10/08/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%BA%94%E7%94%A8%E5%B1%82%E9%9D%A2/" rel="next" title="深度学习的应用层面">
+                <i class="fa fa-chevron-left"></i> 深度学习的应用层面
               </a>
             
           </div>
@@ -629,9 +629,7 @@
         
           
         
-          
-        
-        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-count">21</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>

@@ -60,7 +60,7 @@
   <meta name="description" content="在配置训练、验证和测试数据集的过程中做出正确决策会在很大程度上帮助大家创建高效的神经网络。训练神经网络时，我们需要做出很多决策，例如：神经网络分多少层、每层含有多少个隐藏单元、学习速率是多少、各层采用哪些激活函数等问题。 训练、验证和测试集我们通常会将这些数据划分成三部分，一部分作为训练集（train set），一部分作为简单交叉验证集，有时也称之为验证集，方便起见，我就叫它验证集（dev set">
 <meta name="keywords" content="深度学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="深度学习的实用层面">
+<meta property="og:title" content="深度学习的应用层面">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;08&#x2F;%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%BA%94%E7%94%A8%E5%B1%82%E9%9D%A2&#x2F;index.html">
 <meta property="og:site_name" content="DY的个人博客">
 <meta property="og:description" content="在配置训练、验证和测试数据集的过程中做出正确决策会在很大程度上帮助大家创建高效的神经网络。训练神经网络时，我们需要做出很多决策，例如：神经网络分多少层、每层含有多少个隐藏单元、学习速率是多少、各层采用哪些激活函数等问题。 训练、验证和测试集我们通常会将这些数据划分成三部分，一部分作为训练集（train set），一部分作为简单交叉验证集，有时也称之为验证集，方便起见，我就叫它验证集（dev set">
@@ -80,7 +80,7 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191009214916.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191009221916.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191009222132.png">
-<meta property="og:updated_time" content="2019-10-18T14:41:38.384Z">
+<meta property="og:updated_time" content="2019-10-20T03:19:36.475Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191008123133.png">
   <link rel="alternate" href="/atom.xml" title="DY的个人博客" type="application/atom+xml">
@@ -93,7 +93,7 @@
   };
 </script>
 
-  <title>深度学习的实用层面 | DY的个人博客</title>
+  <title>深度学习的应用层面 | DY的个人博客</title>
   
 
 
@@ -273,7 +273,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">深度学习的实用层面
+          <h1 class="post-title" itemprop="name headline">深度学习的应用层面
 
               
             
@@ -306,7 +306,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-10-18 22:41:38" itemprop="dateModified" datetime="2019-10-18T22:41:38+08:00">2019-10-18</time>
+                <time title="修改时间：2019-10-20 11:19:36" itemprop="dateModified" datetime="2019-10-20T11:19:36+08:00">2019-10-20</time>
               </span>
             
           
@@ -325,7 +325,7 @@
                   ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%94%B9%E5%96%84%E6%B7%B1%E5%BA%A6%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">改善深度神经网络</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%94%B9%E5%96%84%E6%B7%B1%E5%B1%82%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">改善深层神经网络</span></a></span>
 
                 
                 
@@ -349,6 +349,8 @@
 <p>接下来，我们开始对训练执行算法，通过验证集或简单交叉验证集选择最好的模型，经过充分验证，我们选定了最终模型，然后就可以在测试集上进行评估了，为了无偏评估算法的运行状况。</p>
 <p>在机器学习发展的小数据量时代，常见做法是将所有数据三七分，就是人们常说的70%验证集，30%测试集，如果没有明确设置验证集，也可以按照60%训练，20%验证和20%测试集来划分。没有测试集也不要紧，测试集的目的是对最终所选定的神经网络系统做出无偏估计，如果不需要无偏估计，也可以不设置测试集。</p>
 <p>在机器学习中，如果只有一个训练集和一个验证集，而没有独立的测试集，遇到这种情况，训练集还被人们称为训练集，而验证集则被称为测试集。</p>
+<p>那么验证集和测试集有什么区别呢？为什么要划分训练集、验证集和测试集？</p>
+<p>训练集用于训练模型参数，测试集用于估计模型对样本的泛化误差，验证集用于“训练”模型的超参数。</p>
 <h2 id="偏差（Bias）、方差（Variance）"><a href="#偏差（Bias）、方差（Variance）" class="headerlink" title="偏差（Bias）、方差（Variance）"></a>偏差（Bias）、方差（Variance）</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191008123133.png" alt=""></p>
 <p>假设这就是数据集，如果给这个数据集拟合一条直线，可能得到一个逻辑回归拟合，但它并不能很好地拟合该数据，这是高偏差（<strong>high bias</strong>）的情况，我们称为“欠拟合”（<strong>underfitting</strong>）。</p>
 <p>相反的如果我们拟合一个非常复杂的分类器，比如深度神经网络或含有隐藏单元的神经网络，可能就非常适用于这个数据集，但是这看起来也不是一种很好的拟合方式分类器方差较高（<strong>high variance</strong>），数据过度拟合（<strong>overfitting</strong>）。</p>
@@ -505,8 +507,8 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2019/10/11/%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/" rel="prev" title="优化算法">
-                优化算法 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/10/11/%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/" rel="prev" title="优化算法的方法">
+                优化算法的方法 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -620,9 +622,7 @@
         
           
         
-          
-        
-        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-count">21</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
