@@ -77,6 +77,11 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191012173500.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191012200635.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191012224237.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191021165915.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191021165943.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191021170221.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191021170044.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191021170019.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191013142056.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191013143740.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191013144516.png">
@@ -84,7 +89,7 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191013144738.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191013144804.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191013150349.png">
-<meta property="og:updated_time" content="2019-10-21T08:42:28.795Z">
+<meta property="og:updated_time" content="2019-10-21T09:03:52.658Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191011191909.png">
   <link rel="alternate" href="/atom.xml" title="DY的个人博客" type="application/atom+xml">
@@ -310,7 +315,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-10-21 16:42:28" itemprop="dateModified" datetime="2019-10-21T16:42:28+08:00">2019-10-21</time>
+                <time title="修改时间：2019-10-21 17:03:52" itemprop="dateModified" datetime="2019-10-21T17:03:52+08:00">2019-10-21</time>
               </span>
             
           
@@ -414,8 +419,10 @@
 <p>如果优化成本函数，函数形状如图，红点代表最小值的位置，假设从这里（蓝色点）开始梯度下降法，如果进行梯度下降法的一次迭代，无论是batch或mini-batch下降法，也许会指向这里，现在在椭圆的另一边，计算下一步梯度下降，结果或许如此，然后再计算一步，再一步，计算下去。我们发现梯度下降法要很多计算步骤。</p>
 <p>慢慢摆动到最小值，这种上下波动减慢了梯度下降法的速度，就无法使用更大的学习率，如果要用较大的学习率（紫色箭头），结果可能会偏离函数的范围，为了避免摆动过大，就要用一个较小的学习率。</p>
 <p>另一个看待问题的角度是，在竖直方向上，我们希望学习慢一点，因为我们不想要这些摆动。但在水平方向，我们希望快速从左向右移动，移向最小值，移向红点。所以使用动力梯度下降法，在每次迭代中，都会计算dW，db。我们要做的是计算v<sub>dW</sub>=&beta;v<sub>dW</sub>+(1-&beta;)dW，接着同样计算v<sub>db</sub>=&beta;v<sub>db</sub>+(1-&beta;)db。然后重新赋值权重，W=W-av<sub>dW</sub>，同样b=b-av<sub>dW</sub>，从而减缓梯度下降的幅度。</p>
-<p>想象有一个碗，再拿一个球，微分项给了这个球一个加速度，此时球正向碗中间滚，球因为加速度越滚越快，而因为&beta;稍小于1，表现出一些摩擦力，所以球不会无限加速下去，所以不像梯度下降法，每一步都独立于之前的步骤，球可以向下滚，获得动量，可以从碗向下加速获得动量。</p>
-<p>所以我们有两个超参数，学习率&alpha;以及&beta;参数。&beta;是指数加权平均数，常用值为0.9。</p>
+<p>举个例子，如果你站在一个地方不动，让你立刻向后转齐步走，你可以迅速向后转然后就向相反的方向走了起来，批梯度下降和随机梯度下降就是这样，某一时刻的梯度只与这一时刻有关，改变方向可以做到立刻就变。而如果你正在按照某个速度向前跑，再让你立刻向后转，可以想象得到吧，此时你无法立刻将速度降为0然后改变方向，你由于之前的速度的作用，有可能会慢慢减速然后转一个弯。</p>
+<p>动量梯度下降是同理的，每一次梯度下降都会有一个之前的速度的作用，如果我这次的方向与之前相同，则会因为之前的速度继续加速；如果这次的方向与之前相反，则会由于之前存在速度的作用不会产生一个急转弯，而是尽量把路线向一条直线拉过去。</p>
+<p>这就解决了文中第一个图的那个在普通梯度下降中存在的下降路线折来折去浪费时间的问题。</p>
+<p>我们有两个超参数，学习率&alpha;以及&beta;参数。&beta;是指数加权平均数，常用值为0.9。</p>
 <h2 id="RMSprop"><a href="#RMSprop" class="headerlink" title="RMSprop"></a>RMSprop</h2><p>前面我们知道动力梯度下降法可以加快梯度下降，还有一个叫做<strong>RMSprop</strong>的算法，全称是<strong>root mean square prop</strong>算法，它也可以加速梯度下降，我们来看看它是如何运作的。</p>
 <p>复习前面的内容，如果我们执行梯度下降，虽然横轴方向正在推进，但纵轴方向会有大幅动摆动。所以，我们想减缓纵轴方向的学习，同时加快横轴方向的学习(至少不减慢)。RMSprop算法可以实现这个目标。</p>
 <p>在第t次迭代中，该算法会找出计算mini-batch的微分dW，db。这里我们不用v<sub>dW</sub>，而是用到新符号S<sub>dW</sub>。因此：</p>
@@ -429,6 +436,20 @@
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191012224237.png" alt=""></p>
 <p><strong>RMSprop</strong>的影响就是你的更新最后会变成这样（绿色线），纵轴方向上摆动较小，而横轴方向继续推进。还有个影响就是，你可以用一个更大学习率a，然后加快学习，而无须在纵轴上垂直方向偏离。</p>
 <h2 id="Adam优化算法"><a href="#Adam优化算法" class="headerlink" title="Adam优化算法"></a>Adam优化算法</h2><p><strong>Adam</strong>优化算法基本上就是将<strong>Momentum</strong>和<strong>RMSprop</strong>结合在一起，那么来看看如何使用Adam算法。</p>
+<p>首先，初始化</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191021165915.png" alt=""></p>
+<p>然后用当前的 mini-batch 计算出 dW 和 db</p>
+<p>接下来计算 Momentum 指数加权平均数：</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191021165943.png" alt=""></p>
+<blockquote>
+<p>上图中用到的&beta;<sub>1</sub>是为了和下面的RMSprop公式中用到的&beta;<sub>2</sub>相互区分</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191021170221.png" alt=""></p>
+<p>一般运用 Adam 算法的时候，我们还要对 v 和 S 的偏差进行修正：</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191021170044.png" alt=""></p>
+<p>然后就是权重的更新：</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191021170019.png" alt=""></p>
+<p>完整的如下所示：</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191013142056.png" alt=""></p>
 <p>本算法有很多超参数，分别有a、&beta;<sub>1</sub>、&beta;<sub>2</sub>、ξ四个超参数。a需要调试，尝试一系列的值，然后看哪个有效。&beta;<sub>1</sub>常用的值为0.9。至于&beta;<sub>2</sub>，推荐使用0.999，ξ为10<sup>-8</sup>。</p>
 <h2 id="学习率衰减"><a href="#学习率衰减" class="headerlink" title="学习率衰减"></a>学习率衰减</h2><p>加快学习算法的一个办法就是随时间慢慢减少学习率，我们将之称为学习率衰减。</p>
