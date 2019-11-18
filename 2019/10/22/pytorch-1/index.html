@@ -66,7 +66,7 @@
 <meta property="og:description" content="torch.nn包里的Functional包含convolution函数，pooling函数，非线性函数、激活函数等函数，torch.nn.optim包含各种优化算法，Momentum、RMSProp等。 Tensortorch.Tensor是一种包含单一数据类型元素的多维矩阵。 Torch定义了七种CPU tensor类型和八种 tensor类型：  torch.Tensor是默认的tensor">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191022221728.png">
-<meta property="og:updated_time" content="2019-10-25T12:23:54.790Z">
+<meta property="og:updated_time" content="2019-10-26T13:23:47.339Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191022221728.png">
   <link rel="alternate" href="/atom.xml" title="DY的个人博客" type="application/atom+xml">
@@ -292,7 +292,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-10-25 20:23:54" itemprop="dateModified" datetime="2019-10-25T20:23:54+08:00">2019-10-25</time>
+                <time title="修改时间：2019-10-26 21:23:47" itemprop="dateModified" datetime="2019-10-26T21:23:47+08:00">2019-10-26</time>
               </span>
             
           
@@ -387,7 +387,7 @@
 <blockquote>
 <p>>&gt;&gt;torch.ge(torch.Tensor([[1,2],[3,4]]),torch.Tensor([[1,1],[4,4]]))<br>tensor([[ True,  True],<br>        [False,  True]])</p>
 </blockquote>
-<h2 id="torch-gt"><a href="#torch-gt" class="headerlink" title="torch.gt"></a>torch.gt</h2><p>torch.gt(input,other,out=None)：逐元素比较input和other。即input&gt;otherinput&gt;other。如果两个张量有相同的形状和元素值，则返回True。否则返回False。第二个参数可以为一个数或与第一个参数相同形状和类型的张量。PS:这个和ge有什么区别？</p>
+<h3 id="torch-gt"><a href="#torch-gt" class="headerlink" title="torch.gt"></a>torch.gt</h3><p>torch.gt(input,other,out=None)：逐元素比较input和other。即input&gt;otherinput&gt;other。如果两个张量有相同的形状和元素值，则返回True。否则返回False。第二个参数可以为一个数或与第一个参数相同形状和类型的张量。PS:这个和ge有什么区别？</p>
 <blockquote>
 <p>>&gt;&gt;torch.gt(torch.Tensor([[1,2],[3,4]]),torch.Tensor([[1,1],[4,4]]))<br>tensor([[False,  True],<br>        [False, False]])</p>
 </blockquote>
@@ -409,21 +409,12 @@
 <p>构建Variable，我们传入了一个参数requires_grad=True，这个参数表示是否对这个变量求梯度，默认的是False，也就是不对这个变量求梯度。</p>
 <h2 id="parameters"><a href="#parameters" class="headerlink" title="parameters"></a>parameters</h2><p>paramerters(memo=None)：返回一个包含模型所有参数的迭代器。一般用来当作optimizer的参数。</p>
 <h2 id="backward"><a href="#backward" class="headerlink" title="backward"></a>backward</h2><p>如果需要计算导数，可以在Tensor上调用.backward()。 如果Tensor是一个标量（即它包含一个元素数据）则不需要为backward()指定任何参数， 但是如果它有更多的元素，需要指定一个gradient参数来匹配张量的形状。 </p>
-<h2 id="模型的保存和加载"><a href="#模型的保存和加载" class="headerlink" title="模型的保存和加载"></a>模型的保存和加载</h2><p>在pytorch里面使用torch.save来保存模型的结构和参数，有两种保存方式：</p>
-<p>（1）保存这个模型的结构信息和参数信息，保存的对象是模型model</p>
-<p>（2）保存模型的参数，保存的对象是模型的状态model.state_dict()</p>
-<p>torch.save(model,’./model_pth’):</p>
-<p>torch.save(model.state_dict(),’./model_state.pth’)</p>
-<p>加载模型有两种方式对应于保存模型的方式：</p>
-<p>（1）加载完整的模型结构和参数信息，使用load_model=torch.load(“model.pth”)，在网络较大的时候加载的时间比较长，同时存储空间也比较大。</p>
-<p>（2）加载模型参数信息，需要先导入模型的结构，然后通过model.load_state_dic(“model_state.pth”)来导入。</p>
-<h2 id="优化算法"><a href="#优化算法" class="headerlink" title="优化算法"></a>优化算法</h2><p>优化算法分两类：</p>
-<h3 id="一阶优化算法"><a href="#一阶优化算法" class="headerlink" title="一阶优化算法"></a>一阶优化算法</h3><p>这种算法使用各个参数的梯度值来更新参数，最常用的一阶优化算法是梯度下降。所谓的梯度就是导数的多变量表达式，同时也是一个方向，这个方向上方向导数最大，且等于梯度。梯度下降的功能是通过寻找最小值，控制方差，更新模型参数，最终使模型收敛。</p>
-<h3 id="二阶优化算法"><a href="#二阶优化算法" class="headerlink" title="二阶优化算法"></a>二阶优化算法</h3><p>二阶优化算法使用了二阶导数来最小化或最大化损失函数，主要基于牛顿法。但是由于二阶导数的计算成本很高，所以这种方法并没有广泛使用。torch.optim是一个实现各种优化算法的包，大多数常见的算法都能通过这个包调用。</p>
-<h3 id="torch-optim"><a href="#torch-optim" class="headerlink" title="torch.optim"></a>torch.optim</h3><p>为了使用torch.optim，我们需要构建一个optimizer对象。这个对象能够保持当前参数状态并基于计算得到的梯度进行参数更新。</p>
-<h4 id="构建optimizer"><a href="#构建optimizer" class="headerlink" title="构建optimizer"></a>构建optimizer</h4><p>为了构建一个optimizer，我们需要给它一个包含了需要优化的参数（必须都是Variable对象）的iterable。然后，可以设置optimizer的参数选项，比如学习率，权重衰减，等等。 </p>
-<p>举个例子：</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 单独设置参数</span><br><span class="line"></span><br><span class="line">我们还可以为每个参数单独设置选项。Optimizer也支持为每个参数单独设置选项。若想这么做，不要直接传入Variable的iterable，而是传入dict的iterable。每一个dict都分别定 义了一组参数，并且包含一个param键，这个键对应参数的列表。其他的键应该optimizer所接受的其他参数的关键字相匹配，并且会被用于对这组参数的优化。</span><br><span class="line"></span><br><span class="line">你仍然能够传递选项作为关键字参数。在未重写这些选项的组中，它们会被用作默认值。当你只想改动一个参数组的选项，但其他参数组的选项不变时，这是非常有用的。</span><br><span class="line"></span><br><span class="line">例如，当我们想指定每一层的学习率时，这是非常有用的：</span><br><span class="line"></span><br><span class="line"> ```optim.SGD([&#123;&apos;params&apos;: model.base.parameters()&#125;, &#123;&apos;params&apos;: model.classifier.parameters(), &apos;lr&apos;:1e-3], lr=1e-2, momentum=0.9)</span><br></pre></td></tr></table></figure>
+<h2 id="zero-grad"><a href="#zero-grad" class="headerlink" title="zero_grad"></a>zero_grad</h2><p>zero_grad()：清空所有被优化过的Variable的梯度</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## view</span><br><span class="line"></span><br><span class="line"> 返回一个有相同数据但大小不同的tensor。 返回的tensor必须有与原tensor相同的数据和相同数目的元素，但可以有不同的大小。一个tensor必须是连续的`contiguous()`才能被查看。 </span><br><span class="line"></span><br><span class="line">&gt; \&gt;&gt;&gt;import torch</span><br><span class="line">&gt; \&gt;&gt;&gt;x=torch.randn(4,4)</span><br><span class="line">&gt; \&gt;&gt;&gt;x.size()</span><br><span class="line">&gt; torch.Size([4, 4])</span><br><span class="line">&gt; \&gt;&gt;&gt;y=x.view(16)</span><br><span class="line">&gt; \&gt;&gt;&gt;y.size()</span><br><span class="line">&gt; torch.Size([16])</span><br><span class="line">&gt; \&gt;&gt;&gt;z=x.view(-1,8)</span><br><span class="line">&gt; \&gt;&gt;&gt;z.size()</span><br><span class="line">&gt; torch.Size([2, 8])</span><br><span class="line"></span><br><span class="line">## zero_</span><br><span class="line"></span><br><span class="line">zero_(tensor)：用0填充一个tensor</span><br><span class="line"></span><br><span class="line">&gt; \&gt;&gt;&gt;torch.zero_(x)</span><br><span class="line">&gt; tensor([[0., 0., 0., 0.],</span><br><span class="line">&gt;         [0., 0., 0., 0.],</span><br><span class="line">&gt;         [0., 0., 0., 0.],</span><br><span class="line">&gt;         [0., 0., 0., 0.]])</span><br><span class="line"></span><br><span class="line">## 模型的保存和加载</span><br><span class="line"></span><br><span class="line">在pytorch里面使用torch.save来保存模型的结构和参数，有两种保存方式，当然加载模型有两种方式对应于保存模型的方式：</span><br><span class="line"></span><br><span class="line">（1）保存这个模型的结构信息和参数信息，保存的对象是模型model。加载完整的模型结构和参数信息，在网络较大的时候加载的时间比较长，同时存储空间也比较大。</span><br><span class="line"></span><br><span class="line">torch.save(the_model,path)</span><br><span class="line"></span><br><span class="line">the_model=torch.load(&quot;path&quot;)</span><br><span class="line"></span><br><span class="line">（2）保存模型的参数，保存的对象是模型的状态model.state_dict()。加载模型时加载的是参数信息。</span><br><span class="line"></span><br><span class="line">torch.save(the_model.state_dict(),path)</span><br><span class="line"></span><br><span class="line">the_model=TheModeClass(\*args,\**kwargs)</span><br><span class="line"></span><br><span class="line">the.model.load_state_dict(path)</span><br><span class="line"></span><br><span class="line">## 优化算法</span><br><span class="line"></span><br><span class="line">优化算法分两类：</span><br><span class="line"></span><br><span class="line">### 一阶优化算法</span><br><span class="line"></span><br><span class="line">这种算法使用各个参数的梯度值来更新参数，最常用的一阶优化算法是梯度下降。所谓的梯度就是导数的多变量表达式，同时也是一个方向，这个方向上方向导数最大，且等于梯度。梯度下降的功能是通过寻找最小值，控制方差，更新模型参数，最终使模型收敛。</span><br><span class="line"></span><br><span class="line">### 二阶优化算法</span><br><span class="line"></span><br><span class="line">二阶优化算法使用了二阶导数来最小化或最大化损失函数，主要基于牛顿法。但是由于二阶导数的计算成本很高，所以这种方法并没有广泛使用。torch.optim是一个实现各种优化算法的包，大多数常见的算法都能通过这个包调用。</span><br><span class="line"></span><br><span class="line">### torch.optim</span><br><span class="line"></span><br><span class="line">为了使用torch.optim，我们需要构建一个optimizer对象。这个对象能够保持当前参数状态并基于计算得到的梯度进行参数更新。</span><br><span class="line"></span><br><span class="line">#### 构建optimizer</span><br><span class="line"></span><br><span class="line">为了构建一个optimizer，我们需要给它一个包含了需要优化的参数（必须都是Variable对象）的iterable。然后，可以设置optimizer的参数选项，比如学习率，权重衰减，等等。 </span><br><span class="line"></span><br><span class="line">举个例子：</span><br><span class="line"></span><br><span class="line"> ```optimizer = optim.SGD(model.parameters(), lr = 0.01, momentum=0.9)</span><br></pre></td></tr></table></figure>
+<h4 id="单独设置参数"><a href="#单独设置参数" class="headerlink" title="单独设置参数"></a>单独设置参数</h4><p>我们还可以为每个参数单独设置选项。Optimizer也支持为每个参数单独设置选项。若想这么做，不要直接传入Variable的iterable，而是传入dict的iterable。每一个dict都分别定 义了一组参数，并且包含一个param键，这个键对应参数的列表。其他的键应该optimizer所接受的其他参数的关键字相匹配，并且会被用于对这组参数的优化。</p>
+<p>你仍然能够传递选项作为关键字参数。在未重写这些选项的组中，它们会被用作默认值。当你只想改动一个参数组的选项，但其他参数组的选项不变时，这是非常有用的。</p>
+<p>例如，当我们想指定每一层的学习率时，这是非常有用的：</p>
+<p> <code>optim.SGD([{&#39;params&#39;: model.base.parameters()}, {&#39;params&#39;: model.classifier.parameters(), &#39;lr&#39;:1e-3], lr=1e-2, momentum=0.9)</code></p>
 <h4 id="单次优化"><a href="#单次优化" class="headerlink" title="单次优化"></a>单次优化</h4><p>使用optimizer.step()，这是大多数optimizer支持的版本，一旦梯度被如backward()之类的函数计算好后，我们就可以调用这个函数。</p>
 <p><code>for input, target in dataset:</code> </p>
 <p>​    optimizer.zero_grad()    </p>
@@ -431,8 +422,23 @@
 <p>​    loss = loss_fn(output, target)   </p>
 <p>​     loss.backward()   </p>
 <p>​     optimizer.step()</p>
-<h3 id="zero-grad"><a href="#zero-grad" class="headerlink" title="zero_grad"></a>zero_grad</h3><p>zero_grad()：清空所有被优化过的Variable的梯度</p>
-<p><code>optimizer.zero_grad()</code> </p>
+<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>我看到优化算法时，发现中文文档好像没有调整学习率的函数。补充一下。torch.optim.lr_scheduler提供了几种方法来根据epoches的数量调整学习速率。 两种机制：LambdaLR机制和StepLR机制；</p>
+<h4 id="LambdaLR机制："><a href="#LambdaLR机制：" class="headerlink" title="LambdaLR机制："></a>LambdaLR机制：</h4><p>class torch.optim.lr_scheduler.LambdaLR(optimizer,lr_lambda,last_epoch=-1)</p>
+<p>将每一个参数组的学习率设置为初始学习率lr的某个函数倍.当last_epoch=-1时,设置初始学习率为lr.</p>
+<p>参数:</p>
+<p>​    optimizer(Optimizer对象)—优化器</p>
+<p>​    lr_lambda(是一个函数,或者列表(list))— 当是一个函数时,需要给其一个整数参数,使其计算出一个乘数因子,用于调整学习率,通常该输入参数是epoch数目或者是一组上面的函数组成的列表,</p>
+<p>​    last_epoch(int类型):最后一次epoch的索引,默认为-1.</p>
+<h4 id="StepLR机制"><a href="#StepLR机制" class="headerlink" title="StepLR机制"></a>StepLR机制</h4><p>class torch.optim.lr_scheduler.StepLR(optimizer,step_size,gamma=0.1,last_epoch=-1)</p>
+<p>设置每个参数组的学习率为 lr*&lambda;<sup>n</sup>, n=epoch/step_size。当last_epoch=-1时,令lr=lr</p>
+<p>参数:</p>
+<p>​    optimizer(Optimizer对象)—优化器</p>
+<p>​     step_size(整数类型): 调整学习率的步长,每过step_size次,更新一次学习率</p>
+<p>​    gamma(float 类型):学习率下降的乘数因子</p>
+<p>​    last_epoch(int类型):最后一次epoch的索引,默认为-1.</p>
+<h2 id="其它API"><a href="#其它API" class="headerlink" title="其它API"></a>其它API</h2><p>其它的API不想做搬运工了，上网址。<a href="https://www.pytorchtutorial.com/docs/" target="_blank" rel="noopener">pytorch中文文档</a></p>
+<p>看文档我发现torch.nn包里面和nn.functional都有卷积等一些函数。其实nn.functional中的函数仅仅定义了一些具体的基本操作，不能构成pytorch中的一个Layer。当我们需要自定义一些非标准Layer时，可以在其中调用nn.functional中的操作。例如，relu仅仅是一个函数，参数包括输入和计算需要的参数，返回计算的结果，它不能存储任何上下文的信息。</p>
+<p>torch.nn包里面只是包装好了神经网络架构的类，nn.functional 与torch.nn包相比，nn.functional是可以直接调用函数的。</p>
 
     </div>
 
@@ -493,6 +499,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+              <a href="/2019/10/26/pytorch%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96/" rel="prev" title="可视化">
+                可视化 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
     </footer>
@@ -547,7 +557,7 @@
         
           <a href="/archives/%20%7C%7C%20archive">
         
-          <span class="site-state-item-count">84</span>
+          <span class="site-state-item-count">94</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -606,7 +616,15 @@
         
           
         
-        <span class="site-state-item-count">22</span>
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
@@ -705,7 +723,13 @@
         
           
         
-        <span class="site-state-item-count">42</span>
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">45</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
@@ -744,7 +768,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Tensor"><span class="nav-text">Tensor</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#torch-squeeze"><span class="nav-text">torch.squeeze</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#torch-abs"><span class="nav-text">torch.abs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#torch-add"><span class="nav-text">torch.add</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#torch-mean"><span class="nav-text">torch.mean</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#比较运算符"><span class="nav-text">比较运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#torch-eq"><span class="nav-text">torch.eq</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#torch-ge"><span class="nav-text">torch.ge</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#torch-gt"><span class="nav-text">torch.gt</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#torch-le"><span class="nav-text">torch.le</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#torch-lt"><span class="nav-text">torch.lt</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Variable"><span class="nav-text">Variable</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#parameters"><span class="nav-text">parameters</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#backward"><span class="nav-text">backward</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模型的保存和加载"><span class="nav-text">模型的保存和加载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化算法"><span class="nav-text">优化算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一阶优化算法"><span class="nav-text">一阶优化算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二阶优化算法"><span class="nav-text">二阶优化算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#torch-optim"><span class="nav-text">torch.optim</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#构建optimizer"><span class="nav-text">构建optimizer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#单次优化"><span class="nav-text">单次优化</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zero-grad"><span class="nav-text">zero_grad</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Tensor"><span class="nav-text">Tensor</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#torch-squeeze"><span class="nav-text">torch.squeeze</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#torch-abs"><span class="nav-text">torch.abs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#torch-add"><span class="nav-text">torch.add</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#torch-mean"><span class="nav-text">torch.mean</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#比较运算符"><span class="nav-text">比较运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#torch-eq"><span class="nav-text">torch.eq</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#torch-ge"><span class="nav-text">torch.ge</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#torch-gt"><span class="nav-text">torch.gt</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#torch-le"><span class="nav-text">torch.le</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#torch-lt"><span class="nav-text">torch.lt</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Variable"><span class="nav-text">Variable</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#parameters"><span class="nav-text">parameters</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#backward"><span class="nav-text">backward</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zero-grad"><span class="nav-text">zero_grad</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#单独设置参数"><span class="nav-text">单独设置参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#单次优化"><span class="nav-text">单次优化</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#补充"><span class="nav-text">补充</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#LambdaLR机制："><span class="nav-text">LambdaLR机制：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#StepLR机制"><span class="nav-text">StepLR机制</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其它API"><span class="nav-text">其它API</span></a></li></ol></div>
             
 
           </div>
