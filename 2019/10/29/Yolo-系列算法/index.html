@@ -85,7 +85,7 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191030222209.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191030222240.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191030223023.png">
-<meta property="og:updated_time" content="2019-10-31T12:27:17.000Z">
+<meta property="og:updated_time" content="2019-11-19T05:57:59.823Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191029112732.png">
   <link rel="alternate" href="/atom.xml" title="DY的个人博客" type="application/atom+xml">
@@ -311,7 +311,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-10-31 20:27:17" itemprop="dateModified" datetime="2019-10-31T20:27:17+08:00">2019-10-31</time>
+                <time title="修改时间：2019-11-19 13:57:59" itemprop="dateModified" datetime="2019-11-19T13:57:59+08:00">2019-11-19</time>
               </span>
             
           
@@ -386,7 +386,7 @@
 <h4 id="采用先验框anchor"><a href="#采用先验框anchor" class="headerlink" title="采用先验框anchor"></a>采用先验框anchor</h4><p>在预测框的数量上，由于YOLOv2将网络的输入分辨率调整到416×416，下采样率为32，多次卷积后得到13×13的特征图（feature map）。在这上面使用9种anchor boxes，得到13×13×9=1521个，这比YOLOv1大多了。PS：我也不知道为什么突然就变416了？</p>
 <p>YOLOv1利用全连接层的数据完成边框的预测，会导致丢失较多的空间信息，使定位不准。在YOLOv2中作者借鉴了Faster R-CNN中的anchor思想，来改善全连接层带来的影响。</p>
 <p>Anchor是RPN（region proposal network）网络在Faster R-CNN中的一个关键步骤，是在卷积特征图上进行滑窗操作，每一个中心可以预测9种不同大小的候选框。</p>
-<p>为了引入anchor boxes来预测候选框，作者在网络中去掉了全连接层。并去掉了最后的一个池化层以确保输出的卷积特征图有更高的分辨率。然后，通过缩减网络，让图片输入分辨率为416 <em> 416，目的是为了让后面产生的卷积特征图宽高都为奇数，这样就可以产生一个中心框（center cell）。作者观察到，大物体通常占据了图像的中间位置，可以只用中心的一个框来预测这些物体的位置，否则就要用中间的4个格子来进行预测，这个技巧可稍稍提升效率。最后，YOLOv2使用了卷积层降采样（采样因子为32），使得输入卷积网络的416 </em> 416图片最终得到13 * 13的卷积特征图（416/32=13）</p>
+<p>为了引入anchor boxes来预测候选框，作者在网络中去掉了全连接层。并去掉了最后的一个池化层以确保输出的卷积特征图有更高的分辨率。然后，通过缩减网络，让图片输入分辨率为416 * 416，目的是为了让后面产生的卷积特征图宽高都为奇数，这样就可以产生一个中心框（center cell）。YOLO算法的作者观察到，大物体通常占据了图像的中间位置，可以只用中心的一个框来预测这些物体的位置，否则就要用中间的4个格子来进行预测，这个技巧可稍稍提升效率。最后，YOLOv2使用了卷积层降采样（采样因子为32），使得输入卷积网络的416 * 416图片最终得到13 * 13的卷积特征图（416/32=13）</p>
 <h4 id="聚类提取先验框尺度。"><a href="#聚类提取先验框尺度。" class="headerlink" title="聚类提取先验框尺度。"></a>聚类提取先验框尺度。</h4><p>使用anchor的时候，anchor boxes的宽和高往往是人工选定的。虽然在训练过程中，网络也会调整宽和高。但一开始就选择了更好的宽和高，网络就更容易得到准确的预测位置。为了使网络更易学到准确的预测位置，作者使用了K-means聚类方法类训练bounding boxes，可以自动找到更好的框宽高维度。传统的K-means聚类方法使用的是欧氏距离函数，也就意味着较大的框会比较小的框产生更多的误差，聚类结果可能会偏离。为此，作者采用IOU得分作为评价标准，这样的话，误差就和框的尺度无关。最终的距离函数为：</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191029224241.png" alt=""></p>
 <p>centroid是聚类时被选作中心的边框，box就是其它边框，d就是两者间的“距离”。IOU越大，“距离”越近。YOLO2给出的聚类分析结果如下图所示： </p>
