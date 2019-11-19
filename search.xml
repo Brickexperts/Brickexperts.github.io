@@ -89,30 +89,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[制作自己的数据集]]></title>
-    <url>%2F2019%2F10%2F28%2F%E5%88%B6%E4%BD%9C%E8%87%AA%E5%B7%B1%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9B%86%2F</url>
-    <content type="text"><![CDATA[因为最近在参加大疆的robomaster，希望在20赛季采用Yolov3算法。所以学习了如何自己标注图片制作数据集的方法。 我并没有采用LabelImg工具，而是使用了精灵标注助手。开始]]></content>
-      <categories>
-        <category>深度学习</category>
-      </categories>
-      <tags>
-        <tag>深度学习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[pytorch(2)]]></title>
-    <url>%2F2019%2F10%2F28%2Fpytorch-2%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>深度学习</category>
-        <category>框架</category>
-        <category>pytorch</category>
-      </categories>
-      <tags>
-        <tag>框架</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[可视化]]></title>
     <url>%2F2019%2F10%2F26%2Fpytorch%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96%2F</url>
     <content type="text"><![CDATA[可视化Visdom是一个灵活的可视化工具，可以实时显示新创建的数据。Visdom的目的是促进远程数据的可视化，支持科学实验。可以发送可视化图像和文本。通过UI为实时数据创建dashboards，检查实验的结果。 Panes(窗格)UI刚开始是个白板，我们可以用图像和文本填充它。这些填充的数据出现在Panes，我们可以对这些Panes进行拖放、删除、调整大小和销毁操作。Panes是保存在Environment(环境)中的，Environment(环境)的状态存储在会话之间。可以使用浏览器的放大缩小功能来调整UI的大小。 Environment(环境)可以使用Envs对可视化空间进行分区。每个用户都会有一个叫做main的Envs。可以通过编程或UI创建新的Envs，Envs的状态是长期保存的。可以通过https://localhost.com:8097/env/main访问特定的ENV。如果服务器是被托管的，那么可以将此URL分享给别人，那么其他人也会看到可视化结果， 在初始化服务器的时候，Envs默认通过$HOME/.visdom/加载。也可以将自定义的路径当作命令行参数传入。如果移除了Envs文件家下的.json文件，那么相应的环境也会删除。 State(状态)一旦创建了一些可视化，状态是被保存的。服务器自动缓存我们的可视化，如果重新加载网页，可视化就会重新出现。 Save：可以通过点击save按钮手动保存Envs。它首先会序列化Envs的状态，然后以.json文件的形式保存到硬盘上，包括窗口的位置。 Fork：输入一个新的Envs名字，“保存”会建立一个新的Envs，有效的分割之前的状态。 当前用不到可视化，先学后面的。后面有用到就补]]></content>
