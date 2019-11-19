@@ -73,7 +73,9 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191110222652.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191110223739.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191110144312.png">
-<meta property="og:updated_time" content="2019-11-19T05:25:34.349Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191119145931.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191119150418.png">
+<meta property="og:updated_time" content="2019-11-19T07:05:43.063Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191110101542.png">
   <link rel="alternate" href="/atom.xml" title="DY的个人博客" type="application/atom+xml">
@@ -299,7 +301,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-11-19 13:25:34" itemprop="dateModified" datetime="2019-11-19T13:25:34+08:00">2019-11-19</time>
+                <time title="修改时间：2019-11-19 15:05:43" itemprop="dateModified" datetime="2019-11-19T15:05:43+08:00">2019-11-19</time>
               </span>
             
           
@@ -386,10 +388,13 @@
 <p>选择 视图 -&gt; 显示符号 -&gt; 显示所有符号；</p>
 <p>选择 编辑 -&gt; 文档格式转换 -&gt; 转换为UNIX（LF）格式；</p>
 <p>转换完成后的格式如下：</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191119145931.png" alt=""></p>
 <p>注：</p>
 <p>1.注意检查最后一行是否有LF标志。</p>
 <p>2.为保证不出错，将所有训练过程中使用到的相关文件都修改。</p>
-<p>用了解决方案也还没成功，后续会继续跟进</p>
+<p>我使用了上面的方法，发现我的文件格式本来就是对的。不需要改。那是什么问题呢？后来和一位同学一起瞎改cfg目录下voc.data文件，将train和valid的路径改成如下这样：</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191119150418.png" alt=""></p>
+<p>才开始运行。</p>
 
     </div>
 
