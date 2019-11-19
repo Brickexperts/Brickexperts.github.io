@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[ubuntu下安装qt5]]></title>
     <url>%2F2019%2F11%2F11%2Fubuntu%E4%B8%8B%E5%AE%89%E8%A3%85qt5%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[在官网下载相关文件，官网 我下载的是qt5.11.1版本。点击进入， 下载安装程序时需注意，只能下载qt-opensource-linux-x64-5.11.1.run，因为只有这个是在linux环境下的安装程序。新建一个名为Qt5.11.1的文件夹，将这个文件放进去。 在文件目录下打开终端，输入./run进行安装。接着点击next。可能会有要求填邮箱。点击skip跳过输入邮箱步骤。接下来更改程序安装目录，按照自己的需求修改。之后在select components步骤时，建议Select All。在License Agreement步骤时，选择Qt Installer LGPL Agreement。接着等待。进入安装目录，发现如下内容即为成功安装。 此时安装完后，仍就无法运行。我们需要安装相应的工具，以使得程序正常运行。 sudo apt-get install gcc g++ sudo apt-get install libqt4-dev sudo apt-get install build-essential 以上内容全部安装完毕，进入目录下的Tools/Qtcreator/bin目录下，在终端输入./qtcreator 接下来的使用就要靠各位读者自己摸索和学习了]]></content>
       <categories>
         <category>Linux</category>
         <category>ubuntu</category>
@@ -89,7 +89,7 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[可视化]]></title>
+    <title><![CDATA[pythorch的可视化]]></title>
     <url>%2F2019%2F10%2F26%2Fpytorch%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96%2F</url>
     <content type="text"><![CDATA[可视化Visdom是一个灵活的可视化工具，可以实时显示新创建的数据。Visdom的目的是促进远程数据的可视化，支持科学实验。可以发送可视化图像和文本。通过UI为实时数据创建dashboards，检查实验的结果。 Panes(窗格)UI刚开始是个白板，我们可以用图像和文本填充它。这些填充的数据出现在Panes，我们可以对这些Panes进行拖放、删除、调整大小和销毁操作。Panes是保存在Environment(环境)中的，Environment(环境)的状态存储在会话之间。可以使用浏览器的放大缩小功能来调整UI的大小。 Environment(环境)可以使用Envs对可视化空间进行分区。每个用户都会有一个叫做main的Envs。可以通过编程或UI创建新的Envs，Envs的状态是长期保存的。可以通过https://localhost.com:8097/env/main访问特定的ENV。如果服务器是被托管的，那么可以将此URL分享给别人，那么其他人也会看到可视化结果， 在初始化服务器的时候，Envs默认通过$HOME/.visdom/加载。也可以将自定义的路径当作命令行参数传入。如果移除了Envs文件家下的.json文件，那么相应的环境也会删除。 State(状态)一旦创建了一些可视化，状态是被保存的。服务器自动缓存我们的可视化，如果重新加载网页，可视化就会重新出现。 Save：可以通过点击save按钮手动保存Envs。它首先会序列化Envs的状态，然后以.json文件的形式保存到硬盘上，包括窗口的位置。 Fork：输入一个新的Envs名字，“保存”会建立一个新的Envs，有效的分割之前的状态。 当前用不到可视化，先学后面的。后面有用到就补]]></content>
       <categories>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-11-11T15:33:05.098Z</updated>
+  <updated>2019-11-19T06:49:11.077Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,9 +21,18 @@
     <link href="http://yoursite.com/2019/11/11/ubuntu%E4%B8%8B%E5%AE%89%E8%A3%85qt5/"/>
     <id>http://yoursite.com/2019/11/11/ubuntu下安装qt5/</id>
     <published>2019-11-11T11:45:29.000Z</published>
-    <updated>2019-11-11T15:33:05.098Z</updated>
+    <updated>2019-11-19T06:49:11.077Z</updated>
+    
+    <content type="html"><![CDATA[<p>在官网下载相关文件，<a href="http://download.qt.io/archive/qt/" target="_blank" rel="noopener">官网</a></p><p>我下载的是qt5.11.1版本。点击进入，</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191119142332.png" alt=""></p><p>下载安装程序时需注意，只能下载qt-opensource-linux-x64-5.11.1.run，因为只有这个是在linux环境下的安装程序。新建一个名为Qt5.11.1的文件夹，将这个文件放进去。</p><p>在文件目录下打开终端，输入./run进行安装。接着点击next。可能会有要求填邮箱。点击skip跳过输入邮箱步骤。接下来更改程序安装目录，按照自己的需求修改。之后在select components步骤时，建议Select All。在License Agreement步骤时，选择Qt Installer LGPL Agreement。接着等待。进入安装目录，发现如下内容即为成功安装。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191119144311.png" alt=""></p><p>此时安装完后，仍就无法运行。我们需要安装相应的工具，以使得程序正常运行。</p><blockquote><p>sudo apt-get install gcc g++</p><p>sudo apt-get install libqt4-dev</p><p>sudo apt-get install build-essential</p></blockquote><p>以上内容全部安装完毕，进入目录下的Tools/Qtcreator/bin目录下，在终端输入./qtcreator</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191119144742.png" alt=""></p><p>接下来的使用就要靠各位读者自己摸索和学习了</p>]]></content>
     
     <summary type="html">
+    
+      
+      
+        &lt;p&gt;在官网下载相关文件，&lt;a href=&quot;http://download.qt.io/archive/qt/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;官网&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;我下载的是qt5.11.1版本。点击进入，&lt;/p&gt;
+&lt;p&gt;&lt;img src=
+      
     
     </summary>
     
@@ -215,11 +224,11 @@
   </entry>
   
   <entry>
-    <title>可视化</title>
+    <title>pythorch的可视化</title>
     <link href="http://yoursite.com/2019/10/26/pytorch%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
     <id>http://yoursite.com/2019/10/26/pytorch的可视化/</id>
     <published>2019-10-26T03:29:54.000Z</published>
-    <updated>2019-10-28T11:01:07.696Z</updated>
+    <updated>2019-11-19T06:13:55.673Z</updated>
     
     <content type="html"><![CDATA[<h2 id="可视化"><a href="#可视化" class="headerlink" title="可视化"></a>可视化</h2><p>Visdom是一个灵活的可视化工具，可以实时显示新创建的数据。Visdom的目的是促进远程数据的可视化，支持科学实验。可以发送可视化图像和文本。通过UI为实时数据创建dashboards，检查实验的结果。</p><h3 id="Panes-窗格"><a href="#Panes-窗格" class="headerlink" title="Panes(窗格)"></a>Panes(窗格)</h3><p>UI刚开始是个白板，我们可以用图像和文本填充它。这些填充的数据出现在Panes，我们可以对这些Panes进行拖放、删除、调整大小和销毁操作。Panes是保存在Environment(环境)中的，Environment(环境)的状态存储在会话之间。可以使用浏览器的放大缩小功能来调整UI的大小。</p><h3 id="Environment-环境"><a href="#Environment-环境" class="headerlink" title="Environment(环境)"></a>Environment(环境)</h3><p>可以使用Envs对可视化空间进行分区。每个用户都会有一个叫做main的Envs。可以通过编程或UI创建新的Envs，Envs的状态是长期保存的。可以通过<a href="https://localhost.com:8097/env/main访问特定的ENV。如果服务器是被托管的，那么可以将此URL分享给别人，那么其他人也会看到可视化结果，" target="_blank" rel="noopener">https://localhost.com:8097/env/main访问特定的ENV。如果服务器是被托管的，那么可以将此URL分享给别人，那么其他人也会看到可视化结果，</a></p><p>在初始化服务器的时候，Envs默认通过$HOME/.visdom/加载。也可以将自定义的路径当作命令行参数传入。如果移除了Envs文件家下的.json文件，那么相应的环境也会删除。</p><h3 id="State-状态"><a href="#State-状态" class="headerlink" title="State(状态)"></a>State(状态)</h3><p>一旦创建了一些可视化，状态是被保存的。服务器自动缓存我们的可视化，如果重新加载网页，可视化就会重新出现。</p><p>Save：可以通过点击save按钮手动保存Envs。它首先会序列化Envs的状态，然后以.json文件的形式保存到硬盘上，包括窗口的位置。</p><p>Fork：输入一个新的Envs名字，“保存”会建立一个新的Envs，有效的分割之前的状态。</p><p>当前用不到可视化，先学后面的。后面有用到就补</p>]]></content>
     
