@@ -66,7 +66,7 @@
 <meta property="og:description" content="本篇博客使用的ubuntu版本是18.04和opencv3.2 首先安装CMAKE apt-get install cmake```1234接着安装一些依赖项```sudo apt-get install build-essential pkg-config 安装视频I&#x2F;O包： apt-get install libgtk2.0-dev  libavcodec-dev libavformat-de">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191109203044.png">
-<meta property="og:updated_time" content="2019-11-19T04:24:04.139Z">
+<meta property="og:updated_time" content="2019-11-19T04:47:52.204Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191109203044.png">
   <link rel="alternate" href="/atom.xml" title="DY的个人博客" type="application/atom+xml">
@@ -292,7 +292,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-11-19 12:24:04" itemprop="dateModified" datetime="2019-11-19T12:24:04+08:00">2019-11-19</time>
+                <time title="修改时间：2019-11-19 12:47:52" itemprop="dateModified" datetime="2019-11-19T12:47:52+08:00">2019-11-19</time>
               </span>
             
           
@@ -336,10 +336,12 @@
 <p>安装视频I/O包：</p>
 <figure class="highlight plain"><figcaption><span>apt-get install libgtk2.0-dev  libavcodec-dev libavformat-dev libswscale-dev```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">安装gtk2.0：</span><br><span class="line"></span><br><span class="line">```sudo apt-get install libgtk2.0-dev</span><br></pre></td></tr></table></figure>
 <p>安装常用图像工具包：</p>
-<figure class="highlight plain"><figcaption><span>apt-get install libtbb2 libtbb-dev libjpeg-dev libpng12-dev libtiff5-dev libjasper-dev libdc1394-22-dev```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">如果没有报错，那是最好的。但是我报错了。报错信息如下：</span><br></pre></td></tr></table></figure>
-<p>E: Package ‘libpng12-dev’ has no installation candidate<br>E: Unable to locate package libjasper-dev<br><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">上网找了解决方案，首先先解决第一个错：</span><br><span class="line"></span><br><span class="line">`libpng12-dev`在Ubuntu16.<span class="number">04</span>之后就被丢弃了，所以放弃用这个吧。把 `libpng12-dev` 换成 `libpng-dev` 就行了</span><br><span class="line"></span><br><span class="line">接着是第二个错误：</span><br></pre></td></tr></table></figure><br>sudo add-apt-repository “deb <a href="http://security.ubuntu.com/ubuntu" target="_blank" rel="noopener">http://security.ubuntu.com/ubuntu</a> xenial-security main”<br>sudo apt update<br>sudo apt install libjasper1 libjasper-dev<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">然后从官网下载源码，直接git clone。也可以从windows拷到虚拟机（要装VM tools）。[<span class="string">网址</span>](<span class="link">https://github.com/opencv/opencv/tree/3.2.0</span>)</span><br><span class="line"></span><br><span class="line"><span class="code">```git clone https://github.com/opencv/opencv.git</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><figcaption><span>apt-get install libtbb2 libtbb-dev libjpeg-dev libpng12-dev libtiff5-dev libjasper-dev libdc1394-22-dev```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">如果没有报错，那是最好的。但是我报错了。报错信息如下：</span><br><span class="line"></span><br><span class="line">``E: Package &apos;libpng12-dev&apos; has no installation candidate</span><br><span class="line"> E: Unable to locate package libjasper-dev``</span><br><span class="line"></span><br><span class="line">上网找了解决方案，首先先解决第一个错：</span><br><span class="line"></span><br><span class="line">`libpng12-dev`在Ubuntu16.04之后就被丢弃了，所以放弃用这个吧。把 `libpng12-dev` 换成 `libpng-dev` 就行了</span><br><span class="line"></span><br><span class="line">接着是第二个错误：</span><br><span class="line"></span><br><span class="line">``sudo add-apt-repository &quot;deb http://security.ubuntu.com/ubuntu xenial-security main&quot;</span><br><span class="line">sudo apt update</span><br><span class="line">sudo apt install libjasper1 libjasper-dev``</span><br><span class="line"></span><br><span class="line">然后从官网下载源码，直接git clone。也可以从windows拷到虚拟机（要装VM tools）。[网址](https://github.com/opencv/opencv/tree/3.2.0)</span><br><span class="line"></span><br><span class="line">```git clone https://github.com/opencv/opencv.git</span><br></pre></td></tr></table></figure>
 <p>在解压后的文件夹中新建build文件夹，用来存放编译文件。</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir build</span><br><span class="line">cd build</span><br><span class="line">在电脑上有多个版本的python时，可以通过-D <span class="attribute">PYTHON_DEFAULT_EXECUTABLE</span>=$(which python3)来确定使用哪个版本python</span><br><span class="line">cmake -D <span class="attribute">CMAKE_BUILD_TYPE</span>=Release -D <span class="attribute">CMAKE_INSTALL_PREFIX</span>=/usr/local -D <span class="attribute">PYTHON_DEFAULT_EXECUTABLE</span>=$(which python3) <span class="built_in">..</span></span><br></pre></td></tr></table></figure>
+<p><code>mkdir build
+cd build</code></p>
+<p>在电脑上有多个版本的python时，可以通过-D PYTHON_DEFAULT_EXECUTABLE=$(which python3)来确定安装在哪个版本python上。</p>
+<p><code>cmake -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_PREFIX=/usr/local -D PYTHON_DEFAULT_EXECUTABLE=​\$(which python3) ..</code></p>
 <p>如果执行上面代码没有问题，直接make。接着再执行sudo make install。</p>
 <p>我又报错了。。。。报错信息如下：</p>
 <p> — ICV: Downloading ippicv_linux_20151201.tgz…<br>CMake Error at 3rdparty/ippicv/downloader.cmake:73 (file):<br>file DOWNLOAD HASH mismatch</p>
@@ -354,7 +356,10 @@
 <p>接着执行完cmake后，make编译，sudo make install 安装。</p>
 <p>到这里还没装完我们要编译的文件，还有一些模块保留在opencv_contrib的资源库中。所以这个我们也要编译。</p>
 <p>将opencv_contrib下到build的同级目录下，在build目录下打开终端或者在终端进入build目录，</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd  build</span><br><span class="line">cmake -D <span class="attribute">CMAKE_BUILD_TYPE</span>=Release -D <span class="attribute">CMAKE_INSTALL_PREFIX</span>=/usr/local -D <span class="attribute">PYTHON_DEFAULT_EXECUTABLE</span>=$(which python3) -D <span class="attribute">OPENCV_EXTRA_MODULES_PATH</span>=../opencv_contrib-3.2.0/modules/ <span class="built_in">..</span></span><br><span class="line">make</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
+<p><code>cd  build
+cmake -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_PREFIX=/usr/local -D PYTHON_DEFAULT_EXECUTABLE=$(which python3) -D OPENCV_EXTRA_MODULES_PATH=../opencv_contrib-3.2.0/modules/ ..
+make
+sudo make install</code></p>
 <p>在终端运行python3，import cv2。没有报错，opencv安装就成功了。</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191109203044.png" alt=""></p>
 <p>我装过好几次opencv，这是我最顺的一次。。。。</p>
