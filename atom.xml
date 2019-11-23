@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-11-22T08:15:44.380Z</updated>
+  <updated>2019-11-23T03:34:10.889Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,64 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Tensorflow中的损失函数和梯度下降</title>
+    <link href="http://yoursite.com/2019/11/22/Tensorflow%E4%B8%AD%E7%9A%84%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E5%92%8C%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/"/>
+    <id>http://yoursite.com/2019/11/22/Tensorflow中的损失函数和梯度下降/</id>
+    <published>2019-11-22T12:52:58.000Z</published>
+    <updated>2019-11-23T03:34:10.889Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h2><h3 id="均值平方差"><a href="#均值平方差" class="headerlink" title="均值平方差"></a>均值平方差</h3><p>均值平方差(Mean Squared Error，MSE)，也称”均方误差”，在神经网络中主要是表达预测值与真实值之间的差异，在数理统计中，均方误差是指参数估计值与参数真值之差平方的期望值。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191122210450.png" alt=""></p><p>均方误差的值越小，表明模型越好。类似的损失算法还有均方误差RMSE(将MSE开平方)，平均绝对值误差MAD(对一个真实值与预测值相减的绝对值取平均值)。</p><p><strong>注意</strong>：在神经网络计算时，预测值要与真实值控制在同样的数据分布内，假设将预测值经过Sigmoid激活函数得到取值范围在0~1之间，那么真实值也归一化成0~1之间。</p><h3 id="交叉熵"><a href="#交叉熵" class="headerlink" title="交叉熵"></a>交叉熵</h3><p>交叉熵(crossentropy)也是loss算法的一种，一般用于分类问题，表达的意思为预测输入样本属于某一类的概率。其中y代表真实值分类(0或1)，a代表预测值。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191122211858.png" alt=""></p><p>交叉熵也只值越小，代表预测结果越准。</p><p><strong>注意</strong>：这里用于计算的a也是通过分布同一化处理的（或者是经过Sigmoid函数激活的），取值范围0~1。</p><h3 id="损失算法的选取"><a href="#损失算法的选取" class="headerlink" title="损失算法的选取"></a>损失算法的选取</h3><p>损失函数的选取取决于输入标签数据的类型： 如果输入的是实数、 无界的值， 损失函数使用平方差； 如果输入标签是位矢量（分类标志） ， 使用交叉熵会更适合。  </p><h3 id="Tensorflow的loss函数"><a href="#Tensorflow的loss函数" class="headerlink" title="Tensorflow的loss函数"></a>Tensorflow的loss函数</h3><h4 id="均值平方差-1"><a href="#均值平方差-1" class="headerlink" title="均值平方差"></a>均值平方差</h4><p>在Tensorflow没有单独的MSE函数，不过由于公式比较简单，往往都是自己写函数。也有多种写法：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">MSE=tf.reduce_mean(tf.pow(tf.sub(logits,outputs),<span class="number">2.0</span>))</span><br><span class="line">MSE=tf.reduce_mean(tf.square(tf.sub(logits,outputs)))</span><br><span class="line">MSE=tf.reduce_mean(tf.square(logits-outputs))</span><br></pre></td></tr></table></figure><p>logits代表标签值，outputs代表预测值。同样也可以组合其它类似loss，</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rmse=tf.sqrt(tf.reduce_mean(tf.pow(tf.sub(logits,outputs),<span class="number">2.0</span>)))</span><br><span class="line">mad=tf.reduce_mean(tf.complex_abs(logits,outputs))</span><br></pre></td></tr></table></figure><h4 id="交叉熵-1"><a href="#交叉熵-1" class="headerlink" title="交叉熵"></a>交叉熵</h4><p>在tensorflow中常见的交叉熵函数有：Sigmoid交叉熵、softmax交叉熵、Sparse交叉熵、加权Sigmoid交叉熵</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191122215154.png" alt=""></p><p>当然，我们也可以像MSE那样使用自己组合的公式计算交叉熵。对于softmax后的结果logits我们可以对其使用公式-tf.reduce_sum(labels*tf.log(logis),1)，就等同于softmax_cross_entropy_with_logits得到结果。（注意有个负号）</p><h3 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h3><h4 id="softmax交叉熵"><a href="#softmax交叉熵" class="headerlink" title="softmax交叉熵"></a>softmax交叉熵</h4><p>标签是one-hot编码。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line">labels=[[<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>],[<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>],]</span><br><span class="line">logits=[[<span class="number">2</span>,<span class="number">0.5</span>,<span class="number">6</span>],[<span class="number">0.1</span>,<span class="number">0</span>,<span class="number">3</span>]]</span><br><span class="line"><span class="comment">#进行第一次softmax</span></span><br><span class="line">logits_scaled=tf.nn.softmax(logits)</span><br><span class="line"><span class="comment">#进行第二次softmax</span></span><br><span class="line">logits_scaled2=tf.nn.softmax(logits_scaled)</span><br><span class="line"><span class="comment">#用第一次的softmax进行交叉熵计算</span></span><br><span class="line">result1=tf.nn.softmax_cross_entropy_with_logits(labels=labels,logits=logits)</span><br><span class="line"><span class="comment">#用第二次的softmax进行交叉熵计算</span></span><br><span class="line">result2=tf.nn.softmax_cross_entropy_with_logits(labels=labels,logits=logits_scaled)</span><br><span class="line"><span class="comment">#用自建公式实验</span></span><br><span class="line">result3=-tf.reduce_sum(labels*tf.log(logits_scaled),<span class="number">1</span>)</span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">  sess.run(tf.global_variables_initializer())</span><br><span class="line">  print(<span class="string">"logits_scaled："</span>,sess.run(logits_scaled))</span><br><span class="line">  print(<span class="string">"logits_scaled2"</span>,sess.run(logits_scaled2))</span><br><span class="line">  print(<span class="string">"result1："</span>,sess.run(result1))</span><br><span class="line">  print(<span class="string">"result2："</span>,sess.run(result2))</span><br><span class="line">  print(<span class="string">"result3："</span>,sess.run(result3))</span><br></pre></td></tr></table></figure><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191123095531.png" alt=""></p><p>从结果看，logits里面的值原本加和都是大于1的，但是经过softmax之后，总和变成了1。logits中的第一个是跟标签分类相符的，第二个与标签分类不符，所以第一个的交叉熵比较小，是0.02215518。第二个交叉熵比较大，是3.09967351。</p><p><strong>总结</strong>：</p><blockquote><p>比较scaled和scaled2可以看到： 经过第二次的softmax后， 分布概率会有变化， 而scaled才是我们真实转化的softmax值。 比较rel1和rel2可以看到： 传入softmax_cross_entropy_with_logits的logits是不需要进行softmax的。 如果将softmax后的值scaled传入softmax_cross_entropy_with_ logits就相当于进行了两次的softmax转换。</p></blockquote><p>对于已经用softmax转换过的scaled，在计算loss的时候不能再使用softmax_cross_entropy_with_logits了。应该自己写一个函数，如上面代码的result3。</p><p>下面用一组总和为1但是数组中每个值都不等于0或1的数组来代替标签。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">labels2=[[<span class="number">0.4</span>,<span class="number">0.1</span>,<span class="number">0.5</span>],[<span class="number">0.3</span>,<span class="number">0.6</span>,<span class="number">0.1</span>]]</span><br><span class="line">result4=tf.nn.softmax_cross_entropy_with_logits(labels=labels2,logits=logits)</span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">  print(<span class="string">"result4："</span>,result4)</span><br><span class="line"><span class="comment">#输出结果</span></span><br><span class="line">result4 [<span class="number">2.1721554</span> <span class="number">2.7696736</span>]</span><br></pre></td></tr></table></figure><p>与前面的result1对比发现，标准的one-hot的结果比较明显。</p><h4 id="sparse交叉熵"><a href="#sparse交叉熵" class="headerlink" title="sparse交叉熵"></a>sparse交叉熵</h4><p>使用sparse_softmax_cross_entropy_with_logits函数的用法，他需要使用非one-hot的标签，所以要把前面的标签换成具体的数值[2,1]。PS：这个labels能不能换成[1,2]</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">labels3=[<span class="number">2</span>,<span class="number">1</span>]<span class="comment">#表明labels共有3个类，0、1、2。[2,1]等价于one-hot编码的001与010</span></span><br><span class="line">result5=tf.nn.sparse_softmax_cross_entropy_with_logits(labels=labels3,logits=logits)</span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">  print(<span class="string">"result5："</span>,result5)</span><br><span class="line"><span class="comment">#输出结果</span></span><br><span class="line">result5 [<span class="number">0.02215516</span> <span class="number">3.0996735</span> ]</span><br></pre></td></tr></table></figure><p>result5与result1完全一样。</p><h3 id="计算loss值"><a href="#计算loss值" class="headerlink" title="计算loss值"></a>计算loss值</h3><p>对于softmax_cross_entropy_with_logits后的结果求loss直接取均值。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">loss=tf.reduce_mean(result1)</span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">  print(<span class="string">"loss"</span>,sess.run(loss))</span><br><span class="line"><span class="comment">#输出结果</span></span><br><span class="line"><span class="comment">#loss 1.5609143</span></span><br></pre></td></tr></table></figure><p>对于softmax后的结果，先使用-tf.reduce_sum(labels*tf.log(logits_scaled))，接着求均值。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">loss2=tf.reduce_mean(-tf.reduce_sum(labels*tf.log(logits_scaled),<span class="number">1</span>))</span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">  print(<span class="string">"loss2:"</span>,loss2)</span><br><span class="line"><span class="comment">#输出结果</span></span><br><span class="line"><span class="comment">#loss 1.5609144</span></span><br></pre></td></tr></table></figure><h2 id="梯度下降"><a href="#梯度下降" class="headerlink" title="梯度下降"></a>梯度下降</h2><p>梯度下降法是一个最优化算法， 通常也称为最速下降法， 常用于机器学习和人工智能中递归性地逼近最小偏差模型， 梯度下降的方向也就是用负梯度方向为搜索方向， 沿着梯度下降的方向求解极小值。  </p><p>在训练过程中，每次的正向传播后都会得到输出值与真实值的损失值。这个损失值越小越好，代表模型越好。于是梯度下降的算法就用在这里，帮助寻找最小的那个损失值，从而可以反推出对应的学习参数b和w，达到优化模型的效果。</p><p>常用的梯度下降方法可以分为：批量梯度下降、随机梯度下降、小批量梯度下降。</p><p>批量梯度下降：  遍历全部数据集算一次损失函数， 然后算函数对各个参数的梯度和更新梯度。 这种方法每更新一次参数， 都要把数据集里的所有样本看一遍， 计算量大， 计算速度慢， 不支持在线学习，称为batch gradient descent。</p><p>随机梯度下降：每看一个数据就算一下损失函数，然后求梯度更新参数。  这称为stochastic gradient descent， 随机梯度下降。 这个方法速度比较快， 但是收敛性能不太好， 可能在最优点附近晃来晃去， 命中不到最优点。 两次参数的更新也有可能互相抵消， 造成目标函数震荡比较剧烈  </p><p>小批量梯度下降：为了克服上面两种方法的缺点， 一般采用一种折中手段——小批的梯度下降。 这种方法把数据分为若干个批， 按批来更新参数， 这样一批中的一组数据共同决定了本次梯度的方向， 下降起来就不容易跑偏， 减少了随机性。 另一方面因为批量的样本数与整个数据集相比小了很多， 计算量也不是很大。  </p><h3 id="tensorflow中的梯度下降函数"><a href="#tensorflow中的梯度下降函数" class="headerlink" title="tensorflow中的梯度下降函数"></a>tensorflow中的梯度下降函数</h3><p>在tensorflow中是通过一个叫做Optimizer的优化器进行训练优化的。对于不同的优化器，在tensorflow会有不同的类：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191123112610.png" alt=""></p><p>在训练过程中，先实例化一个优化函数，并基于一定的学习率进行梯度优化训练：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">optimizer=tf.train.GradientDescentOptimizer(learning_rate)</span><br></pre></td></tr></table></figure><p>接着使用minimize()操作，接着传入损失值loss到这个操作。优化器就会按照循环的次数一次次沿着loss最小值的方向优化参数。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;损失函数&quot;&gt;&lt;a href=&quot;#损失函数&quot; class=&quot;headerlink&quot; title=&quot;损失函数&quot;&gt;&lt;/a&gt;损失函数&lt;/h2&gt;&lt;h3 id=&quot;均值平方差&quot;&gt;&lt;a href=&quot;#均值平方差&quot; class=&quot;headerlink&quot; title=&quot;均值平方差&quot;&gt;
+      
+    
+    </summary>
+    
+      <category term="深度学习" scheme="http://yoursite.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="框架" scheme="http://yoursite.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%A1%86%E6%9E%B6/"/>
+    
+      <category term="tensorflow" scheme="http://yoursite.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%A1%86%E6%9E%B6/tensorflow/"/>
+    
+    
+      <category term="框架" scheme="http://yoursite.com/tags/%E6%A1%86%E6%9E%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Tensorflow中的激活函数和分类函数</title>
+    <link href="http://yoursite.com/2019/11/22/Tensorflow%E4%B8%AD%E7%9A%84%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E5%92%8C%E5%88%86%E7%B1%BB%E5%87%BD%E6%95%B0/"/>
+    <id>http://yoursite.com/2019/11/22/Tensorflow中的激活函数和分类函数/</id>
+    <published>2019-11-22T08:36:54.000Z</published>
+    <updated>2019-11-22T12:49:46.543Z</updated>
+    
+    <content type="html"><![CDATA[<p>关于激活函数，我已经在一篇博客上讲解了它的常见种类和作用，详情点击<a href="[https://brickexperts.github.io/2019/09/03/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/](https://brickexperts.github.io/2019/09/03/激活函数/">激活函数</a>)。这篇博客一起来看下在tensorflow下的激活函数，并补充一些激活函数。顺提一下分类函数。</p><h2 id="激活函数"><a href="#激活函数" class="headerlink" title="激活函数"></a>激活函数</h2><p>激活函数的作用就是用来加入非线性因素的，以解决线性模型表达能力不足的缺陷。常用的激活函数有sigmoid，tanh，relu。</p><h3 id="Sigmoid"><a href="#Sigmoid" class="headerlink" title="Sigmoid"></a>Sigmoid</h3><p>sigmoid在tensorflow下的对应函数为：</p><p>tf.nn.sigmoid(x,name=None)。从sigmoid的图像来看，随着x趋近正负无穷大，y对应的值越来越接近1或-1，这种情况叫做饱和。处于饱和态的激活函数意味着，当x=100和x=1000时的反映都是一样的，这样的特性转换相当于将1000大于100十倍这个信息丢失了。</p><h3 id="Tanh"><a href="#Tanh" class="headerlink" title="Tanh"></a>Tanh</h3><p>tanh在tensorflow下的对应函数为：</p><p>tf.nn.tanh(x,name=None)。  x取值也是从正无穷到负无穷， 但其对应的y值变为-1～1之间， 相对于Sigmoid函数有更广的值域。  但同样也拥有饱和问题。</p><h3 id="Relu"><a href="#Relu" class="headerlink" title="Relu"></a>Relu</h3><p>relu在tensorflow下的对应函数为：</p><p>tf.nn.relu(x,name=None)。该函数非常简单，大于0的留下，否则一律为0。relu函数运算简单，大大提升了机器的运行效率。还有tf.nn.relu6(x,name=None)，这是以6为阈值的relu函数。与relu函数类似的还有softplus函数，二者的区别是：Softplus函数会更加平滑，但是计算量很大。</p><blockquote><p>softplus的函数公式：f(x)=ln(1+e<sup>x</sup>)。在tensorflow中，Softplus函数对应的函数是tf.nn.softplus(x,name=None)</p></blockquote><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191122191433.png" alt=""></p><p>虽然ReLU函数在信号响应上有很多优势， 但这仅仅在正向传播方面。 由于其对负值的全部舍去， 因此很容易使模型输出全零从而无法再进行训练。 例如， 随机初始化的w加入值中有个值是负值， 其对应的正值输入值特征也就被全部屏蔽了， 同理， 对应负值输入值反而被激活了。 这显然不是我们想要的结果。 于是在基于ReLU的基础上又演化出了一些变种函数， 举例如下：  </p><blockquote><p>Noise relus：为max中的x加了一个高斯分布的噪声</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191122192702.png" alt=""></p><p>Leaky relus：在relu的基础上，保留一部分负值，让x为负时乘a，a小于等于1。也就是Leaky relus对负信号不是一昧的拒绝，而是缩小。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191122192303.png" alt=""></p><p>在TensorFlow中， Leaky relus公式没有专门的函数， 不过可以利用现有函数组成而得到：</p><p>tf.maximum(x,leak*x,name=name) #leakl为传入的参数，可以设为0.01等。</p><p>Elus：当x小于0时，做了更复杂的变换。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191122192444.png" alt=""></p><p>在tensorflow中，Elus函数对应的函数，tf.nn.elu(x,name=None)</p></blockquote><h3 id="Swish"><a href="#Swish" class="headerlink" title="Swish"></a>Swish</h3><p>Swish函数是谷歌公司发现的一个效果更优于Relu的激活函数。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191122194816.png" alt=""></p><p>其中&beta;为x的缩放参数，一般情况默认为1即可。在tensorflow的低版本中，没有单独的Swish函数，可以手动封装。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Swish</span><span class="params">(x,beta=<span class="number">1</span>)</span>:</span></span><br><span class="line">  <span class="keyword">return</span> x*tf.nn.sigmoid(x*beta)</span><br></pre></td></tr></table></figure><h2 id="分类算法"><a href="#分类算法" class="headerlink" title="分类算法"></a>分类算法</h2><p>对于上面讲的激活函数，其输出值只有两种（0、1，或-1、1，0、x），而现实生活中需要对某一问题进行某种分类，这时就需要使用softmax算法。</p><h3 id="softmax"><a href="#softmax" class="headerlink" title="softmax"></a>softmax</h3><p>softmax， 就是如果判断输入属于某一个类的概率大于属于其他类的概率， 那么这个类对应的值就逼近于1， 其他类的值就逼近于0。 该算法的主要应用就是多分类， 而且是互斥的， 即只能属于其中的一个类。 与sigmoid类的激活函数不同的是， 一般的激活函数只能分两类，所以可以理解成Softmax是Sigmoid类的激活函数的扩展。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191122201749.png" alt=""></p><p> 把所有值用e的n次方计算出来， 求和后算每个值占的比率， 保证总和为1。一般就可以认为softmax得出的就是概率。</p><p>举个例子， 训练的模型可能推测一张包含9的图片代表数字9的概率是80%， 但是判断它是8的概率是5%（因为8和9都有上半部分相似的小圆） ，判断它代表其他数字的概率值更小。 于是取最大    概率的对应数值， 就是这个图片的分类了。 这是一个softmax回归。  </p><h3 id="常用的分类函数"><a href="#常用的分类函数" class="headerlink" title="常用的分类函数"></a>常用的分类函数</h3><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191122203519.png" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;关于激活函数，我已经在一篇博客上讲解了它的常见种类和作用，详情点击&lt;a href=&quot;[https://brickexperts.github.io/2019/09/03/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/](https://brick
+      
+    
+    </summary>
+    
+      <category term="深度学习" scheme="http://yoursite.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="框架" scheme="http://yoursite.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%A1%86%E6%9E%B6/"/>
+    
+      <category term="tensorflow" scheme="http://yoursite.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%A1%86%E6%9E%B6/tensorflow/"/>
+    
+    
+      <category term="框架" scheme="http://yoursite.com/tags/%E6%A1%86%E6%9E%B6/"/>
+    
+  </entry>
   
   <entry>
     <title>识别图中模糊的手写数字</title>
@@ -520,59 +578,6 @@
     
     
       <category term="卷积神经网络" scheme="http://yoursite.com/tags/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>深层神经网络</title>
-    <link href="http://yoursite.com/2019/09/29/%E6%B7%B1%E5%B1%82%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
-    <id>http://yoursite.com/2019/09/29/深层神经网络/</id>
-    <published>2019-09-29T13:11:55.000Z</published>
-    <updated>2019-10-21T03:41:27.565Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="深层神经网络"><a href="#深层神经网络" class="headerlink" title="深层神经网络"></a>深层神经网络</h2><p>深层神经网络样子也许是下面这样的，也有可能是更多层的。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20190930110158.png" alt=""></p><p>上图是一个四层的神经网络(输入层一般记为零层或不记住)，我们用L表示神经网络的层数，n^[l] 表示第 l 层的神经元数量</p><p>由于神经网络具有许多层，在下图中用方框代表一层，每个层都要完成各自的任务，流程图大致如下所示：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/forward.png" alt=""></p><p>蓝框中的部分完成正向传播：</p><blockquote><p>该过程的输入是 X 也就是 A<sup>[0]</sup>，一层一层向后计算，最后得到A<sup>[L]</sup>。</p><p>并且，在各层 l 计算出 A^[l] 的同时，<strong>缓存</strong>各层的输出值 A^[l] 到变量 cache 中，因为反向传播将会用上。<strong>图中这里写错了，应该是A<sup>[1]</sup>、A<sup>[2]</sup>、A<sup>[3]</sup>的。</strong></p></blockquote><p>绿框中的部分完成反向传播：</p><blockquote><p>该过程的输入是dA<sup>[L]</sup>，并根据dA<sup>[L]</sup>一步步向前计算，得到各层对应的dZ<sup>[l]</sup>，dW<sup>[l]</sup>，db<sup>[l]</sup></p><p>此外，还要计算出 dA<sup>[l - 1]</sup> 作为前一层的输入</p></blockquote><p>具体过程请看<a href="[https://brickexperts.github.io/2019/09/23/%E6%B5%85%E5%B1%82%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E6%AD%A3%E5%90%91%E4%BC%A0%E6%92%AD/#more](https://brickexperts.github.io/2019/09/23/浅层神经网络的正向传播/#more">浅层神经网络的正向传播</a>) 和 <a href="[https://brickexperts.github.io/2019/09/23/%E6%B5%85%E5%B1%82%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD/#more](https://brickexperts.github.io/2019/09/23/浅层神经网络的反向传播/#more">浅层神经网络的反向传播</a>)</p><h2 id="核对矩阵的维数"><a href="#核对矩阵的维数" class="headerlink" title="核对矩阵的维数"></a>核对矩阵的维数</h2><p>为了在写代码的过程中减少出现bug，尤其是在进行反向传播的时候，我们要注意核对矩阵的维数，这个知识点我们前面将 <a href="[https://brickexperts.github.io/2019/09/23/%E6%B5%85%E5%B1%82%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD/#more](https://brickexperts.github.io/2019/09/23/浅层神经网络的反向传播/#more">浅层神经网络的反向传播</a>)的文章中也提到了，大致规律如下：</p><blockquote><p>W^[l] ： (n<sup>[ l ]</sup>, n<sup>[l - 1]</sup>)</p><p>Z^[l] ： (n<sup>[ l ]</sup>, m),</p><p>A^[l] ： (n<sup>[ l ]</sup>, m)</p></blockquote><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/forward4.png" alt=""></p><p>另外，还有一个规律：</p><blockquote><p>对任意层而言：</p><p>dW 的维度和 W 的维度相同</p><p>dZ 的维度和 Z 的维度相同</p><p>dA 的维度和 A 的维度相同</p></blockquote><h2 id="为什么要使用深度神经网络？"><a href="#为什么要使用深度神经网络？" class="headerlink" title="为什么要使用深度神经网络？"></a>为什么要使用深度神经网络？</h2><p>我们都知道深度神经网络可以解决很多问题，网络并不一定要很大，但一定要有深度，需要比较多的隐藏层。这到底为什么呢？</p><p>如果我们在建立一个人脸识别或者检测系统，当我们输入一张脸部的图片时，我们可以把深度神经网络第一层当成一个特征探测器或者边缘检测器。在这个例子中，我们建立一个大概有20个隐藏单元的深度神经网络。看下图：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20190930164522.png" alt=""></p><p>隐藏单元就是这个图里这些小方块。每个小方块都是一个隐藏单元，它会去寻找一张图的边缘方向。它可能在水平方向找、也可能在竖直方向找。这个东西在卷积神经网络我们会细讲(别问，问就是当时不会)。这里就告诉你们我们可以先把神经网络的第一层当作看图，然后去找这张图片的各个边缘。接着我们把组成图片边缘的像素放在一起看。它可以把探测到的边缘组合成面部的不同部分。比如说，可能有一个神经元回去找眼睛的部分，另外还有找鼻子或其它的部分。然后把这许多边缘结合在一起，就可以开始检测人脸的不同部分，最后再把这些部分放在一起，就可以识别或检测不同的人脸。我们把前几层的神经网络当作简单的检测函数，例如：边缘检测等，之后把它们跟后几层结合在一起。注意：边缘探测器其实相对来说都是针对图片中非常小块的面积。</p><p>具体原因移步网易云课堂的吴恩达的深度学习。<a href="https://mooc.study.163.com/learn/2001281002?tid=2001392029&amp;_trace_c_p_k2_=613c87c1215241179940b8e203431a3d#/learn/content?type=detail&amp;id=2001701022&amp;cid=2001694285" target="_blank" rel="noopener">链接</a></p><h2 id="超参数"><a href="#超参数" class="headerlink" title="超参数"></a>超参数</h2><p>在学习算法中还有其它参数，需要输入到学习算法中，比如学习率&alpha;、隐藏层的数量、使用的激活函数种类等都是超参数。因为它们影响着最终W和b的值。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;深层神经网络&quot;&gt;&lt;a href=&quot;#深层神经网络&quot; class=&quot;headerlink&quot; title=&quot;深层神经网络&quot;&gt;&lt;/a&gt;深层神经网络&lt;/h2&gt;&lt;p&gt;深层神经网络样子也许是下面这样的，也有可能是更多层的。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://r
-      
-    
-    </summary>
-    
-      <category term="深度学习" scheme="http://yoursite.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>上传项目到GitHub</title>
-    <link href="http://yoursite.com/2019/09/28/%E4%B8%8A%E4%BC%A0%E9%A1%B9%E7%9B%AE%E5%88%B0GitHub/"/>
-    <id>http://yoursite.com/2019/09/28/上传项目到GitHub/</id>
-    <published>2019-09-28T10:05:42.000Z</published>
-    <updated>2019-10-21T08:14:30.290Z</updated>
-    
-    <content type="html"><![CDATA[<p>首先登录GitHub，没有账号的申请一个。很简单，跳过。</p><p>新建一个仓库：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20190928193118.png" alt=""></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20190928193719.png" alt=""></p><p>记住这个网址，之后用到</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20190928194701.png" alt=""></p><p>进入项目的目录，点击空白处，选择git Bash。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20190928192144.png" alt=""></p><p>输入git init，会发现当前目录下多了一个.git文件夹</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20190928191933.png" alt=""></p><p>接着输入git add .   这个是将项目上所有的文件添加到仓库中的意思，如果想添加某个特定的文件，只需把.换成这个特定的文件名即可。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20190928192510.png" alt=""></p><p>输入git commit -m “first commit”，表示你对这次提交的注释，双引号里面的内容可以根据个人的需要</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20190928192735.png" alt=""></p><p>输入git remote add origin 自己的仓库url地址（上面有说到） 将本地的仓库关联到github上，</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20190928194818.png" alt=""></p><p>输入git push -u origin master，这是把代码上传到github仓库的意思</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20190928195326.png" alt=""></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;首先登录GitHub，没有账号的申请一个。很简单，跳过。&lt;/p&gt;
-&lt;p&gt;新建一个仓库：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20190928193
-      
-    
-    </summary>
-    
-      <category term="git和github" scheme="http://yoursite.com/categories/git%E5%92%8Cgithub/"/>
-    
-    
-      <category term="Github" scheme="http://yoursite.com/tags/Github/"/>
     
   </entry>
   
