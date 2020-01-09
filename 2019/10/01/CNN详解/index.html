@@ -98,7 +98,7 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191002093447.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191001173024.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191002101140.png">
-<meta property="og:updated_time" content="2019-10-07T12:03:04.374Z">
+<meta property="og:updated_time" content="2019-11-29T12:14:41.994Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191001172911.png">
   <link rel="alternate" href="/atom.xml" title="DY的个人博客" type="application/atom+xml">
@@ -324,7 +324,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-10-07 20:03:04" itemprop="dateModified" datetime="2019-10-07T20:03:04+08:00">2019-10-07</time>
+                <time title="修改时间：2019-11-29 20:14:41" itemprop="dateModified" datetime="2019-11-29T20:14:41+08:00">2019-11-29</time>
               </span>
             
           
@@ -479,7 +479,7 @@
 <p>因为共享了权值，提取一个特征只需要 f×f 个参数，上图右边两张图的每个像素只与使用 3x3 的过滤器相关，顶多再加上一个偏置项。在本例子中，得到一个feature map 只用到了 3*3+1=10 个参数。如果想得到100个特征，也不过是用去1000个参数。这就解释了为什么利用卷积神经网络可以减少参数个数了。</p>
 <p>当你对提取到的 水平垂直或者其他角度 的特征，再进行卷积操作，就可以得到更复杂的特征，比如一个曲线。如果对得到的曲线再进行卷积操作，又能得到更高维度的特征，比如一个车轮，如此往复，最终可以提取到整个图像全局的特征。</p>
 <p>到这里卷积层的内容就结束了。</p>
-<h3 id="池化层"><a href="#池化层" class="headerlink" title="池化层"></a>池化层</h3><p>对于一个32x32像素的图像，假设我们使用400个3x3的过滤器提取特征，每一个过滤器和图像卷积都会得到含有 (32-3 + 1) × (32 - 3 + 1) = 900 个特征的feature map，由于有 400 个过滤器，所以每个样例 (example) 都会得到 900 × 400 = 360000 个特征。而如果是96x96的图像，使用400个8x8的过滤器提取特征，最终得到一个样本的特征个数为 3168400。对于如此大的输入，训练难度大，也容易发生过拟合。</p>
+<h3 id="池化层"><a href="#池化层" class="headerlink" title="池化层"></a>池化层</h3><p>对于一个32x32像素的图像，假设我们使用400个3x3的过滤器提取特征，每一个过滤器和图像卷积都会得到含有 (32-3 + 1) × (32 - 3 + 1) = 900 个特征的feature map，由于有 400 个过滤器，所以每个样例 (example) 都会得到 900 × 400 = 360000 个特征。而如果是96x96的图像，使用400个8x8的过滤器提取特征，最终得到一个样本的特征个数为 3168400。对于如此大的输入，训练难度大，也容易发生过拟合。池化的主要目的是降维，即在保持原有特征的基础上最大限度地将数组的维数变小。</p>
 <p>为了减少下一个卷积层的输入，引入了采样层(也叫池化层)，采样操作分为最大值采样(Max pooling)，平均值采样(Mean pooling)。</p>
 <p><strong>最大值采样</strong></p>
 <p>举个例子，我们用3x3的过滤器以1为步长去扫描图像，每次将重叠的部分的最大值提取出来，作为这部分的特征，过程如下：</p>
@@ -487,10 +487,11 @@
 <p>我们也可以使用2x2的过滤器。以2为步长进行特征值的提取。最终得到的图像长度和宽度都缩小一半：</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191002093418.png" alt=""></p>
 <p><strong>平均值采样</strong></p>
-<p>与最大值采样不同的是 将覆盖部分特征的平均值作为特征，其他过程都一样。经过采样处理，可以提取更为抽象的特征，减少数据处理量的同时保留有效信息。</p>
+<p>与最大值采样不同的是 将覆盖部分特征的平均值作为特征，其他过程都一样。经过采样处理，可以提取更为抽象的特征，减少数据处理量的同时保留有效信息。做法是对里面的所有不为0的像素点取均值</p>
 <p>下图是过滤器为2x2，步长为2进行特征值的提取：</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191002093447.png" alt=""></p>
-<p><strong>注意</strong>：池化层没有需要学习的参数。且padding大多数时候为0</p>
+<p><strong>注意</strong>：一定是不为零的像素点，这个很重要。如果把带0的像素点加上，则会增加分母。从而使整体数据变低。</p>
+<p><strong>注意：池化层没有需要学习的参数。且padding大多数时候为0</strong></p>
 <h3 id="全连接层"><a href="#全连接层" class="headerlink" title="全连接层"></a>全连接层</h3><p>在经过几次卷积和池化的操作之后，卷积神经网络的最后一步是全连接层，全连接层的个数可能不止一个：</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191001173024.png" alt=""></p>
 <p><strong>最后一个采样层到全连接层的过渡是通过卷积来实现的</strong>，比如前层输出为 3x3x5 的feature map，那我们就用 3x3x5 的过滤器对前层的这些feature map进行卷积，于是得到了一个神经元的值：</p>
@@ -621,7 +622,7 @@
         
           <a href="/archives/%20%7C%7C%20archive">
         
-          <span class="site-state-item-count">100</span>
+          <span class="site-state-item-count">101</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -854,7 +855,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; 2019 – <span itemprop="copyrightYear">2020</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
