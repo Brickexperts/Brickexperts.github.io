@@ -65,7 +65,7 @@
 <meta property="og:site_name" content="DY的个人博客">
 <meta property="og:description" content="卷积函数tf.nn.conv2d(input,filter,strides,padding,use_cudnn_on_gpu=None,name=None) 除去用以指定该操作名字的name参数，与方法有关的共有5个参数。如下: input： 指需要做卷积的输入图像， 它要求是一个Tensor， 具有[batch， in_height， in_width，in_channels]这样的形状（sha">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-29T12:28:13.528Z">
+<meta property="og:updated_time" content="2020-01-10T07:25:13.122Z">
 <meta name="twitter:card" content="summary">
   <link rel="alternate" href="/atom.xml" title="DY的个人博客" type="application/atom+xml">
   <link rel="canonical" href="http://yoursite.com/2019/11/29/CNN%E7%9A%84%E7%9B%B8%E5%85%B3%E5%87%BD%E6%95%B0/">
@@ -277,11 +277,21 @@
                 
               
 
-              <time title="创建时间：2019-11-29 20:22:09 / 修改时间：20:28:13" itemprop="dateCreated datePublished" datetime="2019-11-29T20:22:09+08:00">2019-11-29</time>
+              <time title="创建时间：2019-11-29 20:22:09" itemprop="dateCreated datePublished" datetime="2019-11-29T20:22:09+08:00">2019-11-29</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-01-10 15:25:13" itemprop="dateModified" datetime="2020-01-10T15:25:13+08:00">2020-01-10</time>
+              </span>
             
           
             <span class="post-meta-item">
@@ -327,7 +337,18 @@
       
         <h2 id="卷积函数"><a href="#卷积函数" class="headerlink" title="卷积函数"></a>卷积函数</h2><p>tf.nn.conv2d(input,filter,strides,padding,use_cudnn_on_gpu=None,name=None)</p>
 <p>除去用以指定该操作名字的name参数，与方法有关的共有5个参数。如下:</p>
-<p>input： 指需要做卷积的输入图像， 它要求是一个Tensor， 具有[batch， in_height， in_width，in_channels]这样的形状（shape） ， 具体含义是“训练时一个batch的图片数量， 图片高度， 图片宽度， 图像通道数” ， 注意这是一个四维的<br>Tensor， 要求类型为float32和float64其中之一。<br>filter： 相当于CNN中的卷积核， 它要求是一个Tensor， 具有[filter_height， filter_width，in_channels， out_channels]这样的shape， 具体含义是“卷积核的高度， 滤波器的宽度， 图像通道数， 滤波器个数” ， 要求类型与参数input相同。有一个地方需要注意， 第三维in_channels， 就是参数input的第四维。<br>strides： 卷积时在图像每一维的步长， 这是一个一维的向量， 长度为4。<br>padding： 定义元素边框与元素内容之间的空间。 string类型的量， 只能是SAME和VALID其中之一， 这个值决定了不同的卷积方式， padding的值为’VALID’时， 表示边缘不填充， 当其为’SAME’时， 表示填充到滤波器可以到达图像边缘。<br>use_cudnn_on_gpu： bool类型， 是否使用cudnn加速， 默认为true。  </p>
+<p>input： 指需要做卷积的输入图像， 它要求是一个Tensor， 具有[batch， in_height， in_width，in_channels]这样的形状（shape） ， 具体含义是“训练时一个batch的图片数量， 图片高度， 图片宽度， 图像通道数” ， 注意这是一个四维的<br>Tensor， 要求类型为float32和float64其中之一。</p>
+<p>filter： 相当于CNN中的卷积核， 它要求是一个Tensor， 具有[filter_height， filter_width，in_channels， out_channels]这样的shape， 具体含义是“卷积核的高度， 滤波器的宽度， 图像通道数， 滤波器个数” ， 要求类型与参数input相同。有一个地方需要注意， 第三维in_channels， 就是参数input的第四维。</p>
+<p>strides： 卷积时在图像每一维的步长， 这是一个一维的向量， 长度为4。</p>
+<p>padding： 定义元素边框与元素内容之间的空间。 string类型的量， 只能是SAME和VALID其中之一， 这个值决定了不同的卷积方式， padding的值为’VALID’时， 表示边缘不填充， 当其为’SAME’时， 表示填充到滤波器可以到达图像边缘。</p>
+<p>use_cudnn_on_gpu： bool类型， 是否使用cudnn加速， 默认为true。  </p>
+<h2 id="池化函数"><a href="#池化函数" class="headerlink" title="池化函数"></a>池化函数</h2><p>tf.nn.max_pool(input,ksize,strides,padding,name=None)</p>
+<p>tf.nn.avg_pool(input,ksize,strides,padding,name=None)</p>
+<p>上面这两个函数中的四个参数和卷积参数类似，如下：</p>
+<p>input：需要池化的输入，一般池化层接在卷积层后面，所以输入通常是feature map，依然是[batch,height,width,channels]这样的shape。</p>
+<p>ksize：池化窗口的大小，取一个四维向量，一般是[1,height,width,1]，我们不想在batch和channels上做池化，所以这两个维度设为1</p>
+<p>strides：步长，一般也是[1,strides,strides,1]</p>
+<p>padding：和卷积一样，VALID是不进行padding操作，SAME是padding操作</p>
 
     </div>
 
@@ -388,6 +409,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+              <a href="/2020/01/10/Tensorflow%E4%B8%AD%E7%9A%84%E9%98%9F%E5%88%97/" rel="prev" title="Tensorflow中的队列">
+                Tensorflow中的队列 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
     </footer>
@@ -442,7 +467,7 @@
         
           <a href="/archives/%20%7C%7C%20archive">
         
-          <span class="site-state-item-count">101</span>
+          <span class="site-state-item-count">103</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -511,7 +536,9 @@
         
           
         
-        <span class="site-state-item-count">27</span>
+          
+        
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
@@ -657,7 +684,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#卷积函数"><span class="nav-text">卷积函数</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#卷积函数"><span class="nav-text">卷积函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#池化函数"><span class="nav-text">池化函数</span></a></li></ol></div>
             
 
           </div>

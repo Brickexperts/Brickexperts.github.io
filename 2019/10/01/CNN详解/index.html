@@ -98,7 +98,7 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191002093447.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191001173024.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191002101140.png">
-<meta property="og:updated_time" content="2019-11-29T12:14:41.994Z">
+<meta property="og:updated_time" content="2020-01-11T11:33:00.422Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191001172911.png">
   <link rel="alternate" href="/atom.xml" title="DY的个人博客" type="application/atom+xml">
@@ -324,7 +324,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-11-29 20:14:41" itemprop="dateModified" datetime="2019-11-29T20:14:41+08:00">2019-11-29</time>
+                <time title="修改时间：2020-01-11 19:33:00" itemprop="dateModified" datetime="2020-01-11T19:33:00+08:00">2020-01-11</time>
               </span>
             
           
@@ -372,7 +372,7 @@
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191001173024.png" alt=""></p>
 <p>接下来我们讲解以下这几个层究竟在做的是什么。</p>
 <h3 id="卷积层"><a href="#卷积层" class="headerlink" title="卷积层"></a>卷积层</h3><p>卷积层主要是做卷积运算。本文用 “*” 表示卷积操作。</p>
-<h4 id="卷积运算"><a href="#卷积运算" class="headerlink" title="卷积运算"></a>卷积运算</h4><p>假如我们拥有一个6<em>6的灰度图，矩阵如下图表示，在矩阵右边还有一个3\</em>3的矩阵。我们称之为过滤器(filter)或核。</p>
+<h4 id="卷积运算"><a href="#卷积运算" class="headerlink" title="卷积运算"></a>卷积运算</h4><p>假如我们拥有一个6x6的灰度图，矩阵如下图表示，在矩阵右边还有一个3x3的矩阵。我们称之为过滤器(filter)或核。</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191001173735.png" alt=""></p>
 <p>卷积的第一步就是将过滤器覆盖在灰度图的左上角的数字就是过滤器对应位置上的数字，如下图蓝色部分：</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191001174317.png" alt=""></p>
@@ -409,12 +409,12 @@
 <p>在前面，我们的例子一个6*6的矩阵经过一个3*3的过滤器后，得到一个4*4的新矩阵。但是这样的话会有两个缺点，第一个缺点就是我们每次做卷积运算的时候，我们的图像都会缩小。可能我们在做完几次卷积之后，我们的图像就会变得很小。第二个缺点是角落边的像素点只会被使用一次，像下图的绿色。但是如果是中间的像素点(类似图中的红色框)，就会被使用很多次。</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191001210310.png" alt=""></p>
 <p>所以，那些边缘或者角落的像素点在输出时使用较少。这意味者，我们将丢掉图片边缘区域。如果这里有重要信息，那我们就得不偿失了。</p>
-<p>那我们该怎么解决这个问题呢？这时候就用到Padding了。我们可以在卷积操作之前填充这个图像。我们可以沿着图像的边缘再填充一层像素(通常为0，因为用0填充不影响原来的图片特征)。这样做的话，我们的原始图片像素就有6<em>6变成了8\</em>8。接着我们对这幅8*8的图像进行卷积，得到的新矩阵就不是4*4的，而是6*6的。<strong>规律：n*n维的矩阵填充了P个像素点后再经过一个f*f过滤器后，得到一个（n+2p-f+1）*（n+2p-f+1）维度的新矩阵。</strong></p>
+<p>那我们该怎么解决这个问题呢？这时候就用到Padding了。我们可以在卷积操作之前填充这个图像。我们可以沿着图像的边缘再填充一层像素(通常为0，因为用0填充不影响原来的图片特征)。这样做的话，我们的原始图片像素就有6*6变成了8*8。接着我们对这幅8*8的图像进行卷积，得到的新矩阵就不是4*4的，而是6*6的。<strong>规律：n*n维的矩阵填充了P个像素点后再经过一个f*f过滤器后，得到一个（n+2p-f+1）*（n+2p-f+1）维度的新矩阵。</strong></p>
 <p>由上面这个规律：我们得出p=(f-1)/2，为了使p是对称填充，所以我们的f通常都是奇数。还有一个原因，是因为当我们有一个奇数的过滤器，我们会有一个中间像素点。这就是为什么前面我们说过滤器通常都是奇数维度。</p>
 <p>那我们Padding填充的时候到底选择多少呢？1还是2还是更大的数字？</p>
 <p>其实Padding有两个选择：一个Valid，一个是Same。</p>
-<p>Valid：意味不填充。也就是之前的6<em>6矩阵经过一个3\</em>3的矩阵后，得出一个4*4的矩阵。</p>
-<p>Same：意味我们的图片输出大小和输入大小是一样的。也就是上面的6<em>6矩阵在Padding=1之后经过一个3\</em>3的矩阵后，得出一个6*6的矩阵。图片输出大小和输入大小一样。</p>
+<p>Valid：意味不填充。也就是之前的6*6矩阵经过一个3*3的矩阵后，得出一个4*4的矩阵。</p>
+<p>Same：意味我们的图片输出大小和输入大小是一样的。也就是上面的6*6矩阵在Padding=1之后经过一个3*3的矩阵后，得出一个6*6的矩阵。图片输出大小和输入大小一样。</p>
 <h4 id="卷积步长"><a href="#卷积步长" class="headerlink" title="卷积步长"></a>卷积步长</h4><p>我们先用 3x3 的过滤器以2为步长卷积 7x7 的图像，看看会得到什么。</p>
 <p>第一步，对左上角的区域进行计算：</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191001214116.png" alt=""></p>
@@ -425,10 +425,10 @@
 <p><strong>规律：我们用一个f<em>f的过滤器卷积一个n\</em>n的图像，Padding=p，步长为s，我们得到一个(n+2p-f)/s+1*(n+2p-f)/s+1</strong></p>
 <p>最后一个问题：如果我们的商不是整数呢？这时我们采用向下求整的策略。</p>
 <h4 id="三维卷积"><a href="#三维卷积" class="headerlink" title="三维卷积"></a>三维卷积</h4><p>上面的讲解你已经知道如何对灰度图进行卷积运算了，现在看看如何在有三个通道(RGB)的图像上进行卷积。</p>
-<p>假设彩色图像尺寸 6×6×3，这里的 3 指的是三个颜色通道。<strong>我们约定图像的通道数必须和过滤器的通道数匹配</strong>，所以需要增加过滤器的个数到3个。将他们叠在一起，进行卷积操作。6*6*3的图像经过一个3<em>3\</em>3过滤器得出一个新的4*4*1图像。</p>
+<p>假设彩色图像尺寸 6×6×3，这里的 3 指的是三个颜色通道。<strong>我们约定图像的通道数必须和过滤器的通道数匹配</strong>，所以需要增加过滤器的个数到3个。将他们叠在一起，进行卷积操作。6x6x3的图像经过一个3x3x3过滤器得出一个新的4x4x1图像。</p>
 <p>如下图：</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191001223726.png" alt=""></p>
-<p>具体过程就是，首先，把这个 3×3×3 的过滤器先放到最左上角的位置，依次取原图和过滤器对应位置上的各27 个数相乘后求和，得到的数值放到新矩阵的左上角。</p>
+<p>具体过程就是，首先，把这个 3×3×3 的过滤器先放到最左上角的位置，依次取原图和过滤器对应位置上的各27个数相乘后求和，得到的数值放到新矩阵的左上角。</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191001223830.png" alt=""></p>
 <p><strong>注意，由于我们是用三维的过滤器对三维的原图进行卷积操作，所以最终得到的矩阵只有一维。</strong></p>
 <p>然后不断向右向下进行类似操作，直到“遍历”完整个原图：</p>
@@ -459,7 +459,7 @@
 <p>g() 是激活函数，本例子中使用 ReLu</p>
 </blockquote>
 <p>卷积层的工作说明：</p>
-<p>式子中 w^[1] <em> a^[0] 是代表进行<strong>卷积运算</strong>得到两个特征图(也就是2个4x4的矩阵)，如下图的绿色框所示，接着再对两个特征图<em>*加上不同的偏置</em></em>就得到了z^[1]，如下图红色框所示：</p>
+<p>式子中 w^[1] * a^[0] 是代表进行<strong>卷积运算</strong>得到两个特征图(也就是2个4x4的矩阵)，如下图的绿色框所示，接着再对两个特征图<strong>加上不同的偏置</strong>就得到了z^[1]，如下图红色框所示：</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191002084726.png" alt=""></p>
 <p>进一步<strong>应用激活函数</strong>就得到了两个处理过的图像，将他们叠加在一起，就得到了这一层的输出 a^[1](上图右下角)。</p>
 <p><strong>注意</strong>：上图中的加偏置(b1,b2)均使用了python的广播</p>
@@ -622,7 +622,7 @@
         
           <a href="/archives/%20%7C%7C%20archive">
         
-          <span class="site-state-item-count">101</span>
+          <span class="site-state-item-count">103</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -691,7 +691,9 @@
         
           
         
-        <span class="site-state-item-count">27</span>
+          
+        
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
