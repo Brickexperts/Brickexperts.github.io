@@ -65,7 +65,7 @@
 <meta property="og:site_name" content="DY的个人博客">
 <meta property="og:description" content="优化卷积核在实际的卷积训练中，为了加快速度，常常把卷积层裁开。比如一个3x3的过滤器，可以裁成3x1和1x3两个过滤器，分别对原有输入做卷积操作，这样可以大大提升运算速度 原理：在浮点运算中乘法消耗的资源较多，我们的目的就是尽量减小乘法运算 比如：对一个5x2的原始图片进行一次3x3的同卷积，相当于生成的5x2像素中每一个都要经历3x3次乘法，一共90次。同样一张图片，如果先进行一次3x1的同卷积">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-01-15T12:10:20.723Z">
+<meta property="og:updated_time" content="2020-01-16T02:17:34.972Z">
 <meta name="twitter:card" content="summary">
   <link rel="alternate" href="/atom.xml" title="DY的个人博客" type="application/atom+xml">
   <link rel="canonical" href="http://yoursite.com/2020/01/15/Tensorflow%E4%B8%AD%E7%9A%84%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83%E6%8A%80%E5%B7%A7/">
@@ -277,11 +277,21 @@
                 
               
 
-              <time title="创建时间：2020-01-15 15:07:04 / 修改时间：20:10:20" itemprop="dateCreated datePublished" datetime="2020-01-15T15:07:04+08:00">2020-01-15</time>
+              <time title="创建时间：2020-01-15 15:07:04" itemprop="dateCreated datePublished" datetime="2020-01-15T15:07:04+08:00">2020-01-15</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-01-16 10:17:34" itemprop="dateModified" datetime="2020-01-16T10:17:34+08:00">2020-01-16</time>
+              </span>
             
           
             <span class="post-meta-item">
@@ -362,7 +372,7 @@
 <p>updatas_collections：默认为tf.GraphKeys.UPDARE_OPS，在训练时提供一种内置的均值方差更新机制，即通过图中的tf.GraphKeys.UPDATE_OPS变量来更新。但它是在每次当前批次训练完成后才更新均值和方差，这样导致当前数据总是使用前一次的均值和方差，没有得到最新的更新。所以都会将其设为None，让均值和方差即时更新。</p>
 <p>reuse：支持共享变量，与下面的scope参数联合使用</p>
 <p>scope：指定变量的作用域variable_scope</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
     </div>
 
     
