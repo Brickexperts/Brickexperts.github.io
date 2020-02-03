@@ -67,7 +67,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191123153950.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191123154010.png">
-<meta property="og:updated_time" content="2020-02-03T10:03:09.457Z">
+<meta property="og:updated_time" content="2020-02-03T10:48:09.891Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191123153950.png">
   <link rel="alternate" href="/atom.xml" title="DY的个人博客" type="application/atom+xml">
@@ -293,7 +293,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-02-03 18:03:09" itemprop="dateModified" datetime="2020-02-03T18:03:09+08:00">2020-02-03</time>
+                <time title="修改时间：2020-02-03 18:48:09" itemprop="dateModified" datetime="2020-02-03T18:48:09+08:00">2020-02-03</time>
               </span>
             
           
@@ -342,7 +342,7 @@
 <p>退化学习率又叫学习率衰减， 它的本意是希望在训练过程中对于学习率大和小的优点都能够为我们所用， 也就是当训练刚开始时使用大的学习率加快速度， 训练到一定程度后使用小的学习率来提高精度， 这时可以使用学习率衰减的方法。</p>
 <p>exponential_decay(learning_rate,global_step,decay_rate,staircase=False,name=None)，学习率的衰减速度是由global_step和decay_steps来决定的。计算公式如下：</p>
 <p>decayed_learning_rate=learning_rate*decay_rate^(global_step/decay_step)。staircase值默认为False。当为True，将没有衰减功能，只是使用上面的公式初始化一个学习率的值而已。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">learning_rate=tf.train.exponential_decay(starter_learning_rate,global_step,<span class="number">10000</span>,<span class="number">0.96</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">learning_rate=tf.train.exponential_decay(starter_learning_rate,global_step,<span class="number">100000</span>,<span class="number">0.96</span>)</span><br></pre></td></tr></table></figure>
 <p>这种方式定义的学习率就是退化学习率， 它的意思是当前迭代到global_step步， 学习率每一步都按照每10万步缩小到0.96%的速度衰退。  </p>
 <p>通过增大批次处理样本的数量也可以起到退化学习率的效果。但是这种方法要求训练时的最小批次要与实际应用中的最小批次一致。一旦满足该条件，建议优先选择增大批次数量的方法。因为这样会省去一些开发量和训练中的计算量。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"></span><br><span class="line">global_step=tf.Variable(<span class="number">0</span>,trainable=<span class="literal">False</span>)</span><br><span class="line"><span class="comment">#初始学习率为0.1</span></span><br><span class="line">initial_learning_rate=<span class="number">0.1</span></span><br><span class="line"><span class="comment">#每十次衰减0.9</span></span><br><span class="line">learning_rate=tf.train.exponential_decay(initial_learning_rate,global_step=global_step,</span><br><span class="line">                                        decay_steps=<span class="number">10</span>,</span><br><span class="line">                                        decay_rate=<span class="number">0.9</span>)</span><br><span class="line">opt=tf.train.GradientDescentOptimizer(learning_rate)</span><br><span class="line"><span class="comment">#相当于global_step+1</span></span><br><span class="line">add_global=global_step.assign_add(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">  sess.run(tf.global_variables_initializer())</span><br><span class="line">  print(sess.run(learning_rate))</span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">20</span>):</span><br><span class="line">    g,rate=sess.run([add_global,learning_rate])</span><br><span class="line">    print(g,rate)</span><br></pre></td></tr></table></figure>
