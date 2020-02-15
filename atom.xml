@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-02-11T07:11:17.181Z</updated>
+  <updated>2020-02-14T11:21:08.494Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>泰坦尼克号获救预测实战</title>
+    <link href="http://yoursite.com/2020/02/14/%E6%B3%B0%E5%9D%A6%E5%B0%BC%E5%85%8B%E5%8F%B7%E8%8E%B7%E6%95%91%E9%A2%84%E6%B5%8B%E5%AE%9E%E6%88%98/"/>
+    <id>http://yoursite.com/2020/02/14/泰坦尼克号获救预测实战/</id>
+    <published>2020-02-14T07:59:46.000Z</published>
+    <updated>2020-02-14T11:21:08.494Z</updated>
+    
+    <content type="html"><![CDATA[<p>在本次实战，会用到numpy和pandas等模块，不会的话，请自己补完自己的知识空区。</p><p><a href="https://www.kaggle.com/c/titanic/data" target="_blank" rel="noopener">本次数据集的下载网址</a></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">data=pd.read_csv(<span class="string">"train.csv"</span>)</span><br><span class="line"><span class="comment">#查看数据集的字段</span></span><br><span class="line">print(data.columns)</span><br></pre></td></tr></table></figure><p>数据字段含义如下：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20200214190725.png" alt=""></p><p>接着我们把一些没有什么用的字段删掉，比如Name、Ticket</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data=data[[<span class="string">"Survived"</span>,<span class="string">"Pclass"</span>,<span class="string">"Sex"</span>,<span class="string">"Age"</span>,<span class="string">"SibSp"</span>,<span class="string">"Parch"</span>,<span class="string">"Fare"</span>,<span class="string">"Cabin"</span>,<span class="string">"Embarked"</span>]]</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;在本次实战，会用到numpy和pandas等模块，不会的话，请自己补完自己的知识空区。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.kaggle.com/c/titanic/data&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;本次数据集的下
+      
+    
+    </summary>
+    
+      <category term="深度学习" scheme="http://yoursite.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="框架" scheme="http://yoursite.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%A1%86%E6%9E%B6/"/>
+    
+      <category term="tensorflow" scheme="http://yoursite.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%A1%86%E6%9E%B6/tensorflow/"/>
+    
+    
+      <category term="框架" scheme="http://yoursite.com/tags/%E6%A1%86%E6%9E%B6/"/>
+    
+  </entry>
   
   <entry>
     <title>何为端到端？</title>
@@ -556,35 +586,6 @@
     
     
       <category term="ubuntu" scheme="http://yoursite.com/tags/ubuntu/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Yolo算法实战</title>
-    <link href="http://yoursite.com/2019/10/31/Yolo%E7%AE%97%E6%B3%95%E5%AE%9E%E6%88%98/"/>
-    <id>http://yoursite.com/2019/10/31/Yolo算法实战/</id>
-    <published>2019-10-31T12:27:47.000Z</published>
-    <updated>2019-11-19T05:00:39.562Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="coco介绍"><a href="#coco介绍" class="headerlink" title="coco介绍"></a>coco介绍</h2><p>本次实战采用coco数据集。这个数据集是由微软团队提供的。<a href="http://cocodataset.org/#download" target="_blank" rel="noopener">下载网址</a></p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191031203750.png" alt=""></p><p>annotations是采用json格式标注的，包含三个信息：object instances(物体当前的实例信息)、object keypoints(关键点信息)、image caption(图像信息)</p><p>下图是标注文件的整体结构：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191031210251.png" alt=""></p><p>info是基本信息，image是图像信息，annotations是针对于图像数据的标注信息。下图是除了annotations字段其它字段展开后的具体信息：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191031210505.png" alt=""></p><p>我们要具体关注annotations的信息。annotations信息如下：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191031211132.png" alt=""></p><p>对于annotations，如果我们标注当前的图片为单个物体或多个物体时我们需要修改iscrowd和segmentation。</p><p>单个object时：</p><blockquote><p>iscrowd=0</p><p>segmentation=polygon</p></blockquote><p>多个objects时：</p><blockquote><p>iscrowd=1</p><p>segmentation=RLE</p></blockquote><h2 id="检测模型的搭建"><a href="#检测模型的搭建" class="headerlink" title="检测模型的搭建"></a>检测模型的搭建</h2><h3 id="Darknet的搭建"><a href="#Darknet的搭建" class="headerlink" title="Darknet的搭建"></a>Darknet的搭建</h3><p>Darknet是一个较为轻型的完全基于C与CUDA的开源深度学习框架。支持CPU和GPU两种计算方式。容易安装，且没有任何依赖项。</p><p> 在windows上我是看这篇博客配好darknet的。<a href="https://blog.csdn.net/lvsehaiyang1993/article/details/81032826" target="_blank" rel="noopener">https://blog.csdn.net/lvsehaiyang1993/article/details/81032826</a> </p><p>注意在使用darknet的时候最后如果出现Couldn’t open file: D:/darknet/data/coco.names。重新下一次zip文件、解压再编译一次。博客中说会有predictions.png文件，我并没有找到。百度是说，电脑内存不够运算。</p><p>后面训练的时候，有报错</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191103104157.png" alt=""></p><p>在网上没有找到解决方案。所以更换了系统再配一次。</p><p>在ubuntu上我配了一次。配得我都吐了，最后还把opencv装到python2上。过程不写了，网上都是。也都不是。坑踩踩就好了。我的博客有教程</p><h3 id="Darknet解读"><a href="#Darknet解读" class="headerlink" title="Darknet解读"></a>Darknet解读</h3><p>下面的部分图片是windows。</p><p>Darknet文件结构：</p><p>src、include、obj：存放了darknet的源码和编译后的文件</p><p>cfg：存放了作者提供好的各种各样的网络配置文件</p><p>打开cfg文件夹下的yolov3.cfg文件，下图网络配置信息的含义。</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191102204940.png" alt=""></p><p>接下去的就是主干网络。一组中括号加上网络层的名字定义当前的网络属于哪一层。接着是训练过程中用到的信息。然后就是中括号加上convolutional定义卷积层和卷积层的参数，同样定义了池化层和池化层参数。略过，我们直接看Yolo层</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191102211807.png" alt=""></p><p>接着打开coco.data文件，配置如下：</p><p>在windows下，我没有找到train和valid两个文件列表。linux也没有找到</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191102213118.png" alt=""></p><p>data：存放了接下来用到的数据</p><p>script：存放了一些脚本</p><p>python：存放了darknet编译出来针对于python的接口</p><p>examples：存放了我们可能会用到的函数接口</p><p>backup：存放了模型训练时中间结果。比如说，在训练1000次的时候存一个model，10000次的时候存一个model。这个训练多少次保存一次模型，也是可以修改的。在examples文件夹下的detector.c文件的138行修改。<img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191102164144.png" alt=""></p><p><strong>注意：每次修改darknet配置，都要重新编译。</strong></p><h3 id="Darknet的使用"><a href="#Darknet的使用" class="headerlink" title="Darknet的使用"></a>Darknet的使用</h3><p>安装完darknet后，在终端运行./darknet，</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191103191816.png" alt=""></p><p>在window上运行darknet就行了</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191102164403.png" alt=""></p><p>这句话告诉我们调用darknet来进行模型训练，我们需要采用的格式为./darknet 函数来完成调用。</p><p>在ubuntu进行数据增强：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191103192537.png" alt=""></p><p>在windows上显示不出来。我怀疑是因为我的windows上没有编译运行opencv，编译过后应该可以运行的。大家可以试一下。</p><p>训练命令：</p><p>./darknet detector train cfg/coco.data  cfg/yolov3.cfg  </p><p>采用预训练的模型：</p><p>./darknet detector train cfg/coco.data  cfg/yolov3.cfg  cfg/yolov3_20000.weights</p><p>测试命令：</p><p>./darknet detector test cfg/coco.data  cfg/yolov3.cfg  backup/yolov3_20000.weights data/giraffe.jpg -thresh 0.4</p><p>-thresh用于阈值筛选</p><p>在example下，darknet有提供python的接口。我们也可以利用这个接口完成模型测试。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;coco介绍&quot;&gt;&lt;a href=&quot;#coco介绍&quot; class=&quot;headerlink&quot; title=&quot;coco介绍&quot;&gt;&lt;/a&gt;coco介绍&lt;/h2&gt;&lt;p&gt;本次实战采用coco数据集。这个数据集是由微软团队提供的。&lt;a href=&quot;http://cocodatas
-      
-    
-    </summary>
-    
-      <category term="目标检测" scheme="http://yoursite.com/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
-    
-      <category term="One-stage" scheme="http://yoursite.com/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/One-stage/"/>
-    
-      <category term="Yolo" scheme="http://yoursite.com/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/One-stage/Yolo/"/>
-    
-    
-      <category term="Yolo算法" scheme="http://yoursite.com/tags/Yolo%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
