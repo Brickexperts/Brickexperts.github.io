@@ -65,7 +65,7 @@
 <meta property="og:site_name" content="DY的个人博客">
 <meta property="og:description" content="np.concatenate数组拼接函数，concatenate((a1,a2,……),axis=0) 参数a1，a2……为要拼接的数组，axis为在哪个维度上进行拼接。默认为0 &amp;gt;&amp;gt;&amp;gt;import numpy as np&amp;gt;&amp;gt;&amp;gt;a=np.array([[1,2],[3,4]])&amp;gt;&amp;gt;&amp;gt;b=np.array([[5,6]]) &amp;gt;&amp;gt;&amp;gt;np.concaten">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-24T11:31:45.253Z">
+<meta property="og:updated_time" content="2020-02-25T06:59:17.173Z">
 <meta name="twitter:card" content="summary">
   <link rel="alternate" href="/atom.xml" title="DY的个人博客" type="application/atom+xml">
   <link rel="canonical" href="http://yoursite.com/2019/11/24/numpy(2)/">
@@ -277,11 +277,21 @@
                 
               
 
-              <time title="创建时间：2019-11-24 14:58:11 / 修改时间：19:31:45" itemprop="dateCreated datePublished" datetime="2019-11-24T14:58:11+08:00">2019-11-24</time>
+              <time title="创建时间：2019-11-24 14:58:11" itemprop="dateCreated datePublished" datetime="2019-11-24T14:58:11+08:00">2019-11-24</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-02-25 14:59:17" itemprop="dateModified" datetime="2020-02-25T14:59:17+08:00">2020-02-25</time>
+              </span>
             
           
             <span class="post-meta-item">
@@ -341,7 +351,11 @@
 <p>mean：mean是多维分布的均值维度为1；</p>
 <p>cov：协方差矩阵，注意：协方差矩阵必须是对称的且需为半正定矩阵；</p>
 <p>size：指定生成的正态分布矩阵的维度（例：若size=(1, 1, 2)，则输出的矩阵的shape即形状为 1X1X2XN（N为mean的长度））。</p>
-<p>check_valid：这个参数用于决定当cov即协方差矩阵不是半正定矩阵时程序的处理方式，它一共有三个值：warn，raise以及ignore。当使用warn作为传入的参数时，如果cov不是半正定的程序会输出警告但仍旧会得到结果；当使用raise作为传入的参数时，如果cov不是半正定的程序会报错且不会计算出结果；当使用ignore时忽略这个问题即无论cov是否为半正定的都会计算出结果。3种情况的console打印结果如下：</p>
+<p>check_valid：这个参数用于决定当cov即协方差矩阵不是半正定矩阵时程序的处理方式，它一共有三个值：warn，raise以及ignore。当使用warn作为传入的参数时，如果cov不是半正定的程序会输出警告但仍旧会得到结果；当使用raise作为传入的参数时，如果cov不是半正定的程序会报错且不会计算出结果；当使用ignore时忽略这个问题即无论cov是否为半正定的都会计算出结果。</p>
+<h2 id="np-load"><a href="#np-load" class="headerlink" title="np.load"></a>np.load</h2><p>将数组以二进制格式读出磁盘，np.load(“名.npy”,encoding=””)，encoding可为”latin1”、”ascll”、”bytes”，默认为ascll。</p>
+<h2 id="np-save"><a href="#np-save" class="headerlink" title="np.save"></a>np.save</h2><p>将数组以二进制格式写入磁盘，np.save(“名.npy”,某个数组)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>A=np.arange(<span class="number">15</span>).reshape(<span class="number">3</span>,<span class="number">5</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>A</span><br><span class="line">array([[ <span class="number">0</span>,  <span class="number">1</span>,  <span class="number">2</span>,  <span class="number">3</span>,  <span class="number">4</span>],</span><br><span class="line">       [ <span class="number">5</span>,  <span class="number">6</span>,  <span class="number">7</span>,  <span class="number">8</span>,  <span class="number">9</span>],</span><br><span class="line">       [<span class="number">10</span>, <span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>, <span class="number">14</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>np.save(<span class="string">"A.npy"</span>,A)<span class="comment">#如果文件路径末尾没有扩展名，该扩展名会被自动加上</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>B=np.load(<span class="string">"A.npy"</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>B</span><br><span class="line">array([[ <span class="number">0</span>,  <span class="number">1</span>,  <span class="number">2</span>,  <span class="number">3</span>,  <span class="number">4</span>],</span><br><span class="line">       [ <span class="number">5</span>,  <span class="number">6</span>,  <span class="number">7</span>,  <span class="number">8</span>,  <span class="number">9</span>],</span><br><span class="line">       [<span class="number">10</span>, <span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>, <span class="number">14</span>]])</span><br></pre></td></tr></table></figure>
+<h2 id="np-argsort"><a href="#np-argsort" class="headerlink" title="np.argsort"></a>np.argsort</h2><p>np.argsort(list)：对列表从小到大排序，返回索引值</p>
 
     </div>
 
@@ -460,7 +474,7 @@
         
           <a href="/archives/%20%7C%7C%20archive">
         
-          <span class="site-state-item-count">111</span>
+          <span class="site-state-item-count">112</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -675,7 +689,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#np-concatenate"><span class="nav-text">np.concatenate</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#np-eye"><span class="nav-text">np.eye</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#np-random-multivariate-normal"><span class="nav-text">np.random.multivariate_normal</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#np-concatenate"><span class="nav-text">np.concatenate</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#np-eye"><span class="nav-text">np.eye</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#np-random-multivariate-normal"><span class="nav-text">np.random.multivariate_normal</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#np-load"><span class="nav-text">np.load</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#np-save"><span class="nav-text">np.save</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#np-argsort"><span class="nav-text">np.argsort</span></a></li></ol></div>
             
 
           </div>

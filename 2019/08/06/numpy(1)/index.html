@@ -89,7 +89,7 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;numpy31.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;numpy32.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;numpy34.png">
-<meta property="og:updated_time" content="2019-11-24T07:57:01.086Z">
+<meta property="og:updated_time" content="2020-02-25T07:01:43.533Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;numpy1.png">
   <link rel="alternate" href="/atom.xml" title="DY的个人博客" type="application/atom+xml">
@@ -315,7 +315,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-11-24 15:57:01" itemprop="dateModified" datetime="2019-11-24T15:57:01+08:00">2019-11-24</time>
+                <time title="修改时间：2020-02-25 15:01:43" itemprop="dateModified" datetime="2020-02-25T15:01:43+08:00">2020-02-25</time>
               </span>
             
           
@@ -361,48 +361,50 @@
 
       
         <p>最近这几年，机器学习和深度学习大火。而这其中的数据计算是非常多，而这得益于python的numpy模块。多提一句：numpy是没有GIL（多线程解释器锁）的。所以，numpy中的计算是非常快的。那什么是GIL呢？请看python的多线程。话不多说，让我们开启今天的数学之旅。PS：numpy很多API，我还没有学完。我只是总结了一部分，后面会补充的。</p>
-<h4 id="通过array生成矩阵："><a href="#通过array生成矩阵：" class="headerlink" title="通过array生成矩阵："></a>通过array生成矩阵：</h4><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy1.png" alt=""></p>
+<h2 id="通过array生成矩阵："><a href="#通过array生成矩阵：" class="headerlink" title="通过array生成矩阵："></a>通过array生成矩阵：</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy1.png" alt=""></p>
 <p>可以通过dtype设置矩阵数据的类型。astype可以修改数据类型。</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy3.png" alt=""></p>
-<h4 id="通过asarray生成矩阵"><a href="#通过asarray生成矩阵" class="headerlink" title="通过asarray生成矩阵"></a>通过asarray生成矩阵</h4><p>用法和array一样。<strong>array和asarray都可将结构数据转换为ndarray类型。</strong>但是主要区别就是当数据源是ndarray时，<br>array仍会copy出一个副本，占用新的内存，但asarray不会。 </p>
-<h4 id="其他生成矩阵的方式"><a href="#其他生成矩阵的方式" class="headerlink" title="其他生成矩阵的方式"></a>其他生成矩阵的方式</h4><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy5.png" alt=""></p>
+<h2 id="通过asarray生成矩阵"><a href="#通过asarray生成矩阵" class="headerlink" title="通过asarray生成矩阵"></a>通过asarray生成矩阵</h2><p>用法和array一样。<strong>array和asarray都可将结构数据转换为ndarray类型。</strong>但是主要区别就是当数据源是ndarray时，<br>array仍会copy出一个副本，占用新的内存，但asarray不会。 </p>
+<h2 id="其他生成矩阵的方式"><a href="#其他生成矩阵的方式" class="headerlink" title="其他生成矩阵的方式"></a>其他生成矩阵的方式</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy5.png" alt=""></p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy6.png" alt=""></p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy7.png" alt=""></p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy8.png" alt=""></p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy9.png" alt=""></p>
-<h4 id="numpy生成随机数："><a href="#numpy生成随机数：" class="headerlink" title="numpy生成随机数："></a>numpy生成随机数：</h4><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy10.png" alt=""></p>
+<h2 id="numpy生成随机数："><a href="#numpy生成随机数：" class="headerlink" title="numpy生成随机数："></a>numpy生成随机数：</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy10.png" alt=""></p>
 <p>seed的使用方法：</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy11.png" alt=""></p>
 <p>使用RandomState获得随机数生成器</p>
 <p>>&gt;&gt;rdm=np.random.RandomState(2)    #  2是随机数种子<br>>&gt;&gt;a=np.random.randint(0,20,(3,4))<br>>&gt;&gt;a<br>array([[ 8, 11,  1,  5],<br>       [ 3,  8,  0, 18],<br>       [ 5, 15,  8, 14]])</p>
-<h4 id="reshape-amp-resize"><a href="#reshape-amp-resize" class="headerlink" title="reshape&amp;resize"></a>reshape&amp;resize</h4><p>可以通过reshape修改列表的行数和列数，resize改变数组的尺寸大小。根据reshape传入的参数判断转为哪种数组。</p>
+<h2 id="reshape-amp-resize"><a href="#reshape-amp-resize" class="headerlink" title="reshape&amp;resize"></a>reshape&amp;resize</h2><p>可以通过reshape修改列表的行数和列数，resize改变数组的尺寸大小。根据reshape传入的参数判断转为哪种数组。</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy13.png" alt=""></p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy14.png" alt=""></p>
-<h4 id="numpy运算"><a href="#numpy运算" class="headerlink" title="numpy运算"></a>numpy运算</h4><p>加、减、乘、除类似。如果两个矩阵形状相同，两个矩阵对应的元素做操作。若两个矩阵形状不相同，其中一个矩阵的维度与另一个矩阵的维度相同，可以在该维度上做操作。</p>
+<h2 id="numpy运算"><a href="#numpy运算" class="headerlink" title="numpy运算"></a>numpy运算</h2><p>加、减、乘、除类似。如果两个矩阵形状相同，两个矩阵对应的元素做操作。若两个矩阵形状不相同，其中一个矩阵的维度与另一个矩阵的维度相同，可以在该维度上做操作。</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy15.png" alt=""></p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy.png" alt=""></p>
 <p>通过axis求每行（列）的元素和或最大、最小值。0代表列，1代表行。</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy16.png" alt=""></p>
 <p>还可以获得最大、最小值：</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy17.png" alt=""></p>
-<h4 id="其他一些计算-累加、累差、中位数、平均值"><a href="#其他一些计算-累加、累差、中位数、平均值" class="headerlink" title="其他一些计算:累加、累差、中位数、平均值"></a>其他一些计算:累加、累差、中位数、平均值</h4><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy18.png" alt=""></p>
+<h2 id="其他一些计算"><a href="#其他一些计算" class="headerlink" title="其他一些计算"></a>其他一些计算</h2><p>累加、累差、中位数、平均值</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy18.png" alt=""></p>
 <p>对clip函数的解释：小于5的元素都设为5，大于9的元素都设为9</p>
-<h4 id="flatten"><a href="#flatten" class="headerlink" title="flatten"></a>flatten</h4><p>对数组展开为一维数组</p>
+<h2 id="flatten"><a href="#flatten" class="headerlink" title="flatten"></a>flatten</h2><p>对数组展开为一维数组</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy19.png" alt=""></p>
-<h4 id="numpy的合并："><a href="#numpy的合并：" class="headerlink" title="numpy的合并："></a>numpy的合并：</h4><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy20.png" alt=""></p>
-<h4 id="numpy的分割："><a href="#numpy的分割：" class="headerlink" title="numpy的分割："></a>numpy的分割：</h4><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy21.png" alt=""></p>
-<h4 id="转置矩阵："><a href="#转置矩阵：" class="headerlink" title="转置矩阵："></a>转置矩阵：</h4><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy22.png" alt=""></p>
-<h4 id="numpy-linspace-start-stop-num-endpoint-retstep-dtype"><a href="#numpy-linspace-start-stop-num-endpoint-retstep-dtype" class="headerlink" title="numpy.linspace(start,stop,num,endpoint,retstep,dtype)"></a>numpy.linspace(start,stop,num,endpoint,retstep,dtype)</h4><p>该方法的作用是子啊start和stop之间产生num个线性向量。每个向量之间的距离是相同的。创建等差数列</p>
+<h2 id="numpy的合并："><a href="#numpy的合并：" class="headerlink" title="numpy的合并："></a>numpy的合并：</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy20.png" alt=""></p>
+<h2 id="numpy的分割："><a href="#numpy的分割：" class="headerlink" title="numpy的分割："></a>numpy的分割：</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy21.png" alt=""></p>
+<h2 id="转置矩阵："><a href="#转置矩阵：" class="headerlink" title="转置矩阵："></a>转置矩阵：</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy22.png" alt=""></p>
+<h2 id="numpy-linspace"><a href="#numpy-linspace" class="headerlink" title="numpy.linspace"></a>numpy.linspace</h2><p>numpy.linspace(start,stop,num,endpoint,retstep,dtype)</p>
+<p>该方法的作用是子啊start和stop之间产生num个线性向量。每个向量之间的距离是相同的。创建等差数列</p>
 <p>start：起始点</p>
 <p>stop：终止点</p>
 <p>num : int, optional  默认50，生成start和stop之间50个等差间隔的元素</p>
 <p>endpoint : bool, optional。If True, stop is the last sample. Otherwise, it is not included. Default is True。生成等差间隔的元素，但是不包含stop，即间隔为 （stop - start）/num</p>
 <p>retstep : bool, optional。If True, return (samples, step), where step is the spacing between samples.返回一个（array，num）元组，array是结果数组，num是间隔大小</p>
 <p>dtype : dtype, optional。The type of the output array. If dtype is not given, infer the data type from the other input arguments。输出数组的类型。如果没有给出dtype，则从其他输入参数推断数据类型。</p>
-<h4 id="numpy-newaxi："><a href="#numpy-newaxi：" class="headerlink" title="numpy.newaxi："></a>numpy.newaxi：</h4><p>插入新的维度</p>
+<h2 id="numpy-newaxi："><a href="#numpy-newaxi：" class="headerlink" title="numpy.newaxi："></a>numpy.newaxi：</h2><p>插入新的维度</p>
 <p>>&gt;&gt; import numpy as np</p>
 <p>>&gt;&gt;b=np.array([1,2,3,4,5,6])<br>>&gt;&gt;b[np.newaxis]<br>>&gt;&gt;array([[1, 2, 3, 4, 5, 6]])</p>
-<h4 id="numpy-meshgrid："><a href="#numpy-meshgrid：" class="headerlink" title="numpy.meshgrid："></a>numpy.meshgrid：</h4><p>生成网格点坐标矩阵</p>
+<h2 id="numpy-meshgrid："><a href="#numpy-meshgrid：" class="headerlink" title="numpy.meshgrid："></a>numpy.meshgrid：</h2><p>生成网格点坐标矩阵</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy30.png" alt=""></p>
 <p>由上图，得知meshgrid的作用是：根据传入的两个一维数组参数生成两个数组元素的列表。如果第一个参数是xarray，维度是xdimesion，第二个参数是yarray，维度是ydimesion。那么生成的第一个二维数组是以xarray为行，共ydimesion行的向量；而第二个二维数组是以yarray的转置为列，共xdimesion列的向量</p>
 <p>可能你看到这还不明白，看下图：</p>
@@ -410,9 +412,8 @@
 <p>A,B,C,D,E,F是6个网格点，坐标如图，如何用矩阵形式（<strong>坐标矩阵</strong>）来批量描述这些点的坐标呢？答案如下：</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy32.png" alt=""></p>
 <p>这就是坐标矩阵——横坐标矩阵X中的每个元素，与纵坐标矩阵Y中对应位置元素，共同构成一个点的完整坐标。</p>
-<h4 id="numpy-logspace"><a href="#numpy-logspace" class="headerlink" title="numpy.logspace"></a>numpy.logspace</h4><p>创建等比数列，参数和logspace差不多，第四个参数代表基数。默认为10，如果想要修改其默认基数，输入第四个参数base，改变就可以了。</p>
+<h2 id="numpy-logspace"><a href="#numpy-logspace" class="headerlink" title="numpy.logspace"></a>numpy.logspace</h2><p>创建等比数列，参数和logspace差不多，第四个参数代表基数。默认为10，如果想要修改其默认基数，输入第四个参数base，改变就可以了。</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/numpy34.png" alt=""></p>
-<p>未完待续……</p>
 
     </div>
 
@@ -531,7 +532,7 @@
         
           <a href="/archives/%20%7C%7C%20archive">
         
-          <span class="site-state-item-count">111</span>
+          <span class="site-state-item-count">112</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -746,7 +747,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#通过array生成矩阵："><span class="nav-text">通过array生成矩阵：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#通过asarray生成矩阵"><span class="nav-text">通过asarray生成矩阵</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其他生成矩阵的方式"><span class="nav-text">其他生成矩阵的方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#numpy生成随机数："><span class="nav-text">numpy生成随机数：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#reshape-amp-resize"><span class="nav-text">reshape&amp;resize</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#numpy运算"><span class="nav-text">numpy运算</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其他一些计算-累加、累差、中位数、平均值"><span class="nav-text">其他一些计算:累加、累差、中位数、平均值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#flatten"><span class="nav-text">flatten</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#numpy的合并："><span class="nav-text">numpy的合并：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#numpy的分割："><span class="nav-text">numpy的分割：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#转置矩阵："><span class="nav-text">转置矩阵：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#numpy-linspace-start-stop-num-endpoint-retstep-dtype"><span class="nav-text">numpy.linspace(start,stop,num,endpoint,retstep,dtype)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#numpy-newaxi："><span class="nav-text">numpy.newaxi：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#numpy-meshgrid："><span class="nav-text">numpy.meshgrid：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#numpy-logspace"><span class="nav-text">numpy.logspace</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#通过array生成矩阵："><span class="nav-text">通过array生成矩阵：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通过asarray生成矩阵"><span class="nav-text">通过asarray生成矩阵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他生成矩阵的方式"><span class="nav-text">其他生成矩阵的方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#numpy生成随机数："><span class="nav-text">numpy生成随机数：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reshape-amp-resize"><span class="nav-text">reshape&amp;resize</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#numpy运算"><span class="nav-text">numpy运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他一些计算"><span class="nav-text">其他一些计算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#flatten"><span class="nav-text">flatten</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#numpy的合并："><span class="nav-text">numpy的合并：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#numpy的分割："><span class="nav-text">numpy的分割：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#转置矩阵："><span class="nav-text">转置矩阵：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#numpy-linspace"><span class="nav-text">numpy.linspace</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#numpy-newaxi："><span class="nav-text">numpy.newaxi：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#numpy-meshgrid："><span class="nav-text">numpy.meshgrid：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#numpy-logspace"><span class="nav-text">numpy.logspace</span></a></li></ol></div>
             
 
           </div>
