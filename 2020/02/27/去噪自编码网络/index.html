@@ -57,31 +57,18 @@
   };
 </script>
 
-  <meta name="description" content="coco介绍本次实战采用coco数据集。这个数据集是由微软团队提供的。下载网址  annotations是采用json格式标注的，包含三个信息：object instances(物体当前的实例信息)、object keypoints(关键点信息)、image caption(图像信息) 下图是标注文件的整体结构：  info是基本信息，image是图像信息，annotations是针对于图像数据的">
-<meta name="keywords" content="Yolo算法">
+  <meta name="description" content="介绍要想取得好的特征只靠重构输入数据是不够的，实际上，还需要让这些特征具有抗干扰的能力，即当输入数据发生一定程度的扰动时，生成的特征仍然保持不变。这时需要添加噪声为模型增加更大的困难。在这种情况下训练出来的模型才会有更好的鲁棒性，于是就有了去噪自编码网络 去噪自编码网络（DA）是在自动编码的基础上，训练数据加入噪声，输出的标签仍是原始的样本（没有加入噪声的），这样自动编码器必须学习去除噪声而获得真">
+<meta name="keywords" content="深度学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Yolo算法实战">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;31&#x2F;Yolo%E7%AE%97%E6%B3%95%E5%AE%9E%E6%88%98&#x2F;index.html">
+<meta property="og:title" content="去噪自编码网络">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;27&#x2F;%E5%8E%BB%E5%99%AA%E8%87%AA%E7%BC%96%E7%A0%81%E7%BD%91%E7%BB%9C&#x2F;index.html">
 <meta property="og:site_name" content="DY的个人博客">
-<meta property="og:description" content="coco介绍本次实战采用coco数据集。这个数据集是由微软团队提供的。下载网址  annotations是采用json格式标注的，包含三个信息：object instances(物体当前的实例信息)、object keypoints(关键点信息)、image caption(图像信息) 下图是标注文件的整体结构：  info是基本信息，image是图像信息，annotations是针对于图像数据的">
+<meta property="og:description" content="介绍要想取得好的特征只靠重构输入数据是不够的，实际上，还需要让这些特征具有抗干扰的能力，即当输入数据发生一定程度的扰动时，生成的特征仍然保持不变。这时需要添加噪声为模型增加更大的困难。在这种情况下训练出来的模型才会有更好的鲁棒性，于是就有了去噪自编码网络 去噪自编码网络（DA）是在自动编码的基础上，训练数据加入噪声，输出的标签仍是原始的样本（没有加入噪声的），这样自动编码器必须学习去除噪声而获得真">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191031203750.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191031210251.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191031210505.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191031211132.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191103104157.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191102204940.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191102211807.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191102213118.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191102164144.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191103191816.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191102164403.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191103192537.png">
-<meta property="og:updated_time" content="2019-11-19T05:00:39.562Z">
+<meta property="og:updated_time" content="2020-02-28T12:35:32.597Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed2&#x2F;master&#x2F;20191031203750.png">
   <link rel="alternate" href="/atom.xml" title="DY的个人博客" type="application/atom+xml">
-  <link rel="canonical" href="http://yoursite.com/2019/10/31/Yolo%E7%AE%97%E6%B3%95%E5%AE%9E%E6%88%98/">
+  <link rel="canonical" href="http://yoursite.com/2020/02/27/%E5%8E%BB%E5%99%AA%E8%87%AA%E7%BC%96%E7%A0%81%E7%BD%91%E7%BB%9C/">
 
 
 <script id="page.configurations">
@@ -90,7 +77,7 @@
   };
 </script>
 
-  <title>Yolo算法实战 | DY的个人博客</title>
+  <title>去噪自编码网络 | DY的个人博客</title>
   
 
 
@@ -256,7 +243,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/31/Yolo%E7%AE%97%E6%B3%95%E5%AE%9E%E6%88%98/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/27/%E5%8E%BB%E5%99%AA%E8%87%AA%E7%BC%96%E7%A0%81%E7%BD%91%E7%BB%9C/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="湛蓝星空">
@@ -270,7 +257,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">Yolo算法实战
+          <h1 class="post-title" itemprop="name headline">去噪自编码网络
 
               
             
@@ -290,7 +277,7 @@
                 
               
 
-              <time title="创建时间：2019-10-31 20:27:47" itemprop="dateCreated datePublished" datetime="2019-10-31T20:27:47+08:00">2019-10-31</time>
+              <time title="创建时间：2020-02-27 19:23:10" itemprop="dateCreated datePublished" datetime="2020-02-27T19:23:10+08:00">2020-02-27</time>
             </span>
           
             
@@ -303,7 +290,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-11-19 13:00:39" itemprop="dateModified" datetime="2019-11-19T13:00:39+08:00">2019-11-19</time>
+                <time title="修改时间：2020-02-28 20:35:32" itemprop="dateModified" datetime="2020-02-28T20:35:32+08:00">2020-02-28</time>
               </span>
             
           
@@ -315,21 +302,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/" itemprop="url" rel="index"><span itemprop="name">目标检测</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/One-stage/" itemprop="url" rel="index"><span itemprop="name">One-stage</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/One-stage/Yolo/" itemprop="url" rel="index"><span itemprop="name">Yolo</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">深度学习</span></a></span>
 
                 
                 
@@ -348,66 +321,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="coco介绍"><a href="#coco介绍" class="headerlink" title="coco介绍"></a>coco介绍</h2><p>本次实战采用coco数据集。这个数据集是由微软团队提供的。<a href="http://cocodataset.org/#download" target="_blank" rel="noopener">下载网址</a></p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191031203750.png" alt=""></p>
-<p>annotations是采用json格式标注的，包含三个信息：object instances(物体当前的实例信息)、object keypoints(关键点信息)、image caption(图像信息)</p>
-<p>下图是标注文件的整体结构：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191031210251.png" alt=""></p>
-<p>info是基本信息，image是图像信息，annotations是针对于图像数据的标注信息。下图是除了annotations字段其它字段展开后的具体信息：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191031210505.png" alt=""></p>
-<p>我们要具体关注annotations的信息。annotations信息如下：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191031211132.png" alt=""></p>
-<p>对于annotations，如果我们标注当前的图片为单个物体或多个物体时我们需要修改iscrowd和segmentation。</p>
-<p>单个object时：</p>
-<blockquote>
-<p>iscrowd=0</p>
-<p>segmentation=polygon</p>
-</blockquote>
-<p>多个objects时：</p>
-<blockquote>
-<p>iscrowd=1</p>
-<p>segmentation=RLE</p>
-</blockquote>
-<h2 id="检测模型的搭建"><a href="#检测模型的搭建" class="headerlink" title="检测模型的搭建"></a>检测模型的搭建</h2><h3 id="Darknet的搭建"><a href="#Darknet的搭建" class="headerlink" title="Darknet的搭建"></a>Darknet的搭建</h3><p>Darknet是一个较为轻型的完全基于C与CUDA的开源深度学习框架。支持CPU和GPU两种计算方式。容易安装，且没有任何依赖项。</p>
-<p> 在windows上我是看这篇博客配好darknet的。<a href="https://blog.csdn.net/lvsehaiyang1993/article/details/81032826" target="_blank" rel="noopener">https://blog.csdn.net/lvsehaiyang1993/article/details/81032826</a> </p>
-<p>注意在使用darknet的时候最后如果出现Couldn’t open file: D:/darknet/data/coco.names。重新下一次zip文件、解压再编译一次。博客中说会有predictions.png文件，我并没有找到。百度是说，电脑内存不够运算。</p>
-<p>后面训练的时候，有报错</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191103104157.png" alt=""></p>
-<p>在网上没有找到解决方案。所以更换了系统再配一次。</p>
-<p>在ubuntu上我配了一次。配得我都吐了，最后还把opencv装到python2上。过程不写了，网上都是。也都不是。坑踩踩就好了。我的博客有教程</p>
-<h3 id="Darknet解读"><a href="#Darknet解读" class="headerlink" title="Darknet解读"></a>Darknet解读</h3><p>下面的部分图片是windows。</p>
-<p>Darknet文件结构：</p>
-<p>src、include、obj：存放了darknet的源码和编译后的文件</p>
-<p>cfg：存放了作者提供好的各种各样的网络配置文件</p>
-<p>打开cfg文件夹下的yolov3.cfg文件，下图网络配置信息的含义。</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191102204940.png" alt=""></p>
-<p>接下去的就是主干网络。一组中括号加上网络层的名字定义当前的网络属于哪一层。接着是训练过程中用到的信息。然后就是中括号加上convolutional定义卷积层和卷积层的参数，同样定义了池化层和池化层参数。略过，我们直接看Yolo层</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191102211807.png" alt=""></p>
-<p>接着打开coco.data文件，配置如下：</p>
-<p>在windows下，我没有找到train和valid两个文件列表。linux也没有找到</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191102213118.png" alt=""></p>
-<p>data：存放了接下来用到的数据</p>
-<p>script：存放了一些脚本</p>
-<p>python：存放了darknet编译出来针对于python的接口</p>
-<p>examples：存放了我们可能会用到的函数接口</p>
-<p>backup：存放了模型训练时中间结果。比如说，在训练1000次的时候存一个model，10000次的时候存一个model。这个训练多少次保存一次模型，也是可以修改的。在examples文件夹下的detector.c文件的138行修改。<img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191102164144.png" alt=""></p>
-<p><strong>注意：每次修改darknet配置，都要重新编译。</strong></p>
-<h3 id="Darknet的使用"><a href="#Darknet的使用" class="headerlink" title="Darknet的使用"></a>Darknet的使用</h3><p>安装完darknet后，在终端运行./darknet，</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191103191816.png" alt=""></p>
-<p>在window上运行darknet就行了</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191102164403.png" alt=""></p>
-<p>这句话告诉我们调用darknet来进行模型训练，我们需要采用的格式为./darknet 函数来完成调用。</p>
-<p>在ubuntu进行数据增强：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed2/master/20191103192537.png" alt=""></p>
-<p>在windows上显示不出来。我怀疑是因为我的windows上没有编译运行opencv，编译过后应该可以运行的。大家可以试一下。</p>
-<p>训练命令：</p>
-<p>./darknet detector train cfg/coco.data  cfg/yolov3.cfg  </p>
-<p>采用预训练的模型：</p>
-<p>./darknet detector train cfg/coco.data  cfg/yolov3.cfg  cfg/yolov3_20000.weights</p>
-<p>测试命令：</p>
-<p>./darknet detector test cfg/coco.data  cfg/yolov3.cfg  backup/yolov3_20000.weights data/giraffe.jpg -thresh 0.4</p>
-<p>-thresh用于阈值筛选</p>
-<p>在example下，darknet有提供python的接口。我们也可以利用这个接口完成模型测试。</p>
+        <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>要想取得好的特征只靠重构输入数据是不够的，实际上，还需要让这些特征具有抗干扰的能力，即当输入数据发生一定程度的扰动时，生成的特征仍然保持不变。这时需要添加噪声为模型增加更大的困难。在这种情况下训练出来的模型才会有更好的鲁棒性，于是就有了去噪自编码网络</p>
+<p>去噪自编码网络（DA）是在自动编码的基础上，训练数据加入噪声，输出的标签仍是原始的样本（没有加入噪声的），这样自动编码器必须学习去除噪声而获得真正的没有被噪声污染过的输入特征。因此，这就迫使编码器去学习输入信号的更加鲁棒的特征表达，即具有更加强悍的泛化能力</p>
+<p>在实际训练中，人为加入噪声有两种途径：</p>
+<p>（1）在选择训练数据集时，额外选择一些样本集以外的数据</p>
+<p>（2）改变已有的样本数据集中的数据</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> tensorflow.examples.tutorials.mnist <span class="keyword">import</span> input_data</span><br><span class="line"></span><br><span class="line">mnist = input_data.read_data_sets(<span class="string">"/data/"</span>, one_hot=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">train_X   = mnist.train.images</span><br><span class="line">train_Y = mnist.train.labels</span><br><span class="line">test_X    = mnist.test.images</span><br><span class="line">test_Y  = mnist.test.labels</span><br><span class="line"></span><br><span class="line">tf.reset_default_graph()</span><br><span class="line"></span><br><span class="line">n_input    = <span class="number">784</span> </span><br><span class="line">n_hidden_1 = <span class="number">256</span> </span><br><span class="line"></span><br><span class="line">x = tf.placeholder(<span class="string">"float"</span>, [<span class="literal">None</span>, n_input])</span><br><span class="line">y = tf.placeholder(<span class="string">"float"</span>, [<span class="literal">None</span>, n_input])</span><br><span class="line">dropout_keep_prob = tf.placeholder(<span class="string">"float"</span>)</span><br><span class="line"></span><br><span class="line">weights = &#123;</span><br><span class="line">    <span class="string">'h1'</span>: tf.Variable(tf.random_normal([n_input, n_hidden_1])),</span><br><span class="line">    <span class="string">'h2'</span>: tf.Variable(tf.random_normal([n_hidden_1, n_hidden_1])),</span><br><span class="line">    <span class="string">'out'</span>: tf.Variable(tf.random_normal([n_hidden_1, n_input]))</span><br><span class="line">&#125;</span><br><span class="line">biases = &#123;</span><br><span class="line">    <span class="string">'b1'</span>: tf.Variable(tf.zeros([n_hidden_1])),</span><br><span class="line">    <span class="string">'b2'</span>: tf.Variable(tf.zeros([n_hidden_1])),</span><br><span class="line">    <span class="string">'out'</span>: tf.Variable(tf.zeros([n_input]))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">denoise_auto_encoder</span><span class="params">(_X, _weights, _biases, _keep_prob)</span>:</span></span><br><span class="line">    layer_1 = tf.nn.sigmoid(tf.add(tf.matmul(_X, _weights[<span class="string">'h1'</span>]), _biases[<span class="string">'b1'</span>])) </span><br><span class="line">    layer_1out = tf.nn.dropout(layer_1, _keep_prob) </span><br><span class="line">    layer_2 = tf.nn.sigmoid(tf.add(tf.matmul(layer_1out, _weights[<span class="string">'h2'</span>]), _biases[<span class="string">'b2'</span>])) </span><br><span class="line">    layer_2out = tf.nn.dropout(layer_2, _keep_prob) </span><br><span class="line">    <span class="keyword">return</span> tf.nn.sigmoid(tf.matmul(layer_2out, _weights[<span class="string">'out'</span>]) + _biases[<span class="string">'out'</span>])</span><br><span class="line"></span><br><span class="line">reconstruction = denoise_auto_encoder(x, weights, biases, dropout_keep_probcost = tf.reduce_mean(tf.pow(reconstruction-y, <span class="number">2</span>))</span><br><span class="line">optm = tf.train.AdamOptimizer(<span class="number">0.01</span>).minimize(cost) </span><br><span class="line"></span><br><span class="line">epochs     = <span class="number">20</span></span><br><span class="line">batch_size = <span class="number">256</span></span><br><span class="line">disp_step  = <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    sess.run(tf.global_variables_initializer())</span><br><span class="line"></span><br><span class="line">    <span class="keyword">print</span> (<span class="string">"开始训练"</span>)</span><br><span class="line">    <span class="keyword">for</span> epoch <span class="keyword">in</span> range(epochs):</span><br><span class="line">        num_batch  = int(mnist.train.num_examples/batch_size)</span><br><span class="line">        total_cost = <span class="number">0.</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(num_batch):</span><br><span class="line">            batch_xs, batch_ys = mnist.train.next_batch(batch_size)</span><br><span class="line">            batch_xs_noisy = batch_xs + <span class="number">0.3</span>*np.random.randn(batch_size, <span class="number">784</span>)</span><br><span class="line">            feeds = &#123;x: batch_xs_noisy, y: batch_xs, dropout_keep_prob: <span class="number">1.</span>&#125;</span><br><span class="line">            sess.run(optm, feed_dict=feeds)</span><br><span class="line">            total_cost += sess.run(cost, feed_dict=feeds)</span><br><span class="line">        <span class="keyword">if</span> epoch % disp_step == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">print</span> (<span class="string">"Epoch %02d/%02d average cost: %.6f"</span> </span><br><span class="line">                   % (epoch, epochs, total_cost/num_batch))</span><br><span class="line">    <span class="keyword">print</span> (<span class="string">"完成"</span>)</span><br><span class="line">    show_num = <span class="number">10</span></span><br><span class="line">    test_noisy = mnist.test.images[:show_num] + <span class="number">0.3</span>*np.random.randn(show_num, <span class="number">784</span>)</span><br><span class="line">    encode_decode = sess.run(</span><br><span class="line">        reconstruction, feed_dict=&#123;x: test_noisy, dropout_keep_prob: <span class="number">1.</span>&#125;)</span><br><span class="line">    f, a = plt.subplots(<span class="number">3</span>, <span class="number">10</span>, figsize=(<span class="number">10</span>, <span class="number">3</span>))</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(show_num):</span><br><span class="line">        a[<span class="number">0</span>][i].imshow(np.reshape(test_noisy[i], (<span class="number">28</span>, <span class="number">28</span>)))</span><br><span class="line">        a[<span class="number">1</span>][i].imshow(np.reshape(mnist.test.images[i], (<span class="number">28</span>, <span class="number">28</span>)))</span><br><span class="line">        a[<span class="number">2</span>][i].matshow(np.reshape(encode_decode[i], (<span class="number">28</span>, <span class="number">28</span>)), cmap=plt.get_cmap(<span class="string">'gray'</span>))</span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -454,13 +373,13 @@
           
         
         <div class="post-tags">
-            <a href="/tags/Yolo%E7%AE%97%E6%B3%95/" rel="tag"># Yolo算法</a>
+            <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag"># 深度学习</a>
           
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2019/10/29/Yolo-%E7%B3%BB%E5%88%97%E7%AE%97%E6%B3%95/" rel="next" title="Yolo系列算法">
-                <i class="fa fa-chevron-left"></i> Yolo系列算法
+              <a href="/2020/02/27/%E8%87%AA%E7%BC%96%E7%A0%81%E7%BD%91%E7%BB%9C%E4%BB%8B%E7%BB%8D/" rel="next" title="自编码网络介绍">
+                <i class="fa fa-chevron-left"></i> 自编码网络介绍
               </a>
             
           </div>
@@ -468,8 +387,8 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2019/11/09/ubuntu%E4%B8%8B%E8%A3%85python3/" rel="prev" title="ubuntu下装python3和库">
-                ubuntu下装python3和库 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/02/27/%E6%A0%88%E5%BC%8F%E8%87%AA%E7%BC%96%E7%A0%81/" rel="prev" title="栈式自编码网络">
+                栈式自编码网络 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -526,7 +445,7 @@
         
           <a href="/archives/%20%7C%7C%20archive">
         
-          <span class="site-state-item-count">112</span>
+          <span class="site-state-item-count">114</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -595,7 +514,9 @@
         
           
         
-        <span class="site-state-item-count">27</span>
+          
+        
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
@@ -741,7 +662,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#coco介绍"><span class="nav-text">coco介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#检测模型的搭建"><span class="nav-text">检测模型的搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Darknet的搭建"><span class="nav-text">Darknet的搭建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Darknet解读"><span class="nav-text">Darknet解读</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Darknet的使用"><span class="nav-text">Darknet的使用</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-text">代码</span></a></li></ol></div>
             
 
           </div>

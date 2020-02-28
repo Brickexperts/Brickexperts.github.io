@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta name="generator" content="Hexo 4.0.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.3.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.3.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    search: {
+      root: '/',
+      path: 'search.xml'
+    },
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    }
+  };
+</script>
+
+  <meta name="description" content="深度学习领域主要有两种训练模式：一种是监督学习，另一种是非监督学习。前者有样本有标签，后者只有样本。此外还有半监督学习，半监督学习属于非监督学习领域 相对于监督学习来说，非监督学习就显得简单得多。非监督学习能让网络直接使用样本进行训练，不需要准备标签。接下来我们就来学习一个非监督模型的网络——自编码网络 介绍人们看一张图时，一般是扫一眼物体，大致会得到图片的诸多特征。而计算机是逐个元素去读，怎么让">
+<meta name="keywords" content="深度学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自编码网络介绍">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;27&#x2F;%E8%87%AA%E7%BC%96%E7%A0%81%E7%BD%91%E7%BB%9C%E4%BB%8B%E7%BB%8D&#x2F;index.html">
+<meta property="og:site_name" content="DY的个人博客">
+<meta property="og:description" content="深度学习领域主要有两种训练模式：一种是监督学习，另一种是非监督学习。前者有样本有标签，后者只有样本。此外还有半监督学习，半监督学习属于非监督学习领域 相对于监督学习来说，非监督学习就显得简单得多。非监督学习能让网络直接使用样本进行训练，不需要准备标签。接下来我们就来学习一个非监督模型的网络——自编码网络 介绍人们看一张图时，一般是扫一眼物体，大致会得到图片的诸多特征。而计算机是逐个元素去读，怎么让">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;image-bed3&#x2F;master&#x2F;20200227133126.png">
+<meta property="og:updated_time" content="2020-02-28T12:49:12.670Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;image-bed3&#x2F;master&#x2F;20200227133126.png">
+  <link rel="alternate" href="/atom.xml" title="DY的个人博客" type="application/atom+xml">
+  <link rel="canonical" href="http://yoursite.com/2020/02/27/%E8%87%AA%E7%BC%96%E7%A0%81%E7%BD%91%E7%BB%9C%E4%BB%8B%E7%BB%8D/">
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>自编码网络介绍 | DY的个人博客</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">DY的个人博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+    <ul id="menu" class="menu">
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-search">
+          <a href="javascript:;" target="_blank" rel="noopener" class="popup-trigger">
+          
+            <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+    </div>
+</nav>
+
+</div>
+    </header>
+
+    
+
+  <a href="https://github.com/Brickexperts" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/27/%E8%87%AA%E7%BC%96%E7%A0%81%E7%BD%91%E7%BB%9C%E4%BB%8B%E7%BB%8D/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="湛蓝星空">
+      <meta itemprop="description" content="这个人贼菜">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DY的个人博客">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">自编码网络介绍
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-02-27 11:10:16" itemprop="dateCreated datePublished" datetime="2020-02-27T11:10:16+08:00">2020-02-27</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-02-28 20:49:12" itemprop="dateModified" datetime="2020-02-28T20:49:12+08:00">2020-02-28</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">深度学习</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E8%87%AA%E7%BC%96%E7%A0%81%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">自编码网络</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          <br>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>深度学习领域主要有两种训练模式：一种是监督学习，另一种是非监督学习。前者有样本有标签，后者只有样本。此外还有半监督学习，半监督学习属于非监督学习领域</p>
+<p>相对于监督学习来说，非监督学习就显得简单得多。非监督学习能让网络直接使用样本进行训练，不需要准备标签。接下来我们就来学习一个非监督模型的网络——自编码网络</p>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>人们看一张图时，一般是扫一眼物体，大致会得到图片的诸多特征。而计算机是逐个元素去读，怎么让计算机也具有人类的能力呢？用自编码网络</p>
+<p>自编码网络是非监督学习领域中的一种，可以自动从无标注的数据中学习特征，是一种以重构输入信号为目标的神经网络，它可以给出比原始数据更好的特征描述，具有较强的特征学习能力，在深度学习中常用自编码网络生成的特征来取代原始数据，以得到更好的结果</p>
+<p>自编码（AE）网络是输入等于输出的网络，最基本的模型可以是为三层神经网络，也就是输入层、隐藏层、输出层。其中，输入层的样本也会充当输出层的标签。即：这个神经网络就是一种尽可能复现输入信号的神经网络。</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/image-bed3/master/20200227133126.png" alt=""></p>
+<p>在上图中，自编码器要求输出尽可能等于输入，并且其隐藏层必须满足一定的稀疏性，是通过将隐藏层中的后一层个数比前一层神经元个数少的方式来实现稀疏效果的。相当于隐藏层对输入进行了压缩，并在输出层中解压缩。整个过程是一定会丢失信息的，但训练能够使丢失的信息尽量减少，最大化地保留其主要特征。这样的自动编码器可以捕捉代表输入数据的最重要的因素，类似PCA算法。</p>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> tensorflow.examples.tutorials.mnist <span class="keyword">import</span> input_data</span><br><span class="line">mnist=input_data.read_data_sets(<span class="string">"/data/"</span>,one_hot=<span class="literal">True</span>)</span><br><span class="line">learning_rate=<span class="number">0.01</span></span><br><span class="line"><span class="comment">#第一层隐藏层节点</span></span><br><span class="line">n_hidden_1=<span class="number">256</span></span><br><span class="line"><span class="comment">#第二层隐藏层节点</span></span><br><span class="line">n_hidden_2=<span class="number">128</span></span><br><span class="line">n_input=<span class="number">784</span> <span class="comment">#28*28</span></span><br><span class="line">x=tf.placeholder(<span class="string">"float"</span>,[<span class="literal">None</span>,n_input])</span><br><span class="line">y=x</span><br><span class="line">weights = &#123;</span><br><span class="line">    <span class="string">'encoder_h1'</span>: tf.Variable(tf.random_normal([n_input, n_hidden_1])),</span><br><span class="line">    <span class="string">'encoder_h2'</span>: tf.Variable(tf.random_normal([n_hidden_1, n_hidden_2])),</span><br><span class="line">    <span class="string">'decoder_h1'</span>: tf.Variable(tf.random_normal([n_hidden_2, n_hidden_1])),</span><br><span class="line">    <span class="string">'decoder_h2'</span>: tf.Variable(tf.random_normal([n_hidden_1, n_input])),</span><br><span class="line">&#125;</span><br><span class="line">biases = &#123;</span><br><span class="line">    <span class="string">'encoder_b1'</span>: tf.Variable(tf.zeros([n_hidden_1])),</span><br><span class="line">    <span class="string">'encoder_b2'</span>: tf.Variable(tf.zeros([n_hidden_2])),</span><br><span class="line">    <span class="string">'decoder_b1'</span>: tf.Variable(tf.zeros([n_hidden_1])),</span><br><span class="line">    <span class="string">'decoder_b2'</span>: tf.Variable(tf.zeros([n_input])),</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">#编码</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">encoder</span><span class="params">(x)</span>:</span></span><br><span class="line">  layer_1=tf.nn.sigmoid(tf.add(tf.matmul(x,weights[<span class="string">"encoder_h1"</span>]),biases[<span class="string">"encoder_b1"</span>]))</span><br><span class="line">  layer_2=tf.nn.sigmoid(tf.add(tf.matmul(layer_1,weights[<span class="string">"encoder_h2"</span>]),biases[<span class="string">"encoder_b2"</span>]))</span><br><span class="line">  <span class="keyword">return</span> layer_2</span><br><span class="line"><span class="comment">#解码</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decoder</span><span class="params">(x)</span>:</span></span><br><span class="line">  layer_1=tf.nn.sigmoid(tf.add(tf.matmul(x,weights[<span class="string">"decoder_h1"</span>]),biases[<span class="string">"decoder_b1"</span>]))</span><br><span class="line">  layer_2=tf.nn.sigmoid(tf.add(tf.matmul(layer_1,weights[<span class="string">"decoder_h2"</span>]),biases[<span class="string">"decoder_b2"</span>]))</span><br><span class="line">  <span class="keyword">return</span> layer_2</span><br><span class="line">encoder_out=encoder(x)</span><br><span class="line">pred=decoder(encoder_out)</span><br><span class="line">cost = tf.reduce_mean(tf.pow(y - pred, <span class="number">2</span>))</span><br><span class="line">optimizer = tf.train.RMSPropOptimizer(learning_rate).minimize(cost)</span><br><span class="line"><span class="comment"># 训练参数</span></span><br><span class="line">training_epochs = <span class="number">100</span>  </span><br><span class="line">batch_size = <span class="number">256</span>     </span><br><span class="line">display_step = <span class="number">10</span>     </span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    sess.run(tf.global_variables_initializer())</span><br><span class="line">    total_batch = int(mnist.train.num_examples/batch_size)</span><br><span class="line">    <span class="keyword">for</span> epoch <span class="keyword">in</span> range(training_epochs):   </span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(total_batch):</span><br><span class="line">            batch_xs, batch_ys = mnist.train.next_batch(batch_size)<span class="comment">#取数据</span></span><br><span class="line">            _, c = sess.run([optimizer, cost], feed_dict=&#123;x: batch_xs&#125;)<span class="comment"># 训练模型</span></span><br><span class="line">        <span class="keyword">if</span> epoch % display_step == <span class="number">0</span>:</span><br><span class="line">            print(<span class="string">"Epoch:"</span>, <span class="string">'%04d'</span> % (epoch+<span class="number">1</span>),<span class="string">"cost="</span>, <span class="string">"&#123;:.9f&#125;"</span>.format(c))</span><br><span class="line">    print(<span class="string">"完成!"</span>)  </span><br><span class="line">    <span class="comment"># 测试</span></span><br><span class="line">    correct_prediction = tf.equal(tf.argmax(pred, <span class="number">1</span>), tf.argmax(y, <span class="number">1</span>))</span><br><span class="line">    <span class="comment"># 计算错误率</span></span><br><span class="line">    accuracy = tf.reduce_mean(tf.cast(correct_prediction, <span class="string">"float"</span>))</span><br><span class="line">    <span class="keyword">print</span> (<span class="string">"Accuracy:"</span>, <span class="number">1</span>-accuracy.eval(&#123;x: mnist.test.images, y: mnist.test.images&#125;))</span><br><span class="line"></span><br><span class="line">    show_num = <span class="number">10</span></span><br><span class="line">    reconstruction = sess.run(</span><br><span class="line">        pred, feed_dict=&#123;x: mnist.test.images[:show_num]&#125;)</span><br><span class="line">    f, a = plt.subplots(<span class="number">2</span>, <span class="number">10</span>, figsize=(<span class="number">10</span>, <span class="number">2</span>))</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(show_num):</span><br><span class="line">        a[<span class="number">0</span>][i].imshow(np.reshape(mnist.test.images[i], (<span class="number">28</span>, <span class="number">28</span>)))</span><br><span class="line">        a[<span class="number">1</span>][i].imshow(np.reshape(reconstruction[i], (<span class="number">28</span>, <span class="number">28</span>)))</span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure>
+<h2 id="线性解码器"><a href="#线性解码器" class="headerlink" title="线性解码器"></a>线性解码器</h2><p>在上面的代码中，使用的激活函数是sigmoid，这是一个S型激活函数，输出范围是[0,1]。当我们对最终提取的特征节点采用该激活函数时，就相当于对输入限制或缩放，使其位于[0,1]范围中。有一些数据集，比如MNIST，能方便地将输出缩放到[0,1]中，但是很难满足对输入值的要求。利用一个恒等式来作为激活函数，就可以解决这个问题，f(z)=z，即：没有激活函数。</p>
+<p><strong>注意：这个只是对最后的输出层而言，隐藏层要使用激活函数</strong></p>
+<p>由多个带有S型激活函数的隐藏层及一个线性输出层构成的自编码器，成为线性解码器</p>
+<h2 id="自编码的卷积网络"><a href="#自编码的卷积网络" class="headerlink" title="自编码的卷积网络"></a>自编码的卷积网络</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> tensorflow.examples.tutorials.mnist <span class="keyword">import</span> input_data</span><br><span class="line">mnist = input_data.read_data_sets(<span class="string">"/data/"</span>, one_hot=<span class="literal">True</span>)</span><br><span class="line">learning_rate = <span class="number">0.01</span>    </span><br><span class="line">n_hidden_1 = <span class="number">256</span></span><br><span class="line">n_hidden_2 = <span class="number">64</span></span><br><span class="line">n_hidden_3 = <span class="number">16</span></span><br><span class="line">n_hidden_4 = <span class="number">2</span></span><br><span class="line">n_input = <span class="number">784</span> </span><br><span class="line"></span><br><span class="line">x = tf.placeholder(<span class="string">"float"</span>, [<span class="literal">None</span>,n_input])</span><br><span class="line">y=x</span><br><span class="line">weights = &#123;</span><br><span class="line">    <span class="string">'encoder_h1'</span>: tf.Variable(tf.random_normal([n_input, n_hidden_1],)),</span><br><span class="line">    <span class="string">'encoder_h2'</span>: tf.Variable(tf.random_normal([n_hidden_1, n_hidden_2],)),</span><br><span class="line">    <span class="string">'encoder_h3'</span>: tf.Variable(tf.random_normal([n_hidden_2, n_hidden_3],)),</span><br><span class="line">    <span class="string">'encoder_h4'</span>: tf.Variable(tf.random_normal([n_hidden_3, n_hidden_4],)),</span><br><span class="line"></span><br><span class="line">    <span class="string">'decoder_h1'</span>: tf.Variable(tf.random_normal([n_hidden_4, n_hidden_3],)),</span><br><span class="line">    <span class="string">'decoder_h2'</span>: tf.Variable(tf.random_normal([n_hidden_3, n_hidden_2],)),</span><br><span class="line">    <span class="string">'decoder_h3'</span>: tf.Variable(tf.random_normal([n_hidden_2, n_hidden_1],)),</span><br><span class="line">    <span class="string">'decoder_h4'</span>: tf.Variable(tf.random_normal([n_hidden_1, n_input],)),</span><br><span class="line">	&#125; </span><br><span class="line">biases = &#123;</span><br><span class="line">    <span class="string">'encoder_b1'</span>: tf.Variable(tf.zeros([n_hidden_1])),</span><br><span class="line">    <span class="string">'encoder_b2'</span>: tf.Variable(tf.zeros([n_hidden_2])),</span><br><span class="line">    <span class="string">'encoder_b3'</span>: tf.Variable(tf.zeros([n_hidden_3])),</span><br><span class="line">    <span class="string">'encoder_b4'</span>: tf.Variable(tf.zeros([n_hidden_4])),</span><br><span class="line"></span><br><span class="line">    <span class="string">'decoder_b1'</span>: tf.Variable(tf.zeros([n_hidden_3])),</span><br><span class="line">    <span class="string">'decoder_b2'</span>: tf.Variable(tf.zeros([n_hidden_2])),</span><br><span class="line">    <span class="string">'decoder_b3'</span>: tf.Variable(tf.zeros([n_hidden_1])),</span><br><span class="line">    <span class="string">'decoder_b4'</span>: tf.Variable(tf.zeros([n_input])),</span><br><span class="line">	&#125;</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">encoder</span><span class="params">(x)</span>:</span></span><br><span class="line">    layer_1 = tf.nn.sigmoid(tf.add(tf.matmul(x, weights[<span class="string">'encoder_h1'</span>]),biases[<span class="string">'encoder_b1'</span>]))</span><br><span class="line">    layer_2 = tf.nn.sigmoid(tf.add(tf.matmul(layer_1, weights[<span class="string">'encoder_h2'</span>]),biases[<span class="string">'encoder_b2'</span>]))</span><br><span class="line">    layer_3 = tf.nn.sigmoid(tf.add(tf.matmul(layer_2, weights[<span class="string">'encoder_h3'</span>]),biases[<span class="string">'encoder_b3'</span>]))</span><br><span class="line">    layer_4 = tf.add(tf.matmul(layer_3, weights[<span class="string">'encoder_h4'</span>]),biases[<span class="string">'encoder_b4'</span>])</span><br><span class="line">    <span class="keyword">return</span> layer_4</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decoder</span><span class="params">(x)</span>:</span></span><br><span class="line">    layer_1 = tf.nn.sigmoid(tf.add(tf.matmul(x, weights[<span class="string">'decoder_h1'</span>]),biases[<span class="string">'decoder_b1'</span>]))</span><br><span class="line">    layer_2 = tf.nn.sigmoid(tf.add(tf.matmul(layer_1, weights[<span class="string">'decoder_h2'</span>]), biases[<span class="string">'decoder_b2'</span>]))</span><br><span class="line">    layer_3 = tf.nn.sigmoid(tf.add(tf.matmul(layer_2, weights[<span class="string">'decoder_h3'</span>]),biases[<span class="string">'decoder_b3'</span>]))</span><br><span class="line">    layer_4 = tf.nn.sigmoid(tf.add(tf.matmul(layer_3, weights[<span class="string">'decoder_h4'</span>]),biases[<span class="string">'decoder_b4'</span>]))</span><br><span class="line">    <span class="keyword">return</span> layer_4</span><br><span class="line"></span><br><span class="line">encoder_op = encoder(x) 			</span><br><span class="line">y_pred = decoder(encoder_op)	</span><br><span class="line">cost = tf.reduce_mean(tf.pow(y - y_pred, <span class="number">2</span>))</span><br><span class="line">optimizer = tf.train.AdamOptimizer(learning_rate).minimize(cost)</span><br><span class="line">training_epochs = <span class="number">100</span> </span><br><span class="line">batch_size = <span class="number">256</span></span><br><span class="line">display_step = <span class="number">10</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    sess.run(tf.global_variables_initializer())</span><br><span class="line">    total_batch = int(mnist.train.num_examples/batch_size)</span><br><span class="line">    <span class="keyword">for</span> epoch <span class="keyword">in</span> range(training_epochs):</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(total_batch):</span><br><span class="line">            batch_xs, batch_ys = mnist.train.next_batch(batch_size)  </span><br><span class="line">        <span class="keyword">if</span> epoch % display_step == <span class="number">0</span>:</span><br><span class="line">            print(<span class="string">"Epoch:"</span>, <span class="string">'%04d'</span> % (epoch+<span class="number">1</span>),<span class="string">"cost="</span>, <span class="string">"&#123;:.9f&#125;"</span>.format(c))</span><br><span class="line">    print(<span class="string">"完成!"</span>)</span><br><span class="line">    show_num = <span class="number">10</span></span><br><span class="line">    encode_decode = sess.run(</span><br><span class="line">        y_pred, feed_dict=&#123;x: mnist.test.images[:show_num]&#125;)</span><br><span class="line">    f, a = plt.subplots(<span class="number">2</span>, <span class="number">10</span>, figsize=(<span class="number">10</span>, <span class="number">2</span>))</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(show_num):</span><br><span class="line">        a[<span class="number">0</span>][i].imshow(np.reshape(mnist.test.images[i], (<span class="number">28</span>, <span class="number">28</span>)))</span><br><span class="line">        a[<span class="number">1</span>][i].imshow(np.reshape(encode_decode[i], (<span class="number">28</span>, <span class="number">28</span>)))</span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure>
+<p>如果读者得到更好的特征提取效果，可以将压缩的层数变得更多，但是由于sigmoid函数的缺陷，无法使用更深的层，所以只能做成4层压缩。这有一个解决办法——使用栈式自编码器</p>
+<h2 id="使用自编码的卷积网络"><a href="#使用自编码的卷积网络" class="headerlink" title="使用自编码的卷积网络"></a>使用自编码的卷积网络</h2><p>自编码结构不仅只用在全连接网络上，还可用在卷积网络</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> tensorflow.examples.tutorials.mnist <span class="keyword">import</span> input_data</span><br><span class="line">mnist = input_data.read_data_sets(<span class="string">"/data/"</span>, one_hot=<span class="literal">True</span>)</span><br><span class="line"><span class="comment">#最大池化</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">max_pool_with_argmax</span><span class="params">(net, stride)</span>:</span></span><br><span class="line">    _, mask = tf.nn.max_pool_with_argmax( net,ksize=[<span class="number">1</span>, stride, stride, <span class="number">1</span>], strides=[<span class="number">1</span>, stride, stride, <span class="number">1</span>],padding=<span class="string">'SAME'</span>)</span><br><span class="line">    mask = tf.stop_gradient(mask)</span><br><span class="line">    net = tf.nn.max_pool(net, ksize=[<span class="number">1</span>, stride, stride, <span class="number">1</span>],strides=[<span class="number">1</span>, stride, stride, <span class="number">1</span>], padding=<span class="string">'SAME'</span>) </span><br><span class="line">    <span class="keyword">return</span> net, mask</span><br><span class="line"><span class="comment">#4*4----2*2--=2*2 【6，8，12，16】    </span></span><br><span class="line"><span class="comment">#反池化</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">unpool</span><span class="params">(net, mask, stride)</span>:</span></span><br><span class="line">    ksize = [<span class="number">1</span>, stride, stride, <span class="number">1</span>]</span><br><span class="line">    input_shape = net.get_shape().as_list()</span><br><span class="line">    output_shape = (input_shape[<span class="number">0</span>], input_shape[<span class="number">1</span>] * ksize[<span class="number">1</span>], input_shape[<span class="number">2</span>] * ksize[<span class="number">2</span>], input_shape[<span class="number">3</span>])</span><br><span class="line"></span><br><span class="line">    one_like_mask = tf.ones_like(mask)</span><br><span class="line">    batch_range = tf.reshape(tf.range(output_shape[<span class="number">0</span>], dtype=tf.int64), shape=[input_shape[<span class="number">0</span>], <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>])</span><br><span class="line">    b = one_like_mask * batch_range</span><br><span class="line">    y = mask // (output_shape[<span class="number">2</span>] * output_shape[<span class="number">3</span>])</span><br><span class="line">    x = mask % (output_shape[<span class="number">2</span>] * output_shape[<span class="number">3</span>]) // output_shape[<span class="number">3</span>]</span><br><span class="line">    feature_range = tf.range(output_shape[<span class="number">3</span>], dtype=tf.int64)</span><br><span class="line">    f = one_like_mask * feature_range</span><br><span class="line"></span><br><span class="line">    updates_size = tf.size(net)</span><br><span class="line">    indices = tf.transpose(tf.reshape(tf.stack([b, y, x, f]), [<span class="number">4</span>, updates_size]))</span><br><span class="line">    values = tf.reshape(net, [updates_size])</span><br><span class="line">    ret = tf.scatter_nd(indices, values, output_shape)</span><br><span class="line">    <span class="keyword">return</span> ret</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">conv2d</span><span class="params">(x, W)</span>:</span></span><br><span class="line">  <span class="keyword">return</span> tf.nn.conv2d(x, W, strides=[<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>], padding=<span class="string">'SAME'</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">max_pool_2x2</span><span class="params">(x)</span>:</span></span><br><span class="line">  <span class="keyword">return</span> tf.nn.max_pool(x, ksize=[<span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">1</span>],</span><br><span class="line">                        strides=[<span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">1</span>], padding=<span class="string">'SAME'</span>)  </span><br><span class="line">                        </span><br><span class="line">learning_rate = <span class="number">0.01</span></span><br><span class="line">n_conv_1 = <span class="number">16</span> </span><br><span class="line">n_conv_2 = <span class="number">32</span> </span><br><span class="line">n_input = <span class="number">784</span></span><br><span class="line">batchsize = <span class="number">50</span></span><br><span class="line"></span><br><span class="line">x = tf.placeholder(<span class="string">"float"</span>, [batchsize, n_input])</span><br><span class="line"></span><br><span class="line">x_image = tf.reshape(x, [<span class="number">-1</span>,<span class="number">28</span>,<span class="number">28</span>,<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">encoder</span><span class="params">(x)</span>:</span></span><br><span class="line">    h_conv1 = tf.nn.relu(conv2d(x, weights[<span class="string">'encoder_conv1'</span>]) + biases[<span class="string">'encoder_conv1'</span>])</span><br><span class="line">    h_conv2 = tf.nn.relu(conv2d(h_conv1, weights[<span class="string">'encoder_conv2'</span>]) + biases[<span class="string">'encoder_conv2'</span>])  </span><br><span class="line">    <span class="keyword">return</span> h_conv2,h_conv1</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decoder</span><span class="params">(x,conv1)</span>:</span></span><br><span class="line">    t_conv1 = tf.nn.conv2d_transpose(x-biases[<span class="string">'decoder_conv2'</span>], weights[<span class="string">'decoder_conv2'</span>], conv1.shape,[<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>])</span><br><span class="line">    t_x_image = tf.nn.conv2d_transpose(t_conv1-biases[<span class="string">'decoder_conv1'</span>], weights[<span class="string">'decoder_conv1'</span>], x_image.shape,[<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>])</span><br><span class="line">    <span class="keyword">return</span> t_x_image</span><br><span class="line"></span><br><span class="line">weights = &#123;</span><br><span class="line">    <span class="string">'encoder_conv1'</span>: tf.Variable(tf.truncated_normal([<span class="number">5</span>, <span class="number">5</span>, <span class="number">1</span>, n_conv_1],stddev=<span class="number">0.1</span>)),</span><br><span class="line">    <span class="string">'encoder_conv2'</span>: tf.Variable(tf.random_normal([<span class="number">3</span>, <span class="number">3</span>, n_conv_1, n_conv_2],stddev=<span class="number">0.1</span>)),</span><br><span class="line">    <span class="string">'decoder_conv1'</span>: tf.Variable(tf.random_normal([<span class="number">5</span>, <span class="number">5</span>, <span class="number">1</span>, n_conv_1],stddev=<span class="number">0.1</span>)),</span><br><span class="line">    <span class="string">'decoder_conv2'</span>: tf.Variable(tf.random_normal([<span class="number">3</span>, <span class="number">3</span>, n_conv_1, n_conv_2],stddev=<span class="number">0.1</span>))</span><br><span class="line">&#125;</span><br><span class="line">biases = &#123;</span><br><span class="line">    <span class="string">'encoder_conv1'</span>: tf.Variable(tf.zeros([n_conv_1])),</span><br><span class="line">    <span class="string">'encoder_conv2'</span>: tf.Variable(tf.zeros([n_conv_2])),</span><br><span class="line">    <span class="string">'decoder_conv1'</span>: tf.Variable(tf.zeros([n_conv_1])),</span><br><span class="line">    <span class="string">'decoder_conv2'</span>: tf.Variable(tf.zeros([n_conv_2])),</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">encoder_out,conv1 = encoder(x_image)</span><br><span class="line">h_pool2, mask = max_pool_with_argmax(encoder_out, <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">h_upool = unpool(h_pool2, mask, <span class="number">2</span>)</span><br><span class="line">pred = decoder(h_upool,conv1)</span><br><span class="line"></span><br><span class="line">cost = tf.reduce_mean(tf.pow(x_image - pred, <span class="number">2</span>))</span><br><span class="line">optimizer = tf.train.RMSPropOptimizer(learning_rate).minimize(cost)</span><br><span class="line"></span><br><span class="line">training_epochs = <span class="number">20</span>  </span><br><span class="line"></span><br><span class="line">display_step = <span class="number">5</span>   </span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    sess.run(tf.global_variables_initializer())   </span><br><span class="line">    total_batch = int(mnist.train.num_examples/batchsize)</span><br><span class="line">    <span class="keyword">for</span> epoch <span class="keyword">in</span> range(training_epochs):       </span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(total_batch):</span><br><span class="line">            batch_xs, batch_ys = mnist.train.next_batch(batchsize)</span><br><span class="line">            _, c = sess.run([optimizer, cost], feed_dict=&#123;x: batch_xs&#125;)</span><br><span class="line">        <span class="keyword">if</span> epoch % display_step == <span class="number">0</span>:</span><br><span class="line">            print(<span class="string">"Epoch:"</span>, <span class="string">'%04d'</span> % (epoch+<span class="number">1</span>),<span class="string">"cost="</span>, <span class="string">"&#123;:.9f&#125;"</span>.format(c))</span><br><span class="line"></span><br><span class="line">    print(<span class="string">"完成!"</span>)   </span><br><span class="line">    batch_xs, batch_ys = mnist.train.next_batch(batchsize)</span><br><span class="line">    <span class="keyword">print</span> (<span class="string">"Error:"</span>, cost.eval(&#123;x: batch_xs&#125;))</span><br><span class="line">    show_num = <span class="number">10</span></span><br><span class="line">    reconstruction = sess.run(</span><br><span class="line">        pred, feed_dict=&#123;x: batch_xs&#125;)</span><br><span class="line">    f, a = plt.subplots(<span class="number">2</span>, <span class="number">10</span>, figsize=(<span class="number">10</span>, <span class="number">2</span>))</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(show_num):</span><br><span class="line">        a[<span class="number">0</span>][i].imshow(np.reshape(batch_xs[i], (<span class="number">28</span>, <span class="number">28</span>)))</span><br><span class="line">        a[<span class="number">1</span>][i].imshow(np.reshape(reconstruction[i], (<span class="number">28</span>, <span class="number">28</span>)))</span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+<div>
+	
+		<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">----本文结束，感谢您的阅读。如有错，请指正。----</div>
+    
+</div>
+
+	
+</div>
+    
+      <div>
+        <div id="reward-container">
+  <div>大哥大嫂过年好！支持我一下呗</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.jpg" alt="湛蓝星空 微信支付">
+        <p>微信支付</p>
+      </div>
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/alipay.jpg" alt="湛蓝星空 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+      </div>
+
+    <footer class="post-footer">
+          
+        
+        <div class="post-tags">
+            <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag"># 深度学习</a>
+          
+        </div>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+              <a href="/2020/02/24/%E5%A4%8D%E7%8E%B0VGG/" rel="next" title="复现VGG">
+                <i class="fa fa-chevron-left"></i> 复现VGG
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+              <a href="/2020/02/27/%E5%8E%BB%E5%99%AA%E8%87%AA%E7%BC%96%E7%A0%81%E7%BD%91%E7%BB%9C/" rel="prev" title="去噪自编码网络">
+                去噪自编码网络 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.jpg"
+      alt="湛蓝星空">
+  <p class="site-author-name" itemprop="name">湛蓝星空</p>
+  <div class="site-description motion-element" itemprop="description">这个人贼菜</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/%20%7C%7C%20archive">
+        
+          <span class="site-state-item-count">114</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/%20%7C%7C%20th">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/%20%7C%7C%20tags">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">46</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/Brickexperts" title="GitHub &rarr; https://github.com/Brickexperts" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+  </div>
+
+
+
+        </div>
+      </div>
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码实现"><span class="nav-text">代码实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线性解码器"><span class="nav-text">线性解码器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自编码的卷积网络"><span class="nav-text">自编码的卷积网络</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用自编码的卷积网络"><span class="nav-text">使用自编码的卷积网络</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2019 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">湛蓝星空</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+
+    
+
+  </div>
+
+  
+    
+    
+  
+  <script color='0,0,0' opacity='0.5' zIndex='-1' count='150' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  <script src="/js/utils.js?v=7.3.0"></script>
+  <script src="/js/motion.js?v=7.3.0"></script>
+
+  
+  <script src="/js/affix.js?v=7.3.0"></script>
+  <script src="/js/schemes/pisces.js?v=7.3.0"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.3.0"></script>
+<script src="/js/post-details.js?v=7.3.0"></script>
+
+
+
+  <script src="/js/next-boot.js?v=7.3.0"></script>
+
+  
+
+  
+
+  
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.3.0"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
