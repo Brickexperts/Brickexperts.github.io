@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[高效寻找开源项目]]></title>
+    <url>%2F2020%2F03%2F16%2F%E9%AB%98%E6%95%88%E5%AF%BB%E6%89%BE%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%2F</url>
+    <content type="text"><![CDATA[今天我们来讲一下如何在github上高效的寻找适合自己的开源项目 首先，我们来明确一下github的一些因素。随便打开一个项目，如下所示： 上面的红框都是一些搜索的标准，还有star和fork数表明这个项目是否火热，也是搜索的标准 比如，我们在自学了python的Djange后，打算在github找小项目练练手，我们就直接在搜索框打Django，如下 接着发现项目非常的多。那怎么搜索名字里面包含Django的呢？用in:name Django 我们就可以找出名字里面包含Django的项目了。 然后我们还可以用项目的火热程度对我们寻找的项目划分范围：stars:&gt;3000 star数小于3000的项目就被过滤掉了。fork同理 当然我们还可以在描述里搜也可以在readme里搜。同时我们还可以限制语言(language)和更新时间(pushed)]]></content>
+      <categories>
+        <category>git和github</category>
+      </categories>
+      <tags>
+        <tag>github</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[GAN介绍]]></title>
     <url>%2F2020%2F03%2F06%2FGAN%E4%BB%8B%E7%BB%8D%2F</url>
     <content type="text"><![CDATA[原理对抗神经网络其实是两个网络的组合，可以理解为一个网络生成模拟数据，另一个网络判断生成的数据是真实的还是模拟的。生成模拟数据的网络要不断优化自己让判别网络判断不出来，判别网络也要优化自己让自己判断得更准确。二者形成对抗，故称为对抗神经网络（GAN）。 组成GAN由generator(生成式模型)和discriminator(判别式模型)两部分组成 generator：主要是从训练数据中产生相同分布得samples，对于输入x，类别标签y，在生成式模型中估计器联合概率分布 discriminator：判断输入是真实数据还是generator生成的数据，采用的是监督学习方法 上面两个模型结合后，经过大量次数的迭代训练会使generator尽可能模拟出以假乱真的样本，而discriminator会有更精确的鉴别真伪数据的能力，最后会达到纳什均衡，也就是discriminator对于generator的数据鉴别结果为正确率和错误率各占50%。 如下图： 生成式模型又叫生成器。他先用一个随机编码向量来输出一个模拟样本 判别式模型又叫判别器，它的输入是一个样本（可以是真实样本，也可以是模拟样本），输出一个判断该样本是样本是真样本还是模拟样本的结果 监督学习神经网络就属于discriminator，只需要学习generator。]]></content>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-03-06T02:01:43.822Z</updated>
+  <updated>2020-03-16T03:51:09.096Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>高效寻找开源项目</title>
+    <link href="http://yoursite.com/2020/03/16/%E9%AB%98%E6%95%88%E5%AF%BB%E6%89%BE%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/"/>
+    <id>http://yoursite.com/2020/03/16/高效寻找开源项目/</id>
+    <published>2020-03-16T03:04:39.000Z</published>
+    <updated>2020-03-16T03:51:09.096Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天我们来讲一下如何在github上高效的寻找适合自己的开源项目</p><p>首先，我们来明确一下github的一些因素。随便打开一个项目，如下所示：</p><p><img src="https://raw.githubusercontent.com/Brickexperts/image-bed3/master/20200316112254.png" alt=""></p><p>上面的红框都是一些搜索的标准，还有star和fork数表明这个项目是否火热，也是搜索的标准</p><p>比如，我们在自学了python的Djange后，打算在github找小项目练练手，我们就直接在搜索框打Django，如下</p><p><img src="https://raw.githubusercontent.com/Brickexperts/image-bed3/master/20200316113214.png" alt=""></p><p>接着发现项目非常的多。那怎么搜索名字里面包含Django的呢？用in:name Django</p><p><img src="https://raw.githubusercontent.com/Brickexperts/image-bed3/master/20200316113405.png" alt=""></p><p>我们就可以找出名字里面包含Django的项目了。</p><p>然后我们还可以用项目的火热程度对我们寻找的项目划分范围：stars:&gt;3000</p><p><img src="https://raw.githubusercontent.com/Brickexperts/image-bed3/master/20200316113638.png" alt=""></p><p>star数小于3000的项目就被过滤掉了。fork同理</p><p>当然我们还可以在描述里搜也可以在readme里搜。同时我们还可以限制语言(language)和更新时间(pushed)</p><p><img src="https://raw.githubusercontent.com/Brickexperts/image-bed3/master/20200316114547.png" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;今天我们来讲一下如何在github上高效的寻找适合自己的开源项目&lt;/p&gt;
+&lt;p&gt;首先，我们来明确一下github的一些因素。随便打开一个项目，如下所示：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Brickexpe
+      
+    
+    </summary>
+    
+      <category term="git和github" scheme="http://yoursite.com/categories/git%E5%92%8Cgithub/"/>
+    
+    
+      <category term="github" scheme="http://yoursite.com/tags/github/"/>
+    
+  </entry>
   
   <entry>
     <title>GAN介绍</title>
@@ -544,35 +571,6 @@
     
     
       <category term="框架" scheme="http://yoursite.com/tags/%E6%A1%86%E6%9E%B6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>numpy(2)</title>
-    <link href="http://yoursite.com/2019/11/24/numpy(2)/"/>
-    <id>http://yoursite.com/2019/11/24/numpy(2)/</id>
-    <published>2019-11-24T06:58:11.000Z</published>
-    <updated>2020-02-25T06:59:17.173Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="np-concatenate"><a href="#np-concatenate" class="headerlink" title="np.concatenate"></a>np.concatenate</h2><p>数组拼接函数，concatenate((a1,a2,……),axis=0)</p><p>参数a1，a2……为要拼接的数组，axis为在哪个维度上进行拼接。默认为0</p><p>>&gt;&gt;import numpy as np<br>>&gt;&gt;a=np.array([[1,2],[3,4]])<br>>&gt;&gt;b=np.array([[5,6]])</p><p>>&gt;&gt;np.concatenate((a,b),axis=0)<br>array([[1, 2],<br>       [3, 4],<br>       [5, 6]])</p><p>>&gt;&gt;np.concatenate((a,b.T),axis=1)<br>array([[1, 2, 5],<br>       [3, 4, 6]])</p><h2 id="np-eye"><a href="#np-eye" class="headerlink" title="np.eye"></a>np.eye</h2><p>生成对角矩阵</p><p>numpy.eye(N,M=None, k=0, dtype=<type 'float'>)</p><p>第一个参数：输出方阵（行数=列数）的规模，即行数或列数</p><p>第三个参数：默认情况下输出的是对角线全“1”，其余全“0”的方阵，如果k为正整数，则在右上方第k条对角线全“1”其余全“0”，k为负整数则在左下方第k条对角线全“1”其余全“0”。</p><p>>&gt;&gt;import numpy as np<br>>&gt;&gt;np.eye(1,3,dtype=int)<br>array([[1, 0, 0]])<br>>&gt;&gt;np.eye(2,3,dtype=int)<br>array([[1, 0, 0],<br>       [0, 1, 0]])<br>>&gt;&gt;np.eye(2,2,dtype=int)<br>array([[1, 0],<br>       [0, 1]])<br>>&gt;&gt;np.eye(4,4,dtype=int)<br>array([[1, 0, 0, 0],<br>       [0, 1, 0, 0],<br>       [0, 0, 1, 0],<br>       [0, 0, 0, 1]])</p><p>>&gt;&gt;np.eye(4,4,k=2,dtype=int)<br>array([[0, 0, 1, 0],<br>       [0, 0, 0, 1],<br>       [0, 0, 0, 0],<br>       [0, 0, 0, 0]])</p><h2 id="np-random-multivariate-normal"><a href="#np-random-multivariate-normal" class="headerlink" title="np.random.multivariate_normal"></a>np.random.multivariate_normal</h2><p>multivariate_normal(mean,cov,size=None,check_valid=None,tol=None)：用于根据实际情况生成一个多元正态分布矩阵</p><p>其中mean和cov为必要的传参而size，check_valid以及tol为可选参数。</p><p>mean：mean是多维分布的均值维度为1；</p><p>cov：协方差矩阵，注意：协方差矩阵必须是对称的且需为半正定矩阵；</p><p>size：指定生成的正态分布矩阵的维度（例：若size=(1, 1, 2)，则输出的矩阵的shape即形状为 1X1X2XN（N为mean的长度））。</p><p>check_valid：这个参数用于决定当cov即协方差矩阵不是半正定矩阵时程序的处理方式，它一共有三个值：warn，raise以及ignore。当使用warn作为传入的参数时，如果cov不是半正定的程序会输出警告但仍旧会得到结果；当使用raise作为传入的参数时，如果cov不是半正定的程序会报错且不会计算出结果；当使用ignore时忽略这个问题即无论cov是否为半正定的都会计算出结果。</p><h2 id="np-load"><a href="#np-load" class="headerlink" title="np.load"></a>np.load</h2><p>将数组以二进制格式读出磁盘，np.load(“名.npy”,encoding=””)，encoding可为”latin1”、”ascll”、”bytes”，默认为ascll。</p><h2 id="np-save"><a href="#np-save" class="headerlink" title="np.save"></a>np.save</h2><p>将数组以二进制格式写入磁盘，np.save(“名.npy”,某个数组)</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>A=np.arange(<span class="number">15</span>).reshape(<span class="number">3</span>,<span class="number">5</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>A</span><br><span class="line">array([[ <span class="number">0</span>,  <span class="number">1</span>,  <span class="number">2</span>,  <span class="number">3</span>,  <span class="number">4</span>],</span><br><span class="line">       [ <span class="number">5</span>,  <span class="number">6</span>,  <span class="number">7</span>,  <span class="number">8</span>,  <span class="number">9</span>],</span><br><span class="line">       [<span class="number">10</span>, <span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>, <span class="number">14</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>np.save(<span class="string">"A.npy"</span>,A)<span class="comment">#如果文件路径末尾没有扩展名，该扩展名会被自动加上</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>B=np.load(<span class="string">"A.npy"</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>B</span><br><span class="line">array([[ <span class="number">0</span>,  <span class="number">1</span>,  <span class="number">2</span>,  <span class="number">3</span>,  <span class="number">4</span>],</span><br><span class="line">       [ <span class="number">5</span>,  <span class="number">6</span>,  <span class="number">7</span>,  <span class="number">8</span>,  <span class="number">9</span>],</span><br><span class="line">       [<span class="number">10</span>, <span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>, <span class="number">14</span>]])</span><br></pre></td></tr></table></figure><h2 id="np-argsort"><a href="#np-argsort" class="headerlink" title="np.argsort"></a>np.argsort</h2><p>np.argsort(list)：对列表从小到大排序，返回索引值</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;np-concatenate&quot;&gt;&lt;a href=&quot;#np-concatenate&quot; class=&quot;headerlink&quot; title=&quot;np.concatenate&quot;&gt;&lt;/a&gt;np.concatenate&lt;/h2&gt;&lt;p&gt;数组拼接函数，concatenate((a1
-      
-    
-    </summary>
-    
-      <category term="python" scheme="http://yoursite.com/categories/python/"/>
-    
-      <category term="数学计算" scheme="http://yoursite.com/categories/python/%E6%95%B0%E5%AD%A6%E8%AE%A1%E7%AE%97/"/>
-    
-      <category term="numpy" scheme="http://yoursite.com/categories/python/%E6%95%B0%E5%AD%A6%E8%AE%A1%E7%AE%97/numpy/"/>
-    
-    
-      <category term="python的数学计算模块" scheme="http://yoursite.com/tags/python%E7%9A%84%E6%95%B0%E5%AD%A6%E8%AE%A1%E7%AE%97%E6%A8%A1%E5%9D%97/"/>
     
   </entry>
   
