@@ -57,18 +57,26 @@
   };
 </script>
 
-  <meta name="description" content="正则表达式（不能随意添加空格，不然会改变原来含义）： 元字符(不能匹配自身): . $ ^ ( ) { } [ ] $ + \ | *， |：A | B 会匹配 A 或 B 中出现的任何字符。为了能够更加合理的工作，| 的优先级非常低。例如 Fish|C 应该匹配 Fish 或 C，而不是匹配 Fis，然后一个 ‘h’ 或 ‘C’。同样，我们使用 | 来匹配 ‘|’ 字符本身；或者包含在一个字符类">
+  <meta name="description" content="原始字符串来表示正则表达式（就是在字符串前边加上 r） 正则表达式（不能随意添加空格，不然会改变原来含义）： 元字符(不能匹配自身): . $ ^ ( ) { } [ ] $ + \ | *， |：A | B 会匹配 A 或 B 中出现的任何字符。为了能够更加合理的工作，| 的优先级非常低。例如 Fish|C 应该匹配 Fish 或 C，而不是匹配 Fis，然后一个 ‘h’ 或 ‘C’。同样，我们">
 <meta name="keywords" content="正则表达式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="正则表达式">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;08&#x2F;05&#x2F;%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F&#x2F;index.html">
 <meta property="og:site_name" content="DY的个人博客">
-<meta property="og:description" content="正则表达式（不能随意添加空格，不然会改变原来含义）： 元字符(不能匹配自身): . $ ^ ( ) { } [ ] $ + \ | *， |：A | B 会匹配 A 或 B 中出现的任何字符。为了能够更加合理的工作，| 的优先级非常低。例如 Fish|C 应该匹配 Fish 或 C，而不是匹配 Fis，然后一个 ‘h’ 或 ‘C’。同样，我们使用 | 来匹配 ‘|’ 字符本身；或者包含在一个字符类">
+<meta property="og:description" content="原始字符串来表示正则表达式（就是在字符串前边加上 r） 正则表达式（不能随意添加空格，不然会改变原来含义）： 元字符(不能匹配自身): . $ ^ ( ) { } [ ] $ + \ | *， |：A | B 会匹配 A 或 B 中出现的任何字符。为了能够更加合理的工作，| 的优先级非常低。例如 Fish|C 应该匹配 Fish 或 C，而不是匹配 Fis，然后一个 ‘h’ 或 ‘C’。同样，我们">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;image-bed3&#x2F;master&#x2F;20210101091503.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;image-bed3&#x2F;master&#x2F;20210101091732.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;image-bed3&#x2F;master&#x2F;20210101104746.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;image-bed3&#x2F;master&#x2F;20210101095735.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;image-bed3&#x2F;master&#x2F;20210101103304.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;正则1.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;正则2.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;正则3.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;正则.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;image-bed3&#x2F;master&#x2F;20210101161725.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;image-bed3&#x2F;master&#x2F;20210101163318.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;image-bed3&#x2F;master&#x2F;20210101170830.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;image-bed3&#x2F;master&#x2F;20210101171147.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;正则5.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;正则6.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;正则7.png">
@@ -84,9 +92,9 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;正则20.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;正则21.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;正则23.png">
-<meta property="og:updated_time" content="2019-09-15T06:22:03.068Z">
+<meta property="og:updated_time" content="2021-01-01T11:57:41.274Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;Figurebed&#x2F;master&#x2F;正则1.png">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;image-bed3&#x2F;master&#x2F;20210101091503.png">
   <link rel="alternate" href="/atom.xml" title="DY的个人博客" type="application/atom+xml">
   <link rel="canonical" href="http://yoursite.com/2019/08/05/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
 
@@ -310,7 +318,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-09-15 14:22:03" itemprop="dateModified" datetime="2019-09-15T14:22:03+08:00">2019-09-15</time>
+                <time title="修改时间：2021-01-01 19:57:41" itemprop="dateModified" datetime="2021-01-01T19:57:41+08:00">2021-01-01</time>
               </span>
             
           
@@ -341,50 +349,55 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>正则表达式（不能随意添加空格，不然会改变原来含义）：</p>
+        <p>原始字符串来表示正则表达式（就是在字符串前边加上 r）</p>
+<p>正则表达式（不能随意添加空格，不然会改变原来含义）：</p>
 <p>元字符(不能匹配自身): . $ ^ ( ) { } [ ] $ + \ | *，</p>
 <p>|：A | B 会匹配 A 或 B 中出现的任何字符。为了能够更加合理的工作，| 的优先级非常低。例如 Fish|C 应该匹配 Fish 或 C，而不是匹配 Fis，然后一个 ‘h’ 或 ‘C’。同样，我们使用 | 来匹配 ‘|’ 字符本身；或者包含在一个字符类中，像这样 [|]。</p>
 <p>^:匹配字符串的起始位置。如果设置了 MULTILINE 标志，就会变成匹配每一行的起始位置。在 MULTILINE 中，每当遇到换行符就会立刻进行匹配。</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/image-bed3/master/20210101091503.png" alt=""></p>
 <p>$:匹配字符串的结束位置，每当遇到换行符也会离开进行匹配。</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/image-bed3/master/20210101091732.png" alt=""></p>
 <p>+：用于指定前一个字符匹配一次或多次</p>
-<p><em>：</em>匹配的是零次或多次</p>
-<p>？：指定前一个字符匹配零次或者一次。</p>
+<p>* : 匹配的是零次或多次</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/image-bed3/master/20210101104746.png" alt=""></p>
+<p>? ：指定前一个字符匹配零次或者一次。</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/image-bed3/master/20210101095735.png" alt=""></p>
 <p>{m，n}(m和n都是十进制整数)：它的含义是前一个字符必须匹配m次到n（包括n次）次之间</p>
-<p>原始字符串来表示正则表达式（就是在字符串前边加上 r）</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/image-bed3/master/20210101103304.png" alt=""></p>
 <p>\A:只匹配字符串的起始位置。如果没有设置 MULTILINE 标志的时候，\A 和 ^ 的功能是一样的；但如果设置了 MULTILINE 标志，则会有一些不同：\A 还是匹配字符串的起始位置，但 ^ 会对字符串中的每一行都进行匹配。</p>
 <p>\Z:只匹配字符串的结束位置</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/正则1.png" alt=""></p>
-<p>\B:另一个零宽断言，与 \b 的含义相反，\B 表示非单词边界的位置。</p>
-<p><strong>零宽断言：</strong></p>
-<p>有些元字符它们不匹配任何字符，只是简单地表示成功或失败，因此这些字符也称之为零宽断言</p>
-<p><strong>前向断言：</strong></p>
-<p>（1）：前向肯定断言：如果当前包含的正则表达式（这里以 … 表示）在当前位置成功匹配，则代表成功，否则失败。一旦该部分正则表达式被匹配引擎尝试过，就不会继续进行匹配了；剩下的模式在此断言开始的地方继续尝试。</p>
-<p>（2）：前向否定断言：这跟前向肯定断言相反（不匹配则表示成功，匹配表示失败）</p>
-<p>假定我们要处理一段html，我们要替换掉相对url，例如<a href="abc.html">text</a> 这个a标签我们要替换成text，而对于<a href="http://outofmemory.cn/code-snippet/" target="_blank" rel="noopener">代码</a> 这样的a标签则要保留不做替换。这个应用场景下</p>
-<p>就需要判断A标签的href属性如果不是以<a href="http://开头则匹配，即要做前向否定的断言" target="_blank" rel="noopener">http://开头则匹配，即要做前向否定的断言</a>.</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/正则2.png" alt=""></p>
-<p>脱字符：^ ,例如<sup><a href="#fn_  5  " id="reffn_  5  ">  5  </a></sup>会匹配任何字符 “5”之外的任何字符</p>
+<p>脱字符：^ ,例如[^5]会匹配任何字符 “5”之外的任何字符</p>
 <p>[ ]他们指定一个字符类用于存放你需要的字符集合。可以单独列出需要匹配字符，也可以两个字符和一个横杆-指定匹配的范围。元字符在方括号中不会触发“特殊功能”，在字符类中，它们只匹配自身。</p>
 <p>反斜杠 \：如果在反斜杠后边紧跟着一个元字符，那么元字符的“特殊功能”也不会被触发。例如你需要匹配符号[ 或 \，你可以在他们前面加上一个反斜杠，以消除他们的特殊功能：\[ ,\\\</p>
-<p>注意用小括号括住要重复的内容：</p>
+<p>匹配本机IP：</p>
+<p>​    注意用小括号括住要重复的内容：</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/正则3.png" alt=""></p>
-<p>匹配ip（万能版）：</p>
+<p>​    匹配ip（万能版）：</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/正则.png" alt=""></p>
-<p>非捕获组和命名组：</p>
-<p>非捕获组的语法是 (?:…)，这个 … 你可以替换为任何正则表达式。</p>
-<p>“捕获”就是匹配的意思啦，普通的子组都是捕获组，因为它们能从字符串中匹配到数据</p>
-<p>命名组：：(?P<name>)。很明显，&lt; &gt; 里边的 name 就是命名组的名字啦，除了使用名字访问，</p>
-<p>命名组仍然可以使用数字序号进行访问</p>
-<p>正则表达式使用以下方法修改字符串：</p>
+<h2 id="零宽断言"><a href="#零宽断言" class="headerlink" title="零宽断言"></a>零宽断言</h2><p>​    零宽断言的意思是匹配宽度为0，满足一定条件的断言。用于查找在某些内容（不包括这些内容）之前或之后的东西。</p>
+<p>零宽断言有四种：</p>
+<h3 id="先行断言"><a href="#先行断言" class="headerlink" title="先行断言"></a>先行断言</h3><p>也叫零宽度正预测先行断言，格式是?=表达式，表示匹配表达式前面的位置</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/image-bed3/master/20210101161725.png" alt=""></p>
+<p> <strong>注意：</strong>先行断言的执行步骤是这样的先从要匹配的字符串中的最右端找到第一个ing。然后再匹配其前面的表达式，若无法匹配则继续查找第二个ing 再匹配第二个ing前面的字符串，若能匹配则匹配  </p>
+<h3 id="后发断言"><a href="#后发断言" class="headerlink" title="后发断言"></a>后发断言</h3><p>也叫零宽度正回顾后发断言，格式是?&lt;=表达式，表示匹配表达式后面的位置</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/image-bed3/master/20210101163318.png" alt=""></p>
+<p> <strong>注意</strong>：后发断言的执行步骤是这样的：先从要匹配的字符串中的最左端找到第一个abc。然后再匹配其后面的表达式，若无法匹配则继续查找第二个abc 再匹配第二个abc后面的字符串，若能匹配则匹配  </p>
+<h3 id="负向零宽先行断言"><a href="#负向零宽先行断言" class="headerlink" title="负向零宽先行断言"></a>负向零宽先行断言</h3><p> 负向零宽先行断言 ，格式为?!表达式，\d{3}(?!\d)：匹配三位数字，而且这三位数字的后面不能是数字</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/image-bed3/master/20210101170830.png" alt=""></p>
+<h3 id="负向零宽后发断言"><a href="#负向零宽后发断言" class="headerlink" title="负向零宽后发断言"></a>负向零宽后发断言</h3><p><img src="https://raw.githubusercontent.com/Brickexperts/image-bed3/master/20210101171147.png" alt=""></p>
+<h2 id="非捕获组和命名组"><a href="#非捕获组和命名组" class="headerlink" title="非捕获组和命名组"></a>非捕获组和命名组</h2><p>非捕获组的语法是 (?:…)，这个 … 你可以替换为任何正则表达式。“捕获”的意思就是匹配的，普通的子组都是捕获组，因为它们能从字符串中匹配到数据</p>
+<p>命名捕获组：格式为(?P\<name>…)。很明显，&lt; &gt; 里边的 name 就是命名组的名字啦，除了使用名字访问（group(name)），命名组仍然可以使用索引进行访问</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">pattern = <span class="string">r"(?P&lt;python&gt;123)(?:456)(789)"</span>//<span class="number">456</span>无法匹配，<span class="number">123</span>命名为python</span><br><span class="line">string = <span class="string">"123456789"</span></span><br><span class="line"></span><br><span class="line">match = re.match(pattern,string)</span><br><span class="line">print(re.findall(pattern,string))</span><br><span class="line"><span class="keyword">if</span> match:</span><br><span class="line">    print(match.group(<span class="string">"python"</span>))</span><br><span class="line">    print(match.group(<span class="number">1</span>))</span><br><span class="line">    print(match.groups())</span><br></pre></td></tr></table></figure>
+<h2 id="修改字符串"><a href="#修改字符串" class="headerlink" title="修改字符串"></a>修改字符串</h2><p>正则表达式使用以下方法修改字符串：</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/正则5.png" alt=""></p>
-<p><strong>split(<em>*</em></strong>string<strong>*</strong>[,<strong> *</strong>maxsplit=0<strong>*</strong>])<em>*：通过正则表达式匹配来分割字符串。如果在 RE 中，你使用了捕获组，那么它们的内容会作为一个列表返回。你可以通过传入一个 </em>maxsplit<em> 参数来设置分割的数量。如果 </em>maxsplit<em> 的值是非 0，表示至多有 </em>maxsplit* 个分割会被处理，剩下的内容作为列表的最后一个元素返回。</p>
+<p>split(string[, maxsplit=0])：通过正则表达式匹配来分割字符串。如果在 RE 中，你使用了捕获组，那么它们的内容会作为一个列表返回。你可以通过传入一个 maxsplit 参数来设置分割的数量。如果 maxsplit 的值是非 0，表示至多有 maxsplit 个分割会被处理，剩下的内容作为列表的最后一个元素返回。</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/正则6.png" alt=""></p>
-<p><strong>.sub(<em>*</em></strong>replacement<strong>*</strong>,<strong> *</strong>string<strong>*</strong>[,<strong> *</strong>count=0<strong>*</strong>])<em>*返回一个字符串，这个字符串从最左边开始，所有 RE 匹配的地方都替换成 </em>replacement<em>。如果没有找到任何匹配，那么返回原字符串。可选参数 </em>count* 指定最多替换的次数，必须是一个非负值。默认值是 0，意思是替换所有找到的匹配。下边是使用 sub() 方法的例子，它会将所有的颜色替换成 color：</p>
+<p>.sub(replacement,string[,count=0])：返回一个字符串，这个字符串从最左边开始，所有 RE 匹配的地方都替换成 replacement。如果没有找到任何匹配，那么返回原字符串。可选参数 count 指定最多替换的次数，必须是一个非负值。默认值是 0，意思是替换所有找到的匹配。下边是使用 sub() 方法的例子，它会将所有的颜色替换成 color：</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/正则7.png" alt=""></p>
 <p>subn:subn() 方法跟 sub() 方法干同样的事情，但区别是返回值为一个包含有两个元素的元组：一个是替换后的字符串，一个是替换的数目。</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/正则8.png" alt=""></p>
-<p>匹配方法：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/正则9.png" alt=""></p>
+<h2 id="匹配方法："><a href="#匹配方法：" class="headerlink" title="匹配方法："></a>匹配方法：</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/正则9.png" alt=""></p>
 <p>匹配的方法和属性：</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/正则10.png" alt=""></p>
 <p>group(N) 返回第N组括号匹配的字符，groups() 返回所有括号匹配的字符，以tuple格式</p>
@@ -392,29 +405,14 @@
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/正则12.png" alt=""></p>
 <p>findall() 需要在返回前先创建一个列表，而 finditer() 则是将匹配对象作为一个迭代器返回</p>
 <p>利用compile来先编译的方法是模式级别的方法（适用于多次使用该正则表达式），可以针对同一种模式做多次匹配，如下图：另一种是模式对象方法 </p>
-<p>import re import re</p>
-<p>p=re.compile() re.search(“”,””)</p>
-<p>p.search()</p>
-<p>贪婪模式和非贪婪模式：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re <span class="keyword">import</span> re</span><br><span class="line">p=re.compile() </span><br><span class="line">re.search(<span class="string">""</span>,<span class="string">""</span>)</span><br><span class="line">p.search()</span><br></pre></td></tr></table></figure>
+<h2 id="匹配模式"><a href="#匹配模式" class="headerlink" title="匹配模式"></a>匹配模式</h2><p>贪婪模式和非贪婪模式：</p>
 <p>贪婪模式是让正则表达式尽可能的匹配符合的内容</p>
 <p>在匹配的字符后面加一个问号，启动非贪婪模式</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/正则13.png" alt=""></p>
-<p>编译标志：编译标志让你可以修改正则表达式的工作方式。在 re模块下，编译标志均有两个名字：完整名和简写</p>
+<h2 id="编译标志"><a href="#编译标志" class="headerlink" title="编译标志"></a>编译标志</h2><p>编译标志让你可以修改正则表达式的工作方式。在 re模块下，编译标志均有两个名字：完整名和简写</p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/正则15.png" alt=""></p>
-<p>ASCII(re.A)</p>
-<p>使得 \w，\W，\b，\B，\s 和 \S 只匹配 ASCII 字符，而不匹配完整的 Unicode 字符。这个标志仅对 Unicode 模式有意义，并忽略字节模式。</p>
-<p>DOTALL(re.S)</p>
-<p>使得 . 可以匹配任何字符，包括换行符。如果不使用这个标志，. 将匹配除了换行符的所有字符。</p>
-<p>IGNORECASE(re.I)</p>
-<p>字符类和文本字符串在匹配的时候不区分大小写。举个例子，正则表达式 [A-Z] 也将会匹配对应的小写字母，像 FishC 可以匹配 FishC，fishc 或 FISHC 等。如果你不设置 LOCALE，则不会考虑语言（区域）设置这方面的大小写问题。</p>
-<p>LOCALE(re.L)</p>
-<p>使得 \w，\W，\b 和 \B 依赖当前的语言（区域）环境，而不是 Unicode 数据库。区域设置是 C 语言的一个功能，主要作用是消除不同语言之间的差异。例如你正在处理的是法文文本，你想使用 \w+ 来匹配单词，但是 \w 只是匹配 [A-Za-z] 中的单词，并不会匹配 ‘é’ 或 ‘&#231;’。如果你的系统正确的设置了法语区域环境，那么 C 语言的函数就会告诉程序 ‘é’ 或 ‘&#231;’ 也应该被认为是一个字符。当编译正则表达式的时候设置了 LOCALE 的标志，\w+ 就可以识别法文了，但速度多少会受到影响。</p>
-<p>MULTILINE(re.M)</p>
-<p>通常 ^ 只匹配字符串的开头，而 $ 则匹配字符串的结尾。当这个标志被设置的时候，^ 不仅匹配字符串的开头，还匹配每一行的行首；&amp; 不仅匹配字符串的结尾，还匹配每一行的行尾。</p>
-<p>VERBOSE(re.X)</p>
-<p>这个标志使你的正则表达式可以写得更好看和更有条理，因为使用了这个标志，空格会被忽略（除了出现在字符类中和使用反斜杠转义的空格）；这个标志同时允许你在正则表达式字符串中使用注释， 符号后边的内容是注释，不会递交给匹配引擎（除了出现在字符类中和使用反斜杠转义的 ）</p>
-<p>正则表达式特殊符号及用法：</p>
-<p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/正则16.png" alt=""></p>
+<h2 id="正则表达式特殊符号及用法："><a href="#正则表达式特殊符号及用法：" class="headerlink" title="正则表达式特殊符号及用法："></a>正则表达式特殊符号及用法：</h2><p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/正则16.png" alt=""></p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/正则17.png" alt=""></p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/正则19.png" alt=""></p>
 <p><img src="https://raw.githubusercontent.com/Brickexperts/Figurebed/master/正则20.png" alt=""></p>
@@ -513,8 +511,17 @@
 
   <aside id="sidebar" class="sidebar">
     <div class="sidebar-inner">
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
 
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -740,6 +747,23 @@
 
         </div>
       </div>
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#零宽断言"><span class="nav-text">零宽断言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#先行断言"><span class="nav-text">先行断言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#后发断言"><span class="nav-text">后发断言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#负向零宽先行断言"><span class="nav-text">负向零宽先行断言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#负向零宽后发断言"><span class="nav-text">负向零宽后发断言</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#非捕获组和命名组"><span class="nav-text">非捕获组和命名组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改字符串"><span class="nav-text">修改字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#匹配方法："><span class="nav-text">匹配方法：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#匹配模式"><span class="nav-text">匹配模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译标志"><span class="nav-text">编译标志</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正则表达式特殊符号及用法："><span class="nav-text">正则表达式特殊符号及用法：</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
     </div>
   </aside>
