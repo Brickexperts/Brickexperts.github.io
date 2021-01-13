@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2021-01-13T11:17:47.453Z</updated>
+  <updated>2021-01-13T12:18:36.942Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>python中的yield用法</title>
+    <link href="http://yoursite.com/2021/01/13/python%E4%B8%AD%E7%9A%84yield%E7%94%A8%E6%B3%95/"/>
+    <id>http://yoursite.com/2021/01/13/python中的yield用法/</id>
+    <published>2021-01-13T11:40:54.000Z</published>
+    <updated>2021-01-13T12:18:36.942Z</updated>
+    
+    <content type="html"><![CDATA[<p>在学习yield前，我们先来复习return的作用。return就是在程序中返回某个值，之后的语句不再往下执行。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"starting..."</span>)</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        res = <span class="keyword">yield</span> <span class="number">4</span></span><br><span class="line">        print(<span class="string">"res:"</span>,res)</span><br><span class="line">g = foo()</span><br><span class="line">print(next(g))</span><br><span class="line">print(<span class="string">"*"</span>*<span class="number">20</span>)</span><br><span class="line">print(next(g))</span><br></pre></td></tr></table></figure><p>结果是：</p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">starting...</span><br><span class="line">4</span><br><span class="line"><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span></span><br><span class="line">res: None</span><br><span class="line">4</span><br></pre></td></tr></table></figure><p>代码解释：</p><p>1、因为foo函数中有yield关键字，所以foo函数并不会真正的执行。而是得到一个生成器</p><p>2、接着调用next方法，foo函数正式开始执行，先print在执行while循环里的代码/</p><p>3、 程序遇到yield关键字，然后把yield想像成return,return了一个4之后，程序停止，<strong>并没有执行赋值给res操作</strong>，此时next(g)语句执行完成，所以输出的前两行（第一个是while上面的print的结果,第二个是return出的结果）是执行第一个print(next(g))的结果</p><p>4、print 20个*</p><p>5、执行第二个print(next(g))，这个时候是从第一个next停止的地方开始执行的，也就是res的赋值操作。 这时候要注意，这个时候赋值操作的右边是没有值的（因为刚才那个是return出去了，并没有给赋值操作的左边传参数），所以这个时候res赋值是None，所以接着下面的输出就是res:None。</p><p>6、程序继续在while循环中执行，又碰到yield，同样返回4，然后程序停止。如果还有下一个next(g)，还会像上述一样执行。</p><p> <strong>到这里你可能就明白yield和return的关系和区别了，带yield的函数是一个生成器，而不是一个函数了，这个生成器有一个函数就是next函数，next就相当于“下一步”生成哪个数，这一次的next开始的地方是接着上一次的next停止的地方执行的，所以调用next的时候，生成器并不会从foo函数的开始执行，只是接着上一步停止的地方开始，然后遇到yield后，return出要生成的数，此步就结束。</strong> </p><p>还有个常用的生成器函数send。send函数中是包含next函数的，也就是说，调用send函数也会调用next函数</p><p>send是发送一个参数给res的，因为上面讲到，return的时候，并没有把4赋值给res，下次执行的时候继续执行赋值操作时，只好赋值为None了，而如果用send的话，开始执行的时候，先接着上一次（return 4之后）执行，先把7赋值给了res,然后执行next的作用，遇见下一回的yield，return出结果后结束。 </p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"starting..."</span>)</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        res = <span class="keyword">yield</span> <span class="number">4</span></span><br><span class="line">        print(<span class="string">"res:"</span>,res)</span><br><span class="line">g = foo()</span><br><span class="line">print(next(g))</span><br><span class="line">print(<span class="string">"*"</span>*<span class="number">20</span>)</span><br><span class="line">print(g.send(<span class="number">7</span>))</span><br></pre></td></tr></table></figure><p>结果是：</p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">starting...</span><br><span class="line">4</span><br><span class="line"><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span></span><br><span class="line">res: 7</span><br><span class="line">4</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;在学习yield前，我们先来复习return的作用。return就是在程序中返回某个值，之后的语句不再往下执行。&lt;/p&gt;
+&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span cl
+      
+    
+    </summary>
+    
+      <category term="python" scheme="http://yoursite.com/categories/python/"/>
+    
+      <category term="知识散记" scheme="http://yoursite.com/categories/python/%E7%9F%A5%E8%AF%86%E6%95%A3%E8%AE%B0/"/>
+    
+    
+      <category term="python知识散记" scheme="http://yoursite.com/tags/python%E7%9F%A5%E8%AF%86%E6%95%A3%E8%AE%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>DOM(1)</title>
@@ -535,32 +563,6 @@
     
     
       <category term="框架" scheme="http://yoursite.com/tags/%E6%A1%86%E6%9E%B6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>梯度</title>
-    <link href="http://yoursite.com/2020/01/15/%E6%A2%AF%E5%BA%A6/"/>
-    <id>http://yoursite.com/2020/01/15/梯度/</id>
-    <published>2020-01-15T01:15:11.000Z</published>
-    <updated>2020-01-16T02:06:24.435Z</updated>
-    
-    <content type="html"><![CDATA[<p>在反向传播过程中，神经网络需要对每一个loss对应的学习参数求偏导，算出的这个值叫做梯度，用来乘以学习率然后更新学习参数使用的</p><h2 id="求单变量偏导"><a href="#求单变量偏导" class="headerlink" title="求单变量偏导"></a>求单变量偏导</h2><p>它是通过tf.gradients函数来实现的。<br>tf.gradients(ys,xs,grad_ys=None,name=’gradients’,colocate_gradients_with_ops=False,gate_gradients=False,  aggregation_method=None,stop_gradients=None)</p><p>第一个参数为求导公式的结果，第二个参数为指定公式中的哪个变量来求偏导。实现第一个参数对第二个参数求导。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line">w1=tf.Variable([[<span class="number">1</span>,<span class="number">2</span>]],dtype=tf.float32)</span><br><span class="line">w2=tf.Variable([[<span class="number">3</span>,<span class="number">4</span>]],dtype=tf.float32)</span><br><span class="line">y=tf.matmul(w1,tf.convert_to_tensor([[<span class="number">9</span>],[<span class="number">10</span>]],dtype=tf.float32))</span><br><span class="line">grads=tf.gradients(y,[w1])</span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">  sess.run(tf.global_variables_initializer())</span><br><span class="line">  print(<span class="string">"梯度为："</span>,sess.run(grads))</span><br><span class="line"></span><br><span class="line"> <span class="comment">#梯度为： [array([[ 9., 10.]], dtype=float32)]</span></span><br></pre></td></tr></table></figure><p>上面例子中，由于y是由w1与[[9],[10]]相乘而来，所以导数就是[[9],[10]]，也就是斜率</p><h2 id="求多变量偏导"><a href="#求多变量偏导" class="headerlink" title="求多变量偏导"></a>求多变量偏导</h2><p>这就需要用到tf.gradients的第三个参数，grad_ys。grad_ys也是一个list，其长度等于len(ys)。这个参数的意义在于对第一个参数中的每个元素的求导加权重</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"></span><br><span class="line">tf.reset_default_graph()</span><br><span class="line"><span class="comment">#随机生成一个形状为2的变量</span></span><br><span class="line">w1 = tf.get_variable(<span class="string">'w1'</span>, shape=[<span class="number">2</span>])</span><br><span class="line">w2 = tf.get_variable(<span class="string">'w2'</span>, shape=[<span class="number">2</span>])</span><br><span class="line"></span><br><span class="line">w3 = tf.get_variable(<span class="string">'w3'</span>, shape=[<span class="number">2</span>])</span><br><span class="line">w4 = tf.get_variable(<span class="string">'w4'</span>, shape=[<span class="number">2</span>])</span><br><span class="line"></span><br><span class="line">y1 = w1 + w2+ w3</span><br><span class="line">y2 = w3 + w4</span><br><span class="line"><span class="comment">#不考虑参数grad_ys</span></span><br><span class="line">gradients= tf.gradients([y1, y2], [w1, w2, w3, w4])</span><br><span class="line"><span class="comment">#考虑参数grad_ys</span></span><br><span class="line">gradients1 = tf.gradients([y1, y2], [w1, w2, w3, w4], grad_ys=[tf.convert_to_tensor([<span class="number">1.</span>,<span class="number">2.</span>]),</span><br><span class="line">                                                          tf.convert_to_tensor([<span class="number">3.</span>,<span class="number">4.</span>])])</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    sess.run(tf.global_variables_initializer())</span><br><span class="line">    print(sess.run(w1))</span><br><span class="line">    print(sess.run(gradients1))</span><br><span class="line">    print(sess.run(gradients))</span><br></pre></td></tr></table></figure><h2 id="梯度停止"><a href="#梯度停止" class="headerlink" title="梯度停止"></a>梯度停止</h2><p>对于反向传播过程中某种特殊情况需要停止梯度运算时，在tensorflow中提供了一个tf.stop_gradient函数，被它定义过的节点将没有梯度运算功能</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line">tf.reset_default_graph()</span><br><span class="line">w1 = tf.get_variable(<span class="string">'w1'</span>, shape=[<span class="number">2</span>])</span><br><span class="line">w2 = tf.get_variable(<span class="string">'w2'</span>, shape=[<span class="number">2</span>])</span><br><span class="line"></span><br><span class="line">w3 = tf.get_variable(<span class="string">'w3'</span>, shape=[<span class="number">2</span>])</span><br><span class="line">w4 = tf.get_variable(<span class="string">'w4'</span>, shape=[<span class="number">2</span>])</span><br><span class="line"></span><br><span class="line">y1 = w1 + w2+ w3</span><br><span class="line">y2 = w3 + w4</span><br><span class="line"></span><br><span class="line">a = w1+w2</span><br><span class="line">a_stoped = tf.stop_gradient(a)</span><br><span class="line">y3= a_stoped+w3</span><br><span class="line"></span><br><span class="line">gradients = tf.gradients([y1, y2], [w1, w2, w3, w4], grad_ys=[tf.convert_to_tensor([<span class="number">1.</span>,<span class="number">2.</span>]),</span><br><span class="line">                                                          tf.convert_to_tensor([<span class="number">3.</span>,<span class="number">4.</span>])])                                                      </span><br><span class="line">gradients2 = tf.gradients(y3, [w1, w2, w3], grad_ys=tf.convert_to_tensor([<span class="number">1.</span>,<span class="number">2.</span>]))                                                          </span><br><span class="line">print(gradients2) </span><br><span class="line"> </span><br><span class="line">gradients3 = tf.gradients(y3, [w3], grad_ys=tf.convert_to_tensor([<span class="number">1.</span>,<span class="number">2.</span>])) </span><br><span class="line">                                                       </span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    sess.run(tf.global_variables_initializer())</span><br><span class="line">    print(sess.run(gradients))</span><br><span class="line">    <span class="comment">#print(sess.run(gradients2))#报错，因为w1和w2梯度停止了</span></span><br><span class="line">    print(sess.run(gradients3))</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;在反向传播过程中，神经网络需要对每一个loss对应的学习参数求偏导，算出的这个值叫做梯度，用来乘以学习率然后更新学习参数使用的&lt;/p&gt;
-&lt;h2 id=&quot;求单变量偏导&quot;&gt;&lt;a href=&quot;#求单变量偏导&quot; class=&quot;headerlink&quot; title=&quot;求单变量偏导&quot;&gt;&lt;
-      
-    
-    </summary>
-    
-      <category term="深度学习" scheme="http://yoursite.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   

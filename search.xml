@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[python中的yield用法]]></title>
+    <url>%2F2021%2F01%2F13%2Fpython%E4%B8%AD%E7%9A%84yield%E7%94%A8%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[在学习yield前，我们先来复习return的作用。return就是在程序中返回某个值，之后的语句不再往下执行。 123456789def foo(): print("starting...") while True: res = yield 4 print("res:",res)g = foo()print(next(g))print("*"*20)print(next(g)) 结果是： 12345starting...4********************res: None4 代码解释： 1、因为foo函数中有yield关键字，所以foo函数并不会真正的执行。而是得到一个生成器 2、接着调用next方法，foo函数正式开始执行，先print在执行while循环里的代码/ 3、 程序遇到yield关键字，然后把yield想像成return,return了一个4之后，程序停止，并没有执行赋值给res操作，此时next(g)语句执行完成，所以输出的前两行（第一个是while上面的print的结果,第二个是return出的结果）是执行第一个print(next(g))的结果 4、print 20个* 5、执行第二个print(next(g))，这个时候是从第一个next停止的地方开始执行的，也就是res的赋值操作。 这时候要注意，这个时候赋值操作的右边是没有值的（因为刚才那个是return出去了，并没有给赋值操作的左边传参数），所以这个时候res赋值是None，所以接着下面的输出就是res:None。 6、程序继续在while循环中执行，又碰到yield，同样返回4，然后程序停止。如果还有下一个next(g)，还会像上述一样执行。 到这里你可能就明白yield和return的关系和区别了，带yield的函数是一个生成器，而不是一个函数了，这个生成器有一个函数就是next函数，next就相当于“下一步”生成哪个数，这一次的next开始的地方是接着上一次的next停止的地方执行的，所以调用next的时候，生成器并不会从foo函数的开始执行，只是接着上一步停止的地方开始，然后遇到yield后，return出要生成的数，此步就结束。 还有个常用的生成器函数send。send函数中是包含next函数的，也就是说，调用send函数也会调用next函数 send是发送一个参数给res的，因为上面讲到，return的时候，并没有把4赋值给res，下次执行的时候继续执行赋值操作时，只好赋值为None了，而如果用send的话，开始执行的时候，先接着上一次（return 4之后）执行，先把7赋值给了res,然后执行next的作用，遇见下一回的yield，return出结果后结束。 123456789def foo(): print("starting...") while True: res = yield 4 print("res:",res)g = foo()print(next(g))print("*"*20)print(g.send(7)) 结果是： 12345starting...4********************res: 74]]></content>
+      <categories>
+        <category>python</category>
+        <category>知识散记</category>
+      </categories>
+      <tags>
+        <tag>python知识散记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[DOM(1)]]></title>
     <url>%2F2021%2F01%2F13%2FDOM-1%2F</url>
     <content type="text"></content>
