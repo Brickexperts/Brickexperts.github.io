@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta name="generator" content="Hexo 4.0.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.3.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.3.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    search: {
+      root: '/',
+      path: 'search.xml'
+    },
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    }
+  };
+</script>
+
+  <meta name="description" content="常见组件view代替原来的div标签，另外还有些新增的属性 texttext具有以下特点：1、文本标签 2、只能嵌套text标签 3、只有这个标签可以长按文字复制 4、可以对空格回车进行编码 image1、image组件默认宽度320px、高度240px 2、支持懒加载 swiper轮播图外层容器swiper，每一个轮播项用swiper-item括住。 swiper标签存在默认样式：widht10">
+<meta name="keywords" content="微信小程序">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微信小程序(3)">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2021&#x2F;01&#x2F;23&#x2F;%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F-3&#x2F;index.html">
+<meta property="og:site_name" content="DY的个人博客">
+<meta property="og:description" content="常见组件view代替原来的div标签，另外还有些新增的属性 texttext具有以下特点：1、文本标签 2、只能嵌套text标签 3、只有这个标签可以长按文字复制 4、可以对空格回车进行编码 image1、image组件默认宽度320px、高度240px 2、支持懒加载 swiper轮播图外层容器swiper，每一个轮播项用swiper-item括住。 swiper标签存在默认样式：widht10">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;image-bed3&#x2F;master&#x2F;20210123165239.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;image-bed3&#x2F;master&#x2F;20210125101546.png">
+<meta property="og:updated_time" content="2021-01-25T11:33:16.174Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Brickexperts&#x2F;image-bed3&#x2F;master&#x2F;20210123165239.png">
+  <link rel="alternate" href="/atom.xml" title="DY的个人博客" type="application/atom+xml">
+  <link rel="canonical" href="http://yoursite.com/2021/01/23/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F-3/">
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>微信小程序(3) | DY的个人博客</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">DY的个人博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+    <ul id="menu" class="menu">
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-search">
+          <a href="javascript:;" target="_blank" rel="noopener" class="popup-trigger">
+          
+            <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+    </div>
+</nav>
+
+</div>
+    </header>
+
+    
+
+  <a href="https://github.com/Brickexperts" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/23/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F-3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="湛蓝星空">
+      <meta itemprop="description" content="这个人贼菜">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DY的个人博客">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">微信小程序(3)
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2021-01-23 14:56:18" itemprop="dateCreated datePublished" datetime="2021-01-23T14:56:18+08:00">2021-01-23</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2021-01-25 19:33:16" itemprop="dateModified" datetime="2021-01-25T19:33:16+08:00">2021-01-25</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" itemprop="url" rel="index"><span itemprop="name">微信小程序</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          <br>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="常见组件"><a href="#常见组件" class="headerlink" title="常见组件"></a>常见组件</h2><h3 id="view"><a href="#view" class="headerlink" title="view"></a>view</h3><p>代替原来的div标签，另外还有些新增的属性</p>
+<h3 id="text"><a href="#text" class="headerlink" title="text"></a>text</h3><p>text具有以下特点：1、文本标签 2、只能嵌套text标签 3、只有这个标签可以长按文字复制 4、可以对空格回车进行编码</p>
+<h3 id="image"><a href="#image" class="headerlink" title="image"></a>image</h3><p>1、image组件默认宽度320px、高度240px</p>
+<p>2、支持懒加载</p>
+<h3 id="swiper"><a href="#swiper" class="headerlink" title="swiper"></a>swiper</h3><p>轮播图外层容器swiper，每一个轮播项用swiper-item括住。</p>
+<p>swiper标签存在默认样式：widht100%、height150px</p>
+<p>在需要轮播图的页面文件夹的wxml文件下写入代码：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">swiper</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">swiper-item</span>&gt;</span><span class="tag">&lt;<span class="name">image</span> <span class="attr">mode</span>=<span class="string">"widthFix"</span> <span class="attr">src</span>=<span class="string">"https://aecpm.alicdn.com/simba/img/TB1XotJXQfb_uJkSnhJSuvdDVXa.jpg"</span>/&gt;</span><span class="tag">&lt;/<span class="name">swiper-item</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">swiper-item</span>&gt;</span><span class="tag">&lt;<span class="name">image</span> <span class="attr">mode</span>=<span class="string">"widthFix"</span> <span class="attr">src</span>=<span class="string">"https://aecpm.alicdn.com/simba/img/TB183NQapLM8KJjSZFBSutJHVXa.jpg"</span>/&gt;</span><span class="tag">&lt;/<span class="name">swiper-item</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">swiper-item</span>&gt;</span><span class="tag">&lt;<span class="name">image</span> <span class="attr">mode</span>=<span class="string">"widthFix"</span> <span class="attr">src</span>=<span class="string">"https://aecpm.alicdn.com/simba/img/TB1JNHwKFXXXXafXVXXSutbFXXX.jpg"</span>/&gt;</span><span class="tag">&lt;/<span class="name">swiper-item</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">swiper</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在wxss设定swiper和image样式</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">swiper</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>:<span class="number">100%</span>;</span><br><span class="line">  <span class="comment">/* swiper的width*图片高度/图片宽度 */</span></span><br><span class="line">  <span class="attribute">height</span>:<span class="built_in">calc</span>(100vw * 520 /280)</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">image</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>:<span class="number">100%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>接着我们就可以向swiper标签添加属性</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/image-bed3/master/20210123165239.png" alt=""></p>
+<h3 id="navigator"><a href="#navigator" class="headerlink" title="navigator"></a>navigator</h3><p>导航组件</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">navigator</span> <span class="attr">url</span>=<span class="string">"/pages/lock/lock"</span>&gt;</span>轮播图页面<span class="tag">&lt;/<span class="name">navigator</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>url可以是就绝对也可以是相对的，如果我们是从开发者工具直接复制相对地址，要改变斜杠方向，且要在pages前加/。</p>
+<p>运行不了可能是因为页面中的跳转路径与app.json中配置的tabBar相重复。把PS：我开始也是卡在这，靠弹幕大佬改好的</p>
+<p>学到后面，才知道这个我们也可以直接通过navigator的属性open-type进行修改</p>
+<h3 id="rich-text"><a href="#rich-text" class="headerlink" title="rich-text"></a>rich-text</h3><p>富文本标签，可以将字符串解析成对应标签。</p>
+<h3 id="button"><a href="#button" class="headerlink" title="button"></a>button</h3><p>button的属性这部分的内容完全可以靠官方文档学习，不需要记录。我们具体学习button的其他能力。</p>
+<p>button的开发能力：open-type：</p>
+<p>1、contact直接打开客服对话功能，需要真机调试。具体的实现请参考<a href="https://www.bilibili.com/video/BV1nE41117BQ?p=31" target="_blank" rel="noopener">B站</a></p>
+<p>2、转发当前的小程序到微信朋友中，不能把小程序分享到朋友圈</p>
+<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;button <span class="keyword">open</span>-<span class="class"><span class="keyword">type</span></span>=<span class="string">"share"</span>&gt;share&lt;/button&gt;</span><br></pre></td></tr></table></figure>
+<p>3、getPhoneNumber获取当前的手机号码信息</p>
+<p>在wxml文件中写入：</p>
+<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;button <span class="keyword">open</span>-<span class="class"><span class="keyword">type</span></span>=<span class="string">"getPhoneNumber"</span> bindgetphonenumber=<span class="string">"getPhoneNumber"</span>&gt;getPhoneNumber&lt;/button&gt;</span><br></pre></td></tr></table></figure>
+<p>在js中写入获取电话号码的信息：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">getPhoneNumber</span><span class="params">(e)</span></span>&#123;</span><br><span class="line">  console.log(e)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里获取到的信息是已经加密过的，需要用户自己搭建小程序的后台服务器，在后台服务器中进行解析。再返回小程序中</p>
+<p><strong>注意</strong>：不是企业的小程序账号，没有权限获取用户的手机号码。</p>
+<p>4、getUserInfo获取当前用户的个人信息</p>
+<p>在wxml文件中写入：</p>
+<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;button <span class="keyword">open</span>-<span class="class"><span class="keyword">type</span></span>=<span class="string">"getUserInfo"</span> bindgetuserinfo=<span class="string">"getUserInfo"</span>&gt;getUserInfo&lt;/button&gt;</span><br></pre></td></tr></table></figure>
+<p>在js中写入：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">getUserInfo</span><span class="params">(e)</span></span>&#123;</span><br><span class="line">  console.log(e)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>5、launchApp在小程序当中直接打开app</p>
+<p>？？？刚开始我也是一脸疑惑，为啥要在小程序打开app。而且他这个比较难实现，有需要再学，跳过</p>
+<p>6、openSetting打开小程序内置的授权页面</p>
+<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;button <span class="keyword">open</span>-<span class="class"><span class="keyword">type</span></span>=<span class="string">"openSetting"</span>&gt;openSetting&lt;/button&gt;</span><br></pre></td></tr></table></figure>
+<p>7、feedback打开小程序内置的意见反馈页面</p>
+<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;button <span class="keyword">open</span>-<span class="class"><span class="keyword">type</span></span>=<span class="string">"feedback"</span>&gt;feedback&lt;/button&gt;</span><br></pre></td></tr></table></figure>
+<p>只能通过真题调试</p>
+<h3 id="icon"><a href="#icon" class="headerlink" title="icon"></a>icon</h3><p>该部分的内容也是可以通过官方文档来完成学习的，并不是特别难</p>
+<h3 id="radio"><a href="#radio" class="headerlink" title="radio"></a>radio</h3><p>单选框标签</p>
+<p>在wxml文件</p>
+<figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">radio-group</span> <span class="attr">bindchange</span>=<span class="string">"handlechange"</span>&gt;</span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;<span class="name">radio</span> <span class="attr">value</span>=<span class="string">"male"</span> <span class="attr">color</span>=<span class="string">"red"</span>&gt;</span>男<span class="tag">&lt;/<span class="name">radio</span>&gt;</span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;<span class="name">radio</span> <span class="attr">value</span>=<span class="string">"female"</span>&gt;</span>女<span class="tag">&lt;/<span class="name">radio</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">radio-group</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">text</span>&gt;</span>你的性别是</span><span class="template-variable">&#123;&#123;gender &#125;&#125;</span><span class="xml"><span class="tag">&lt;/<span class="name">text</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>在js文件</p>
+<figure class="highlight ceylon"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">data: &#123;</span><br><span class="line">  gender:<span class="string">""</span></span><br><span class="line">&#125;,</span><br><span class="line">handlechange(e)&#123;</span><br><span class="line">  <span class="keyword">let</span> gender=e.detail.<span class="keyword">value</span></span><br><span class="line">  <span class="keyword">this</span>.setData(&#123;</span><br><span class="line">    gender:gender==<span class="string">"male"</span>?<span class="string">"男"</span>:<span class="string">"女"</span></span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="checkbox"><a href="#checkbox" class="headerlink" title="checkbox"></a>checkbox</h3><p>复选框标签</p>
+<p>wxml文件</p>
+<figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">view</span>&gt;</span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;<span class="name">checkbox-group</span> <span class="attr">bindchange</span>=<span class="string">"handleItemChange"</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">checkbox</span> <span class="attr">value</span>=<span class="string">"</span></span></span><span class="template-variable">&#123;&#123;item.value&#125;&#125;</span><span class="xml"><span class="tag"><span class="string">"</span> <span class="attr">wx:for</span>=<span class="string">"</span></span></span><span class="template-variable">&#123;&#123;list&#125;&#125;</span><span class="xml"><span class="tag"><span class="string">"</span> <span class="attr">wx:key</span>=<span class="string">"id"</span>&gt;</span></span></span><br><span class="line"><span class="xml">      </span><span class="template-variable">&#123;&#123;item.name&#125;&#125;</span><span class="xml"></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">checkbox</span>&gt;</span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;/<span class="name">checkbox-group</span>&gt;</span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;<span class="name">view</span>&gt;</span></span></span><br><span class="line"><span class="xml">    选中的水果</span><span class="template-variable">&#123;&#123;checklist&#125;&#125;</span><span class="xml"></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>js文件</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">data:</span> &#123;</span><br><span class="line"><span class="symbol">    list:</span>[&#123;</span><br><span class="line"><span class="symbol">      id:</span><span class="number">0</span>,</span><br><span class="line"><span class="symbol">      name:</span><span class="string">"DY"</span>,</span><br><span class="line"><span class="symbol">      value:</span><span class="string">"apple"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line"><span class="symbol">      id:</span><span class="number">1</span>,</span><br><span class="line"><span class="symbol">      name:</span><span class="string">"XJ"</span>,</span><br><span class="line"><span class="symbol">      value:</span><span class="string">"banana"</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line"><span class="symbol">      id:</span><span class="number">2</span>,</span><br><span class="line"><span class="symbol">      name:</span><span class="string">"CZ"</span>,</span><br><span class="line"><span class="symbol">      value:</span><span class="string">"orange"</span></span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">  &#125;,</span><br><span class="line">  handleItemChange(e)&#123;</span><br><span class="line">    const checklist=e.detail.value</span><br><span class="line">    this.setData(&#123;checklist&#125;)</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="自定义组件"><a href="#自定义组件" class="headerlink" title="自定义组件"></a>自定义组件</h2><p>我们可以将页面内的功能模块抽象成自定义组件，以便在不同的页面中重复使用</p>
+<h3 id="创建自定义组件"><a href="#创建自定义组件" class="headerlink" title="创建自定义组件"></a>创建自定义组件</h3><p>在项目的根目录创建一个新的文件夹conponents，在目录下再创建一个Tabs文件夹，接着在Tabs下右键新建一个conponent文件并将其命名Tabs。</p>
+<p><img src="https://raw.githubusercontent.com/Brickexperts/image-bed3/master/20210125101546.png" alt=""></p>
+<p>由此，我们就创建了Tabs组件</p>
+<p>接着我们要使用这个自定义组件</p>
+<p>我们首先打开需要使用自定义组件的文件夹的json文件，其中有个usingCompon，将需要添加的组件名和路径写入</p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"Tabs"</span>:<span class="string">"../../conponents/Tabs/Tabs"</span></span><br></pre></td></tr></table></figure>
+<p>在当前页面的wxml文件使用一下，</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">&lt;Tabs&gt;</span><span class="section">&lt;/Tabs&gt;</span></span><br></pre></td></tr></table></figure>
+<p>bingo！！！</p>
+<h3 id="组件优化"><a href="#组件优化" class="headerlink" title="组件优化"></a>组件优化</h3><p>在组件的文件夹的wxml文件中放入</p>
+<figure class="highlight cos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">view</span> <span class="keyword">class</span>=<span class="string">"tabs"</span>&gt;</span><br><span class="line"> &lt;<span class="keyword">view</span> <span class="keyword">class</span>=<span class="string">"tabs_title"</span>&gt;</span><br><span class="line">  &lt;!-- &lt;<span class="keyword">view</span> <span class="keyword">class</span>=<span class="string">"title_item active"</span>&gt;首页&lt;/<span class="keyword">view</span>&gt;</span><br><span class="line">  &lt;<span class="keyword">view</span> <span class="keyword">class</span>=<span class="string">"title_item"</span>&gt;分类&lt;/<span class="keyword">view</span>&gt;</span><br><span class="line">  &lt;<span class="keyword">view</span> <span class="keyword">class</span>=<span class="string">"title_item"</span>&gt;原创&lt;/<span class="keyword">view</span>&gt;</span><br><span class="line">  &lt;<span class="keyword">view</span> <span class="keyword">class</span>=<span class="string">"title_item"</span>&gt;关于&lt;/<span class="keyword">view</span>&gt; --&gt;</span><br><span class="line">  &lt;<span class="keyword">view</span> wx:<span class="keyword">for</span>=<span class="string">"&#123;&#123;tabs&#125;&#125;"</span> wx:key=<span class="string">"id"</span> <span class="keyword">class</span>=<span class="string">"title_item &#123;&#123;item.isActive?'active':''&#125;&#125;"</span> bindtap=<span class="string">"handleItemTap"</span>  data-index=<span class="string">"&#123;&#123;index&#125;&#125;"</span>&gt;</span><br><span class="line">  &#123;&#123;item.name&#125;&#125;</span><br><span class="line">  &lt;/<span class="keyword">view</span>&gt;</span><br><span class="line"> &lt;/<span class="keyword">view</span>&gt;</span><br><span class="line">&lt;<span class="keyword">view</span> <span class="keyword">class</span>=<span class="string">"tabs_content"</span>&gt;内容&lt;/<span class="keyword">view</span>&gt;</span><br><span class="line">&lt;/<span class="keyword">view</span>&gt;</span><br></pre></td></tr></table></figure>
+<p>wxss中写入</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.tabs</span>&#123;&#125;</span><br><span class="line"><span class="selector-class">.tabs_title</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">10</span>rpx <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.title_item</span>&#123;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">1</span>;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">justify-content</span>: center;</span><br><span class="line">  <span class="attribute">align-items</span>: center</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.active</span>&#123;</span><br><span class="line">  <span class="attribute">color</span>:red;</span><br><span class="line">  <span class="attribute">border-bottom</span>: <span class="number">5</span>rpx solid currentColor;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.title_content</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>js文件中</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">data:</span> <span class="string">&#123;</span></span><br><span class="line"><span class="attr">    tabs:</span><span class="string">[</span></span><br><span class="line">      <span class="string">&#123;</span></span><br><span class="line"><span class="attr">        id:</span><span class="number">0</span><span class="string">,</span></span><br><span class="line"><span class="attr">        name:</span><span class="string">"首页"</span><span class="string">,</span></span><br><span class="line"><span class="attr">        isActive:</span><span class="literal">true</span></span><br><span class="line">      <span class="string">&#125;,</span></span><br><span class="line">      <span class="string">&#123;</span></span><br><span class="line"><span class="attr">        id:</span><span class="number">1</span><span class="string">,</span></span><br><span class="line"><span class="attr">        name:</span><span class="string">"分类"</span><span class="string">,</span></span><br><span class="line"><span class="attr">        isActive:</span><span class="literal">false</span></span><br><span class="line">      <span class="string">&#125;,</span></span><br><span class="line">      <span class="string">&#123;</span></span><br><span class="line"><span class="attr">        id:</span><span class="number">2</span><span class="string">,</span></span><br><span class="line"><span class="attr">        name:</span><span class="string">"原创"</span><span class="string">,</span></span><br><span class="line"><span class="attr">        isActive:</span><span class="literal">false</span></span><br><span class="line">      <span class="string">&#125;,</span></span><br><span class="line">      <span class="string">&#123;</span></span><br><span class="line"><span class="attr">        id:</span><span class="number">3</span><span class="string">,</span></span><br><span class="line"><span class="attr">        name:</span><span class="string">"关于"</span><span class="string">,</span></span><br><span class="line"><span class="attr">        isActive:</span><span class="literal">false</span></span><br><span class="line">      <span class="string">&#125;</span></span><br><span class="line">    <span class="string">]</span></span><br><span class="line"></span><br><span class="line">  <span class="string">&#125;,</span></span><br><span class="line">  <span class="string">/**</span></span><br><span class="line">   <span class="string">*</span> <span class="string">组件的方法列表</span></span><br><span class="line">   <span class="string">*/</span></span><br><span class="line"><span class="attr">  methods:</span> <span class="string">&#123;</span></span><br><span class="line">    <span class="string">handleItemTap(e)&#123;</span></span><br><span class="line">       <span class="string">const</span> <span class="string">&#123;index&#125;=e.currentTarget.dataset;</span></span><br><span class="line">       <span class="string">let</span> <span class="string">&#123;tabs&#125;=this.data;</span></span><br><span class="line">       <span class="string">tabs.forEach((v,i)=&gt;i===index?v.isActive=true:v.isActive=false);</span></span><br><span class="line">       <span class="string">this.setData(&#123;</span></span><br><span class="line">         <span class="string">tabs&#125;)</span></span><br><span class="line">    <span class="string">&#125;</span></span><br><span class="line">  <span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+<p><strong>注意</strong>：页面js文件中存放事件回调函数的时候存放在data同层级下，组件js文件中存放事件回调函数的时候必须存在methods中</p>
+<h3 id="父组件向子组件-传递数据"><a href="#父组件向子组件-传递数据" class="headerlink" title="父组件向子组件 传递数据"></a>父组件向子组件 传递数据</h3><p>父组件向子组件传递数据，通过标签属性的方式来传递</p>
+<p>这个部分适用于拥有共同框架的页面，拥有共同框架我们就只需要把属性的值改了。所以，我们不要把用共同框架的属性的值固定，要可以传值改变。引用上面的例子：</p>
+<p>首先我们要在组件文件夹的js文件中把properties修改一下</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">properties: &#123;</span><br><span class="line"><span class="comment">//要接收的数据的名称</span></span><br><span class="line"> tabs:&#123;</span><br><span class="line"> <span class="comment">//要接收的数据的类型</span></span><br><span class="line">   type:<span class="built_in">Array</span>,</span><br><span class="line"> <span class="comment">//默认值</span></span><br><span class="line">   value:[]</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>接着将组件文件夹中js文件的data剪切到页面的js文件夹中</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">data: &#123;</span><br><span class="line">tabs:[</span><br><span class="line">  &#123;</span><br><span class="line">    id:<span class="number">0</span>,</span><br><span class="line">    name:<span class="string">"首页"</span>,</span><br><span class="line">    isActive:<span class="literal">true</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    id:<span class="number">1</span>,</span><br><span class="line">    name:<span class="string">"分类"</span>,</span><br><span class="line">    isActive:<span class="literal">false</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    id:<span class="number">2</span>,</span><br><span class="line">    name:<span class="string">"原创"</span>,</span><br><span class="line">    isActive:<span class="literal">false</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    id:<span class="number">3</span>,</span><br><span class="line">    name:<span class="string">"关于"</span>,</span><br><span class="line">    isActive:<span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line">]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在页面的wxml文件中</p>
+<figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">Tabs</span> <span class="attr">tabs</span>=<span class="string">"</span></span></span><span class="template-variable">&#123;&#123;tabs&#125;&#125;</span><span class="xml"><span class="tag"><span class="string">"</span>&gt;</span><span class="tag">&lt;/<span class="name">Tabs</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="子向父传递数据"><a href="#子向父传递数据" class="headerlink" title="子向父传递数据"></a>子向父传递数据</h3><p>你以为上面的例子就是正确的吗？并不是，我们打开AppData查看里面的isAlive，再点击页面，无论点到哪都是第一个isAlive值为true，其他值为false。这好吗？这不好。所以我们要将父向子传递改成子组件向父组件传递数据。</p>
+<p>子向父传递数据需要触发父组件的自定义事件</p>
+<p>在页面的wxml中，将代码改为</p>
+<figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">Tabs</span> <span class="attr">tabs</span>=<span class="string">"</span></span></span><span class="template-variable">&#123;&#123;tabs&#125;&#125;</span><span class="xml"><span class="tag"><span class="string">"</span> <span class="attr">binditemChange</span>=<span class="string">"handleItemChange"</span> &gt;</span><span class="tag">&lt;/<span class="name">Tabs</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>在组件的js文件中，绑定自定义事件。将methods改成如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">methods: &#123;</span><br><span class="line">    handleItemTap(e)&#123;</span><br><span class="line">       <span class="keyword">const</span> &#123;index&#125;=e.currentTarget.dataset; </span><br><span class="line">      <span class="comment">//this.triggerEvent("父组件自定义事件的名字",要传递的参数)</span></span><br><span class="line">       <span class="keyword">this</span>.triggerEvent(<span class="string">"itemChange"</span>,&#123;index&#125;)</span><br><span class="line">       <span class="keyword">let</span> &#123;tabs&#125;=<span class="keyword">this</span>.data;</span><br><span class="line">       tabs.forEach(<span class="function">(<span class="params">v,i</span>)=&gt;</span>i===index?v.isActive=<span class="literal">true</span>:v.isActive=<span class="literal">false</span>);</span><br><span class="line">       <span class="keyword">this</span>.setData(&#123;</span><br><span class="line">         tabs&#125;)</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>在页面的js文件中</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> handleItemChange(e)&#123;</span><br><span class="line">   <span class="keyword">const</span> &#123;index&#125;=e.detail;</span><br><span class="line">   <span class="keyword">let</span> &#123;tabs&#125;=<span class="keyword">this</span>.data;</span><br><span class="line">   tabs.forEach(<span class="function">(<span class="params">v,i</span>)=&gt;</span>i===index?v.isActive=<span class="literal">true</span>:v.isActive=<span class="literal">false</span>);</span><br><span class="line">   <span class="keyword">this</span>.setData(&#123;</span><br><span class="line">     tabs&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="slot"><a href="#slot" class="headerlink" title="slot"></a>slot</h3><p>打开组件的 wxml，我们可以看到内容是固定的。这也是不好的，我们对他改造一下。使用slot标签。slot标签其实就是一个占位符，等到父组件调用子组件的时候再传递标签过来，最终这些被传递的标签就会替换slot的位置</p>
+<p>首先将组件wxml文件中的内容部分的代码改成</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;view <span class="class"><span class="keyword">class</span></span>=<span class="string">"tabs_content"</span>&gt;</span><br><span class="line">&lt;slot&gt;<span class="xml"><span class="tag">&lt;/<span class="name">slot</span>&gt;</span></span></span><br><span class="line">&lt;<span class="regexp">/view&gt;</span></span><br></pre></td></tr></table></figure>
+<p>接着在页面的wxml文件中，将代码改成如下</p>
+<figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">Tabs</span> <span class="attr">tabs</span>=<span class="string">"</span></span></span><span class="template-variable">&#123;&#123;tabs&#125;&#125;</span><span class="xml"><span class="tag"><span class="string">"</span> <span class="attr">binditemChange</span>=<span class="string">"handleItemChange"</span> &gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">block</span> <span class="attr">wx:if</span>=<span class="string">"</span></span></span><span class="template-variable">&#123;&#123;tabs[0].isActive&#125;&#125;</span><span class="xml"><span class="tag"><span class="string">"</span>&gt;</span>0<span class="tag">&lt;/<span class="name">block</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">block</span> <span class="attr">wx:elif</span>=<span class="string">"</span></span></span><span class="template-variable">&#123;&#123;tabs[1].isActive&#125;&#125;</span><span class="xml"><span class="tag"><span class="string">"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">block</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">block</span> <span class="attr">wx:elif</span>=<span class="string">"</span></span></span><span class="template-variable">&#123;&#123;tabs[2].isActive&#125;&#125;</span><span class="xml"><span class="tag"><span class="string">"</span>&gt;</span>2<span class="tag">&lt;/<span class="name">block</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">block</span> <span class="attr">wx:else</span>&gt;</span>3<span class="tag">&lt;/<span class="name">block</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">Tabs</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>其实学习组件的最好方法就是查看官方文档，上述的只是把常用的总结一下。</p>
+
+    </div>
+
+    
+    
+    
+<div>
+	
+		<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">----本文结束，感谢您的阅读。如有错，请指正。----</div>
+    
+</div>
+
+	
+</div>
+    
+      <div>
+        <div id="reward-container">
+  <div>大哥大嫂过年好！支持我一下呗</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.jpg" alt="湛蓝星空 微信支付">
+        <p>微信支付</p>
+      </div>
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/alipay.jpg" alt="湛蓝星空 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+      </div>
+
+    <footer class="post-footer">
+          
+        
+        <div class="post-tags">
+            <a href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" rel="tag"># 微信小程序</a>
+          
+        </div>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+              <a href="/2021/01/22/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F-2/" rel="next" title="微信小程序(2)">
+                <i class="fa fa-chevron-left"></i> 微信小程序(2)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+              <a href="/2021/01/25/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F-4/" rel="prev" title="微信小程序(4)">
+                微信小程序(4) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.jpg"
+      alt="湛蓝星空">
+  <p class="site-author-name" itemprop="name">湛蓝星空</p>
+  <div class="site-description motion-element" itemprop="description">这个人贼菜</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/%20%7C%7C%20archive">
+        
+          <span class="site-state-item-count">131</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/%20%7C%7C%20th">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">34</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/%20%7C%7C%20tags">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/Brickexperts" title="GitHub &rarr; https://github.com/Brickexperts" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+  </div>
+
+
+
+        </div>
+      </div>
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#常见组件"><span class="nav-text">常见组件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#view"><span class="nav-text">view</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#text"><span class="nav-text">text</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#image"><span class="nav-text">image</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#swiper"><span class="nav-text">swiper</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#navigator"><span class="nav-text">navigator</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rich-text"><span class="nav-text">rich-text</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#button"><span class="nav-text">button</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#icon"><span class="nav-text">icon</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#radio"><span class="nav-text">radio</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#checkbox"><span class="nav-text">checkbox</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义组件"><span class="nav-text">自定义组件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建自定义组件"><span class="nav-text">创建自定义组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组件优化"><span class="nav-text">组件优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#父组件向子组件-传递数据"><span class="nav-text">父组件向子组件 传递数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#子向父传递数据"><span class="nav-text">子向父传递数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#slot"><span class="nav-text">slot</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2019 – <span itemprop="copyrightYear">2021</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">湛蓝星空</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+
+    
+
+  </div>
+
+  
+    
+    
+  
+  <script color='0,0,0' opacity='0.5' zIndex='-1' count='150' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  <script src="/js/utils.js?v=7.3.0"></script>
+  <script src="/js/motion.js?v=7.3.0"></script>
+
+  
+  <script src="/js/affix.js?v=7.3.0"></script>
+  <script src="/js/schemes/pisces.js?v=7.3.0"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.3.0"></script>
+<script src="/js/post-details.js?v=7.3.0"></script>
+
+
+
+  <script src="/js/next-boot.js?v=7.3.0"></script>
+
+  
+
+  
+
+  
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.3.0"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
